@@ -3,7 +3,7 @@
 ## About
 
 ### Problems
-Playing our MTG Commander Cube is one of my favourite things, but setting up the draft takes hours and drafting takes easily 4 more and then everyone still has to finish their decks. So we're lucky, if everyone get's to play a single round, when we would be ready to go. 
+Playing our MTG Commander Cube is one of my favourite things, but setting up the draft takes hours and drafting takes easily 4 more and then everyone still has to finish their decks. So we're lucky, if everyone get's to play a single round, when we would be ready to go.
 
 Another challenge is that refining our 2000+ card monolith of a cube is cumbersome and I find it hard to make cuts, even as they would most probably be beneficial for the health of the Cube.
 
@@ -32,7 +32,7 @@ Most of this is quite straight forward, but for the non-trivial columns my initi
 Great segway. A database that does not need much more than an id, reference to the cards' main table id and image url.
 
 #### The picks
-I don't think that we have cards in the cube that affect the draft itself for now. I'll worry about those cards when it would happen or just decide not to add them. In the normal setting a pack consists of 15 cards and as the power levels of the cards are quite high overall, there is no difference necessary between the first couple of picks. So I think we could start with 10 points for the first three picks, 9 points for the 4th and the 5th and 8 for the following two and then descending after that on every card ending up in 0 points for the last pick. For commander packs (5 cards), think a straight forward 5-4-3-2-1 could work.
+I don't think that we have cards in the cube that affect the draft itself for now. I'll worry about those cards when it would happen or just decide not to add them. In the normal setting a pack consists of 15 cards and as the power levels of the cards are quite high overall, there is no difference necessary between the first couple of picks. So I think we could start with 10 points for the first three picks, 9 points for the 4th and the 5th and 8 for the following two and then descending after that on every card ending up in 0 points for the last pick. For commander packs (5 cards), think a straightforward 5-4-3-2-1 could work.
 
 So I think that this table has columns of id, main table reference id, commander pick points and normal pick points.
 
@@ -58,3 +58,17 @@ Everyone "opens" their packs at the same time, picks a card and passes the rest 
 ![](https://github.com/EeroAnt/CubeDraftSimulator/Documentation/First_draft.png)
 
 After the drafting is done, the UI can have more space for the deckbuilding part. Like filter forms for cards's textboxes and tribals, toggles for card type and showing more pictures and toggling between showing main deck cards and side deck cards.
+
+### Outside of the drafting
+Due to how I've decided to structure the packs, it doesn't really matter if there's more blue cards than red cards in the cube as they both get a equal representation in each draft apart from the one with more cards will be more diluted in terms of archetypes. This is an actual problem with the cube I have refused to solve for now. The dilution that is. Every color is diluted in a 2000 card cube.
+
+By collecting the drafting data we can see if for some reason or other, one color is picked less than the others so we can try to obtain better and more appealing cards for that color. So far we've just been piling cards that we think we'd like to see in the cube, but the drafting experience would be the better the more balanced the cube is. The plain power of the card is not the only factor to take in of course. Some card has to be the last pick of every pack, but we can identify cards that go unpicked time after time and consider cutting them from the pool. Maybe showcasing some of the most wanted cards too could be fun.
+
+It could be fun also to give post games rankings for the cards as well. Some sort of positive/negative surprise value or maybe mention of a 'hate pick'. A numeric value would help to represent the stats but we could also collect some epic tales of how x card turned the whole game around.
+
+While drafting and building the deck, it is good to have the statistics interactive in real time, but it might be better to update the pick tables only after the draft part is done.
+
+### Bots
+Initially I will implement a simple bot that picks a random card from the pack everytime. Simply to help testing the app and if we want more players to a draft than we have willing humans available. I'll probably disable the pick stats from the bots picks altogether so they don't affect the rankings and I'm considering also disabling them from human players when there's too many bots. Not sure yet.
+
+Somewhere in the more distant future, we can start thinking of an AI for the bots. Well a crude one can be implemented very soon. Use the average pick value from the pick if available, otherwise randomise a value from the pickvalue range and pick the best one available. But a more sophisticated one later on might be cool that recognises it's commanders colors and archetypes even and aims to build and actual, functional deck could be cool. I have no idea how to approach this, but neither do have one on implementing the web app either.
