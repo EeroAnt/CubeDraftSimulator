@@ -55,7 +55,7 @@ So there's some randomness in each pack. I've also used the cut cards to build u
 
 ### The drafting
 Everyone "opens" their packs at the same time, picks a card and passes the rest to the next player. A player can see the next pack only after making the pick and passing the rest of the pack before. After the each pack of the round has been drafted, new packs are "opened" and the order of players is reversed. This countinues from the commander pack throughout all 8 "normal" packs. I have made a very crude mock up of what the UI for the drafting could look like:
-![](https://github.com/EeroAnt/CubeDraftSimulator/Documentation/First_draft.png)
+![](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/First_draft.png)
 
 After the drafting is done, the UI can have more space for the deckbuilding part. Like filter forms for cards's textboxes and tribals, toggles for card type and showing more pictures and toggling between showing main deck cards and side deck cards.
 
