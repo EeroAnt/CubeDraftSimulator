@@ -47,6 +47,7 @@ The structure for the normal 15 card packs I've used is to take:
  - 2 cards from each of the single colored pools
  - 2 from colorless and
  - 2 from lands
+ 
 Shuffle this pack of 17 cards and cut two.
 
 So there's some randomness in each pack. I've also used the cut cards to build up these more random packs to partially to mix it up and partially to keep the distribution in check. Also, we once were close of running out of one of the pools.
