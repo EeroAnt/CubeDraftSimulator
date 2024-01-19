@@ -16,20 +16,16 @@ By creating a web app to for this:
 ## Steps
 
 ### Setting up the databases
-I'm planning on doing this on a PostgreSQL-database with two tables to begin with, maybe three. Now four
+I'm planning on doing this on a PostgreSQL-database with two tables to begin with, maybe three.
 
 #### The cards
-The table 'Cards' would have columns for id, name, manavalue, color identity, types, (tribal?), textbox, image url, draft pool and boolean for backside.
+The table 'Cards' would have columns for id, name, manavalue, color identity, types, textbox, image url, draft pool and boolean for backside.
 
 Most of this is quite straight forward, but for the non-trivial columns my initial solutions would be:
- - types could be a string with every letter referencing to a card type. (A)rtifact, (I)nstant, (S)orcery, (C)reature, (B)attle, (E)nchantment, (L)and, (P)laneswalker and Legendar(y) should be enough. (I'm undecided on how to solve Land and Legendary both starting with an L)
  - I've used to divide the cube into several draft pools to ensure that different colors, lands and so on have a somewhat even distribution. Cards with a color identity can be automatically assigned to that draft pool, but multicolored, colorless and lands I've divided in such a way that I probably have to input those manually myself.
  - Color identity can be expressed with a text WUBRGC. **W**hite Bl**u**e, **B**lack, **R**ed, **G**reen and **C**olorless
- - Tribal could store the subtypes as text to be manually filtered possibly
- - Boolean for the backside is for the two sided cards. I'm atm leaning heavily on the three table solution to keep the backsides on a separate table to avoid possible trouble they might cause in the main table of cards.
-
-#### The backsides
-Great segway. A database that does not need much more than an id, reference to the cards' main table id and image url.
+ - I'll just save the type line as whole and filter from there
+ - Backsides will have their image urls stored
 
 #### The picks
 I don't think that we have cards in the cube that affect the draft itself for now. I'll worry about those cards when it would happen or just decide not to add them. In the normal setting a pack consists of 15 cards and as the power levels of the cards are quite high overall, there is no difference necessary between the first couple of picks. So I think we could start with 10 points for the first three picks, 9 points for the 4th and the 5th and 8 for the following two and then descending after that on every card ending up in 0 points for the last pick. For commander packs (5 cards), think a straightforward 5-4-3-2-1 could work.
