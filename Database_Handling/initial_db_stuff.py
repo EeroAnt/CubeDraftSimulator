@@ -17,49 +17,19 @@ conn = psycopg2.connect(
 # Open a cursor to perform database operations
 cur = conn.cursor()
 
-# Create table - cards
-cur.execute("""BEGIN;""")
-cur.execute("""
-	CREATE TABLE IF NOT EXISTS Cards (
-		id serial PRIMARY KEY,
-		name varchar(255) NOT NULL,
-		mana_value integer NOT NULL,
-		color_identity text NOT NULL,
-		types text NOT NULL,
-		oracle_text text,
-		image_url varchar(255) NOT NULL,
-		backside_image_url varchar(255),
-		draft_pool text NOT NULL
-	);
-""")
-conn.commit()
 
-print("Created cards table.")
-cur.execute("""BEGIN;""")
-print("Beginning to insert cards into the database...")
-for card_name in read_txt.read_txt_file("Database_Handling/initial_card_list.txt"):
+
+
+# print("Created Commanders table.")
+cur.execute("""begin;""")
+	
+for card_name in read_txt.read_txt_file("Database_Handling/initial_commander_list.txt"):
 	print("Inserting", card_name)
-	card_data = card_json_fetcher.fetch_card_json(card_name)
-	print("debug")
 	cur.execute("""
-		INSERT INTO Cards (
-			 name,
-			 mana_value, 
-			 color_identity, 
-			 types, 
-			 oracle_text, 
-			 image_url, 
-			 backside_image_url, 
-			 draft_pool)
-		VALUES (%s, %s, %s, %s, %s, %s, %s, %s);
-	""", (
-		card_data["name"], 
-		card_data["mana_value"], 
-		card_data["color_identity"], 
-		card_data["types"], 
-		card_data["oracle_text"], 
-		card_data["image_url"], 
-		card_data["backside_image_url"], 
-		card_data["draft_pool"]))
-
+		INSERT INTO Commanders (
+			card_id)
+		VALUES (
+			(SELECT id FROM Cards WHERE name = %s));
+	""", (card_name,))
+	
 conn.commit()
