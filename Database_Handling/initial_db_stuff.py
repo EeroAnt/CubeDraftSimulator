@@ -18,8 +18,9 @@ conn = psycopg2.connect(
 cur = conn.cursor()
 
 # Create table - cards
+cur.execute("""BEGIN;""")
 cur.execute("""
-	CREATE TABLE cards (
+	CREATE TABLE IF NOT EXISTS Cards (
 		id serial PRIMARY KEY,
 		name varchar(255) NOT NULL,
 		mana_value integer NOT NULL,
@@ -31,11 +32,17 @@ cur.execute("""
 		draft_pool text NOT NULL
 	);
 """)
+conn.commit()
 
+print("Created cards table.")
+cur.execute("""BEGIN;""")
+print("Beginning to insert cards into the database...")
 for card_name in read_txt.read_txt_file("Database_Handling/initial_card_list.txt"):
+	print("Inserting", card_name)
 	card_data = card_json_fetcher.fetch_card_json(card_name)
+	print("debug")
 	cur.execute("""
-		INSERT INTO cards (
+		INSERT INTO Cards (
 			 name,
 			 mana_value, 
 			 color_identity, 
@@ -54,3 +61,5 @@ for card_name in read_txt.read_txt_file("Database_Handling/initial_card_list.txt
 		card_data["image_url"], 
 		card_data["backside_image_url"], 
 		card_data["draft_pool"]))
+
+conn.commit()
