@@ -19,7 +19,8 @@ By creating a web app to for this:
 I'm planning on doing this on a PostgreSQL-database with two tables to begin with, maybe three.
 
 #### The cards
-Initial Cards table has been setup. Contents mirror the cubes content in [cubecobra](https://cubecobra.com/cube/overview/58otz)
+Initial Cards table has been setup. Contents mirror the cubes content in [cubecobra](https://cubecobra.com/cube/overview/58otz).
+
 The table 'Cards' would have columns for id, name, manavalue, color identity, types, textbox, image url, draft pool and boolean for backside.
 
 Most of this is quite straight forward, but for the non-trivial columns my initial solutions would be:
