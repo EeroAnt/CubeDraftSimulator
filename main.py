@@ -1,3 +1,3 @@
-from Database_Handling.draft_setup import generate_pools
+from Database_Handling.draft_setup import setup_draft
 
-generate_pools(4)
+setup_draft(4)
