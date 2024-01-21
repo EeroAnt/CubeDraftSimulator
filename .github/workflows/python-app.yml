@@ -35,5 +35,11 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
+      env:
+        CLOUDDB_USER: ${{ secrets.CLOUDDB_USER }}
+        CLOUDDB_PASSWORD: ${{ secrets.CLOUDDB_PASSWORD }}
+        CLOUDDB_HOST: ${{ CLOUDDB_HOST }}
+        CLOUDDB_PORT: ${{ CLOUDDB_PORT }}
+        CLOUDDB_NAME: ${{ CLOUDDB_NAME }}
       run: |
         pytest
