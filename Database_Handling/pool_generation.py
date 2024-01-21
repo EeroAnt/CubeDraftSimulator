@@ -1,60 +1,53 @@
-import psycopg2
-from os import getenv
-from dotenv import load_dotenv
 from Database_Handling.sql_to_dict import sql_to_dict
 from Database_Handling.queries import *
+from Database_Handling.cloud_db import connect_to_cloud_db
 from math import ceil
 
-load_dotenv()
-
-# Connect to the database
-conn = psycopg2.connect(
-	host=getenv("DB_HOST"),
-	database=getenv("DB_NAME"),
-	user=getenv("DB_USER"),
-	password=getenv("DB_PASSWORD")
-)
-
-cur = conn.cursor()
 
 def generate_pools(player_count):
+	cur, conn = connect_to_cloud_db()
 	pools = {}
 	number_of_structured_packs = ceil(15*8*player_count/18)
 
 	pools["commanders"], commander_ids = generate_commander_pool(
-		player_count
+		player_count,
+		cur=cur
 		)
 	
 	sql_for_multicolored_pool = multicolored_pool_query(commander_ids)
+	
 	pools["multicolored_pool"] = generate_multicolored_pool(
 		sql_for_multicolored_pool,
-		pool_size=number_of_structured_packs*3
+		pool_size=number_of_structured_packs*3,
+		cur=cur
 		)
 	
 	for i in ["white", "blue", "black", "red", "green", "land"]:
 		pools[i] = generate_generic_pool(
 			i[0].upper(), 
-			pool_size=number_of_structured_packs*2 
+			pool_size=number_of_structured_packs*2,
+			cur=cur
 			)
 
 	pools["colorless"] = generate_generic_pool(
 		"C", 
-		pool_size=number_of_structured_packs*3
+		pool_size=number_of_structured_packs*3,
+		cur=cur
 		)
-	
-	return pools
 
-def generate_commander_pool(player_count):
+	return pools, conn
+
+def generate_commander_pool(player_count, cur):
 	commanders = []
 	commander_ids = []
-	cur.execute(get_commanders_query(),(player_count*5,))
+	cur.execute(commander_pool_query(),(player_count*5,))
 	for commander in cur.fetchall():
 		commander = sql_to_dict(commander)
 		commander_ids.append(str(commander["id"]))
 		commanders.append(commander)
 	return commanders, commander_ids
 
-def generate_multicolored_pool(sql_for_multicolored_pool, pool_size):
+def generate_multicolored_pool(sql_for_multicolored_pool, pool_size, cur):
 	cards = []
 	cur.execute(sql_for_multicolored_pool, (pool_size,))
 	for card in cur.fetchall():
@@ -62,7 +55,7 @@ def generate_multicolored_pool(sql_for_multicolored_pool, pool_size):
 		cards.append(card)
 	return cards
 
-def generate_generic_pool(pool, pool_size):
+def generate_generic_pool(pool, pool_size, cur):
 	cards = []
 	cur.execute(generic_pool_query(pool), (pool_size,))
 	for card in cur.fetchall():

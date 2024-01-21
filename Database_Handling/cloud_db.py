@@ -4,13 +4,19 @@ from os import getenv
 
 load_dotenv()
 
-cnx = psycopg2.connect(
-	user="cubeadmin", 
-	password=getenv("CLOUDDB-PASSWORD"), 
-	host="cube-simulator-db.postgres.database.azure.com",
-	port=5432, 
-	database="cubedb")
+def connect_to_cloud_db():
+	cnx = psycopg2.connect(
+		user=getenv("CLOUDDB-USER"), 
+		password=getenv("CLOUDDB-PASSWORD"), 
+		host=getenv("CLOUDDB-HOST"),
+		port=getenv("CLOUDDB-PORT"), 
+		database=getenv("CLOUDDB-NAME")
+	)
 
-cur_cloud = cnx.cursor()
+	cur_cloud = cnx.cursor()
 
-cnx.close()
+	return cur_cloud, cnx
+
+def close_cloud_db(cnx):
+	cnx.close()
+	print("Connection to cloud database closed.")
