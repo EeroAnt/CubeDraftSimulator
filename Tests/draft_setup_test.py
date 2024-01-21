@@ -2,8 +2,11 @@ import unittest
 from Backend.draft_setup import setup_draft
 from Backend.cloud_db import close_cloud_db
 
+@classmethod
+def tearDownClass(TestDraftSetup):
+	close_cloud_db(TestDraftSetup.conn)
 
-class TestGeneratePools(unittest.TestCase):
+class TestDraftSetup(unittest.TestCase):
 	def setUp(self):
 		self.commander_packs, self.normal_packs, self.conn = setup_draft(8)
 
