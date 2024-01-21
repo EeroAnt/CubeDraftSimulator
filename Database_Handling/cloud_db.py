@@ -6,11 +6,11 @@ load_dotenv()
 
 def connect_to_cloud_db():
 	cnx = psycopg2.connect(
-		user=getenv("CLOUDDB-USER"), 
-		password=getenv("CLOUDDB-PASSWORD"), 
-		host=getenv("CLOUDDB-HOST"),
-		port=getenv("CLOUDDB-PORT"), 
-		database=getenv("CLOUDDB-NAME")
+		user=getenv("CLOUDDB_USER"), 
+		password=getenv("CLOUDDB_PASSWORD"), 
+		host=getenv("CLOUDDB_HOST"),
+		port=getenv("CLOUDDB_PORT"), 
+		database=getenv("CLOUDDB_NAME")
 	)
 
 	cur_cloud = cnx.cursor()
