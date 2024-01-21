@@ -40,17 +40,18 @@ Come to think of it. Easy solution to a problem I did not bring up which is, com
 ### Setting up the draft
 First we have the commanders. They are a hand picked bunch of Legendary creatures with more than one colors in their color identity. I randomly choose a commander pack of 5 commanders for each player. Then the rest of the commanders can be shuffled with the card pool of Multicolored.
 
-The structure for the normal 15 card packs I've used is to take:
+The structure for the normal 15 card packs I had in mind:
  - 3 cards from Multicolored card pool
  - 2 cards from each of the single colored pools
- - 2 from colorless and
+ - 3 from colorless (this used to be 2, but I feel the artifacts could use a little more representation) and
  - 2 from lands
  
 Shuffle this pack of 17 cards and cut two.
 
 So there's some randomness in each pack. I've also used the cut cards to build up these more random packs to partially to mix it up and partially to keep the distribution in check. Also, we once were close of running out of one of the pools.
 
-8 normal packs of 15 per player, we need 120 cards per player. 120*player_count/17 rounded up tells how many structured packs to build and the rest are made from the leftovers.
+8 normal packs of 15 per player, we need 120 cards per player. 120*player_count/18 rounded up tells how many structured packs to build and the rest are made from the leftovers.
+
 
 ### The drafting
 Everyone "opens" their packs at the same time, picks a card and passes the rest to the next player. A player can see the next pack only after making the pick and passing the rest of the pack before. After the each pack of the round has been drafted, new packs are "opened" and the order of players is reversed. This countinues from the commander pack throughout all 8 "normal" packs. I have made a very crude mock up of what the UI for the drafting could look like:
