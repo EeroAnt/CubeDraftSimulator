@@ -42,5 +42,4 @@ jobs:
        CLOUDDB_PORT: ${{ secrets.CLOUDDB_PORT }}
        CLOUDDB_NAME: ${{ secrets.CLOUDDB_NAME }}
      run: |
-       pytest ./Tests/card_pool_test.py
-       # pytest ./Tests/draft_setup_test.py
+       pytest
