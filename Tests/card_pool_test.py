@@ -1,5 +1,5 @@
 import unittest
-from Database_Handling.draft_setup import generate_pools
+from Database_Handling.pool_generation import generate_pools
 
 class TestGeneratePools(unittest.TestCase):
 	def setUp(self):

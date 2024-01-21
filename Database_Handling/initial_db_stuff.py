@@ -2,7 +2,7 @@ import psycopg2
 import os
 from dotenv import load_dotenv
 import card_json_fetcher
-import read_txt
+from Database_Handling.read_txt import read_txt_file
 
 load_dotenv()
 
@@ -23,7 +23,7 @@ cur = conn.cursor()
 # print("Created Commanders table.")
 cur.execute("""begin;""")
 	
-for card_name in read_txt.read_txt_file("Database_Handling/initial_commander_list.txt"):
+for card_name in read_txt_file("Database_Handling/initial_commander_list.txt"):
 	print("Inserting", card_name)
 	cur.execute("""
 		INSERT INTO Commanders (
