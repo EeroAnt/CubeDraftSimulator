@@ -1,4 +1,3 @@
-# mainboard
 Daxos of Meletis
 Geist of Saint Traft
 Ephara, God of the Polis
@@ -104,6 +103,3 @@ Kyodai, Soul of Kamigawa
 General Tazri
 Jegantha, the Wellspring
 Karona, False God
-
-# maybeboard
-
