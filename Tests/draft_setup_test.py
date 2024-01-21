@@ -27,5 +27,9 @@ class TestDraftSetup(unittest.TestCase):
 			self.assertLessEqual(draft_pools.count('B'), 2)
 			self.assertLessEqual(draft_pools.count('R'), 2)
 			self.assertLessEqual(draft_pools.count('G'), 2)
+	
+	def test_normal_packs_sizes(self):
+		for i in range(64):
+			self.assertEqual(len(self.normal_packs[i]), 15)
 
     
