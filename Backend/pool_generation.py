@@ -16,7 +16,7 @@ def generate_pools(player_count):
 	
 	sql_for_multicolored_pool = multicolored_pool_query(commander_ids)
 	
-	pools["multicolored_pool"] = generate_multicolored_pool(
+	pools["multicolored"] = generate_multicolored_pool(
 		sql_for_multicolored_pool,
 		pool_size=number_of_structured_packs*3,
 		cur=cur
