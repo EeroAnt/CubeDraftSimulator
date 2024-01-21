@@ -7,7 +7,6 @@ def fetch_card_json(card_name):
 	card_name = card_name.replace(" ", "+")
 	url = f"https://api.scryfall.com/cards/named?fuzzy={card_name}"
 	scryfall_response = requests.get(url).json()
-	# If the card has a backside, we need to fetch the backside data from the API
 	card_dict = handle_card_json(scryfall_response)
 	return card_dict
 
