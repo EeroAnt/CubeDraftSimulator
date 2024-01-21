@@ -38,8 +38,8 @@ jobs:
       env:
         CLOUDDB_USER: ${{ secrets.CLOUDDB_USER }}
         CLOUDDB_PASSWORD: ${{ secrets.CLOUDDB_PASSWORD }}
-        CLOUDDB_HOST: ${{ CLOUDDB_HOST }}
-        CLOUDDB_PORT: ${{ CLOUDDB_PORT }}
-        CLOUDDB_NAME: ${{ CLOUDDB_NAME }}
+        CLOUDDB_HOST: ${{ secrets.CLOUDDB_HOST }}
+        CLOUDDB_PORT: ${{ secrets.CLOUDDB_PORT }}
+        CLOUDDB_NAME: ${{ secrets.CLOUDDB_NAME }}
       run: |
         pytest
