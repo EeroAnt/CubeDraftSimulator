@@ -1,9 +1,11 @@
 import unittest
 from Database_Handling.pool_generation import generate_pools
+from Database_Handling.cloud_db import close_cloud_db
+
 
 class TestGeneratePools(unittest.TestCase):
 	def setUp(self):
-		self.pools = generate_pools(8)
+		self.pools, self.conn = generate_pools(8)
 	
 	def test_amount_of_commanders(self):
 		self.assertEqual(len(self.pools["commanders"]), 40)
@@ -18,3 +20,9 @@ class TestGeneratePools(unittest.TestCase):
 	def test_amount_of_white_cards(self):
 		self.assertEqual(len(self.pools["white"]), 108)
 	
+	def test_only_cards_from_white_pool_in_white_pool(self):
+		for card in self.pools["white"]:
+			self.assertEqual(card["draft_pool"], "W")
+	
+	def tearDown(self):
+		close_cloud_db(self.conn)
