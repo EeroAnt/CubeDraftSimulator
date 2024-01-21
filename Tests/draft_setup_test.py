@@ -5,7 +5,7 @@ from Backend.cloud_db import close_cloud_db
 
 class TestGeneratePools(unittest.TestCase):
 	def setUp(self):
-		self.commander_packs, self.conn = setup_draft(8)
+		self.commander_packs, self.normal_packs, self.conn = setup_draft(8)
 
 	def test_size_of_commander_packs(self):
 		for i in self.commander_packs.keys():
@@ -15,5 +15,14 @@ class TestGeneratePools(unittest.TestCase):
 		for i in self.commander_packs.keys():
 			for j in self.commander_packs[i]:
 				self.assertEqual("Legendary" in j["types"], True)
+	
+	def test_structured_packs_contents(self):
+		for i in range(4):
+			draft_pools = [d['draft_pool'] for d in self.normal_packs[i]]
+			self.assertLessEqual(draft_pools.count('W'), 2)
+			self.assertLessEqual(draft_pools.count('U'), 2)
+			self.assertLessEqual(draft_pools.count('B'), 2)
+			self.assertLessEqual(draft_pools.count('R'), 2)
+			self.assertLessEqual(draft_pools.count('G'), 2)
 
     

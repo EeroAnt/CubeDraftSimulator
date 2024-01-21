@@ -22,9 +22,9 @@ def generate_pools(player_count):
 		cur=cur
 		)
 	
-	for i in ["white", "blue", "black", "red", "green", "land"]:
-		pools[i] = generate_generic_pool(
-			i[0].upper(), 
+	for i in [("white","W"), ("blue","U"), ("black","B"), ("red","R"), ("green","G"), ("land","L")]:
+		pools[i[0]] = generate_generic_pool(
+			i[1], 
 			pool_size=number_of_structured_packs*2,
 			cur=cur
 			)
