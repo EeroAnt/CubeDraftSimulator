@@ -21,5 +21,4 @@ def deal_normal_packs(pools, player_count):
 	for i in range(len(pools["white"])//2, player_count*8):
 		normal_packs[i] = cut_cards[:15]
 		cut_cards = cut_cards[15:]
-	print([d['draft_pool'] for d in normal_packs[5]])
 	return normal_packs
