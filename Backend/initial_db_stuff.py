@@ -2,7 +2,7 @@ import psycopg2
 import os
 from dotenv import load_dotenv
 import card_json_fetcher
-from Database_Handling.read_txt import read_txt_file
+from Backend.read_txt import read_txt_file
 
 load_dotenv()
 

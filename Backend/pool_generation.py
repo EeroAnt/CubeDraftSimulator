@@ -1,6 +1,6 @@
-from Database_Handling.sql_to_dict import sql_to_dict
-from Database_Handling.queries import *
-from Database_Handling.cloud_db import connect_to_cloud_db
+from Backend.sql_to_dict import sql_to_dict
+from Backend.queries import *
+from Backend.cloud_db import connect_to_cloud_db
 from math import ceil
 
 

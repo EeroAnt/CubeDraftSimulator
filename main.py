@@ -1,5 +1,5 @@
-from Database_Handling.draft_setup import setup_draft
-from Database_Handling.cloud_db import close_cloud_db
+from Backend.draft_setup import setup_draft
+from Backend.cloud_db import close_cloud_db
 
 pools, conn = setup_draft(4)
 

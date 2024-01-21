@@ -1,6 +1,6 @@
 import unittest
-from Database_Handling.pool_generation import generate_pools
-from Database_Handling.cloud_db import close_cloud_db
+from Backend.pool_generation import generate_pools
+from Backend.cloud_db import close_cloud_db
 
 
 class TestGeneratePools(unittest.TestCase):
