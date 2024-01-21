@@ -1,9 +1,9 @@
 import psycopg2
 import os
 from dotenv import load_dotenv
-from queries import *
-from sql_to_dict import sql_to_dict
+from Database_Handling.queries import *
 from math import ceil
+from Database_Handling.pool_generation import *
 
 load_dotenv()
 
@@ -17,30 +17,29 @@ conn = psycopg2.connect(
 
 cur = conn.cursor()
 
-def draft_setup(player_count):
+def generate_pools(player_count):
+	pools = {}
 	number_of_structured_packs = ceil(15*8*player_count/18)
-	commanders, commander_ids = generate_commander_pool(player_count)
-	sql_for_multicolored_pool = multicolored_pool_query(commander_ids)
-	multicolored_pool = generate_multicolored_pool(sql_for_multicolored_pool, number_of_structured_packs)
+
+	pools["commanders"], commander_ids = generate_commander_pool(
+		player_count, 
+		cur)
 	
+	sql_for_multicolored_pool = multicolored_pool_query(commander_ids)
+	pools["multicolored_pool"] = generate_multicolored_pool(
+		sql_for_multicolored_pool,
+		pool_size=number_of_structured_packs*3, 
+		cur=cur)
+	
+	for i in ["white", "blue", "black", "red", "green", "land"]:
+		pools[i] = generate_generic_pool(
+			i[0].upper(), 
+			pool_size=number_of_structured_packs*2, 
+			cur=cur)
 
-def generate_commander_pool(player_count):
-	commanders = []
-	commander_ids = []
-	cur.execute(get_commanders_query(),(player_count*5,))
-	for commander in cur.fetchall():
-		commander = sql_to_dict(commander)
-		commander_ids.append(str(commander["id"]))
-		commanders.append(commander)
-	return commanders, commander_ids
-
-def generate_multicolored_pool(sql_for_multicolored_pool, number_of_structured_packs):
-	cards = []
-	cur.execute(sql_for_multicolored_pool, (number_of_structured_packs*15,))
-	for card in cur.fetchall():
-		card = sql_to_dict(card)
-		cards.append(card)
-		print(card["name"])
-
-if __name__ == "__main__":
-	draft_setup(4)
+	pools["colorless"] = generate_generic_pool(
+		"C", 
+		pool_size=number_of_structured_packs*3, 
+		cur=cur)
+	
+	return pools
