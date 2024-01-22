@@ -20,8 +20,7 @@ def commander_pool_query():
 			ORDER BY
 			  RANDOM()
 			LIMIT
-			  %s)
-		);"""
+			  %s));"""
 	return sql
 
 def multicolored_pool_query(commander_ids):
