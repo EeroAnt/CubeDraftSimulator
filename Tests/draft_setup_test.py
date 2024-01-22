@@ -42,7 +42,7 @@ class TestDraftSetup(unittest.TestCase):
 	def test_finished_setup_sizes(self):
 		self.assertEqual(len(self.finished_setup[0][0]),5) 
 		for i in range(1,9):
-			self.assertEqual(len(self.finished_setup[0][i]),15)
+			self.assertEqual(len(self.finished_setup[i][0]),15)
 			
 	
 	@classmethod
