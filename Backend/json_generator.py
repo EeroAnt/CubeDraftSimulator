@@ -1,6 +1,6 @@
 import json
 
-def generate_json(commander_packs, normal_packs):
+def generate_json(player, identifier="test"):
 
-	with open("Simulator/draft.json", "w") as f:
-		json.dump({"commander_packs": commander_packs, "normal_packs": normal_packs}, f)
+	with open(f"Simulator/draft{identifier}.json", "w") as f:
+		json.dump({"player": player}, f)
