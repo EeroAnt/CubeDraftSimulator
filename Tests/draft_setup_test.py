@@ -1,14 +1,21 @@
 import unittest
-from Backend.draft_setup import setup_draft
 from Backend.cloud_db import close_cloud_db
+from Backend.pool_generation import generate_pools
+from Backend.packs import *
+from Backend.json_generator import generate_json
+from os import remove, path
 
-@classmethod
-def tearDownClass(TestDraftSetup):
-	close_cloud_db(TestDraftSetup.conn)
 
 class TestDraftSetup(unittest.TestCase):
-	def setUp(self):
-		self.commander_packs, self.normal_packs, self.conn = setup_draft(8)
+	@classmethod
+	def setUpClass(self):
+		self.player_count = 8
+		self.pool, self.conn = generate_pools(self.player_count)
+		close_cloud_db(self.conn)
+		self.commander_packs = create_commander_packs(self.pool["commanders"])
+		self.normal_packs = create_normal_packs(self.pool, self.player_count)
+		self.finished_setup = deal_packs(self.commander_packs, self.normal_packs, self.player_count)
+		generate_json(self.finished_setup)
 
 	def test_size_of_commander_packs(self):
 		for i in self.commander_packs.keys():
@@ -31,5 +38,8 @@ class TestDraftSetup(unittest.TestCase):
 	def test_normal_packs_sizes(self):
 		for i in range(64):
 			self.assertEqual(len(self.normal_packs[i]), 15)
-
-    
+	
+	@classmethod
+	def tearDownClass(self):
+		# print(path.exists("./Simulator/drafttest.json"))
+		remove("./Simulator/drafttest.json")

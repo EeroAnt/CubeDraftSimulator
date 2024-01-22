@@ -2,12 +2,10 @@ import unittest
 from Backend.pool_generation import generate_pools
 from Backend.cloud_db import close_cloud_db
 
-@classmethod
-def tearDownClass(TestGeneratePools):
-	close_cloud_db(TestGeneratePools.conn)
 
 class TestGeneratePools(unittest.TestCase):
-	def setUp(self):
+	@classmethod
+	def setUpClass(self):
 		self.pools, self.conn = generate_pools(8)
 	
 	def test_amount_of_commanders(self):
@@ -26,3 +24,7 @@ class TestGeneratePools(unittest.TestCase):
 	def test_only_cards_from_white_pool_in_white_pool(self):
 		for card in self.pools["white"]:
 			self.assertEqual(card["draft_pool"], "W")
+
+	@classmethod
+	def tearDownClass(self):
+		close_cloud_db(self.conn)
