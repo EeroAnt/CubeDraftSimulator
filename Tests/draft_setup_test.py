@@ -39,6 +39,12 @@ class TestDraftSetup(unittest.TestCase):
 		for i in range(64):
 			self.assertEqual(len(self.normal_packs[i]), 15)
 	
+	def test_finished_setup_sizes(self):
+		self.assertEqual(len(self.finished_setup[0][0]),5) 
+		for i in range(1,9):
+			self.assertEqual(len(self.finished_setup[0][i]),15)
+			
+	
 	@classmethod
 	def tearDownClass(self):
 		# print(path.exists("./Simulator/drafttest.json"))
