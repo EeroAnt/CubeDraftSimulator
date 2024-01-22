@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Form from './Components/Form.jsx'
+import Form from './Components/Forms.jsx'
 import Buttons from './Components/Buttons.jsx'
 import Packs from './Services/Packs.jsx'
 import Image from './Components/Image.jsx'
@@ -7,38 +7,107 @@ import './App.css'
 
 
 function App() {
-  const [playersPacks, setPlayersPacks] = useState([])
-  const [playersCards, setPlayersCards] = useState([])
-  const [chosenCard, setChosenCard] = useState("")
-  const [packNumber, setPackNumber] = useState("")
+  const [numberOfPlayers, setNumberOfPlayers] = useState(4)
+  const [draftSetup, setDraftSetup] = useState(false)
+  const [packs, setPacks] = useState([])
+  const [draftOnline, setDraftOnline] = useState(false)
+  const [packsInRound, setPacksInRound] = useState([])
+  const [cardsAtHand, setCardsAtHand] = useState([])
+  const [playerNumber, setPlayerNumber] = useState(0)
+  const [chosenCard, setChosenCard] = useState("") 
+  const [mainDeck, setMainDeck] = useState([])
+  const [pickNumber, setPickNumber] = useState(0)
+  const [cardPicked, setCardPicked] = useState(false)
+  const [roundNumber, setRoundNumber] = useState(0)
+
+
+  const changePlayerNumber = (event) => {
+	event.preventDefault()
+	setNumberOfPlayers(event.target.value)
+  }
+
+  const setupDraft = (event) => {
+	event.preventDefault()
+	setDraftSetup(true)
+	Packs.getAll()
+	.then(response=> {
+	  setPacks(response.data)
+	})
+  }
+
+  const cancelSetup = (event) => {
+	event.preventDefault()
+	setDraftSetup(false)
+	setNumberOfPlayers(4)
+  }
 
   const initDraft = (event) => {
 	event.preventDefault()
-
-	Packs.getAll()
-  
-	.then(response => {
-	  return setPlayersPacks(response.data)
-	}).then(() => {
-	  return setPlayersCards(playersPacks[0][2])
-  })
+	setDraftOnline(true)
+	setPacksInRound(packs[roundNumber])
+	setCardsAtHand(packs[roundNumber][playerNumber])
   }
 
+  const pickCard = (event) => {
+	event.preventDefault()
+	if (chosenCard === "") {
+	  return
+	}
+	else {
+	const card = cardsAtHand.find(card => card.id === chosenCard)
+	let newPacks = packsInRound
+	newPacks[(playerNumber+pickNumber)%numberOfPlayers] = packsInRound[(playerNumber+pickNumber)%numberOfPlayers].filter(card => card.id !== chosenCard)
+	setPacksInRound(newPacks)
+	setMainDeck(mainDeck.concat(card))
+	setPickNumber(pickNumber + 1)
+	setChosenCard("")
+	setCardPicked(true)
+	}
+  }
+
+  const nextPack = (event) => {
+	event.preventDefault()
+	setCardsAtHand(packsInRound[(playerNumber + pickNumber) % numberOfPlayers])
+	console.log(mainDeck)
+	setCardPicked(false)
+	  }
+
+
+  if (draftSetup === false) {
   return (
     <>
 	  <h1>Simulator</h1>
-	  <Form.Form name="test" onChange={() => console.log('so it begins')}/>
-	  <Buttons.Button name="init draft" onClick={initDraft}/>
+	  <Form.Dropdown name="number of players" handleChange={changePlayerNumber}/>
+	  <Buttons.Button name="init draft" onClick={setupDraft}/>
+	</>
+  )
+  }
+  else if (draftOnline === false){
+	return (
+	  <>
+	    <h1>Simulator</h1>
+		<h3>Number of players = {numberOfPlayers}</h3>
+		<Buttons.Button name="start draft" onClick={initDraft}/>
+		<Buttons.Button name="cancel" onClick={cancelSetup}/>
+	  </>
+	)
+  }
+  else {
+	return (  
+	<>{cardPicked ? "" :
 	  <tr>
-		{playersCards.map(
+		{cardsAtHand.map(
 		  card => <td key={card.id}
 		    className={chosenCard === card.id ? "Selected" : "table-cell" }
 			onClick={() => (setChosenCard(card.id))}>
 		      <Image imageUrl={card.image_url} backsideUrl={card.backside_image_url} />
 		</td>)}
-	  </tr>
+	  </tr>}
+	  <Buttons.Button name={cardPicked ? "Next pack" : "Confirm pick"} onClick={cardPicked ? nextPack :pickCard }/>
 	</>
   )
 }
+}
+
 
 export default App
