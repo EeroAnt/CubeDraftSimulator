@@ -19,4 +19,3 @@ def connect_to_cloud_db():
 
 def close_cloud_db(cnx):
 	cnx.close()
-	print("Connection to cloud database closed.")
