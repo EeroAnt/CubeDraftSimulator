@@ -8,12 +8,4 @@ const Form = ({name, value, onChange}) => {
   )
 }
 
-const Radio = ({name, id, onChange}) => {
-  return (
-	<>
-	  <input type="radio" id={name} name="card_to_pick" value={id} className="radio-input" onChange={onChange} />
-	</>
-  )
-}
-
   export default { Form, Radio }

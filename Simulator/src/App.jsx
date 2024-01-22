@@ -10,16 +10,17 @@ function App() {
   const [playersPacks, setPlayersPacks] = useState([])
   const [playersCards, setPlayersCards] = useState([])
   const [chosenCard, setChosenCard] = useState("")
+  const [packNumber, setPackNumber] = useState("")
 
   const initDraft = (event) => {
 	event.preventDefault()
+
 	Packs.getAll()
+  
 	.then(response => {
-	  console.log(response.data)
-	  setPlayersPacks(response.data)
-	})
-	.then(() => {
-	  setPlayersCards(playersPacks[0][2])
+	  return setPlayersPacks(response.data)
+	}).then(() => {
+	  return setPlayersCards(playersPacks[0][2])
   })
   }
 
@@ -30,9 +31,10 @@ function App() {
 	  <Buttons.Button name="init draft" onClick={initDraft}/>
 	  <tr>
 		{playersCards.map(
-		  card => <td key={card.id} className={chosenCard === card.id ? "Selected" : "table-cell" }>
-		    <Image imageUrl={card.image_url} backsideUrl={card.backside_image_url} />
-		    <Form.Radio name={card.name} id={card.id} onChange={() => setChosenCard(card.id)}/>
+		  card => <td key={card.id}
+		    className={chosenCard === card.id ? "Selected" : "table-cell" }
+			onClick={() => (setChosenCard(card.id))}>
+		      <Image imageUrl={card.image_url} backsideUrl={card.backside_image_url} />
 		</td>)}
 	  </tr>
 	</>
