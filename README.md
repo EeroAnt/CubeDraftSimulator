@@ -46,11 +46,15 @@ The structure for the normal 15 card packs I had in mind:
  - 3 from colorless (this used to be 2, but I feel the artifacts could use a little more representation) and
  - 2 from lands
  
-Shuffle this pack of 17 cards and cut two.
+Shuffle this pack of 18 cards and cut three.
 
 So there's some randomness in each pack. I've also used the cut cards to build up these more random packs to partially to mix it up and partially to keep the distribution in check. Also, we once were close of running out of one of the pools.
 
 8 normal packs of 15 per player, we need 120 cards per player. 120*player_count/18 rounded up tells how many structured packs to build and the rest are made from the leftovers.
+
+The packs are distributed to a dict of players as lists of dicts where the first list is the commander pack and the rest are normal packs. This is then dumbep into json.
+
+I'll place this here for now just to pick it up, when I will need it: "json-server -p3001 --watch db.json"
 
 
 ### The drafting
