@@ -1,0 +1,18 @@
+/* Style for the table cells */
+.table-cell {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd; /* Adding border for better visibility */
+}
+
+/* Style for selected table cell */
+.Selected {
+    padding: 10px;
+    text-align: center;
+    background-color: #632323;
+}
+
+/* Style for the radio input */
+.radio-input {
+    margin-right: 5px;
+}
