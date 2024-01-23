@@ -1,5 +1,5 @@
 # CubeDraftSimulator
-![DraftSimulator](https://github.com/EeroAnt/CubeDraftSimulator/actions/workflows/main.yml/badge.svg)
+![DraftSimulator](https://github.com/EeroAnt/CubeDraftSimulator/actions/workflows/python-app.yml/badge.svg)
 ## About
 
 ### Problems
