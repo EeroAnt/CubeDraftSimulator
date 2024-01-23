@@ -25,11 +25,15 @@ def create_normal_packs(pools, player_count):
 	return normal_packs
 
 def deal_packs(commander_packs, normal_packs, player_count):
-	shuffled_packs = normal_packs.copy()
+	shuffled_packs = []
+	for i in range(len(normal_packs)):
+		shuffled_packs.append(normal_packs[i])
 	shuffle(shuffled_packs)
-	rounds = {i: [] for i in range(9)}
-	rounds[0] = commander_packs
+	rounds = {f"pack{i}": [] for i in range(9)}
+	rounds["pack0"] = commander_packs
 	for i in range(8):
+		dealt_packs = {}
 		for j in range(player_count):
-			rounds[i+1].append(shuffled_packs[j*8+i])
+			dealt_packs[j] = shuffled_packs.pop(0)
+		rounds[f"pack{i+1}"] = dealt_packs
 	return rounds

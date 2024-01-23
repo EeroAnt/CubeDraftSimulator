@@ -1,6 +1,6 @@
 import json
 
-def generate_json(player, identifier="test"):
+def generate_json(setup, identifier="test"):
 
-	with open(f"Simulator/draft{identifier}.json", "w") as f:
-		json.dump({"player": player}, f)
+	with open(f"Server/draft{identifier}.json", "w") as f:
+		json.dump(setup, f)

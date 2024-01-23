@@ -8,4 +8,3 @@ close_cloud_db(conn)
 
 print("Draft setup complete.")
 print("Time elapsed: " + str(time() - start) + " seconds.")
-	
