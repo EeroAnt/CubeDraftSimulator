@@ -13,6 +13,10 @@ By creating a web app to for this:
  - Everyone can draft from their homes so the day for the games is only for the games
  - We could collect data from the drafts to see which cards go unpicked, however fond I might be with them
 
+
+### More technical take
+Found here
+
 ## Steps
 
 ### Setting up the databases
