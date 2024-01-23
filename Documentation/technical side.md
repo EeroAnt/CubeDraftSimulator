@@ -1,4 +1,6 @@
-!()[Architecture.jpg]
+## The idea:
+
+!()[https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/Architecture.PNG]
 
 ## So far I have:
 

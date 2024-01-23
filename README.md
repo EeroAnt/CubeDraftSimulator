@@ -15,7 +15,7 @@ By creating a web app to for this:
 
 
 ### More technical take
-Found here
+[Found here](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/technical%20side.md)
 
 ## Steps
 
