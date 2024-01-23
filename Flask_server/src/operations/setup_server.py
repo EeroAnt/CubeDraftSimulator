@@ -10,3 +10,4 @@ def setup(player_count, identifier="test"):
 	
 	print("Draft setup complete.")
 	print("Time elapsed: " + str(time() - start) + " seconds.")
+	return identifier
