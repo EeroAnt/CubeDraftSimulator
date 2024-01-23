@@ -1,6 +1,6 @@
-from Backend.pool_generation import generate_pools
-from Backend.packs import *
-from Backend.json_generator import generate_json
+from Flask_server.pool_generation import generate_pools
+from Flask_server.packs import *
+from Flask_server.json_generator import generate_json
 
 def setup_draft(player_count, identifier):
 	pools, conn = generate_pools(player_count)
