@@ -15,7 +15,7 @@ class TestDraftSetup(unittest.TestCase):
 		self.commander_packs = create_commander_packs(self.pool["commanders"])
 		self.normal_packs = create_normal_packs(self.pool, self.player_count)
 		self.finished_setup = deal_packs(self.commander_packs, self.normal_packs, self.player_count)
-		generate_json(self.finished_setup)
+		generate_json(self.finished_setup, "pytest")
 
 	def test_size_of_commander_packs(self):
 		for i in self.commander_packs.keys():
@@ -40,12 +40,12 @@ class TestDraftSetup(unittest.TestCase):
 			self.assertEqual(len(self.normal_packs[i]), 15)
 	
 	def test_finished_setup_sizes(self):
-		self.assertEqual(len(self.finished_setup[0][0]),5) 
+		self.assertEqual(len(self.finished_setup["pack0"][0]),5) 
 		for i in range(1,9):
-			self.assertEqual(len(self.finished_setup[i][0]),15)
+			self.assertEqual(len(self.finished_setup[f"pack{i}"][0]),15)
 			
 	
 	@classmethod
 	def tearDownClass(self):
 		# print(path.exists("./Simulator/drafttest.json"))
-		remove("./Simulator/drafttest.json")
+		remove("./Server/draftpytest.json")
