@@ -48,4 +48,4 @@ class TestDraftSetup(unittest.TestCase):
 	@classmethod
 	def tearDownClass(self):
 		# print(path.exists("./Simulator/drafttest.json"))
-		remove("./src/data/draftpytest.json")
+		remove("./templates/draftpytest.json")
