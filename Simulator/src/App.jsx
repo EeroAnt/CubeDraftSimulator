@@ -7,6 +7,8 @@ import './App.css'
 
 
 function App() {
+  const [data, setData] = useState(null)
+  const [mode, setMode] = useState(0)
   const [numberOfPlayers, setNumberOfPlayers] = useState(4)
   const [draftSetup, setDraftSetup] = useState(false)
   const [packs, setPacks] = useState([])
@@ -19,7 +21,14 @@ function App() {
   const [pickNumber, setPickNumber] = useState(0)
   const [cardPicked, setCardPicked] = useState(false)
   const [roundNumber, setRoundNumber] = useState(0)
+  const [playerQueue, setPlayerQueue] = useState([])
+  const [players, setPlayers] = useState([])
 
+  useEffect(() => {
+    fetch("/api")
+      .then((res) => res.json())
+      .then((data) => setData(data.message));
+  }, []);
 
   const changePlayerNumber = (event) => {
 	event.preventDefault()
@@ -28,7 +37,11 @@ function App() {
 
   const setupDraft = (event) => {
 	event.preventDefault()
+	console.log(data)
+	setMode(1)
 	setDraftSetup(true)
+	// setPlayerQueue(new Array(numberOfPlayers).fill([]))
+	// setPlayers(new Array(numberOfPlayers-1).fill().concat({PlayerObject(name="human", ishuman=true, id=0)}))
 	Packs.getAll()
 	.then(response=> {
 	  setPacks(response.data)
@@ -37,13 +50,13 @@ function App() {
 
   const cancelSetup = (event) => {
 	event.preventDefault()
-	setDraftSetup(false)
+	setMode(0)
 	setNumberOfPlayers(4)
   }
 
   const initDraft = (event) => {
 	event.preventDefault()
-	setDraftOnline(true)
+	setMode(2)
 	setPacksInRound(packs[roundNumber])
 	setCardsAtHand(packs[roundNumber][playerNumber])
   }
@@ -73,7 +86,7 @@ function App() {
 	  }
 
 
-  if (draftSetup === false) {
+  if (mode === 0) {
   return (
     <>
 	  <h1>Simulator</h1>
@@ -82,7 +95,7 @@ function App() {
 	</>
   )
   }
-  else if (draftOnline === false){
+  else if (mode === 1){
 	return (
 	  <>
 	    <h1>Simulator</h1>
