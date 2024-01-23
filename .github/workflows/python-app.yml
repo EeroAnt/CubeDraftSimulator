@@ -42,4 +42,5 @@ jobs:
        CLOUDDB_PORT: ${{ secrets.CLOUDDB_PORT }}
        CLOUDDB_NAME: ${{ secrets.CLOUDDB_NAME }}
      run: |
+       cd Flask_server
        pytest
