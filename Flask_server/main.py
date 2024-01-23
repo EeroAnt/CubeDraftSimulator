@@ -1,5 +1,5 @@
-from Flask_server.draft_setup import setup_draft
-from Flask_server.cloud_db import close_cloud_db
+from src.operations.draft_setup import setup_draft
+from src.operations.cloud_db import close_cloud_db
 from time import time
 start = time()
 commander_packs, normal_packs, conn = setup_draft(4, identifier="test")

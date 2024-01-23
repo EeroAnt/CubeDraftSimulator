@@ -1,6 +1,6 @@
-from Flask_server.sql_to_dict import sql_to_dict
-from Flask_server.queries import *
-from Flask_server.cloud_db import connect_to_cloud_db
+from src.operations.sql_to_dict import sql_to_dict
+from src.operations.queries import *
+from src.operations.cloud_db import connect_to_cloud_db
 from math import ceil
 
 

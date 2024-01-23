@@ -1,6 +1,6 @@
 import unittest
-from Flask_server.pool_generation import generate_pools
-from Flask_server.cloud_db import close_cloud_db
+from src.operations.pool_generation import generate_pools
+from src.operations.cloud_db import close_cloud_db
 
 
 class TestGeneratePools(unittest.TestCase):

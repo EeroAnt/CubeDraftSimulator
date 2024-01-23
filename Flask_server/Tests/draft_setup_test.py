@@ -1,8 +1,8 @@
 import unittest
-from Flask_server.cloud_db import close_cloud_db
-from Flask_server.pool_generation import generate_pools
-from Flask_server.packs import *
-from Flask_server.json_generator import generate_json
+from src.operations.cloud_db import close_cloud_db
+from src.operations.pool_generation import generate_pools
+from src.operations.packs import *
+from src.operations.json_generator import generate_json
 from os import remove, path
 
 
@@ -48,4 +48,4 @@ class TestDraftSetup(unittest.TestCase):
 	@classmethod
 	def tearDownClass(self):
 		# print(path.exists("./Simulator/drafttest.json"))
-		remove("./Server/draftpytest.json")
+		remove("./Flask_server/src/data/draftpytest.json")
