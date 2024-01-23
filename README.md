@@ -1,5 +1,5 @@
 # CubeDraftSimulator
-
+![DraftSimulator](https://github.com/EeroAnt/CubeDraftSimulator/actions/workflows/main.yml/badge.svg)
 ## About
 
 ### Problems
