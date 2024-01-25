@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
+    <title>Your API Name</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Cube Draft Setup API</h1>
+            <p>Simple API to setup drafts for our virtual cube drafts</p>
+        </header>
+
+        <section class="api-info">
+            <h2>About the API</h2>
+            <p>Welcome! Behind this page magic happens. For a small price of a get-request with the right parameters, python script runs to set up a table for 4 to 9 players and randomises the contents for the packs in less than a second.</p>
+            <p>After this it sends the whole thing as a json for our host server to manage. </p>
+			<p>I'm running everything on a free tier so it might not work or be slow at times. If you were to use it, I advice to load this page before as starting up the server might take a handful of seconds.</p>
+        </section>
+
+    </div>
+</body>
+
+</html>

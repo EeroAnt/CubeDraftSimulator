@@ -1,12 +1,12 @@
 from app import app
-# from flask import request
+from flask import render_template
 from flask_restful import Api, Resource
 from src.operations.setup_server import setup
 import json
 
 @app.route("/")
 def index():
-	return "Hello World!"
+	return render_template("index.html")
 
 api = Api(app)
 
