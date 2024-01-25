@@ -20,26 +20,7 @@ By creating a web app to for this:
 ## Steps
 
 ### Setting up the databases
-I'm planning on doing this on a PostgreSQL-database with two tables to begin with, maybe three.
-
-#### The cards
-Initial Cards table has been setup. Contents mirror the cubes content in [cubecobra](https://cubecobra.com/cube/overview/58otz).
-
-The table 'Cards' would have columns for id, name, manavalue, color identity, types, textbox, image url, draft pool and boolean for backside.
-
-Most of this is quite straight forward, but for the non-trivial columns my initial solutions would be:
- - I've used to divide the cube into several draft pools to ensure that different colors, lands and so on have a somewhat even distribution. Cards with a color identity can be automatically assigned to that draft pool, but multicolored, colorless and lands I've divided in such a way that I probably have to input those manually myself.
- - Color identity can be expressed with a text WUBRGC. **W**hite Bl**u**e, **B**lack, **R**ed, **G**reen and **C**olorless
- - I'll just save the type line as whole and filter from there
- - Backsides will have their image urls stored
-
-#### The picks
-I don't think that we have cards in the cube that affect the draft itself for now. I'll worry about those cards when it would happen or just decide not to add them. In the normal setting a pack consists of 15 cards and as the power levels of the cards are quite high overall, there is no difference necessary between the first couple of picks. So I think we could start with 10 points for the first three picks, 9 points for the 4th and the 5th and 8 for the following two and then descending after that on every card ending up in 0 points for the last pick. For commander packs (5 cards), think a straightforward 5-4-3-2-1 could work.
-
-So I think that this table has columns of id, main table reference id, commander pick points and normal pick points.
-
-#### The commanders
-Come to think of it. Easy solution to a problem I did not bring up which is, commanders, is to have them in their own table. Id and and reference to main table. Boom.
+The database is set up and online in Azure Cloud.
 
 ### Setting up the draft
 First we have the commanders. They are a hand picked bunch of Legendary creatures with more than one colors in their color identity. I randomly choose a commander pack of 5 commanders for each player. Then the rest of the commanders can be shuffled with the card pool of Multicolored.
@@ -57,8 +38,6 @@ So there's some randomness in each pack. I've also used the cut cards to build u
 8 normal packs of 15 per player, we need 120 cards per player. 120*player_count/18 rounded up tells how many structured packs to build and the rest are made from the leftovers.
 
 The packs are distributed to a dict of players as lists of dicts where the first list is the commander pack and the rest are normal packs. This is then dumbep into json.
-
-I'll place this here for now just to pick it up, when I will need it: "json-server -p3001 --watch db.json"
 
 
 ### The drafting
