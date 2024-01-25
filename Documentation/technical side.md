@@ -4,18 +4,17 @@
 
 ## So far I have:
 
- - build the PostgreSQL database that is up and running in Azure
- - set up the Flask API server to be called with a token and a player count locally
+ - built the PostgreSQL database that is up and running in Azure
+ - deployed the Flask API 
  - CI-pipeline for the Flask API communnicating with the database
 
 ## Next up:
 
- - Deploy the Flask API server
+ - Learn how to handle the draft with websockets and NodeJS backend
 
 ## To do:
 
- - Learn how to handle the draft with websockets and NodeJS
- - Deploy that
+ - Deploy the nodejs backend
  - Build the React App for UI
 
 ### The Database
