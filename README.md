@@ -63,6 +63,7 @@ Once I get this up and running, it won't be too difficult to open it for other C
  - a table for the given card pool 
  - some tweaking of the Flask server regarding how structured the packs will be and the general structure of the given draft
  - support for the ui to choose what one wants to draft
+ - NodeJS backend will need some attention to enable Conspiracy type cards that affect the draft itself
  - the functionality to manage contents of a cube or a draft pool to be deployed online which could use:
  - a login for the owners of the cubes, so only they may edit the contents
 
