@@ -58,6 +58,14 @@ Initially I will implement a simple bot that picks a random card from the pack e
 Somewhere in the more distant future, we can start thinking of an AI for the bots. Well a crude one can be implemented very soon. Use the average pick value from the pick if available, otherwise randomise a value from the pickvalue range and pick the best one available. But a more sophisticated one later on might be cool that recognises it's commanders colors and archetypes even and aims to build and actual, functional deck could be cool. I have no idea how to approach this, but neither do have one on implementing the web app either.
 
 
+### The future
+Once I get this up and running, it won't be too difficult to open it for other Cubes or a more general drafting. It mainly requires: 
+ - a table for the given card pool 
+ - some tweaking of the Flask server regarding how structured the packs will be and the general structure of the given draft
+ - support for the ui to choose what one wants to draft
+ - the functionality to manage contents of a cube or a draft pool to be deployed online which could use:
+ - a login for the owners of the cubes, so only they may edit the contents
+
 ## License
 
 Copyright (c) 2024 Eero Antikainen
