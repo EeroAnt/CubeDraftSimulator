@@ -2,6 +2,7 @@ from app import app
 from flask import render_template
 from flask_restful import Api, Resource
 from src.operations.setup_server import setup
+from src.operations.error_handling.api_parameter_errors import api_parameter_errors
 import json
 
 @app.route("/")
@@ -12,10 +13,8 @@ api = Api(app)
 
 class returnjson(Resource):
 	def get(self, player_count, identifier):
-		if int(player_count) not in range(4, 10):
-			return "Invalid player count", 400
-		if len(identifier) > 10:
-			return "Invalid identifier", 400
+		if api_parameter_errors(identifier, player_count):
+			return api_parameter_errors(identifier, player_count), 400
 		player_count = int(player_count)
 		setup(player_count, identifier)
 		data = json.load(open(f"templates/draft{identifier}.json"))
