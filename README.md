@@ -55,7 +55,7 @@ While drafting and building the deck, it is good to have the statistics interact
 ### Bots
 Initially I will implement a simple bot that picks a random card from the pack everytime. Simply to help testing the app and if we want more players to a draft than we have willing humans available. I'll probably disable the pick stats from the bots picks altogether so they don't affect the rankings and I'm considering also disabling them from human players when there's too many bots. Not sure yet.
 
-Somewhere in the more distant future, we can start thinking of an AI for the bots. Well a crude one can be implemented very soon. Use the average pick value from the pick if available, otherwise randomise a value from the pickvalue range and pick the best one available. But a more sophisticated one later on might be cool that recognises it's commanders colors and archetypes even and aims to build and actual, functional deck could be cool. I have no idea how to approach this, but neither do have one on implementing the web app either.
+Somewhere in the more distant future, we can start thinking of an AI for the bots. Well a crude one can be implemented very soon. Use the average pick value from the pick if available, otherwise randomise a value from the pickvalue range and pick the best one available. But a more sophisticated one later on might be cool that recognises it's commanders colors and archetypes even and aims to build and actual, functional deck could be cool. I have no idea how to approach this, but let's not let it stop us.
 
 
 ### The future
