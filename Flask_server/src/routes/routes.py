@@ -12,6 +12,10 @@ api = Api(app)
 
 class returnjson(Resource):
 	def get(self, player_count, identifier):
+		if int(player_count) not in range(4, 10):
+			return "Invalid player count", 400
+		if len(identifier) > 10:
+			return "Invalid identifier", 400
 		player_count = int(player_count)
 		setup(player_count, identifier)
 		data = json.load(open(f"templates/draft{identifier}.json"))
