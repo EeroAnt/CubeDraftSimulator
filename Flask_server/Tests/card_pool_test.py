@@ -1,6 +1,6 @@
 import unittest
-from src.operations.pool_generation import generate_pools
-from src.operations.cloud_db import close_cloud_db
+from src.operations.draft.pool_generation import generate_pools
+from src.operations.database.cloud_db import close_cloud_db
 
 
 class TestGeneratePools(unittest.TestCase):

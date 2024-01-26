@@ -1,5 +1,5 @@
-from src.operations.pool_generation import generate_pools
-from src.operations.packs import *
+from src.operations.draft.pool_generation import generate_pools
+from src.operations.draft.packs import *
 from src.operations.json_generator import generate_json
 
 def setup_draft(player_count, identifier):
