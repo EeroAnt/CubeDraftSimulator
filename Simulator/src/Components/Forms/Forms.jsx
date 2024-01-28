@@ -1,6 +1,6 @@
-import Image from './Image.jsx'
+import Image from '../CardImage/CardImage.jsx'
 
-const Form = ({name, value, onChange}) => {
+export const Form = ({name, value, onChange}) => {
   return (
 	<div>
 	  {name} <input value={value} name={name} onChange={onChange} autoComplete="given-name" />
@@ -8,7 +8,7 @@ const Form = ({name, value, onChange}) => {
   )
 }
 
-const Dropdown = ({name, value, handleChange}) => {
+export const Dropdown = ({name, value, handleChange}) => {
   return (
 	<>
 	  <label>{name}
@@ -23,4 +23,3 @@ const Dropdown = ({name, value, handleChange}) => {
 	</>		
   );
 }
-export default { Form , Dropdown }

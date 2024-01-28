@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react'
-import Form from './Components/Forms.jsx'
-import Buttons from './Components/Buttons.jsx'
+import Form from './Components/Forms/Forms.jsx'
+import Buttons from './Components/Buttons/Buttons.jsx'
 import DraftSetup from './Services/DraftSetup.jsx'
 import Packs from './Services/Packs.jsx'
-import Image from './Components/Image.jsx'
+import Image from './Components/CardImage/CardImage.jsx'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import NavBar from './Components/navbar.jsx'
+import NavBar from './Components/'
 
 
 function App() {
-  const [mode, setMode] = useState(0)
+  const [mode, setMode] = useState("Index")
   const [numberOfPlayers, setNumberOfPlayers] = useState(4)
 
   const changePlayerNumber = (event) => {
@@ -20,7 +20,7 @@ function App() {
 
   const setupDraft = (event) => {
 	event.preventDefault()
-	setMode(1)
+	setMode("Setup")
 	var token = function() {
 		return Math.random().toString(36).slice(2,6)
 	}
@@ -29,18 +29,18 @@ function App() {
 
   const cancelSetup = (event) => {
 	event.preventDefault()
-	setMode(0)
+	setMode("Index")
 	setNumberOfPlayers(4)
   }
 
   const initDraft = (event) => {
 	event.preventDefault()
-	setMode(2)
+	setMode("Draft")
   }
 
   
 
-  if (mode === 0) {
+  if (mode === "Index") {
   return (
     <>
 	  <NavBar />
@@ -50,7 +50,7 @@ function App() {
 	</>
   )
   }
-  else if (mode === 1){
+  if (mode === "Setup"){
 	return (
 	  <>
 	  	<NavBar />
@@ -61,7 +61,7 @@ function App() {
 	  </>
 	)
   }
-  else {
+  if (mode === "Draft"){
 	return (  
 	<>
 	  <h1>Under construction</h1>

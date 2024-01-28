@@ -1,7 +1,7 @@
 import axios from 'axios'
 const baseUrl = 'http://localhost:3002/'
 
-const setupDraft = (id, players) => {
+export const setupDraft = (id, players) => {
   const SetupUrl = baseUrl + 'api/drafts/' + id +'/'+ players
 
   return axios.get(SetupUrl
@@ -12,5 +12,3 @@ const setupDraft = (id, players) => {
 }
 )
 }
-
-export default { setupDraft }
