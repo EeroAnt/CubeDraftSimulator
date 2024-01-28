@@ -28,7 +28,7 @@ class TestDraftSetup(unittest.TestCase):
 	
 	def test_structured_packs_contents(self):
 		for i in range(4):
-			draft_pools = [d['draft_pool'] for d in self.normal_packs[i]]
+			draft_pools = [d['draft_pool'] for d in self.normal_packs[f"pack{i}"]]
 			self.assertLessEqual(draft_pools.count('W'), 2)
 			self.assertLessEqual(draft_pools.count('U'), 2)
 			self.assertLessEqual(draft_pools.count('B'), 2)
@@ -37,12 +37,12 @@ class TestDraftSetup(unittest.TestCase):
 	
 	def test_normal_packs_sizes(self):
 		for i in range(64):
-			self.assertEqual(len(self.normal_packs[i]), 15)
+			self.assertEqual(len(self.normal_packs[f"pack{i}"]), 15)
 	
 	def test_finished_setup_sizes(self):
-		self.assertEqual(len(self.finished_setup["pack0"][0]),5) 
+		self.assertEqual(len(self.finished_setup["round0"]["pack0"]),5) 
 		for i in range(1,9):
-			self.assertEqual(len(self.finished_setup[f"pack{i}"][0]),15)
+			self.assertEqual(len(self.finished_setup[f"round{i}"][f"pack0"]),15)
 			
 	
 	@classmethod
