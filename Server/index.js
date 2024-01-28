@@ -7,7 +7,7 @@ const axios = require('axios')
 app.get('/api/init_draft/:player_count/:token', (request, response) => {
   const player_count = request.params.player_count
   const token = request.params.token
-  axios.get(`http://127.0.0.1:5000/${player_count}/${token}`).then(res => {
+  axios.get(`http://cubedraftsimuflaskapi.azurewebsites.net/${player_count}/${token}`).then(res => {
   response.send("draft ready")
   return res.data
   }).catch(err => {
@@ -16,7 +16,7 @@ app.get('/api/init_draft/:player_count/:token', (request, response) => {
   })
 })
  
-const PORT = 3001
+const PORT = 3002
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
