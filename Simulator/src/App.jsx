@@ -5,6 +5,8 @@ import DraftSetup from './Services/DraftSetup.jsx'
 import Packs from './Services/Packs.jsx'
 import Image from './Components/Image.jsx'
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import NavBar from './Components/navbar.jsx'
 
 
 function App() {
@@ -41,6 +43,7 @@ function App() {
   if (mode === 0) {
   return (
     <>
+	  <NavBar />
 	  <h1>Let's draft cube!</h1>
 	  <Form.Dropdown name="number of players" handleChange={changePlayerNumber}/>
 	  <Buttons.Button name="init draft" onClick={setupDraft}/>
@@ -50,6 +53,7 @@ function App() {
   else if (mode === 1){
 	return (
 	  <>
+	  	<NavBar />
 	    <h1>Let's draft cube!</h1>
 		<h3>Number of players = {numberOfPlayers}</h3>
 		<Buttons.Button name="start draft" onClick={initDraft}/>
