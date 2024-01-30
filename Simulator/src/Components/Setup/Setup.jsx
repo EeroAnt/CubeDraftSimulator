@@ -9,7 +9,7 @@ export const Setup = ({setMode, numberOfPlayers}) => {
 	  />
 	  <h1>Setup</h1>
 	  <p>Number of players: {numberOfPlayers}</p>
-	  <Button name="init draft" onClick={() => setMode("Draft")}/>
+	  <Button name="Start draft" onClick={() => setMode("Draft")}/>
 	</div>
   )
 }
