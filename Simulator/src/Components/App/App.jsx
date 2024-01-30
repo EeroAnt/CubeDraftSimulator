@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 export const App = () => {
   const [mode, setMode] = useState("Home")
-  const [numberOfPlayers, setNumberOfPlayers] = useState(4)
+  const [numberOfPlayers, setNumberOfPlayers] = useState(1)
 
   return (
 	<div className={styles.App}>

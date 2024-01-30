@@ -1,17 +1,16 @@
-import { NavBar, Dropdown, Button } from "../"
+import { NavBar, Dropdown, Button, setupDraft } from "../../"
 
 export const Home = ({setMode, setNumberOfPlayers, numberOfPlayers }) =>{
   const changePlayerNumber = (event) => {
 	event.preventDefault()
 	setNumberOfPlayers(event.target.value)
   }
-  const setupDraft = (event) => {
-	event.preventDefault()
+  const submitSetup = (event) => {
 	setMode("Setup")
 	var token = function() {
 		return Math.random().toString(36).slice(2,6)
 	}
-	DraftSetup.setupDraft(numberOfPlayers, token())
+	setupDraft(numberOfPlayers, token())
   }
 
   return (
@@ -22,7 +21,7 @@ export const Home = ({setMode, setNumberOfPlayers, numberOfPlayers }) =>{
 		/>
 		<h1>Home</h1>
 		<Dropdown name="number of players" handleChange={changePlayerNumber}/>
-	    <Button name="init draft" onClick={setupDraft}/>
+	    <Button name="init draft" onClick={(event)=>submitSetup()}/>
 	</div>
   )
 }
