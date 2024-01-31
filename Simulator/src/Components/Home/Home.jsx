@@ -1,10 +1,28 @@
-import { NavBar, Dropdown, Button, setupDraft } from "../../"
+import { NavBar, Dropdown, Button, setupDraft, Form } from "../../"
 
-export const Home = ({setMode, setNumberOfPlayers, numberOfPlayers }) =>{
+export const Home = ({
+	setMode, 
+	setNumberOfPlayers, 
+	numberOfPlayers, 
+	username, 
+	setUsername, 
+	token,
+	setToken
+}) =>{
+	
   const changePlayerNumber = (event) => {
 	event.preventDefault()
 	setNumberOfPlayers(event.target.value)
   }
+  
+  const changeUsername = (event) => {
+	setUsername(event.target.value)
+  }
+
+  const changeToken = (event) => {
+	setToken(event.target.value)
+  }
+
   const submitSetup = (event) => {
 	setMode("Setup")
 	var token = function() {
@@ -22,6 +40,10 @@ export const Home = ({setMode, setNumberOfPlayers, numberOfPlayers }) =>{
 		<h1>Home</h1>
 		<Dropdown name="number of players" handleChange={changePlayerNumber}/>
 	    <Button name="init draft" onClick={(event)=>submitSetup()}/>
+
+		<h2>Join Draft</h2>
+		<Form name="Username" value={username} onChange={changeUsername}/>
+		<Form name="Token" value={token} onChange={changeToken}/>
 	</div>
   )
 }

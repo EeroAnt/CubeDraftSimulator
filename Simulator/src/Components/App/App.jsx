@@ -6,6 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 export const App = () => {
   const [mode, setMode] = useState("Home")
   const [numberOfPlayers, setNumberOfPlayers] = useState(1)
+  const [username, setUsername] = useState("")
+  const [token, setToken] = useState("")
 
   return (
 	<div className={styles.App}>
@@ -14,7 +16,11 @@ export const App = () => {
 	    <Home 
 		  setMode={setMode}
 		  setNumberOfPlayers={setNumberOfPlayers}
-		  numberOfPlayers={numberOfPlayers} />
+		  numberOfPlayers={numberOfPlayers}
+		  username={username}
+		  setUsername={setUsername}
+		  token={token}
+		  setToken={setToken} />
 	  )}
 	  
 	  {mode === "Setup" && (
