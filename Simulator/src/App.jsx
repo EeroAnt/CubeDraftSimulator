@@ -66,7 +66,7 @@ function App() {
 	<>
 	  <h1>Under construction</h1>
 	  <h2>Let's not draft cube yet</h2>
-	  <Buttons.Button name="Go Back" onClick={cancelSetup}/>
+	  <Button name="Go Back" onClick={cancelSetup}/>
 	</>
   )
 }

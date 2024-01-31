@@ -6,44 +6,56 @@ export const Home = ({
 	numberOfPlayers, 
 	username, 
 	setUsername, 
-	token,
 	setToken
 }) =>{
-	
-  const changePlayerNumber = (event) => {
-	event.preventDefault()
-	setNumberOfPlayers(event.target.value)
-  }
   
-  const changeUsername = (event) => {
-	setUsername(event.target.value)
+
+
+  const changePlayerNumber = (e) => {
+	e.preventDefault()
+	setNumberOfPlayers(e.target.value)
   }
 
-  const changeToken = (event) => {
-	setToken(event.target.value)
-  }
-
-  const submitSetup = (event) => {
-	setMode("Setup")
+  const submitSetup = (e) => {
+	setMode("Lobby")
 	var token = function() {
 		return Math.random().toString(36).slice(2,6)
 	}
-	setupDraft(numberOfPlayers, token())
+	const newtoken = token()
+	setupDraft(numberOfPlayers, newtoken)
+	setToken(newtoken)
+	console.log(newtoken)
   }
 
-  return (
-	<div className="main">
-		<NavBar 
-		  onClickDraftNavbar={() => setMode("Home")} 
-		  onClickStatNavbar={() => setMode("Stats")}
-		/>
-		<h1>Home</h1>
-		<Dropdown name="number of players" handleChange={changePlayerNumber}/>
-	    <Button name="init draft" onClick={(event)=>submitSetup()}/>
+  const joinDraft = (e) => {
+	setToken(e)
+	setMode("Lobby")
+  }
 
-		<h2>Join Draft</h2>
-		<Form name="Username" value={username} onChange={changeUsername}/>
-		<Form name="Token" value={token} onChange={changeToken}/>
+  return !username ? (
+	<div className="main">
+	  <NavBar 
+		onClickDraftNavbar={() => setMode("Home")} 
+		onClickStatNavbar={() => setMode("Stats")}
+	  />
+	  <h1>Home</h1>
+
+	  <h2>Who are you?</h2>
+	  <Form onSubmit={setUsername} />
+	</div>
+  ) : (
+	<div className="main">
+	  <NavBar 
+	    onClickDraftNavbar={() => setMode("Home")} 
+	    onClickStatNavbar={() => setMode("Stats")}
+	  />
+	  <h1>Home</h1>
+	  <Dropdown name="number of players" handleChange={changePlayerNumber}/>
+	  <Button name="init draft" onClick={(e)=>submitSetup()}/>
+
+	  <h2>Join Draft {username}</h2>
+	 
+	  <Form onSubmit={joinDraft} />
 	</div>
   )
 }

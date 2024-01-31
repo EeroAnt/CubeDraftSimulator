@@ -1,13 +1,27 @@
 import { useState } from 'react'
 import styles from './App.module.css'
-import { Home, Stats, Setup, Draft } from '../'
+import { Home, Stats, Draft, Lobby } from '../'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import useWebSocket from 'react-use-websocket'
 
 export const App = () => {
   const [mode, setMode] = useState("Home")
   const [numberOfPlayers, setNumberOfPlayers] = useState(1)
   const [username, setUsername] = useState("")
   const [token, setToken] = useState("")
+  
+
+  const WS_URL = 'ws://127.0.0.1:3001'
+  const connection = useWebSocket(WS_URL,{
+  share: true,
+  onOpen: () => console.log('opened', token),
+  onClose: () => console.log('closed'),
+  onError: (e) => console.log('error', e),
+  queryParams: {
+  token: token,
+  username: username
+  }
+  })
 
   return (
 	<div className={styles.App}>
@@ -19,19 +33,21 @@ export const App = () => {
 		  numberOfPlayers={numberOfPlayers}
 		  username={username}
 		  setUsername={setUsername}
-		  token={token}
 		  setToken={setToken} />
 	  )}
+
 	  
-	  {mode === "Setup" && (
-	    <Setup 
+	  {mode === "Lobby" && (
+		<Lobby 
 		  setMode={setMode}
-		  numberOfPlayers={numberOfPlayers} />
+		  connection={connection}
+		  token={token} />
 	  )}
-	  
+
 	  {mode === "Draft" && (
 	    <Draft
-		  setMode={setMode} />
+		  setMode={setMode} 
+		  connection={connection}/>
 	  )}
 	  
 	  {mode === "DeckBuilder" && (
