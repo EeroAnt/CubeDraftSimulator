@@ -1,10 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 
-const Image = ({ imageUrl, backsideUrl }) => {
+export const Image = ({ imageUrl, backsideUrl }) => {
   const [isFlipped, setIsFlipped] = useState(false)
 
-  if (backsideUrl === "") {
+  if (!backsideUrl) {
 	return (
 	  <>
 		<img src={imageUrl} alt="Image" />
@@ -34,4 +34,3 @@ const Image = ({ imageUrl, backsideUrl }) => {
     }
   }
 }
-export default Image;

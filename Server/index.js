@@ -13,7 +13,53 @@ const fs = require('fs');
 let connections = { }
 let users = { }
 let drafts = { }
+let intervalIDs = { }
 
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+
+function checkDraftStatus(draft) {
+  if (draft.state === 'drafting' && draft.players.length > 0) {
+	if (draft.players.every(player => player.seat.packAtHand.length === 0 && player.seat.queue.length === 0)) {
+	  draft.round ++
+	  if (draft.round < draft.rounds) {
+		console.log('round:',draft.round)
+		draft.direction *= -1
+		for (let i = 0; i < draft.player_count; i++) {
+		  const player = draft.players[i]
+		  const pack = [draft.packs[`round${draft.round}`][`pack${i}`]]
+		  player.seat.queue = pack
+	    }} else {
+		draft.state = 'done'
+		}
+	} else {
+	  for (const player of draft.players) {
+		if (player.seat.packAtHand.length === 0) {
+		  console.log('giving pack to player')
+		  player.seat.packAtHand = player.seat.queue.pop()
+		  connections[player.uuid].send(JSON.stringify({ status: "OK", type: "Pack", pack: player.seat.packAtHand }))
+		}
+	  }
+	}
+  } else if (draft.players.length === 0 && draft.state === 'drafting'){
+	draft.state = 'disconnected'
+	console.log('disconnected')
+
+  } else if (draft.state === 'done') {
+	console.log('draft ended')
+	console.log(draft)
+	clearInterval(intervalIDs[draft.token])
+	broadcastDraftStatus(draft, "End Draft")
+  } else {
+	clearInterval(intervalIDs[draft.token])
+	console.log('draft ended')
+  }
+}
 
 
 const broadcastUserlist = (draft) => {
@@ -27,9 +73,9 @@ const broadcastUserlist = (draft) => {
  })
 }
 
-const broadcastStartDraft = (draft) => {
+const broadcastDraftStatus = (draft, status) => {
   Object.values(draft.players).forEach(player => {
-	const message = JSON.stringify({ status: "OK", type: "Start Draft" })
+	const message = JSON.stringify({ status: "OK", type: status })
 	connections[player.uuid].send(message)
   })
 }
@@ -62,18 +108,30 @@ const handleMessage = (message, uuid) => {
 	  users[uuid].token = data.token
 	  users[uuid].status = 'waiting'
 	  drafts[data.token].players = drafts[data.token].players.concat(users[uuid])
-	  console.log(drafts[data.token].players)
 	  broadcastUserlist(drafts[data.token])}
 
 
   } else if (data.type === 'Start Draft') {
-	console.log(drafts[data.token])
 	if (drafts[data.token].state === "lobby") {
 	  drafts[data.token].state = 'drafting'
-	  broadcastStartDraft(drafts[data.token])
-	  console.log(drafts[data.token].state)
-	}
-
+	  broadcastDraftStatus(drafts[data.token],"Start Draft")
+	  shuffleArray(drafts[data.token].players)
+	  for (let i = 0; i < drafts[data.token].player_count; i++) {
+		const player = drafts[data.token].players[i]
+		const pack = [drafts[data.token].packs[`round${drafts[data.token].round}`][`pack${i}`]]
+		player.seat = drafts[data.token].table[`seat${i}`]
+		player.seat.queue = pack
+		player.seat.number = i
+	  }
+  	}
+	checkDraftStatus(drafts[data.token])
+	intervalIDs[data.token] = setInterval(() => checkDraftStatus(drafts[data.token]), 300)
+  } else if (data.type === 'Pick') {
+    users[uuid].seat[data.zone] = users[uuid].seat[data.zone].concat(users[uuid].seat.packAtHand.filter(card => card.id === data.card)[0])
+	users[uuid].seat.packAtHand = users[uuid].seat.packAtHand.filter(card => card.id !== data.card)
+	const nextSeatNumber = users[uuid].seat.number + drafts[data.token].direction % drafts[data.token].player_count
+	drafts[data.token].table[`seat${nextSeatNumber}`].queue = drafts[data.token].table[`seat${nextSeatNumber}`].queue.concat([users[uuid].seat.packAtHand])
+	users[uuid].seat.packAtHand = []
   }
 }
 
@@ -98,7 +156,7 @@ wsServer.on('connection', (connection, request) => {
 	uuid: uuid,
 	username: "",
 	token: "",
-	state: ""
+	status: ""
   }
   connection.on("message", message => handleMessage(message, uuid))
   connection.on("close", () => handleClose(uuid))
@@ -110,12 +168,16 @@ app.get('/api/init_draft/:player_count/:token', (request, response) => {
   const player_count = request.params.player_count
   const token = request.params.token
   const filePath = './test1.json';
+  
   drafts[token] = {
+	token : token,
     player_count : player_count,
     players : [],
     state : 'lobby',
-    round : 0
+    round : 0,
+	direction : 1
   }
+  
   fs.readFile(filePath, 'utf8', (err, data) => {
 	if (err) {
 		console.error(err);
@@ -132,6 +194,7 @@ app.get('/api/init_draft/:player_count/:token', (request, response) => {
 	}, {});
 	
 	drafts[token].packs = filteredData;
+	drafts[token].rounds = Object.keys(filteredData).length
   });
   response.send("OK")
 

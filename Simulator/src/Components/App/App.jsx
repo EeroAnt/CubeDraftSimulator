@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styles from './App.module.css'
-import { Home, Stats, Draft, Lobby } from '../'
+import { Home, Stats, Draft, Lobby, DeckBuilder } from '../'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import useWebSocket from 'react-use-websocket'
 
@@ -49,7 +49,8 @@ export const App = () => {
 	  {mode === "Draft" && (
 	    <Draft
 		  setMode={setMode} 
-		  connection={connection}/>
+		  connection={connection}
+		  token={token}/>
 	  )}
 	  
 	  {mode === "DeckBuilder" && (
