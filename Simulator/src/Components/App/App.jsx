@@ -8,19 +8,16 @@ export const App = () => {
   const [mode, setMode] = useState("Home")
   const [numberOfPlayers, setNumberOfPlayers] = useState(1)
   const [username, setUsername] = useState("")
-  const [token, setToken] = useState("")
+  const [owner, setOwner] = useState(false)
   
 
   const WS_URL = 'ws://127.0.0.1:3001'
   const connection = useWebSocket(WS_URL,{
   share: true,
-  onOpen: () => console.log('opened', token),
+  onOpen: () => console.log('opened'),
   onClose: () => console.log('closed'),
   onError: (e) => console.log('error', e),
-  queryParams: {
-  token: token,
-  username: username
-  }
+  onMessage: (e) => console.log('message', e)
   })
 
   return (
@@ -33,7 +30,8 @@ export const App = () => {
 		  numberOfPlayers={numberOfPlayers}
 		  username={username}
 		  setUsername={setUsername}
-		  setToken={setToken} />
+		  connection={connection}
+		  setOwner={setOwner} />
 	  )}
 
 	  
@@ -41,7 +39,9 @@ export const App = () => {
 		<Lobby 
 		  setMode={setMode}
 		  connection={connection}
-		  token={token} />
+		  numberOfPlayers={numberOfPlayers}
+		  owner={owner}
+		   />
 	  )}
 
 	  {mode === "Draft" && (

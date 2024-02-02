@@ -1,25 +1,77 @@
 import { Button } from '../'
+import { useState } from 'react'
 import { useEffect } from 'react'
 
-export const Lobby = ({setMode, connection, token}) => {
+
+const renderPlayers = message => {
+  console.log(Object.keys(message.players))
+  return (
+	  <ul>
+		{Object.keys(message.players).map(uuid => {
+		  return <li key={uuid}>{message.players[uuid]}</li>
+			})}
+	  </ul>
+	)
+  }
+
+
+export const Lobby = ({setMode, connection, numberOfPlayers, owner}) => {
   
+  const [playersInLobby, setPlayersInLobby] = useState(0)
+
   const startDraft = () => {
     setMode("Draft")
-	connection.sendJsonMessage(JSON.stringify({
+	connection.sendJsonMessage({
 	  type: "Start Draft"
-	}))
+	})
   }
 
   useEffect(() => {
-	connection.sendJsonMessage(JSON.stringify({
-	  type: "Join Draft"
-	}))}, [])
+    if (connection.lastJsonMessage && connection.lastJsonMessage.players) {
+      const numPlayers = Object.keys(connection.lastJsonMessage.players).length;
+      setPlayersInLobby(numPlayers)
+    }
+  }, [connection.lastJsonMessage, numberOfPlayers])
 
-  return (
-	<div className="main">
-	  <h1>Lobby</h1>
-	  <h2>{token}</h2>
-	  <Button name="Start draft" onClick={() => startDraft()}/>
-	</div>
-  )
+
+  if (connection.lastJsonMessage && connection.lastJsonMessage.status === "OK") {
+	console.log(connection.lastJsonMessage)
+	return (
+	  <div className="main">
+		<h1>Lobby</h1>
+		{owner ? (
+		  <>
+		    {playersInLobby === numberOfPlayers ? (
+              <>
+			  <h2>Everyone's here</h2><h2>Players:</h2>
+			  {renderPlayers(connection.lastJsonMessage)}
+			  <Button name="Start Draft" onClick={startDraft} />
+              </>
+			) : (
+			  <>
+              <h3>Waiting for all players to join</h3>
+			  <h2>Playercount: </h2>
+			  <p>{playersInLobby} / {numberOfPlayers}</p>
+			  <h2>Players:</h2>
+			  {renderPlayers(connection.lastJsonMessage)}
+			  </>
+            )}
+		  </>
+		) : (
+		  <>
+		    <h2>Players:</h2>
+			  {renderPlayers(connection.lastJsonMessage)}
+		  </>
+		)}
+	  </div>
+	)}
+  if (connection.lastJsonMessage && connection.lastJsonMessage.status != 'OK') {
+	return (
+	  <div className="main">
+		<h1>Lobby</h1>
+		<p>{connection.lastJsonMessage.status}</p>
+		<Button name="Go Back" onClick={() => setMode("Home")}/>
+	  </div>
+	)
+  }
 }

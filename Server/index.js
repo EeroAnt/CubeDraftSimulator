@@ -14,90 +14,86 @@ let connections = { }
 let users = { }
 let drafts = { }
 
-const broadcastLostConnection = (uuid, token) => {
-  const message = JSON.stringify({type: 'lostConnection', name: users[uuid]['username']})
-  Object.values(connections[token]).forEach(connection => connection.send(message))
+
+
+const broadcastUserlist = (draft) => {
+  Object.values(draft.players).forEach(player => {
+	const result = draft.players.reduce((acc, player) => {
+		acc.players[player.uuid] = player.username;
+		return acc;
+	  }, { status: "OK", players: {} });
+	const message = JSON.stringify(result)
+	connections[player.uuid].send(message)
+ })
 }
 
-const broadcastUserJoined = (uuid, token) => {
-  const message = JSON.stringify({type: 'userJoined', name: users[uuid]['username']})
-  Object.values(connections[token]).forEach(connection => connection.send(message))
-}
 
-
-
-const handleMessage = (message, uuid, token) => {
-  const data = JSON.parse(JSON.parse(message))
+const handleMessage = (message, uuid) => {
+  const data = JSON.parse(message.toString())
   console.log(data)
-  if (data.type === "Join Draft") {
-	console.log('helo')
-	users[uuid].state.status = 'waiting'
-	if (drafts[token]['players'].includes(users[uuid])) {
-		console.log('already in')
-		console.log(drafts[token]['players'])
-	} else if (drafts[token]['players'].length >= drafts[token]['player_count']) {
-		console.log('full')
-		console.log(drafts[token]['players'])
+
+  if (data.type === "Login"){
+	users[uuid].username = data.username
+	console.log("Login: " + data.username)
+
+
+  } else if (data.type === "Create Lobby") {
+	drafts[data.token].players = drafts[data.token].players.concat(users[uuid])
+	users[uuid].token = data.token
+	broadcastUserlist(drafts[data.token])
+	console.log(drafts[data.token])
+	
+
+  } else if (data.type === "Join Draft") {
+
+	if (Object.keys(drafts).includes(data.token) === false) {
+	  connections[uuid].send(JSON.stringify({ status : 'No Draft Found With That Token'}))
+
+	} else if (drafts[data.token].players.length >= drafts[data.token].player_count) {
+	  connections[uuid].send(JSON.stringify({ status : 'Lobby Full'}))
+
 	} else {
-	drafts[token]['players'] = drafts[token]['players'].concat(users[uuid])
-	console.log(drafts[token]['players'])}
-	// express.response.send("OK")
-	// broadcastUserJoined(uuid, token)
-	// console.log(draft.players.concat(user))
-  } else if (data.type === 'pick') {
-	user.state.main = user.state.main.concat(data.main)
-	user.state.status = 'waiting'
-	user.state.queue = user.state.queue.concat(user.state.pack)
-	user.state.pack = []
-  } else if (data.type === 'toMain') {
-	user.state.main = user.state.main.concat(data.cards)
-	user.state.side = user.state.side.filter(card => !data.cards.includes(card))
-  } else if (data.type === 'toSide') {
-	user.state.side = user.state.side.concat(data.cards)
-	user.state.main = user.state.main.filter(card => !data.cards.includes(card))
+	  users[uuid].token = data.token
+	  users[uuid].status = 'waiting'
+	  drafts[data.token].players = drafts[data.token].players.concat(users[uuid])
+	  console.log(drafts[data.token].players)
+	  broadcastUserlist(drafts[data.token])}
+
+
   } else if (data.type === 'Start Draft') {
-	if (drafts[token]['state'] === "lobby") {
-	drafts[token]['state'] = 0
-	console.log(drafts[token]['state'])
+	if (drafts[data.token].state === "lobby") {
+	  drafts[data.token].state = 0
+	  console.log(drafts[data.token].state)
 	}
 
   }
 }
 
-handleClose = (uuid, token) => {
-  broadcastLostConnection(uuid, token)
+handleClose = (uuid) => {
+  if (users[uuid].token) {
+    broadcastUserlist(drafts[users[uuid].token])
+    if (Object.keys(drafts).includes(users[uuid].token)) { 
+	  console.log('deleting')
+      drafts[users[uuid].token].players = drafts[users[uuid].token].players.filter(player => player.uuid !== uuid)
+	}
+  }
   console.log(`Connection closed: ${uuid}`)
   delete users[uuid]
-  delete connections[token][uuid]
-  if (Object.keys(drafts).includes(token)) { 
-	console.log('deleting')
-  drafts[token]['players'] = drafts[token]['players'].filter(player => player['uuid'] !== uuid)}
+  delete connections[uuid]
 }
 
 wsServer.on('connection', (connection, request) => {
-  const { username, token } = url.parse(request.url, true).query
   const uuid = uuidv4()
-  console.log(`New connection: ${username}, ${token} (${uuid})`)
-  if (connections[token]) {
-	connections[token][uuid] = connection
-  } else {
-    connections[token] = {
-	  [uuid]: connection
-    }
-  }
-
+  console.log(`New connection: (${uuid})`)
+  connections[uuid] = connection
   users[uuid] = {
-	username: username,
 	uuid: uuid,
-	state: { 
-		'main': [],
-		'side': [],
-		'queue': [],
-		'pack': []
-	}
+	username: "",
+	token: "",
+	state: ""
   }
-  connection.on("message", message => handleMessage(message, uuid, token))
-  connection.on("close", () => handleClose(uuid, token))
+  connection.on("message", message => handleMessage(message, uuid))
+  connection.on("close", () => handleClose(uuid))
 })
 
 
@@ -106,22 +102,32 @@ app.get('/api/init_draft/:player_count/:token', (request, response) => {
   const player_count = request.params.player_count
   const token = request.params.token
   const filePath = './test1.json';
-
+  drafts[token] = {
+    player_count : player_count,
+    players : [],
+    state : 'lobby',
+    round : 0,
+	data : {}
+  }
   fs.readFile(filePath, 'utf8', (err, data) => {
 	if (err) {
 		console.error(err);
 		return;
 	}
 	
-	drafts[token]['data'] = JSON.parse(data);
+	drafts[token].table = JSON.parse(data).table;
+
+	const filteredData = Object.keys(JSON.parse(data)).reduce((obj, key) => {
+		if (key !== 'table') {
+			obj[key] = JSON.parse(data)[key];
+		}
+		return obj;
+	}, {});
+	
+	drafts[token].packs = filteredData;
   });
   response.send("OK")
-  drafts[token] = {
-	  'player_count': player_count,
-	  'players': [],
-	  'state': 'lobby',
-	  'round': 0
-  }
+
 })
 
 

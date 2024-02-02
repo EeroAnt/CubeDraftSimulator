@@ -5,31 +5,43 @@ export const Home = ({
 	setNumberOfPlayers, 
 	numberOfPlayers, 
 	username, 
-	setUsername, 
-	setToken
+	setUsername,
+	connection,
+	setOwner
 }) =>{
   
-
+  const login = (username) => {
+	setUsername(username)
+	connection.sendJsonMessage({
+	  type: "Login",
+	  username: username
+	})
+  }
 
   const changePlayerNumber = (e) => {
 	e.preventDefault()
-	setNumberOfPlayers(e.target.value)
+	setNumberOfPlayers(Number(e.target.value))
   }
 
   const submitSetup = (e) => {
 	setMode("Lobby")
+	setOwner(true)
 	var token = function() {
 		return Math.random().toString(36).slice(2,6)
 	}
 	const newtoken = token()
-	setupDraft(numberOfPlayers, newtoken)
-	setToken(newtoken)
+	setupDraft(newtoken, numberOfPlayers, connection)
 	console.log(newtoken)
   }
 
-  const joinDraft = (e) => {
-	setToken(e)
+  const joinDraft = (token) => {
+	connection.sendJsonMessage({
+	  type: "Join Draft",
+	  token: token,
+	  username: username
+	})
 	setMode("Lobby")
+
   }
 
   return !username ? (
@@ -41,7 +53,7 @@ export const Home = ({
 	  <h1>Home</h1>
 
 	  <h2>Who are you?</h2>
-	  <Form onSubmit={setUsername} />
+	  <Form onSubmit={login} />
 	</div>
   ) : (
 	<div className="main">
