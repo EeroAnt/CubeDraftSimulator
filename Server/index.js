@@ -9,6 +9,7 @@ const server = http.createServer()
 const wsServer = new WebSocketServer({server:server})
 const uuidv4 = require('uuid').v4
 const fs = require('fs');
+const { send } = require('process')
 
 let connections = { }
 let users = { }
@@ -18,10 +19,15 @@ let intervalIDs = { }
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+        const temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 }
 
+function sendCards(uuid) {
+  connections[uuid].send(JSON.stringify({ status: "OK", type: "Picked Cards", commanders: users[uuid].seat.commanders, main: users[uuid].seat.main, side: users[uuid].seat.side}))
+}
 
 function checkDraftStatus(draft) {
   if (draft.state === 'drafting' && draft.players.length > 0) {
@@ -39,9 +45,9 @@ function checkDraftStatus(draft) {
 		}
 	} else {
 	  for (const player of draft.players) {
-		if (player.seat.packAtHand.length === 0) {
+		if (player.seat.packAtHand.length === 0 && player.seat.queue.length > 0) {
 		  console.log('giving pack to player')
-		  player.seat.packAtHand = player.seat.queue.pop()
+		  player.seat.packAtHand = player.seat.queue.shift()
 		  connections[player.uuid].send(JSON.stringify({ status: "OK", type: "Pack", pack: player.seat.packAtHand }))
 		}
 	  }
@@ -93,8 +99,8 @@ const handleMessage = (message, uuid) => {
   } else if (data.type === "Create Lobby") {
 	drafts[data.token].players = drafts[data.token].players.concat(users[uuid])
 	users[uuid].token = data.token
-	broadcastUserlist(drafts[data.token])
-	
+	broadcastUserlist(drafts[data.token])	
+
 
   } else if (data.type === "Join Draft") {
 
@@ -122,18 +128,60 @@ const handleMessage = (message, uuid) => {
 		player.seat = drafts[data.token].table[`seat${i}`]
 		player.seat.queue = pack
 		player.seat.number = i
+		player.seat.commanders = []
 	  }
   	}
 	checkDraftStatus(drafts[data.token])
 	intervalIDs[data.token] = setInterval(() => checkDraftStatus(drafts[data.token]), 300)
+
+
   } else if (data.type === 'Pick') {
+	console.log(drafts[data.token].table)
+	shuffleArray(users[uuid].seat.packAtHand)
     users[uuid].seat[data.zone] = users[uuid].seat[data.zone].concat(users[uuid].seat.packAtHand.filter(card => card.id === data.card)[0])
 	users[uuid].seat.packAtHand = users[uuid].seat.packAtHand.filter(card => card.id !== data.card)
-	const nextSeatNumber = users[uuid].seat.number + drafts[data.token].direction % drafts[data.token].player_count
+	const nextSeatNumber = (users[uuid].seat.number + drafts[data.token].direction) % drafts[data.token].player_count
+	// console.log(nextSeatNumber)
+	// console.log("TABLE")
+	// console.log(drafts[data.token].table)
+	// console.log("SEAT")
+	// console.log(drafts[data.token].table[`seat${nextSeatNumber}`])
+	// console.log("QUEUE")
+	// console.log(drafts[data.token].table[`seat${nextSeatNumber}`].queue)
 	drafts[data.token].table[`seat${nextSeatNumber}`].queue = drafts[data.token].table[`seat${nextSeatNumber}`].queue.concat([users[uuid].seat.packAtHand])
 	users[uuid].seat.packAtHand = []
+	console.log("pack after passing")
+	// console.log(users[uuid].seat.packAtHand)
+	console.log(typeof(users[uuid].seat.packAtHand))
+	sendCards(uuid)
+	
+
+  } else if (data.type === 'Set Commander') {
+	console.log(data.card)
+	users[uuid].seat.commanders = users[uuid].seat.commanders.concat(data.card)
+	users[uuid].seat.main = users[uuid].seat.main.filter(card => card.id !== data.card.id)
+	users[uuid].seat.side = users[uuid].seat.side.filter(card => card.id !== data.card.id)
+	sendCards(uuid)
+	
+
+  } else if (data.type === 'Remove Commander') {
+	users[uuid].seat.commanders = users[uuid].seat.commanders.filter(card => card.id !== data.card.id)
+	users[uuid].seat[data.zone] = users[uuid].seat[data.zone].concat(data.card)
+	sendCards(uuid)
+
+
+  } else if (data.type === 'Move Cards') {
+	users[uuid].seat[data.to] = users[uuid].seat[data.to].concat(data.cards)
+	console.log(data.from)
+	console.log(typeof(users[uuid].seat[data.to]),typeof(data.cards), typeof(users[uuid].seat[data.from]))
+	console.log(Array.isArray(users[uuid].seat[data.to]), Array.isArray(data.cards), Array.isArray(users[uuid].seat[data.from]))
+	if (Array.isArray(users[uuid].seat[data.from]) && Array.isArray(data.cards)) {
+		users[uuid].seat[data.from] = users[uuid].seat[data.from].filter(card => !data.cards.some(c => c.id === card.id));
+	}
+	sendCards(uuid)
   }
 }
+
 
 handleClose = (uuid) => {
   if (users[uuid].token) {
@@ -167,7 +215,7 @@ app.get('/api/init_draft/:player_count/:token', (request, response) => {
   response.set('Access-Control-Allow-Origin', '*')
   const player_count = request.params.player_count
   const token = request.params.token
-  const filePath = './test1.json';
+  const filePath = './test3.json';
   
   drafts[token] = {
 	token : token,

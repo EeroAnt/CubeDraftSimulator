@@ -10,6 +10,9 @@ export const App = () => {
   const [username, setUsername] = useState("")
   const [owner, setOwner] = useState(false)
   const [token, setToken] = useState("")
+  const [main, setMain] = useState([])
+  const [side, setSide] = useState([])
+  const [commanders, setCommanders] = useState([])
 
   const WS_URL = 'ws://127.0.0.1:3001'
   const connection = useWebSocket(WS_URL,{
@@ -50,7 +53,14 @@ export const App = () => {
 	    <Draft
 		  setMode={setMode} 
 		  connection={connection}
-		  token={token}/>
+		  token={token}
+		  main={main}
+		  setMain={setMain}
+		  side={side}
+		  setSide={setSide}
+		  commanders={commanders}
+		  setCommanders={setCommanders}
+		  />
 	  )}
 	  
 	  {mode === "DeckBuilder" && (

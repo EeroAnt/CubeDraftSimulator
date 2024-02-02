@@ -1,5 +1,5 @@
-from src.operations.draft_setup import setup_draft
-from src.operations.cloud_db import close_cloud_db
+from src.operations.draft.draft_setup import setup_draft
+from src.operations.database.cloud_db import close_cloud_db
 from time import time
 
 start = time()

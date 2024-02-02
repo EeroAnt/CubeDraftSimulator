@@ -42,6 +42,7 @@ export const Home = ({
 	  token: token,
 	  username: username
 	})
+	setToken(token)
 	setMode("Lobby")
 
   }

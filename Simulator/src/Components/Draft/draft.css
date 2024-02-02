@@ -1,34 +1,81 @@
+.main {
+  margin-right: 18%; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
 .pack {
-	width: 100%;
-	table-layout: fixed;
-	border-collapse: collapse;
-  }
-  
-  .pack .card {
-	width: 20%;
-	padding: 8px;
-	border: 1px solid #ccc;
-	display: inline-block;
-	vertical-align: top;
-	box-sizing: border-box; /* Ensure padding is included in the width */
-  }
-  
-  .pack img {
-	max-width: 100%;
-	height: auto;
-  }
-  .selected {
-	width: 20%;
-	padding: px;
-	border: 8px solid #000;
-	display: inline-block;
-	vertical-align: top;
-	box-sizing: border-box; /* Ensure padding is included in the width */
-  }
-  
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.pack .card {
+  width: 20%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.pack img {
+  max-width: 100%;
+  height: auto;
+}
+.selected {
+  width: 20%;
+  border: 8px solid #000;
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
   /* Adjustments for smaller screens */
-  @media (max-width: 768px) {
-	.pack td {
-	  width: 25%; /* Reduce cell width for smaller screens */
-	}
+@media (max-width: 768px) {
+  .pack td {
+	width: 25%; /* Reduce cell width for smaller screens */
+  }
+}
+
+
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 18%; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  right: 0;
+  background-color: #c5b1b1;
+  overflow-x: hidden; /* Disable horizontal scroll */
+
+  }
+
+.sidenav-header {
+  position: fixed;
+  }
+
+.sidenav-body {
+  position: fixed;
+  overflow-y: auto;
+}
+
+  .sidenav-header img {
+
+	max-width: 100%;
+  }
+
+  .clicked {
+	background-color: aqua;
+  }
+
+  .notclicked {
+	background-color: #c5b1b1;
+  }
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+ul {
+	list-style-type: none;
   }
