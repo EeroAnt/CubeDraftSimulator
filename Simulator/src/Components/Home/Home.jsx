@@ -7,7 +7,8 @@ export const Home = ({
 	username, 
 	setUsername,
 	connection,
-	setOwner
+	setOwner,
+	setToken
 }) =>{
   
   const login = (username) => {
@@ -30,6 +31,7 @@ export const Home = ({
 		return Math.random().toString(36).slice(2,6)
 	}
 	const newtoken = token()
+	setToken(newtoken)
 	setupDraft(newtoken, numberOfPlayers, connection)
 	console.log(newtoken)
   }
@@ -46,8 +48,8 @@ export const Home = ({
 
   return !username ? (
 	<div className="main">
-	  <NavBar 
-		onClickDraftNavbar={() => setMode("Home")} 
+	  <NavBar
+		onClickDraftNavbar={() => setMode("Home")}
 		onClickStatNavbar={() => setMode("Stats")}
 	  />
 	  <h1>Home</h1>
@@ -58,14 +60,15 @@ export const Home = ({
   ) : (
 	<div className="main">
 	  <NavBar 
-	    onClickDraftNavbar={() => setMode("Home")} 
+	    onClickDraftNavbar={() => setMode("Home")}
 	    onClickStatNavbar={() => setMode("Stats")}
 	  />
-	  <h1>Home</h1>
+	  <h1>Hi {username}</h1>
+	  <h2>Setup a new Draft</h2>
 	  <Dropdown name="number of players" handleChange={changePlayerNumber}/>
 	  <Button name="init draft" onClick={(e)=>submitSetup()}/>
 
-	  <h2>Join Draft {username}</h2>
+	  <h2>Join Draft with a token</h2>
 	 
 	  <Form onSubmit={joinDraft} />
 	</div>

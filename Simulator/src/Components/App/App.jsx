@@ -9,7 +9,7 @@ export const App = () => {
   const [numberOfPlayers, setNumberOfPlayers] = useState(1)
   const [username, setUsername] = useState("")
   const [owner, setOwner] = useState(false)
-  
+  const [token, setToken] = useState("")
 
   const WS_URL = 'ws://127.0.0.1:3001'
   const connection = useWebSocket(WS_URL,{
@@ -31,7 +31,8 @@ export const App = () => {
 		  username={username}
 		  setUsername={setUsername}
 		  connection={connection}
-		  setOwner={setOwner} />
+		  setOwner={setOwner}
+		  setToken={setToken} />
 	  )}
 
 	  
@@ -41,6 +42,7 @@ export const App = () => {
 		  connection={connection}
 		  numberOfPlayers={numberOfPlayers}
 		  owner={owner}
+		  token={token}
 		   />
 	  )}
 

@@ -15,7 +15,7 @@ const renderPlayers = message => {
   }
 
 
-export const Lobby = ({setMode, connection, numberOfPlayers, owner}) => {
+export const Lobby = ({setMode, connection, numberOfPlayers, owner, token}) => {
   
   const [playersInLobby, setPlayersInLobby] = useState(0)
 
@@ -40,7 +40,7 @@ export const Lobby = ({setMode, connection, numberOfPlayers, owner}) => {
 	  <div className="main">
 		<h1>Lobby</h1>
 		{owner ? (
-		  <>
+		  <><h2>Draft Token: {token}</h2>
 		    {playersInLobby === numberOfPlayers ? (
               <>
 			  <h2>Everyone's here</h2><h2>Players:</h2>
@@ -52,14 +52,14 @@ export const Lobby = ({setMode, connection, numberOfPlayers, owner}) => {
               <h3>Waiting for all players to join</h3>
 			  <h2>Playercount: </h2>
 			  <p>{playersInLobby} / {numberOfPlayers}</p>
-			  <h2>Players:</h2>
+			  <h2>Players present:</h2>
 			  {renderPlayers(connection.lastJsonMessage)}
 			  </>
             )}
 		  </>
 		) : (
 		  <>
-		    <h2>Players:</h2>
+		    <h2>Players present:</h2>
 			  {renderPlayers(connection.lastJsonMessage)}
 		  </>
 		)}
