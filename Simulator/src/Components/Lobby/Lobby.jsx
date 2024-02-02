@@ -20,9 +20,9 @@ export const Lobby = ({setMode, connection, numberOfPlayers, owner, token}) => {
   const [playersInLobby, setPlayersInLobby] = useState(0)
 
   const startDraft = () => {
-    setMode("Draft")
 	connection.sendJsonMessage({
-	  type: "Start Draft"
+	  type: "Start Draft",
+	  token: token
 	})
   }
 
@@ -30,11 +30,13 @@ export const Lobby = ({setMode, connection, numberOfPlayers, owner, token}) => {
     if (connection.lastJsonMessage && connection.lastJsonMessage.players) {
       const numPlayers = Object.keys(connection.lastJsonMessage.players).length;
       setPlayersInLobby(numPlayers)
-    }
+    } else if (connection.lastJsonMessage && connection.lastJsonMessage.status === "OK") {
+	  setMode("Draft")
+	}
   }, [connection.lastJsonMessage, numberOfPlayers])
 
 
-  if (connection.lastJsonMessage && connection.lastJsonMessage.status === "OK") {
+  if (connection.lastJsonMessage && connection.lastJsonMessage.status === "OK" && connection.lastJsonMessage.type === "Playerlist") {
 	console.log(connection.lastJsonMessage)
 	return (
 	  <div className="main">

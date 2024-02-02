@@ -21,10 +21,17 @@ const broadcastUserlist = (draft) => {
 	const result = draft.players.reduce((acc, player) => {
 		acc.players[player.uuid] = player.username;
 		return acc;
-	  }, { status: "OK", players: {} });
+	  }, { status: "OK", type: "Playerlist", players: {} });
 	const message = JSON.stringify(result)
 	connections[player.uuid].send(message)
  })
+}
+
+const broadcastStartDraft = (draft) => {
+  Object.values(draft.players).forEach(player => {
+	const message = JSON.stringify({ status: "OK", type: "Start Draft" })
+	connections[player.uuid].send(message)
+  })
 }
 
 
@@ -41,7 +48,6 @@ const handleMessage = (message, uuid) => {
 	drafts[data.token].players = drafts[data.token].players.concat(users[uuid])
 	users[uuid].token = data.token
 	broadcastUserlist(drafts[data.token])
-	console.log(drafts[data.token])
 	
 
   } else if (data.type === "Join Draft") {
@@ -61,8 +67,10 @@ const handleMessage = (message, uuid) => {
 
 
   } else if (data.type === 'Start Draft') {
+	console.log(drafts[data.token])
 	if (drafts[data.token].state === "lobby") {
-	  drafts[data.token].state = 0
+	  drafts[data.token].state = 'drafting'
+	  broadcastStartDraft(drafts[data.token])
 	  console.log(drafts[data.token].state)
 	}
 
@@ -106,8 +114,7 @@ app.get('/api/init_draft/:player_count/:token', (request, response) => {
     player_count : player_count,
     players : [],
     state : 'lobby',
-    round : 0,
-	data : {}
+    round : 0
   }
   fs.readFile(filePath, 'utf8', (err, data) => {
 	if (err) {
