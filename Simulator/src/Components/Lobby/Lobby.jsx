@@ -65,7 +65,6 @@ export const Lobby = ({setMode, connection, numberOfPlayers, owner, token}) => {
               </>
 			) : (
 			  <>
-			  <h2>Draft Token: {token}</h2>
               <h3>Waiting for all players to join</h3>
 			  <h2>Playercount: </h2>
 			  <p>{playersInLobby} / {numberOfPlayers}</p>
@@ -76,6 +75,7 @@ export const Lobby = ({setMode, connection, numberOfPlayers, owner, token}) => {
 		  </>
 		) : (
 		  <>
+		    <h2>Draft Token: {token}</h2>
 		    <h2>Players present:</h2>
 			  {renderPlayers(connection.lastJsonMessage)}
 		  </>
