@@ -269,7 +269,9 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 			main={main}
 			side={side}
 			commanders={commanders}
-			showMain={showMain}/>
+			showMain={showMain}
+			selectedCards={selectedCards}
+			selectCards={selectCards}/>
 		</div>
 	  </>
 	)

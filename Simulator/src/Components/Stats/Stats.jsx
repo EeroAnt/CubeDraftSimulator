@@ -1,7 +1,23 @@
-import { NavBar, Button} from '../';
+import { NavBar, Button, Image} from '../';
 import { useState } from 'react';
 import './stats.css'
 
+
+function filterCardsPos(cards, criteria) {
+  var filtered = []
+  for (let i = 0; i < criteria.length; i++) {
+	filtered = filtered.concat(cards.filter(card => card.types.includes(criteria[i])))
+	}
+  return filtered
+}
+
+function filterCardsNeg(cards, criteria) {
+  var filtered = [].concat(cards)
+  for (let i = 0; i < criteria.length; i++) {
+	filtered = filtered.filter(card => !filtered.filter(card => card.types.includes(criteria[i])).includes(card))
+  }
+  return filtered
+}
 
 function amountOfFilteredCardsPos(deck, all, criteria) {
   var deckAmount = 0
@@ -35,11 +51,10 @@ export const Stats = ({setMode}) => {
   )
 }
 
-export const DraftStats = ({main, side, commanders, showMain}) => {
+export const DraftStats = ({main, side, commanders, showMain, selectedCards,selectCards}) => {
+  const [cardsToDisplay, setCardsToDisplay] = useState([])
   const all = main.concat(side).concat(commanders)
   const deck = main.concat(commanders)
-  const creatures = amountOfFilteredCardsPos(deck, all, ["Creature"])
-  const nonCreatures = amountOfFilteredCardsNeg(deck, all, ["Creature", "Land"])
   const criteria = {
 	creature: ["Creature"],
 	legendaries: ["Legendary"],
@@ -56,7 +71,30 @@ export const DraftStats = ({main, side, commanders, showMain}) => {
 	nonCreature: ["Creature", "Land"],
 	permanents: ["Instant", "Sorcery"]
   }
+
+
+  const StatObject = ({name, type, criteria, deck, all}) => {
+	const filterfunc = type==="Pos" ? amountOfFilteredCardsPos : amountOfFilteredCardsNeg
+	if (filterfunc(deck, all, criteria) === "0/0") return null
+	return (
+	  <div className='draftStatObject' onClick={() => displayCards(criteria, main, side, type)}>
+		<h5>{name}</h5>
+		  <p>{filterfunc(deck, all, criteria)}</p>
+	  </div>
+	)
+  }
+
+
+  const displayCards = (criteria, main, side, type) => {
+	if (type === "Pos") {
+	  setCardsToDisplay(filterCardsPos(main.concat(side), criteria))
+	} else {
+	  setCardsToDisplay(filterCardsNeg(main.concat(side), criteria))
+	}
+  }
+
   return (
+	<>
 	<div className='typeAmounts'>
 	  <div className='draftStatContent'>
 		<StatObject name="Creatures" type="Pos" criteria={criteria.creature} deck={deck} all={all}/>
@@ -75,16 +113,22 @@ export const DraftStats = ({main, side, commanders, showMain}) => {
 		<StatObject name="Permanents" type="Neg" criteria={criteria.permanents} deck={deck} all={all}/>
 	  </div>
 	</div>
+	<table className="displayed">
+      <tbody>
+    	{cardsToDisplay.filter(card => showMain ? (main.includes(card)): (side.includes(card))).reduce((rows, card, index) => {
+          if (index % 5 === 0) rows.push([]); // Start a new row every 5 cards
+			rows[rows.length - 1].push(
+			  <td key={index} className={selectedCards.includes(card) ? ("selected") : ("card")} onClick={() => selectCards(card)}>
+                <Image imageUrl={card.image_url} backsideUrl={card.backside_image_url}/>
+                </td>
+              );
+              return rows;
+            }, []).map((row, rowIndex) => (
+              <tr key={rowIndex}>{row}</tr>
+            ))}
+          </tbody>
+        </table>
+	</>
   )
 }
 
-const StatObject = ({name, type, criteria, deck, all}) => {
-  const filterfunc = type==="Pos" ? amountOfFilteredCardsPos : amountOfFilteredCardsNeg
-  if (filterfunc(deck, all, criteria) === "0/0") return null
-  return (
-	<div className='draftStatObject'>
-	  <h5>{name}</h5>
-		<p>{filterfunc(deck, all, criteria)}</p>
-	</div>
-  )
-}
