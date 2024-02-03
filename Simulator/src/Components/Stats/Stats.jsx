@@ -37,12 +37,12 @@ export const Stats = ({setMode}) => {
   )
 }
 
-export const DraftStats = ({main, side, commanders}) => {
+export const DraftStats = ({main, side, commanders, showMain}) => {
   const all = main.concat(side).concat(commanders)
   const deck = main.concat(commanders)
   const creatures = amountOfFilteredCardsPos(deck, all, ["Creature"])
   const nonCreatures = amountOfFilteredCardsNeg(deck, all, ["Creature", "Land"])
-  const criteriaPos = {
+  const criteria = {
 	creature: ["Creature"],
 	legendaries: ["Legendary"],
 	planeswalkers: ["Planeswalker"],
@@ -54,17 +54,39 @@ export const DraftStats = ({main, side, commanders}) => {
 	auras: ["Aura"],
 	equipment: ["Equipment"],
 	sagas: ["Saga"],
-	historics: ["Artifact", "Legendary", "Saga"]
-	}
-  const criteriaNeg = {
+	historics: ["Artifact", "Legendary", "Saga"],
 	nonCreature: ["Creature", "Land"],
 	permanents: ["Instant", "Sorcery"]
   }
   return (
-	<div>
-	  <h2>Main</h2>
+	<div className='typeAmounts'>
 		<Button name="Testify" onClick={() => console.log(creatures)}/>
 		<Button name="Test2ify" onClick={() => console.log(nonCreatures)}/>
+		<StatObject name="Creatures" type="Pos" criteria={criteria.creature} deck={deck} all={all}/>
+		<StatObject name="Non-Creatures" type="Neg" criteria={criteria.nonCreature} deck={deck} all={all}/>
+		<StatObject name="Legendaries" type="Pos" criteria={criteria.legendaries} deck={deck} all={all}/>
+		<StatObject name="Planeswalkers" type="Pos" criteria={criteria.planeswalkers} deck={deck} all={all}/>
+		<StatObject name="Artifacts" type="Pos" criteria={criteria.artifacts} deck={deck} all={all}/>
+		<StatObject name="Enchantments" type="Pos" criteria={criteria.enchantments} deck={deck} all={all}/>
+		<StatObject name="Instants" type="Pos" criteria={criteria.instants} deck={deck} all={all}/>
+		<StatObject name="Sorceries" type="Pos" criteria={criteria.sorceries} deck={deck} all={all}/>
+		<StatObject name="Lands" type="Pos" criteria={criteria.lands} deck={deck} all={all}/>
+		<StatObject name="Auras" type="Pos" criteria={criteria.auras} deck={deck} all={all}/>
+		<StatObject name="Equipment" type="Pos" criteria={criteria.equipment} deck={deck} all={all}/>
+		<StatObject name="Sagas" type="Pos" criteria={criteria.sagas} deck={deck} all={all}/>
+		<StatObject name="Historics" type="Pos" criteria={criteria.historics} deck={deck} all={all}/>
+		<StatObject name="Permanents" type="Neg" criteria={criteria.permanents} deck={deck} all={all}/>
+	</div>
+  )
+}
+
+const StatObject = ({name, type, criteria, deck, all}) => {
+  const filterfunc = type==="Pos" ? amountOfFilteredCardsPos : amountOfFilteredCardsNeg
+  if (filterfunc(deck, all, criteria) === "0/0") return null
+  return (
+	<div className='typeAmount'>
+	  <h5>{name}</h5>
+		<p>{filterfunc(deck, all, criteria)}</p>
 	</div>
   )
 }

@@ -268,7 +268,8 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 		  <DraftStats
 			main={main}
 			side={side}
-			commanders={commanders}/>
+			commanders={commanders}
+			showMain={showMain}/>
 		</div>
 	  </>
 	)
