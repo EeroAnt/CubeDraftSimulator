@@ -185,10 +185,14 @@ const handleMessage = (message, uuid) => {
 
 
   } else if (data.type === 'Move Cards') {
-	users[uuid].seat[data.to] = users[uuid].seat[data.to].concat(data.cards)
-	if (Array.isArray(users[uuid].seat[data.from]) && Array.isArray(data.cards)) {
-		users[uuid].seat[data.from] = users[uuid].seat[data.from].filter(card => !data.cards.some(c => c.id === card.id));
+	for (const card of data.cards) {
+	  !users[uuid].seat[data.to].includes(card) ? (users[uuid].seat[data.to] = users[uuid].seat[data.to].concat(card)) : ("Card already in the zone")
+	  users[uuid].seat[data.from] = users[uuid].seat[data.from].filter(c => c.id !== card.id)
 	}
+	// users[uuid].seat[data.to] = users[uuid].seat[data.to].concat(data.cards)
+	// if (Array.isArray(users[uuid].seat[data.from]) && Array.isArray(data.cards)) {
+	// 	users[uuid].seat[data.from] = users[uuid].seat[data.from].filter(card => !data.cards.some(c => c.id === card.id));
+	// }
 	sendCards(uuid)
   } else if (data.type === 'Rejoin Draft') {
 	if (Object.keys(drafts).includes(data.table)) {
