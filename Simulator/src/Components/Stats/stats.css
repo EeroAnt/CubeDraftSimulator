@@ -1,0 +1,23 @@
+.typeAmounts {
+	display: flex;
+	width: 50%
+  }
+  
+  .sidebar {
+	flex: 1;
+	background-color: #f0f0f0; /* Example background color */
+	padding: 20px;
+  }
+  
+  .draftStatContent {
+	flex: 1;
+	width: 50%;
+	display: flex;
+	flex-wrap: wrap;
+  }
+  
+  .draftStatObject {
+	flex: 0 0 calc(10%); /* Adjust the width as needed */
+	padding: 5px;
+	box-sizing: border-box; /* Ensures padding is included in width calculation */
+  }

@@ -1,9 +1,7 @@
 import { NavBar, Button} from '../';
 import { useState } from 'react';
+import './stats.css'
 
-function filterCards(cards, type) {
-  return cards.filter(card => card.types.includes(type))
-}
 
 function amountOfFilteredCardsPos(deck, all, criteria) {
   var deckAmount = 0
@@ -60,8 +58,7 @@ export const DraftStats = ({main, side, commanders, showMain}) => {
   }
   return (
 	<div className='typeAmounts'>
-		<Button name="Testify" onClick={() => console.log(creatures)}/>
-		<Button name="Test2ify" onClick={() => console.log(nonCreatures)}/>
+	  <div className='draftStatContent'>
 		<StatObject name="Creatures" type="Pos" criteria={criteria.creature} deck={deck} all={all}/>
 		<StatObject name="Non-Creatures" type="Neg" criteria={criteria.nonCreature} deck={deck} all={all}/>
 		<StatObject name="Legendaries" type="Pos" criteria={criteria.legendaries} deck={deck} all={all}/>
@@ -76,6 +73,7 @@ export const DraftStats = ({main, side, commanders, showMain}) => {
 		<StatObject name="Sagas" type="Pos" criteria={criteria.sagas} deck={deck} all={all}/>
 		<StatObject name="Historics" type="Pos" criteria={criteria.historics} deck={deck} all={all}/>
 		<StatObject name="Permanents" type="Neg" criteria={criteria.permanents} deck={deck} all={all}/>
+	  </div>
 	</div>
   )
 }
@@ -84,7 +82,7 @@ const StatObject = ({name, type, criteria, deck, all}) => {
   const filterfunc = type==="Pos" ? amountOfFilteredCardsPos : amountOfFilteredCardsNeg
   if (filterfunc(deck, all, criteria) === "0/0") return null
   return (
-	<div className='typeAmount'>
+	<div className='draftStatObject'>
 	  <h5>{name}</h5>
 		<p>{filterfunc(deck, all, criteria)}</p>
 	</div>
