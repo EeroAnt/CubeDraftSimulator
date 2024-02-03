@@ -25,6 +25,12 @@ function shuffleArray(array) {
     }
 }
 
+function calculateNextSeatNumber(seatNumber, direction, player_count) {
+	if (seatNumber + direction < 0) {
+		return player_count - 1
+	}else {	return (seatNumber + direction) % player_count }
+}
+
 function sendCards(uuid) {
   connections[uuid].send(JSON.stringify({ status: "OK", type: "Picked Cards", commanders: users[uuid].seat.commanders, main: users[uuid].seat.main, side: users[uuid].seat.side}))
 }
@@ -39,6 +45,9 @@ function checkDraftStatus(draft) {
 		for (let i = 0; i < draft.player_count; i++) {
 		  const player = draft.players[i]
 		  const pack = [draft.packs[`round${draft.round}`][`pack${i}`]]
+		  const playerOnTheLeft = draft.players[calculateNextSeatNumber(player.seat.number, 1, draft.player_count)]
+		  const playerOnTheRight = draft.players[calculateNextSeatNumber(player.seat.number, -1, draft.player_count)]
+		  connections[draft.players[i].uuid].send(JSON.stringify({ status: "OK", type: "Neighbours", left: playerOnTheLeft.username, right: playerOnTheRight.username, direction: draft.direction}))
 		  player.seat.queue = pack
 	    }} else {
 		draft.state = 'done'
@@ -47,8 +56,9 @@ function checkDraftStatus(draft) {
 	  for (const player of draft.players) {
 		if (player.seat.packAtHand.length === 0 && player.seat.queue.length > 0) {
 		  console.log('giving pack to player')
+
 		  player.seat.packAtHand = player.seat.queue.shift()
-		  connections[player.uuid].send(JSON.stringify({ status: "OK", type: "Pack", pack: player.seat.packAtHand }))
+		  connections[player.uuid].send(JSON.stringify({ status: "OK", type: "Pack", pack: player.seat.packAtHand}))
 		}
 	  }
 	}
@@ -124,40 +134,32 @@ const handleMessage = (message, uuid) => {
 	  shuffleArray(drafts[data.token].players)
 	  for (let i = 0; i < drafts[data.token].player_count; i++) {
 		const player = drafts[data.token].players[i]
-		const pack = [drafts[data.token].packs[`round${drafts[data.token].round}`][`pack${i}`]]
+		// const pack = [drafts[data.token].packs[`round${drafts[data.token].round}`][`pack${i}`]]
 		player.seat = drafts[data.token].table[`seat${i}`]
-		player.seat.queue = pack
+		// player.seat.queue = pack
 		player.seat.number = i
 		player.seat.commanders = []
 	  }
   	}
 	checkDraftStatus(drafts[data.token])
-	intervalIDs[data.token] = setInterval(() => checkDraftStatus(drafts[data.token]), 300)
+	intervalIDs[data.token] = setInterval(() => checkDraftStatus(drafts[data.token]), 500)
 
 
   } else if (data.type === 'Pick') {
-	console.log(drafts[data.token].table)
 	shuffleArray(users[uuid].seat.packAtHand)
     users[uuid].seat[data.zone] = users[uuid].seat[data.zone].concat(users[uuid].seat.packAtHand.filter(card => card.id === data.card)[0])
 	users[uuid].seat.packAtHand = users[uuid].seat.packAtHand.filter(card => card.id !== data.card)
-	const nextSeatNumber = (users[uuid].seat.number + drafts[data.token].direction) % drafts[data.token].player_count
-	// console.log(nextSeatNumber)
-	// console.log("TABLE")
-	// console.log(drafts[data.token].table)
-	// console.log("SEAT")
-	// console.log(drafts[data.token].table[`seat${nextSeatNumber}`])
-	// console.log("QUEUE")
-	// console.log(drafts[data.token].table[`seat${nextSeatNumber}`].queue)
+	
+	const nextSeatNumber = calculateNextSeatNumber(users[uuid].seat.number, drafts[data.token].direction, drafts[data.token].player_count)
+	
+	console.log("Next player",nextSeatNumber)
+
 	drafts[data.token].table[`seat${nextSeatNumber}`].queue = drafts[data.token].table[`seat${nextSeatNumber}`].queue.concat([users[uuid].seat.packAtHand])
 	users[uuid].seat.packAtHand = []
-	console.log("pack after passing")
-	// console.log(users[uuid].seat.packAtHand)
-	console.log(typeof(users[uuid].seat.packAtHand))
 	sendCards(uuid)
 	
 
   } else if (data.type === 'Set Commander') {
-	console.log(data.card)
 	users[uuid].seat.commanders = users[uuid].seat.commanders.concat(data.card)
 	users[uuid].seat.main = users[uuid].seat.main.filter(card => card.id !== data.card.id)
 	users[uuid].seat.side = users[uuid].seat.side.filter(card => card.id !== data.card.id)
@@ -172,9 +174,6 @@ const handleMessage = (message, uuid) => {
 
   } else if (data.type === 'Move Cards') {
 	users[uuid].seat[data.to] = users[uuid].seat[data.to].concat(data.cards)
-	console.log(data.from)
-	console.log(typeof(users[uuid].seat[data.to]),typeof(data.cards), typeof(users[uuid].seat[data.from]))
-	console.log(Array.isArray(users[uuid].seat[data.to]), Array.isArray(data.cards), Array.isArray(users[uuid].seat[data.from]))
 	if (Array.isArray(users[uuid].seat[data.from]) && Array.isArray(data.cards)) {
 		users[uuid].seat[data.from] = users[uuid].seat[data.from].filter(card => !data.cards.some(c => c.id === card.id));
 	}
@@ -222,8 +221,8 @@ app.get('/api/init_draft/:player_count/:token', (request, response) => {
     player_count : player_count,
     players : [],
     state : 'lobby',
-    round : 0,
-	direction : 1
+    round : -1,
+	direction : -1
   }
   
   fs.readFile(filePath, 'utf8', (err, data) => {
