@@ -56,7 +56,7 @@ export const Home = ({
 	  <h1>Home</h1>
 
 	  <h2>Who are you?</h2>
-	  <Form onSubmit={login} />
+	  <Form onSubmit={login} name="loginform" />
 	</div>
   ) : (
 	<div className="main">
@@ -71,7 +71,7 @@ export const Home = ({
 
 	  <h2>Join Draft with a token</h2>
 	 
-	  <Form onSubmit={joinDraft} />
+	  <Form onSubmit={joinDraft} name="joindraft" />
 	</div>
   )
 }

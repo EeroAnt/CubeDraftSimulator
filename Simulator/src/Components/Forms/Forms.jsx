@@ -8,7 +8,7 @@ export const Filter = ({name, value, onChange}) => {
   )
 }
 
-export function Form({ onSubmit }) {
+export function Form({ onSubmit, name }) {
   const [username, setUsername] = useState("")
   return (
 	<>
@@ -17,10 +17,9 @@ export function Form({ onSubmit }) {
 		e.preventDefault()
 		onSubmit(username)
 	  }}
-	  name = {name}
 	  >
 	<input 
-	  name="forminput"
+	  name={name}
 	  type="text"
 	  value={username}
 	  onChange={(e) => setUsername(e.target.value)}
@@ -36,7 +35,7 @@ export const Dropdown = ({name, value, handleChange}) => {
   return (
 	<>
 	  <label>{name}
-		<select value={value} onChange={handleChange}>
+		<select name={name} value={value} onChange={handleChange}>
 		  <option value="1">1</option>
 		  <option value="2">2</option>
 		  <option value="3">3</option>
