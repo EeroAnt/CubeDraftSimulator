@@ -1,4 +1,4 @@
-import { Button } from '../'
+import { Button, Form } from '../'
 import { useState } from 'react'
 import { useEffect } from 'react'
 
@@ -15,6 +15,7 @@ const renderPlayers = message => {
   }
 
 
+
 export const Lobby = ({setMode, connection, numberOfPlayers, owner, token}) => {
   
   const [playersInLobby, setPlayersInLobby] = useState(0)
@@ -26,12 +27,25 @@ export const Lobby = ({setMode, connection, numberOfPlayers, owner, token}) => {
 	})
   }
 
+  const reJoinDraft = (seat) => {
+	connection.sendJsonMessage({
+	  type: "Rejoin Draft",
+	  table: token,
+	  seat: seat
+	})
+	console.log("Rejoining draft")
+  }
+
   useEffect(() => {
     if (connection.lastJsonMessage && connection.lastJsonMessage.players) {
       const numPlayers = Object.keys(connection.lastJsonMessage.players).length;
       setPlayersInLobby(numPlayers)
     } else if (connection.lastJsonMessage && connection.lastJsonMessage.status === "OK") {
 	  setMode("Draft")
+	} else if (connection.lastJsonMessage && connection.lastJsonMessage.status === "Draft Already Started") {
+	  console.log(connection.lastJsonMessage.status)
+	} else if (connection.lastJsonMessage && connection.lastJsonMessage.status != "OK") {
+	  console.log(connection.lastJsonMessage.status)
 	}
   }, [connection.lastJsonMessage, numberOfPlayers])
 
@@ -66,8 +80,17 @@ export const Lobby = ({setMode, connection, numberOfPlayers, owner, token}) => {
 		  </>
 		)}
 	  </div>
-	)}
-  if (connection.lastJsonMessage && connection.lastJsonMessage.status != 'OK') {
+	)} else if (connection.lastJsonMessage && connection.lastJsonMessage.status === "Draft Already Started") {
+	return (
+	  <div className="main">
+		<h1>Draft already started</h1>
+		<p>Please tell your seat token</p>
+		<Form onSubmit={reJoinDraft} />
+		<Button name="Go Back" onClick={() => setMode("Home")}/>
+	  </div>
+	)
+	}
+  else if (connection.lastJsonMessage && connection.lastJsonMessage.status != 'OK') {
 	return (
 	  <div className="main">
 		<h1>Lobby</h1>

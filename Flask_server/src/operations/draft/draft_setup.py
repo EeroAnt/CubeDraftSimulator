@@ -1,7 +1,8 @@
 from src.operations.draft.pool_generation import generate_pools
 from src.operations.draft.packs import *
 from src.operations.json_generator import generate_json
-
+from random import choices
+from string import ascii_letters, digits
 def setup_draft(player_count, identifier):
 	pools, conn = generate_pools(player_count)
 	commander_packs = create_commander_packs(pools["commanders"])
@@ -19,6 +20,10 @@ def generate_table(setup_to_finish, player_count):
 			"main": [],
 			"side": [],
 			"packAtHand": [],
-			"queue": []
+			"queue": [],
+			"token" : "".join(choices(ascii_letters+digits, k=4))
 		}
 	return setup_to_finish
+
+if __name__ == "__main__":
+	print("".join(choices(ascii_letters+digits, k=4)))

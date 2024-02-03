@@ -17,8 +17,10 @@ export function Form({ onSubmit }) {
 		e.preventDefault()
 		onSubmit(username)
 	  }}
+	  name = {name}
 	  >
 	<input 
+	  name="forminput"
 	  type="text"
 	  value={username}
 	  onChange={(e) => setUsername(e.target.value)}

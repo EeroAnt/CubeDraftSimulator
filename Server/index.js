@@ -17,27 +17,38 @@ let drafts = { }
 let intervalIDs = { }
 
 function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        const temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
 }
 
 function calculateNextSeatNumber(seatNumber, direction, player_count) {
-	if (seatNumber + direction < 0) {
-		return player_count - 1
-	}else {	return (seatNumber + direction) % player_count }
+  if (seatNumber + direction < 0) {
+	return player_count - 1
+  } else { return (seatNumber + direction) % player_count }
 }
 
 function sendCards(uuid) {
   connections[uuid].send(JSON.stringify({ status: "OK", type: "Picked Cards", commanders: users[uuid].seat.commanders, main: users[uuid].seat.main, side: users[uuid].seat.side}))
 }
 
+function checkIfRoundIsDone(table) {
+  for (const seat in table) {
+	if (table[seat].packAtHand.length > 0) {
+	  return false
+	}
+	if (table[seat].queue.length > 0) {
+	  return false
+	}
+  } return true
+}
+
 function checkDraftStatus(draft) {
   if (draft.state === 'drafting' && draft.players.length > 0) {
-	if (draft.players.every(player => player.seat.packAtHand.length === 0 && player.seat.queue.length === 0)) {
+	if (checkIfRoundIsDone(draft.table)) {
 	  draft.round ++
 	  if (draft.round < draft.rounds) {
 		console.log('round:',draft.round)
@@ -45,20 +56,21 @@ function checkDraftStatus(draft) {
 		for (let i = 0; i < draft.player_count; i++) {
 		  const player = draft.players[i]
 		  const pack = [draft.packs[`round${draft.round}`][`pack${i}`]]
-		  const playerOnTheLeft = draft.players[calculateNextSeatNumber(player.seat.number, 1, draft.player_count)]
-		  const playerOnTheRight = draft.players[calculateNextSeatNumber(player.seat.number, -1, draft.player_count)]
+		  console.log(player)
+		  const playerOnTheLeft = users[draft.table[`seat${[calculateNextSeatNumber(player.seat.number, 1, draft.player_count)]}`].player]
+		  const playerOnTheRight = users[draft.table[`seat${[calculateNextSeatNumber(player.seat.number, -1, draft.player_count)]}`].player]
 		  connections[draft.players[i].uuid].send(JSON.stringify({ status: "OK", type: "Neighbours", left: playerOnTheLeft.username, right: playerOnTheRight.username, direction: draft.direction}))
 		  player.seat.queue = pack
 	    }} else {
 		draft.state = 'done'
 		}
 	} else {
-	  for (const player of draft.players) {
-		if (player.seat.packAtHand.length === 0 && player.seat.queue.length > 0) {
+	  for (const seat in draft.table) {
+		if (draft.table[seat].packAtHand.length === 0 && draft.table[seat].queue.length > 0) {
 		  console.log('giving pack to player')
 
-		  player.seat.packAtHand = player.seat.queue.shift()
-		  connections[player.uuid].send(JSON.stringify({ status: "OK", type: "Pack", pack: player.seat.packAtHand}))
+		  draft.table[seat].packAtHand = draft.table[seat].queue.shift()
+		  connections[draft.table[seat].player].send(JSON.stringify({ status: "OK", type: "Pack", pack: draft.table[seat].packAtHand}))
 		}
 	  }
 	}
@@ -120,9 +132,10 @@ const handleMessage = (message, uuid) => {
 	} else if (drafts[data.token].players.length >= drafts[data.token].player_count) {
 	  connections[uuid].send(JSON.stringify({ status : 'Lobby Full'}))
 
+	} else if (drafts[data.token].state === 'drafting') {
+	  connections[uuid].send(JSON.stringify({ status : 'Draft Already Started'}))
 	} else {
 	  users[uuid].token = data.token
-	  users[uuid].status = 'waiting'
 	  drafts[data.token].players = drafts[data.token].players.concat(users[uuid])
 	  broadcastUserlist(drafts[data.token])}
 
@@ -133,10 +146,9 @@ const handleMessage = (message, uuid) => {
 	  broadcastDraftStatus(drafts[data.token],"Start Draft")
 	  shuffleArray(drafts[data.token].players)
 	  for (let i = 0; i < drafts[data.token].player_count; i++) {
+		drafts[data.token].table[`seat${i}`].player = drafts[data.token].players[i].uuid
 		const player = drafts[data.token].players[i]
-		// const pack = [drafts[data.token].packs[`round${drafts[data.token].round}`][`pack${i}`]]
 		player.seat = drafts[data.token].table[`seat${i}`]
-		// player.seat.queue = pack
 		player.seat.number = i
 		player.seat.commanders = []
 	  }
@@ -178,7 +190,34 @@ const handleMessage = (message, uuid) => {
 		users[uuid].seat[data.from] = users[uuid].seat[data.from].filter(card => !data.cards.some(c => c.id === card.id));
 	}
 	sendCards(uuid)
-  }
+  } else if (data.type === 'Rejoin Draft') {
+	if (Object.keys(drafts).includes(data.table)) {
+		console.log(drafts[data.table])
+	  for (const seat in drafts[data.table].table) {
+		console.log('check')
+		console.log(drafts[data.table].table[seat].token)
+		console.log(data.seat)
+		console.log(drafts[data.table].table[seat].player)
+		if (drafts[data.table].table[seat].token === data.seat && drafts[data.table].table[seat].player === "") {
+		  console.log('helo')
+		  drafts[data.table].table[seat].player = uuid
+		  drafts[data.table].players = drafts[data.table].players.concat(users[uuid])
+		  users[uuid].token = data.table
+		  users[uuid].seat = drafts[data.table].table[seat]
+		  users[uuid].seat.number = parseInt(seat.replace('seat',''))
+		  const playerOnTheLeft = users[drafts[data.table].table[`seat${[calculateNextSeatNumber(users[uuid].seat.number, 1, drafts[data.table].player_count)]}`].player]
+		  const playerOnTheRight = users[drafts[data.table].table[`seat${[calculateNextSeatNumber(users[uuid].seat.number, -1, drafts[data.table].player_count)]}`].player]
+		  connections[uuid].send(JSON.stringify({ status: "OK", type: "Neighbours", left: playerOnTheLeft.username, right: playerOnTheRight.username, direction: drafts[data.table].direction}))
+		  console.log(drafts[data.table].table[seat].packAtHand)
+		  console.log(typeof(drafts[data.table].table[seat].packAtHand))
+		  connections[uuid].send(JSON.stringify({ status : 'OK', type : 'Rejoin Draft'}))
+		  sendCards(uuid)
+		  if (Array(drafts[data.table].table[seat].packAtHand).length > 0) {
+			connections[uuid].send(JSON.stringify({ status : 'OK', type : 'Pack', pack : drafts[data.table].table[seat].packAtHand}))
+		  }
+	  }}} else {
+		connections[uuid].send(JSON.stringify({ status : 'Draft Disappeared'}))
+	  }}
 }
 
 
@@ -188,6 +227,8 @@ handleClose = (uuid) => {
     if (Object.keys(drafts).includes(users[uuid].token)) { 
 	  console.log('deleting')
       drafts[users[uuid].token].players = drafts[users[uuid].token].players.filter(player => player.uuid !== uuid)
+	  console.log(users[uuid])
+	  users[uuid].seat ? users[uuid].seat.player="" : console.log("Not seated")
 	}
   }
   console.log(`Connection closed: ${uuid}`)
@@ -202,8 +243,7 @@ wsServer.on('connection', (connection, request) => {
   users[uuid] = {
 	uuid: uuid,
 	username: "",
-	token: "",
-	status: ""
+	token: ""
   }
   connection.on("message", message => handleMessage(message, uuid))
   connection.on("close", () => handleClose(uuid))
