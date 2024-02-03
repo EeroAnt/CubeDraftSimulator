@@ -79,3 +79,8 @@
 ul {
 	list-style-type: none;
   }
+
+.neighbours {
+  right: 50%;
+  position: fixed;
+}

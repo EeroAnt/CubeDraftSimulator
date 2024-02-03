@@ -18,3 +18,28 @@ export function NavBar( {onClickDraftNavbar, onClickStatNavbar}) {
     </Navbar>
   );
 }
+
+export function DraftNavbar({onClickNavbar, buttonName, left, right, direction, username}) {
+  const currentDirection = () =>{
+	if (direction === 1) {
+	  return "<="
+	} else {
+	  return "=>"
+	}
+  }
+  return (
+	<Navbar expand="lg" className="bg-body-tertiary">
+	  <Container>
+		<Navbar.Toggle aria-controls="basic-navbar-nav" />
+		<Navbar.Collapse id="basic-navbar-nav">
+		  <Nav className="me-auto">
+		    <Button name={buttonName} onClick={onClickNavbar} />
+			<div className="neighbours">
+				{direction ? (`${left} ${currentDirection()} ${username} ${currentDirection()} ${right}`) : ("")}
+			</div>
+		  </Nav>
+		</Navbar.Collapse>
+	  </Container>
+	</Navbar>
+  );
+}

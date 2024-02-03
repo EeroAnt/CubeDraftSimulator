@@ -1,15 +1,19 @@
-import { Button, Image } from "../";
+import { Button, Image, DraftNavbar, DraftStats } from "../";
 import { useState, useEffect, createRef } from "react";
 import './draft.css'
 
 
-export const Draft = ({setMode, connection, token, main, setMain, side, setSide, commanders, setCommanders }) => {
+export const Draft = ({setMode, connection, token, main, setMain, side, setSide, commanders, setCommanders, username }) => {
   const [pack, setPack] = useState([])
   const [pick, setPick] = useState(0)
   const [showMain, setShowMain] = useState(true)
   const [selectedCards, setSelectedCards] = useState([])
   const [selectedCommanders, setSelectedCommanders] = useState([])
   const [lastClicked, setLastClicked] = useState({})
+  const [onTheLeft, setOnTheLeft] = useState("")
+  const [onTheRight, setOnTheRight] = useState("")
+  const [direction, setDirection] = useState(0)
+  const [showStats, setShowStats] = useState(false)
 
 
   useEffect(() => {
@@ -21,6 +25,10 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 	  setMain(connection.lastJsonMessage.main)
 	  setSide(connection.lastJsonMessage.side)
 	  setCommanders(connection.lastJsonMessage.commanders)
+	} else if (connection.lastJsonMessage && connection.lastJsonMessage.type === "Neighbours") {
+	  setOnTheLeft(connection.lastJsonMessage.left)
+	  setOnTheRight(connection.lastJsonMessage.right)
+	  setDirection(connection.lastJsonMessage.direction)
 	}
   }, [connection.lastJsonMessage])
 
@@ -192,13 +200,19 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 	  </div>
 	)
   }
-
+  if (!showStats) {
   if (pack) {
     return (
 	  <>
 	  {sideNav()}
 	  <div className="main">
-	    <h1>Draft</h1>
+	    <DraftNavbar
+		  onClickNavbar={()=>setShowStats(!showStats)}
+		  buttonName={showStats ? ("Show Draft") : ("Show Stats")}
+		  left={onTheLeft}
+		  right={onTheRight}
+		  direction={direction}
+		  username={username}/>
 	    {pack ? (
 		  <>
 		  <Button name="Pick to main" onClick={() => confirmPick("main")}/>
@@ -235,5 +249,25 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 	  </div>
 	  </>
 	);
+  }} else {
+	return (
+	  <>
+		{sideNav()}
+		<div className="main">
+		  <DraftNavbar
+			onClickNavbar={()=>setShowStats(!showStats)}
+			buttonName={showStats ? ("Show Draft") : ("Show Stats")}
+			left={onTheLeft}
+			right={onTheRight}
+			direction={direction}
+			username={username}/>
+		  <h1>Here be Stats</h1>
+		  <DraftStats
+			main={main}
+			side={side}
+			commanders={commanders}/>
+		</div>
+	  </>
+	)
   }
 }

@@ -60,6 +60,7 @@ export const App = () => {
 		  setSide={setSide}
 		  commanders={commanders}
 		  setCommanders={setCommanders}
+		  username={username}
 		  />
 	  )}
 	  
