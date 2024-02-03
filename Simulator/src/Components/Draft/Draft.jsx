@@ -14,6 +14,7 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
   const [onTheRight, setOnTheRight] = useState("")
   const [direction, setDirection] = useState(0)
   const [showStats, setShowStats] = useState(false)
+  const [seatToken, setSeatToken] = useState("")
 
 
   useEffect(() => {
@@ -29,6 +30,7 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 	  setOnTheLeft(connection.lastJsonMessage.left)
 	  setOnTheRight(connection.lastJsonMessage.right)
 	  setDirection(connection.lastJsonMessage.direction)
+	  setSeatToken(connection.lastJsonMessage.seatToken)
 	}
   }, [connection.lastJsonMessage])
 
@@ -162,6 +164,7 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 	return (
 	  <div className="sidenav">
 		<div className="sidenav-header" ref={headerRef}>
+		<p>Draft: {token} {seatToken ? (`Seat: ${seatToken}`):("")}</p>
 		{Object.keys(lastClicked).length === 0 ? (
   		  <p>Click a card in your main or side</p>
 		) : (
@@ -174,13 +177,13 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 		<p><Button 
 		  name={selectedCommanders.length === 1 ? (showMain ? "Move Commander to Main" : "Move Commander to Side") : "Set Commander"}
 		  onClick={selectedCommanders.length === 1 ? (() => removeCommander()) : (() => appointCommander())}/></p>
-	    <h2>Commanders</h2>
+	    <h3>Commanders</h3>
 		<ul >
 		  {commanders.map((card, index) => (
 			<li key={index} className={selectedCommanders.includes(card) ? ("clicked") : ("notClicked")} onClick={()=> selectCommander(card)}>{card.name}</li>
 		  ))}
 		</ul>
-		<h2>{showMain ? (`Main ${main.length} /${100-commanders.length}`) : ("Side")}</h2>
+		<h3>{showMain ? (`Main ${main.length} /${100-commanders.length}`) : ("Side")}</h3>
 		</div>
 		<div className="sidenav-body">
 		{showMain ? (

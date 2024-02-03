@@ -65,6 +65,7 @@ export const Lobby = ({setMode, connection, numberOfPlayers, owner, token}) => {
               </>
 			) : (
 			  <>
+			  <h2>Draft Token: {token}</h2>
               <h3>Waiting for all players to join</h3>
 			  <h2>Playercount: </h2>
 			  <p>{playersInLobby} / {numberOfPlayers}</p>
@@ -93,7 +94,7 @@ export const Lobby = ({setMode, connection, numberOfPlayers, owner, token}) => {
   else if (connection.lastJsonMessage && connection.lastJsonMessage.status != 'OK') {
 	return (
 	  <div className="main">
-		<h1>Lobby</h1>
+		<h1>Not in Lobby</h1>
 		<p>{connection.lastJsonMessage.status}</p>
 		<Button name="Go Back" onClick={() => setMode("Home")}/>
 	  </div>
