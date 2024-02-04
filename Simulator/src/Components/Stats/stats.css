@@ -48,3 +48,10 @@
 	vertical-align: top;
 	box-sizing: border-box; /* Ensure padding is included in the width */
   }
+
+  .current {
+	background-color: coral;
+	flex: 0 0 calc(10%); /* Adjust the width as needed */
+	padding: 5px;
+	box-sizing: border-box; /* Ensures padding is included in width calculation */
+  }

@@ -47,6 +47,7 @@ export const DraftStats = ({
 	typeFilter,
 	setTypeFilter
 }) => {
+  const [selectedTypefilter, setSelectedTypefilter] = useState("")
   const all = main.concat(side).concat(commanders)
   const deck = main.concat(commanders)
   const criteria = {
@@ -71,7 +72,7 @@ export const DraftStats = ({
 	const filterfunc = type==="Pos" ? amountOfFilteredCardsPos : amountOfFilteredCardsNeg
 	if (filterfunc(deck, all, criteria) === "0/0") return null
 	return (
-	  <div className='draftStatObject' onClick={() => handleTypeFilter([type].concat(criteria))}>
+	  <div className={selectedTypefilter===name ? ('current') : ('draftStatObject')} onClick={() => handleTypeFilter([type].concat(criteria), name)}>
 		<h5>{name}</h5>
 		  <p>{filterfunc(deck, all, criteria)}</p>
 	  </div>
@@ -79,15 +80,14 @@ export const DraftStats = ({
   }
 
 
-  const handleTypeFilter = (type) => {
+  const handleTypeFilter = (type, name) => {
 
-	console.log("type",type)
-	console.log("typefilter",typeFilter)
-	console.log(JSON.stringify(typeFilter) === JSON.stringify(type))
 	if (JSON.stringify(typeFilter) === JSON.stringify(type)) {
 	  setTypeFilter(["All"])
+	  setSelectedTypefilter("")
 	} else {
 	  setTypeFilter(type)
+	  setSelectedTypefilter(name)
 	}
   }
 
