@@ -3,22 +3,6 @@ import { useState } from 'react';
 import './stats.css'
 
 
-function filterCardsPos(cards, criteria) {
-  var filtered = []
-  for (let i = 1; i < criteria.length; i++) {
-	filtered = filtered.concat(cards.filter(card => card.types.includes(criteria[i])))
-	}
-  return filtered
-}
-
-function filterCardsNeg(cards, criteria) {
-  var filtered = [].concat(cards)
-  for (let i = 1; i < criteria.length; i++) {
-	filtered = filtered.filter(card => !filtered.filter(card => card.types.includes(criteria[i])).includes(card))
-  }
-  return filtered
-}
-
 function amountOfFilteredCardsPos(deck, all, criteria) {
   var deckAmount = 0
   var totalAmount = 0
