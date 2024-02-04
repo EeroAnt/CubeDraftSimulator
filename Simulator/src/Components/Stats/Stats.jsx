@@ -5,7 +5,7 @@ import './stats.css'
 
 function filterCardsPos(cards, criteria) {
   var filtered = []
-  for (let i = 0; i < criteria.length; i++) {
+  for (let i = 1; i < criteria.length; i++) {
 	filtered = filtered.concat(cards.filter(card => card.types.includes(criteria[i])))
 	}
   return filtered
@@ -13,7 +13,7 @@ function filterCardsPos(cards, criteria) {
 
 function filterCardsNeg(cards, criteria) {
   var filtered = [].concat(cards)
-  for (let i = 0; i < criteria.length; i++) {
+  for (let i = 1; i < criteria.length; i++) {
 	filtered = filtered.filter(card => !filtered.filter(card => card.types.includes(criteria[i])).includes(card))
   }
   return filtered
@@ -51,8 +51,18 @@ export const Stats = ({setMode}) => {
   )
 }
 
-export const DraftStats = ({main, side, commanders, showMain, selectedCards,selectCards}) => {
-  const [cardsToDisplay, setCardsToDisplay] = useState([])
+export const DraftStats = ({
+	main,
+	side,
+	commanders,
+	showMain,
+	selectedCards,
+	selectCards,
+	cardsToDisplay,
+	setCardsToDisplay,
+	typeFilter,
+	setTypeFilter
+}) => {
   const all = main.concat(side).concat(commanders)
   const deck = main.concat(commanders)
   const criteria = {
@@ -77,7 +87,7 @@ export const DraftStats = ({main, side, commanders, showMain, selectedCards,sele
 	const filterfunc = type==="Pos" ? amountOfFilteredCardsPos : amountOfFilteredCardsNeg
 	if (filterfunc(deck, all, criteria) === "0/0") return null
 	return (
-	  <div className='draftStatObject' onClick={() => displayCards(criteria, main, side, type)}>
+	  <div className='draftStatObject' onClick={() => handleTypeFilter([type].concat(criteria))}>
 		<h5>{name}</h5>
 		  <p>{filterfunc(deck, all, criteria)}</p>
 	  </div>
@@ -85,11 +95,15 @@ export const DraftStats = ({main, side, commanders, showMain, selectedCards,sele
   }
 
 
-  const displayCards = (criteria, main, side, type) => {
-	if (type === "Pos") {
-	  setCardsToDisplay(filterCardsPos(main.concat(side), criteria))
+  const handleTypeFilter = (type) => {
+
+	console.log("type",type)
+	console.log("typefilter",typeFilter)
+	console.log(JSON.stringify(typeFilter) === JSON.stringify(type))
+	if (JSON.stringify(typeFilter) === JSON.stringify(type)) {
+	  setTypeFilter(["All"])
 	} else {
-	  setCardsToDisplay(filterCardsNeg(main.concat(side), criteria))
+	  setTypeFilter(type)
 	}
   }
 

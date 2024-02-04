@@ -3,6 +3,22 @@ import { useState, useEffect, createRef } from "react";
 import './draft.css'
 
 
+function filterCardsPos(cards, criteria) {
+	var filtered = []
+	for (let i = 1; i < criteria.length; i++) {
+	  filtered = filtered.concat(cards.filter(card => card.types.includes(criteria[i])))
+	  }
+	return filtered
+  }
+  
+  function filterCardsNeg(cards, criteria) {
+	var filtered = [].concat(cards)
+	for (let i = 1; i < criteria.length; i++) {
+	  filtered = filtered.filter(card => !filtered.filter(card => card.types.includes(criteria[i])).includes(card))
+	}
+	return filtered
+  }
+
 export const Draft = ({setMode, connection, token, main, setMain, side, setSide, commanders, setCommanders, username }) => {
   const [pack, setPack] = useState([])
   const [pick, setPick] = useState(0)
@@ -15,6 +31,8 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
   const [direction, setDirection] = useState(0)
   const [showStats, setShowStats] = useState(false)
   const [seatToken, setSeatToken] = useState("")
+  const [cardsToDisplay, setCardsToDisplay] = useState([])
+  const [typeFilter, setTypeFilter] = useState(["All"])
 
 
   useEffect(() => {
@@ -34,6 +52,19 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 	}
   }, [connection.lastJsonMessage])
 
+  useEffect(() => {
+	console.log("currenttypefilter", typeFilter)
+	console.log(typeFilter[0])
+	if (typeFilter[0] === "All") {
+	  console.log("all")
+	  console.log(main.concat(side).concat(commanders))
+	  setCardsToDisplay(main.concat(side).concat(commanders))
+	} else {
+	  setCardsToDisplay(
+		typeFilter[0] === "Pos" 
+	  ? filterCardsPos(main.concat(side).concat(commanders), typeFilter)
+	  : filterCardsNeg(main.concat(side).concat(commanders), typeFilter)
+	)}}, [main, side, commanders, typeFilter])
 
   const selectCards = (card) => {
 	setSelectedCommanders([])
@@ -47,6 +78,7 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 
 
   const moveCards = () => {
+	console.log(cardsToDisplay)
 	if (selectedCards.length === 0) {
 	  alert("No card selected")
 	} else {
@@ -271,7 +303,11 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 			commanders={commanders}
 			showMain={showMain}
 			selectedCards={selectedCards}
-			selectCards={selectCards}/>
+			selectCards={selectCards}
+			cardsToDisplay={cardsToDisplay}
+			setCardsToDisplay={setCardsToDisplay}
+			typeFilter={typeFilter}
+			setTypeFilter={setTypeFilter}/>
 		</div>
 	  </>
 	)
