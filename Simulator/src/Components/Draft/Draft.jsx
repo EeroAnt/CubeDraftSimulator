@@ -164,7 +164,7 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 	}
   }
 
-
+  const defaultImageUrl = "https://cards.scryfall.io/large/front/3/0/308ac133-f368-4f6c-9e09-d9cfc136355a.jpg?1605483061"
 
 
   const sideNav = () => {
@@ -198,7 +198,7 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 		<div className="sidenav-header" ref={headerRef}>
 		<p>Draft: {token} {seatToken ? (`Seat: ${seatToken}`):("")}</p>
 		{Object.keys(lastClicked).length === 0 ? (
-  		  <p>Click a card in your main or side</p>
+  		  <Image imageUrl={defaultImageUrl} backsideUrl="" />
 		) : (
   		  <Image imageUrl={lastClicked.image_url} backsideUrl={lastClicked.backside_image_url}/>
 		)}
