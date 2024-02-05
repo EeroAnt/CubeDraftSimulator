@@ -1,5 +1,6 @@
 import { NavBar, Dropdown, Button, setupDraft, Form } from "../../"
 
+
 export const Home = ({
 	setMode, 
 	setNumberOfPlayers, 
@@ -10,7 +11,8 @@ export const Home = ({
 	setOwner,
 	setToken
 }) =>{
-  
+
+	
   const login = (username) => {
 	setUsername(username)
 	connection.sendJsonMessage({
@@ -19,10 +21,12 @@ export const Home = ({
 	})
   }
 
+
   const changePlayerNumber = (e) => {
 	e.preventDefault()
 	setNumberOfPlayers(Number(e.target.value))
   }
+
 
   const submitSetup = (e) => {
 	setMode("Lobby")
@@ -33,8 +37,9 @@ export const Home = ({
 	const newtoken = token()
 	setToken(newtoken)
 	setupDraft(newtoken, numberOfPlayers, connection)
-	console.log(newtoken)
+	console.log(newtoken) 
   }
+
 
   const joinDraft = (token) => {
 	connection.sendJsonMessage({
@@ -47,6 +52,7 @@ export const Home = ({
 
   }
 
+  
   return !username ? (
 	<div className="main">
 	  <NavBar
