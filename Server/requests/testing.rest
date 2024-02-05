@@ -1,4 +1,0 @@
-POST http://localhost:3001/api
-Content-Type: application/json
-
-{"start draft" : "true"}
