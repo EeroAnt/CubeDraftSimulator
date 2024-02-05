@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 
 
 const renderPlayers = message => {
-  console.log(Object.keys(message.players))
+//   console.log(Object.keys(message.players))
   return (
 	  <ul>
 		{Object.keys(message.players).map(uuid => {
@@ -27,6 +27,7 @@ export const Lobby = ({setMode, connection, numberOfPlayers, owner, token}) => {
 	})
   }
 
+
   const reJoinDraft = (seat) => {
 	connection.sendJsonMessage({
 	  type: "Rejoin Draft",
@@ -35,6 +36,7 @@ export const Lobby = ({setMode, connection, numberOfPlayers, owner, token}) => {
 	})
 	console.log("Rejoining draft")
   }
+
 
   useEffect(() => {
     if (connection.lastJsonMessage && connection.lastJsonMessage.players) {
@@ -51,7 +53,6 @@ export const Lobby = ({setMode, connection, numberOfPlayers, owner, token}) => {
 
 
   if (connection.lastJsonMessage && connection.lastJsonMessage.status === "OK" && connection.lastJsonMessage.type === "Playerlist") {
-	console.log(connection.lastJsonMessage)
 	return (
 	  <div className="main">
 		<h1>Lobby</h1>
