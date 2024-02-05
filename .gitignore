@@ -3,3 +3,5 @@
 Docker*
 docker*
 .docker*
+entrypoint.sh
+nginx.conf
