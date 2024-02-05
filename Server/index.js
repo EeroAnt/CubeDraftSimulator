@@ -4,17 +4,16 @@ const axios = require('axios')
 const cors = require('cors')
 const http = require('http')
 const {WebSocketServer} = require('ws')
-const url = require('url')
 const server = http.createServer()
 const wsServer = new WebSocketServer({server:server})
 const uuidv4 = require('uuid').v4
-const fs = require('fs');
-const { send } = require('process')
+
 
 let connections = { }
 let users = { }
 let drafts = { }
 let intervalIDs = { }
+
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -25,15 +24,18 @@ function shuffleArray(array) {
   }
 }
 
+
 function calculateNextSeatNumber(seatNumber, direction, player_count) {
   if (seatNumber + direction < 0) {
 	return player_count - 1
   } else { return (seatNumber + direction) % player_count }
 }
 
+
 function sendCards(uuid) {
   connections[uuid].send(JSON.stringify({ status: "OK", type: "Picked Cards", commanders: users[uuid].seat.commanders, main: users[uuid].seat.main, side: users[uuid].seat.side}))
 }
+
 
 function checkIfRoundIsDone(table) {
   for (const seat in table) {
@@ -45,6 +47,7 @@ function checkIfRoundIsDone(table) {
 	}
   } return true
 }
+
 
 function checkDraftStatus(draft) {
   if (draft.state === 'drafting' && draft.players.length > 0) {
@@ -101,12 +104,14 @@ const broadcastUserlist = (draft) => {
  })
 }
 
+
 const broadcastDraftStatus = (draft, status) => {
   Object.values(draft.players).forEach(player => {
 	const message = JSON.stringify({ status: "OK", type: status })
 	connections[player.uuid].send(message)
   })
 }
+
 
 const broadcastCanalDredger = (draft, seatNumber) => {
   Object.values(draft.players).forEach(player => {
@@ -270,7 +275,6 @@ app.get('/api/init_draft/:player_count/:token', (request, response) => {
   axios.get(`http://127.0.0.1:5100/${player_count}/${token}`).then(res => {
   const data = JSON.stringify(res.data)
 
-  
   drafts[token] = {
 	token : token,
     player_count : player_count,
@@ -343,6 +347,7 @@ const wsPort = 3001
 server.listen(wsPort, () => {
 	  console.log(`Server listening on port ${wsPort}`)
 })
+
 
 const PORT = 3002
 app.listen(PORT, () => {
