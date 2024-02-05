@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-// const axios = require('axios')
+const axios = require('axios')
 const cors = require('cors')
 const http = require('http')
 const {WebSocketServer} = require('ws')
@@ -56,7 +56,6 @@ function checkDraftStatus(draft) {
 		for (let i = 0; i < draft.player_count; i++) {
 		  const player = draft.players[i]
 		  const pack = [draft.packs[`round${draft.round}`][`pack${i}`]]
-		  console.log(player)
 		  const playerOnTheLeft = users[draft.table[`seat${[calculateNextSeatNumber(player.seat.number, 1, draft.player_count)]}`].player]
 		  const playerOnTheRight = users[draft.table[`seat${[calculateNextSeatNumber(player.seat.number, -1, draft.player_count)]}`].player]
 		  connections[draft.players[i].uuid].send(JSON.stringify({ status: "OK", type: "Neighbours", left: playerOnTheLeft.username, right: playerOnTheRight.username, direction: draft.direction, seatToken: player.seat.token}))
@@ -97,7 +96,8 @@ const broadcastUserlist = (draft) => {
 		return acc;
 	  }, { status: "OK", type: "Playerlist", players: {} });
 	const message = JSON.stringify(result)
-	connections[player.uuid].send(message)
+	if (Object.keys(connections).includes(player.uuid)) {
+	connections[player.uuid].send(message)}
  })
 }
 
@@ -106,6 +106,17 @@ const broadcastDraftStatus = (draft, status) => {
 	const message = JSON.stringify({ status: "OK", type: status })
 	connections[player.uuid].send(message)
   })
+}
+
+const broadcastCanalDredger = (draft, seatNumber) => {
+  Object.values(draft.players).forEach(player => {
+	if (player.seat.number === seatNumber) {
+	  const message = JSON.stringify({ status: "OK", type: "Canal Dredger", seat: seatNumber, owner: true})
+	  connections[player.uuid].send(message)
+	} else {
+	const message = JSON.stringify({ status: "OK", type: "Canal Dredger", seat: seatNumber, owner: false})
+	connections[player.uuid].send(message)
+}})
 }
 
 
@@ -161,6 +172,11 @@ const handleMessage = (message, uuid) => {
 	shuffleArray(users[uuid].seat.packAtHand)
     users[uuid].seat[data.zone] = users[uuid].seat[data.zone].concat(users[uuid].seat.packAtHand.filter(card => card.id === data.card)[0])
 	users[uuid].seat.packAtHand = users[uuid].seat.packAtHand.filter(card => card.id !== data.card)
+
+	if (data.card === 1887) {
+	  console.log("Canal Dredger")
+	  broadcastCanalDredger(drafts[data.token], users[uuid].seat.number)
+	}
 	
 	const nextSeatNumber = calculateNextSeatNumber(users[uuid].seat.number, drafts[data.token].direction, drafts[data.token].player_count)
 	
@@ -170,6 +186,9 @@ const handleMessage = (message, uuid) => {
 	users[uuid].seat.packAtHand = []
 	sendCards(uuid)
 	
+  } else if (data.type === 'Give Last Card') {
+	drafts[data.token].table[`seat${data.seat}`].queue = drafts[data.token].table[`seat${data.seat}`].queue.concat([users[uuid].seat.packAtHand])
+	users[uuid].seat.packAtHand = []
 
   } else if (data.type === 'Set Commander') {
 	users[uuid].seat.commanders = users[uuid].seat.commanders.concat(data.card)
@@ -189,21 +208,13 @@ const handleMessage = (message, uuid) => {
 	  !users[uuid].seat[data.to].includes(card) ? (users[uuid].seat[data.to] = users[uuid].seat[data.to].concat(card)) : ("Card already in the zone")
 	  users[uuid].seat[data.from] = users[uuid].seat[data.from].filter(c => c.id !== card.id)
 	}
-	// users[uuid].seat[data.to] = users[uuid].seat[data.to].concat(data.cards)
-	// if (Array.isArray(users[uuid].seat[data.from]) && Array.isArray(data.cards)) {
-	// 	users[uuid].seat[data.from] = users[uuid].seat[data.from].filter(card => !data.cards.some(c => c.id === card.id));
-	// }
+
 	sendCards(uuid)
   } else if (data.type === 'Rejoin Draft') {
 	if (Object.keys(drafts).includes(data.table)) {
-		console.log(drafts[data.table])
 	  for (const seat in drafts[data.table].table) {
-		console.log('check')
-		console.log(drafts[data.table].table[seat].token)
-		console.log(data.seat)
-		console.log(drafts[data.table].table[seat].player)
 		if (drafts[data.table].table[seat].token === data.seat && drafts[data.table].table[seat].player === "") {
-		  console.log('helo')
+
 		  drafts[data.table].table[seat].player = uuid
 		  drafts[data.table].players = drafts[data.table].players.concat(users[uuid])
 		  users[uuid].token = data.table
@@ -212,8 +223,6 @@ const handleMessage = (message, uuid) => {
 		  const playerOnTheLeft = users[drafts[data.table].table[`seat${[calculateNextSeatNumber(users[uuid].seat.number, 1, drafts[data.table].player_count)]}`].player]
 		  const playerOnTheRight = users[drafts[data.table].table[`seat${[calculateNextSeatNumber(users[uuid].seat.number, -1, drafts[data.table].player_count)]}`].player]
 		  connections[uuid].send(JSON.stringify({ status: "OK", type: "Neighbours", left: playerOnTheLeft.username, right: playerOnTheRight.username, direction: drafts[data.table].direction, seatToken: users[uuid].seat.token}))
-		  console.log(drafts[data.table].table[seat].packAtHand)
-		  console.log(typeof(drafts[data.table].table[seat].packAtHand))
 		  connections[uuid].send(JSON.stringify({ status : 'OK', type : 'Rejoin Draft'}))
 		  sendCards(uuid)
 		  if (Array(drafts[data.table].table[seat].packAtHand).length > 0) {
@@ -258,7 +267,9 @@ app.get('/api/init_draft/:player_count/:token', (request, response) => {
   response.set('Access-Control-Allow-Origin', '*')
   const player_count = request.params.player_count
   const token = request.params.token
-  const filePath = './test3.json';
+  axios.get(`http://127.0.0.1:5100/${player_count}/${token}`).then(res => {
+  const data = JSON.stringify(res.data)
+
   
   drafts[token] = {
 	token : token,
@@ -269,12 +280,6 @@ app.get('/api/init_draft/:player_count/:token', (request, response) => {
 	direction : -1
   }
   
-  fs.readFile(filePath, 'utf8', (err, data) => {
-	if (err) {
-		console.error(err);
-		return;
-	}
-	
 	drafts[token].table = JSON.parse(data).table;
 
 	const filteredData = Object.keys(JSON.parse(data)).reduce((obj, key) => {
@@ -286,11 +291,50 @@ app.get('/api/init_draft/:player_count/:token', (request, response) => {
 	
 	drafts[token].packs = filteredData;
 	drafts[token].rounds = Object.keys(filteredData).length
+	// broadcastUserlist(drafts[token])
+	response.send({ status: "OK", type: "Playerlist", players: drafts[token].players })
+  })
+  .catch(error => {
+	console.error('Error fetching data:', error);
   });
-  response.send("OK")
 
 })
-
+// app.get('/api/init_draft/:player_count/:token', (request, response) => {
+// 	response.set('Access-Control-Allow-Origin', '*')
+// 	const player_count = request.params.player_count
+// 	const token = request.params.token
+// 	const filePath = './draft2g2b.json';
+	
+// 	drafts[token] = {
+// 	  token : token,
+// 	  player_count : player_count,
+// 	  players : [],
+// 	  state : 'lobby',
+// 	  round : -1,
+// 	  direction : -1
+// 	}
+	
+// 	fs.readFile(filePath, 'utf8', (err, data) => {
+// 	  if (err) {
+// 		  console.error(err);
+// 		  return;
+// 	  }
+	  
+// 	  drafts[token].table = JSON.parse(data).table;
+  
+// 	  const filteredData = Object.keys(JSON.parse(data)).reduce((obj, key) => {
+// 		  if (key !== 'table') {
+// 			  obj[key] = JSON.parse(data)[key];
+// 		  }
+// 		  return obj;
+// 	  }, {});
+	  
+// 	  drafts[token].packs = filteredData;
+// 	  drafts[token].rounds = Object.keys(filteredData).length
+// 	});
+// 	response.send("OK")
+  
+//   })
 
 app.use(cors())
 
