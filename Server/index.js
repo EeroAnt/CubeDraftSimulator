@@ -272,7 +272,7 @@ app.get('/api/init_draft/:player_count/:token', (request, response) => {
   response.set('Access-Control-Allow-Origin', '*')
   const player_count = request.params.player_count
   const token = request.params.token
-  axios.get(`http://127.0.0.1:5100/${player_count}/${token}`).then(res => {
+  axios.get(`http://127.0.0.1:5002/${player_count}/${token}`).then(res => {
   const data = JSON.stringify(res.data)
 
   drafts[token] = {
