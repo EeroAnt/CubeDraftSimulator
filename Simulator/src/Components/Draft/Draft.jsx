@@ -33,6 +33,8 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
   const [seatToken, setSeatToken] = useState("")
   const [cardsToDisplay, setCardsToDisplay] = useState([])
   const [typeFilter, setTypeFilter] = useState(["All"])
+  const [canalDredger, setCanalDredger] = useState(false)
+  const [canalDredgerOwner, setCanalDredgerOwner] = useState(-1)
 
 
   useEffect(() => {
@@ -49,6 +51,12 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 	  setOnTheRight(connection.lastJsonMessage.right)
 	  setDirection(connection.lastJsonMessage.direction)
 	  setSeatToken(connection.lastJsonMessage.seatToken)
+	} else if (connection.lastJsonMessage && connection.lastJsonMessage.type === "Canal Dredger") {
+	  console.log("canal dredger")
+	  setCanalDredgerOwner(connection.lastJsonMessage.seat)
+	  if (connection.lastJsonMessage.owner) {
+		setCanalDredger(true)
+	  }
 	}
   }, [connection.lastJsonMessage])
 
@@ -147,7 +155,22 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
   const chooseCard = (card) => {
 	setPick(card.id)
   }
-
+  const renderPickButtons = () => {
+	if (canalDredgerOwner === -1 || canalDredger === true || pack.length > 1) {
+	  return (
+	  <>
+	  <Button name="Pick to main" onClick={() => confirmPick("main")}/>
+	  <Button name="Pick to side" onClick={() => confirmPick("side")}/>
+	  </>)
+	} else {
+	  return (
+		<>
+		<Button name="Give" onClick={() => giveAway()}/>
+		</>
+	  )
+	}
+  }
+  
 
   const confirmPick = (target) => {
 	if (pick) {
@@ -164,8 +187,22 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 	}
   }
 
-  const defaultImageUrl = "https://cards.scryfall.io/large/front/3/0/308ac133-f368-4f6c-9e09-d9cfc136355a.jpg?1605483061"
+  const giveAway = () => {
+	if (pick) {
+	  connection.sendJsonMessage({
+		type: "Give Last Card",
+		card: pick,
+		token: token,
+		seat: canalDredgerOwner
+	  })
+	  setPick(0)
+	  setPack([])
+	} else {
+	  console.log("No card picked")
+	}
+  }
 
+  const defaultImageUrl = "https://cards.scryfall.io/large/front/3/0/308ac133-f368-4f6c-9e09-d9cfc136355a.jpg?1605483061"
 
   const sideNav = () => {
 	const headerRef = createRef()
@@ -210,7 +247,7 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 		  name={selectedCommanders.length === 1 ? (showMain ? "Move Commander to Main" : "Move Commander to Side") : "Set Commander"}
 		  onClick={selectedCommanders.length === 1 ? (() => removeCommander()) : (() => appointCommander())}/></p>
 	    <h3>Commanders</h3>
-		<ul >
+		<ul className="ulcardlist">
 		  {commanders.map((card, index) => (
 			<li key={index} className={selectedCommanders.includes(card) ? ("clicked") : ("notClicked")} onClick={()=> selectCommander(card)}>{card.name}</li>
 		  ))}
@@ -219,13 +256,13 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 		</div>
 		<div className="sidenav-body">
 		{showMain ? (
-		  <ul >
+		  <ul className="ulcardlist">
 			{main.map((card, index) => (
 			  <li key={index} className={selectedCards.includes(card) ? ("clicked") : ("notClicked")} onClick={() => selectCards(card)}>{card.name}</li>
 			))}
 		  </ul>
 		) : (
-		  <ul>
+		  <ul className="ulcardlist">
 			{side.map((card, index) => (
 			  <li key={index} className={selectedCards.includes(card) ? ("clicked") : ("notClicked")} onClick={() => selectCards(card)}>{card.name}</li>
 			))}
@@ -250,8 +287,7 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 		  username={username}/>
 	    {pack ? (
 		  <>
-		  <Button name="Pick to main" onClick={() => confirmPick("main")}/>
-		  <Button name="Pick to side" onClick={() => confirmPick("side")}/>
+		  {renderPickButtons()}
         <table className="pack">
           <tbody>
             {pack.reduce((rows, card, index) => {

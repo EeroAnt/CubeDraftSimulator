@@ -76,7 +76,7 @@
   .sidenav a {font-size: 18px;}
 }
 
-ul {
+.ulcardlist {
 	list-style-type: none;
 	margin-left: -10%;
   }
