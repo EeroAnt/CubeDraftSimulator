@@ -1,4 +1,4 @@
-import { NavBar, Button, Image} from '../';
+import { MyNavBar, Button, Image} from '../';
 import { useState } from 'react';
 import './stats.css'
 
@@ -26,7 +26,7 @@ function amountOfFilteredCardsNeg(deck, all, criteria) {
 export const Stats = ({setMode}) => {
   return (
 	<div className="main">
-		<NavBar 
+		<MyNavBar 
 		  onClickDraftNavbar={() => setMode("Home")} 
 		  onClickStatNavbar={() => setMode("Stats")}
 		/>

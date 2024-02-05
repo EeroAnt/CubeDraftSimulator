@@ -1,4 +1,4 @@
-import { NavBar, Dropdown, Button, setupDraft, Form } from "../../"
+import { MyNavBar, Dropdown, Button, setupDraft, Form } from "../../"
 
 
 export const Home = ({
@@ -55,9 +55,9 @@ export const Home = ({
   
   return !username ? (
 	<div className="main">
-	  <NavBar
-		onClickDraftNavbar={() => setMode("Home")}
-		onClickStatNavbar={() => setMode("Stats")}
+	  <MyNavBar
+		onClickDraftNavBar={() => setMode("Home")}
+		onClickStatNavBar={() => setMode("Stats")}
 	  />
 	  <h1>Home</h1>
 
@@ -66,7 +66,7 @@ export const Home = ({
 	</div>
   ) : (
 	<div className="main">
-	  <NavBar 
+	  <MyNavBar 
 	    onClickDraftNavbar={() => setMode("Home")}
 	    onClickStatNavbar={() => setMode("Stats")}
 	  />
