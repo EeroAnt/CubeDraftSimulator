@@ -1,4 +1,5 @@
 import { NavBar, Dropdown, Button, setupDraft, Form } from "../../"
+import { useEffect } from 'react'
 
 
 export const Home = ({
@@ -29,7 +30,6 @@ export const Home = ({
 
 
   const submitSetup = (e) => {
-	setMode("Lobby")
 	setOwner(true)
 	var token = function() {
 		return Math.random().toString(36).slice(2,6)
@@ -39,6 +39,13 @@ export const Home = ({
 	setupDraft(newtoken, numberOfPlayers, connection)
 	console.log(newtoken) 
   }
+
+
+  useEffect(() => {
+	if (connection.lastJsonMessage && connection.lastJsonMessage.status === "Setup OK") {
+	  setMode("Lobby")
+	}
+	  }, [connection.lastJsonMessage])
 
 
   const joinDraft = (token) => {

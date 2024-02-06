@@ -1,7 +1,4 @@
-const express = require('express')
-const app = express()
 const axios = require('axios')
-const cors = require('cors')
 const http = require('http')
 const {WebSocketServer} = require('ws')
 const server = http.createServer()
@@ -135,9 +132,10 @@ const handleMessage = (message, uuid) => {
 
 
   } else if (data.type === "Create Lobby") {
-	drafts[data.token].players = drafts[data.token].players.concat(users[uuid])
+	// drafts[data.token].players = drafts[data.token].players.concat(users[uuid])
 	users[uuid].token = data.token
-	broadcastUserlist(drafts[data.token])	
+	// broadcastUserlist(drafts[data.token])
+	getDraft(data.token, data.player_count, uuid)
 
 
   } else if (data.type === "Join Draft") {
@@ -268,55 +266,19 @@ wsServer.on('connection', (connection, request) => {
 })
 
 
-app.get('/api/init_draft/:player_count/:token', (request, response) => {
-  response.set('Access-Control-Allow-Origin', '*')
-  const player_count = request.params.player_count
-  const token = request.params.token
-  axios.get(`http://127.0.0.1:5100/${player_count}/${token}`).then(res => {
-  const data = JSON.stringify(res.data)
 
-  drafts[token] = {
-	token : token,
-    player_count : player_count,
-    players : [],
-    state : 'lobby',
-    round : -1,
-	direction : -1
-  }
-  
-	drafts[token].table = JSON.parse(data).table;
+// function getDraft(token, player_count, uuid) {
 
-	const filteredData = Object.keys(JSON.parse(data)).reduce((obj, key) => {
-		if (key !== 'table') {
-			obj[key] = JSON.parse(data)[key];
-		}
-		return obj;
-	}, {});
-	
-	drafts[token].packs = filteredData;
-	drafts[token].rounds = Object.keys(filteredData).length
-	// broadcastUserlist(drafts[token])
-	response.send({ status: "OK", type: "Playerlist", players: drafts[token].players })
-  })
-  .catch(error => {
-	console.error('Error fetching data:', error);
-  });
-
-})
-// app.get('/api/init_draft/:player_count/:token', (request, response) => {
-// 	response.set('Access-Control-Allow-Origin', '*')
-// 	const player_count = request.params.player_count
-// 	const token = request.params.token
 // 	const filePath = './draft2g2b.json';
 	
-// 	drafts[token] = {
-// 	  token : token,
-// 	  player_count : player_count,
-// 	  players : [],
-// 	  state : 'lobby',
-// 	  round : -1,
-// 	  direction : -1
-// 	}
+//   drafts[token] = {
+// 	token : token,
+//     player_count : player_count,
+//     players : [users[uuid]],
+//     state : 'lobby',
+//     round : -1,
+// 	direction : -1
+//   }
 	
 // 	fs.readFile(filePath, 'utf8', (err, data) => {
 // 	  if (err) {
@@ -335,12 +297,10 @@ app.get('/api/init_draft/:player_count/:token', (request, response) => {
 	  
 // 	  drafts[token].packs = filteredData;
 // 	  drafts[token].rounds = Object.keys(filteredData).length
+// 	  connections[uuid].send(JSON.stringify({ status: "Setup OK"}))
+// 	  broadcastUserlist(drafts[token])
 // 	});
-// 	response.send("OK")
-  
-//   })
-
-app.use(cors())
+// }
 
 
 const wsPort = 3001
@@ -349,7 +309,36 @@ server.listen(wsPort, () => {
 })
 
 
-const PORT = 3002
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
-})
+function getDraft(token, player_count, uuid) {
+
+axios.get(`http://127.0.0.1:5002/${player_count}/${token}`).then(res => {
+  const data = JSON.stringify(res.data)
+
+  drafts[token] = {
+	token : token,
+    player_count : player_count,
+    players : [users[uuid]],
+    state : 'lobby',
+    round : -1,
+	direction : -1
+  }
+  
+	drafts[token].table = JSON.parse(data).table;
+
+	const filteredData = Object.keys(JSON.parse(data)).reduce((obj, key) => {
+		if (key !== 'table') {
+			obj[key] = JSON.parse(data)[key];
+		}
+		return obj;
+	}, {});
+	
+	drafts[token].packs = filteredData;
+	drafts[token].rounds = Object.keys(filteredData).length
+	connections[uuid].send(JSON.stringify({ status: "Setup OK"}))
+	broadcastUserlist(drafts[token])
+  })
+  .catch(error => {
+	console.error('Error fetching data:', error);
+
+  });
+}
