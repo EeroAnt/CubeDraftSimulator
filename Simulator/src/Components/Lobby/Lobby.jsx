@@ -4,7 +4,6 @@ import { useEffect } from 'react'
 
 
 const renderPlayers = message => {
-  console.log(Object.keys(message.players))
   return (
 	  <ul>
 		{Object.keys(message.players).map(uuid => {
