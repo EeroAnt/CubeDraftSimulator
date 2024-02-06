@@ -1,9 +1,9 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import { Button } from '../'
+import { Button } from '..'
 
-export function NavBar( {onClickDraftNavbar, onClickStatNavbar}) {
+export function MyNavBar( {onClickDraftNavbar, onClickStatNavbar}) {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
