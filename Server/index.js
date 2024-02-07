@@ -128,14 +128,17 @@ const handleMessage = (message, uuid) => {
 
   if (data.type === "Login"){
 	users[uuid].username = data.username
+	users[uuid].token = ""
 	console.log("Login: " + data.username)
 
 
   } else if (data.type === "Create Lobby") {
-	// drafts[data.token].players = drafts[data.token].players.concat(users[uuid])
-	users[uuid].token = data.token
-	// broadcastUserlist(drafts[data.token])
-	getDraft(data.token, data.player_count, uuid)
+	if (users[uuid].token === "") {
+	  users[uuid].token = data.token
+	  getDraft(data.token, data.player_count, uuid)
+	} else {
+	  console.log("Wait for setting up the draft")
+	}
 
 
   } else if (data.type === "Join Draft") {
