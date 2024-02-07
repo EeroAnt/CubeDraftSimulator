@@ -314,7 +314,7 @@ server.listen(wsPort, () => {
 
 function getDraft(token, player_count, uuid) {
 
-axios.get(`http://127.0.0.1:5002/${player_count}/${token}`).then(res => {
+axios.get(`http://flaskservertest:5002/${player_count}/${token}`).then(res => {
   const data = JSON.stringify(res.data)
 
   drafts[token] = {

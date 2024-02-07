@@ -7,6 +7,7 @@ import json
 
 @app.route("/")
 def index():
+	print("index")
 	return render_template("index.html")
 
 api = Api(app)
@@ -16,6 +17,7 @@ class returnjson(Resource):
 		if api_parameter_errors(identifier, player_count):
 			return api_parameter_errors(identifier, player_count), 400
 		player_count = int(player_count)
+		# data = json.dumps({"hello": "world"})
 		setup(player_count, identifier)
 		data = json.load(open(f"templates/draft{identifier}.json"))
 		return data
