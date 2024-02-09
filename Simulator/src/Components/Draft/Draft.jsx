@@ -29,7 +29,7 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
   const [onTheLeft, setOnTheLeft] = useState("")
   const [onTheRight, setOnTheRight] = useState("")
   const [direction, setDirection] = useState(0)
-  const [showStats, setShowStats] = useState(false)
+  const [showDeckbuilder, setShowDeckbuilder] = useState(false)
   const [seatToken, setSeatToken] = useState("")
   const [cardsToDisplay, setCardsToDisplay] = useState([])
   const [typeFilter, setTypeFilter] = useState(["All"])
@@ -272,15 +272,15 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 	  </div>
 	)
   }
-  if (!showStats) {
+  if (!showDeckbuilder) {
   if (pack) {
     return (
 	  <>
 	  {sideNav()}
 	  <div className="main">
 	    <DraftNavbar
-		  onClickNavbar={()=>setShowStats(!showStats)}
-		  buttonName={showStats ? ("Show Draft") : ("Show Stats")}
+		  onClickNavbar={()=>setShowDeckbuilder(!showDeckbuilder)}
+		  buttonName={showDeckbuilder ? ("Show Draft") : ("Show Deckbuilder")}
 		  left={onTheLeft}
 		  right={onTheRight}
 		  direction={direction}
@@ -326,13 +326,12 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 		{sideNav()}
 		<div className="main">
 		  <DraftNavbar
-			onClickNavbar={()=>setShowStats(!showStats)}
-			buttonName={showStats ? ("Show Draft") : ("Show Stats")}
+			onClickNavbar={()=>setShowDeckbuilder(!showDeckbuilder)}
+			buttonName={showDeckbuilder ? ("Show Draft") : ("Show Stats")}
 			left={onTheLeft}
 			right={onTheRight}
 			direction={direction}
 			username={username}/>
-		  <h1>Here be Stats</h1>
 		  <DraftStats
 			main={main}
 			side={side}
