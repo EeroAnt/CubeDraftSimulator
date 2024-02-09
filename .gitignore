@@ -5,3 +5,5 @@ docker*
 .docker*
 entrypoint.sh
 nginx.conf
+deploy-aci.yaml
+*Dockerfile
