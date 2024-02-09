@@ -1,0 +1,30 @@
+Luo imaget uudestaan
+docker-compose up --build -d
+
+Päivitä imaget
+FLASK
+docker tag cubedraftsimuflaskcont.azurecr.io/eeronliveflaskserver cubedraftsimuflaskcont.azurecr.io/eeronliveflaskserver:latest
+
+docker push cubedraftsimuflaskcont.azurecr.io/eeronliveflaskserver:latest
+NODE
+docker tag cubedraftsimuflaskcont.azurecr.io/eeronlivenodeserver cubedraftsimuflaskcont.azurecr.io/eeronlivenodeserver:latest
+
+docker push cubedraftsimuflaskcont.azurecr.io/eeronlivenodeserver:latest
+SIMU
+docker tag cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator:latest
+
+docker push cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator:latest
+
+
+Deployaa ACI. Muista vaihtaa kirjottaa jotain ympäristömuuttujiin vaikka että päivittää judui
+az container create --resource-group SimuAppi --file deploy-aci.yaml
+
+'Deploy' Web App
+Portaalista tämän jälkeen paina restartia flask apille
+
+
+
+Oikee subscription:
+az account show  
+az account set --subscription EeroHome
+az account show

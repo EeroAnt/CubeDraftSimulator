@@ -341,7 +341,8 @@ function getDraft(token, player_count, uuid) {
 	  }, {});
 	
 	  drafts[token].packs = filteredData;
-	  drafts[token].rounds = Object.keys(filteredData).length
+	  drafts[token].rounds = Object.keys(filteredData).length -2
+	  console.log(drafts[token].rounds)
 	  connections[uuid].send(JSON.stringify({ status: "Setup OK"}))
 	  broadcastUserlist(drafts[token])
     } else {

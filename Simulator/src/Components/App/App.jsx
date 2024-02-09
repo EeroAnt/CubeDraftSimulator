@@ -13,7 +13,8 @@ export const App = () => {
   const [main, setMain] = useState([])
   const [side, setSide] = useState([])
   const [commanders, setCommanders] = useState([])
-//   ws://20.105.101.27:3001
+//   ws://localhost:3001
+//   ws://eeroncubesimu.northeurope.azurecontainer.io
   const WS_URL = 'ws://eeroncubesimu.northeurope.azurecontainer.io:3001'
   const connection = useWebSocket(WS_URL,{
   share: true,
