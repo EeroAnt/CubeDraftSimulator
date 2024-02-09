@@ -63,8 +63,9 @@ export const DraftStats = ({
 	equipment: ["Equipment"],
 	sagas: ["Saga"],
 	historics: ["Artifact", "Legendary", "Saga"],
-	nonCreature: ["Creature", "Land"],
-	permanents: ["Instant", "Sorcery"]
+	nonCreature: ["Creature", "Land", "Consipiracy"],
+	permanents: ["Instant", "Sorcery", "Conspiracy"],
+	conspiracies: ["Conspiracy"]
   }
 
 
@@ -109,6 +110,7 @@ export const DraftStats = ({
 		<StatObject name="Sagas" type="Pos" criteria={criteria.sagas} deck={deck} all={all}/>
 		<StatObject name="Historics" type="Pos" criteria={criteria.historics} deck={deck} all={all}/>
 		<StatObject name="Permanents" type="Neg" criteria={criteria.permanents} deck={deck} all={all}/>
+		<StatObject name="Conspiracies" type="Pos" criteria={criteria.conspiracies} deck={deck} all={all}/>
 	  </div>
 	</div>
 	<table className="displayed">
