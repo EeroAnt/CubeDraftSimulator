@@ -3,6 +3,8 @@ from src.operations.draft.packs import *
 from src.operations.json_generator import generate_json
 from random import choices
 from string import ascii_letters, digits
+
+
 def setup_draft(player_count, identifier):
 	pools, conn = generate_pools(player_count)
 	commander_packs = create_commander_packs(pools["commanders"])
@@ -14,6 +16,7 @@ def setup_draft(player_count, identifier):
 
 
 def generate_table(setup_to_finish, player_count):
+	setup_to_finish["state"]="Setup Complete"
 	setup_to_finish["table"] = {}
 	for i in range(player_count):
 		setup_to_finish["table"][f"seat{i}"] = {

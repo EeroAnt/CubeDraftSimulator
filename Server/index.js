@@ -241,7 +241,7 @@ const handleMessage = (message, uuid) => {
 
 
 handleClose = (uuid) => {
-  if (users[uuid].token) {
+  if (users[uuid].token && drafts[users[uuid].token]) {
     broadcastUserlist(drafts[users[uuid].token])
     if (Object.keys(drafts).includes(users[uuid].token)) { 
 	  console.log('deleting')
@@ -313,35 +313,42 @@ server.listen(wsPort, () => {
 
 
 function getDraft(token, player_count, uuid) {
+	// https://cubedraftsimuflaskapi.azurewebsites.net
+//   console.log(`http://127.0.0.1:5002/${player_count}/${token}`)
 
-axios.get(`http://flaskservertest:5002/${player_count}/${token}`).then(res => {
-  const data = JSON.stringify(res.data)
-
-  drafts[token] = {
-	token : token,
-    player_count : player_count,
-    players : [users[uuid]],
-    state : 'lobby',
-    round : -1,
-	direction : -1
-  }
+  axios.get(`https://cubedraftsimuflaskapi.azurewebsites.net/${player_count}/${token}`).then(res => {
+    const data = res.data
+	console.log(Object.keys(data))
+	console.log(data.state)
+	console.log(data["state"])
+    if (data.state === "Setup Complete") {
+      drafts[token] = {
+		token : token,
+    	player_count : player_count,
+    	players : [users[uuid]],
+    	state : 'lobby',
+    	round : -1,
+		direction : -1
+	  }
   
-	drafts[token].table = JSON.parse(data).table;
+	  drafts[token].table = data.table;
 
-	const filteredData = Object.keys(JSON.parse(data)).reduce((obj, key) => {
-		if (key !== 'table') {
-			obj[key] = JSON.parse(data)[key];
-		}
-		return obj;
-	}, {});
+	  const filteredData = Object.keys(data).reduce((obj, key) => {
+	  	if (key !== 'table') {
+		  obj[key] = data[key];
+	  	}
+	  	return obj;
+	  }, {});
 	
-	drafts[token].packs = filteredData;
-	drafts[token].rounds = Object.keys(filteredData).length
-	connections[uuid].send(JSON.stringify({ status: "Setup OK"}))
-	broadcastUserlist(drafts[token])
-  })
+	  drafts[token].packs = filteredData;
+	  drafts[token].rounds = Object.keys(filteredData).length
+	  connections[uuid].send(JSON.stringify({ status: "Setup OK"}))
+	  broadcastUserlist(drafts[token])
+    } else {
+	  connections[uuid].send(JSON.stringify({ status: "Setup Failed", error: "Setup Error"}))
+  }})
   .catch(error => {
 	console.error('Error fetching data:', error);
-
+	connections[uuid].send(JSON.stringify({ status: "Setup Failed", error: "Connection Error"}))
   });
 }

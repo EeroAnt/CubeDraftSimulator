@@ -16,6 +16,8 @@ export const Home = ({
 	
   const login = (username) => {
 	setUsername(username)
+	console.log("test1", import.meta.env.VITE_TEST)
+	console.log("test2", import.meta.env.VITE_MY_HOST_URL)
 	connection.sendJsonMessage({
 	  type: "Login",
 	  username: username
@@ -44,6 +46,8 @@ export const Home = ({
   useEffect(() => {
 	if (connection.lastJsonMessage && connection.lastJsonMessage.status === "Setup OK") {
 	  setMode("Lobby")
+	} else if (connection.lastJsonMessage && connection.lastJsonMessage.status === "Setup Failed") {
+	  alert("Setup failed"+connection.lastJsonMessage.error)
 	}
 	  }, [connection.lastJsonMessage])
 

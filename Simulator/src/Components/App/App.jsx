@@ -13,8 +13,8 @@ export const App = () => {
   const [main, setMain] = useState([])
   const [side, setSide] = useState([])
   const [commanders, setCommanders] = useState([])
-
-  const WS_URL = 'ws://127.0.0.1:3001'
+//   ws://20.105.101.27:3001
+  const WS_URL = 'ws://20.105.101.27:3001'
   const connection = useWebSocket(WS_URL,{
   share: true,
   onOpen: () => console.log('opened'),
