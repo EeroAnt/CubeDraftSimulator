@@ -40,9 +40,10 @@ class TestDraftSetup(unittest.TestCase):
 			self.assertEqual(len(self.normal_packs[f"pack{i}"]), 15)
 	
 	def test_finished_setup_sizes(self):
-		self.assertEqual(len(self.finished_setup["round0"]["pack0"]),5) 
+		print(self.finished_setup.keys())
+		self.assertEqual(len(self.finished_setup[0]["pack0"]),5) 
 		for i in range(1,9):
-			self.assertEqual(len(self.finished_setup[f"round{i}"][f"pack0"]),15)
+			self.assertEqual(len(self.finished_setup[i][f"pack0"]),15)
 			
 	
 	@classmethod
