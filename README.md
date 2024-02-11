@@ -14,8 +14,9 @@ By creating a web app to for this:
  - We could collect data from the drafts to see which cards go unpicked, however fond I might be with them
 
 
-### More technical take
-[Found here](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/technical%20side.md)
+### [More technical take](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/technical%20side.md)
+
+### [Worklog](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/worklog.md)(in Finnish)
 
 ## Steps
 
@@ -38,10 +39,11 @@ So there's some randomness in each pack. I've also used the cut cards to build u
 8 normal packs of 15 per player, we need 120 cards per player. 120*player_count/18 rounded up tells how many structured packs to build and the rest are made from the leftovers.
 
 ### The drafting
-Everyone "opens" their packs at the same time, picks a card and passes the rest to the next player. A player can see the next pack only after making the pick and passing the rest of the pack before. After the each pack of the round has been drafted, new packs are "opened" and the order of players is reversed. This countinues from the commander pack throughout all 8 "normal" packs. I have made a very crude mock up of what the UI for the drafting could look like:
-![](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/First_draft.png)
+Everyone "opens" their packs at the same time, picks a card and passes the rest to the next player. A player can see the next pack only after making the pick and passing the rest of the pack before. After the each pack of the round has been drafted, new packs are "opened" and the order of players is reversed. This countinues from the commander pack throughout all 8 "normal" packs. Here's a view of what it looks at the moment:
+![](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/DraftView.PNG)
 
-After the drafting is done, the UI can have more space for the deckbuilding part. Like filter forms for cards's textboxes and tribals, toggles for card type and showing more pictures and toggling between showing main deck cards and side deck cards.
+There is a second view that has more space for the deckbuilding part. At the moment it looks like this:
+![](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/DeckbuilderView.PNG)
 
 ### Outside of the drafting
 Due to how I've decided to structure the packs, it doesn't really matter if there's more blue cards than red cards in the cube as they both get a equal representation in each draft apart from the one with more cards will be more diluted in terms of archetypes. This is an actual problem with the cube I have refused to solve for now. The dilution that is. Every color is diluted in a 2000 card cube.
