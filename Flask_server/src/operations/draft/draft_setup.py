@@ -16,17 +16,21 @@ def setup_draft(player_count, identifier):
 
 
 def generate_table(setup_to_finish, player_count):
-	setup_to_finish["state"]="Setup Complete"
-	setup_to_finish["table"] = {}
+	finished_setup= {
+		"state":"Setup Complete",
+		"table": {},
+		"rounds": setup_to_finish
+		}
 	for i in range(player_count):
-		setup_to_finish["table"][f"seat{i}"] = {
+		finished_setup["table"][f"seat{i}"] = {
 			"main": [],
 			"side": [],
 			"packAtHand": [],
 			"queue": [],
 			"token" : "".join(choices(ascii_letters+digits, k=4))
 		}
-	return setup_to_finish
+
+	return finished_setup
 
 if __name__ == "__main__":
 	print("".join(choices(ascii_letters+digits, k=4)))

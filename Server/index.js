@@ -50,12 +50,12 @@ function checkDraftStatus(draft) {
   if (draft.state === 'drafting' && draft.players.length > 0) {
 	if (checkIfRoundIsDone(draft.table)) {
 	  draft.round ++
-	  if (draft.round < draft.rounds) {
+	  if (draft.round < Object.keys(draft.rounds).length) {
 		console.log('round:',draft.round)
 		draft.direction *= -1
 		for (let i = 0; i < draft.player_count; i++) {
 		  const player = draft.players[i]
-		  const pack = [draft.packs[`round${draft.round}`][`pack${i}`]]
+		  const pack = [draft.rounds[draft.round][`pack${i}`]]
 		  const playerOnTheLeft = users[draft.table[`seat${[calculateNextSeatNumber(player.seat.number, 1, draft.player_count)]}`].player]
 		  const playerOnTheRight = users[draft.table[`seat${[calculateNextSeatNumber(player.seat.number, -1, draft.player_count)]}`].player]
 		  connections[draft.players[i].uuid].send(JSON.stringify({ status: "OK", type: "Neighbours", left: playerOnTheLeft.username, right: playerOnTheRight.username, direction: draft.direction, seatToken: player.seat.token}))
@@ -158,7 +158,7 @@ const handleMessage = (message, uuid) => {
 
 
   } else if (data.type === 'Start Draft') {
-	if (drafts[data.token].state === "lobby") {
+	if (drafts[data.token].state === "Setup Complete") {
 	  drafts[data.token].state = 'drafting'
 	  broadcastDraftStatus(drafts[data.token],"Start Draft")
 	  shuffleArray(drafts[data.token].players)
@@ -185,8 +185,6 @@ const handleMessage = (message, uuid) => {
 	}
 	
 	const nextSeatNumber = calculateNextSeatNumber(users[uuid].seat.number, drafts[data.token].direction, drafts[data.token].player_count)
-	
-	console.log("Next player",nextSeatNumber)
 
 	drafts[data.token].table[`seat${nextSeatNumber}`].queue = drafts[data.token].table[`seat${nextSeatNumber}`].queue.concat([users[uuid].seat.packAtHand])
 	users[uuid].seat.packAtHand = []
@@ -316,11 +314,8 @@ function getDraft(token, player_count, uuid) {
 	// https://cubedraftsimuflaskapi.azurewebsites.net
 //   console.log(`http://127.0.0.1:5002/${player_count}/${token}`)
 
-  axios.get(`https://cubedraftsimuflaskapi.azurewebsites.net/${player_count}/${token}`).then(res => {
+  axios.get(`http://127.0.0.1:5002/${player_count}/${token}`).then(res => {
     const data = res.data
-	console.log(Object.keys(data))
-	console.log(data.state)
-	console.log(data["state"])
     if (data.state === "Setup Complete") {
       drafts[token] = {
 		token : token,
@@ -332,17 +327,10 @@ function getDraft(token, player_count, uuid) {
 	  }
   
 	  drafts[token].table = data.table;
-
-	  const filteredData = Object.keys(data).reduce((obj, key) => {
-	  	if (key !== 'table') {
-		  obj[key] = data[key];
-	  	}
-	  	return obj;
-	  }, {});
+	  drafts[token].rounds = data.rounds
+	  drafts[token].state = data.state
 	
-	  drafts[token].packs = filteredData;
-	  drafts[token].rounds = Object.keys(filteredData).length -2
-	  console.log(drafts[token].rounds)
+	  console.log(Object.keys(drafts[token].rounds).length)
 	  connections[uuid].send(JSON.stringify({ status: "Setup OK"}))
 	  broadcastUserlist(drafts[token])
     } else {

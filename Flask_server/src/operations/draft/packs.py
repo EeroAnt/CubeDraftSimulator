@@ -29,11 +29,11 @@ def deal_packs(commander_packs, normal_packs, player_count):
 	for i in range(len(normal_packs)):
 		shuffled_packs.append(normal_packs[f"pack{i}"])
 	shuffle(shuffled_packs)
-	rounds = {f"round{i}": [] for i in range(9)}
-	rounds["round0"] = commander_packs
+	rounds = {i: [] for i in range(9)}
+	rounds[0] = commander_packs
 	for i in range(8):
 		dealt_packs = {}
 		for j in range(player_count):
 			dealt_packs[f"pack{j}"] = shuffled_packs.pop(0)
-		rounds[f"round{i+1}"] = dealt_packs
+		rounds[i+1] = dealt_packs
 	return rounds
