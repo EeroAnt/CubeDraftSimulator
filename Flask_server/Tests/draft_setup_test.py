@@ -3,7 +3,7 @@ from src.operations.database.cloud_db import close_cloud_db
 from src.operations.draft.pool_generation import generate_pools
 from src.operations.draft.packs import *
 from src.operations.json_generator import generate_json
-from os import remove, path
+from os import remove
 
 
 class TestDraftSetup(unittest.TestCase):
