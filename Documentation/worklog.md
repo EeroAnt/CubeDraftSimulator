@@ -25,11 +25,4 @@
 | 9.2.  | 5    | Hiottu dockerfilejä, docker-compose.yml ja deploy-aci.yaml tiedostoja (ei repossa vielä tässä) |
 |       |      | deploy-aci.yaml sisältää salaista tietoa, niin sitä en ikävä kyllä jaakaan repoon |
 | *     | 2    | Dokumentaation hiomista siellä täällä |
-          70
-
-|       | 5    | testaus |
-| 4.3.  | 1    | koodin refaktorointia |
-| 5.3.  | 2    | arkkitehtuurikuvauksen tarkennus |
-|       | 1    | käyttöohje |
-| 6.3.  | 2    | testaus |
-| yht   | 28   | | 
+| Yht.  | 70   ||
