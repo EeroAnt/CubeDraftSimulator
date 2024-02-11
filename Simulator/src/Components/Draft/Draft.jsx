@@ -61,11 +61,7 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
   }, [connection.lastJsonMessage])
 
   useEffect(() => {
-	console.log("currenttypefilter", typeFilter)
-	console.log(typeFilter[0])
 	if (typeFilter[0] === "All") {
-	  console.log("all")
-	  console.log(main.concat(side).concat(commanders))
 	  setCardsToDisplay(main.concat(side).concat(commanders))
 	} else {
 	  setCardsToDisplay(

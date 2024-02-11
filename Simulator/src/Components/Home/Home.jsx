@@ -16,8 +16,6 @@ export const Home = ({
 	
   const login = (username) => {
 	setUsername(username)
-	console.log("test1", import.meta.env.VITE_TEST)
-	console.log("test2", import.meta.env.VITE_MY_HOST_URL)
 	connection.sendJsonMessage({
 	  type: "Login",
 	  username: username

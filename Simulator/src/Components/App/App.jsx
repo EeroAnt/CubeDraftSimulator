@@ -15,7 +15,7 @@ export const App = () => {
   const [commanders, setCommanders] = useState([])
 //   ws://localhost:3001
 //   ws://eeroncubesimu.northeurope.azurecontainer.io
-  const WS_URL = 'ws://eeroncubesimu.northeurope.azurecontainer.io:3001'
+  const WS_URL = 'ws://localhost:3001'
   const connection = useWebSocket(WS_URL,{
   share: true,
   onOpen: () => console.log('opened'),
