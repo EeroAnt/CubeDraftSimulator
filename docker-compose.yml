@@ -1,0 +1,26 @@
+version: "3.4"
+
+services:
+  cubesimulator:
+    image: cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator
+    build:
+      context: .
+      dockerfile: Simu_Dockerfile
+    ports:
+      - "80:80"
+  
+  nodeserver:
+    image: cubedraftsimuflaskcont.azurecr.io/eeronlivenodeserver
+    build:
+      context: .
+      dockerfile: Server_Dockerfile
+    ports:
+      - "3001:3001"
+
+  flaskserver:
+    image: cubedraftsimuflaskcont.azurecr.io/eeronliveflaskserver
+    build:
+      context: .
+      dockerfile: Flask_Dockerfile
+    ports:
+      - "5002:5002"

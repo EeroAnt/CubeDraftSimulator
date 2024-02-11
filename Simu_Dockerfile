@@ -1,0 +1,21 @@
+FROM node:20.11.0 AS build
+
+WORKDIR /app
+
+COPY Simulator/package*.json /app/
+
+RUN npm install
+
+COPY Simulator/public /app/public
+COPY Simulator/src /app/src
+COPY Simulator/.eslintrc.cjs /app/eslintrc.cjs
+COPY Simulator/index.html /app/index.html
+COPY Simulator/vite.config.js /app/vite.config.js
+
+RUN npm run build
+
+FROM nginx:latest
+
+COPY --from=build /app/dist /usr/share/nginx/html
+
+EXPOSE 80

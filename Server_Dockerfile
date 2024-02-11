@@ -1,0 +1,18 @@
+FROM node:20.11.0
+
+# Set working directory
+
+WORKDIR /app
+
+# Install system dependencies
+
+COPY Server/package*.json ./
+RUN npm install
+
+COPY Server/index.js /app/index.js
+
+# Expose ports
+
+EXPOSE 3001
+
+CMD ["node", "index.js"]
