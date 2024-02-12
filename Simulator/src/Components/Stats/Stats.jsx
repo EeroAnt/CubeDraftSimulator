@@ -81,17 +81,7 @@ export const DraftStats = ({
   }));
   const valueFormatter = (value) => `${value}`
   const manaValuesList = Array.from({ length: curveOfMain.length }, (_, index) => index);
-//   
-//   const curveOfDisplayed = manaValuesList.map(manaValue => cardsToDisplay.filter(card => showMain ? (main.includes(card)) : (side.includes(card))).filter(card => card.mana_value === manaValue).length);
 
-//   const manaValuesList = Array.from({ length: maxManaValue + 1 }, (_, index) => index);
-//   const dataset = {}
-//   manaValuesList.forEach(manavalue => 
-// 	{dataset[manavalue] = {
-// 	  main: main.filter(card => card.mana_value === manavalue).length, 
-// 	  displayed: cardsToDisplay.filter(card => showMain ? (main.includes(card)) : (side.includes(card))).filter(card => card.mana_value === manavalue).length,
-// 	  all: main.concat(commanders).concat(side).filter(card => card.mana_value === manavalue).length
-// 	}})
   const StatObject = ({name, type, criteria, deck, all}) => {
 	const filterfunc = type==="Pos" ? amountOfFilteredCardsPos : amountOfFilteredCardsNeg
 	if (filterfunc(deck, all, criteria) === "0/0") return null
@@ -137,7 +127,7 @@ export const DraftStats = ({
 	  </div>
 	  {(main.concat(commanders).concat(side).length > 2) ? ( bars ? (
 	  <div className="curveChart">
-		<Button name="test" onClick={() => console.log(setBars(!bars))}/>
+		<Button name="Show lines" onClick={() => console.log(setBars(!bars))}/>
 
 		<BarChart
 		  dataset={dataset}
@@ -152,11 +142,13 @@ export const DraftStats = ({
 
 	  </div>) : (
 	  <div className="curveChart">
+		<Button name="Show bars" onClick={() => console.log(setBars(!bars))}/>
+
 		<LineChart
 		  xAxis={[{ data: manaValuesList, label: 'Mana Value' }]}
   		  series={[
-    		{ curve: "linear", data: curveOfMain },
-    		{ curve: "linear", data: curveOfDisplayed },
+    		{ curve: "linear", data: curveOfMain, label: "Main"},
+    		{ curve: "linear", data: curveOfDisplayed, label: "Displayed"},
   		  ]}
 		  width={500}
 		  height={300}
