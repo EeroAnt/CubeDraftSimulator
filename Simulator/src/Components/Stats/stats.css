@@ -60,3 +60,20 @@
     width: 50%;
 	position: relative;
   }
+
+  .commander {
+	display: flex;
+	align-items: center;
+  }
+  
+  .mana-symbol {
+	width: 6%; /* Adjust as needed */
+	height: 6%; /* Adjust as needed */
+  }
+  
+  .text {
+	font-size: 120%; /* Adjust as needed to match the size of the mana symbols */
+	margin-left: 5px; /* Adjust as needed for spacing */
+	font-weight: bold;
+  }
+  

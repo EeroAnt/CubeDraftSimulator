@@ -38,6 +38,7 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
   const [curveOfMain, setCurveOfMain] = useState([])
   const [curveOfDisplayed, setCurveOfDisplayed] = useState([])
   const [maxManaValue, setMaxManaValue] = useState(0)
+  const [commanderColorIdentity, setCommanderColorIdentity] = useState(["C"])
 
 
   useEffect(() => {
@@ -66,6 +67,15 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
   useEffect(() => {
 	setMaxManaValue(Math.max(...main.concat(side).concat(commanders).map(obj => obj.mana_value)));
 
+	if (commanders.length === 0) {
+	  setCommanderColorIdentity(["C"])
+	} else if (commanders.length === 1) {
+	  setCommanderColorIdentity(commanders[0].color_identity.split(""))
+	} else {
+	  const combined = commanders[0].color_identity.split("").concat(commanders[1].color_identity.split(""))
+	  const unique = [...new Set(combined)]
+	  unique.length < 2 ? setCommanderColorIdentity(unique) : setCommanderColorIdentity(unique.filter(color => color !== "C"))
+	}
 	if (typeFilter[0] === "All") {
 	  setCardsToDisplay(main.concat(side).concat(commanders))
 	} else {
@@ -255,13 +265,21 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 		<p><Button 
 		  name={selectedCommanders.length === 1 ? (showMain ? "Move Commander to Main" : "Move Commander to Side") : "Set Commander"}
 		  onClick={selectedCommanders.length === 1 ? (() => removeCommander()) : (() => appointCommander())}/></p>
-	    <h3>Commanders</h3>
+	    <div className="commander">
+		  <span className="text">Commanders</span>
+		  {commanderColorIdentity.map((color, index) => (
+    		<span key={index} className="mana-symbol">
+    		  <img src={`https://svgs.scryfall.io/card-symbols/${color}.svg`} alt="Mana Symbol" />
+    		</span>
+		  ))}
+		</div>
+
 		<ul className="ulcardlist">
 		  {commanders.map((card, index) => (
 			<li key={index} className={selectedCommanders.includes(card) ? ("clicked") : ("notClicked")} onClick={()=> selectCommander(card)}>{card.name}</li>
 		  ))}
 		</ul>
-		<h3>{showMain ? (`Main ${main.length} /${100-commanders.length}`) : ("Side")}</h3>
+		<span className="text ">{showMain ? (`Main ${main.length} /${100-commanders.length}`) : ("Side")}</span>
 		</div>
 		<div className="sidenav-body">
 		{showMain ? (
