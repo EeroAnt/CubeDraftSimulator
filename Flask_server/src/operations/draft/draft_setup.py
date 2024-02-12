@@ -25,7 +25,7 @@ def generate_table(setup_to_finish, player_count):
 		finished_setup["table"][f"seat{i}"] = {
 			"main": [],
 			"side": [],
-			"packAtHand": [],
+			"packAtHand": {"cards" : [], "picks" : []},
 			"queue": [],
 			"token" : "".join(choices(ascii_letters+digits, k=4))
 		}
