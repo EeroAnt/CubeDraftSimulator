@@ -183,6 +183,7 @@ const handleMessage = (message, uuid) => {
     users[uuid].seat[data.zone] = users[uuid].seat[data.zone].concat(users[uuid].seat.packAtHand.cards.filter(card => card.id === data.card)[0])
 	users[uuid].seat.packAtHand.cards = users[uuid].seat.packAtHand.cards.filter(card => card.id !== data.card)
 	users[uuid].seat.packAtHand.picks = users[uuid].seat.packAtHand.picks.concat(data.card)
+
 	if (data.card === 1887) {
 	  console.log("Canal Dredger")
 	  broadcastCanalDredger(drafts[data.token], users[uuid].seat.number)
@@ -202,15 +203,16 @@ const handleMessage = (message, uuid) => {
 	users[uuid].seat.packAtHand = {"cards": [], "picks" : []}
 
   } else if (data.type === 'Set Commander') {
-	users[uuid].seat.commanders = users[uuid].seat.commanders.concat(data.card)
-	users[uuid].seat.main = users[uuid].seat.main.filter(card => card.id !== data.card.id)
-	users[uuid].seat.side = users[uuid].seat.side.filter(card => card.id !== data.card.id)
+	users[uuid].seat.commanders = users[uuid].seat.commanders.concat(users[uuid].seat.main.concat(users[uuid].seat.side).filter(card => card.id === data.card))
+	users[uuid].seat.main = users[uuid].seat.main.filter(card => card.id !== data.card)
+	users[uuid].seat.side = users[uuid].seat.side.filter(card => card.id !== data.card)
 	sendCards(uuid)
 	
 
   } else if (data.type === 'Remove Commander') {
-	users[uuid].seat.commanders = users[uuid].seat.commanders.filter(card => card.id !== data.card.id)
-	users[uuid].seat[data.zone] = users[uuid].seat[data.zone].concat(data.card)
+	users[uuid].seat[data.zone] = users[uuid].seat[data.zone].concat(users[uuid].seat.commanders.filter(card => card.id === data.card))
+	users[uuid].seat.commanders = users[uuid].seat.commanders.filter(card => card.id !== data.card)
+
 	sendCards(uuid)
 
 

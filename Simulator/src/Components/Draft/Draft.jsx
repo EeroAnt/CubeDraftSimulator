@@ -133,7 +133,7 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 	} else {
 	  connection.sendJsonMessage({
 		type: "Set Commander",
-		card: selectedCards[0],
+		card: selectedCards[0].id,
 		token: token
 	  })
 	}
@@ -146,7 +146,7 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 	  const target = showMain ? ("main") : ("side")
 	  connection.sendJsonMessage({
 		type: "Remove Commander",
-		card: selectedCommanders[0],
+		card: selectedCommanders[0].id,
 		zone: target,
 		token: token
 	  })
