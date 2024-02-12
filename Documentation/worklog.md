@@ -22,7 +22,8 @@
 | 4.2.  | 1    | Työstetty lisää pakan tutkailu -näkymää |
 | 5.2.  | 2    | 'Canal Dredger' kortin toiminnallisuus ja yleistä siivoilua |
 | -7.2. | 15   | Hakattu päätä seinään Azuren ja konttien osalta. Seinä antoi lopulta myöten |
-| 9.2.  | 5    | Hiottu dockerfilejä, docker-compose.yml ja deploy-aci.yaml tiedostoja (ei repossa vielä tässä) |
+| 9.2.  | 5    | Hiottu dockerfilejä, docker-compose.yml ja deploy-aci.yaml tiedostoja (ei repossa vielä tässä). Deployt selvillä |
 |       |      | deploy-aci.yaml sisältää salaista tietoa, niin sitä en ikävä kyllä jaakaan repoon |
+| 12.2. | 2    | Draftista kerätään tieto, monentenako korttina mikäkin valittiin ja jokaisen "pussin" valintajärjestys |
 | *     | 2    | Dokumentaation hiomista siellä täällä |
-| Yht.  | 70   ||
+| Yht.  | 72   ||
