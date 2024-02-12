@@ -84,12 +84,14 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 	  ? filterCardsPos(main.concat(side).concat(commanders), typeFilter)
 	  : filterCardsNeg(main.concat(side).concat(commanders), typeFilter)
 	)}
-	setCurveOfMain(Array.from({ length: maxManaValue + 1 }, (_, index) => main.concat(commanders).filter(card => card.mana_value === index).length));
+	const mainWithoutLands = main.filter(card => !card.types.includes("Land"))
+	setCurveOfMain(Array.from({ length: maxManaValue + 1 }, (_, index) => mainWithoutLands.concat(commanders).filter(card => card.mana_value === index).length));
   }, [main, side, commanders, typeFilter])
 
 
   useEffect(() => {
-	setCurveOfDisplayed(Array.from({ length: maxManaValue + 1 }, (_, index) => cardsToDisplay.filter(card => showMain ? (main.includes(card)) : (side.includes(card))).filter(card => card.mana_value === index).length))
+	const cardsToDisplayWithoutLands = cardsToDisplay.filter(card => !card.types.includes("Land"))
+	setCurveOfDisplayed(Array.from({ length: maxManaValue + 1 }, (_, index) => cardsToDisplayWithoutLands.filter(card => showMain ? (main.includes(card)) : (side.includes(card))).filter(card => card.mana_value === index).length))
 	  }, [cardsToDisplay, showMain])
 
 
