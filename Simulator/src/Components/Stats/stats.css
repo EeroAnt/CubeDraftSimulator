@@ -1,6 +1,6 @@
-.typeAmounts {
+.deckStats {
 	display: flex;
-	width: 50%
+	width: 100%
   }
   
   .sidebar {
@@ -54,4 +54,9 @@
 	flex: 0 0 calc(10%); /* Adjust the width as needed */
 	padding: 5px;
 	box-sizing: border-box; /* Ensures padding is included in width calculation */
+  }
+
+  .curveChart {
+    width: 50%;
+	position: relative;
   }

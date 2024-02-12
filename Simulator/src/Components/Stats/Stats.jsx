@@ -1,5 +1,8 @@
 import { MyNavBar, Button, Image} from '../';
 import { useState } from 'react';
+import { BarChart } from '@mui/x-charts/BarChart';
+import { LineChart } from '@mui/x-charts/LineChart';
+
 import './stats.css'
 
 
@@ -43,11 +46,13 @@ export const DraftStats = ({
 	selectedCards,
 	selectCards,
 	cardsToDisplay,
-	setCardsToDisplay,
 	typeFilter,
-	setTypeFilter
+	setTypeFilter,
+	curveOfMain,
+	curveOfDisplayed
 }) => {
   const [selectedTypefilter, setSelectedTypefilter] = useState("")
+  const [bars, setBars] = useState(true)
   const all = main.concat(side).concat(commanders)
   const deck = main.concat(commanders)
   const criteria = {
@@ -69,6 +74,24 @@ export const DraftStats = ({
   }
 
 
+  const dataset = curveOfMain.map((mainCount, index) => ({
+	main: mainCount,
+	displayed: curveOfDisplayed[index],
+	manavalue: index
+  }));
+  const valueFormatter = (value) => `${value}`
+  const manaValuesList = Array.from({ length: curveOfMain.length }, (_, index) => index);
+//   
+//   const curveOfDisplayed = manaValuesList.map(manaValue => cardsToDisplay.filter(card => showMain ? (main.includes(card)) : (side.includes(card))).filter(card => card.mana_value === manaValue).length);
+
+//   const manaValuesList = Array.from({ length: maxManaValue + 1 }, (_, index) => index);
+//   const dataset = {}
+//   manaValuesList.forEach(manavalue => 
+// 	{dataset[manavalue] = {
+// 	  main: main.filter(card => card.mana_value === manavalue).length, 
+// 	  displayed: cardsToDisplay.filter(card => showMain ? (main.includes(card)) : (side.includes(card))).filter(card => card.mana_value === manavalue).length,
+// 	  all: main.concat(commanders).concat(side).filter(card => card.mana_value === manavalue).length
+// 	}})
   const StatObject = ({name, type, criteria, deck, all}) => {
 	const filterfunc = type==="Pos" ? amountOfFilteredCardsPos : amountOfFilteredCardsNeg
 	if (filterfunc(deck, all, criteria) === "0/0") return null
@@ -94,7 +117,7 @@ export const DraftStats = ({
 
   return (
 	<>
-	<div className='typeAmounts'>
+	<div className='deckStats'>
 	  <div className='draftStatContent'>
 		<StatObject name="Creatures" type="Pos" criteria={criteria.creature} deck={deck} all={all}/>
 		<StatObject name="Non-Creatures" type="Neg" criteria={criteria.nonCreature} deck={deck} all={all}/>
@@ -112,6 +135,35 @@ export const DraftStats = ({
 		<StatObject name="Permanents" type="Neg" criteria={criteria.permanents} deck={deck} all={all}/>
 		<StatObject name="Conspiracies" type="Pos" criteria={criteria.conspiracies} deck={deck} all={all}/>
 	  </div>
+	  {(main.concat(commanders).concat(side).length > 2) ? ( bars ? (
+	  <div className="curveChart">
+		<Button name="test" onClick={() => console.log(setBars(!bars))}/>
+
+		<BarChart
+		  dataset={dataset}
+		  xAxis={[{ scaleType: 'band', dataKey: 'manavalue', label: 'Mana Value' }]}
+		  series={[
+			{ dataKey: "main", label: "Main", valueFormatter},
+			{ dataKey: "displayed", label: "Displayed", valueFormatter}
+		  ]}
+		  width={500}
+		  height={300}
+		/>
+
+	  </div>) : (
+	  <div className="curveChart">
+		<LineChart
+		  xAxis={[{ data: manaValuesList, label: 'Mana Value' }]}
+  		  series={[
+    		{ curve: "linear", data: curveOfMain },
+    		{ curve: "linear", data: curveOfDisplayed },
+  		  ]}
+		  width={500}
+		  height={300}
+		/>
+		
+	  </div>
+	  )) : (<Button name="test" onClick={() => console.log(dataset)}/>)}
 	</div>
 	<table className="displayed">
       <tbody>

@@ -35,6 +35,9 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
   const [typeFilter, setTypeFilter] = useState(["All"])
   const [canalDredger, setCanalDredger] = useState(false)
   const [canalDredgerOwner, setCanalDredgerOwner] = useState(-1)
+  const [curveOfMain, setCurveOfMain] = useState([])
+  const [curveOfDisplayed, setCurveOfDisplayed] = useState([])
+  const [maxManaValue, setMaxManaValue] = useState(0)
 
 
   useEffect(() => {
@@ -61,6 +64,8 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
   }, [connection.lastJsonMessage])
 
   useEffect(() => {
+	setMaxManaValue(Math.max(...main.concat(side).concat(commanders).map(obj => obj.mana_value)));
+
 	if (typeFilter[0] === "All") {
 	  setCardsToDisplay(main.concat(side).concat(commanders))
 	} else {
@@ -68,7 +73,15 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 		typeFilter[0] === "Pos" 
 	  ? filterCardsPos(main.concat(side).concat(commanders), typeFilter)
 	  : filterCardsNeg(main.concat(side).concat(commanders), typeFilter)
-	)}}, [main, side, commanders, typeFilter])
+	)}
+	setCurveOfMain(Array.from({ length: maxManaValue + 1 }, (_, index) => main.concat(commanders).filter(card => card.mana_value === index).length));
+  }, [main, side, commanders, typeFilter])
+
+
+  useEffect(() => {
+	setCurveOfDisplayed(Array.from({ length: maxManaValue + 1 }, (_, index) => cardsToDisplay.filter(card => showMain ? (main.includes(card)) : (side.includes(card))).filter(card => card.mana_value === index).length))
+	  }, [cardsToDisplay, showMain])
+
 
   const selectCards = (card) => {
 	setSelectedCommanders([])
@@ -338,7 +351,9 @@ export const Draft = ({setMode, connection, token, main, setMain, side, setSide,
 			cardsToDisplay={cardsToDisplay}
 			setCardsToDisplay={setCardsToDisplay}
 			typeFilter={typeFilter}
-			setTypeFilter={setTypeFilter}/>
+			setTypeFilter={setTypeFilter}
+			curveOfMain={curveOfMain}
+			curveOfDisplayed={curveOfDisplayed}/>
 		</div>
 	  </>
 	)
