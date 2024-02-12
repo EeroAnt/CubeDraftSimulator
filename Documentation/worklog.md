@@ -25,5 +25,6 @@
 | 9.2.  | 5    | Hiottu dockerfilejä, docker-compose.yml ja deploy-aci.yaml tiedostoja (ei repossa vielä tässä). Deployt selvillä |
 |       |      | deploy-aci.yaml sisältää salaista tietoa, niin sitä en ikävä kyllä jaakaan repoon |
 | 12.2. | 2    | Draftista kerätään tieto, monentenako korttina mikäkin valittiin ja jokaisen "pussin" valintajärjestys |
+|       | 3    | Manacurvit esille joko pylväs- tai viivadiagrammeina | 
 | *     | 2    | Dokumentaation hiomista siellä täällä |
 | Yht.  | 72   ||
