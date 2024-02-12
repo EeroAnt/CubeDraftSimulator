@@ -49,9 +49,6 @@ function checkIfRoundIsDone(table) {
 function checkDraftStatus(draft) {
   if (draft.state === 'drafting' && draft.players.length > 0) {
 	if (checkIfRoundIsDone(draft.table)) {
-	  console.log("commander picks",draft.commanderpicks)
-	  console.log("picks", draft.picks)
-	  console.log("picked packs", draft.picked_packs)
 	  draft.round ++
 	  if (draft.round < Object.keys(draft.rounds).length) {
 		console.log('round:',draft.round)
@@ -82,7 +79,6 @@ function checkDraftStatus(draft) {
 
   } else if (draft.state === 'done') {
 	console.log('draft ended')
-	console.log(draft)
 	clearInterval(intervalIDs[draft.token])
 	broadcastDraftStatus(draft, "End Draft")
   } else {
@@ -196,8 +192,6 @@ const handleMessage = (message, uuid) => {
 	if (users[uuid].seat.packAtHand.cards.length === 0) {
 		drafts[data.token].picked_packs = drafts[data.token].picked_packs.concat([users[uuid].seat.packAtHand.picks])
 	}
-	
-	console.log(users[uuid].seat.packAtHand.cards.length)
 
 	drafts[data.token].table[`seat${nextSeatNumber}`].queue = drafts[data.token].table[`seat${nextSeatNumber}`].queue.concat([users[uuid].seat.packAtHand])
 	users[uuid].seat.packAtHand = {"cards": [], "picks" : []}
@@ -257,7 +251,6 @@ handleClose = (uuid) => {
     if (Object.keys(drafts).includes(users[uuid].token)) { 
 	  console.log('deleting')
       drafts[users[uuid].token].players = drafts[users[uuid].token].players.filter(player => player.uuid !== uuid)
-	  console.log(users[uuid])
 	  users[uuid].seat ? users[uuid].seat.player="" : console.log("Not seated")
 	}
   }
