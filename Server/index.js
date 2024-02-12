@@ -61,7 +61,7 @@ function checkDraftStatus(draft) {
 		  connections[draft.players[i].uuid].send(JSON.stringify({ status: "OK", type: "Neighbours", left: playerOnTheLeft.username, right: playerOnTheRight.username, direction: draft.direction, seatToken: player.seat.token}))
 		  player.seat.queue = pack
 	    }} else {
-		draft.state = 'done'
+		draft.state = 'deckbuilding'
 		}
 	} else {
 	  for (const seat in draft.table) {
@@ -81,6 +81,8 @@ function checkDraftStatus(draft) {
 	console.log('draft ended')
 	clearInterval(intervalIDs[draft.token])
 	broadcastDraftStatus(draft, "End Draft")
+  } else if (draft.state === 'deckbuilding') {
+	
   } else {
 	clearInterval(intervalIDs[draft.token])
 	console.log('draft ended')
