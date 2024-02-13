@@ -3,22 +3,6 @@ import { useState, useEffect } from "react";
 import './draft.css'
 
 
-function filterCardsPos(cards, criteria) {
-	var filtered = []
-	for (let i = 1; i < criteria.length; i++) {
-	  filtered = filtered.concat(cards.filter(card => card.types.includes(criteria[i])))
-	  }
-	return filtered
-  }
-  
-  function filterCardsNeg(cards, criteria) {
-	var filtered = [].concat(cards)
-	for (let i = 1; i < criteria.length; i++) {
-	  filtered = filtered.filter(card => !filtered.filter(card => card.types.includes(criteria[i])).includes(card))
-	}
-	return filtered
-  }
-
 export const Draft = ({
 	setMode,
 	connection,
@@ -66,6 +50,24 @@ export const Draft = ({
 
 
   useEffect(() => {
+	setMaxManaValue(Math.max(...main.concat(side).concat(commanders).map(obj => obj.mana_value)));
+	if (commanders.length === 0) {
+	  setCommanderColorIdentity(["C"])
+	} else if (commanders.length === 1) {
+	  setCommanderColorIdentity(commanders[0].color_identity.split(""))
+	} else {
+	  const combined = commanders[0].color_identity.split("").concat(commanders[1].color_identity.split(""))
+	  const unique = [...new Set(combined)]
+	  unique.length < 2 ? setCommanderColorIdentity(unique) : setCommanderColorIdentity(unique.filter(color => color !== "C"))
+	}
+
+	const mainWithoutLands = main.filter(card => !card.types.includes("Land"))
+	setCurveOfMain(Array.from({ length: maxManaValue + 1 }, (_, index) => mainWithoutLands.concat(commanders).filter(card => card.mana_value === index).length))
+	setCurveOfDisplayed(curveOfMain);
+  }, [main, side, commanders ])
+
+
+  useEffect(() => {
 	if (connection.lastJsonMessage && connection.lastJsonMessage.type === "Pack") {
 	  setPack(connection.lastJsonMessage.pack)
 	} else if (connection.lastJsonMessage && connection.lastJsonMessage.type === "End Draft") {
@@ -88,35 +90,7 @@ export const Draft = ({
 	}
   }, [connection.lastJsonMessage])
 
-  useEffect(() => {
-	setMaxManaValue(Math.max(...main.concat(side).concat(commanders).map(obj => obj.mana_value)));
 
-	if (commanders.length === 0) {
-	  setCommanderColorIdentity(["C"])
-	} else if (commanders.length === 1) {
-	  setCommanderColorIdentity(commanders[0].color_identity.split(""))
-	} else {
-	  const combined = commanders[0].color_identity.split("").concat(commanders[1].color_identity.split(""))
-	  const unique = [...new Set(combined)]
-	  unique.length < 2 ? setCommanderColorIdentity(unique) : setCommanderColorIdentity(unique.filter(color => color !== "C"))
-	}
-	if (typeFilter[0] === "All") {
-	  setCardsToDisplay(main.concat(side).concat(commanders))
-	} else {
-	  setCardsToDisplay(
-		typeFilter[0] === "Pos" 
-	  ? filterCardsPos(main.concat(side).concat(commanders), typeFilter)
-	  : filterCardsNeg(main.concat(side).concat(commanders), typeFilter)
-	)}
-	const mainWithoutLands = main.filter(card => !card.types.includes("Land"))
-	setCurveOfMain(Array.from({ length: maxManaValue + 1 }, (_, index) => mainWithoutLands.concat(commanders).filter(card => card.mana_value === index).length));
-  }, [main, side, commanders, typeFilter])
-
-
-  useEffect(() => {
-	const cardsToDisplayWithoutLands = cardsToDisplay.filter(card => !card.types.includes("Land"))
-	setCurveOfDisplayed(Array.from({ length: maxManaValue + 1 }, (_, index) => cardsToDisplayWithoutLands.filter(card => showMain ? (main.includes(card)) : (side.includes(card))).filter(card => card.mana_value === index).length))
-	  }, [cardsToDisplay, showMain])
 
 
   const selectCards = (card) => {
@@ -298,7 +272,15 @@ export const Draft = ({
 			typeFilter={typeFilter}
 			setTypeFilter={setTypeFilter}
 			curveOfMain={curveOfMain}
-			curveOfDisplayed={curveOfDisplayed}/>
+			setCurveOfMain={setCurveOfMain}
+			curveOfDisplayed={curveOfDisplayed}
+			setCurveOfDisplayed={setCurveOfDisplayed}
+			maxManaValue={maxManaValue}
+			setMaxManaValue={setMaxManaValue}
+			commanderColorIdentity={commanderColorIdentity}
+			setCommanderColorIdentity={setCommanderColorIdentity}
+			showDeckbuilder={showDeckbuilder}
+			/>
 		</div>
 	  </>
 	)

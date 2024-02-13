@@ -1,9 +1,27 @@
-import { MyNavBar, Button, Image} from '../';
-import { useState } from 'react';
+import { Button, Image} from '../';
+import { useState, useEffect } from 'react';
 import { BarChart } from '@mui/x-charts/BarChart';
 import { LineChart } from '@mui/x-charts/LineChart';
 
 import './Deckbuilder.css'
+
+
+function filterCardsPos(cards, criteria) {
+  var filtered = []
+  for (let i = 1; i < criteria.length; i++) {
+	filtered = filtered.concat(cards.filter(card => card.types.includes(criteria[i])))
+  }
+  return filtered
+}
+  
+
+function filterCardsNeg(cards, criteria) {
+  var filtered = [].concat(cards)
+  for (let i = 1; i < criteria.length; i++) {
+	filtered = filtered.filter(card => !filtered.filter(card => card.types.includes(criteria[i])).includes(card))
+  }
+  return filtered
+}
 
 
 function amountOfFilteredCardsPos(deck, all, criteria) {
@@ -35,11 +53,20 @@ export const DeckBuilder = ({
 	selectedCards,
 	selectCards,
 	cardsToDisplay,
+	setCardsToDisplay,
 	typeFilter,
 	setTypeFilter,
 	curveOfMain,
-	curveOfDisplayed
+	setCurveOfMain,
+	curveOfDisplayed,
+	setCurveOfDisplayed,
+	maxManaValue,
+	setMaxManaValue,
+	commanderColorIdentity,
+	setCommanderColorIdentity,
+	showDeckbuilder
 }) => {
+
   const [selectedTypefilter, setSelectedTypefilter] = useState("")
   const [bars, setBars] = useState(true)
   const all = main.concat(side).concat(commanders)
@@ -94,6 +121,34 @@ export const DeckBuilder = ({
 	}
   }
 
+
+  useEffect(() => {
+	setMaxManaValue(Math.max(...main.concat(side).concat(commanders).map(obj => obj.mana_value)));
+	if (commanders.length === 0) {
+	  setCommanderColorIdentity(["C"])
+	} else if (commanders.length === 1) {
+	  setCommanderColorIdentity(commanders[0].color_identity.split(""))
+	} else {
+	  const combined = commanders[0].color_identity.split("").concat(commanders[1].color_identity.split(""))
+	  const unique = [...new Set(combined)]
+	  unique.length < 2 ? setCommanderColorIdentity(unique) : setCommanderColorIdentity(unique.filter(color => color !== "C"))
+	}
+	if (typeFilter[0] === "All") {
+	  setCardsToDisplay(main.concat(side).concat(commanders))
+	} else {
+	  setCardsToDisplay(
+		typeFilter[0] === "Pos" 
+	  ? filterCardsPos(main.concat(side).concat(commanders), typeFilter)
+	  : filterCardsNeg(main.concat(side).concat(commanders), typeFilter)
+	)}
+	const mainWithoutLands = main.filter(card => !card.types.includes("Land"))
+	setCurveOfMain(Array.from({ length: maxManaValue + 1 }, (_, index) => mainWithoutLands.concat(commanders).filter(card => card.mana_value === index).length));
+	const cardsToDisplayWithoutLands = cardsToDisplay.filter(card => !card.types.includes("Land"))
+	setCurveOfDisplayed(Array.from({ length: maxManaValue + 1 }, (_, index) => cardsToDisplayWithoutLands.filter(card => showMain ? (main.includes(card)) : (side.includes(card))).filter(card => card.mana_value === index).length))
+
+  }, [main, side, commanders, typeFilter, showDeckbuilder ])
+
+
   return (
 	<>
 	<div className='deckStats'>
@@ -116,7 +171,7 @@ export const DeckBuilder = ({
 	  </div>
 	  {(main.concat(commanders).concat(side).length > 2) ? ( bars ? (
 	  <div className="curveChart">
-		<Button name="Show lines" onClick={() => console.log(setBars(!bars))}/>
+		<Button name="Show lines" onClick={() => setBars(!bars)}/>
 
 		<BarChart
 		  dataset={dataset}
