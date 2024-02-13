@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import { Button, ManaSymbol, } from '..'
 import { useState } from 'react';
 import { CSVLink } from "react-csv";
-import './navbar.css'
+import './NavBar.css'
 
 export function MyNavBar( {onClickDraftNavbar, onClickStatNavbar}) {
   return (

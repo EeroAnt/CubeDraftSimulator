@@ -210,7 +210,7 @@ export const DeckBuilder = ({
 		<TypeFilterObject name="Enchantments" type="Pos" criteria={criteria.enchantments} deck={deck} all={all}/>
 		<TypeFilterObject name="Instants" type="Pos" criteria={criteria.instants} deck={deck} all={all}/>
 		<TypeFilterObject name="Sorceries" type="Pos" criteria={criteria.sorceries} deck={deck} all={all}/>
-		<TypeFilterObject name="Lands" type="Pos" criteria={criteria.lands} deck={deck} all={all}/>
+		<TypeFilterObject name="Non-Basic Lands" type="Pos" criteria={criteria.lands} deck={deck} all={all}/>
 		<TypeFilterObject name="Auras" type="Pos" criteria={criteria.auras} deck={deck} all={all}/>
 		<TypeFilterObject name="Equipment" type="Pos" criteria={criteria.equipment} deck={deck} all={all}/>
 		<TypeFilterObject name="Sagas" type="Pos" criteria={criteria.sagas} deck={deck} all={all}/>
