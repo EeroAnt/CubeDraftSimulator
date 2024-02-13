@@ -1,4 +1,5 @@
 const axios = require('axios')
+const { clear } = require('console')
 const http = require('http')
 const {WebSocketServer} = require('ws')
 const server = http.createServer()
@@ -50,7 +51,7 @@ function checkDraftStatus(draft) {
   if (draft.state === 'drafting' && draft.players.length > 0) {
 	if (checkIfRoundIsDone(draft.table)) {
 	  draft.round ++
-	  if (draft.round < Object.keys(draft.rounds).length) {
+	  if (draft.round < 1) {//Object.keys(draft.rounds).length) {
 		console.log('round:',draft.round)
 		draft.direction *= -1
 		for (let i = 0; i < draft.player_count; i++) {
@@ -62,6 +63,8 @@ function checkDraftStatus(draft) {
 		  player.seat.queue = pack
 	    }} else {
 		draft.state = 'deckbuilding'
+		broadcastDraftStatus(draft, "Post Draft")
+		clearInterval(intervalIDs[draft.token])
 		}
 	} else {
 	  for (const seat in draft.table) {
