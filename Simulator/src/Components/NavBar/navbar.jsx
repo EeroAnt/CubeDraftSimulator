@@ -43,3 +43,18 @@ export function DraftNavbar({onClickNavbar, buttonName, left, right, direction, 
 	</Navbar>
   );
 }
+
+export function PostDraftNavBar({onClickNavbar, buttonName}) {
+  return (
+	<Navbar expand="lg" className="bg-body-tertiary">
+	  <Container>
+		<Navbar.Toggle aria-controls="basic-navbar-nav" />
+		<Navbar.Collapse id="basic-navbar-nav">
+		  <Nav className="me-auto">
+		    <Button name={buttonName} onClick={onClickNavbar} />
+		  </Nav>
+		</Navbar.Collapse>
+	  </Container>
+	</Navbar>
+  );
+}

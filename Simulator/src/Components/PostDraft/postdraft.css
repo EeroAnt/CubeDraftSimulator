@@ -1,0 +1,88 @@
+.main {
+  margin-right: 18%;
+  padding: 0px 10px;
+}
+.pack {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.pack .card {
+  width: 20%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box; 
+}
+
+.pack img {
+  max-width: 100%;
+  height: auto;
+}
+.selected {
+  width: 20%;
+  border: 8px solid #000;
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box; 
+}
+
+
+@media (max-width: 768px) {
+  .pack td {
+	width: 25%;
+  }
+}
+
+
+.sidenav {
+  height: 100%; 
+  width: 18%;
+  position: fixed; 
+  z-index: 1; 
+  top: 0; 
+  right: 0;
+  background-color: #c5b1b1;
+  overflow-x: hidden;
+
+  }
+
+.sidenav-header {
+  position: fixed;
+  }
+
+.sidenav-body {
+  position: fixed;
+  overflow-y: auto;
+}
+
+  .sidenav-header img {
+
+	max-width: 100%;
+  }
+
+  .clicked {
+	background-color: aqua;
+  }
+
+  .notclicked {
+	background-color: #c5b1b1;
+  }
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.ulcardlist {
+	list-style-type: none;
+	margin-left: -6%;
+  }
+
+.neighbours {
+  left: 100%;
+  position: relative;
+  
+}

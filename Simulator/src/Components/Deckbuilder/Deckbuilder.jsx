@@ -113,6 +113,7 @@ export const DeckBuilder = ({
   }
 
   const ColorFilter = ({ color }) => {
+	if (colorFilterPos !== undefined){
 	if (colorFilterPos.includes(color)) {
 	  return (	
 		<ManaFilter className="Color-included" symbol={color} onClick={() => handleManaFilter(color)}/>
@@ -123,7 +124,7 @@ export const DeckBuilder = ({
 	  return (
 		<ManaFilter className="Color-neutral" symbol={color} onClick={() => handleManaFilter(color)}/>
 	)}
-  }
+  }}
 
 
   const handleManaFilter = (color) => {
@@ -158,13 +159,14 @@ export const DeckBuilder = ({
 	  ? temp= filterCardsPos(temp, typeFilter)
 	  : temp=filterCardsNeg(temp, typeFilter)
 	}
+	if (colorFilterPos !== undefined) {
 	if (colorFilterPos.length > 0) {
 	  temp = temp.filter(card => card.color_identity.split("").some(color => colorFilterPos.includes(color)))
 	}
 	if (colorFilterNeg.length > 0) {
 	  temp = temp.filter(card => !card.color_identity.split("").some(color => colorFilterNeg.includes(color)))
 	}
-
+	}
 
 	setCardsToDisplay(temp)
 	const mainWithoutLands = main.filter(card => !card.types.includes("Land"))

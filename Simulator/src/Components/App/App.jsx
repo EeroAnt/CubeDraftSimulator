@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styles from './App.module.css'
-import { Home, Stats, Draft, Lobby, DeckBuilder } from '../'
+import { Home, Stats, Draft, Lobby, PostDraft } from '../'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import useWebSocket from 'react-use-websocket'
 
@@ -111,7 +111,7 @@ export const App = () => {
 	  )}
 	  
 	  {mode === "Post Draft" && (
-	    <DeckBuilder
+	    <PostDraft
 		  setMode={setMode}
 		  connection={connection}
 		  token={token}
@@ -146,6 +146,10 @@ export const App = () => {
 		  setCardsToDisplay={setCardsToDisplay}
 		  typeFilter={typeFilter}
 		  setTypeFilter={setTypeFilter}
+		  colorFilterPos={colorFilterPos}
+		  colorFilterNeg={colorFilterNeg}
+		  setColorFilterPos={setColorFilterPos}
+		  setColorFilterNeg={setColorFilterNeg}
 		  />
 	  )}
 	  

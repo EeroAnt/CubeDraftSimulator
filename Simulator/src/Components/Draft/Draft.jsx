@@ -91,6 +91,8 @@ export const Draft = ({
 	  if (connection.lastJsonMessage.owner) {
 		setCanalDredger(true)
 	  }
+	} else if (connection.lastJsonMessage && connection.lastJsonMessage.type === "Post Draft") {
+	  setMode("Post Draft")
 	}
   }, [connection.lastJsonMessage])
 
