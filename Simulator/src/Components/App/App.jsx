@@ -13,8 +13,22 @@ export const App = () => {
   const [main, setMain] = useState([])
   const [side, setSide] = useState([])
   const [commanders, setCommanders] = useState([])
+  const [seatToken, setSeatToken] = useState("")
+  const [showMain, setShowMain] = useState(true)
+  const [selectedCards, setSelectedCards] = useState([])
+  const [selectedCommanders, setSelectedCommanders] = useState([])
+  const [lastClicked, setLastClicked] = useState({})
+  const [curveOfMain, setCurveOfMain] = useState([])
+  const [curveOfDisplayed, setCurveOfDisplayed] = useState([])
+  const [maxManaValue, setMaxManaValue] = useState(0)
+  const [commanderColorIdentity, setCommanderColorIdentity] = useState(["C"])
+  const [showDeckbuilder, setShowDeckbuilder] = useState(false)
+  const [cardsToDisplay, setCardsToDisplay] = useState([])
+  const [typeFilter, setTypeFilter] = useState(["All"])
+
+
 //   ws://localhost:3001
-//   ws://eeroncubesimu.northeurope.azurecontainer.io
+//   ws://eeroncubesimu.northeurope.azurecontainer.io:3001
   const WS_URL = 'ws://localhost:3001'
   const connection = useWebSocket(WS_URL,{
   share: true,
@@ -62,6 +76,30 @@ export const App = () => {
 		  commanders={commanders}
 		  setCommanders={setCommanders}
 		  username={username}
+		  seatToken={seatToken}
+		  setSeatToken={setSeatToken}
+		  showMain={showMain}
+		  setShowMain={setShowMain}
+		  selectedCards={selectedCards}
+		  setSelectedCards={setSelectedCards}
+		  selectedCommanders={selectedCommanders}
+		  setSelectedCommanders={setSelectedCommanders}
+		  lastClicked={lastClicked}
+		  setLastClicked={setLastClicked}
+		  curveOfMain={curveOfMain}
+		  setCurveOfMain={setCurveOfMain}
+		  curveOfDisplayed={curveOfDisplayed}
+		  setCurveOfDisplayed={setCurveOfDisplayed}
+		  maxManaValue={maxManaValue}
+		  setMaxManaValue={setMaxManaValue}
+		  commanderColorIdentity={commanderColorIdentity}
+		  setCommanderColorIdentity={setCommanderColorIdentity}
+		  showDeckbuilder={showDeckbuilder}
+		  setShowDeckbuilder={setShowDeckbuilder}
+		  cardsToDisplay={cardsToDisplay}
+		  setCardsToDisplay={setCardsToDisplay}
+		  typeFilter={typeFilter}
+		  setTypeFilter={setTypeFilter}
 		  />
 	  )}
 	  

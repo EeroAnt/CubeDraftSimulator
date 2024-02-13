@@ -39,7 +39,7 @@ export const Image = ({ imageUrl, backsideUrl }) => {
 export const ManaSymbol = ({ symbol }) => {
   return (
 	<>
-	  <img src={`https://svgs.scryfall.io/card-symbols/${symbol}.svg`} alt="Mana Symbol" />
+	   <img src={`https://svgs.scryfall.io/card-symbols/${symbol}.svg`} alt="Mana Symbol" />
 	</>
   )
 }
