@@ -1,4 +1,4 @@
-import { Button, Image} from '../';
+import { Button, Image, ManaFilter } from '../';
 import { useState, useEffect } from 'react';
 import { BarChart } from '@mui/x-charts/BarChart';
 import { LineChart } from '@mui/x-charts/LineChart';
@@ -62,9 +62,12 @@ export const DeckBuilder = ({
 	setCurveOfDisplayed,
 	maxManaValue,
 	setMaxManaValue,
-	commanderColorIdentity,
 	setCommanderColorIdentity,
-	showDeckbuilder
+	showDeckbuilder,
+	colorFilterPos,
+	colorFilterNeg,
+	setColorFilterPos,
+	setColorFilterNeg
 }) => {
 
   const [selectedTypefilter, setSelectedTypefilter] = useState("")
@@ -107,6 +110,39 @@ export const DeckBuilder = ({
 		  <p>{filterfunc(deck, all, criteria)}</p>
 	  </div>
 	)
+  }
+
+  const ColorFilter = ({ color }) => {
+	if (colorFilterPos.includes(color)) {
+	  return (	
+		<ManaFilter className="Color-included" symbol={color} onClick={() => handleManaFilter(color)}/>
+	)} else if (colorFilterNeg.includes(color)) {
+	  return (
+		<ManaFilter className="Color-excluded" symbol={color} onClick={() => handleManaFilter(color)}/>
+	)} else {
+	  return (
+		<ManaFilter className="Color-neutral" symbol={color} onClick={() => handleManaFilter(color)}/>
+	)}
+  }
+
+
+  const handleManaFilter = (color) => {
+	console.log(color)
+	// console.log(colorFilterPos.includes(color))
+	if (!colorFilterPos.includes(color) && !colorFilterNeg.includes(color)) {
+	  setColorFilterPos(colorFilterPos.concat(color))
+	  console.log("Pos",colorFilterPos.concat(color))
+	  console.log("Neg",colorFilterNeg)
+	} else if (colorFilterPos.includes(color)) {
+	  setColorFilterPos(colorFilterPos.filter(c => c !== color))
+	  setColorFilterNeg(colorFilterNeg.concat(color))
+	  console.log("Pos",colorFilterPos.filter(c => c !== color))
+	  console.log("Neg",colorFilterNeg.concat(color))
+	} else if (colorFilterNeg.includes(color)) {
+	  setColorFilterNeg(colorFilterNeg.filter(c => c !== color))
+	  console.log("Pos",colorFilterPos)
+	  console.log("Neg",colorFilterNeg.filter(c => c !== color))
+	}
   }
 
 
@@ -152,7 +188,15 @@ export const DeckBuilder = ({
   return (
 	<>
 	<div className='deckStats'>
-	  <div className='draftStatContent'>
+	  <div className='colorFilter'>
+	  <span className="colorFilter">
+		{["W", "U", "B", "R", "G", "C"].map((color, index) => (
+		  <ColorFilter key={index} color={color}/>
+		))}
+	  </span>
+	  </div>
+	  <div className='typeFilter'>
+
 		<TypeFilterObject name="Creatures" type="Pos" criteria={criteria.creature} deck={deck} all={all}/>
 		<TypeFilterObject name="Non-Creatures" type="Neg" criteria={criteria.nonCreature} deck={deck} all={all}/>
 		<TypeFilterObject name="Legendaries" type="Pos" criteria={criteria.legendaries} deck={deck} all={all}/>
@@ -199,7 +243,7 @@ export const DeckBuilder = ({
 		/>
 		
 	  </div>
-	  )) : (<Button name="test" onClick={() => console.log(dataset)}/>)}
+	  )) : (null)}
 	</div>
 	<table className="displayed">
       <tbody>

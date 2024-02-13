@@ -25,6 +25,8 @@ export const App = () => {
   const [showDeckbuilder, setShowDeckbuilder] = useState(false)
   const [cardsToDisplay, setCardsToDisplay] = useState([])
   const [typeFilter, setTypeFilter] = useState(["All"])
+  const [colorFilterPos, setColorFilterPos] = useState([])
+  const [colorFilterNeg, setColorFilterNeg] = useState([])
 
 
 //   ws://localhost:3001
@@ -100,10 +102,15 @@ export const App = () => {
 		  setCardsToDisplay={setCardsToDisplay}
 		  typeFilter={typeFilter}
 		  setTypeFilter={setTypeFilter}
+		  colorFilterPos={colorFilterPos}
+		  colorFilterNeg={colorFilterNeg}
+		  setColorFilterPos={setColorFilterPos}
+		  setColorFilterNeg={setColorFilterNeg}
+
 		  />
 	  )}
 	  
-	  {mode === "DeckBuilder" && (
+	  {mode === "Post Draft" && (
 	    <DeckBuilder
 		  setMode={setMode}
 		  connection={connection}

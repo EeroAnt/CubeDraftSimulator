@@ -3,77 +3,97 @@
 	width: 100%
   }
   
-  .sidebar {
-	flex: 1;
-	background-color: #f0f0f0; /* Example background color */
-	padding: 20px;
-  }
+.sidebar {
+  flex: 1;
+  background-color: #f0f0f0; /* Example background color */
+  padding: 20px;
+}
   
-  .draftStatContent {
-	flex: 1;
-	width: 50%;
-	display: flex;
-	flex-wrap: wrap;
-  }
+.typeFilter {
+  order: 1;
+  flex: 1;
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+}
   
-  .typeFilterObject {
-	flex: 0 0 calc(10%); /* Adjust the width as needed */
-	padding: 5px;
-	box-sizing: border-box; /* Ensures padding is included in width calculation */
-  }
+.typeFilterObject {
+  flex: 0 0 calc(10%); /* Adjust the width as needed */
+  padding: 5px;
+  box-sizing: border-box; /* Ensures padding is included in width calculation */
+}
 
-  .displayed {
-	width: 100%;
-	table-layout: fixed;
-	border-collapse: collapse;
-  }
+.displayed {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
 
-  .displayed .card {
-	width: 20%;
-	padding: 8px;
-	border: 1px solid #ccc;
-	display: inline-block;
-	vertical-align: top;
-	box-sizing: border-box; /* Ensure padding is included in the width */
-  }
-  .displayed img {
-	max-width: 100%;
-	height: auto;
-  }
+.displayed .card {
+  width: 20%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
 
-  .selected {
-	width: 20%;
-	border: 8px solid #000;
-	display: inline-block;
-	vertical-align: top;
-	box-sizing: border-box; /* Ensure padding is included in the width */
-  }
+.displayed img {
+  max-width: 100%;
+  height: auto;
+}
 
-  .current {
-	background-color: coral;
-	flex: 0 0 calc(10%); /* Adjust the width as needed */
-	padding: 5px;
-	box-sizing: border-box; /* Ensures padding is included in width calculation */
-  }
+.selected {
+  width: 20%;
+  border: 8px solid #000;
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
 
-  .curveChart {
-    width: 50%;
-	position: relative;
-  }
+.current {
+  background-color: coral;
+  flex: 0 0 calc(10%); /* Adjust the width as needed */
+  padding: 5px;
+  box-sizing: border-box; /* Ensures padding is included in width calculation */
+}
 
-  .commander {
-	display: flex;
-	align-items: center;
-  }
-  
-  .mana-symbol {
-	width: 6%; /* Adjust as needed */
-	height: 6%; /* Adjust as needed */
-  }
-  
-  .text {
-	font-size: 120%; /* Adjust as needed to match the size of the mana symbols */
-	margin-left: 5px; /* Adjust as needed for spacing */
-	font-weight: bold;
-  }
+.curveChart {
+  order: 3;
+  width: 50%;
+  position: relative;
+}
+
+.commander {
+  display: flex;
+  align-items: center;
+}
+
+.mana-symbol {
+  width: 6%; /* Adjust as needed */
+  height: 6%; /* Adjust as needed */
+}
+
+.text {
+  font-size: 120%; /* Adjust as needed to match the size of the mana symbols */
+  margin-left: 5px; /* Adjust as needed for spacing */
+  font-weight: bold;
+}
+
+.colorFilter {
+  order: 2;
+  flex: 0 0 50px; /* Adjust the width as needed */
+}
+
+.colorFilter .Color-excluded {
+    outline: 25px solid rgba(63, 41, 15, 0.616) !important;
+	outline-offset: -25px;
+    overflow: hidden;
+    position: relative;
+
+}
+
+.colorFilter .Color-included {
+  background-color: rgb(140, 202, 223); /* Example background color */
+}
   
