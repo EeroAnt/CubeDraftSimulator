@@ -64,9 +64,6 @@ export function PostDraft({
 	csvData.push(["Main", "", ""])
 	main.forEach((card) => {
 	  csvData.push([card.name, card.mana_value, card.draft_pool])})
-	csvData.push(["Side", "", ""])
-	side.forEach((card) => {
-	  csvData.push([card.name, card.mana_value, card.draft_pool])})
 	csvData.push(["Basic Lands", "", ""])
 	csvData.push(["Plains", "", basicLands[0]])
 	csvData.push(["Island", "", basicLands[1]])
@@ -74,6 +71,11 @@ export function PostDraft({
 	csvData.push(["Mountain", "", basicLands[3]])
 	csvData.push(["Forest", "", basicLands[4]])
 	csvData.push(["Wastes", "", basicLands[5]])
+	csvData.push(["", "", ""])
+	csvData.push(["", "", ""])
+	csvData.push(["Side", "", ""])
+	side.forEach((card) => {
+	  csvData.push([card.name, card.mana_value, card.draft_pool])})
 	setDeckToSubmit(csvData)
 	}, [main, side, commanders])
 	
