@@ -1,4 +1,4 @@
-import { Button, Image, DraftNavbar, DraftStats, SideBar } from "../";
+import { Button, Image, DraftNavbar, DeckBuilder, SideBar } from "../";
 import { useState, useEffect } from "react";
 import './draft.css'
 
@@ -286,7 +286,7 @@ export const Draft = ({
 	  {renderSideBar()}
 		<div className="main">
 		  {renderNavbar()}
-		  <DraftStats
+		  <DeckBuilder
 			main={main}
 			side={side}
 			commanders={commanders}
