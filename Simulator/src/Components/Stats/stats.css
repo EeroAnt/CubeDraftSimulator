@@ -16,7 +16,7 @@
 	flex-wrap: wrap;
   }
   
-  .draftStatObject {
+  .typeFilterObject {
 	flex: 0 0 calc(10%); /* Adjust the width as needed */
 	padding: 5px;
 	box-sizing: border-box; /* Ensures padding is included in width calculation */

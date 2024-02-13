@@ -82,11 +82,11 @@ export const DraftStats = ({
   const valueFormatter = (value) => `${value}`
   const manaValuesList = Array.from({ length: curveOfMain.length }, (_, index) => index);
 
-  const StatObject = ({name, type, criteria, deck, all}) => {
+  const TypeFilterObject = ({name, type, criteria, deck, all}) => {
 	const filterfunc = type==="Pos" ? amountOfFilteredCardsPos : amountOfFilteredCardsNeg
 	if (filterfunc(deck, all, criteria) === "0/0") return null
 	return (
-	  <div className={selectedTypefilter===name ? ('current') : ('draftStatObject')} onClick={() => handleTypeFilter([type].concat(criteria), name)}>
+	  <div className={selectedTypefilter===name ? ('current') : ('typeFilterObject')} onClick={() => handleTypeFilter([type].concat(criteria), name)}>
 		<h5>{name}</h5>
 		  <p>{filterfunc(deck, all, criteria)}</p>
 	  </div>
@@ -109,21 +109,21 @@ export const DraftStats = ({
 	<>
 	<div className='deckStats'>
 	  <div className='draftStatContent'>
-		<StatObject name="Creatures" type="Pos" criteria={criteria.creature} deck={deck} all={all}/>
-		<StatObject name="Non-Creatures" type="Neg" criteria={criteria.nonCreature} deck={deck} all={all}/>
-		<StatObject name="Legendaries" type="Pos" criteria={criteria.legendaries} deck={deck} all={all}/>
-		<StatObject name="Planeswalkers" type="Pos" criteria={criteria.planeswalkers} deck={deck} all={all}/>
-		<StatObject name="Artifacts" type="Pos" criteria={criteria.artifacts} deck={deck} all={all}/>
-		<StatObject name="Enchantments" type="Pos" criteria={criteria.enchantments} deck={deck} all={all}/>
-		<StatObject name="Instants" type="Pos" criteria={criteria.instants} deck={deck} all={all}/>
-		<StatObject name="Sorceries" type="Pos" criteria={criteria.sorceries} deck={deck} all={all}/>
-		<StatObject name="Lands" type="Pos" criteria={criteria.lands} deck={deck} all={all}/>
-		<StatObject name="Auras" type="Pos" criteria={criteria.auras} deck={deck} all={all}/>
-		<StatObject name="Equipment" type="Pos" criteria={criteria.equipment} deck={deck} all={all}/>
-		<StatObject name="Sagas" type="Pos" criteria={criteria.sagas} deck={deck} all={all}/>
-		<StatObject name="Historics" type="Pos" criteria={criteria.historics} deck={deck} all={all}/>
-		<StatObject name="Permanents" type="Neg" criteria={criteria.permanents} deck={deck} all={all}/>
-		<StatObject name="Conspiracies" type="Pos" criteria={criteria.conspiracies} deck={deck} all={all}/>
+		<TypeFilterObject name="Creatures" type="Pos" criteria={criteria.creature} deck={deck} all={all}/>
+		<TypeFilterObject name="Non-Creatures" type="Neg" criteria={criteria.nonCreature} deck={deck} all={all}/>
+		<TypeFilterObject name="Legendaries" type="Pos" criteria={criteria.legendaries} deck={deck} all={all}/>
+		<TypeFilterObject name="Planeswalkers" type="Pos" criteria={criteria.planeswalkers} deck={deck} all={all}/>
+		<TypeFilterObject name="Artifacts" type="Pos" criteria={criteria.artifacts} deck={deck} all={all}/>
+		<TypeFilterObject name="Enchantments" type="Pos" criteria={criteria.enchantments} deck={deck} all={all}/>
+		<TypeFilterObject name="Instants" type="Pos" criteria={criteria.instants} deck={deck} all={all}/>
+		<TypeFilterObject name="Sorceries" type="Pos" criteria={criteria.sorceries} deck={deck} all={all}/>
+		<TypeFilterObject name="Lands" type="Pos" criteria={criteria.lands} deck={deck} all={all}/>
+		<TypeFilterObject name="Auras" type="Pos" criteria={criteria.auras} deck={deck} all={all}/>
+		<TypeFilterObject name="Equipment" type="Pos" criteria={criteria.equipment} deck={deck} all={all}/>
+		<TypeFilterObject name="Sagas" type="Pos" criteria={criteria.sagas} deck={deck} all={all}/>
+		<TypeFilterObject name="Historics" type="Pos" criteria={criteria.historics} deck={deck} all={all}/>
+		<TypeFilterObject name="Permanents" type="Neg" criteria={criteria.permanents} deck={deck} all={all}/>
+		<TypeFilterObject name="Conspiracies" type="Pos" criteria={criteria.conspiracies} deck={deck} all={all}/>
 	  </div>
 	  {(main.concat(commanders).concat(side).length > 2) ? ( bars ? (
 	  <div className="curveChart">
