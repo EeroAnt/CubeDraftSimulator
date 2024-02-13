@@ -37,7 +37,11 @@ export const Draft = ({
 	cardsToDisplay,
 	setCardsToDisplay,
 	typeFilter,
-	setTypeFilter
+	setTypeFilter,
+	colorFilterPos,
+	colorFilterNeg,
+	setColorFilterPos,
+	setColorFilterNeg
  }) => {
 
   const [pack, setPack] = useState([])
@@ -213,7 +217,6 @@ export const Draft = ({
 	}
   }
 
-  
 
   if (!showDeckbuilder) {
   if (pack && pack.length > 0) {
@@ -280,7 +283,11 @@ export const Draft = ({
 			commanderColorIdentity={commanderColorIdentity}
 			setCommanderColorIdentity={setCommanderColorIdentity}
 			showDeckbuilder={showDeckbuilder}
-			/>
+			colorFilterPos={colorFilterPos}
+			colorFilterNeg={colorFilterNeg}
+			setColorFilterPos={setColorFilterPos}
+			setColorFilterNeg={setColorFilterNeg}
+		  />
 		</div>
 	  </>
 	)

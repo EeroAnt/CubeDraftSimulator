@@ -160,29 +160,42 @@ export const DeckBuilder = ({
 
   useEffect(() => {
 	setMaxManaValue(Math.max(...main.concat(side).concat(commanders).map(obj => obj.mana_value)));
-	if (commanders.length === 0) {
-	  setCommanderColorIdentity(["C"])
-	} else if (commanders.length === 1) {
-	  setCommanderColorIdentity(commanders[0].color_identity.split(""))
-	} else {
-	  const combined = commanders[0].color_identity.split("").concat(commanders[1].color_identity.split(""))
-	  const unique = [...new Set(combined)]
-	  unique.length < 2 ? setCommanderColorIdentity(unique) : setCommanderColorIdentity(unique.filter(color => color !== "C"))
-	}
-	if (typeFilter[0] === "All") {
-	  setCardsToDisplay(main.concat(side).concat(commanders))
-	} else {
-	  setCardsToDisplay(
+	let temp = showMain ? main.concat(commanders) : side
+	console.log("TOI", temp[0].color_identity.split(""))
+	console.log("TÄÄ",colorFilterPos, Array(colorFilterPos).length)
+	if (typeFilter[0] !== "All") {
 		typeFilter[0] === "Pos" 
-	  ? filterCardsPos(main.concat(side).concat(commanders), typeFilter)
-	  : filterCardsNeg(main.concat(side).concat(commanders), typeFilter)
-	)}
+	  ? temp= filterCardsPos(temp, typeFilter)
+	  : temp=filterCardsNeg(temp, typeFilter)
+	}
+	if (colorFilterPos.length > 0) {
+	  temp = temp.filter(card => card.color_identity.split("").some(color => colorFilterPos.includes(color)))
+	}
+	if (colorFilterNeg.length > 0) {
+	  temp = temp.filter(card => !card.color_identity.split("").some(color => colorFilterNeg.includes(color)))
+	}
+
+
+	setCardsToDisplay(temp)
 	const mainWithoutLands = main.filter(card => !card.types.includes("Land"))
 	setCurveOfMain(Array.from({ length: maxManaValue + 1 }, (_, index) => mainWithoutLands.concat(commanders).filter(card => card.mana_value === index).length));
-	const cardsToDisplayWithoutLands = cardsToDisplay.filter(card => !card.types.includes("Land"))
+	const cardsToDisplayWithoutLands = temp.filter(card => !card.types.includes("Land"))
 	setCurveOfDisplayed(Array.from({ length: maxManaValue + 1 }, (_, index) => cardsToDisplayWithoutLands.filter(card => showMain ? (main.includes(card)) : (side.includes(card))).filter(card => card.mana_value === index).length))
 
-  }, [main, side, commanders, typeFilter, showDeckbuilder ])
+  }, [main, side, commanders, typeFilter, showDeckbuilder, colorFilterPos, colorFilterNeg])
+
+
+  useEffect(() => {
+	if (commanders.length === 0) {
+		setCommanderColorIdentity(["C"])
+	  } else if (commanders.length === 1) {
+		setCommanderColorIdentity(commanders[0].color_identity.split(""))
+	  } else {
+		const combined = commanders[0].color_identity.split("").concat(commanders[1].color_identity.split(""))
+		const unique = [...new Set(combined)]
+		unique.length < 2 ? setCommanderColorIdentity(unique) : setCommanderColorIdentity(unique.filter(color => color !== "C"))
+	  }
+  }, [commanders])
 
 
   return (

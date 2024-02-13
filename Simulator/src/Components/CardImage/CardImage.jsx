@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 
+
 export const Image = ({ imageUrl, backsideUrl }) => {
   const [isFlipped, setIsFlipped] = useState(false)
 
@@ -43,3 +44,11 @@ export const ManaSymbol = ({ symbol }) => {
 	</>
   )
 }
+
+export const ManaFilter = ({ symbol, onClick, className }) => {
+	return (
+	  <>
+		 <img className={className} src={`https://svgs.scryfall.io/card-symbols/${symbol}.svg`} alt="Mana Symbol" onClick={onClick}/>
+	  </>
+	)
+  }
