@@ -1,5 +1,5 @@
 import { MyNavBar, Dropdown, Button, setupDraft, Form } from "../../"
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 
 export const Home = ({
@@ -12,7 +12,7 @@ export const Home = ({
 	setOwner,
 	setToken
 }) =>{
-
+  const [draftInitiated, setDraftInitiated] = useState(false)
 	
   const login = (username) => {
 	setUsername(username)
@@ -37,6 +37,7 @@ export const Home = ({
 	const newtoken = token()
 	setToken(newtoken)
 	setupDraft(newtoken, numberOfPlayers, connection)
+	setDraftInitiated(true)
 	console.log(newtoken) 
   }
 
@@ -80,6 +81,10 @@ export const Home = ({
 	    onClickStatNavbar={() => setMode("Stats")}
 	  />
 	  <h1>Hi {username}</h1>
+	  {draftInitiated ? (
+		<h2>Waiting for response</h2>
+	  ) : (
+	  <>
 	  <h2>Setup a new Draft</h2>
 	  <Dropdown name="number of players" handleChange={changePlayerNumber}/>
 	  <Button name="init draft" onClick={(e)=>submitSetup()}/>
@@ -87,6 +92,8 @@ export const Home = ({
 	  <h2>Join Draft with a token</h2>
 	 
 	  <Form onSubmit={joinDraft} name="joindraft" />
+	  </>
+	  )}
 	</div>
   )
 }
