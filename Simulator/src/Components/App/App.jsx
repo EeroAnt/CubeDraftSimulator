@@ -32,7 +32,7 @@ export const App = () => {
 
 //   ws://localhost:3001
 //   ws://eeroncubesimu.northeurope.azurecontainer.io:3001
-  const WS_URL = 'ws://localhost:3001'
+  const WS_URL = 'ws://eeroncubesimu.northeurope.azurecontainer.io:3001'
   const connection = useWebSocket(WS_URL,{
   share: true,
   onOpen: () => console.log('opened'),

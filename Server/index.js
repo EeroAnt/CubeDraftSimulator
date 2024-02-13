@@ -291,43 +291,6 @@ wsServer.on('connection', (connection, request) => {
 })
 
 
-
-// function getDraft(token, player_count, uuid) {
-
-// 	const filePath = './draft2g2b.json';
-	
-//   drafts[token] = {
-// 	token : token,
-//     player_count : player_count,
-//     players : [users[uuid]],
-//     state : 'lobby',
-//     round : -1,
-// 	direction : -1
-//   }
-	
-// 	fs.readFile(filePath, 'utf8', (err, data) => {
-// 	  if (err) {
-// 		  console.error(err);
-// 		  return;
-// 	  }
-	  
-// 	  drafts[token].table = JSON.parse(data).table;
-  
-// 	  const filteredData = Object.keys(JSON.parse(data)).reduce((obj, key) => {
-// 		  if (key !== 'table') {
-// 			  obj[key] = JSON.parse(data)[key];
-// 		  }
-// 		  return obj;
-// 	  }, {});
-	  
-// 	  drafts[token].packs = filteredData;
-// 	  drafts[token].rounds = Object.keys(filteredData).length
-// 	  connections[uuid].send(JSON.stringify({ status: "Setup OK"}))
-// 	  broadcastUserlist(drafts[token])
-// 	});
-// }
-
-
 const wsPort = 3001
 server.listen(wsPort, () => {
 	  console.log(`Server listening on port ${wsPort}`)
@@ -336,9 +299,9 @@ server.listen(wsPort, () => {
 
 function getDraft(token, player_count, uuid) {
 	// https://cubedraftsimuflaskapi.azurewebsites.net
-//   console.log(`http://127.0.0.1:5002/${player_count}/${token}`)
+	// http://127.0.0.1:5002
 
-  axios.get(`http://127.0.0.1:5002/${player_count}/${token}`).then(res => {
+  axios.get(`https://cubedraftsimuflaskapi.azurewebsites.net/${player_count}/${token}`).then(res => {
     const data = res.data
     if (data.state === "Setup Complete") {
       drafts[token] = {
@@ -368,7 +331,7 @@ function getDraft(token, player_count, uuid) {
 }
 
 function sendDraftData(data) {
-  axios.post('http://127.0.0.1:5002/draftdata', data, {
+  axios.post('https://cubedraftsimuflaskapi.azurewebsites.net/draftdata', data, {
     headers: {
       'Content-Type': 'application/json'
     }

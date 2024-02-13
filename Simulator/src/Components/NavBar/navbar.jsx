@@ -3,6 +3,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Button } from '..'
 import { useState } from 'react';
+import { CSVLink, CSVDownload } from "react-csv";
 
 export function MyNavBar( {onClickDraftNavbar, onClickStatNavbar}) {
   return (
@@ -45,7 +46,7 @@ export function DraftNavbar({onClickNavbar, buttonName, left, right, direction, 
   );
 }
 
-export function PostDraftNavBar({onClickNavbar, buttonName, admin, connection, token}) {
+export function PostDraftNavBar({admin, connection, token, deckToSubmit, username}) {
   const [draftDataDecision, setDraftDataDecision] = useState(true)
 
 
@@ -61,7 +62,7 @@ export function PostDraftNavBar({onClickNavbar, buttonName, admin, connection, t
 		<Navbar.Toggle aria-controls="basic-navbar-nav" />
 		<Navbar.Collapse id="basic-navbar-nav">
 		  <Nav className="me-auto">
-		    <Button name={buttonName} onClick={onClickNavbar} />
+			<CSVLink data={deckToSubmit} filename={`${username}_deck.csv`}>Download deck</CSVLink>
 			{admin && draftDataDecision ? (<>
 			  <Button name="Validate draft data" onClick={() => handleDataDecision(true)} />
 			  <Button name="Ignore draft data" onClick={() => handleDataDecision(false)}/> 

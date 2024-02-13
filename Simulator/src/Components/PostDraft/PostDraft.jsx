@@ -1,5 +1,5 @@
 import { PostDraftNavBar, DeckBuilder, SideBar } from "../";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import './postdraft.css'
 
 export function PostDraft({ 
@@ -44,6 +44,9 @@ export function PostDraft({
 }) {
   
 
+  const [deckToSubmit, setDeckToSubmit] = useState([])
+
+
   useEffect(() => {
 	if (connection.lastJsonMessage && connection.lastJsonMessage.type === "Picked Cards") {
 	  setMain(connection.lastJsonMessage.main)
@@ -52,14 +55,28 @@ export function PostDraft({
 	}
   }, [connection.lastJsonMessage])
 
+
+  useEffect(() => {
+	const csvData = [ ["Name", "Mana_value", "Draft pool"] ]
+	csvData.push(["Commanders", "", ""])
+	commanders.forEach((commander) => {
+	  csvData.push([commander.name, commander.mana_value, commander.draft_pool])})
+	csvData.push(["Main", "", ""])
+	main.forEach((card) => {
+	  csvData.push([card.name, card.mana_value, card.draft_pool])})
+	csvData.push(["Side", "", ""])
+	side.forEach((card) => {
+	  csvData.push([card.name, card.mana_value, card.draft_pool])})
+	setDeckToSubmit(csvData)
+	}, [main, side, commanders])
 	
   const renderNavbar = () => {
 	return <PostDraftNavBar 
-		buttonName="Back" 
 		admin={admin} 
-		onClickNavbar={() => console.log("etstins")} 
 		connection={connection}
 		token={token}
+		deckToSubmit={deckToSubmit}
+		username={username}
 		/>;
   };
 
