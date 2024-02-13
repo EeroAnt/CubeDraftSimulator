@@ -1,9 +1,10 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import { Button } from '..'
+import { Button, ManaSymbol, } from '..'
 import { useState } from 'react';
-import { CSVLink, CSVDownload } from "react-csv";
+import { CSVLink } from "react-csv";
+import './navbar.css'
 
 export function MyNavBar( {onClickDraftNavbar, onClickStatNavbar}) {
   return (
@@ -46,8 +47,30 @@ export function DraftNavbar({onClickNavbar, buttonName, left, right, direction, 
   );
 }
 
-export function PostDraftNavBar({admin, connection, token, deckToSubmit, username}) {
+export function PostDraftNavBar({admin, connection, token, deckToSubmit, username, basicLands, setBasicLands}) {
   const [draftDataDecision, setDraftDataDecision] = useState(true)
+
+
+  const BasicLands = () => {
+	const landTypes = ["W", "U", "B", "R", "G", "C"]
+	return ( 
+	  <div className="basic-lands">
+		<>Basic Lands</>
+		{landTypes.map((land, index) => {
+		  return (
+		  <> 
+			<ManaSymbol key={index} symbol={land} />
+			<input 
+			  className='basic-land-input'
+			  type="number" 
+			  value={basicLands[index]} 
+			  onChange={(e) => {setBasicLands(basicLands.map((value, i) => i === index ? parseInt(e.target.value) : value))}}></input>
+		  </>)
+		})
+		}
+	  </div>
+	)
+  }
 
 
   const handleDataDecision = (value) => {
@@ -67,6 +90,7 @@ export function PostDraftNavBar({admin, connection, token, deckToSubmit, usernam
 			  <Button name="Validate draft data" onClick={() => handleDataDecision(true)} />
 			  <Button name="Ignore draft data" onClick={() => handleDataDecision(false)}/> 
 			  </>): ""}
+			{BasicLands()}
 		  </Nav>
 		</Navbar.Collapse>
 	  </Container>

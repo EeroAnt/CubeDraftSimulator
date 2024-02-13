@@ -45,7 +45,7 @@ export function PostDraft({
   
 
   const [deckToSubmit, setDeckToSubmit] = useState([])
-
+  const [basicLands, setBasicLands] = useState([0,0,0,0,0,0])
 
   useEffect(() => {
 	if (connection.lastJsonMessage && connection.lastJsonMessage.type === "Picked Cards") {
@@ -67,6 +67,13 @@ export function PostDraft({
 	csvData.push(["Side", "", ""])
 	side.forEach((card) => {
 	  csvData.push([card.name, card.mana_value, card.draft_pool])})
+	csvData.push(["Basic Lands", "", ""])
+	csvData.push(["Plains", "", basicLands[0]])
+	csvData.push(["Island", "", basicLands[1]])
+	csvData.push(["Swamp", "", basicLands[2]])
+	csvData.push(["Mountain", "", basicLands[3]])
+	csvData.push(["Forest", "", basicLands[4]])
+	csvData.push(["Wastes", "", basicLands[5]])
 	setDeckToSubmit(csvData)
 	}, [main, side, commanders])
 	
@@ -77,6 +84,8 @@ export function PostDraft({
 		token={token}
 		deckToSubmit={deckToSubmit}
 		username={username}
+		basicLands={basicLands}
+		setBasicLands={setBasicLands}
 		/>;
   };
 
@@ -133,6 +142,7 @@ export function PostDraft({
 		setShowMain={setShowMain}
 		setSelectedCards={setSelectedCards}
 		connection={connection}
+		basicLands={basicLands}
 		/>
   }
 

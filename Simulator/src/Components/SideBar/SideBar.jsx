@@ -17,7 +17,8 @@ export const SideBar = ({
 	moveCards,
 	setShowMain,
 	setSelectedCards,
-	connection
+	connection,
+	basicLands
 	}) => {
   const headerRef = createRef()
 
@@ -122,7 +123,7 @@ export const SideBar = ({
 			<li key={index} className={selectedCommanders.includes(card) ? ("clicked") : ("notClicked")} onClick={()=> selectCommander(card)}>{card.name}</li>
 		  ))}
 		</ul>
-		<span className="text ">{showMain ? (`Main ${main.length} /${100-commanders.length}`) : ("Side")}</span>
+		<span className="text ">{showMain ? (`Main ${basicLands ? main.length+basicLands.reduce((accumulator, currentValue) => accumulator + currentValue, 0) : main.length} /${100-commanders.length}`) : ("Side")}</span>
 		</div>
 		<div className="sidenav-body">
 		{showMain ? (

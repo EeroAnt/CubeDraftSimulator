@@ -1,0 +1,17 @@
+.basic-lands {
+  left: 70%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  max-width: 40px;
+  max-height: 40px;
+  margin: 0 auto;
+}
+
+.basic-land-input {
+  display: auto;
+  width: 50px;
+}
