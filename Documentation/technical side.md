@@ -20,9 +20,7 @@ Also please note that as my highest motivation is to get this up and running and
  - deployed the Flask API as a Azure Web App
  - CI-pipeline for the Flask API communnicating with the database
  - NodeJS backend and the React app are live as a Azure Container Instance in separate containers.
-
-## Next up:
- - Build the last view for the draft for mvp (for now I can just copy the deckbuilder during draft and add a submit button)
+ - MVP is online. User can draft, refine their decks, export them as csv, data from drafts is gathered and saved to the database, if opted.
 
 ## To do/Backlog:
  - Start refactoring the NodeJS backend and the React App
@@ -72,3 +70,6 @@ When the draft starts, players are seated in random order and first round begins
 The back end keeps track of everyones picks, mains, sides and commanders. When user makes change to any of these, the change is messaged to the backend and the backend responds with updated contents of this users situation.
 
 Once seated, every user sees two tokens in the upper right corner of their screen. One for the draft and one for the seat. If a draft is in a lobby, submitting that drafts token takes you to the lobby, given that there is room for another player. If the draft is ongoing and has an empty seat, submitting that drafts token prompts user for a seat token. If a token for a empty seat is given, the user will be seated and the draft may continue.
+
+### After drafting
+The same deck building view persists with a couple of changes. There's no player order, so neighbours are not printed, and there's no reason to swap views. There's a link to download the deck as a csv file in the navigation bar instead.
