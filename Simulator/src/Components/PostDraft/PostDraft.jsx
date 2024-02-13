@@ -39,7 +39,8 @@ export function PostDraft({
 	colorFilterPos,
 	colorFilterNeg,
 	setColorFilterPos,
-	setColorFilterNeg
+	setColorFilterNeg,
+	admin
 }) {
   
 
@@ -53,7 +54,13 @@ export function PostDraft({
 
 	
   const renderNavbar = () => {
-	return <PostDraftNavBar buttonName="Back" onClickNavbar={() => console.log("etstins")} />;
+	return <PostDraftNavBar 
+		buttonName="Back" 
+		admin={admin} 
+		onClickNavbar={() => console.log("etstins")} 
+		connection={connection}
+		token={token}
+		/>;
   };
 
 

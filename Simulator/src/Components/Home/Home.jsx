@@ -10,10 +10,12 @@ export const Home = ({
 	setUsername,
 	connection,
 	setOwner,
-	setToken
+	setToken,
+	setAdmin
 }) =>{
   const [draftInitiated, setDraftInitiated] = useState(false)
-	
+  const [password, setPassword] = useState("")
+
   const login = (username) => {
 	setUsername(username)
 	connection.sendJsonMessage({
@@ -21,6 +23,16 @@ export const Home = ({
 	  username: username
 	})
   }
+
+
+  const passkey = (value) => {
+	setPassword(value)
+	if (value === import.meta.env.VITE_ADMIN_PASSKEY) {
+	  setAdmin(true)
+	}
+  }
+
+
 
 
   const changePlayerNumber = (e) => {
@@ -73,6 +85,11 @@ export const Home = ({
 
 	  <h2>Who are you?</h2>
 	  <Form onSubmit={login} name="loginform" />
+	  {(password === "") ? (
+		<>
+		  <h2>Admin passkey</h2>
+		  <Form onSubmit={passkey} name="passkey" /> 
+		</>): (null)}
 	</div>
   ) : (
 	<div className="main">

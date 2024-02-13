@@ -51,7 +51,7 @@ function checkDraftStatus(draft) {
   if (draft.state === 'drafting' && draft.players.length > 0) {
 	if (checkIfRoundIsDone(draft.table)) {
 	  draft.round ++
-	  if (draft.round < 1) {//Object.keys(draft.rounds).length) {
+	  if (draft.round < Object.keys(draft.rounds).length) {
 		console.log('round:',draft.round)
 		draft.direction *= -1
 		for (let i = 0; i < draft.player_count; i++) {
@@ -248,9 +248,20 @@ const handleMessage = (message, uuid) => {
 		  }
 	  }}} else {
 		connections[uuid].send(JSON.stringify({ status : 'Draft Disappeared'}))
-	  }}
+	}
+  } else if (data.type === 'Draft Data Decision') {
+	if (data.decision) {
+	  const draftdata = {
+	    picks : drafts[data.token].picks,
+		commanderpicks : drafts[data.token].commanderpicks,
+		packs : drafts[data.token].picked_packs
+	  }
+	console.log(draftdata)
+	console.log(typeof(draftdata))
+	sendDraftData(draftdata)
+	}
+  }
 }
-
 
 handleClose = (uuid) => {
   if (users[uuid].token && drafts[users[uuid].token]) {
@@ -353,5 +364,17 @@ function getDraft(token, player_count, uuid) {
   .catch(error => {
 	console.error('Error fetching data:', error);
 	connections[uuid].send(JSON.stringify({ status: "Setup Failed", error: "Connection Error"}))
+  });
+}
+
+function sendDraftData(data) {
+  axios.post('http://127.0.0.1:5002/draftdata', data, {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then(res => {
+	console.log(res.data)
+  }).catch(error => {
+	console.error('Error sending data:', error);
   });
 }

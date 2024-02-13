@@ -27,6 +27,7 @@ export const App = () => {
   const [typeFilter, setTypeFilter] = useState(["All"])
   const [colorFilterPos, setColorFilterPos] = useState([])
   const [colorFilterNeg, setColorFilterNeg] = useState([])
+  const [admin, setAdmin] = useState(false)
 
 
 //   ws://localhost:3001
@@ -52,7 +53,9 @@ export const App = () => {
 		  setUsername={setUsername}
 		  connection={connection}
 		  setOwner={setOwner}
-		  setToken={setToken} />
+		  setToken={setToken}
+		  setAdmin={setAdmin}
+		  />
 	  )}
 
 	  
@@ -150,6 +153,7 @@ export const App = () => {
 		  colorFilterNeg={colorFilterNeg}
 		  setColorFilterPos={setColorFilterPos}
 		  setColorFilterNeg={setColorFilterNeg}
+		  admin={admin}
 		  />
 	  )}
 	  

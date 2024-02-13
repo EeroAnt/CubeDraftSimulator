@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Button } from '..'
+import { useState } from 'react';
 
 export function MyNavBar( {onClickDraftNavbar, onClickStatNavbar}) {
   return (
@@ -44,7 +45,16 @@ export function DraftNavbar({onClickNavbar, buttonName, left, right, direction, 
   );
 }
 
-export function PostDraftNavBar({onClickNavbar, buttonName}) {
+export function PostDraftNavBar({onClickNavbar, buttonName, admin, connection, token}) {
+  const [draftDataDecision, setDraftDataDecision] = useState(true)
+
+
+  const handleDataDecision = (value) => {
+	setDraftDataDecision(false)
+	connection.sendJsonMessage({ type: "Draft Data Decision", token: token, decision: value})
+  }
+
+
   return (
 	<Navbar expand="lg" className="bg-body-tertiary">
 	  <Container>
@@ -52,6 +62,10 @@ export function PostDraftNavBar({onClickNavbar, buttonName}) {
 		<Navbar.Collapse id="basic-navbar-nav">
 		  <Nav className="me-auto">
 		    <Button name={buttonName} onClick={onClickNavbar} />
+			{admin && draftDataDecision ? (<>
+			  <Button name="Validate draft data" onClick={() => handleDataDecision(true)} />
+			  <Button name="Ignore draft data" onClick={() => handleDataDecision(false)}/> 
+			  </>): ""}
 		  </Nav>
 		</Navbar.Collapse>
 	  </Container>
