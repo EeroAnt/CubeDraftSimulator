@@ -105,7 +105,41 @@ export const App = () => {
 	  
 	  {mode === "DeckBuilder" && (
 	    <DeckBuilder
-		  setMode={setMode} />
+		  setMode={setMode}
+		  connection={connection}
+		  token={token}
+		  main={main}
+		  setMain={setMain}
+		  side={side}
+		  setSide={setSide}
+		  commanders={commanders}
+		  setCommanders={setCommanders}
+		  username={username}
+		  seatToken={seatToken}
+		  setSeatToken={setSeatToken}
+		  showMain={showMain}
+		  setShowMain={setShowMain}
+		  selectedCards={selectedCards}
+		  setSelectedCards={setSelectedCards}
+		  selectedCommanders={selectedCommanders}
+		  setSelectedCommanders={setSelectedCommanders}
+		  lastClicked={lastClicked}
+		  setLastClicked={setLastClicked}
+		  curveOfMain={curveOfMain}
+		  setCurveOfMain={setCurveOfMain}
+		  curveOfDisplayed={curveOfDisplayed}
+		  setCurveOfDisplayed={setCurveOfDisplayed}
+		  maxManaValue={maxManaValue}
+		  setMaxManaValue={setMaxManaValue}
+		  commanderColorIdentity={commanderColorIdentity}
+		  setCommanderColorIdentity={setCommanderColorIdentity}
+		  showDeckbuilder={showDeckbuilder}
+		  setShowDeckbuilder={setShowDeckbuilder}
+		  cardsToDisplay={cardsToDisplay}
+		  setCardsToDisplay={setCardsToDisplay}
+		  typeFilter={typeFilter}
+		  setTypeFilter={setTypeFilter}
+		  />
 	  )}
 	  
 	  {mode === "Stats" && (
