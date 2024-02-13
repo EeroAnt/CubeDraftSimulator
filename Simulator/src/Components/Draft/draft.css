@@ -82,6 +82,7 @@
   }
 
 .neighbours {
-  right: 50%;
-  position: fixed;
+  left: 100%;
+  position: relative;
+  
 }

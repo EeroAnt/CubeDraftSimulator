@@ -127,21 +127,13 @@ export const DeckBuilder = ({
 
 
   const handleManaFilter = (color) => {
-	console.log(color)
-	// console.log(colorFilterPos.includes(color))
 	if (!colorFilterPos.includes(color) && !colorFilterNeg.includes(color)) {
 	  setColorFilterPos(colorFilterPos.concat(color))
-	  console.log("Pos",colorFilterPos.concat(color))
-	  console.log("Neg",colorFilterNeg)
 	} else if (colorFilterPos.includes(color)) {
 	  setColorFilterPos(colorFilterPos.filter(c => c !== color))
 	  setColorFilterNeg(colorFilterNeg.concat(color))
-	  console.log("Pos",colorFilterPos.filter(c => c !== color))
-	  console.log("Neg",colorFilterNeg.concat(color))
 	} else if (colorFilterNeg.includes(color)) {
 	  setColorFilterNeg(colorFilterNeg.filter(c => c !== color))
-	  console.log("Pos",colorFilterPos)
-	  console.log("Neg",colorFilterNeg.filter(c => c !== color))
 	}
   }
 
@@ -161,8 +153,6 @@ export const DeckBuilder = ({
   useEffect(() => {
 	setMaxManaValue(Math.max(...main.concat(side).concat(commanders).map(obj => obj.mana_value)));
 	let temp = showMain ? main.concat(commanders) : side
-	console.log("TOI", temp[0].color_identity.split(""))
-	console.log("TÄÄ",colorFilterPos, Array(colorFilterPos).length)
 	if (typeFilter[0] !== "All") {
 		typeFilter[0] === "Pos" 
 	  ? temp= filterCardsPos(temp, typeFilter)
@@ -182,7 +172,7 @@ export const DeckBuilder = ({
 	const cardsToDisplayWithoutLands = temp.filter(card => !card.types.includes("Land"))
 	setCurveOfDisplayed(Array.from({ length: maxManaValue + 1 }, (_, index) => cardsToDisplayWithoutLands.filter(card => showMain ? (main.includes(card)) : (side.includes(card))).filter(card => card.mana_value === index).length))
 
-  }, [main, side, commanders, typeFilter, showDeckbuilder, colorFilterPos, colorFilterNeg])
+  }, [main, side, commanders, typeFilter, showDeckbuilder, colorFilterPos, colorFilterNeg, showMain])
 
 
   useEffect(() => {
@@ -243,7 +233,7 @@ export const DeckBuilder = ({
 
 	  </div>) : (
 	  <div className="curveChart">
-		<Button name="Show bars" onClick={() => console.log(setBars(!bars))}/>
+		<Button name="Show bars" onClick={() => setBars(!bars)}/>
 
 		<LineChart
 		  xAxis={[{ data: manaValuesList, label: 'Mana Value' }]}
