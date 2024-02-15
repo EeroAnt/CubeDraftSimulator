@@ -22,16 +22,20 @@ Also please note that as my highest motivation is to get this up and running and
  - NodeJS backend and the React app are live as a Azure Container Instance in separate containers.
  - MVP is online. User can draft, refine their decks, export them as csv, data from drafts is gathered and saved to the database, if opted.
 
+### Features:
+ - Bars/graphs to show the mana value curves of main/picked/filtered cards
+ - An element to show your commanders color-identities
+ - Color-identity filters to the deckbuilder views
+ - Type filters to the deckbuilder views
+ - Support for gathering draft data
+ - Basic lands can be added in post draft deckbuilding
+
 ## To do/Backlog:
  - Start refactoring the NodeJS backend and the React App
  - Build atleast CI if not also CD pipelines for NodeJS and React parts
  - Build tutorial for the App
- - Add support for gathering draft data
- - Add color-identity filters to the deckbuilders
- - Add an element to show your commanders color-identities
  - Add logic to inform user whether their deck is legal or not
  - Add a view to show illegal cards in main deck
- - Add bars/graphs to show the mana value curves of main/picked/filtered cards
  - Add a forms to filter names and/or types with input. Maybe text boxes too
 
 ### The Database
