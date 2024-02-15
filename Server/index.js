@@ -301,7 +301,7 @@ function getDraft(token, player_count, uuid) {
 	// https://cubedraftsimuflaskapi.azurewebsites.net
 	// http://127.0.0.1:5002
 
-  axios.get(`https://cubedraftsimuflaskapi.azurewebsites.net/${player_count}/${token}`).then(res => {
+  axios.get(`http://eeroncubesimu.northeurope.azurecontainer.io:5002/${player_count}/${token}`).then(res => {
     const data = res.data
     if (data.state === "Setup Complete") {
       drafts[token] = {
@@ -331,7 +331,7 @@ function getDraft(token, player_count, uuid) {
 }
 
 function sendDraftData(data) {
-  axios.post('https://cubedraftsimuflaskapi.azurewebsites.net/draftdata', data, {
+  axios.post('http://eeroncubesimu.northeurope.azurecontainer.io:5002/draftdata', data, {
     headers: {
       'Content-Type': 'application/json'
     }
