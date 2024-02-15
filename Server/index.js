@@ -130,7 +130,13 @@ const handleMessage = (message, uuid) => {
   const data = JSON.parse(message.toString())
   console.log(data)
 
-  if (data.type === "Login"){
+
+  if (data.type === "Admin") {
+	if (process.env.PASSKEY === data.passkey) {
+	  connections[uuid].send(JSON.stringify({ status : 'OK', type : 'Admin'}))
+	}
+
+  } else if (data.type === "Login"){
 	users[uuid].username = data.username
 	users[uuid].token = ""
 	console.log("Login: " + data.username)
@@ -301,7 +307,7 @@ function getDraft(token, player_count, uuid) {
 	// https://cubedraftsimuflaskapi.azurewebsites.net
 	// http://127.0.0.1:5002
 
-  axios.get(`http://eeroncubesimu.northeurope.azurecontainer.io:5002/${player_count}/${token}`).then(res => {
+  axios.get(`http://eeroncubedraftsimu.northeurope.azurecontainer.io:5002/${player_count}/${token}`).then(res => {
     const data = res.data
     if (data.state === "Setup Complete") {
       drafts[token] = {
@@ -331,7 +337,7 @@ function getDraft(token, player_count, uuid) {
 }
 
 function sendDraftData(data) {
-  axios.post('http://eeroncubesimu.northeurope.azurecontainer.io:5002/draftdata', data, {
+  axios.post('http://eeroncubedraftsimu.northeurope.azurecontainer.io:5002/draftdata', data, {
     headers: {
       'Content-Type': 'application/json'
     }

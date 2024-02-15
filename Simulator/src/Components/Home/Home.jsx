@@ -27,15 +27,11 @@ export const Home = ({
 
   const passkey = (value) => {
 	setPassword(value)
-	if (value === import.meta.env.VITE_ADMIN_PASSKEY) {
-	  setAdmin(true)
-	  console.log("Admin")
-	} else {
-	  console.log("Not Admin")
-	}
+	connection.sendJsonMessage({
+	  type: "Admin",
+	  passkey: value
+	})
   }
-
-
 
 
   const changePlayerNumber = (e) => {
@@ -62,6 +58,9 @@ export const Home = ({
 	  setMode("Lobby")
 	} else if (connection.lastJsonMessage && connection.lastJsonMessage.status === "Setup Failed") {
 	  alert("Setup failed"+connection.lastJsonMessage.error)
+	} else if (connection.lastJsonMessage && connection.lastJsonMessage.status === "OK" && connection.lastJsonMessage.type === "Admin") {
+	  setAdmin(true)
+	  console.log("Admin")
 	}
 	  }, [connection.lastJsonMessage])
 
