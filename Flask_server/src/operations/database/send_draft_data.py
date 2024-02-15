@@ -3,9 +3,6 @@ from src.operations.database.queries import sending_picks_query, sending_command
 
 def send_draft_data(data):
 	cur, conn = connect_to_cloud_db()
-	print(data["picks"])
-	print(data["commanderpicks"])
-	print(data["packs"])
 	cur.execute("BEGIN;")
 	for card_id, pick_number in data["picks"].items():
 		cur.execute(sending_picks_query(), (card_id, pick_number))

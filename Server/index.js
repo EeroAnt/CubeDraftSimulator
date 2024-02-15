@@ -262,8 +262,6 @@ const handleMessage = (message, uuid) => {
 		commanderpicks : drafts[data.token].commanderpicks,
 		packs : drafts[data.token].picked_packs
 	  }
-	console.log(draftdata)
-	console.log(typeof(draftdata))
 	sendDraftData(draftdata)
 	}
   }
