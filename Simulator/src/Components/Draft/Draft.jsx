@@ -200,7 +200,6 @@ export const Draft = ({
 	setPack([])
 	} else {
 	  console.log("No card picked")
-	  console.log(pack)
 	}
   }
 
