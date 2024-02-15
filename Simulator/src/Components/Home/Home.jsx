@@ -29,6 +29,9 @@ export const Home = ({
 	setPassword(value)
 	if (value === import.meta.env.VITE_ADMIN_PASSKEY) {
 	  setAdmin(true)
+	  console.log("Admin")
+	} else {
+	  console.log("Not Admin")
 	}
   }
 
@@ -87,7 +90,7 @@ export const Home = ({
 	  <Form onSubmit={login} name="loginform" />
 	  {(password === "") ? (
 		<>
-		  <h2>Admin passkey</h2>
+		<h2>Are you admin?</h2>
 		  <Form onSubmit={passkey} name="passkey" /> 
 		</>): (null)}
 	</div>
