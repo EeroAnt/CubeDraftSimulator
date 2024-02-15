@@ -9,7 +9,7 @@ Having no prior experience on Azure or container technology and only the first t
 
 Now I know how to manage permissions in Azure, push images to ACR, deploy and redeploy a ACI, write simple dockerfiles for these apps and API's and build the images with docker-compose, use websockets to handle React app to NodeJS communication. I also learned that working 16 hours a day on project is not very healthy.
 
-This is a hobby project and I want to keep expences low. The ACI solution is great for this aspect too. It seems that running these containers cost me around 1€ per day. Without the app we have played drafted the cube once a year on average. I hope that with it we will do so more frequently. But sinse the only users (for now) are me and my friends, I'm just going to start it up when needed and pay <50 cents for the draft. The container registry costs me less than 5€ a month. However, there is a downside. The only part of my App that is live around the clock is the Flask API so this is not the best option for a portfolio, I suppose. I think I could make the draft statistics visible on the Flask Web App, so at least that would be accessible anywhere anytime. That seems sensible as it is the piece communicating with the database already, but we need to draft first to get some data, so I'll look into that in the future.
+This is a hobby project and I want to keep expences low. The ACI solution is great for this aspect too. It seems that running these containers cost me around 1€ per day. Without the app we have played drafted the cube once a year on average. I hope that with it we will do so more frequently. But sinse the only users (for now) are me and my friends, I'm just going to start it up when needed and pay <50 cents for the draft. The container registry costs me less than 5€ a month. However, there is a downside. The App that is not live around the clock, so this is not the best option for a portfolio, I suppose.
 
 If you are here reading this and would like to see the simulator in action, I'm more than happy to start it up and keep it running for couple of days.
 
@@ -17,9 +17,8 @@ Also please note that as my highest motivation is to get this up and running and
 
 ## So far I have:
  - built the PostgreSQL database that is up and running in Azure which can be accessed via the Flask API
- - deployed the Flask API as a Azure Web App
  - CI-pipeline for the Flask API communnicating with the database
- - NodeJS backend and the React app are live as a Azure Container Instance in separate containers.
+ - Flask API, NodeJS backend and the React app are live as a Azure Container Instance in separate containers.
  - MVP is online. User can draft, refine their decks, export them as csv, data from drafts is gathered and saved to the database, if opted.
 
 ### Features:
@@ -64,8 +63,6 @@ This part happens in the Flask server that is also online in Azure Cloud.
 #### GET-request
 A GET-request in the form of BASE URL/Player count/token is responded with a json containing a correctly setup packs for each player for each round and also the 'table' which has 'seats' which is a dict containing empty lists for main deck, side deck, current pack, and queue for packs for every player 
 
-This can be tested in https://cubedraftsimuflaskapi.azurewebsites.net/. It is running on a free tier so it probably takes a little while to start up a container. Once it is running it is quite fast with providing the json. Player counts supported now are 1-9 and token can be any string. For example: https://cubedraftsimuflaskapi.azurewebsites.net/6/kUvq2
-
 ### Drafting
 Upon loading the site, a websocket connection is created with the backend. A user is prompted a username and then options are to either initiate a new draft or join an ongoing one with a token. Initiating a draft makes the GET-request mentioned above with selected player count and randomized token. If successful, the user is taken in to lobby for the draft and the token is printed to be shared with others. Once the lobby is full, the initiator of the draft can start the draft.
 
@@ -77,3 +74,5 @@ Once seated, every user sees two tokens in the upper right corner of their scree
 
 ### After drafting
 The same deck building view persists with a couple of changes. There's no player order, so neighbours are not printed, and there's no reason to swap views. There's a link to download the deck as a csv file in the navigation bar instead.
+
+If the initiator of the draft has provided valid Admin Passkey, they may send the draft data to be collected in the database via POST-request to the Flask API.
