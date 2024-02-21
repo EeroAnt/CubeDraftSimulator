@@ -28,7 +28,7 @@ Also please note that as my highest motivation is to get this up and running and
  - Type filters to the deckbuilder views
  - Support for gathering draft data
 
-## To do/Backlog:
+## To do/Backlog (not ordered):
  - Get deckbuilding view working
  - Conspiracy cards need their own zone
  - A 'Maybe board' to accompany side and main boards (maybe in the far future user can create their own divisions to structure their draft pools)
@@ -43,6 +43,11 @@ Also please note that as my highest motivation is to get this up and running and
  - Draft data visualization via Power BI or Tableau
  - Enable scrolling card lists with arrow keys without affecting the selected cards
  - Drag and drop for drafting?
+ - fix visual bug of type filter staying on but the button not after switching views from deckbuilder to draft and back
+ - Add round number to the draft view
+ - Add better view of the table. Show the player order as a whole rather than just the neighbours. Maybe show how many packs each player has queued
+ - Enable ordering of cards that are displayed by atleast name and mana value. Maybe by type and color identity also.
+ - Enable ordering of main deck. So far unclear how or what for
 
 ### The Database
 Is a PostgreSQL database and it is online in Azure Cloud
