@@ -18,6 +18,11 @@ By creating a web app to for this:
 
 ### [Worklog](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/worklog.md)(in Finnish)
 
+
+## Where are we now
+Version 1.0.0 is up and running. Deckbuilder is not functional, but drafting works, drafted cards can be extracted as a csv and draft data is gathered. This is enough for now. Once I find the time to continue the full stack course, I'll build CI-pipeline for JavaScript parts and start working on improvements. Possibly before that I'll look into Power BI or Tableau for visualizing the draft data.
+
+
 ## Steps
 
 ### Setting up the databases
