@@ -5,9 +5,9 @@
 ## About the architecture
 This project has multiple motivations. The highest probably is that I want this app. Second one is that as I've been applying for my first IT-job, I've noticed experience/knowledge of big cloud service providers such as AWS, Azure and GCP is seen as an advantage. So I decided to tackle Azure to get even some understanding of it. Last one is the possibility of submitting this project as a Full stack project for my studies. This is the motivation to build the simulator as a single page React app with NodeJS backend.
 
-Having no prior experience on Azure or container technology and only the first three chapter of the [full stack course](https://fullstackopen.com) under my belt, I set on this journey. I am very pleased that I have managed to deploy a minimum viable product within 4 weeks after starting the project. I ended up with current deployment solution through trial and error basically. I quickly discovered that even my Flask API was not easily deployed to Azure via Azure's default containerizing service so I had to research how to create the container myself and to set up a Container Registry in Azure (ACR). After successfully doing this I got the Flask API deplyed as a Azure Web App. I had bigger problems with deploying the React app with the backend. I couldn't make it work as a Web App nor a Container App after multiple attempts. One thing that was in the way, was my websocket setup being not secure (ws). I took a glance on the subject I decided, at least for now, setting up licences and everything for secure websockets is too much for this project. I have no permanent users, no passwords of any kind, all messages between the client interface and the backend consist of interacting with the draft. Only permanent data is the cube itself and soon the data about picks made. I decided that http is good enough (for now). With Azure Container Instances (ACI), I was finally able to get my two container network running.
+Having no prior experience on Azure or container technology and only the first three chapter of the [full stack course](https://fullstackopen.com) under my belt, I set on this journey. I am very pleased that I have managed to deploy a minimum viable product within 4 weeks after starting the project. I ended up with current deployment solution through trial and error basically. I quickly discovered that even my Flask API was not easily deployed to Azure via Azure's default containerizing service so I had to research how to create the container myself and to set up a Container Registry in Azure (ACR). After successfully doing this I got the Flask API deplyed as a Azure Web App. I had bigger problems with deploying the React app with the backend. I couldn't make it work as a Web App nor a Container App after multiple attempts. One thing that was in the way, was my websocket setup being not secure (ws, not wss). I took a glance on the subject I decided, at least for now, setting up licences and everything for secure websockets is too much for this project. I have no permanent users, no passwords of any kind, all messages between the client interface and the backend consist of interacting with the draft. Only permanent data is the cube itself and soon the data about picks made. I decided that http is good enough (for now). With Azure Container Instances (ACI), I was finally able to get my two container network running.
 
-Now I know how to manage permissions in Azure, push images to ACR, deploy and redeploy a ACI, write simple dockerfiles for these apps and API's and build the images with docker-compose, use websockets to handle React app to NodeJS communication. I also learned that working 16 hours a day on project is not very healthy.
+Now I know how to manage permissions in Azure, push images to ACR, deploy and redeploy an ACI, write simple dockerfiles for these apps and API's and build the images with docker-compose, use websockets to handle React app to NodeJS communication. I also learned that working 16 hours a day on project is not very healthy.
 
 This is a hobby project and I want to keep expences low. The ACI solution is great for this aspect too. It seems that running these containers cost me around 1€ per day. Without the app we have played drafted the cube once a year on average. I hope that with it we will do so more frequently. But sinse the only users (for now) are me and my friends, I'm just going to start it up when needed and pay <50 cents for the draft. The container registry costs me less than 5€ a month. However, there is a downside. The App that is not live around the clock, so this is not the best option for a portfolio, I suppose.
 
@@ -27,15 +27,22 @@ Also please note that as my highest motivation is to get this up and running and
  - Color-identity filters to the deckbuilder views
  - Type filters to the deckbuilder views
  - Support for gathering draft data
- - Basic lands can be added in post draft deckbuilding
 
 ## To do/Backlog:
+ - Get deckbuilding view working
+ - Conspiracy cards need their own zone
+ - A 'Maybe board' to accompany side and main boards (maybe in the far future user can create their own divisions to structure their draft pools)
  - Start refactoring the NodeJS backend and the React App
  - Build atleast CI if not also CD pipelines for NodeJS and React parts
  - Build tutorial for the App
+ - Basic lands can be added in post draft deckbuilding
  - Add logic to inform user whether their deck is legal or not
  - Add a view to show illegal cards in main deck
  - Add a forms to filter names and/or types with input. Maybe text boxes too
+ - Add color identity distributions as a pie graph to the deckbuilder view
+ - Draft data visualization via Power BI or Tableau
+ - Enable scrolling card lists with arrow keys without affecting the selected cards
+ - Drag and drop for drafting?
 
 ### The Database
 Is a PostgreSQL database and it is online in Azure Cloud
