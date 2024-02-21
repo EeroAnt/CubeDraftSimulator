@@ -19,10 +19,6 @@ docker push cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator:latest
 Deployaa ACI. Muista vaihtaa kirjottaa jotain ympäristömuuttujiin vaikka että päivittää judui
 az container create --resource-group SimuAppi --file deploy-aci.yaml
 
-'Deploy' Web App
-Portaalista tämän jälkeen paina restartia flask apille
-
-
 
 Oikee subscription:
 az account show  
