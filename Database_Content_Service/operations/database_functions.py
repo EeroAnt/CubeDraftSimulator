@@ -58,7 +58,7 @@ def add_card(cursor, cardname):
 	cursor.execute("COMMIT;")
 
 def add_multiple_cards(cursor):
-	cards = read_txt_file("cards.txt")
+	cards = read_txt_file("commanders.txt")
 	for card in cards:
 		sleep(0.12)
 		add_card(cursor, card)
@@ -70,6 +70,8 @@ def remove_card(cursor, card_id):
 	if card != None:
 		confirmation = input(f"Are you sure you want to delete {card[1]}? (y/n)")
 		if confirmation == "y":
+			remove_commander(cursor, card_id)
+			remove_from_picks(cursor, card_id)
 			cursor.execute("BEGIN;")
 			cursor.execute("DELETE FROM Cards WHERE id = %s;", (card_id,))
 			cursor.execute("COMMIT;")
@@ -78,16 +80,49 @@ def remove_card(cursor, card_id):
 		print("Card not found.")
 	return
 
+def remove_multiple_cards(cursor):
+	cards = read_txt_file("delete.txt")
+	for card in cards:
+		print(card)
+		cursor.execute("SELECT * FROM Cards WHERE name like %s;", ('%'+card+'%',))
+		thingy = cursor.fetchall()
+		print(thingy)
+		print(len(thingy))
+		if len(thingy) == 1:
+			print(thingy[0][0])
+			card_id = thingy[0][0]
+			remove_card(cursor, card_id)
+		else:
+			print('hep')
+			print(f"{card} not found.")
+
 def add_commander(cursor, card_id):
 	cursor.execute("SELECT * FROM Cards WHERE id = %s;", (card_id,))
 	card = cursor.fetchone()
 	if card != None:
-		cursor.execute("BEGIN;")
-		cursor.execute("INSERT INTO Commanders(card_id) VALUES (%s);", (card_id,))
-		cursor.execute("COMMIT;")
-		print(f"{card[1]} has been added as a commander.")
+		try:
+			cursor.execute("BEGIN;")
+			cursor.execute("INSERT INTO Commanders(card_id) VALUES (%s);", (card_id,))
+			cursor.execute("COMMIT;")
+			print(f"{card[1]} has been added as a commander.")
+		except:
+			print(f"{card[1]} is already a commander.")
 	else:
 		print("Card not found.")
+	return
+
+def add_multiple_commanders(cursor):
+	cards = read_txt_file("commanders.txt")
+	for card in cards:
+		print(card)
+		cursor.execute("ROLLBACK;")
+		cursor.execute("SELECT * FROM Cards WHERE name like %s;", ('%'+card+'%',))
+		thingy = cursor.fetchall()
+		if len(thingy) == 1:
+			card_id = thingy[0][0]
+			add_commander(cursor, card_id)
+		else:
+			print(f"{card} not found.")
 	return
 
 def remove_commander(cursor, card_id):
@@ -103,6 +138,18 @@ def remove_commander(cursor, card_id):
 		cursor.execute("DELETE FROM Commanders WHERE card_id = %s;", (card_id,))
 		cursor.execute("COMMIT;")
 		print(f"{card[1]} has been removed as a commander.")
+	else:
+		print("Card not found.")
+	return
+
+def remove_from_picks(cursor, card_id):
+	cursor.execute("SELECT * FROM Cards WHERE id = %s;", (card_id,))
+	card = cursor.fetchone()
+	if card != None:
+		cursor.execute("BEGIN;")
+		cursor.execute("DELETE FROM Picks WHERE card_id = %s;", (card_id,))
+		cursor.execute("COMMIT;")
+		print(f"{card[1]} has been removed from the picks.")
 	else:
 		print("Card not found.")
 	return
