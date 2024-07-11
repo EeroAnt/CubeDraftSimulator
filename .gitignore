@@ -5,4 +5,4 @@ entrypoint.sh
 nginx.conf
 deploy-aci.yaml
 __pycache__/
-Database_Content_Service/Cards.txt
+Database_Content_Service/*.txt
