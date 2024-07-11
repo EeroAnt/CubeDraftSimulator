@@ -1,8 +1,8 @@
 from operations.card_json_fetcher import fetch_card_json
 from operations.read_txt import read_txt_file
+from time import sleep
 
 def search_cards(cursor, query):
-	# Search for cards in the database
 	cursor.execute("SELECT * FROM cards WHERE name LIKE %s", (query,))
 	cards = cursor.fetchall()
 	if len(cards) == 0:
@@ -14,9 +14,22 @@ def search_cards(cursor, query):
 			print(card[0], card[1])
 		return cards
 
-def add_card(cursor, card):
-	card = fetch_card_json(card)
-	print(card)
+def check_card(cursor, cardname):
+	cursor.execute("SELECT * FROM Cards WHERE name = %s;", (cardname,))
+	card = cursor.fetchone()
+	if card != None:
+		return True
+	else:
+		return False
+
+def add_card(cursor, cardname):
+	card = fetch_card_json(cardname)
+	if card == None:
+		print(f"{cardname} not found.")
+		return
+	if check_card(cursor, cardname):
+		print(f"{cardname} is already in the database.")
+		return
 	cursor.execute("BEGIN;")
 	cursor.execute("""INSERT INTO
 				Cards(
@@ -47,6 +60,7 @@ def add_card(cursor, card):
 def add_multiple_cards(cursor):
 	cards = read_txt_file("cards.txt")
 	for card in cards:
+		sleep(0.12)
 		add_card(cursor, card)
 	return
 
