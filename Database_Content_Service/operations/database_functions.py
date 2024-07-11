@@ -56,8 +56,39 @@ def remove_card(cursor, card_id):
 	if card != None:
 		confirmation = input(f"Are you sure you want to delete {card[1]}? (y/n)")
 		if confirmation == "y":
+			cursor.execute("BEGIN;")
 			cursor.execute("DELETE FROM Cards WHERE id = %s;", (card_id,))
+			cursor.execute("COMMIT;")
 			print(f"{card[1]} has been deleted.")
+	else:
+		print("Card not found.")
+	return
+
+def add_commander(cursor, card_id):
+	cursor.execute("SELECT * FROM Cards WHERE id = %s;", (card_id,))
+	card = cursor.fetchone()
+	if card != None:
+		cursor.execute("BEGIN;")
+		cursor.execute("INSERT INTO Commanders(card_id) VALUES (%s);", (card_id,))
+		cursor.execute("COMMIT;")
+		print(f"{card[1]} has been added as a commander.")
+	else:
+		print("Card not found.")
+	return
+
+def remove_commander(cursor, card_id):
+	cursor.execute("SELECT * FROM Cards WHERE id = %s;", (card_id,))
+	card = cursor.fetchone()
+	if card != None:
+		cursor.execute("SELECT * FROM Commanders WHERE card_id = %s;", (card_id,))
+		commander = cursor.fetchone()
+		if commander == None:
+			print("Card is not a commander.")
+			return
+		cursor.execute("BEGIN;")
+		cursor.execute("DELETE FROM Commanders WHERE card_id = %s;", (card_id,))
+		cursor.execute("COMMIT;")
+		print(f"{card[1]} has been removed as a commander.")
 	else:
 		print("Card not found.")
 	return
