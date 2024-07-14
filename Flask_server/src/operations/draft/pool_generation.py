@@ -1,39 +1,46 @@
 from src.operations.database.sql_to_dict import sql_to_dict
 from src.operations.database.queries import *
 from src.operations.database.cloud_db import connect_to_cloud_db
+from src.operations.draft.cube_size_checks import check_cube_size
 from math import ceil
 
 
-def generate_pools(player_count):
+def generate_pools(specs):
+
 	cur, conn = connect_to_cloud_db()
 	pools = {}
-	number_of_structured_packs = ceil(15*8*player_count/18)
+	commander_ids = []
 
-	pools["commanders"], commander_ids = generate_commander_pool(
-		player_count,
-		cur=cur
-		)
-	
+	if specs["commander_packs"]:
+		pools["commanders"], commander_ids = generate_commander_pool(
+			specs["player_count"],
+			cur=cur
+			)
+		
 	sql_for_multicolored_pool = multicolored_pool_query(commander_ids)
 	
 	pools["multicolored"] = generate_multicolored_pool(
 		sql_for_multicolored_pool,
-		pool_size=number_of_structured_packs*3,
+		pool_size=specs["number_of_structured_packs"]*specs["multi_ratio"],
 		cur=cur
 		)
 	
-	for i in [("white","W"), ("blue","U"), ("black","B"), ("red","R"), ("green","G"), ("land","L")]:
+	pool_attributes = [
+		("white","W",specs["generic_ratio"]),
+		("blue","U",specs["generic_ratio"]),
+		("black","B",specs["generic_ratio"]),
+		("red","R",specs["generic_ratio"]),
+		("green","G",specs["generic_ratio"]),
+		("land","L",specs["land_ratio"]),
+		("colorless","C",specs["colorless_ratio"])
+	]
+
+	for i in pool_attributes:
 		pools[i[0]] = generate_generic_pool(
 			i[1], 
-			pool_size=number_of_structured_packs*2,
+			pool_size=specs["number_of_structured_packs"]*i[2],
 			cur=cur
 			)
-
-	pools["colorless"] = generate_generic_pool(
-		"C", 
-		pool_size=number_of_structured_packs*3,
-		cur=cur
-		)
 
 	return pools, conn
 

@@ -4,10 +4,15 @@ def setup(player_count, identifier="test"):
 	from time import time
 	
 	start = time()
-	commander_packs, normal_packs, conn = setup_draft(player_count, identifier)
+	commander_packs, normal_packs, conn, errors = setup_draft(player_count, identifier)
 		
 	close_cloud_db(conn)
 	
+	if errors:
+		print("Draft setup failed.")
+		print(errors)
+		return errors
+
 	print("Draft setup complete.")
 	print("Time elapsed: " + str(time() - start) + " seconds.")
 	return identifier
