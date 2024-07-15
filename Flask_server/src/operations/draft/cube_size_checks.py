@@ -1,8 +1,9 @@
 from src.operations.database.queries import *
+from src.operations.database.cloud_db import connect_to_cloud_db, close_cloud_db
 
-def check_cube_size(cur, specs):
+def check_cube_size(specs):
 	errors = []
-	
+	cur, conn = connect_to_cloud_db()
 	cur.execute(cube_size_query(),)
 	cube_size = cur.fetchone()[0]
 	if cube_size < specs["number_of_structured_packs"]*15:
@@ -30,4 +31,6 @@ def check_cube_size(cur, specs):
 	if pool_size < specs["number_of_structured_packs"]*specs["multi_ratio"]:
 		errors.append("Multicolored pool size is too small.")
 	
+	close_cloud_db(conn)
+
 	return errors
