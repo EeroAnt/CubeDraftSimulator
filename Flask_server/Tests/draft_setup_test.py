@@ -85,9 +85,9 @@ class TestFailedDraftSetup(unittest.TestCase):
 		"uncut_pack_size": 38
 	}
 		specs["number_of_structured_packs"] = ceil(15*specs["normal_rounds"]*specs["player_count"]/specs["uncut_pack_size"])
-		self.cur, self.conn = connect_to_cloud_db()
-		self.errors = check_cube_size(self.cur, specs)
-		close_cloud_db(self.conn)
+
+		self.errors = check_cube_size(specs)
+		
 		generate_json({"state":"Setup Failed", "errors": self.errors}, "pytest")
 	
 	def test_too_many_players(self):
