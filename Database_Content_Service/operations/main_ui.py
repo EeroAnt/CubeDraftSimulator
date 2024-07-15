@@ -2,9 +2,16 @@ from operations.add_ui import add_ui
 from operations.remove_ui import remove_ui
 from operations.search_ui import search_ui
 from operations.commanders_ui import manage_commanders_ui
+from operations.database_functions import print_cube_contents
 
 def main_ui(cursor):
-	instructions = "UI operations\n1: Add cards to the database\n2: Search for cards in the database\n3: Remove cards from the database\n4: Manage Commanders\n0: Exit"
+	instructions = """UI operations\n
+	1: Add cards to the database\n
+	2: Search for cards in the database\n
+	3: Remove cards from the database\n
+	4: Manage Commanders\n
+	5: Print cube contents\n
+	0: Exit"""
 	print(instructions)
 	choice = input("Enter your choice: ")
 	while choice != "0":
@@ -16,6 +23,8 @@ def main_ui(cursor):
 			remove_ui(cursor)
 		elif choice == "4":
 			manage_commanders_ui(cursor)
+		elif choice == "5":
+			print_cube_contents(cursor)
 		else:
 			print("Invalid choice.")
 		print(instructions)

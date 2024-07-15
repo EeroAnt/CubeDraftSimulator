@@ -86,8 +86,6 @@ def remove_multiple_cards(cursor):
 		print(card)
 		cursor.execute("SELECT * FROM Cards WHERE name like %s;", ('%'+card+'%',))
 		thingy = cursor.fetchall()
-		print(thingy)
-		print(len(thingy))
 		if len(thingy) == 1:
 			print(thingy[0][0])
 			card_id = thingy[0][0]
@@ -152,4 +150,18 @@ def remove_from_picks(cursor, card_id):
 		print(f"{card[1]} has been removed from the picks.")
 	else:
 		print("Card not found.")
+	return
+
+def print_cube_contents(cursor):
+	cursor.execute("SELECT name FROM Cards;")
+	cards = cursor.fetchall()
+	with open("cube.txt", "w") as file:
+		for card in cards:
+			file.write(card[0] + "\n")
+
+	cursor.execute("SELECT name FROM Commanders left join Cards on Commanders.card_id = Cards.id;")
+	commanders = cursor.fetchall()
+	with open("commanders.txt", "w") as file:
+		for commander in commanders:
+			file.write(commander[0] + "\n")
 	return
