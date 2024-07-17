@@ -32,4 +32,5 @@
 |       | 2    | Draftin jälkeisen näkymän ensimmäinen viimeistely ja valmiin pakan lataaminen | 
 | *     | 2    | Dokumentaation hiomista siellä täällä |
 | 17.7. | 4    | Draftin alustamisen parametrit on vapautettu muokattaviksi ja sille luotu käyttöliittyymä fronttiin |
-| Yht.  | 83   ||
+|       | 2    | Draftidatan visualisoinnin pohjaa aloitettu. Käyttäjänimen luonnin yhteydessä luodaan json tiedosto erinäisistä datoista
+| Yht.  | 89   ||
