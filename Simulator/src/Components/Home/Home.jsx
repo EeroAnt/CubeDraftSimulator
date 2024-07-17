@@ -1,4 +1,4 @@
-import { MyNavBar, Dropdown, Button, setupDraft, Form } from "../../"
+import { MyNavBar, DraftParametersForm, Button, setupDraft, Form, DraftParameterCheckbox } from "../../"
 import { useState, useEffect } from 'react'
 
 
@@ -15,6 +15,13 @@ export const Home = ({
 }) =>{
   const [draftInitiated, setDraftInitiated] = useState(false)
   const [password, setPassword] = useState("")
+  const [commanderPackIncluded, setCommanderPackIncluded] = useState(false)
+  const [numOfRounds, setNumOfRounds] = useState(8)
+  const [multiRatio, setMultiRatio] = useState(3)
+  const [genericRatio, setGenericRatio] = useState(2)
+  const [colorlessRatio, setColorlessRatio] = useState(3)
+  const [landRatio, setLandRatio] = useState(2)
+
 
   const login = (username) => {
 	setUsername(username)
@@ -34,22 +41,24 @@ export const Home = ({
   }
 
 
-  const changePlayerNumber = (e) => {
-	e.preventDefault()
-	setNumberOfPlayers(Number(e.target.value))
+  const changeCommanderPacksIncluded = (e) => {
+	setCommanderPackIncluded(!commanderPackIncluded)
+    console.log(commanderPackIncluded)
   }
 
 
   const submitSetup = (e) => {
+
 	setOwner(true)
 	var token = function() {
 		return Math.random().toString(36).slice(2,6)
 	}
 	const newtoken = token()
 	setToken(newtoken)
-	setupDraft(newtoken, numberOfPlayers, connection)
+	setupDraft(newtoken, numberOfPlayers, connection, numOfRounds, multiRatio, genericRatio, colorlessRatio, landRatio, commanderPackIncluded)
 	setDraftInitiated(true)
 	console.log(newtoken) 
+
   }
 
 
@@ -57,7 +66,10 @@ export const Home = ({
 	if (connection.lastJsonMessage && connection.lastJsonMessage.status === "Setup OK") {
 	  setMode("Lobby")
 	} else if (connection.lastJsonMessage && connection.lastJsonMessage.status === "Setup Failed") {
-	  alert("Setup failed"+connection.lastJsonMessage.error)
+	  console.log(connection.lastJsonMessage.errors)
+	  alert("Setup failed\n"+connection.lastJsonMessage.errors.toString())
+	  setDraftInitiated(false)
+
 	} else if (connection.lastJsonMessage && connection.lastJsonMessage.status === "OK" && connection.lastJsonMessage.type === "Admin") {
 	  setAdmin(true)
 	  console.log("Admin")
@@ -105,7 +117,14 @@ export const Home = ({
 	  ) : (
 	  <>
 	  <h2>Setup a new Draft</h2>
-	  <Dropdown name="number of players" handleChange={changePlayerNumber}/>
+	  <DraftParametersForm name="number of players" handleChange={(e) => {e.preventDefault(); setNumberOfPlayers(Number(e.target.value))}} defaultVal={numberOfPlayers}/>
+	  <DraftParametersForm name="number of rounds" handleChange={(e) => {e.preventDefault(); setNumOfRounds(Number(e.target.value))}} defaultVal={numOfRounds}/>
+	  <DraftParametersForm name="ratio of multi color pool" handleChange={(e) => {e.preventDefault(); setMultiRatio(Number(e.target.value))}} defaultVal={multiRatio}/>
+	  <DraftParametersForm name="ratio of generic pool" handleChange={(e) => {e.preventDefault(); setGenericRatio(Number(e.target.value))}} defaultVal={genericRatio}/>
+	  <DraftParametersForm name="ratio of colorless pool" handleChange={(e) => {e.preventDefault(); setColorlessRatio(Number(e.target.value))}} defaultVal={colorlessRatio}/>
+	  <DraftParametersForm name="ratio of land pool" handleChange={(e) => {e.preventDefault(); setLandRatio(Number(e.target.value))}} defaultVal={landRatio}/>
+	  <DraftParameterCheckbox name="Commander pack included" handleChange={changeCommanderPacksIncluded} />
+	  
 	  <Button name="init draft" onClick={(e)=>submitSetup()}/>
 
 	  <h2>Join Draft with a token</h2>

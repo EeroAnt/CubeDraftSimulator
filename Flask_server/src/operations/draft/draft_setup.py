@@ -12,7 +12,7 @@ def setup_draft(specs, identifier):
 	if errors:
 		failed_setup = {"state":"Setup Failed", "errors": errors}
 		generate_json(failed_setup, identifier)
-		return None, None, conn, errors
+		return None, None, None, errors
 	pools, conn = generate_pools(specs)
 	if specs["commander_packs"]:
 		commander_packs = create_commander_packs(pools["commanders"])

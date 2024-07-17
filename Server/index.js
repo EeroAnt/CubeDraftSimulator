@@ -145,11 +145,24 @@ const handleMessage = (message, uuid) => {
   } else if (data.type === "Create Lobby") {
 	if (users[uuid].token === "") {
 	  users[uuid].token = data.token
-	  getDraft(data.token, data.player_count, uuid)
+	  if (data.commander_pack_included) {
+		commander_pack_included = 1
+	  } else {
+		commander_pack_included = 0
+	  }
+	  getDraft(
+		data.token,
+		data.player_count,
+		uuid,
+		commander_pack_included,
+		data.number_of_rounds,
+		data.multi_ratio,
+		data.generic_ratio,
+		data.colorless_ratio,
+		data.land_ratio)
 	} else {
 	  console.log("Wait for setting up the draft")
 	}
-
 
   } else if (data.type === "Join Draft") {
 
@@ -300,19 +313,40 @@ server.listen(wsPort, () => {
 	  console.log(`Server listening on port ${wsPort}`)
 })
 
-
-function getDraft(token, player_count, uuid) {
-	// https://cubedraftsimuflaskapi.azurewebsites.net
 	// http://127.0.0.1:5002
+	// http://eeroncubedraftsimu.northeurope.azurecontainer.io:5002
 
-  axios.get(`http://eeroncubedraftsimu.northeurope.azurecontainer.io:5002/${player_count}/${token}`).then(res => {
+const flask_url = "http://127.0.0.1:5002"
+
+
+function getDraft(token,
+				player_count,
+				uuid,
+				commander_packs_included,
+				normal_rounds,
+				multi_ratio,
+				generic_ratio,
+				colorless_ratio,
+				land_ratio) {
+	
+
+  axios.get(flask_url+`/
+		${player_count}/
+		${token}/
+		${commander_packs_included}/
+		${normal_rounds}/
+		${multi_ratio}/
+		${generic_ratio}/
+		${colorless_ratio}/
+		${land_ratio}`).then(res => {
+	
     const data = res.data
     if (data.state === "Setup Complete") {
       drafts[token] = {
 		token : token,
     	player_count : player_count,
     	players : [users[uuid]],
-    	round : -1,
+    	round : -1*commander_packs_included,
 		direction : -1,
 		picks : {},
 		commanderpicks : {},
@@ -325,17 +359,28 @@ function getDraft(token, player_count, uuid) {
 	
 	  connections[uuid].send(JSON.stringify({ status: "Setup OK"}))
 	  broadcastUserlist(drafts[token])
-    } else {
-	  connections[uuid].send(JSON.stringify({ status: "Setup Failed", error: "Setup Error"}))
+
+    } else if (data.state === "Setup Failed") {
+	    console.log(data)
+		connections[uuid].send(JSON.stringify({ status: "Setup Failed", errors: data.errors}))
+		users[uuid].token = ""
+
+	} else {
+
+	
+		connections[uuid].send(JSON.stringify({ status: "Setup Failed", error: "Unknown Error"}))
+
   }})
   .catch(error => {
+	
 	console.error('Error fetching data:', error);
 	connections[uuid].send(JSON.stringify({ status: "Setup Failed", error: "Connection Error"}))
+
   });
 }
 
 function sendDraftData(data) {
-  axios.post('http://eeroncubedraftsimu.northeurope.azurecontainer.io:5002/draftdata', data, {
+  axios.post(flask_url+'/draftdata', data, {
     headers: {
       'Content-Type': 'application/json'
     }

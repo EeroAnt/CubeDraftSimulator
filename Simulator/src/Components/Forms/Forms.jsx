@@ -31,22 +31,26 @@ export function Form({ onSubmit, name }) {
 }
 
 
-export const Dropdown = ({name, value, handleChange}) => {
+export const DraftParametersForm = ({name, value, handleChange, defaultVal}) => {
   return (
 	<>
-	  <label>{name}
-		<select name={name} value={value} onChange={handleChange}>
-		  <option value="1">1</option>
-		  <option value="2">2</option>
-		  <option value="3">3</option>
-		  <option value="4">4</option>
-		  <option value="5">5</option>
-		  <option value="6">6</option>
-		  <option value="7">7</option>
-		  <option value="8">8</option>
-		  <option value="9">9</option>
-	    </select>
+	  <label>
+		{name}
 	  </label>
+	  <input type="number" value={value} min={0} max={10} defaultValue={defaultVal} onChange={handleChange} />
+	  <br/>
+	</>		
+  );
+}
+
+export const DraftParameterCheckbox = ({name, value, handleChange}) => {
+  return (
+	<>
+	  <label>
+		{name}
+	  </label>
+	  <input type="checkbox" value={value} onChange={handleChange} />
+	  <br/>
 	</>		
   );
 }

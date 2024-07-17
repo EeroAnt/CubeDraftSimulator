@@ -5,14 +5,13 @@ def setup(specs, identifier="test"):
 	
 	start = time()
 	commander_packs, normal_packs, conn, errors = setup_draft(specs, identifier)
-		
-	close_cloud_db(conn)
 	
 	if errors:
 		print("Draft setup failed.")
 		print(errors)
 		return errors
-
+	
+	close_cloud_db(conn)
 	print("Draft setup complete.")
 	print("Time elapsed: " + str(time() - start) + " seconds.")
 	return identifier
