@@ -136,6 +136,9 @@ const handleMessage = (message, uuid) => {
 	  connections[uuid].send(JSON.stringify({ status : 'OK', type : 'Admin'}))
 	}
 
+  } else if (data.type === "Get Data") {
+	getData()
+
   } else if (data.type === "Login"){
 	users[uuid].username = data.username
 	users[uuid].token = ""
@@ -388,5 +391,13 @@ function sendDraftData(data) {
 	console.log(res.data)
   }).catch(error => {
 	console.error('Error sending data:', error);
+  });
+}
+
+function getData() {
+  axios.get(flask_url+'/data').then(res => {
+	console.log(res.data)
+  }).catch(error => {
+	console.error('Error fetching data:', error);
   });
 }

@@ -29,6 +29,9 @@ export const Home = ({
 	  type: "Login",
 	  username: username
 	})
+	connection.sendJsonMessage({
+	  type: "Get Data"
+	})
   }
 
 

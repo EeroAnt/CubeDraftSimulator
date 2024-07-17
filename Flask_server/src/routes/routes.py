@@ -4,7 +4,10 @@ from flask_restful import Api, Resource
 from src.operations.setup_server import setup
 from src.operations.error_handling.api_parameter_errors import api_parameter_errors
 from src.operations.database.send_draft_data import send_draft_data
+from src.operations.database.stats import generate_data
 from math import ceil
+from random import choices
+from string import ascii_letters, digits
 import json
 
 @app.route("/")
@@ -17,6 +20,15 @@ def parse_draftdata():
 	data = request.get_json()
 	send_draft_data(data)
 	return "success"
+
+@app.route("/data", methods=["GET"])
+def get_draftdata():
+	identifier = "".join(choices(ascii_letters+digits, k=4))
+	generate_data(identifier)
+	# data = json.load(open(f"templates/data{identifier}.json"))
+	data = {"status": "success"}
+	return data
+	
 
 api = Api(app)
 
