@@ -28,7 +28,7 @@ class TestSuccesfulDraftSetup(unittest.TestCase):
 		close_cloud_db(self.conn)
 		self.commander_packs = create_commander_packs(self.pool["commanders"])
 		self.normal_packs = create_normal_packs(self.pool, specs_for_commanders)
-		self.finished_setup = deal_packs(self.commander_packs, self.normal_packs, self.player_count)
+		self.finished_setup = deal_packs(self.commander_packs, self.normal_packs, self.player_count, specs_for_commanders["normal_rounds"])
 		generate_json(self.finished_setup, "pytest")
 
 	def test_size_of_commander_packs(self):
