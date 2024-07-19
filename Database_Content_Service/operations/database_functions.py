@@ -169,11 +169,11 @@ def remove_from_picks(cursor, card_id):
 	return
 
 def print_cube_contents(cursor):
-	cursor.execute("SELECT name FROM Cards;")
+	cursor.execute("SELECT name, draft_pool FROM Cards Order by draft_pool, name;")
 	cards = cursor.fetchall()
 	with open("cube.txt", "w") as file:
 		for card in cards:
-			file.write(card[0] + "\n")
+			file.write("{:<3} {}".format(card[1],card[0])+ "\n")
 
 	cursor.execute("SELECT name FROM Commanders left join Cards on Commanders.card_id = Cards.id;")
 	commanders = cursor.fetchall()
