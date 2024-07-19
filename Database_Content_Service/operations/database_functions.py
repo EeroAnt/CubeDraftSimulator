@@ -3,7 +3,7 @@ from operations.read_txt import read_txt_file
 from time import sleep
 
 def search_cards(cursor, query):
-	cursor.execute("SELECT * FROM cards WHERE name LIKE %s", (query,))
+	cursor.execute("SELECT id, name, draft_pool FROM cards WHERE name LIKE %s", (query,))
 	cards = cursor.fetchall()
 	if len(cards) == 0:
 		print("No cards found.")
@@ -11,8 +11,20 @@ def search_cards(cursor, query):
 		print("Too many cards found. Please refine your search.")
 	else:
 		for card in cards:
-			print(card[0], card[1])
+			print("{:<6} {:<30} {}".format(card[0], card[1], card[2]))
 		return cards
+
+def update_draft_pool(cursor, card_id, draft_pool):
+	cursor.execute("SELECT * FROM Cards WHERE id = %s;", (card_id,))
+	card = cursor.fetchone()
+	if card != None:
+		cursor.execute("BEGIN;")
+		cursor.execute("UPDATE Cards SET draft_pool = %s WHERE id = %s;", (draft_pool, card_id))
+		cursor.execute("COMMIT;")
+		print(f"{card[1]} has been updated.")
+	else:
+		print("Card not found.")
+	return
 
 def check_card(cursor, cardname):
 	cursor.execute("SELECT * FROM Cards WHERE name = %s;", (cardname,))
