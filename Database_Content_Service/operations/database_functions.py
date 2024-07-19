@@ -14,10 +14,14 @@ def search_cards(cursor, query):
 			print("{:<6} {:<30} {}".format(card[0], card[1], card[2]))
 		return cards
 
-def update_draft_pool(cursor, card_id, draft_pool):
+def update_draft_pool(cursor, card_id):
 	cursor.execute("SELECT * FROM Cards WHERE id = %s;", (card_id,))
 	card = cursor.fetchone()
 	if card != None:
+		draft_pool = input(f"Enter the new draft pool for {card[1]} (0 to cancel): ")
+		if draft_pool == "0":
+			print("Operation cancelled.")
+			return
 		cursor.execute("BEGIN;")
 		cursor.execute("UPDATE Cards SET draft_pool = %s WHERE id = %s;", (draft_pool, card_id))
 		cursor.execute("COMMIT;")
