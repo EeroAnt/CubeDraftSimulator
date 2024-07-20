@@ -183,5 +183,39 @@ def print_cube_contents(cursor):
 		for card in cards:
 			file.write("{:<3} {}".format(card[1],card[0])+ "\n")
 
-
 	return
+
+def inspect_cube_contents(cursor):
+	pools = {
+		"M" : "Multicolor",
+		"L" : "Lands",
+		"C" : "Colorless",
+		"U" : "Blue",
+		"W" : "White",
+		"B" : "Black",
+		"R" : "Red",
+		"G" : "Green"
+	}
+	cursor.execute("Select count(*), draft_pool from cards group by draft_pool order by count(*) desc;")
+	draft_pools = cursor.fetchall()
+	print("Pool sizes:")
+	for pool in draft_pools:
+		print("{:<5} {}".format(pool[0], pools[pool[1]]))
+
+	cursor.execute("Select count(*), color_identity from cards where draft_pool like 'M' group by color_identity order by count(*) desc;")
+	multi_ratios = cursor.fetchall()
+	print("\n")
+	print("Color distribution in multicolor cards:")
+	for ratio in multi_ratios:
+		print("{:<5} {}".format(ratio[0], ratio[1]))
+
+	cursor.execute("Select count(*) from commanders;")
+	commanders = cursor.fetchone()
+	print("\n")
+	print(f"Amount of commanders: {commanders[0]}")
+	cursor.execute("Select count(*), color_identity from commanders left join cards on commanders.card_id = cards.id group by color_identity order by count(*) desc;")
+	commander_ratios = cursor.fetchall()
+	print("\n")
+	print("Color distribution in commander pool:")
+	for ratio in commander_ratios:
+		print("{:<5} {}".format(ratio[0], ratio[1]))
