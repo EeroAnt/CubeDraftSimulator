@@ -169,15 +169,19 @@ def remove_from_picks(cursor, card_id):
 	return
 
 def print_cube_contents(cursor):
-	cursor.execute("SELECT name, draft_pool FROM Cards Order by draft_pool, name;")
-	cards = cursor.fetchall()
+	cursor.execute("SELECT name, cards.id FROM Commanders left join Cards on Commanders.card_id = Cards.id order by name;")
+	commanders = cursor.fetchall()
 	with open("cube.txt", "w") as file:
+		for commander in commanders:
+			file.write("{:<3} {}".format("",commander[0])+ "\n")
+	
+	commander_ids = [commander[1] for commander in commanders]
+
+	cursor.execute("SELECT name, draft_pool FROM Cards Where id not in %s order by draft_pool, name;", (tuple(commander_ids),))
+	cards = cursor.fetchall()
+	with open("cube.txt", "a") as file:
 		for card in cards:
 			file.write("{:<3} {}".format(card[1],card[0])+ "\n")
 
-	cursor.execute("SELECT name FROM Commanders left join Cards on Commanders.card_id = Cards.id;")
-	commanders = cursor.fetchall()
-	with open("commanders.txt", "w") as file:
-		for commander in commanders:
-			file.write(commander[0] + "\n")
+
 	return
