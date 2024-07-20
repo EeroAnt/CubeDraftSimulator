@@ -107,7 +107,6 @@ def remove_multiple_cards(cursor):
 			card_id = thingy[0][0]
 			remove_card(cursor, card_id)
 		else:
-			print('hep')
 			print(f"{card} not found.")
 
 def add_commander(cursor, card_id):
@@ -137,6 +136,7 @@ def add_multiple_commanders(cursor):
 			add_commander(cursor, card_id)
 		else:
 			print(f"{card} not found.")
+		cursor.execute("ROLLBACK;")
 	return
 
 def remove_commander(cursor, card_id):

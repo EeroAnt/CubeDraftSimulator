@@ -1,11 +1,12 @@
 from operations.database_functions import add_commander, add_multiple_commanders, remove_commander
 
 def manage_commanders_ui(cursor):
+	instructions = """1: Add a commander\n
+	2: Add multiple commanders\n
+	3: Remove a commander\n
+	0: Cancel"""
 	print("Manage Commanders")
-	print("1: Add a commander")
-	print("2: Add multiple commanders")
-	print("3: Remove a commander")
-	print("0: Cancel")
+	print(instructions)
 	choice = input("Enter your choice: ")
 	while choice != "0":
 		if choice == "1":
@@ -18,8 +19,6 @@ def manage_commanders_ui(cursor):
 			remove_commander(cursor, card_id)
 		else:
 			print("Invalid choice.")
-		print("1: Add a commander")
-		print("2: Remove a commander")
-		print("0: Cancel")
+		print(instructions)
 		choice = input("Enter your choice: ")
 	return
