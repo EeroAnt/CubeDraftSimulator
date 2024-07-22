@@ -2,16 +2,22 @@ from operations.card_json_fetcher import fetch_card_json
 from operations.read_txt import read_txt_file
 from time import sleep
 
-def search_cards(cursor, query):
-	cursor.execute("SELECT id, name, draft_pool FROM cards WHERE name LIKE %s", (query,))
+def search_cards(cursor, query, choice):
+	choices = {
+		"1" : "name",
+		"2" : "types",
+		"3" : "oracle_text"
+	}
+	cursor.execute(f"SELECT id, name, draft_pool, case when cards.id=card_id then 'yes' else 'no' end as commander from cards left join commanders on cards.id=card_id WHERE {choices[choice]} LIKE %s", (query,))
 	cards = cursor.fetchall()
 	if len(cards) == 0:
 		print("No cards found.")
-	if len(cards) > 10:
-		print("Too many cards found. Please refine your search.")
+	elif len(cards) > 100:
+		print(f"Too many cards found ({len(cards)}). Please refine your search.")
 	else:
+		print("{:<6} {:<40} {:<10} {}".format("id", "name", "draft pool", "commander"))
 		for card in cards:
-			print("{:<6} {:<30} {}".format(card[0], card[1], card[2]))
+			print("{:<6} {:<40} {:<10} {}".format(card[0], card[1], card[2], card[3]))
 		return cards
 
 def update_draft_pool(cursor, card_id):
