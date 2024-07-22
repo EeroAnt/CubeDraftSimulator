@@ -3,7 +3,6 @@ from operations.database_connection import connect_to_cloud_db, close_cloud_db
 
 def main():
 	cursor, connection = connect_to_cloud_db()
-	print("Database Content Service")
 	main_ui(cursor)
 	close_cloud_db(connection)
 	return

@@ -7,14 +7,14 @@ from operations.draft_pool_change_ui import draft_pool_change_ui
 
 
 def main_ui(cursor):
-	instructions = """UI operations\n
-	1: Add cards to the database\n
-	2: Search for cards in the database\n
-	3: Remove cards from the database\n
-	4: Manage Commanders\n
-	5: Change draft pool of a card\n
-	6: Print cube contents\n
-	7: Inspect cube contents\n
+	instructions = """Database Content Service\n
+	1: Add cards to the database
+	2: Search for cards in the database
+	3: Remove cards from the database
+	4: Manage Commanders
+	5: Change draft pool of a card
+	6: Print cube contents
+	7: Inspect cube contents
 	0: Exit"""
 	print(instructions)
 	choice = input("Enter your choice: ")
@@ -33,6 +33,7 @@ def main_ui(cursor):
 			print_cube_contents(cursor)
 		elif choice == "7":
 			inspect_cube_contents(cursor)
+			input("Press enter to continue.")
 		else:
 			print("Invalid choice.")
 		print(instructions)

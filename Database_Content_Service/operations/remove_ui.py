@@ -1,8 +1,12 @@
 from operations.database_functions import remove_card, remove_multiple_cards
 
 def remove_ui(cursor):
-	print("Remove cards from the database")
-	choice = input("1: Remove a card\n2: Remove multiple cards\n0: Cancel\nEnter your choice: ")
+	print("Remove cards from the database\n")
+	instructions = """	1: Remove a card
+	2: Remove multiple cards
+	0: Cancel"""
+	print(instructions)
+	choice = input("Enter your choice: ")
 	while choice != "0":
 		if choice == "1":
 			try:
@@ -17,6 +21,8 @@ def remove_ui(cursor):
 			remove_multiple_cards(cursor)
 		else:
 			print("Invalid choice.")
-		choice = input("1: Remove a card\n2: Remove multiple cards\n0: Cancel\nEnter your choice: ")
+		input("Press enter to continue.")
+		print(instructions)
+		choice = input("Enter your choice: ")
 	
 	return

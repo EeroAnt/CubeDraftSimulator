@@ -1,7 +1,10 @@
 from operations.database_functions import add_card, add_multiple_cards
 
 def add_ui(cursor):
-	instructions = "Add cards to the database\n1: Add a card\n2: Add multiple cards\n0: Cancel"
+	instructions = """Add cards to the database\n
+	1: Add a card
+	2: Add multiple cards
+	0: Cancel"""
 	print(instructions)
 	choice = input("Enter your choice: ")
 	while choice != "0":
@@ -12,6 +15,8 @@ def add_ui(cursor):
 			add_multiple_cards(cursor)
 		else:
 			print("Invalid choice.")
+		
+		input("Press enter to continue.")
 		print(instructions)
 		choice = input("Enter your choice: ")
 	return

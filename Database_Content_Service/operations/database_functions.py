@@ -74,7 +74,7 @@ def add_card(cursor, cardname):
 	cursor.execute("COMMIT;")
 
 def add_multiple_cards(cursor):
-	cards = read_txt_file("commanders.txt")
+	cards = read_txt_file("cards.txt")
 	for card in cards:
 		sleep(0.12)
 		add_card(cursor, card)
