@@ -21,10 +21,10 @@ def search_cards(cursor, query, choice):
 		return cards
 
 def update_draft_pool(cursor, card_id):
-	cursor.execute("SELECT * FROM Cards WHERE id = %s;", (card_id,))
+	cursor.execute("SELECT name, draft_pool FROM Cards WHERE id = %s;", (card_id,))
 	card = cursor.fetchone()
 	if card != None:
-		draft_pool = input(f"Enter the new draft pool for {card[1]} (0 to cancel): ")
+		draft_pool = input(f"Enter the new draft pool for {card[0]} ({card[1]}) (0 to cancel): ")
 		if draft_pool == "0":
 			print("Operation cancelled.")
 			return
