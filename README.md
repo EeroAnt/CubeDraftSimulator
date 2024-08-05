@@ -50,7 +50,7 @@ So there's some randomness in each pack. I've also used the cut cards to build u
 Everyone "opens" their packs at the same time, picks a card and passes the rest to the next player. A player can see the next pack only after making the pick and passing the rest of the pack before. After the each pack of the round has been drafted, new packs are "opened" and the order of players is reversed. This countinues from the commander pack throughout all 8 "normal" packs. Here's a view of what it looks at the moment:
 ![](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/DraftView.PNG)
 
-There is a second view that has more space for the deckbuilding part. At the moment it looks like this:
+There is a second view that has more space and information for the deckbuilding part. At the moment it looks like this:
 ![](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/DeckbuilderView.PNG)
 
 ### Outside of the drafting
