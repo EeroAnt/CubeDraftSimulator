@@ -20,8 +20,9 @@ By creating a web app to for this:
 
 
 ## Where are we now
-Version 1.0.0 is up and running. Deckbuilder is not functional, but drafting works, drafted cards can be extracted as a csv and draft data is gathered. This is enough for now. Once I find the time to continue the full stack course, I'll build CI-pipeline for JavaScript parts and start working on improvements. Possibly before that I'll look into Power BI or Tableau for visualizing the draft data.
+Version 1.0.0 is up and running. Deckbuilder is not functional, but drafting works, drafted cards can be extracted as a csv and draft data is gathered. This is enough for now. Once I find the time to continue the full stack course, I'll build CI-pipeline for JavaScript parts and start working on improvements*. I'm going to build a separate website for the datavisualization for cost reasons.
 
+*The work on improvements has begun, and I've built a text interface for the management of the database.
 
 ## Steps
 
@@ -31,13 +32,15 @@ The database is set up and online in Azure Cloud.
 ### Setting up the draft
 First we have the commanders. They are a hand picked bunch of Legendary creatures with more than one colors in their color identity. I randomly choose a commander pack of 5 commanders for each player. Then the rest of the commanders can be shuffled with the card pool of Multicolored.
 
-The structure for the normal 15 card packs I had in mind:
+The structure for the normal 15 card packs we've used so far:
  - 3 cards from Multicolored card pool
  - 2 cards from each of the single colored pools
  - 3 from colorless (this used to be 2, but I feel the artifacts could use a little more representation) and
  - 2 from lands
  
 Shuffle this pack of 18 cards and cut three.
+
+This will be customisable in the next release.
 
 So there's some randomness in each pack. I've also used the cut cards to build up these more random packs to partially to mix it up and partially to keep the distribution in check. Also, we once were close of running out of one of the pools.
 
@@ -66,6 +69,11 @@ Somewhere in the more distant future, we can start thinking of an AI for the bot
 
 
 ### The future
+Backlog:
+ - Encrypting the websocket connections
+ - Implement a better way for players to get their drafted card lists (clipboard instead of download and remove draftpool information)
+ - Save drafts in the database for easier collection
+
 Once I get this up and running, it won't be too difficult to open it for other Cubes or a more general drafting. It mainly requires: 
  - a table for the given card pool 
  - some tweaking of the Flask server regarding how structured the packs will be and the general structure of the given draft
