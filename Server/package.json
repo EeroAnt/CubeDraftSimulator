@@ -1,6 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -20,6 +21,8 @@
   },
   "devDependencies": {
     "all": "^0.0.0",
+    "eslint": "^9.18.0",
+    "eslint-plugin-import": "^2.31.0",
     "nodemon": "^3.0.3"
   }
 }
