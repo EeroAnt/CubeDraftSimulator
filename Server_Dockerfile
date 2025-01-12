@@ -10,6 +10,8 @@ COPY Server/package*.json ./
 RUN npm install
 
 COPY Server/index.js /app/index.js
+COPY Server/service/SeatNumberCalculator.js /app/service/SeatNumberCalculator.js
+COPY Server/service/Utils.js /app/service/Utils.js
 
 # Expose ports
 

@@ -8,6 +8,8 @@ services:
       dockerfile: Simu_Dockerfile
     ports:
       - "80:80"
+    networks:
+      - thisnetwork
   
   nodeserver:
     image: cubedraftsimuflaskcont.azurecr.io/eeronlivenodeserver
@@ -16,6 +18,8 @@ services:
       dockerfile: Server_Dockerfile
     ports:
       - "3001:3001"
+    networks:
+      - thisnetwork
 
   flaskserver:
     image: cubedraftsimuflaskcont.azurecr.io/eeronliveflaskserver
@@ -24,3 +28,9 @@ services:
       dockerfile: Flask_Dockerfile
     ports:
       - "5002:5002"
+    networks:
+      - thisnetwork
+
+networks:
+  thisnetwork:
+    driver: bridge
