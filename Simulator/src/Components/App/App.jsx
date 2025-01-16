@@ -3,6 +3,7 @@ import styles from './App.module.css'
 import { Home, Stats, Draft, Lobby, PostDraft } from '../'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import useWebSocket from 'react-use-websocket'
+import { encrypt, decrypt } from '../../Services'
 
 export const App = () => {
   const [mode, setMode] = useState("Home")
@@ -29,137 +30,140 @@ export const App = () => {
   const [colorFilterNeg, setColorFilterNeg] = useState([])
   const [admin, setAdmin] = useState(false)
 
-//	 ws://eeroncubedraftsimu.northeurope.azurecontainer.io:3001
-//   ws://localhost:3001
-  const WS_URL = 'ws://localhost:3001'
-  const connection = useWebSocket(WS_URL,{
+
+  const connection = useWebSocket(import.meta.env.VITE_REACT_APP_WS_URL,{
   share: true,
   onOpen: () => console.log('opened'),
   onClose: () => console.log('closed'),
   onError: (e) => console.log('error', e),
-  onMessage: (e) => console.log('message', e)
+  onMessage: (e) => {
+    console.log('message', e)
+    const encrypted = encrypt(e.data)
+    console.log('encrypted', encrypted)
+    const decrypted = JSON.parse(decrypt(encrypted))
+    console.log('decrypted', decrypted)
+    }
   })
 
   return (
-	<div className={styles.App}>
-	  
-	  {mode === "Home" && (
-	    <Home 
-		  setMode={setMode}
-		  setNumberOfPlayers={setNumberOfPlayers}
-		  numberOfPlayers={numberOfPlayers}
-		  username={username}
-		  setUsername={setUsername}
-		  connection={connection}
-		  setOwner={setOwner}
-		  setToken={setToken}
-		  setAdmin={setAdmin}
-		  />
-	  )}
+  <div className={styles.App}>
+ 
+    {mode === "Home" && (
+      <Home 
+        setMode={setMode}
+        setNumberOfPlayers={setNumberOfPlayers}
+        numberOfPlayers={numberOfPlayers}
+        username={username}
+        setUsername={setUsername}
+        connection={connection}
+        setOwner={setOwner}
+        setToken={setToken}
+        setAdmin={setAdmin}
+      />
+    )}
 
-	  
-	  {mode === "Lobby" && (
-		<Lobby 
-		  setMode={setMode}
-		  connection={connection}
-		  numberOfPlayers={numberOfPlayers}
-		  owner={owner}
-		  token={token}
-		   />
-	  )}
 
-	  {mode === "Draft" && (
-	    <Draft
-		  setMode={setMode} 
-		  connection={connection}
-		  token={token}
-		  main={main}
-		  setMain={setMain}
-		  side={side}
-		  setSide={setSide}
-		  commanders={commanders}
-		  setCommanders={setCommanders}
-		  username={username}
-		  seatToken={seatToken}
-		  setSeatToken={setSeatToken}
-		  showMain={showMain}
-		  setShowMain={setShowMain}
-		  selectedCards={selectedCards}
-		  setSelectedCards={setSelectedCards}
-		  selectedCommanders={selectedCommanders}
-		  setSelectedCommanders={setSelectedCommanders}
-		  lastClicked={lastClicked}
-		  setLastClicked={setLastClicked}
-		  curveOfMain={curveOfMain}
-		  setCurveOfMain={setCurveOfMain}
-		  curveOfDisplayed={curveOfDisplayed}
-		  setCurveOfDisplayed={setCurveOfDisplayed}
-		  maxManaValue={maxManaValue}
-		  setMaxManaValue={setMaxManaValue}
-		  commanderColorIdentity={commanderColorIdentity}
-		  setCommanderColorIdentity={setCommanderColorIdentity}
-		  showDeckbuilder={showDeckbuilder}
-		  setShowDeckbuilder={setShowDeckbuilder}
-		  cardsToDisplay={cardsToDisplay}
-		  setCardsToDisplay={setCardsToDisplay}
-		  typeFilter={typeFilter}
-		  setTypeFilter={setTypeFilter}
-		  colorFilterPos={colorFilterPos}
-		  colorFilterNeg={colorFilterNeg}
-		  setColorFilterPos={setColorFilterPos}
-		  setColorFilterNeg={setColorFilterNeg}
+    {mode === "Lobby" && (
+      <Lobby 
+        setMode={setMode}
+        connection={connection}
+        numberOfPlayers={numberOfPlayers}
+        owner={owner}
+        token={token}
+      />
+    )}
 
-		  />
-	  )}
-	  
-	  {mode === "Post Draft" && (
-	    <PostDraft
-		  setMode={setMode}
-		  connection={connection}
-		  token={token}
-		  main={main}
-		  setMain={setMain}
-		  side={side}
-		  setSide={setSide}
-		  commanders={commanders}
-		  setCommanders={setCommanders}
-		  username={username}
-		  seatToken={seatToken}
-		  setSeatToken={setSeatToken}
-		  showMain={showMain}
-		  setShowMain={setShowMain}
-		  selectedCards={selectedCards}
-		  setSelectedCards={setSelectedCards}
-		  selectedCommanders={selectedCommanders}
-		  setSelectedCommanders={setSelectedCommanders}
-		  lastClicked={lastClicked}
-		  setLastClicked={setLastClicked}
-		  curveOfMain={curveOfMain}
-		  setCurveOfMain={setCurveOfMain}
-		  curveOfDisplayed={curveOfDisplayed}
-		  setCurveOfDisplayed={setCurveOfDisplayed}
-		  maxManaValue={maxManaValue}
-		  setMaxManaValue={setMaxManaValue}
-		  commanderColorIdentity={commanderColorIdentity}
-		  setCommanderColorIdentity={setCommanderColorIdentity}
-		  showDeckbuilder={showDeckbuilder}
-		  setShowDeckbuilder={setShowDeckbuilder}
-		  cardsToDisplay={cardsToDisplay}
-		  setCardsToDisplay={setCardsToDisplay}
-		  typeFilter={typeFilter}
-		  setTypeFilter={setTypeFilter}
-		  colorFilterPos={colorFilterPos}
-		  colorFilterNeg={colorFilterNeg}
-		  setColorFilterPos={setColorFilterPos}
-		  setColorFilterNeg={setColorFilterNeg}
-		  admin={admin}
-		  />
-	  )}
-	  
-	  {mode === "Stats" && (
-		<Stats 
-		  setMode={setMode} />
-	)}
-	</div>
+    {mode === "Draft" && (
+      <Draft
+        setMode={setMode} 
+        connection={connection}
+        token={token}
+        main={main}
+        setMain={setMain}
+        side={side}
+        setSide={setSide}
+        commanders={commanders}
+        setCommanders={setCommanders}
+        username={username}
+        seatToken={seatToken}
+        setSeatToken={setSeatToken}
+        showMain={showMain}
+        setShowMain={setShowMain}
+        selectedCards={selectedCards}
+        setSelectedCards={setSelectedCards}
+        selectedCommanders={selectedCommanders}
+        setSelectedCommanders={setSelectedCommanders}
+        lastClicked={lastClicked}
+        setLastClicked={setLastClicked}
+        curveOfMain={curveOfMain}
+        setCurveOfMain={setCurveOfMain}
+        curveOfDisplayed={curveOfDisplayed}
+        setCurveOfDisplayed={setCurveOfDisplayed}
+        maxManaValue={maxManaValue}
+        setMaxManaValue={setMaxManaValue}
+        commanderColorIdentity={commanderColorIdentity}
+        setCommanderColorIdentity={setCommanderColorIdentity}
+        showDeckbuilder={showDeckbuilder}
+        setShowDeckbuilder={setShowDeckbuilder}
+        cardsToDisplay={cardsToDisplay}
+        setCardsToDisplay={setCardsToDisplay}
+        typeFilter={typeFilter}
+        setTypeFilter={setTypeFilter}
+        colorFilterPos={colorFilterPos}
+        colorFilterNeg={colorFilterNeg}
+        setColorFilterPos={setColorFilterPos}
+        setColorFilterNeg={setColorFilterNeg}
+      />
+    )}
+    
+    {mode === "Post Draft" && (
+      <PostDraft
+        setMode={setMode}
+        connection={connection}
+        token={token}
+        main={main}
+        setMain={setMain}
+        side={side}
+        setSide={setSide}
+        commanders={commanders}
+        setCommanders={setCommanders}
+        username={username}
+        seatToken={seatToken}
+        setSeatToken={setSeatToken}
+        showMain={showMain}
+        setShowMain={setShowMain}
+        selectedCards={selectedCards}
+        setSelectedCards={setSelectedCards}
+        selectedCommanders={selectedCommanders}
+        setSelectedCommanders={setSelectedCommanders}
+        lastClicked={lastClicked}
+        setLastClicked={setLastClicked}
+        curveOfMain={curveOfMain}
+        setCurveOfMain={setCurveOfMain}
+        curveOfDisplayed={curveOfDisplayed}
+        setCurveOfDisplayed={setCurveOfDisplayed}
+        maxManaValue={maxManaValue}
+        setMaxManaValue={setMaxManaValue}
+        commanderColorIdentity={commanderColorIdentity}
+        setCommanderColorIdentity={setCommanderColorIdentity}
+        showDeckbuilder={showDeckbuilder}
+        setShowDeckbuilder={setShowDeckbuilder}
+        cardsToDisplay={cardsToDisplay}
+        setCardsToDisplay={setCardsToDisplay}
+        typeFilter={typeFilter}
+        setTypeFilter={setTypeFilter}
+        colorFilterPos={colorFilterPos}
+        colorFilterNeg={colorFilterNeg}
+        setColorFilterPos={setColorFilterPos}
+        setColorFilterNeg={setColorFilterNeg}
+        admin={admin}
+      />
+    )}
+    
+    {mode === "Stats" && (
+      <Stats 
+       setMode={setMode} />
+    )}
+  </div>
   )
 }

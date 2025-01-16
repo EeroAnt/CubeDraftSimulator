@@ -17,8 +17,8 @@ export const broadcastUserlist = (draft) => {
 
 export const broadcastDraftStatus = (draft, status) => {
   Object.values(draft.players).forEach(player => {
-	const message = JSON.stringify({ status: "OK", type: status });
-	connections[player.uuid].send(message);
+	  const message = JSON.stringify({ status: "OK", type: status });
+    connections[player.uuid].send(message);
   });
 };
 
@@ -47,11 +47,12 @@ export const broadcastCanalDredger = (draft, seatNumber) => {
 };
 
 export function sendCards(uuid) {
-  connections[uuid].send(JSON.stringify({
+  const message = JSON.stringify({
     status: "OK",
     type: "Picked Cards",
     commanders: users[uuid].seat.commanders,
     main: users[uuid].seat.main,
     side: users[uuid].seat.side
-  }));
+  });
+  connections[uuid].send(message);
 }
