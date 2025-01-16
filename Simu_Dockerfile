@@ -11,6 +11,7 @@ COPY Simulator/src /app/src
 COPY Simulator/.eslintrc.cjs /app/eslintrc.cjs
 COPY Simulator/index.html /app/index.html
 COPY Simulator/vite.config.js /app/vite.config.js
+COPY Simulator/.env /app/.env
 
 RUN npm run build
 
