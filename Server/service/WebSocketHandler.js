@@ -135,7 +135,9 @@ export const handleMessage = (message, uuid) => {
     users[uuid].seat[data.zone] =
       users[uuid].seat[data.zone].concat(
         users[uuid].seat.packAtHand.cards.filter(
-          card => card.id === data.card)[0]);
+          card => card.id === data.card
+        )[0]
+      );
     users[uuid].seat.packAtHand.cards =
       users[uuid].seat.packAtHand.cards.filter(card => card.id !== data.card);
     users[uuid].seat.packAtHand.picks =
