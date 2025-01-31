@@ -1,6 +1,7 @@
 import { checkIfRoundIsDone, calculateNextSeatNumber } from "./Utils.js";
 import { broadcastDraftStatus } from "./Broadcasts.js";
 import { users, connections, intervalIDs } from "./State.js";
+import { sendMessage } from "./Messaging.js";
 
 export function checkDraftStatus(draft) {
   if (draft.state === 'drafting' && draft.players.length > 0) {
@@ -63,8 +64,8 @@ function goToNextRound(draft) {
       direction: draft.direction,
       seatToken: player.seat.token
     };
-
-    connections[draft.players[i].uuid].send(JSON.stringify(message));
+    
+    sendMessage(player.uuid, message);
 
     player.seat.queue = pack;
   }
