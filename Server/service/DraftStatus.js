@@ -53,24 +53,13 @@ function goToNextRound(draft) {
     const player = draft.players[i];
     const pack = [draft.rounds[draft.round][`pack${i}`]];
 
-    const playerOnTheLeft =
-      users[draft.table[`seat${[calculateNextSeatNumber(
-        player.seat.number,
-        1,
-        draft.player_count)]}`].player];
-
-    const playerOnTheRight =
-      users[draft.table[`seat${[calculateNextSeatNumber(
-        player.seat.number,
-        -1,
-        draft.player_count
-      )]}`].player];
+    const { left, right } = checkNeighbours(draft, player);
 
     const message = {
       status: "OK",
       type: "Neighbours",
-      left: playerOnTheLeft.username,
-      right: playerOnTheRight.username,
+      left: left,
+      right: right,
       direction: draft.direction,
       seatToken: player.seat.token
     };
@@ -79,4 +68,24 @@ function goToNextRound(draft) {
 
     player.seat.queue = pack;
   }
+}
+
+function checkNeighbours(draft, player) {
+  const playerOnTheLeft =
+    users[draft.table[`seat${[calculateNextSeatNumber(
+      player.seat.number,
+      1,
+      draft.player_count)]}`].player];
+
+  const playerOnTheRight =
+    users[draft.table[`seat${[calculateNextSeatNumber(
+      player.seat.number,
+      -1,
+      draft.player_count
+    )]}`].player];
+
+  return {
+    left: playerOnTheLeft.username,
+    right: playerOnTheRight.username
+  };
 }
