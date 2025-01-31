@@ -13,8 +13,6 @@ import { getDraft, sendDraftData } from "./DataBaseCommunications.js";
 import { checkDraftStatus } from "./DraftStatus.js";
 
 export const handleClose = (uuid) => {
-  console.log('Users:', users);
-  console.log('Drafts:', drafts);
   if (users[uuid].token && drafts[users[uuid].token]) {
     broadcastUserlist(drafts[users[uuid].token], connections);
     if (Object.keys(drafts).includes(users[uuid].token)) { 
@@ -34,7 +32,7 @@ export const handleClose = (uuid) => {
 };
 
 export const handleMessage = (message, uuid) => {
-  // encrypting here
+  // decrypting here
   const data = JSON.parse(message.toString());
   console.log(data);
   console.log("Message from: " + uuid);
