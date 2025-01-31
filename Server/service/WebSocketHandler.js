@@ -61,7 +61,6 @@ export const handleMessage = (message, uuid) => {
   if (users[uuid].token === "") {
     users[uuid].token = data.token;
     const commander_pack_included = data.commander_pack_included ? 1 : 0;
-    console.log('Current connections:', connections);
     console.log('Current users:', users);
     getDraft(
       data.token,
