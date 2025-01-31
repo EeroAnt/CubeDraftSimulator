@@ -15,27 +15,15 @@ export function checkDraftStatus(draft) {
         clearInterval(intervalIDs[draft.token]);
       }
     } else {
-      for (const seat in draft.table) {
-        if (draft.table[seat].packAtHand.cards.length === 0 &&
-          draft.table[seat].queue.length > 0) {
-
-          console.log('giving pack to player');
-
-          draft.table[seat].packAtHand = draft.table[seat].queue.shift();
-          connections[draft.table[seat].player].send(JSON.stringify({
-            status: "OK",
-            type: "Pack",
-            pack: draft.table[seat].packAtHand.cards
-          }));
-        }
-      }
+      dealPacks(draft);
     }
   } else if (draft.players.length === 0 && draft.state === 'drafting') {
     draft.state = 'disconnected';
-    console.log('disconnected');
+    console.log(`Draft ${draft.token} disconnected`);
+    clearInterval(intervalIDs[draft.token]);
 
   } else if (draft.state === 'done') {
-    console.log('draft ended');
+    console.log(`Draft ${draft.token} ended`);
     clearInterval(intervalIDs[draft.token]);
     broadcastDraftStatus(draft, "End Draft");
   } else if (draft.state === 'deckbuilding') {
@@ -64,7 +52,7 @@ function goToNextRound(draft) {
       direction: draft.direction,
       seatToken: player.seat.token
     };
-    
+
     sendMessage(player.uuid, message);
 
     player.seat.queue = pack;
@@ -89,4 +77,22 @@ function checkNeighbours(draft, player) {
     left: playerOnTheLeft.username,
     right: playerOnTheRight.username
   };
+}
+
+function dealPacks(draft) {
+  for (const seat in draft.table) {
+    if (draft.table[seat].packAtHand.cards.length === 0 &&
+      draft.table[seat].queue.length > 0) {
+
+      console.log('giving pack to player');
+
+      draft.table[seat].packAtHand = draft.table[seat].queue.shift();
+      const message = {
+        status: "OK",
+        type: "Pack",
+        pack: draft.table[seat].packAtHand.cards
+      };
+      sendMessage(draft.table[seat].player, message);
+    }
+  }
 }
