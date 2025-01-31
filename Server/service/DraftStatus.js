@@ -1,6 +1,6 @@
 import { checkIfRoundIsDone, calculateNextSeatNumber } from "./Utils.js";
 import { broadcastDraftStatus } from "./Broadcasts.js";
-import { users, connections, intervalIDs } from "./State.js";
+import { users, intervalIDs } from "./State.js";
 import { sendMessage } from "./Messaging.js";
 
 export function checkDraftStatus(draft) {
