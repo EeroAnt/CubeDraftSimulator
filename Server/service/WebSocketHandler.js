@@ -83,7 +83,7 @@ export async function handleMessage(message, uuid) {
       if (message.status === "Setup OK") {
         broadcastUserlist(drafts[data.token]);
       }
-      
+
     } catch (error) {
       console.log(error);
     }
@@ -95,24 +95,28 @@ export async function handleMessage(message, uuid) {
   } else if (data.type === "Join Draft") {
 
     if (Object.keys(drafts).includes(data.token) === false) {
-      connections[uuid].send(JSON.stringify({
-        status: 'No Draft Found With That Token'
-      }));
+      
+      const message = { status: 'No Draft Found With That Token' };
+      sendMessage(uuid, message);
 
     } else if (drafts[data.token].players.length >=
       drafts[data.token].player_count) {
 
-      connections[uuid].send(JSON.stringify({ status: 'Lobby Full' }));
+        const message = { status: 'Lobby Full' };
+        sendMessage(uuid, message);
 
     } else if (drafts[data.token].state === 'drafting') {
-      connections[uuid].send(JSON.stringify({
-        status: 'Draft Already Started'
-      }));
+
+      const message = { status: 'Draft Already Started' };
+      sendMessage(uuid, message);
+
     } else {
+
       users[uuid].token = data.token;
       drafts[data.token].players =
         drafts[data.token].players.concat(users[uuid]);
       broadcastUserlist(drafts[data.token]);
+
     }
 
 
