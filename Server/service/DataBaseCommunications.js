@@ -1,8 +1,7 @@
 import axios from 'axios';
-import { broadcastUserlist } from './Broadcasts.js';
-import { drafts, users, connections } from './State.js';
+import { drafts, users } from './State.js';
 
-export function getDraft(
+export async function getDraft(
   token,
   player_count,
   uuid,
@@ -16,72 +15,63 @@ export function getDraft(
 
   console.log("Getting Draft");
   console.log("User ID: " + uuid);
-
-  axios.get(
-    process.env.FLASK_URL+
-    `/${player_count}`+
-    `/${token}`+
-    `/${commander_packs_included}`+
-    `/${normal_rounds}`+
-    `/${multi_ratio}/`+
-    `${generic_ratio}/`+
-    `${colorless_ratio}/`+
-    `${land_ratio}`
-  ).then(res => {
-
-    const data = res.data;
+  try {
+    const response = await axios.get(
+      process.env.FLASK_URL +
+      `/${player_count}` +
+      `/${token}` +
+      `/${commander_packs_included}` +
+      `/${normal_rounds}` +
+      `/${multi_ratio}/` +
+      `${generic_ratio}/` +
+      `${colorless_ratio}/` +
+      `${land_ratio}`
+    );
+    const data = response.data;
     console.log(data);
     if (data.state === "Setup Complete") {
       drafts[token] = {
-        token : token,
-        player_count : player_count,
-        players : [users[uuid]],
-        round : -1*commander_packs_included,
-        direction : -1,
-        picks : {},
-        commanderpicks : {},
-        picked_packs : []
+        token: token,
+        player_count: player_count,
+        players: [users[uuid]],
+        round: -1 * commander_packs_included,
+        direction: -1,
+        picks: {},
+        commanderpicks: {},
+        picked_packs: []
       };
 
       drafts[token].table = data.table;
       drafts[token].rounds = data.rounds;
       drafts[token].state = data.state;
 
-      connections[uuid].send(JSON.stringify({ status: "Setup OK"}));
-      broadcastUserlist(drafts[token]);
+      const message = { status: "Setup OK" };
+      return message;
 
     } else if (data.state === "Setup Failed") {
       console.log(data);
-      connections[uuid].send(JSON.stringify({
-        status: "Setup Failed",
-        errors: data.errors
-      }));
+      const message = { status: "Setup Failed", errors: data.errors };
       users[uuid].token = "";
+      return message;
+
     } else {
-      connections[uuid].send(JSON.stringify({
-      status: "Setup Failed",
-      error: "Unknown Error"
-    }));
+      const message = { status: "Setup Failed", error: "Unknown Error" };
+      return message;
 
-  }})
-    .catch(error => {
-      console.error('Error fetching data:', error);
-      connections[uuid].send(JSON.stringify({
-      status: "Setup Failed",
-      error: "Connection Error"
-    }));
-
-  });
+    }
+  } catch (error) {
+    console.error('Error getting draft:', error);
+  }
 }
 
 export function sendDraftData(data) {
-  axios.post(process.env.FLASK_URL+'/draftdata', data, {
+  axios.post(process.env.FLASK_URL + '/draftdata', data, {
     headers: {
       'Content-Type': 'application/json'
     }
   }).then(res => {
-	  console.log(res.data);
+    console.log(res.data);
   }).catch(error => {
-  	console.error('Error sending data:', error);
+    console.error('Error sending data:', error);
   });
 }
