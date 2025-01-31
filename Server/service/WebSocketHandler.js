@@ -121,24 +121,29 @@ export async function handleMessage(message, uuid) {
 
 
   } else if (data.type === 'Start Draft') {
+
     if (drafts[data.token].state === "Setup Complete") {
+
       drafts[data.token].state = 'drafting';
       broadcastDraftStatus(drafts[data.token], "Start Draft");
       shuffleArray(drafts[data.token].players);
+
       for (let i = 0; i < drafts[data.token].player_count; i++) {
         drafts[data.token].table[`seat${i}`].player =
           drafts[data.token].players[i].uuid;
 
         const player = drafts[data.token].players[i];
+
         player.seat = drafts[data.token].table[`seat${i}`];
         player.seat.number = i;
         player.seat.commanders = [];
+
       }
     }
+
     checkDraftStatus(drafts[data.token]);
     intervalIDs[data.token] = setInterval(() =>
       checkDraftStatus(drafts[data.token]), 500);
-
 
   } else if (data.type === 'Pick') {
     if (drafts[data.token].round === 0) {
