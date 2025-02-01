@@ -1,6 +1,6 @@
 import { broadcastUserlist, broadcastDraftStatus } from "./Broadcasts.js";
 import { users, drafts, connections, intervalIDs } from "./State.js";
-import { createLobby } from "./DraftSetup.js";
+import { createLobby, joinDraft } from "./DraftSetup.js";
 import { shuffleArray, calculateNextSeatNumber } from './Utils.js';
 import { sendDraftData } from "./DataBaseCommunications.js";
 import { checkDraftStatus } from "./DraftStatus.js";
@@ -59,31 +59,7 @@ export async function handleMessage(message, uuid) {
 
   } else if (data.type === "Join Draft") {
 
-    if (Object.keys(drafts).includes(data.token) === false) {
-
-      const message = { status: 'No Draft Found With That Token' };
-      sendMessage(uuid, message);
-
-    } else if (drafts[data.token].players.length >=
-      drafts[data.token].player_count) {
-
-      const message = { status: 'Lobby Full' };
-      sendMessage(uuid, message);
-
-    } else if (drafts[data.token].state === 'drafting') {
-
-      const message = { status: 'Draft Already Started' };
-      sendMessage(uuid, message);
-
-    } else {
-
-      users[uuid].token = data.token;
-      drafts[data.token].players =
-        drafts[data.token].players.concat(users[uuid]);
-      broadcastUserlist(drafts[data.token]);
-
-    }
-
+    joinDraft(data, uuid);
 
   } else if (data.type === 'Start Draft') {
 

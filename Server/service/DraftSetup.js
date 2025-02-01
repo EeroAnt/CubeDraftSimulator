@@ -29,16 +29,44 @@ export async function createLobby(data, uuid) {
       if (message.status === "Setup OK") {
 
         broadcastUserlist(drafts[data.token]);
-      
+
       }
 
     } catch (error) {
-      
+
       console.log(error);
-    
+
     }
 
   } else {
     console.log("Wait for setting up the draft");
   }
-}
+};
+
+export function joinDraft(data, uuid) {
+
+  if (Object.keys(drafts).includes(data.token) === false) {
+
+    const message = { status: 'No Draft Found With That Token' };
+    sendMessage(uuid, message);
+
+  } else if (drafts[data.token].players.length >=
+    drafts[data.token].player_count) {
+
+    const message = { status: 'Lobby Full' };
+    sendMessage(uuid, message);
+
+  } else if (drafts[data.token].state === 'drafting') {
+
+    const message = { status: 'Draft Already Started' };
+    sendMessage(uuid, message);
+
+  } else {
+
+    users[uuid].token = data.token;
+    drafts[data.token].players =
+      drafts[data.token].players.concat(users[uuid]);
+    broadcastUserlist(drafts[data.token]);
+
+  }
+};
