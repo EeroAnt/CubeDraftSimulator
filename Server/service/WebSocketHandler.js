@@ -12,6 +12,7 @@ import {
 import { getDraft, sendDraftData } from "./DataBaseCommunications.js";
 import { checkDraftStatus } from "./DraftStatus.js";
 import { sendMessage } from "./Messaging.js";
+import { updateDraftPicks, pickCard } from "./Picks.js";
 
 export const handleClose = (uuid) => {
   if (users[uuid].token && drafts[users[uuid].token]) {
@@ -66,27 +67,27 @@ export async function handleMessage(message, uuid) {
       users[uuid].token = data.token;
       const commander_pack_included = data.commander_pack_included ? 1 : 0;
       try {
-      const message = await getDraft(
-        data.token,
-        data.player_count,
-        uuid,
-        commander_pack_included,
-        data.number_of_rounds,
-        data.multi_ratio,
-        data.generic_ratio,
-        data.colorless_ratio,
-        data.land_ratio
-      );
+        const message = await getDraft(
+          data.token,
+          data.player_count,
+          uuid,
+          commander_pack_included,
+          data.number_of_rounds,
+          data.multi_ratio,
+          data.generic_ratio,
+          data.colorless_ratio,
+          data.land_ratio
+        );
 
-      sendMessage(uuid, message);
-      console.log(message);
-      if (message.status === "Setup OK") {
-        broadcastUserlist(drafts[data.token]);
+        sendMessage(uuid, message);
+        console.log(message);
+        if (message.status === "Setup OK") {
+          broadcastUserlist(drafts[data.token]);
+        }
+
+      } catch (error) {
+        console.log(error);
       }
-
-    } catch (error) {
-      console.log(error);
-    }
 
     } else {
       console.log("Wait for setting up the draft");
@@ -95,15 +96,15 @@ export async function handleMessage(message, uuid) {
   } else if (data.type === "Join Draft") {
 
     if (Object.keys(drafts).includes(data.token) === false) {
-      
+
       const message = { status: 'No Draft Found With That Token' };
       sendMessage(uuid, message);
 
     } else if (drafts[data.token].players.length >=
       drafts[data.token].player_count) {
 
-        const message = { status: 'Lobby Full' };
-        sendMessage(uuid, message);
+      const message = { status: 'Lobby Full' };
+      sendMessage(uuid, message);
 
     } else if (drafts[data.token].state === 'drafting') {
 
@@ -146,47 +147,48 @@ export async function handleMessage(message, uuid) {
       checkDraftStatus(drafts[data.token]), 500);
 
   } else if (data.type === 'Pick') {
-    if (drafts[data.token].round === 0) {
-      // Remove magic numbers
-      drafts[data.token].commanderpicks[data.card] =
-        6 - users[uuid].seat.packAtHand.cards.length;
-    } else {
-      drafts[data.token].picks[data.card] =
-        16 - users[uuid].seat.packAtHand.cards.length;
-    }
-    shuffleArray(users[uuid].seat.packAtHand.cards);
-    users[uuid].seat[data.zone] =
-      users[uuid].seat[data.zone].concat(
-        users[uuid].seat.packAtHand.cards.filter(
-          card => card.id === data.card
-        )[0]
-      );
-    users[uuid].seat.packAtHand.cards =
-      users[uuid].seat.packAtHand.cards.filter(card => card.id !== data.card);
-    users[uuid].seat.packAtHand.picks =
-      users[uuid].seat.packAtHand.picks.concat(data.card);
 
-    if (data.card === 1887) {
-      console.log("Canal Dredger");
-      broadcastCanalDredger(drafts[data.token], users[uuid].seat.number);
+    const draft = drafts[data.token];
+    const userSeat = users[uuid].seat;
+
+    shuffleArray(userSeat.packAtHand.cards);
+
+    const cardToAdd = userSeat.packAtHand.cards.find(
+      card => card.id === data.card
+    );
+
+    if (cardToAdd) {
+
+      updateDraftPicks(draft, cardToAdd, userSeat);
+      pickCard(data.zone, cardToAdd, userSeat);
+
+      if (cardToAdd.id === 1887) {
+        console.log("Canal Dredger");
+        broadcastCanalDredger(draft, userSeat.number);
+      }
+
+    } else {
+
+      console.log("Card not found");
+
     }
 
     const nextSeatNumber = calculateNextSeatNumber(
-      users[uuid].seat.number,
-      drafts[data.token].direction,
-      drafts[data.token].player_count
+      userSeat.number,
+      draft.direction,
+      draft.player_count
     );
 
-    if (users[uuid].seat.packAtHand.cards.length === 0) {
-      drafts[data.token].picked_packs =
-        drafts[data.token].picked_packs.concat(
-          [users[uuid].seat.packAtHand.picks]);
+    if (userSeat.packAtHand.cards.length === 0) {
+      draft.picked_packs =
+        draft.picked_packs.concat(
+          [userSeat.packAtHand.picks]);
     }
 
-    drafts[data.token].table[`seat${nextSeatNumber}`].queue =
-      drafts[data.token].table[`seat${nextSeatNumber}`].
-        queue.concat([users[uuid].seat.packAtHand]);
-    users[uuid].seat.packAtHand = { "cards": [], "picks": [] };
+    draft.table[`seat${nextSeatNumber}`].queue =
+      draft.table[`seat${nextSeatNumber}`].
+        queue.concat([userSeat.packAtHand]);
+    userSeat.packAtHand = { "cards": [], "picks": [] };
     sendCards(uuid);
 
   } else if (data.type === 'Give Last Card') {
