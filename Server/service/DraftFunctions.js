@@ -103,20 +103,3 @@ export function giveLastCard(data, draft, pack) {
   pack = { "cards": [], "picks": [] };
 
 };
-
-export function setCommander(data, userSeat, uuid) {
-
-  userSeat.commanders =
-    (userSeat.commanders || []).concat(
-      userSeat.main.concat(
-        userSeat.side).filter(card => card.id === data.card));
-
-  userSeat.main =
-    userSeat.main.filter(card => card.id !== data.card);
-
-  userSeat.side =
-    userSeat.side.filter(card => card.id !== data.card);
-
-  sendCards(uuid, userSeat);
-
-};

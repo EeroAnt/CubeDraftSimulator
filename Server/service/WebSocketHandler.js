@@ -4,12 +4,8 @@ import { createLobby, joinDraft, startDraft } from "./DraftSetup.js";
 import { calculateNextSeatNumber } from './Utils.js';
 import { sendDraftData } from "./DataBaseCommunications.js";
 import { sendMessage } from "./Messaging.js";
-import {
-  handlePick,
-  sendCards,
-  giveLastCard,
-  setCommander
-} from "./DraftFunctions.js";
+import { handlePick, sendCards, giveLastCard } from "./DraftFunctions.js";
+import { setCommander, removeCommander } from "./DeckManagement.js";
 
 export const handleClose = (uuid) => {
   if (users[uuid].token && drafts[users[uuid].token]) {
@@ -90,14 +86,10 @@ export async function handleMessage(message, uuid) {
     setCommander(data, userSeat, uuid);
 
   } else if (data.type === 'Remove Commander') {
-    users[uuid].seat[data.zone] =
-      users[uuid].seat[data.zone].concat(
-        users[uuid].seat.commanders.filter(card => card.id === data.card));
-    users[uuid].seat.commanders =
-      users[uuid].seat.commanders.filter(card => card.id !== data.card);
 
-    sendCards(uuid);
+    const userSeat = users[uuid].seat;
 
+    removeCommander(data, userSeat, uuid);
 
   } else if (data.type === 'Move Cards') {
     for (const card of data.cards) {
