@@ -45,8 +45,7 @@ export const SideBar = ({
 	} else {
 	  connection.sendJsonMessage({
 		type: "Set Commander",
-		card: selectedCards[0].id,
-		token: token
+		card: selectedCards[0].id
 	  })
 	}
 	setSelectedCards([])
@@ -59,8 +58,7 @@ export const SideBar = ({
 	  connection.sendJsonMessage({
 		type: "Remove Commander",
 		card: selectedCommanders[0].id,
-		zone: target,
-		token: token
+		zone: target
 	  })
 	} else {
 	  alert("No commander selected")

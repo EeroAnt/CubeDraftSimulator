@@ -118,8 +118,7 @@ export const Draft = ({
 		type: "Move Cards",
 		cards: selectedCards,
 		to: showMain ? ("side") : ("main"),
-		from: showMain ? ("main") : ("side"),
-		token: token
+		from: showMain ? ("main") : ("side")
 	  })
 	}
 	setSelectedCards([])
