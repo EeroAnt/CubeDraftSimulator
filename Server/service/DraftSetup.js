@@ -1,7 +1,9 @@
-import { users, drafts } from "./State.js";
+import { users, drafts, intervalIDs } from "./State.js";
 import { getDraft } from "./DataBaseCommunications.js";
 import { sendMessage } from "./Messaging.js";
-import { broadcastUserlist } from "./Broadcasts.js";
+import { broadcastUserlist, broadcastDraftStatus } from "./Broadcasts.js";
+import { shuffleArray } from "./Utils.js";
+import { checkDraftStatus } from "./DraftStatus.js";
 
 export async function createLobby(data, uuid) {
 
@@ -69,4 +71,31 @@ export function joinDraft(data, uuid) {
     broadcastUserlist(drafts[data.token]);
 
   }
+};
+
+export function startDraft(data) {
+  
+  if (drafts[data.token].state === "Setup Complete") {
+
+    drafts[data.token].state = 'drafting';
+    broadcastDraftStatus(drafts[data.token], "Start Draft");
+    shuffleArray(drafts[data.token].players);
+
+    for (let i = 0; i < drafts[data.token].player_count; i++) {
+      drafts[data.token].table[`seat${i}`].player =
+        drafts[data.token].players[i].uuid;
+
+      const player = drafts[data.token].players[i];
+
+      player.seat = drafts[data.token].table[`seat${i}`];
+      player.seat.number = i;
+      player.seat.commanders = [];
+
+    }
+  }
+
+  checkDraftStatus(drafts[data.token]);
+  intervalIDs[data.token] = setInterval(() =>
+    checkDraftStatus(drafts[data.token]), 500);
+
 };

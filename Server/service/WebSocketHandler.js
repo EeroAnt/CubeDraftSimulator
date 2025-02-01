@@ -1,6 +1,6 @@
 import { broadcastUserlist, broadcastDraftStatus } from "./Broadcasts.js";
 import { users, drafts, connections, intervalIDs } from "./State.js";
-import { createLobby, joinDraft } from "./DraftSetup.js";
+import { createLobby, joinDraft, startDraft } from "./DraftSetup.js";
 import { shuffleArray, calculateNextSeatNumber } from './Utils.js';
 import { sendDraftData } from "./DataBaseCommunications.js";
 import { checkDraftStatus } from "./DraftStatus.js";
@@ -63,28 +63,7 @@ export async function handleMessage(message, uuid) {
 
   } else if (data.type === 'Start Draft') {
 
-    if (drafts[data.token].state === "Setup Complete") {
-
-      drafts[data.token].state = 'drafting';
-      broadcastDraftStatus(drafts[data.token], "Start Draft");
-      shuffleArray(drafts[data.token].players);
-
-      for (let i = 0; i < drafts[data.token].player_count; i++) {
-        drafts[data.token].table[`seat${i}`].player =
-          drafts[data.token].players[i].uuid;
-
-        const player = drafts[data.token].players[i];
-
-        player.seat = drafts[data.token].table[`seat${i}`];
-        player.seat.number = i;
-        player.seat.commanders = [];
-
-      }
-    }
-
-    checkDraftStatus(drafts[data.token]);
-    intervalIDs[data.token] = setInterval(() =>
-      checkDraftStatus(drafts[data.token]), 500);
+    startDraft(data);
 
   } else if (data.type === 'Pick') {
     
