@@ -1,11 +1,10 @@
-import { broadcastUserlist, broadcastDraftStatus } from "./Broadcasts.js";
-import { users, drafts, connections, intervalIDs } from "./State.js";
+import { broadcastUserlist } from "./Broadcasts.js";
+import { users, drafts, connections } from "./State.js";
 import { createLobby, joinDraft, startDraft } from "./DraftSetup.js";
-import { shuffleArray, calculateNextSeatNumber } from './Utils.js';
+import { calculateNextSeatNumber } from './Utils.js';
 import { sendDraftData } from "./DataBaseCommunications.js";
-import { checkDraftStatus } from "./DraftStatus.js";
 import { sendMessage } from "./Messaging.js";
-import { handlePick, sendCards } from "./DraftFunctions.js";
+import { handlePick, sendCards, giveLastCard } from "./DraftFunctions.js";
 
 export const handleClose = (uuid) => {
   if (users[uuid].token && drafts[users[uuid].token]) {
@@ -73,10 +72,11 @@ export async function handleMessage(message, uuid) {
     handlePick(data, draft, userSeat, uuid);
 
   } else if (data.type === 'Give Last Card') {
-    drafts[data.token].table[`seat${data.seat}`].queue =
-      drafts[data.token].table[`seat${data.seat}`].queue.
-        concat([users[uuid].seat.packAtHand]);
-    users[uuid].seat.packAtHand = { "cards": [], "picks": [] };
+
+    const draft = drafts[data.token];
+    const pack = users[uuid].seat.packAtHand;
+
+    giveLastCard(data, draft, pack);
 
   } else if (data.type === 'Set Commander') {
     users[uuid].seat.commanders =

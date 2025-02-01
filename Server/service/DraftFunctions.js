@@ -30,7 +30,7 @@ export function handlePick(data, draft, userSeat, uuid) {
 
   sendCards(uuid, userSeat);
   
-}
+};
 
 function updateDraftPicks(draft, pickedCard, userSeat) {
 
@@ -55,7 +55,7 @@ function updateDraftPicks(draft, pickedCard, userSeat) {
       draft.picked_packs.concat([userSeat.packAtHand.picks]);
 
   }
-}
+};
 
 function pickCard(zone, cardToAdd, userSeat) {
 
@@ -64,7 +64,7 @@ function pickCard(zone, cardToAdd, userSeat) {
   userSeat.packAtHand.cards =
     userSeat.packAtHand.cards.filter(card => card.id !== cardToAdd.id);
 
-}
+};
 
 function passPackToNextPlayer(draft, userSeat) {
 
@@ -80,7 +80,7 @@ function passPackToNextPlayer(draft, userSeat) {
 
   userSeat.packAtHand = { "cards": [], "picks": [] };
 
-}
+};
 
 export function sendCards(uuid, userSeat) {
 
@@ -94,4 +94,12 @@ export function sendCards(uuid, userSeat) {
 
   sendMessage(uuid, message);
 
-}
+};
+
+export function giveLastCard(data, draft, pack) {
+
+  draft.table[`seat${data.seat}`].queue =
+    draft.table[`seat${data.seat}`].queue.concat([pack]);
+  pack = { "cards": [], "picks": [] };
+
+};
