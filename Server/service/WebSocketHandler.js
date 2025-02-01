@@ -5,7 +5,7 @@ import { calculateNextSeatNumber } from './Utils.js';
 import { sendDraftData } from "./DataBaseCommunications.js";
 import { sendMessage } from "./Messaging.js";
 import { handlePick, sendCards, giveLastCard } from "./DraftFunctions.js";
-import { setCommander, removeCommander } from "./DeckManagement.js";
+import { setCommander, removeCommander, moveCards } from "./DeckManagement.js";
 
 export const handleClose = (uuid) => {
   if (users[uuid].token && drafts[users[uuid].token]) {
@@ -92,17 +92,11 @@ export async function handleMessage(message, uuid) {
     removeCommander(data, userSeat, uuid);
 
   } else if (data.type === 'Move Cards') {
-    for (const card of data.cards) {
-      !users[uuid].seat[data.to].includes(card)
-        ?
-        (users[uuid].seat[data.to] = users[uuid].seat[data.to].concat(card))
-        :
-        (console.log("Card already in the zone"));
-      users[uuid].seat[data.from] =
-        users[uuid].seat[data.from].filter(c => c.id !== card.id);
-    }
 
-    sendCards(uuid);
+    const userSeat = users[uuid].seat;
+
+    moveCards(data, userSeat, uuid);
+
   } else if (data.type === 'Rejoin Draft') {
     if (Object.keys(drafts).includes(data.table)) {
       for (const seat in drafts[data.table].table) {
