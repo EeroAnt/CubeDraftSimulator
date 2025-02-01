@@ -1,9 +1,4 @@
-import {
-  broadcastUserlist,
-  broadcastDraftStatus,
-  broadcastCanalDredger,
-  sendCards
-} from "./Broadcasts.js";
+import { broadcastUserlist, broadcastDraftStatus } from "./Broadcasts.js";
 import { users, drafts, connections, intervalIDs } from "./State.js";
 import {
   shuffleArray,
@@ -12,7 +7,7 @@ import {
 import { getDraft, sendDraftData } from "./DataBaseCommunications.js";
 import { checkDraftStatus } from "./DraftStatus.js";
 import { sendMessage } from "./Messaging.js";
-import { updateDraftPicks, pickCard } from "./Picks.js";
+import { handlePick, sendCards } from "./DraftFunctions.js";
 
 export const handleClose = (uuid) => {
   if (users[uuid].token && drafts[users[uuid].token]) {
@@ -147,49 +142,11 @@ export async function handleMessage(message, uuid) {
       checkDraftStatus(drafts[data.token]), 500);
 
   } else if (data.type === 'Pick') {
-
+    
     const draft = drafts[data.token];
     const userSeat = users[uuid].seat;
 
-    shuffleArray(userSeat.packAtHand.cards);
-
-    const cardToAdd = userSeat.packAtHand.cards.find(
-      card => card.id === data.card
-    );
-
-    if (cardToAdd) {
-
-      updateDraftPicks(draft, cardToAdd, userSeat);
-      pickCard(data.zone, cardToAdd, userSeat);
-
-      if (cardToAdd.id === 1887) {
-        console.log("Canal Dredger");
-        broadcastCanalDredger(draft, userSeat.number);
-      }
-
-    } else {
-
-      console.log("Card not found");
-
-    }
-
-    const nextSeatNumber = calculateNextSeatNumber(
-      userSeat.number,
-      draft.direction,
-      draft.player_count
-    );
-
-    if (userSeat.packAtHand.cards.length === 0) {
-      draft.picked_packs =
-        draft.picked_packs.concat(
-          [userSeat.packAtHand.picks]);
-    }
-
-    draft.table[`seat${nextSeatNumber}`].queue =
-      draft.table[`seat${nextSeatNumber}`].
-        queue.concat([userSeat.packAtHand]);
-    userSeat.packAtHand = { "cards": [], "picks": [] };
-    sendCards(uuid);
+    handlePick(data, draft, userSeat, uuid);
 
   } else if (data.type === 'Give Last Card') {
     drafts[data.token].table[`seat${data.seat}`].queue =

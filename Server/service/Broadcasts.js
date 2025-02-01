@@ -52,16 +52,3 @@ export const broadcastCanalDredger = (draft, seatNumber) => {
 
   }});
 };
-
-export function sendCards(uuid) {
-  const message = {
-    status: "OK",
-    type: "Picked Cards",
-    commanders: users[uuid].seat.commanders,
-    main: users[uuid].seat.main,
-    side: users[uuid].seat.side
-  };
-
-  sendMessage(uuid, message);
-  
-}
