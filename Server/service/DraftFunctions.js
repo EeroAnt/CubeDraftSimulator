@@ -3,7 +3,7 @@ import { sendMessage } from './Messaging.js';
 import { broadcastCanalDredger } from './Broadcasts.js';
 
 export function handlePick(data, draft, userSeat, uuid) {
-  
+
   shuffleArray(userSeat.packAtHand.cards);
 
   const cardToAdd = userSeat.packAtHand.cards.find(
@@ -29,7 +29,7 @@ export function handlePick(data, draft, userSeat, uuid) {
   passPackToNextPlayer(draft, userSeat);
 
   sendCards(uuid, userSeat);
-  
+
 };
 
 function updateDraftPicks(draft, pickedCard, userSeat) {
@@ -101,5 +101,22 @@ export function giveLastCard(data, draft, pack) {
   draft.table[`seat${data.seat}`].queue =
     draft.table[`seat${data.seat}`].queue.concat([pack]);
   pack = { "cards": [], "picks": [] };
+
+};
+
+export function setCommander(data, userSeat, uuid) {
+
+  userSeat.commanders =
+    (userSeat.commanders || []).concat(
+      userSeat.main.concat(
+        userSeat.side).filter(card => card.id === data.card));
+
+  userSeat.main =
+    userSeat.main.filter(card => card.id !== data.card);
+
+  userSeat.side =
+    userSeat.side.filter(card => card.id !== data.card);
+
+  sendCards(uuid, userSeat);
 
 };
