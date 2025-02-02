@@ -3,7 +3,7 @@ import styles from './App.module.css'
 import { Home, Stats, Draft, Lobby, PostDraft } from '../'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import useWebSocket from 'react-use-websocket'
-import { encrypt, decrypt } from '../../Services'
+import { decrypt } from '../../Services'
 
 export const App = () => {
   const [mode, setMode] = useState("Home")
@@ -40,7 +40,9 @@ export const App = () => {
   onMessage: (e) => {
     const decrypted = decrypt(e.data)
     const parsed = JSON.parse(decrypted)
-    setDecryptedMessage(parsed)
+    setTimeout(() => {
+      setDecryptedMessage(parsed);
+    }, 0);
     }
   })
 
