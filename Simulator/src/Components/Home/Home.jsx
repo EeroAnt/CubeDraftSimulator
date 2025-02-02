@@ -88,11 +88,12 @@ export const Home = ({
 
 
   const joinDraft = (token) => {
-    connection.sendJsonMessage({
+    const message = {
       type: "Join Draft",
       token: token,
       username: username
-    })
+    }
+    sendMessage(connection, message)
     setToken(token)
     setMode("Lobby")
 
