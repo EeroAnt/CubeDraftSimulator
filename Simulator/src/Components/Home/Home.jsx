@@ -1,5 +1,6 @@
 import { MyNavBar, DraftParametersForm, Button, setupDraft, Form, DraftParameterCheckbox } from "../../"
 import { useState, useEffect } from 'react'
+import { sendMessage } from "../../"
 
 
 export const Home = ({
@@ -26,13 +27,14 @@ export const Home = ({
 
   const login = (username) => {
     setUsername(username)
-    connection.sendJsonMessage({
+
+    const message = {
       type: "Login",
       username: username
-    })
-    connection.sendJsonMessage({
-      type: "Get Data"
-    })
+    }
+
+    sendMessage(connection, message)
+
   }
 
 
