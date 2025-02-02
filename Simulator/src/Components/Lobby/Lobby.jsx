@@ -1,6 +1,7 @@
 import { Button, Form } from '../'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { sendMessage } from '../../Services'
 
 
 const renderPlayers = message => {
@@ -20,21 +21,25 @@ export const Lobby = ({ setMode, connection, numberOfPlayers, owner, token, decr
   const [playersInLobby, setPlayersInLobby] = useState(0)
 
   const startDraft = () => {
-    connection.sendJsonMessage({
+    
+    const message = {
       type: "Start Draft",
       token: token
-    })
+    }
+  
+    sendMessage(connection, message)
+
   }
 
 
-  const reJoinDraft = (seat) => {
-    connection.sendJsonMessage({
-      type: "Rejoin Draft",
-      table: token,
-      seat: seat
-    })
-    console.log("Rejoining draft")
-  }
+  // const reJoinDraft = (seat) => {
+  //   connection.sendJsonMessage({
+  //     type: "Rejoin Draft",
+  //     table: token,
+  //     seat: seat
+  //   })
+  //   console.log("Rejoining draft")
+  // }
 
 
   useEffect(() => {
@@ -59,7 +64,7 @@ export const Lobby = ({ setMode, connection, numberOfPlayers, owner, token, decr
           <><h2>Draft Token: {token}</h2>
             {playersInLobby === numberOfPlayers ? (
               <>
-                <h2>Everyone's here</h2><h2>Players:</h2>
+                <h2>Everyone is here</h2><h2>Players:</h2>
                 {renderPlayers(decryptedMessage)}
                 <Button name="Start Draft" onClick={startDraft} />
               </>
@@ -86,8 +91,8 @@ export const Lobby = ({ setMode, connection, numberOfPlayers, owner, token, decr
     return (
       <div className="main">
         <h1>Draft already started</h1>
-        <p>Please tell your seat token</p>
-        <Form onSubmit={reJoinDraft} />
+        <p></p>
+        {/* <Form onSubmit={reJoinDraft} /> */}
         <Button name="Go Back" onClick={() => setMode("Home")} />
       </div>
     )
