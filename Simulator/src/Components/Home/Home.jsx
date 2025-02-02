@@ -40,10 +40,14 @@ export const Home = ({
 
   const passkey = (value) => {
     setPassword(value)
-    connection.sendJsonMessage({
+    
+    const message = {
       type: "Admin",
       passkey: value
-    })
+    }
+    
+    sendMessage(connection, message)
+  
   }
 
 
