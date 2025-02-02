@@ -3,16 +3,16 @@ import { useState, useEffect } from 'react'
 
 
 export const Home = ({
-	setMode, 
-	setNumberOfPlayers, 
-	numberOfPlayers, 
-	username, 
-	setUsername,
-	connection,
-	setOwner,
-	setToken,
-	setAdmin
-}) =>{
+  setMode,
+  setNumberOfPlayers,
+  numberOfPlayers,
+  username,
+  setUsername,
+  connection,
+  setOwner,
+  setToken,
+  setAdmin
+}) => {
   const [draftInitiated, setDraftInitiated] = useState(false)
   const [password, setPassword] = useState("")
   const [commanderPackIncluded, setCommanderPackIncluded] = useState(false)
@@ -24,117 +24,117 @@ export const Home = ({
 
 
   const login = (username) => {
-	setUsername(username)
-	connection.sendJsonMessage({
-	  type: "Login",
-	  username: username
-	})
-	connection.sendJsonMessage({
-	  type: "Get Data"
-	})
+    setUsername(username)
+    connection.sendJsonMessage({
+      type: "Login",
+      username: username
+    })
+    connection.sendJsonMessage({
+      type: "Get Data"
+    })
   }
 
 
   const passkey = (value) => {
-	setPassword(value)
-	connection.sendJsonMessage({
-	  type: "Admin",
-	  passkey: value
-	})
+    setPassword(value)
+    connection.sendJsonMessage({
+      type: "Admin",
+      passkey: value
+    })
   }
 
 
   const changeCommanderPacksIncluded = (e) => {
-	setCommanderPackIncluded(!commanderPackIncluded)
+    setCommanderPackIncluded(!commanderPackIncluded)
     console.log(commanderPackIncluded)
   }
 
 
   const submitSetup = (e) => {
 
-	setOwner(true)
-	var token = function() {
-		return Math.random().toString(36).slice(2,6)
-	}
-	const newtoken = token()
-	setToken(newtoken)
-	setupDraft(newtoken, numberOfPlayers, connection, numOfRounds, multiRatio, genericRatio, colorlessRatio, landRatio, commanderPackIncluded)
-	setDraftInitiated(true)
-	console.log(newtoken) 
+    setOwner(true)
+    var token = function () {
+      return Math.random().toString(36).slice(2, 6)
+    }
+    const newtoken = token()
+    setToken(newtoken)
+    setupDraft(newtoken, numberOfPlayers, connection, numOfRounds, multiRatio, genericRatio, colorlessRatio, landRatio, commanderPackIncluded)
+    setDraftInitiated(true)
+    console.log(newtoken)
 
   }
 
 
   useEffect(() => {
-	if (connection.lastJsonMessage && connection.lastJsonMessage.status === "Setup OK") {
-	  setMode("Lobby")
-	} else if (connection.lastJsonMessage && connection.lastJsonMessage.status === "Setup Failed") {
-	  console.log(connection.lastJsonMessage.errors)
-	  alert("Setup failed\n"+connection.lastJsonMessage.errors.toString())
-	  setDraftInitiated(false)
+    if (connection.lastJsonMessage && connection.lastJsonMessage.status === "Setup OK") {
+      setMode("Lobby")
+    } else if (connection.lastJsonMessage && connection.lastJsonMessage.status === "Setup Failed") {
+      console.log(connection.lastJsonMessage.errors)
+      alert("Setup failed\n" + connection.lastJsonMessage.errors.toString())
+      setDraftInitiated(false)
 
-	} else if (connection.lastJsonMessage && connection.lastJsonMessage.status === "OK" && connection.lastJsonMessage.type === "Admin") {
-	  setAdmin(true)
-	  console.log("Admin")
-	}
-	  }, [connection.lastJsonMessage])
+    } else if (connection.lastJsonMessage && connection.lastJsonMessage.status === "OK" && connection.lastJsonMessage.type === "Admin") {
+      setAdmin(true)
+      console.log("Admin")
+    }
+  }, [connection.lastJsonMessage])
 
 
   const joinDraft = (token) => {
-	connection.sendJsonMessage({
-	  type: "Join Draft",
-	  token: token,
-	  username: username
-	})
-	setToken(token)
-	setMode("Lobby")
+    connection.sendJsonMessage({
+      type: "Join Draft",
+      token: token,
+      username: username
+    })
+    setToken(token)
+    setMode("Lobby")
 
   }
 
-  
+
   return !username ? (
-	<div className="main">
-	  <MyNavBar
-		onClickDraftNavBar={() => setMode("Home")}
-		onClickStatNavBar={() => setMode("Stats")}
-	  />
-	  <h1>Home</h1>
+    <div className="main">
+      <MyNavBar
+        onClickDraftNavBar={() => setMode("Home")}
+        onClickStatNavBar={() => setMode("Stats")}
+      />
+      <h1>Home</h1>
 
-	  <h2>Who are you?</h2>
-	  <Form onSubmit={login} name="loginform" />
-	  {(password === "") ? (
-		<>
-		<h2>Are you admin?</h2>
-		  <Form onSubmit={passkey} name="passkey" /> 
-		</>): (null)}
-	</div>
+      <h2>Who are you?</h2>
+      <Form onSubmit={login} name="loginform" />
+      {(password === "") ? (
+        <>
+          <h2>Are you admin?</h2>
+          <Form onSubmit={passkey} name="passkey" />
+        </>) : (null)}
+    </div>
   ) : (
-	<div className="main">
-	  <MyNavBar 
-	    onClickDraftNavbar={() => setMode("Home")}
-	    onClickStatNavbar={() => setMode("Stats")}
-	  />
-	  <h1>Hi {username}</h1>
-	  {draftInitiated ? (
-		<h2>Waiting for response</h2>
-	  ) : (
-	  <>
-	  <h2>Setup a new Draft</h2>
-	  <DraftParametersForm name="number of players" handleChange={(e) => {e.preventDefault(); setNumberOfPlayers(Number(e.target.value))}} defaultVal={numberOfPlayers}/>
-	  <DraftParametersForm name="number of rounds" handleChange={(e) => {e.preventDefault(); setNumOfRounds(Number(e.target.value))}} defaultVal={numOfRounds}/>
-	  <DraftParametersForm name="ratio of multi color pool" handleChange={(e) => {e.preventDefault(); setMultiRatio(Number(e.target.value))}} defaultVal={multiRatio}/>
-	  <DraftParametersForm name="ratio of generic pool" handleChange={(e) => {e.preventDefault(); setGenericRatio(Number(e.target.value))}} defaultVal={genericRatio}/>
-	  <DraftParametersForm name="ratio of colorless pool" handleChange={(e) => {e.preventDefault(); setColorlessRatio(Number(e.target.value))}} defaultVal={colorlessRatio}/>
-	  <DraftParametersForm name="ratio of land pool" handleChange={(e) => {e.preventDefault(); setLandRatio(Number(e.target.value))}} defaultVal={landRatio}/>
-	  <DraftParameterCheckbox name="Commander pack included" handleChange={changeCommanderPacksIncluded} />
-	  
-	  <Button name="init draft" onClick={(e)=>submitSetup()}/>
+    <div className="main">
+      <MyNavBar
+        onClickDraftNavbar={() => setMode("Home")}
+        onClickStatNavbar={() => setMode("Stats")}
+      />
+      <h1>Hi {username}</h1>
+      {draftInitiated ? (
+        <h2>Waiting for response</h2>
+      ) : (
+        <>
+          <h2>Setup a new Draft</h2>
+          <DraftParametersForm name="number of players" handleChange={(e) => { e.preventDefault(); setNumberOfPlayers(Number(e.target.value)) }} defaultVal={numberOfPlayers} />
+          <DraftParametersForm name="number of rounds" handleChange={(e) => { e.preventDefault(); setNumOfRounds(Number(e.target.value)) }} defaultVal={numOfRounds} />
+          <DraftParametersForm name="ratio of multi color pool" handleChange={(e) => { e.preventDefault(); setMultiRatio(Number(e.target.value)) }} defaultVal={multiRatio} />
+          <DraftParametersForm name="ratio of generic pool" handleChange={(e) => { e.preventDefault(); setGenericRatio(Number(e.target.value)) }} defaultVal={genericRatio} />
+          <DraftParametersForm name="ratio of colorless pool" handleChange={(e) => { e.preventDefault(); setColorlessRatio(Number(e.target.value)) }} defaultVal={colorlessRatio} />
+          <DraftParametersForm name="ratio of land pool" handleChange={(e) => { e.preventDefault(); setLandRatio(Number(e.target.value)) }} defaultVal={landRatio} />
+          <DraftParameterCheckbox name="Commander pack included" handleChange={changeCommanderPacksIncluded} />
 
-	  <h2>Join Draft with a token</h2>
-	 
-	  <Form onSubmit={joinDraft} name="joindraft" />
-	  </>
-	  )}
-	</div>
+          <Button name="init draft" onClick={(e) => submitSetup()} />
+
+          <h2>Join Draft with a token</h2>
+
+          <Form onSubmit={joinDraft} name="joindraft" />
+        </>
+      )}
+    </div>
   )
 }
