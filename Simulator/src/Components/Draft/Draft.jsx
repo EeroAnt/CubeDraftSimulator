@@ -1,5 +1,6 @@
 import { Button, Image, DraftNavbar, DeckBuilder, SideBar } from "../";
 import { useState, useEffect } from "react";
+import { sendMessage } from "../../Services";
 import './draft.css'
 
 
@@ -55,45 +56,72 @@ export const Draft = ({
 
 
   useEffect(() => {
-    setMaxManaValue(Math.max(...main.concat(side).concat(commanders).map(obj => obj.mana_value)));
+
+    const newMaxManaValue = Math.max(...main.concat(side).concat(commanders).map(obj => obj.mana_value));
+    setMaxManaValue(newMaxManaValue);
+
     if (commanders.length === 0) {
+
       setCommanderColorIdentity(["C"])
+
     } else if (commanders.length === 1) {
+
       setCommanderColorIdentity(commanders[0].color_identity.split(""))
+
     } else {
+
       const combined = commanders[0].color_identity.split("").concat(commanders[1].color_identity.split(""))
       const unique = [...new Set(combined)]
-      unique.length < 2 ? setCommanderColorIdentity(unique) : setCommanderColorIdentity(unique.filter(color => color !== "C"))
+      setCommanderColorIdentity(unique.length < 2 ? unique : unique.filter(color => color !== "C"));
+
     }
 
     const mainWithoutLands = main.filter(card => !card.types.includes("Land"))
-    setCurveOfMain(Array.from({ length: maxManaValue + 1 }, (_, index) => mainWithoutLands.concat(commanders).filter(card => card.mana_value === index).length))
-    setCurveOfDisplayed(curveOfMain);
+    const newCurveOfMain = Array.from({ length: newMaxManaValue + 1 }, (_, index) => mainWithoutLands.concat(commanders).filter(card => card.mana_value === index).length);
+
+    setCurveOfMain(newCurveOfMain)
+    setCurveOfDisplayed(newCurveOfMain);
+
   }, [main, side, commanders])
 
 
   useEffect(() => {
+
     if (decryptedMessage && decryptedMessage.type === "Pack") {
+
       setPack(decryptedMessage.pack)
+
     } else if (decryptedMessage && decryptedMessage.type === "End Draft") {
+
       setMode("DeckBuilder")
+
     } else if (decryptedMessage && decryptedMessage.type === "Picked Cards") {
+
       setMain(decryptedMessage.main)
       setSide(decryptedMessage.side)
       setCommanders(decryptedMessage.commanders)
+
     } else if (decryptedMessage && decryptedMessage.type === "Neighbours") {
+
       setOnTheLeft(decryptedMessage.left)
       setOnTheRight(decryptedMessage.right)
       setDirection(decryptedMessage.direction)
       setSeatToken(decryptedMessage.seatToken)
+
     } else if (decryptedMessage && decryptedMessage.type === "Canal Dredger") {
       console.log("canal dredger")
       setCanalDredgerOwner(decryptedMessage.seat)
+
       if (decryptedMessage.owner) {
+
         setCanalDredger(true)
+
       }
+
     } else if (decryptedMessage && decryptedMessage.type === "Post Draft") {
+
       setMode("Post Draft")
+
     }
   }, [decryptedMessage])
 
@@ -101,27 +129,41 @@ export const Draft = ({
 
 
   const selectCards = (card) => {
+
     setSelectedCommanders([])
     setLastClicked(card)
+
     if (selectedCards.includes(card)) {
+
       setSelectedCards(selectedCards.filter(c => c !== card))
+
     } else {
+
       setSelectedCards([...selectedCards, card])
+
     }
   }
 
 
   const moveCards = () => {
+
     if (selectedCards.length === 0) {
+
       alert("No card selected")
+
     } else {
-      connection.sendJsonMessage({
+
+      const message = {
         type: "Move Cards",
         cards: selectedCards,
         to: showMain ? ("side") : ("main"),
         from: showMain ? ("main") : ("side")
-      })
+      };
+
+      sendMessage(connection, message)
+
     }
+
     setSelectedCards([])
   }
 
@@ -190,12 +232,13 @@ export const Draft = ({
 
   const confirmPick = (target) => {
     if (pick) {
-      connection.sendJsonMessage({
+      const message = {
         type: "Pick",
         card: pick,
         zone: target,
         token: token
-      })
+      }
+      sendMessage(connection, message)
       setPick(0)
       setPack([])
     } else {
@@ -205,12 +248,13 @@ export const Draft = ({
 
   const giveAway = () => {
     if (pick) {
-      connection.sendJsonMessage({
+      const message = {
         type: "Give Last Card",
         card: pick,
         token: token,
         seat: canalDredgerOwner
-      })
+      }
+      sendMessage(connection, message)
       setPick(0)
       setPack([])
     } else {
