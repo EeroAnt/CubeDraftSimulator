@@ -10,3 +10,4 @@ export const setupDraft = (token, numberOfPlayers, connection, numOfRounds, mult
 	land_ratio: landRatio,
 	commander_pack_included: commanderPackIncluded
   })
+};

@@ -29,6 +29,7 @@ export const App = () => {
   const [colorFilterPos, setColorFilterPos] = useState([])
   const [colorFilterNeg, setColorFilterNeg] = useState([])
   const [admin, setAdmin] = useState(false)
+  const [decryptedMessage, setDecryptedMessage] = useState("")
 
 
   const connection = useWebSocket(import.meta.env.VITE_REACT_APP_WS_URL,{
@@ -37,11 +38,9 @@ export const App = () => {
   onClose: () => console.log('closed'),
   onError: (e) => console.log('error', e),
   onMessage: (e) => {
-    console.log('message', e)
-    const encrypted = encrypt(e.data)
-    console.log('encrypted', encrypted)
-    const decrypted = JSON.parse(decrypt(encrypted))
-    console.log('decrypted', decrypted)
+    const decrypted = decrypt(e.data)
+    const parsed = JSON.parse(decrypted)
+    setDecryptedMessage(parsed)
     }
   })
 
@@ -59,6 +58,7 @@ export const App = () => {
         setOwner={setOwner}
         setToken={setToken}
         setAdmin={setAdmin}
+        decryptedMessage={decryptedMessage}
       />
     )}
 
@@ -70,6 +70,7 @@ export const App = () => {
         numberOfPlayers={numberOfPlayers}
         owner={owner}
         token={token}
+        decryptedMessage={decryptedMessage}
       />
     )}
 
@@ -113,12 +114,12 @@ export const App = () => {
         colorFilterNeg={colorFilterNeg}
         setColorFilterPos={setColorFilterPos}
         setColorFilterNeg={setColorFilterNeg}
+        decryptedMessage={decryptedMessage}
       />
     )}
     
     {mode === "Post Draft" && (
       <PostDraft
-        setMode={setMode}
         connection={connection}
         token={token}
         main={main}
@@ -129,7 +130,6 @@ export const App = () => {
         setCommanders={setCommanders}
         username={username}
         seatToken={seatToken}
-        setSeatToken={setSeatToken}
         showMain={showMain}
         setShowMain={setShowMain}
         selectedCards={selectedCards}
@@ -157,6 +157,7 @@ export const App = () => {
         setColorFilterPos={setColorFilterPos}
         setColorFilterNeg={setColorFilterNeg}
         admin={admin}
+        decryptedMessage={decryptedMessage}
       />
     )}
     

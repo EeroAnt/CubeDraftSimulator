@@ -21,7 +21,7 @@ export function encrypt(text) {
 
 export function decrypt(text) {
   const key = extendKey(process.env.MY_ENCRYPTION, text.length);
-  return encrypt(text, key); // XOR-salaus on symmetrinen
+  return encrypt(text, key);
 }
 
 function extendKey(key, length) {

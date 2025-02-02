@@ -11,7 +11,8 @@ export const Home = ({
   connection,
   setOwner,
   setToken,
-  setAdmin
+  setAdmin,
+  decryptedMessage
 }) => {
   const [draftInitiated, setDraftInitiated] = useState(false)
   const [password, setPassword] = useState("")
@@ -66,18 +67,18 @@ export const Home = ({
 
 
   useEffect(() => {
-    if (connection.lastJsonMessage && connection.lastJsonMessage.status === "Setup OK") {
+    if (decryptedMessage && decryptedMessage.status === "Setup OK") {
       setMode("Lobby")
-    } else if (connection.lastJsonMessage && connection.lastJsonMessage.status === "Setup Failed") {
-      console.log(connection.lastJsonMessage.errors)
-      alert("Setup failed\n" + connection.lastJsonMessage.errors.toString())
+    } else if (decryptedMessage && decryptedMessage.status === "Setup Failed") {
+      console.log(decryptedMessage.errors)
+      alert("Setup failed\n" + decryptedMessage.errors.toString())
       setDraftInitiated(false)
 
-    } else if (connection.lastJsonMessage && connection.lastJsonMessage.status === "OK" && connection.lastJsonMessage.type === "Admin") {
+    } else if (decryptedMessage && decryptedMessage.status === "OK" && decryptedMessage.type === "Admin") {
       setAdmin(true)
       console.log("Admin")
     }
-  }, [connection.lastJsonMessage])
+  }, [decryptedMessage])
 
 
   const joinDraft = (token) => {
