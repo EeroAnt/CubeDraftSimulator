@@ -27,15 +27,3 @@ export function decrypt(text) {
 function extendKey(key, length) {
   return key.repeat(Math.ceil(length / key.length)).substring(0, length);
 }
-
-const message = "Hello, world!";
-const key = "key";
-
-// Salaa viesti
-const encryptedMessage = encrypt(message, key);
-console.log("Message:", message);
-console.log("Encrypted:", encryptedMessage);
-
-// Purkaa viestin
-const decryptedMessage = decrypt(encryptedMessage, key);
-console.log("Decrypted:", decryptedMessage);
