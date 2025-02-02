@@ -1,6 +1,7 @@
 import { PostDraftNavBar, DeckBuilder, SideBar } from "../";
 import { useState, useEffect } from "react";
 import './postdraft.css'
+import { sendMessage } from "../../Services";
 
 export function PostDraft({
   connection,
@@ -116,13 +117,14 @@ export function PostDraft({
     if (selectedCards.length === 0) {
       alert("No card selected")
     } else {
-      connection.sendJsonMessage({
+      const message = {
         type: "Move Cards",
         cards: selectedCards,
         to: showMain ? ("side") : ("main"),
         from: showMain ? ("main") : ("side"),
         token: token
-      })
+      }
+      sendMessage(connection, message)
     }
     setSelectedCards([])
   }
