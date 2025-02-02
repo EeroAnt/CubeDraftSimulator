@@ -6,6 +6,7 @@ import { sendDraftData } from "./DataBaseCommunications.js";
 import { sendMessage } from "./Messaging.js";
 import { handlePick, sendCards, giveLastCard } from "./DraftFunctions.js";
 import { setCommander, removeCommander, moveCards } from "./DeckManagement.js";
+import { decrypt } from "./encryption.js";
 
 export const handleClose = (uuid) => {
   if (users[uuid].token && drafts[users[uuid].token]) {
@@ -27,11 +28,12 @@ export const handleClose = (uuid) => {
 };
 
 export async function handleMessage(message, uuid) {
-  // decrypting here
-  const data = JSON.parse(message.toString());
-  console.log(data);
-  console.log("Message from: " + uuid);
+ 
+  const decryptedMessage = decrypt(message.toString());
+  const data = JSON.parse(decryptedMessage);
 
+  console.log("Message from: " + uuid);
+  console.log(data.type);
 
   if (data.type === "Admin") {
 
@@ -43,9 +45,6 @@ export async function handleMessage(message, uuid) {
       };
       sendMessage(uuid, message);
     }
-
-  } else if (data.type === "Get Data") {
-    // Remove this from frontend as well
 
   } else if (data.type === "Login") {
 
