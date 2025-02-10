@@ -31,6 +31,7 @@ export default [
       "react/prop-types": "off",
       "no-unused-vars": "warn",
       "prettier/prettier": "warn",
+      "prettier/prettier": ["warn", { "endOfLine": "auto" }],
     },
   },
   prettier,
