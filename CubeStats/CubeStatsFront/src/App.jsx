@@ -1,5 +1,6 @@
 import "./App.css";
 import { NavBar } from "/src/components/NavBar/NavBar";
+import { Overview } from "./components/Views/Overview/Overview";
 import { useState } from "react";
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
         setDraftPoolState={setDraftPoolsState}
         setMode={setMode}
       />
-      {mode === "home" ? <h1>Welcome to Eero&apos;s Cube Stats</h1> : null}
+      {mode === "home" ? <Overview /> : null}
     </>
   );
 }
