@@ -13,7 +13,7 @@ export default [
       sourceType: "module",
       parserOptions: {
         ecmaFeatures: {
-          jsx: true, // Tämä mahdollistaa JSX-koodin linttauksen
+          jsx: true,
         },
       },
     },
@@ -27,7 +27,6 @@ export default [
       "react-hooks/exhaustive-deps": "warn",
       "react/prop-types": "off",
       "no-unused-vars": "warn",
-      "prettier/prettier": "warn",
       "prettier/prettier": ["warn", { "endOfLine": "auto" }],
     },
   },
