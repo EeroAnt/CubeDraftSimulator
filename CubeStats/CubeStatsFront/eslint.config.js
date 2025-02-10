@@ -7,10 +7,7 @@ import prettierPlugin from "eslint-plugin-prettier";
 export default [
   js.configs.recommended,
   {
-    ignores: ["node_modules/", "dist/", "build/", "eslint*"],
-  },
-  {
-    files: ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
+    files: ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
