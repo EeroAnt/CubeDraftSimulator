@@ -4,7 +4,7 @@ import styles from './App.module.css'
 import { Home, Stats, Draft, Lobby, PostDraft } from '../'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import useWebSocket from 'react-use-websocket'
-import { decrypt } from '../../Services'
+import { decrypt, reconnect, sendMessage } from '../../Services'
 
 export const App = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -34,13 +34,21 @@ export const App = () => {
   const [decryptedMessage, setDecryptedMessage] = useState("")
 
   useEffect(() => {
+    console.log("Updating search params:", { username, token, seatToken });
     setSearchParams({ user: username, draft: token, seat: seatToken });
-  }, [username, token, seatToken, setSearchParams]);
+  }, [username, token, seatToken]);
 
 
   const connection = useWebSocket(import.meta.env.VITE_REACT_APP_WS_URL,{
   share: true,
-  onOpen: () => console.log('opened'),
+  onOpen: async () => {
+    console.log('opened')
+    const { message, newMode } = await reconnect(username, token, seatToken)
+    sendMessage(connection, message)
+    if (mode !== newMode) {
+      setMode(newMode)
+    }
+  },
   onClose: () => console.log('closed'),
   onError: (e) => console.log('error', e),
   onMessage: (e) => {
