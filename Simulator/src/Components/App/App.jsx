@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useSearchParams } from "react-router-dom";
+import { useState, useEffect } from 'react'
 import styles from './App.module.css'
 import { Home, Stats, Draft, Lobby, PostDraft } from '../'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -6,15 +7,16 @@ import useWebSocket from 'react-use-websocket'
 import { decrypt } from '../../Services'
 
 export const App = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [mode, setMode] = useState("Home")
   const [numberOfPlayers, setNumberOfPlayers] = useState(1)
-  const [username, setUsername] = useState("")
+  const [username, setUsername] = useState(() => searchParams.get("user") || "");
   const [owner, setOwner] = useState(false)
-  const [token, setToken] = useState("")
+  const [token, setToken] = useState(() => searchParams.get("draft") || "");
   const [main, setMain] = useState([])
   const [side, setSide] = useState([])
   const [commanders, setCommanders] = useState([])
-  const [seatToken, setSeatToken] = useState("")
+  const [seatToken, setSeatToken] = useState(() => searchParams.get("seat") || "");
   const [showMain, setShowMain] = useState(true)
   const [selectedCards, setSelectedCards] = useState([])
   const [selectedCommanders, setSelectedCommanders] = useState([])
@@ -30,6 +32,10 @@ export const App = () => {
   const [colorFilterNeg, setColorFilterNeg] = useState([])
   const [admin, setAdmin] = useState(false)
   const [decryptedMessage, setDecryptedMessage] = useState("")
+
+  useEffect(() => {
+    setSearchParams({ user: username, draft: token, seat: seatToken });
+  }, [username, token, seatToken, setSearchParams]);
 
 
   const connection = useWebSocket(import.meta.env.VITE_REACT_APP_WS_URL,{
