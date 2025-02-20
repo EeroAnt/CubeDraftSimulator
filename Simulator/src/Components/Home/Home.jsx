@@ -51,13 +51,13 @@ export const Home = ({
   }
 
 
-  const changeCommanderPacksIncluded = (e) => {
+  const changeCommanderPacksIncluded = () => {
     setCommanderPackIncluded(!commanderPackIncluded)
     console.log(commanderPackIncluded)
   }
 
 
-  const submitSetup = (e) => {
+  const submitSetup = () => {
 
     setOwner(true)
     var token = function () {
@@ -136,7 +136,7 @@ export const Home = ({
           <DraftParametersForm name="ratio of land pool" handleChange={(e) => { e.preventDefault(); setLandRatio(Number(e.target.value)) }} defaultVal={landRatio} />
           <DraftParameterCheckbox name="Commander pack included" handleChange={changeCommanderPacksIncluded} />
 
-          <Button name="init draft" onClick={(e) => submitSetup()} />
+          <Button name="init draft" onClick={() => submitSetup()} />
 
           <h2>Join Draft with a token</h2>
 
