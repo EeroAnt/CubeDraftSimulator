@@ -45,7 +45,7 @@ export async function createLobby(data, uuid) {
   }
 };
 
-export function joinDraft(data, uuid) {
+export function joinLobby(data, uuid) {
 
   if (Object.keys(drafts).includes(data.token) === false) {
 

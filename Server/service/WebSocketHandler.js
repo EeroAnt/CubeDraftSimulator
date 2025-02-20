@@ -1,6 +1,6 @@
 import { broadcastUserlist } from "./Broadcasts.js";
 import { users, drafts, connections } from "./State.js";
-import { createLobby, joinDraft, startDraft } from "./DraftSetup.js";
+import { createLobby, joinLobby, startDraft } from "./DraftSetup.js";
 import { calculateNextSeatNumber } from './Utils.js';
 import { sendDraftData } from "./DataBaseCommunications.js";
 import { sendMessage } from "./Messaging.js";
@@ -56,9 +56,9 @@ export async function handleMessage(message, uuid) {
 
     createLobby(data, uuid);
 
-  } else if (data.type === "Join Draft") {
+  } else if (data.type === "Join Lobby") {
 
-    joinDraft(data, uuid);
+    joinLobby(data, uuid);
 
   } else if (data.type === 'Start Draft') {
 

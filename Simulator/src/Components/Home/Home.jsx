@@ -87,9 +87,9 @@ export const Home = ({
   }, [decryptedMessage])
 
 
-  const joinDraft = (token) => {
+  const joinLobby = (token) => {
     const message = {
-      type: "Join Draft",
+      type: "Join Lobby",
       token: token,
       username: username
     }
@@ -140,7 +140,7 @@ export const Home = ({
 
           <h2>Join Draft with a token</h2>
 
-          <Form onSubmit={joinDraft} name="joindraft" />
+          <Form onSubmit={joinLobby} name="joindraft" />
         </>
       )}
     </div>
