@@ -19,7 +19,7 @@ export async function reconnect(username, token, seatToken) {
   } else if (username) {
     console.log("Reconnecting to home with username: ", username);
     const message = {
-      type: "Rejoin Home",
+      type: "Login",
       username: username
     };
     return {message, newMode: "Home"};
