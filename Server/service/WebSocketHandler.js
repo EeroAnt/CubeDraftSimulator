@@ -1,10 +1,14 @@
 import { broadcastUserlist } from "./Broadcasts.js";
 import { users, drafts, connections } from "./State.js";
-import { createLobby, joinLobby, startDraft } from "./DraftSetup.js";
-import { calculateNextSeatNumber } from './Utils.js';
+import {
+  createLobby,
+  joinLobby,
+  startDraft,
+  rejoinDraft
+} from "./DraftSetup.js";
 import { sendDraftData } from "./DataBaseCommunications.js";
 import { sendMessage } from "./Messaging.js";
-import { handlePick, sendCards, giveLastCard } from "./DraftFunctions.js";
+import { handlePick, giveLastCard } from "./DraftFunctions.js";
 import { setCommander, removeCommander, moveCards } from "./DeckManagement.js";
 import { decrypt } from "./encryption.js";
 
@@ -104,63 +108,69 @@ export async function handleMessage(message, uuid) {
     moveCards(data, userSeat, uuid);
 
   } else if (data.type === 'Rejoin Draft') {
-    if (Object.keys(drafts).includes(data.table)) {
-      for (const seat in drafts[data.table].table) {
-        if (drafts[data.table].table[seat].token === data.seat &&
-          drafts[data.table].table[seat].player === "") {
 
-          drafts[data.table].table[seat].player = uuid;
-          drafts[data.table].players =
-            drafts[data.table].players.concat(users[uuid]);
-          users[uuid].token = data.table;
-          users[uuid].seat = drafts[data.table].table[seat];
-          users[uuid].seat.number = parseInt(seat.replace('seat', ''));
-          const playerOnTheLeft =
-            users[drafts[data.table].table[`seat${[calculateNextSeatNumber(
-              users[uuid].seat.number,
-              1,
-              drafts[data.table].player_count
-            )]}`].player];
+    users[uuid].username = data.username;
+    users[uuid].token = "";
+    console.log("Login: " + data.username);
 
-          const playerOnTheRight =
-            users[drafts[data.table].table[`seat${[calculateNextSeatNumber(
-              users[uuid].seat.number,
-              -1,
-              drafts[data.table].player_count
-            )]}`].player];
+    rejoinDraft(data, uuid);
+    // if (Object.keys(drafts).includes(data.table)) {
+    //   for (const seat in drafts[data.table].table) {
+    //     if (drafts[data.table].table[seat].token === data.seat &&
+    //       drafts[data.table].table[seat].player === "") {
 
-          connections[uuid].send(JSON.stringify({
-            status: "OK",
-            type: "Neighbours",
-            left: playerOnTheLeft.username,
-            right: playerOnTheRight.username,
-            direction: drafts[data.table].direction,
-            seatToken: users[uuid].seat.token
-          }));
+    //       drafts[data.table].table[seat].player = uuid;
+    //       drafts[data.table].players =
+    //         drafts[data.table].players.concat(users[uuid]);
+    //       users[uuid].token = data.table;
+    //       users[uuid].seat = drafts[data.table].table[seat];
+    //       users[uuid].seat.number = parseInt(seat.replace('seat', ''));
+    //       const playerOnTheLeft =
+    //         users[drafts[data.table].table[`seat${[calculateNextSeatNumber(
+    //           users[uuid].seat.number,
+    //           1,
+    //           drafts[data.table].player_count
+    //         )]}`].player];
 
-          connections[uuid].send(JSON.stringify({
-            status: 'OK',
-            type: 'Rejoin Draft'
-          }));
+    //       const playerOnTheRight =
+    //         users[drafts[data.table].table[`seat${[calculateNextSeatNumber(
+    //           users[uuid].seat.number,
+    //           -1,
+    //           drafts[data.table].player_count
+    //         )]}`].player];
 
-          sendCards(uuid);
+    //       connections[uuid].send(JSON.stringify({
+    //         status: "OK",
+    //         type: "Neighbours",
+    //         left: playerOnTheLeft.username,
+    //         right: playerOnTheRight.username,
+    //         direction: drafts[data.table].direction,
+    //         seatToken: users[uuid].seat.token
+    //       }));
 
-          if (
-            Array(drafts[data.table].table[seat].packAtHand.cards).length > 0
-          ) {
-            connections[uuid].send(JSON.stringify({
-              status: 'OK',
-              type: 'Pack',
-              pack: drafts[data.table].table[seat].packAtHand.cards
-            }));
-          }
-        }
-      }
-    } else {
-      connections[uuid].send(JSON.stringify({
-        status: 'Draft Disappeared'
-      }));
-    }
+    //       connections[uuid].send(JSON.stringify({
+    //         status: 'OK',
+    //         type: 'Rejoin Draft'
+    //       }));
+
+    //       sendCards(uuid);
+
+    //       if (
+    //         Array(drafts[data.table].table[seat].packAtHand.cards).length > 0
+    //       ) {
+    //         connections[uuid].send(JSON.stringify({
+    //           status: 'OK',
+    //           type: 'Pack',
+    //           pack: drafts[data.table].table[seat].packAtHand.cards
+    //         }));
+    //       }
+    //     }
+    //   }
+    // } else {
+    //   connections[uuid].send(JSON.stringify({
+    //     status: 'Draft Disappeared'
+    //   }));
+    // }
   } else if (data.type === 'Draft Data Decision') {
     if (data.decision) {
       const draftdata = {

@@ -4,6 +4,7 @@ import { sendMessage } from "./Messaging.js";
 import { broadcastUserlist, broadcastDraftStatus } from "./Broadcasts.js";
 import { shuffleArray } from "./Utils.js";
 import { checkDraftStatus } from "./DraftStatus.js";
+import { sendCards, sendPackAtHand } from "./DraftFunctions.js";
 
 export async function createLobby(data, uuid) {
 
@@ -74,7 +75,7 @@ export function joinLobby(data, uuid) {
 };
 
 export function startDraft(data) {
-  
+
   if (drafts[data.token].state === "Setup Complete") {
 
     drafts[data.token].state = 'drafting';
@@ -98,4 +99,30 @@ export function startDraft(data) {
   intervalIDs[data.token] = setInterval(() =>
     checkDraftStatus(drafts[data.token]), 500);
 
+};
+
+export function rejoinDraft(data, uuid) {
+
+  if (Object.keys(drafts).includes(data.token)) {
+
+    users[uuid].token = data.token;
+    drafts[data.token].players =
+      drafts[data.token].players.concat(users[uuid]);
+    broadcastUserlist(drafts[data.token]);
+
+    for (const seat in drafts[data.token].table) {
+
+      if (drafts[data.token].table[seat].token === data.seat &&
+        drafts[data.token].table[seat].player === "") {
+
+        drafts[data.token].table[seat].player = uuid;
+        users[uuid].seat = drafts[data.token].table[seat];
+      }
+    }
+    
+    sendCards(uuid, users[uuid].seat);
+    if (users[uuid].seat.packAtHand.cards.length > 0) {
+      sendPackAtHand(uuid, users[uuid].seat);
+    }
+  }
 };

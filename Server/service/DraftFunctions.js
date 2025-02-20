@@ -92,9 +92,20 @@ export function sendCards(uuid, userSeat) {
     side: userSeat.side
   };
 
+  console.log("cards", message);
+
   sendMessage(uuid, message);
 
 };
+
+export function sendPackAtHand(uuid, userSeat) {
+  const message = {
+    status: "OK",
+    type: "Pack",
+    pack: userSeat.packAtHand.cards
+  };
+  sendMessage(uuid, message);
+}
 
 export function giveLastCard(data, draft, pack) {
 

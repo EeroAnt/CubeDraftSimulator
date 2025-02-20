@@ -53,7 +53,6 @@ export const Home = ({
 
   const changeCommanderPacksIncluded = () => {
     setCommanderPackIncluded(!commanderPackIncluded)
-    console.log(commanderPackIncluded)
   }
 
 

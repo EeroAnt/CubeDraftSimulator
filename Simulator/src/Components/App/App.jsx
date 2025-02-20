@@ -34,7 +34,6 @@ export const App = () => {
   const [decryptedMessage, setDecryptedMessage] = useState("")
 
   useEffect(() => {
-    console.log("Updating search params:", { username, token, seatToken });
     setSearchParams({ user: username, draft: token, seat: seatToken });
   }, [username, token, seatToken]);
 

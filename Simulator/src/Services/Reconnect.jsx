@@ -5,7 +5,7 @@ export async function reconnect(username, token, seatToken) {
       type: "Rejoin Draft",
       username: username,
       token: token,
-      seatToken: seatToken
+      seat: seatToken
     };
     return {message, newMode: "Draft"};
   } else if (username && token) {
