@@ -2,6 +2,7 @@ import { checkIfRoundIsDone, calculateNextSeatNumber } from "./Utils.js";
 import { broadcastDraftStatus } from "./Broadcasts.js";
 import { users, intervalIDs } from "./State.js";
 import { sendMessage } from "./Messaging.js";
+import { sendPackAtHand } from "./DraftFunctions.js";
 
 export function checkDraftStatus(draft) {
   if (draft.state === 'drafting' && draft.players.length > 0) {
@@ -87,12 +88,7 @@ function dealPacks(draft) {
       console.log('giving pack to player');
 
       draft.table[seat].packAtHand = draft.table[seat].queue.shift();
-      const message = {
-        status: "OK",
-        type: "Pack",
-        pack: draft.table[seat].packAtHand.cards
-      };
-      sendMessage(draft.table[seat].player, message);
+      sendPackAtHand(draft.table[seat].player, draft.table[seat]);
     }
   }
 }
