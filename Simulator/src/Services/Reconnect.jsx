@@ -11,7 +11,7 @@ export async function reconnect(username, token, seatToken) {
   } else if (username && token) {
     console.log("Reconnecting to lobby with token: ", token);
     const message = {
-      type: "Rejoin Lobby",
+      type: "Join Lobby",
       username: username,
       token: token
     };
