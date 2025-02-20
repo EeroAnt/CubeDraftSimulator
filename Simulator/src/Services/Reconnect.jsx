@@ -24,9 +24,9 @@ export async function reconnect(username, token, seatToken) {
     };
     return {message, newMode: "Home"};
   } else {
-    console.log("No username or tokens to reconnect");
+    console.log("New connection");
     const message = {
-      type: "Rejoin"
+      type: "Connect"
     };
     return {message, newMode: "Home"};
   }
