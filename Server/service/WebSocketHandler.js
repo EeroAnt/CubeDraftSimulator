@@ -60,6 +60,13 @@ export async function handleMessage(message, uuid) {
 
     joinLobby(data, uuid);
 
+  } else if (data.type === "Rejoin Lobby") {
+
+    users[uuid].username = data.username;
+    users[uuid].token = data.token;
+    console.log("Login: " + data.username);
+    joinLobby(data, uuid);
+
   } else if (data.type === 'Start Draft') {
 
     startDraft(data);
