@@ -1,4 +1,4 @@
-import { connections, users } from "./State.js";
+import { connections } from "./State.js";
 import { sendMessage } from "./Messaging.js";
 
 export const broadcastUserlist = (draft) => {
