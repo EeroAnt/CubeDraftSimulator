@@ -24,6 +24,18 @@ Version 1.0.0 is up and running. Deckbuilder is not functional, but drafting wor
 
 *The work on improvements has begun, and I've built a text interface for the management of the database.
 
+## Done, but not live
+
+ - Encryption for WebSocket communication
+ - refactoring backend
+ - generating url parameters for drafting to persist over reconnecting
+
+## TODO
+
+ - migrate data from cloud to local environment (for cost reasons)
+ - a web page for statistics
+ - change the output of draft app to copy to clipboard from downloading a csv
+
 ## Steps
 
 ### Setting up the databases
