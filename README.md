@@ -29,10 +29,11 @@ Version 1.0.0 is up and running. Deckbuilder is not functional, but drafting wor
  - Encryption for WebSocket communication
  - refactoring backend
  - generating url parameters for drafting to persist over reconnecting
+ - data migrated from cloud to local server
 
 ## TODO
 
- - migrate data from cloud to local environment (for cost reasons)
+ - setup local PostgreSQL to listen the app
  - a web page for statistics
  - change the output of draft app to copy to clipboard from downloading a csv
 
