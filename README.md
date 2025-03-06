@@ -96,7 +96,7 @@ Once I get this up and running, it won't be too difficult to open it for other C
 
 ## License
 
-Copyright (c) 2024 Eero Antikainen
+Copyright (c) 2025 Eero Antikainen
  
  Permission is hereby granted, free of charge, to any person obtaining
  a copy of this software and associated documentation files (the
