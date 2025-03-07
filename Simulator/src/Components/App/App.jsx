@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import styles from './App.module.css'
-import { Home, Stats, Draft, Lobby, PostDraft } from '../'
+import { Home, Draft, Lobby, PostDraft } from '../'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import useWebSocket from 'react-use-websocket'
 import { decrypt, reconnect, sendMessage } from '../../Services'
@@ -174,11 +174,6 @@ export const App = () => {
         admin={admin}
         decryptedMessage={decryptedMessage}
       />
-    )}
-    
-    {mode === "Stats" && (
-      <Stats 
-       setMode={setMode} />
     )}
   </div>
   )

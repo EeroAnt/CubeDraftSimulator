@@ -7,15 +7,14 @@ import { CSVLink } from "react-csv";
 import './NavBar.css'
 import { sendMessage } from '../../Services';
 
-export function MyNavBar({ onClickDraftNavbar, onClickStatNavbar }) {
+export function HomeNavBar({ onClickTestButton }) {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Button name="Draft" onClick={onClickDraftNavbar} />
-            <Button name="Statistics" onClick={onClickStatNavbar} />
+            <Button name="Test Button" onClick={onClickTestButton} />
           </Nav>
         </Navbar.Collapse>
       </Container>

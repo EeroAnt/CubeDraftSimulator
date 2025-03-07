@@ -1,4 +1,4 @@
-import { MyNavBar, DraftParametersForm, Button, setupDraft, Form, DraftParameterCheckbox } from "../../"
+import { HomeNavBar, DraftParametersForm, Button, setupDraft, Form, DraftParameterCheckbox } from "../../"
 import { useState, useEffect } from 'react'
 import { sendMessage } from "../../"
 
@@ -98,12 +98,14 @@ export const Home = ({
 
   }
 
+  const testTextToClipboard = () => {
+    navigator.clipboard.writeText("test")
+  }
 
   return !username ? (
     <div className="main">
-      <MyNavBar
-        onClickDraftNavBar={() => setMode("Home")}
-        onClickStatNavBar={() => setMode("Stats")}
+      <HomeNavBar
+        onClickTestButton={() => testTextToClipboard()}
       />
       <h1>Home</h1>
 
@@ -117,9 +119,8 @@ export const Home = ({
     </div>
   ) : (
     <div className="main">
-      <MyNavBar
-        onClickDraftNavbar={() => setMode("Home")}
-        onClickStatNavbar={() => setMode("Stats")}
+      <HomeNavBar
+        onClickTestButton={() => testTextToClipboard()}
       />
       <h1>Hi {username}</h1>
       {draftInitiated ? (
