@@ -153,7 +153,7 @@ export function PostDraft({
   }
 
 
-  const renderDecbuilder = () => {
+  const renderDeckbuilder = () => {
     return <DeckBuilder
       main={main}
       side={side}
@@ -186,7 +186,7 @@ export function PostDraft({
     {renderSideBar()}
     <div className="main">
       {renderNavbar()}
-      {renderDecbuilder()}
+      {renderDeckbuilder()}
     </div>
   </div>;
 }
