@@ -44,7 +44,6 @@ export function PostDraft({
 }) {
 
 
-  const [deckToSubmit, setDeckToSubmit] = useState([])
   const [basicLands, setBasicLands] = useState([0, 0, 0, 0, 0, 0])
 
   useEffect(() => {
@@ -56,41 +55,17 @@ export function PostDraft({
   }, [decryptedMessage])
 
 
-  useEffect(() => {
-    const csvData = [["Name", "Mana_value", "Draft pool"]]
-    csvData.push(["Commanders", "", ""])
-    commanders.forEach((commander) => {
-      csvData.push([commander.name, commander.mana_value, commander.draft_pool])
-    })
-    csvData.push(["Main", "", ""])
-    main.forEach((card) => {
-      csvData.push([card.name, card.mana_value, card.draft_pool])
-    })
-    csvData.push(["Basic Lands", "", ""])
-    csvData.push(["Plains", "", basicLands[0]])
-    csvData.push(["Island", "", basicLands[1]])
-    csvData.push(["Swamp", "", basicLands[2]])
-    csvData.push(["Mountain", "", basicLands[3]])
-    csvData.push(["Forest", "", basicLands[4]])
-    csvData.push(["Wastes", "", basicLands[5]])
-    csvData.push(["", "", ""])
-    csvData.push(["", "", ""])
-    csvData.push(["Side", "", ""])
-    side.forEach((card) => {
-      csvData.push([card.name, card.mana_value, card.draft_pool])
-    })
-    setDeckToSubmit(csvData)
-  }, [main, side, commanders])
-
   const renderNavbar = () => {
     return <PostDraftNavBar
       admin={admin}
       connection={connection}
       token={token}
-      deckToSubmit={deckToSubmit}
       username={username}
       basicLands={basicLands}
       setBasicLands={setBasicLands}
+      commanders={commanders}
+      main={main}
+      side={side}
     />;
   };
 
