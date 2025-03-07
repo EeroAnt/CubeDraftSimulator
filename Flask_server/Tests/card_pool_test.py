@@ -1,6 +1,6 @@
 import unittest
 from src.operations.draft.pool_generation import generate_pools
-from src.operations.database.cloud_db import close_cloud_db
+from src.operations.database.db import close_db
 from math import ceil
 
 class TestGeneratePools(unittest.TestCase):
@@ -53,4 +53,4 @@ class TestGeneratePools(unittest.TestCase):
 
 	@classmethod
 	def tearDownClass(self):
-		close_cloud_db(self.conn)
+		close_db(self.conn)

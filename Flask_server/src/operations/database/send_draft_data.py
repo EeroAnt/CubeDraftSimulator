@@ -1,8 +1,8 @@
-from src.operations.database.cloud_db import connect_to_cloud_db
+from src.operations.database.db import connect_to_db
 from src.operations.database.queries import sending_picks_query, sending_commander_picks_query, sending_packs_query, sending_commander_packs_query
 
 def send_draft_data(data):
-	cur, conn = connect_to_cloud_db()
+	cur, conn = connect_to_db()
 	cur.execute("BEGIN;")
 	for card_id, pick_number in data["picks"].items():
 		cur.execute(sending_picks_query(), (card_id, pick_number))

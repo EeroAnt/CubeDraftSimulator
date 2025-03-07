@@ -1,10 +1,9 @@
 import unittest
-from src.operations.database.cloud_db import close_cloud_db
+from src.operations.database.db import close_db
 from src.operations.draft.pool_generation import generate_pools
 from src.operations.draft.cube_size_checks import check_cube_size
 from src.operations.draft.packs import *
 from src.operations.json_generator import generate_json
-from src.operations.database.cloud_db import connect_to_cloud_db
 from os import remove
 from math import ceil
 
@@ -25,7 +24,7 @@ class TestSuccesfulDraftSetup(unittest.TestCase):
 		specs_for_commanders["number_of_structured_packs"] = ceil(15*specs_for_commanders["normal_rounds"]*specs_for_commanders["player_count"]/specs_for_commanders["uncut_pack_size"])
 		self.player_count = 8
 		self.pool, self.conn = generate_pools(specs_for_commanders)
-		close_cloud_db(self.conn)
+		close_db(self.conn)
 		self.commander_packs = create_commander_packs(self.pool["commanders"])
 		self.normal_packs = create_normal_packs(self.pool, specs_for_commanders)
 		self.finished_setup = deal_packs(self.commander_packs, self.normal_packs, self.player_count, specs_for_commanders["normal_rounds"])

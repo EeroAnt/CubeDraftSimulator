@@ -1,6 +1,6 @@
 def setup(specs, identifier="test"):
 	from src.operations.draft.draft_setup import setup_draft
-	from src.operations.database.cloud_db import close_cloud_db
+	from src.operations.database.db import close_db
 	from time import time
 	
 	start = time()
@@ -11,7 +11,7 @@ def setup(specs, identifier="test"):
 		print(errors)
 		return errors
 	
-	close_cloud_db(conn)
+	close_db(conn)
 	print("Draft setup complete.")
 	print("Time elapsed: " + str(time() - start) + " seconds.")
 	return identifier

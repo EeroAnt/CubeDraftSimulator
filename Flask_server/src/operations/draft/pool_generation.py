@@ -1,13 +1,11 @@
 from src.operations.database.sql_to_dict import sql_to_dict
 from src.operations.database.queries import *
-from src.operations.database.cloud_db import connect_to_cloud_db
-from src.operations.draft.cube_size_checks import check_cube_size
-from math import ceil
+from src.operations.database.db import connect_to_db
 
 
 def generate_pools(specs):
 
-	cur, conn = connect_to_cloud_db()
+	cur, conn = connect_to_db()
 	pools = {}
 	commander_ids = []
 
