@@ -2,7 +2,7 @@ version: "3.4"
 
 services:
   cubesimulator:
-    image: cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator
+    image: cubedraftsimuflaskcont.azurecr.io/eerondevcubesimulator
     build:
       context: .
       dockerfile: Simu_Dockerfile
@@ -12,7 +12,7 @@ services:
       - thisnetwork
   
   nodeserver:
-    image: cubedraftsimuflaskcont.azurecr.io/eeronlivenodeserver
+    image: cubedraftsimuflaskcont.azurecr.io/eerondevnodeserver
     build:
       context: .
       dockerfile: Server_Dockerfile_dev
@@ -22,7 +22,7 @@ services:
       - thisnetwork
 
   flaskserver:
-    image: cubedraftsimuflaskcont.azurecr.io/eeronliveflaskserver
+    image: cubedraftsimuflaskcont.azurecr.io/eerondevflaskserver
     build:
       context: .
       dockerfile: Flask_Dockerfile_dev
