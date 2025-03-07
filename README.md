@@ -36,6 +36,7 @@ Version 1.0.0 is up and running. Deckbuilder is not functional, but drafting wor
  - setup local PostgreSQL to listen the app
  - a web page for statistics
  - change the output of draft app to copy to clipboard from downloading a csv
+ - make players queues visible to everyone
 
 ## Steps
 
