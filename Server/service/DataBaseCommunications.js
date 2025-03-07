@@ -28,7 +28,6 @@ export async function getDraft(
       `${land_ratio}`
     );
     const data = response.data;
-    console.log(data);
     if (data.state === "Setup Complete") {
       drafts[token] = {
         token: token,

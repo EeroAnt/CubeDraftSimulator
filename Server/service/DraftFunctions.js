@@ -13,7 +13,7 @@ export function handlePick(data, draft, userSeat, uuid) {
   if (cardToAdd) {
 
     pickCard(data.zone, cardToAdd, userSeat);
-    updateDraftPicks(draft, cardToAdd, userSeat);
+    updateDraftPicks(draft, cardToAdd.id, userSeat);
 
     if (cardToAdd.id === 1887) {
       console.log("Canal Dredger");
@@ -35,14 +35,21 @@ export function handlePick(data, draft, userSeat, uuid) {
 function updateDraftPicks(draft, pickedCard, userSeat) {
 
   if (draft.round === 0) {
-    // Remove magic numbers
-    draft.commanderpicks[pickedCard] =
-      6 - userSeat.packAtHand.cards.length;
+
+    const pickObject = {
+      "id": pickedCard,
+      "pick": 5 - userSeat.packAtHand.cards.length
+    };
+    draft.commanderpicks.push((pickObject));
 
   } else {
 
-    draft.picks[pickedCard] =
-      16 - userSeat.packAtHand.cards.length;
+    const pickObject = {
+      "id": pickedCard,
+      "pick": 15 - userSeat.packAtHand.cards.length
+    };
+
+    draft.picks.push((pickObject));
 
   }
 
@@ -91,8 +98,6 @@ export function sendCards(uuid, userSeat) {
     main: userSeat.main,
     side: userSeat.side
   };
-
-  console.log("cards", message);
 
   sendMessage(uuid, message);
 

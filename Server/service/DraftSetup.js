@@ -81,6 +81,9 @@ export function startDraft(data) {
     drafts[data.token].state = 'drafting';
     broadcastDraftStatus(drafts[data.token], "Start Draft");
     shuffleArray(drafts[data.token].players);
+    drafts[data.token].picks = [];
+    drafts[data.token].commanderpicks = [];
+    drafts[data.token].picked_packs = [];
 
     for (let i = 0; i < drafts[data.token].player_count; i++) {
       drafts[data.token].table[`seat${i}`].player =

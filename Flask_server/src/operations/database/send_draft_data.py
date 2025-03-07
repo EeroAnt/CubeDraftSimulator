@@ -3,12 +3,13 @@ from src.operations.database.queries import sending_picks_query, sending_command
 
 def send_draft_data(data):
 	cur, conn = connect_to_db()
+	
 	cur.execute("BEGIN;")
-	for card_id, pick_number in data["picks"].items():
-		cur.execute(sending_picks_query(), (card_id, pick_number))
+	for i in data["picks"]:
+		cur.execute(sending_picks_query(), (i['id'], i['pick']))
 
-	for card_id, pick_number in data["commanderpicks"].items():
-		cur.execute(sending_commander_picks_query(), (card_id, pick_number))
+	for i in data["commanderpicks"]:
+		cur.execute(sending_commander_picks_query(), (i['id'], i['pick']))
 
 	commander_packs = list(filter(lambda x: len(x)==5, data["packs"]))
 	normal_packs = list(filter(lambda x: len(x)!=5, data["packs"]))
