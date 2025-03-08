@@ -1,17 +1,17 @@
-export const FormSubmitButton = ({name}) => {
+export const FormSubmitButton = ({ name }) => {
   return (
-	<div>
-	  <button>{name}</button>
-	</div>
+    <div>
+      <button>{name}</button>
+    </div>
   )
 }
-  
-export const Button = ({name, onClick}) => {
+
+export const Button = ({ name, onClick }) => {
   return (
-	<>
-	  <button onClick={onClick}>{name}</button>
-	</>
+    <>
+      <button onClick={onClick}>{name}</button>
+    </>
   )
 }
-  
+
 //   export default { FormSubmitButton, Button }
