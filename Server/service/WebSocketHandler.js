@@ -114,63 +114,7 @@ export async function handleMessage(message, uuid) {
     console.log("Login: " + data.username);
 
     rejoinDraft(data, uuid);
-    // if (Object.keys(drafts).includes(data.table)) {
-    //   for (const seat in drafts[data.table].table) {
-    //     if (drafts[data.table].table[seat].token === data.seat &&
-    //       drafts[data.table].table[seat].player === "") {
 
-    //       drafts[data.table].table[seat].player = uuid;
-    //       drafts[data.table].players =
-    //         drafts[data.table].players.concat(users[uuid]);
-    //       users[uuid].token = data.table;
-    //       users[uuid].seat = drafts[data.table].table[seat];
-    //       users[uuid].seat.number = parseInt(seat.replace('seat', ''));
-    //       const playerOnTheLeft =
-    //         users[drafts[data.table].table[`seat${[calculateNextSeatNumber(
-    //           users[uuid].seat.number,
-    //           1,
-    //           drafts[data.table].player_count
-    //         )]}`].player];
-
-    //       const playerOnTheRight =
-    //         users[drafts[data.table].table[`seat${[calculateNextSeatNumber(
-    //           users[uuid].seat.number,
-    //           -1,
-    //           drafts[data.table].player_count
-    //         )]}`].player];
-
-    //       connections[uuid].send(JSON.stringify({
-    //         status: "OK",
-    //         type: "Neighbours",
-    //         left: playerOnTheLeft.username,
-    //         right: playerOnTheRight.username,
-    //         direction: drafts[data.table].direction,
-    //         seatToken: users[uuid].seat.token
-    //       }));
-
-    //       connections[uuid].send(JSON.stringify({
-    //         status: 'OK',
-    //         type: 'Rejoin Draft'
-    //       }));
-
-    //       sendCards(uuid);
-
-    //       if (
-    //         Array(drafts[data.table].table[seat].packAtHand.cards).length > 0
-    //       ) {
-    //         connections[uuid].send(JSON.stringify({
-    //           status: 'OK',
-    //           type: 'Pack',
-    //           pack: drafts[data.table].table[seat].packAtHand.cards
-    //         }));
-    //       }
-    //     }
-    //   }
-    // } else {
-    //   connections[uuid].send(JSON.stringify({
-    //     status: 'Draft Disappeared'
-    //   }));
-    // }
   } else if (data.type === 'Draft Data Decision') {
     if (data.decision) {
       const draftdata = {
