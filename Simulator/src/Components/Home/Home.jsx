@@ -98,15 +98,10 @@ export const Home = ({
 
   }
 
-  const testTextToClipboard = () => {
-    navigator.clipboard.writeText("test")
-  }
 
   return !username ? (
     <div className="main">
-      <HomeNavBar
-        onClickTestButton={() => testTextToClipboard()}
-      />
+      <HomeNavBar />
       <h1>Home</h1>
 
       <h2>Who are you?</h2>
@@ -119,9 +114,7 @@ export const Home = ({
     </div>
   ) : (
     <div className="main">
-      <HomeNavBar
-        onClickTestButton={() => testTextToClipboard()}
-      />
+      <HomeNavBar />
       <h1>Hi {username}</h1>
       {draftInitiated ? (
         <h2>Waiting for response</h2>
