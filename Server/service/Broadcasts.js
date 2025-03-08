@@ -19,14 +19,31 @@ export const broadcastUserlist = (draft) => {
 
 
 export const broadcastDraftStatus = (draft, status) => {
+  const message = { status: "OK", type: status };
   Object.values(draft.players).forEach(player => {
-	  const message = { status: "OK", type: status };
-    
     sendMessage(player.uuid, message);
-
   });
 };
 
+export const broadcastQueues = (draft) => {
+  const queues = [];
+  draft.players.forEach(player => {
+    queues.push({
+      username: player.username,
+      seat: player.seat.number,
+      queue: player.seat.queue.length
+    });
+  });
+  queues.sort((a, b) => a.seat - b.seat);
+  const message = {
+    status: "OK",
+    type: "Queues",
+    queues: queues
+  };
+  Object.values(draft.players).forEach(player => {
+    sendMessage(player.uuid, message);
+  });
+};
 
 export const broadcastCanalDredger = (draft, seatNumber) => {
   Object.values(draft.players).forEach(player => {

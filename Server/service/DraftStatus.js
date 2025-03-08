@@ -1,11 +1,12 @@
 import { checkIfRoundIsDone, calculateNextSeatNumber } from "./Utils.js";
-import { broadcastDraftStatus } from "./Broadcasts.js";
+import { broadcastDraftStatus, broadcastQueues } from "./Broadcasts.js";
 import { users, intervalIDs } from "./State.js";
 import { sendMessage } from "./Messaging.js";
 import { sendPackAtHand } from "./DraftFunctions.js";
 
 export function checkDraftStatus(draft) {
   if (draft.state === 'drafting' && draft.players.length > 0) {
+    broadcastQueues(draft);
     if (checkIfRoundIsDone(draft.table)) {
       draft.round++;
       if (draft.round < Object.keys(draft.rounds).length) {
@@ -43,15 +44,10 @@ function goToNextRound(draft) {
     const player = draft.players[i];
     const pack = [draft.rounds[draft.round][`pack${i}`]];
 
-    const { left, right } = checkNeighbours(draft, player);
-
     const message = {
       status: "OK",
-      type: "Neighbours",
-      left: left,
-      right: right,
-      direction: draft.direction,
-      seatToken: player.seat.token
+      type: "Direction",
+      direction: draft.direction
     };
 
     sendMessage(player.uuid, message);
