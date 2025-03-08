@@ -124,5 +124,12 @@ export async function handleMessage(message, uuid) {
       };
       sendDraftData(draftdata);
     }
+  } else if (data.type === 'Get Seat Token') {
+    const message = {
+      status: 'OK',
+      type: 'Seat token',
+      seat: users[uuid].seat.token
+    };
+    sendMessage(uuid, message);
   }
 };

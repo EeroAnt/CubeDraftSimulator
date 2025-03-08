@@ -1,6 +1,6 @@
 import { Button, Image, DraftNavbar, DeckBuilder, SideBar } from "../";
 import { useState, useEffect } from "react";
-import { sendMessage } from "../../Services";
+import { sendMessage, getSeatToken } from "../../Services";
 import './draft.css'
 
 
@@ -14,9 +14,7 @@ export const Draft = ({
   setSide,
   commanders,
   setCommanders,
-  username,
   seatToken,
-  setSeatToken,
   showMain,
   setShowMain,
   selectedCards,
@@ -48,12 +46,14 @@ export const Draft = ({
 
   const [pack, setPack] = useState([])
   const [pick, setPick] = useState(0)
-  const [onTheLeft, setOnTheLeft] = useState("")
-  const [onTheRight, setOnTheRight] = useState("")
+  const [queues, setQueues] = useState([])
   const [direction, setDirection] = useState(0)
   const [canalDredger, setCanalDredger] = useState(false)
   const [canalDredgerOwner, setCanalDredgerOwner] = useState(-1)
 
+  useEffect(() => {
+    getSeatToken(connection)
+  }, [])
 
   useEffect(() => {
 
@@ -101,12 +101,9 @@ export const Draft = ({
       setSide(decryptedMessage.side)
       setCommanders(decryptedMessage.commanders)
 
-    } else if (decryptedMessage && decryptedMessage.type === "Neighbours") {
+    } else if (decryptedMessage && decryptedMessage.type === "Direction") {
 
-      setOnTheLeft(decryptedMessage.left)
-      setOnTheRight(decryptedMessage.right)
       setDirection(decryptedMessage.direction)
-      setSeatToken(decryptedMessage.seatToken)
 
     } else if (decryptedMessage && decryptedMessage.type === "Canal Dredger") {
       console.log("canal dredger")
@@ -121,6 +118,10 @@ export const Draft = ({
     } else if (decryptedMessage && decryptedMessage.type === "Post Draft") {
 
       setMode("Post Draft")
+
+    } else if (decryptedMessage && decryptedMessage.type === "Queues") {
+
+      setQueues(decryptedMessage.queues)
 
     }
   }, [decryptedMessage])
@@ -222,10 +223,9 @@ export const Draft = ({
         <DraftNavbar
           onClickNavbar={() => setShowDeckbuilder(!showDeckbuilder)}
           buttonName={showDeckbuilder ? ("Show Draft") : ("Show Stats")}
-          left={onTheLeft}
-          right={onTheRight}
+          queues={queues}
           direction={direction}
-          username={username} />
+        />
       </>
     )
   }

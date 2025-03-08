@@ -37,6 +37,11 @@ export const App = () => {
     setSearchParams({ user: username, draft: token, seat: seatToken });
   }, [username, token, seatToken]);
 
+  useEffect(() => {
+    if (decryptedMessage.type === "Seat token") {
+      setSeatToken(decryptedMessage.seat)
+    }
+  }, [decryptedMessage])
 
   const connection = useWebSocket(import.meta.env.VITE_REACT_APP_WS_URL,{
   share: true,
@@ -100,9 +105,7 @@ export const App = () => {
         setSide={setSide}
         commanders={commanders}
         setCommanders={setCommanders}
-        username={username}
         seatToken={seatToken}
-        setSeatToken={setSeatToken}
         showMain={showMain}
         setShowMain={setShowMain}
         selectedCards={selectedCards}
