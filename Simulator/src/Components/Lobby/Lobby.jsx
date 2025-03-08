@@ -1,4 +1,4 @@
-import { Button, Form } from '../'
+import { Button } from '../'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { sendMessage } from '../../Services'
@@ -30,16 +30,6 @@ export const Lobby = ({ setMode, connection, numberOfPlayers, owner, token, decr
     sendMessage(connection, message)
 
   }
-
-
-  // const reJoinDraft = (seat) => {
-  //   connection.sendJsonMessage({
-  //     type: "Rejoin Draft",
-  //     table: token,
-  //     seat: seat
-  //   })
-  //   console.log("Rejoining draft")
-  // }
 
 
   useEffect(() => {
@@ -92,7 +82,6 @@ export const Lobby = ({ setMode, connection, numberOfPlayers, owner, token, decr
       <div className="main">
         <h1>Draft already started</h1>
         <p></p>
-        {/* <Form onSubmit={reJoinDraft} /> */}
         <Button name="Go Back" onClick={() => setMode("Home")} />
       </div>
     )

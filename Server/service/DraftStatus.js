@@ -1,6 +1,6 @@
-import { checkIfRoundIsDone, calculateNextSeatNumber } from "./Utils.js";
+import { checkIfRoundIsDone } from "./Utils.js";
 import { broadcastDraftStatus, broadcastQueues } from "./Broadcasts.js";
-import { users, intervalIDs } from "./State.js";
+import { intervalIDs } from "./State.js";
 import { sendMessage } from "./Messaging.js";
 import { sendPackAtHand } from "./DraftFunctions.js";
 
@@ -36,7 +36,6 @@ export function checkDraftStatus(draft) {
   }
 }
 
-
 function goToNextRound(draft) {
   console.log('round:', draft.round);
   draft.direction *= -1;
@@ -54,26 +53,6 @@ function goToNextRound(draft) {
 
     player.seat.queue = pack;
   }
-}
-
-function checkNeighbours(draft, player) {
-  const playerOnTheLeft =
-    users[draft.table[`seat${[calculateNextSeatNumber(
-      player.seat.number,
-      1,
-      draft.player_count)]}`].player];
-
-  const playerOnTheRight =
-    users[draft.table[`seat${[calculateNextSeatNumber(
-      player.seat.number,
-      -1,
-      draft.player_count
-    )]}`].player];
-
-  return {
-    left: playerOnTheLeft.username,
-    right: playerOnTheRight.username
-  };
 }
 
 function dealPacks(draft) {
