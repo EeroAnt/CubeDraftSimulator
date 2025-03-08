@@ -4,8 +4,6 @@ import { sendMessage } from "../../Services";
 
 export const SideBar = ({
   lastClicked,
-  token,
-  seatToken,
   showMain,
   selectedCommanders,
   commanderColorIdentity,
@@ -97,7 +95,6 @@ export const SideBar = ({
   return (
     <div className="sidenav">
       <div className="sidenav-header" ref={headerRef}>
-        <p>Draft: {token} {seatToken ? (`Seat: ${seatToken}`) : ("")}</p>
         {Object.keys(lastClicked).length === 0 ? (
           <Image imageUrl={defaultImageUrl} backsideUrl="" />
         ) : (
