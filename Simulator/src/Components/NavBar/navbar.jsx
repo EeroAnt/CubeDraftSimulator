@@ -5,15 +5,15 @@ import { Button, ManaSymbol, } from '..'
 import { useState } from 'react';
 import './NavBar.css'
 import { sendMessage } from '../../Services';
+import { useEffect } from 'react';
 
-export function HomeNavBar({ onClickTestButton }) {
+export function HomeNavBar() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Button name="Test Button" onClick={onClickTestButton} />
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -21,24 +21,29 @@ export function HomeNavBar({ onClickTestButton }) {
   );
 }
 
-export function DraftNavbar({ onClickNavbar, buttonName, left, right, direction, username }) {
+export function DraftNavbar({ onClickNavbar, buttonName, queues, direction }) {
+  const [queueDisplay, setQueueDisplay] = useState("")
   const currentDirection = () => {
     if (direction === 1) {
-      return "<="
+      return " <= "
     } else {
-      return "=>"
+      return " => "
     }
   }
+
+  useEffect(() => {
+    const displayToSet = queues.map((queue) => `${queue.username} : ${queue.queue}`).join(currentDirection())
+    setQueueDisplay(displayToSet)
+  }, [queues])
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="me-auto w-100 d-flex align-items-center justify-content-between">
             <Button name={buttonName} onClick={onClickNavbar} />
-            <div className="neighbours">
-              {direction ? (`${left} ${currentDirection()} ${username} ${currentDirection()} ${right}`) : ("")}
-            </div>
+            <div className="mx-auto">{queueDisplay}</div>
           </Nav>
         </Navbar.Collapse>
       </Container>
