@@ -40,6 +40,7 @@ Version 1.0.0 is up and running. Deckbuilder is not functional, but drafting wor
  - a web page for statistics
  - redo database
  - refactor and fix frontend
+ - update readme
 
 ## Steps
 
