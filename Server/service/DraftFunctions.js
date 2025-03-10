@@ -17,6 +17,7 @@ export function handlePick(data, draft, userSeat, uuid) {
 
     if (cardToAdd.id === 1887) {
       console.log("Canal Dredger");
+      draft.canalDredger = userSeat.number;
       broadcastCanalDredger(draft, userSeat.number);
     }
 
@@ -112,10 +113,10 @@ export function sendPackAtHand(uuid, userSeat) {
   sendMessage(uuid, message);
 }
 
-export function giveLastCard(data, draft, pack) {
+export function giveLastCard(draft, pack) {
 
-  draft.table[`seat${data.seat}`].queue =
-    draft.table[`seat${data.seat}`].queue.concat([pack]);
+  draft.table[`seat${draft.canalDredger}`].queue =
+    draft.table[`seat${draft.canalDredger}`].queue.concat([pack]);
   pack = { "cards": [], "picks": [] };
 
 };

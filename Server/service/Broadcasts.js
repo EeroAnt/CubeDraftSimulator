@@ -51,8 +51,7 @@ export const broadcastCanalDredger = (draft, seatNumber) => {
 	  const message = {
       status: "OK",
       type: "Canal Dredger",
-      seat: seatNumber,
-      owner: true
+      owner: "T"
     };
 
 	  sendMessage(player.uuid, message);
@@ -61,8 +60,7 @@ export const broadcastCanalDredger = (draft, seatNumber) => {
   	const message = {
       status: "OK",
       type: "Canal Dredger",
-      seat: seatNumber,
-      owner: false
+      owner: ""
     };
 
     sendMessage(player.uuid, message);

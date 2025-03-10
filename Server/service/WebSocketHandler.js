@@ -87,7 +87,7 @@ export async function handleMessage(message, uuid) {
     const draft = drafts[data.token];
     const pack = users[uuid].seat.packAtHand;
 
-    giveLastCard(data, draft, pack);
+    giveLastCard(draft, pack);
 
   } else if (data.type === 'Set Commander') {
 

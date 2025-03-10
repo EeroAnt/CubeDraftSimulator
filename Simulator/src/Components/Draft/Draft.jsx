@@ -109,13 +109,8 @@ export const Draft = ({
 
     } else if (decryptedMessage && decryptedMessage.type === "Canal Dredger") {
       console.log("canal dredger")
-      setCanalDredgerOwner(decryptedMessage.seat)
-
-      if (decryptedMessage.owner) {
-
-        setCanalDredger("T")
-
-      }
+      setCanalDredgerOwner(decryptedMessage.owner)
+      setCanalDredger("T")
 
     } else if (decryptedMessage && decryptedMessage.type === "Post Draft") {
 
@@ -178,7 +173,7 @@ export const Draft = ({
 
 
   const renderPickButtons = () => {
-    if (canalDredgerOwner === "" || canalDredger === "F" || (pack && pack.length > 1)) {
+    if (canalDredgerOwner === "T" || canalDredger === "F" || (pack && pack.length > 1)) {
       return (
         <>
           <Button name="Pick to main" onClick={() => confirmPick("main")} />
