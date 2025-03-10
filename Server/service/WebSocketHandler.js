@@ -118,8 +118,6 @@ export async function handleMessage(message, uuid) {
   } else if (data.type === 'Draft Data Decision') {
     if (data.decision) {
       const draftdata = {
-        picks: drafts[data.token].picks,
-        commanderpicks: drafts[data.token].commanderpicks,
         packs: drafts[data.token].picked_packs
       };
       sendDraftData(draftdata);
