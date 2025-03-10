@@ -41,15 +41,17 @@ export const Draft = ({
   colorFilterNeg,
   setColorFilterPos,
   setColorFilterNeg,
-  decryptedMessage
+  decryptedMessage,
+  canalDredgerOwner,
+  setCanalDredgerOwner,
+  canalDredger,
+  setCanalDredger
 }) => {
 
   const [pack, setPack] = useState([])
   const [pick, setPick] = useState(0)
   const [queues, setQueues] = useState([])
   const [direction, setDirection] = useState(0)
-  const [canalDredger, setCanalDredger] = useState(false)
-  const [canalDredgerOwner, setCanalDredgerOwner] = useState(-1)
 
   useEffect(() => {
     getSeatToken(connection)
@@ -111,7 +113,7 @@ export const Draft = ({
 
       if (decryptedMessage.owner) {
 
-        setCanalDredger(true)
+        setCanalDredger("T")
 
       }
 
@@ -176,7 +178,7 @@ export const Draft = ({
 
 
   const renderPickButtons = () => {
-    if (canalDredgerOwner === -1 || canalDredger === true || pack.length > 1) {
+    if (canalDredgerOwner === "" || canalDredger === "F" || (pack && pack.length > 1)) {
       return (
         <>
           <Button name="Pick to main" onClick={() => confirmPick("main")} />

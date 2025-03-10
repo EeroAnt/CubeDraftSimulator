@@ -58,7 +58,7 @@ export const Home = ({
 
   const submitSetup = () => {
 
-    setOwner(true)
+    setOwner("T")
     var token = function () {
       return Math.random().toString(36).slice(2, 6)
     }
@@ -80,7 +80,7 @@ export const Home = ({
       setDraftInitiated(false)
 
     } else if (decryptedMessage && decryptedMessage.status === "OK" && decryptedMessage.type === "Admin") {
-      setAdmin(true)
+      setAdmin("T")
       console.log("Admin")
     }
   }, [decryptedMessage])

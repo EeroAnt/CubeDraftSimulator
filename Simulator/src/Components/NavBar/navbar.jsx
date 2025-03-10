@@ -110,7 +110,7 @@ export function PostDraftNavBar({ admin, connection, token, basicLands, setBasic
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Button name="Copy Deck to Clipboard" onClick={() => copyDeckToClipBoard()} />
-            {admin && draftDataDecision ? (<>
+            {admin === "T" && draftDataDecision ? (<>
               <Button name="Validate draft data" onClick={() => handleDataDecision(true)} />
               <Button name="Ignore draft data" onClick={() => handleDataDecision(false)} />
             </>) : ""}
