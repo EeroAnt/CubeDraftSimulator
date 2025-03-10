@@ -50,7 +50,7 @@ export const Lobby = ({ setMode, connection, numberOfPlayers, owner, token, decr
     return (
       <div className="main">
         <h1>Lobby</h1>
-        {owner ? (
+        {owner === "T" ? (
           <><h2>Draft Token: {token}</h2>
             {playersInLobby === numberOfPlayers ? (
               <>
