@@ -54,7 +54,9 @@ export const Draft = ({
   const [direction, setDirection] = useState(0)
 
   useEffect(() => {
-    getSeatToken(connection)
+    if (!seatToken) {
+      getSeatToken(connection)
+    }
   }, [])
 
   useEffect(() => {
@@ -91,6 +93,7 @@ export const Draft = ({
 
     if (decryptedMessage && decryptedMessage.type === "Pack") {
 
+      console.log("Pack received")
       setPack(decryptedMessage.pack)
 
     } else if (decryptedMessage && decryptedMessage.type === "End Draft") {
