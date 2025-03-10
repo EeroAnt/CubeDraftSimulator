@@ -32,13 +32,13 @@ Version 1.0.0 is up and running. Deckbuilder is not functional, but drafting wor
  - data migrated from cloud to local server
  - make players queues visible to everyone
  - change the output of draft app to copy to clipboard from downloading a csv
+ - redo database
 
 ## TODO
 
  - fix rejoining on refresh
  - setup local PostgreSQL to listen the app
  - a web page for statistics
- - redo database
  - refactor and fix frontend
  - update readme
 
