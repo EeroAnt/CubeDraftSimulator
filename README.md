@@ -33,10 +33,10 @@ Version 1.0.0 is up and running. Deckbuilder is not functional, but drafting wor
  - make players queues visible to everyone
  - change the output of draft app to copy to clipboard from downloading a csv
  - redo database
+ - limit symbols and length of usernames
 
 ## TODO
 
- - limit symbols and length of usernames
  - fix draft setup without commander packs
  - setup local PostgreSQL to listen the app
  - a web page for statistics
