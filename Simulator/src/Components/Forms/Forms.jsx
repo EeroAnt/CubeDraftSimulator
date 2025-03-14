@@ -9,20 +9,21 @@ export const Filter = ({ name, value, onChange }) => {
 }
 
 export function Form({ onSubmit, name }) {
-  const [username, setUsername] = useState("")
+  const [input, setInput] = useState("")
   return (
     <>
       <form
         onSubmit={(e) => {
           e.preventDefault()
-          onSubmit(username)
+          onSubmit(input)
         }}
       >
         <input
           name={name}
           type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={input}
+          maxLength={16}
+          onChange={(e) => setInput(e.target.value.split(/[^a-zA-Z0-9 ]/).join(''))}
         />
         <input type="submit" />
       </form>
