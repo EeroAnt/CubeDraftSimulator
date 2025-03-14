@@ -31,7 +31,8 @@ export const broadcastQueues = (draft) => {
     queues.push({
       username: player.username,
       seat: player.seat.number,
-      queue: player.seat.queue.length
+      queue: player.seat.queue.length,
+      hand: player.seat.packAtHand.cards.length ? 1 : 0
     });
   });
   queues.sort((a, b) => a.seat - b.seat);

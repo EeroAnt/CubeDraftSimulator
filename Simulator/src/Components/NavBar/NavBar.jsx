@@ -6,6 +6,7 @@ import { useState } from 'react';
 import './NavBar.css'
 import { sendMessage } from '../../Services';
 import { useEffect } from 'react';
+import React from 'react';
 
 export function HomeNavBar() {
   return (
@@ -32,7 +33,13 @@ export function DraftNavbar({ onClickNavbar, buttonName, queues, direction }) {
   }
 
   useEffect(() => {
-    const displayToSet = queues.map((queue) => `${queue.username} : ${queue.queue}`).join(currentDirection())
+    const displayToSet = queues.map((queue, index) => (
+      <React.Fragment key={queue.username}>
+        {queue.hand === 1 ? <strong>{queue.username}</strong> : queue.username} : {queue.queue}
+        {index < queues.length - 1 && ", "}
+      </React.Fragment>
+    ));
+    
     setQueueDisplay(displayToSet)
   }, [queues])
 
