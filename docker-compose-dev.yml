@@ -1,5 +1,3 @@
-version: "3.4"
-
 services:
   cubesimulator:
     image: cubedraftsimuflaskcont.azurecr.io/eerondevcubesimulator
