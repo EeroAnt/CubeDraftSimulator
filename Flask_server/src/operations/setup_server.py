@@ -9,6 +9,7 @@ def setup(specs, identifier="test"):
 	if errors:
 		print("Draft setup failed.")
 		print(errors)
+		close_db(conn)
 		return errors
 	
 	close_db(conn)
