@@ -37,7 +37,7 @@ Version 1.0.0 is up and running. Deckbuilder is not functional, but drafting wor
 
 ## TODO
 
- - fix draft setup without commander packs
+ - fix draft setup without commander packs (this seems to be working. check in other env too)
  - setup local PostgreSQL to listen the app
  - a web page for statistics
  - refactor and fix frontend
@@ -47,12 +47,12 @@ Version 1.0.0 is up and running. Deckbuilder is not functional, but drafting wor
 ## Steps
 
 ### Setting up the databases
-The database is set up and online in Azure Cloud.
+Database is now local and rework is underway. Azure was good, but it got too costly.
 
 ### Setting up the draft
-First we have the commanders. They are a hand picked bunch of Legendary creatures with more than one colors in their color identity. I randomly choose a commander pack of 5 commanders for each player. Then the rest of the commanders can be shuffled with the card pool of Multicolored.
+User can choose the ratios of different draft pools and whether they wish to have smaller commander packs to start of the draft.
 
-The structure for the normal 15 card packs we've used so far:
+The default structure for the normal 15 card packs we've used so far:
  - 3 cards from Multicolored card pool
  - 2 cards from each of the single colored pools
  - 3 from colorless (this used to be 2, but I feel the artifacts could use a little more representation) and
