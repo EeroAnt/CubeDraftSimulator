@@ -36,7 +36,7 @@ Version 1.0.0 is up and running. Deckbuilder is not functional, but drafting wor
 
 ## TODO
 
- - fix rejoining on refresh
+ - limit symbols and length of usernames
  - fix draft setup without commander packs
  - setup local PostgreSQL to listen the app
  - a web page for statistics
