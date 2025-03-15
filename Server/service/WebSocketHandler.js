@@ -7,6 +7,7 @@ import {
   rejoinDraft
 } from "./DraftSetup.js";
 import { sendDraftData } from "./DataBaseCommunications.js";
+import { parseDraftData } from "./DraftDataParser.js";
 import { sendMessage } from "./Messaging.js";
 import { handlePick, giveLastCard } from "./DraftFunctions.js";
 import { setCommander, removeCommander, moveCards } from "./DeckManagement.js";
@@ -117,10 +118,8 @@ export async function handleMessage(message, uuid) {
 
   } else if (data.type === 'Draft Data Decision') {
     if (data.decision) {
-      const draftdata = {
-        packs: drafts[data.token].picked_packs
-      };
-      sendDraftData(draftdata);
+      const draftData = parseDraftData(drafts[data.token])
+      sendDraftData(draftData);
     }
   } else if (data.type === 'Get Seat Token') {
     const message = {
