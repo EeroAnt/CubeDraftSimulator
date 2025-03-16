@@ -4,7 +4,6 @@ from src.operations.draft.cube_size_checks import check_cube_size
 from src.operations.json_generator import generate_json
 from random import choices
 from string import ascii_letters, digits
-from math import ceil
 
 
 def setup_draft(specs, identifier):
