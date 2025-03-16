@@ -43,14 +43,6 @@ function goToNextRound(draft) {
     const player = draft.players[i];
     const pack = [draft.rounds[draft.round][`pack${i}`]];
 
-    const message = {
-      status: "OK",
-      type: "Direction",
-      direction: draft.direction
-    };
-
-    sendMessage(player.uuid, message);
-
     player.seat.queue = pack;
   }
 }

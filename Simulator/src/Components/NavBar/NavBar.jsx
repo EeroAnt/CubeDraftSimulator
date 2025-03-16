@@ -22,15 +22,9 @@ export function HomeNavBar() {
   );
 }
 
-export function DraftNavbar({ onClickNavbar, buttonName, queues, direction }) {
+export function DraftNavbar({ onClickNavbar, buttonName, queues, statsButton }) {
   const [queueDisplay, setQueueDisplay] = useState("")
-  const currentDirection = () => {
-    if (direction === 1) {
-      return " <= "
-    } else {
-      return " => "
-    }
-  }
+
 
   useEffect(() => {
     const displayToSet = queues.map((queue, index) => (
@@ -49,7 +43,7 @@ export function DraftNavbar({ onClickNavbar, buttonName, queues, direction }) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto w-100 d-flex align-items-center justify-content-between">
-            <Button name={buttonName} onClick={onClickNavbar} />
+            {statsButton ? <Button name={buttonName} onClick={onClickNavbar} /> : null}
             <div className="mx-auto">{queueDisplay}</div>
           </Nav>
         </Navbar.Collapse>

@@ -51,13 +51,17 @@ export const Draft = ({
   const [pack, setPack] = useState([])
   const [pick, setPick] = useState(0)
   const [queues, setQueues] = useState([])
-  const [direction, setDirection] = useState(0)
+  const [statsButton, setStatsButton] = useState(false);
 
   useEffect(() => {
     if (!seatToken) {
       getSeatToken(connection)
     }
   }, [])
+
+  useEffect(() => {
+    setStatsButton(main.concat(side).concat(commanders).length > 5);
+  }, [main, side, commanders]);
 
   useEffect(() => {
 
@@ -105,10 +109,6 @@ export const Draft = ({
       setMain(decryptedMessage.main)
       setSide(decryptedMessage.side)
       setCommanders(decryptedMessage.commanders)
-
-    } else if (decryptedMessage && decryptedMessage.type === "Direction") {
-
-      setDirection(decryptedMessage.direction)
 
     } else if (decryptedMessage && decryptedMessage.type === "Canal Dredger") {
       console.log("canal dredger")
@@ -224,7 +224,7 @@ export const Draft = ({
           onClickNavbar={() => setShowDeckbuilder(!showDeckbuilder)}
           buttonName={showDeckbuilder ? ("Show Draft") : ("Show Stats")}
           queues={queues}
-          direction={direction}
+          statsButton = {statsButton}
         />
       </>
     )
