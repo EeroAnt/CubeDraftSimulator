@@ -35,7 +35,7 @@ def create_normal_packs(pools, specs):
 		cut_cards = cut_cards[15:]
 	return normal_packs
 
-def deal_packs(commander_packs, normal_packs, player_count,normal_rounds):
+def deal_packs(commander_packs, normal_packs, player_count, normal_rounds):
 	shuffled_packs = []
 	for i in range(len(normal_packs)):
 		shuffled_packs.append(normal_packs[f"pack{i}"])
