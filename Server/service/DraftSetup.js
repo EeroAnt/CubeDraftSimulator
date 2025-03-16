@@ -84,6 +84,8 @@ export function startDraft(data) {
     drafts[data.token].picks = [];
     drafts[data.token].commanderpicks = [];
     drafts[data.token].picked_packs = [];
+    drafts[data.token].last_round =
+      Math.max(...Object.keys(drafts[data.token].rounds).map(Number));
 
     for (let i = 0; i < drafts[data.token].player_count; i++) {
       drafts[data.token].table[`seat${i}`].player =
@@ -122,7 +124,7 @@ export function rejoinDraft(data, uuid) {
         users[uuid].seat = drafts[data.token].table[seat];
       }
     }
-    
+
     sendCards(uuid, users[uuid].seat);
     if (users[uuid].seat.packAtHand.cards.length > 0) {
       sendPackAtHand(uuid, users[uuid].seat);

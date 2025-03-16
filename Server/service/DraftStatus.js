@@ -9,7 +9,7 @@ export function checkDraftStatus(draft) {
     broadcastQueues(draft);
     if (checkIfRoundIsDone(draft.table)) {
       draft.round++;
-      if (draft.round < Object.keys(draft.rounds).length) {
+      if (draft.round <= draft.last_round) {
         goToNextRound(draft);
       } else {
         draft.state = 'deckbuilding';
