@@ -34,6 +34,7 @@ Version 1.0.0 is up and running. Deckbuilder is not functional, but drafting wor
  - change the output of draft app to copy to clipboard from downloading a csv
  - redo database
  - limit symbols and length of usernames
+ - save drafts to database
 
 ## TODO
 
@@ -41,7 +42,6 @@ Version 1.0.0 is up and running. Deckbuilder is not functional, but drafting wor
  - setup local PostgreSQL to listen the app
  - a web page for statistics
  - refactor and fix frontend
- - save drafts to database
  - update readme
 
 ## Steps
