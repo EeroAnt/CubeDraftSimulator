@@ -1,5 +1,5 @@
 from src.operations.database.sql_to_dict import sql_to_dict
-from src.operations.database.queries import *
+from src.operations.database.queries.setup_queries import commander_pool_query, multicolored_pool_query, generic_pool_query
 from src.operations.database.db import connect_to_db
 
 

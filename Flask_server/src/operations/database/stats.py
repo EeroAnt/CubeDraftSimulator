@@ -1,5 +1,5 @@
 from src.operations.database.db import connect_to_db, close_db
-from src.operations.database.queries import *
+from src.operations.database.queries.setup_queries import draft_pool_ratings_query, bottom_cards_query, multipool_distribution_query, commander_color_distribution_query, commanders_query, bottom_cards_from_multi_query
 from json import dump
 
 def generate_data(identifier):

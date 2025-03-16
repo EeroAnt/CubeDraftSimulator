@@ -1,4 +1,4 @@
-from src.operations.database.queries import *
+from src.operations.database.queries.setup_queries import cube_size_query, pool_size_query
 from src.operations.database.db import connect_to_db, close_db
 
 def check_cube_size(specs):
