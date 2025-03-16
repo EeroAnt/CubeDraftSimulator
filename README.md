@@ -35,10 +35,10 @@ Version 1.0.0 is up and running. Deckbuilder is not functional, but drafting wor
  - redo database
  - limit symbols and length of usernames
  - save drafts to database
+ - fix draft setup without commander packs (nodejs read length of rounds rather than checked which round was last and so when commander round (round 0) was missing, the length didn't correspond with the amount of rounds properly..)
 
 ## TODO
 
- - fix draft setup without commander packs (it seems to deal 1 pack too little if commander is missing, or maybe the fault happens in nodejs-side)
  - setup local PostgreSQL to listen the app
  - a web page for statistics
  - refactor and fix frontend
