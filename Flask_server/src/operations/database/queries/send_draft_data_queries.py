@@ -36,3 +36,16 @@ def sending_commander_packs_query():
 	  VALUES
 	    (%s,%s,%s,%s,%s);"""
 	return sql
+
+def sending_draft_query():
+	sql = """
+  INSERT INTO
+    drafts (
+    draft_id, 
+    card_id,
+    seat,
+    username
+    ) 
+    VALUES
+      (%s,%s,%s,%s);"""
+	return sql
