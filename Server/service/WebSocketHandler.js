@@ -118,7 +118,7 @@ export async function handleMessage(message, uuid) {
 
   } else if (data.type === 'Draft Data Decision') {
     if (data.decision) {
-      const draftData = parseDraftData(drafts[data.token])
+      const draftData = parseDraftData(drafts[data.token]);
       sendDraftData(draftData);
     }
   } else if (data.type === 'Get Seat Token') {

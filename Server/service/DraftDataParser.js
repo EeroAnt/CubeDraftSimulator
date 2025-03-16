@@ -11,14 +11,15 @@ export function parseDraftData(draft) {
 
     return {
         username: player.username,
-        seatToken: player.token,
+        seatToken: player.seat.token,
         draftToken: draft.token,
-        cards: playerData.commanders.concat(playerData.main, playerData.side).map(card => card.id)
+        cards: playerData.commanders.concat(
+          playerData.main, playerData.side).map(card => card.id)
     };
 }).filter(player => player !== null);
   const draftData = {
     packs: draft.picked_packs,
     pools: draftedPools
   };
-  return draftData
+  return draftData;
 }
