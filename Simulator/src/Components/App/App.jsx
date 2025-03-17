@@ -1,5 +1,5 @@
 import styles from './App.module.css'
-import { Home, Draft, Lobby, PostDraft } from '../'
+import { Home, Draft, Lobby, PostDraft, WaitingRoom } from '../'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useGameState } from '../../Hooks/useGameState'
 
@@ -13,7 +13,6 @@ export const App = () => {
         <Home {...gameState} />
       )}
 
-
       {gameState.mode === "Lobby" && (
         <Lobby {...gameState} />
       )}
@@ -24,6 +23,10 @@ export const App = () => {
 
       {gameState.mode === "Post Draft" && (
         <PostDraft {...gameState} />
+      )}
+
+      {gameState.mode === "Waiting" && (
+        <WaitingRoom {...gameState} />
       )}
     </div>
   )
