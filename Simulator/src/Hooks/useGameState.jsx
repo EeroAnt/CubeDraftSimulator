@@ -6,6 +6,7 @@ import { decrypt, reconnect, sendMessage } from '../Services'
 export const useGameState = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [mode, setMode] = useState("Home")
+  const [homeMode, setHomeMode] = useState(() => searchParams.get("h") || "Login");
   const [numberOfPlayers, setNumberOfPlayers] = useState(() => searchParams.get("n") || 1);
   const [username, setUsername] = useState(() => searchParams.get("u") || "");
   const [owner, setOwner] = useState(() => searchParams.get("o") || "F");
@@ -31,16 +32,17 @@ export const useGameState = () => {
   const [decryptedMessage, setDecryptedMessage] = useState("")
   const [canalDredgerOwner, setCanalDredgerOwner] = useState(() => searchParams.get("cdo") || "");
   const [canalDredger, setCanalDredger] = useState(() => searchParams.get("cd") || "F");
+  const [draftInitiated, setDraftInitiated] = useState(false)
 
   useEffect(() => {
     if (mode === "Home") {
-      setSearchParams({ u: username, d: token, a: admin });
+      setSearchParams({ u: username, d: token, a: admin, h: homeMode });
     } else if (mode === "Lobby") {
       setSearchParams({ u: username, d: token, n: numberOfPlayers, s: seatToken, o: owner, a: admin });
     } else if (mode === "Draft") {
       setSearchParams({ u: username, d: token, s: seatToken, o: owner, a: admin, cdo: canalDredgerOwner, cd: canalDredger });
     }
-  }, [username, token, numberOfPlayers, seatToken, canalDredger, canalDredgerOwner, owner, admin, mode]);
+  }, [username, token, numberOfPlayers, seatToken, canalDredger, canalDredgerOwner, owner, admin, mode, homeMode]);
 
   useEffect(() => {
     if (decryptedMessage.type === "Seat token") {
@@ -71,6 +73,7 @@ export const useGameState = () => {
 
   return {
     mode, setMode,
+    homeMode, setHomeMode,
     numberOfPlayers, setNumberOfPlayers,
     username, setUsername,
     owner, setOwner,
@@ -96,6 +99,7 @@ export const useGameState = () => {
     decryptedMessage,
     canalDredgerOwner, setCanalDredgerOwner,
     canalDredger, setCanalDredger,
+    draftInitiated, setDraftInitiated,
     connection
   };
 }

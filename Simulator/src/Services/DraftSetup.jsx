@@ -1,6 +1,6 @@
 import { sendMessage } from "./sendMessage";
 
-export const setupDraft = (token, numberOfPlayers, connection, numOfRounds, multiRatio, genericRatio, colorlessRatio, landRatio, commanderPackIncluded) => {
+export const setupDraft = (token, numberOfPlayers, connection, numOfRounds, multiRatio, genericRatio, colorlessRatio, landRatio, commanderPackIncluded, setMode) => {
   const message = {	
 	type: "Create Lobby",
 	token: token,
@@ -12,6 +12,7 @@ export const setupDraft = (token, numberOfPlayers, connection, numOfRounds, mult
 	land_ratio: landRatio,
 	commander_pack_included: commanderPackIncluded
   }
+  setMode("Waiting")
 
   sendMessage(connection, message)
   
