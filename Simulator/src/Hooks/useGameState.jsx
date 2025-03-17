@@ -40,7 +40,7 @@ export const useGameState = () => {
     } else if (mode === "Draft") {
       setSearchParams({ u: username, d: token, s: seatToken, o: owner, a: admin, cdo: canalDredgerOwner, cd: canalDredger });
     }
-  }, [username, token, numberOfPlayers, seatToken, canalDredger, canalDredgerOwner, owner, admin]);
+  }, [username, token, numberOfPlayers, seatToken, canalDredger, canalDredgerOwner, owner, admin, mode]);
 
   useEffect(() => {
     if (decryptedMessage.type === "Seat token") {

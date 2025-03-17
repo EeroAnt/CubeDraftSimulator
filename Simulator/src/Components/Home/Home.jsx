@@ -12,6 +12,7 @@ export const Home = ({
   connection,
   setOwner,
   setToken,
+  admin,
   setAdmin,
   decryptedMessage
 }) => {
@@ -106,7 +107,7 @@ export const Home = ({
 
       <h2>Who are you?</h2>
       <Form onSubmit={login} name="loginform" />
-      {(password === "") ? (
+      {(password === "" && admin !== "T") ? (
         <>
           <h2>Are you admin?</h2>
           <Form onSubmit={passkey} name="passkey" />
