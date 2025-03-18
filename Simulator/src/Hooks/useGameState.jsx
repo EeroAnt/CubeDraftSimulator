@@ -33,16 +33,17 @@ export const useGameState = () => {
   const [canalDredgerOwner, setCanalDredgerOwner] = useState(() => searchParams.get("cdo") || "");
   const [canalDredger, setCanalDredger] = useState(() => searchParams.get("cd") || "F");
   const [draftInitiated, setDraftInitiated] = useState(false)
+  const [playersInLobby, setPlayersInLobby] = useState(() => searchParams.get("p") || 0)
 
   useEffect(() => {
     if (mode === "Home") {
       setSearchParams({ u: username, d: token, a: admin, h: homeMode });
     } else if (mode === "Lobby") {
-      setSearchParams({ u: username, d: token, n: numberOfPlayers, s: seatToken, o: owner, a: admin });
+      setSearchParams({ u: username, d: token, n: numberOfPlayers, p: playersInLobby, s: seatToken, o: owner, a: admin });
     } else if (mode === "Draft") {
       setSearchParams({ u: username, d: token, s: seatToken, o: owner, a: admin, cdo: canalDredgerOwner, cd: canalDredger });
     }
-  }, [username, token, numberOfPlayers, seatToken, canalDredger, canalDredgerOwner, owner, admin, mode, homeMode]);
+  }, [username, token, numberOfPlayers, playersInLobby, seatToken, canalDredger, canalDredgerOwner, owner, admin, mode, homeMode]);
 
   useEffect(() => {
     if (decryptedMessage.type === "Seat token") {
@@ -100,6 +101,7 @@ export const useGameState = () => {
     canalDredgerOwner, setCanalDredgerOwner,
     canalDredger, setCanalDredger,
     draftInitiated, setDraftInitiated,
+    playersInLobby, setPlayersInLobby,
     connection
   };
 }

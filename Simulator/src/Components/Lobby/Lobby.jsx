@@ -1,5 +1,4 @@
 import { Button } from '../'
-import { useState } from 'react'
 import { useEffect } from 'react'
 import { sendMessage } from '../../Services'
 
@@ -16,21 +15,15 @@ const renderPlayers = message => {
 
 
 
-export const Lobby = ({ setMode, connection, numberOfPlayers, owner, token, decryptedMessage }) => {
-
-  const [playersInLobby, setPlayersInLobby] = useState(0)
+export const Lobby = ({ setMode, connection, numberOfPlayers, owner, token, decryptedMessage, playersInLobby, setPlayersInLobby }) => {
 
   const startDraft = () => {
-
     const message = {
       type: "Start Draft",
       token: token
     }
-
     sendMessage(connection, message)
-
   }
-
 
   useEffect(() => {
     if (decryptedMessage && decryptedMessage.players) {
@@ -52,7 +45,7 @@ export const Lobby = ({ setMode, connection, numberOfPlayers, owner, token, decr
         <h1>Lobby</h1>
         {owner === "T" ? (
           <><h2>Draft Token: {token}</h2>
-            {playersInLobby === numberOfPlayers ? (
+            {playersInLobby == numberOfPlayers ? (
               <>
                 <h2>Everyone is here</h2><h2>Players:</h2>
                 {renderPlayers(decryptedMessage)}
