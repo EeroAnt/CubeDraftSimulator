@@ -27,9 +27,6 @@ export const broadcastLobbies = () => {
       };
     }
   });
-  if (draftsToBroadcast.length === 0) {
-    return;
-  }
   const message = {
     status: "OK",
     type: "Drafts",

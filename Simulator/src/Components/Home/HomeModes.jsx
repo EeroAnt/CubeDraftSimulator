@@ -144,15 +144,18 @@ export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection
       <Form onSubmit={joinLobby} name="joinDraftForm" />
       <Button name="Back" onClick={() => setHomeMode("Menu")} />
       <Button name="Get Lobbies" onClick={() => getDrafts()} />
-      {!drafts ? null : drafts.map((draft, index) => {
-        return (
-          <div key={index}>
-            <p>{draft.token}{draft.players}{draft.maxPlayers}</p>
+      <Button name="Test" onClick={() => console.log(drafts)} />
+
+      {drafts && drafts
+      .filter(draft => draft.players > 0)
+      .map((draft, index) => (
+        <div key={index}>
+          <p>{draft.token} {draft.players} / {draft.maxPlayers}</p>
+          {draft.players < draft.maxPlayers && (
             <Button name="Join" onClick={() => joinLobby(draft.token)} />
-            <Button name="test" onClick={() => console.log(draft)} />
-          </div>
-        )
-      })}
+          )}
+        </div>
+      ))}
     </div>
   )
 }
