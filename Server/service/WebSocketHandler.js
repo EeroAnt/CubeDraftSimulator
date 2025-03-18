@@ -1,4 +1,4 @@
-import { broadcastUserlist } from "./Broadcasts.js";
+import { broadcastUserlist, broadcastDrafts } from "./Broadcasts.js";
 import { users, drafts, connections } from "./State.js";
 import {
   createLobby,
@@ -15,7 +15,7 @@ import { decrypt } from "./encryption.js";
 
 export const handleClose = (uuid) => {
   if (users[uuid].token && drafts[users[uuid].token]) {
-    broadcastUserlist(drafts[users[uuid].token], connections);
+    broadcastUserlist(drafts[users[uuid].token]);
     if (Object.keys(drafts).includes(users[uuid].token)) {
       console.log('deleting');
       drafts[users[uuid].token].players =
@@ -60,6 +60,11 @@ export async function handleMessage(message, uuid) {
   } else if (data.type === "Create Lobby") {
 
     createLobby(data, uuid);
+
+  } else if (data.type === "Get Drafts") {
+
+    users[uuid].draftSelection = true;
+    broadcastDrafts();
 
   } else if (data.type === "Join Lobby") {
 
