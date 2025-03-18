@@ -55,7 +55,7 @@ export const Menu = ({ username, setUsername, setHomeMode, connection }) => {
   }
 
   const goToJoin = () => {
-    sendMessage(connection, { type: "Draft Selection" })
+    sendMessage(connection, { type: "Get Lobbies" })
     setHomeMode("Join")
   }
 
@@ -116,7 +116,7 @@ export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection
 
   const getDrafts = () => {
     const message = {
-      type: "Get Drafts"
+      type: "Get Lobbies"
     }
     sendMessage(connection, message)
   }
@@ -126,6 +126,7 @@ export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection
       setDrafts(decryptedMessage.drafts)
     }
   }, [decryptedMessage])
+
   const joinLobby = (token) => {
     const message = {
       type: "Join Lobby",
@@ -142,12 +143,13 @@ export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection
       <h2>Join Draft with a token</h2>
       <Form onSubmit={joinLobby} name="joinDraftForm" />
       <Button name="Back" onClick={() => setHomeMode("Menu")} />
-      <Button name="Get Drafts" onClick={() => getDrafts()} />
+      <Button name="Get Lobbies" onClick={() => getDrafts()} />
       {!drafts ? null : drafts.map((draft, index) => {
         return (
           <div key={index}>
-            <p>{draft}</p>
-            <Button name="Join" onClick={() => joinLobby(draft)} />
+            <p>{draft.token}{draft.players}{draft.maxPlayers}</p>
+            <Button name="Join" onClick={() => joinLobby(draft.token)} />
+            <Button name="test" onClick={() => console.log(draft)} />
           </div>
         )
       })}
