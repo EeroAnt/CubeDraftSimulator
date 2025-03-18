@@ -1,7 +1,6 @@
 import { checkIfRoundIsDone } from "./Utils.js";
 import { broadcastDraftStatus, broadcastQueues } from "./Broadcasts.js";
-import { intervalIDs } from "./State.js";
-import { sendMessage } from "./Messaging.js";
+import { drafts, intervalIDs } from "./State.js";
 import { sendPackAtHand } from "./DraftFunctions.js";
 
 export function checkDraftStatus(draft) {
@@ -28,11 +27,14 @@ export function checkDraftStatus(draft) {
     console.log(`Draft ${draft.token} ended`);
     clearInterval(intervalIDs[draft.token]);
     broadcastDraftStatus(draft, "End Draft");
-  } else if (draft.state === 'deckbuilding') {
-
-  } else {
+  } else if (draft.players.length == 0 && draft.state === 'Setup Complete') {
+    console.log(`Lobby ${draft.token} empty`);
+    console.log(`Deleting lobby ${draft.token}`);
+    delete drafts[draft.token];
     clearInterval(intervalIDs[draft.token]);
-    console.log('draft ended');
+  } else if (draft.players.length == 0) {
+    clearInterval(intervalIDs[draft.token]);
+    console.log(`Draft ${draft.token} ended`);
   }
 }
 

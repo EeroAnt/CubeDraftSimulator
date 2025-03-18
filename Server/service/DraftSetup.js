@@ -32,6 +32,8 @@ export async function createLobby(data, uuid) {
       if (message.status === "Setup OK") {
 
         broadcastUserlist(drafts[data.token]);
+        intervalIDs[data.token] = setInterval(() =>
+          checkDraftStatus(drafts[data.token]), 5000);
 
       }
 
