@@ -21,12 +21,12 @@ export const Lobby = ({ setMode, connection, numberOfPlayers, owner, token, decr
   const [playersInLobby, setPlayersInLobby] = useState(0)
 
   const startDraft = () => {
-    
+
     const message = {
       type: "Start Draft",
       token: token
     }
-  
+
     sendMessage(connection, message)
 
   }
@@ -36,7 +36,7 @@ export const Lobby = ({ setMode, connection, numberOfPlayers, owner, token, decr
     if (decryptedMessage && decryptedMessage.players) {
       const numPlayers = Object.keys(decryptedMessage.players).length;
       setPlayersInLobby(numPlayers)
-    } else if (decryptedMessage && decryptedMessage.status === "OK") {
+    } else if (decryptedMessage && decryptedMessage.status === "OK" && decryptedMessage.type === "Start Draft") {
       setMode("Draft")
     } else if (decryptedMessage && decryptedMessage.status === "Draft Already Started") {
       console.log(decryptedMessage.status)
