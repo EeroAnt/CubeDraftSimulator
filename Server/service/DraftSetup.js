@@ -27,7 +27,6 @@ export async function createLobby(data, uuid) {
       );
 
       sendMessage(uuid, message);
-      console.log(message);
 
       if (message.status === "Setup OK") {
 
