@@ -144,7 +144,6 @@ export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection
       <Form onSubmit={joinLobby} name="joinDraftForm" />
       <Button name="Back" onClick={() => setHomeMode("Menu")} />
       <Button name="Get Lobbies" onClick={() => getDrafts()} />
-      <Button name="Test" onClick={() => console.log(drafts)} />
 
       {drafts && drafts
       .filter(draft => draft.players > 0)
