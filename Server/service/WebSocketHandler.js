@@ -1,4 +1,4 @@
-import { broadcastUserlist, broadcastDrafts } from "./Broadcasts.js";
+import { broadcastUserlist, broadcastLobbies } from "./Broadcasts.js";
 import { users, drafts, connections } from "./State.js";
 import {
   createLobby,
@@ -61,10 +61,10 @@ export async function handleMessage(message, uuid) {
 
     createLobby(data, uuid);
 
-  } else if (data.type === "Get Drafts") {
+  } else if (data.type === "Get Lobbies") {
 
     users[uuid].draftSelection = true;
-    broadcastDrafts();
+    broadcastLobbies();
 
   } else if (data.type === "Join Lobby") {
 
