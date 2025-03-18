@@ -1,4 +1,4 @@
-import { connections } from "./State.js";
+import { connections, drafts, users } from "./State.js";
 import { sendMessage } from "./Messaging.js";
 
 export const broadcastUserlist = (draft) => {
@@ -17,6 +17,16 @@ export const broadcastUserlist = (draft) => {
  });
 };
 
+export const broadcastDrafts = () => {
+  const draftsToBroadcast = Object.values(drafts).map(draft => {
+    return {
+      token: draft.token,
+      players: draft.players.length
+    };
+  });
+  console.log(users);
+  console.log(draftsToBroadcast);
+};
 
 export const broadcastDraftStatus = (draft, status) => {
   const message = { status: "OK", type: status };
