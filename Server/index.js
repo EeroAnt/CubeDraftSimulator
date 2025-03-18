@@ -1,10 +1,11 @@
 import { handleClose, handleMessage } from './service/WebSocketHandler.js';
-import { connections, users } from './service/State.js';
+import { connections, users, intervalIDs } from './service/State.js';
 import http from 'http';
 import { WebSocketServer } from 'ws';
 import { v4 as uuidv4 } from 'uuid';
 import { config } from 'dotenv';
 import fs from 'fs';
+import { broadcastDrafts } from './service/Broadcasts.js';
 
 if (fs.existsSync('.env')) {
   config();
@@ -33,3 +34,6 @@ const wsPort = 3001;
 server.listen(wsPort, () => {
   console.log(`Server listening on port ${wsPort}`);
 });
+
+intervalIDs['Draft Broadcasts'] = setInterval(() =>
+  broadcastDrafts(), 2000);
