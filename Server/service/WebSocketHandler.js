@@ -25,6 +25,7 @@ export const handleClose = (uuid) => {
       users[uuid].seat
         ? users[uuid].seat.player = ""
         : console.log("Not seated");
+      broadcastUserlist(drafts[users[uuid].token]);
     }
   }
   console.log(`Connection closed: ${uuid}`);
