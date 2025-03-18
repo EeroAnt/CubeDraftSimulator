@@ -13,5 +13,3 @@ export const Button = ({ name, onClick }) => {
     </>
   )
 }
-
-//   export default { FormSubmitButton, Button }
