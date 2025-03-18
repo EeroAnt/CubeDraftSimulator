@@ -14,7 +14,6 @@ export async function getDraft(
 ) {
 
   console.log("Getting Draft");
-  console.log("User ID: " + uuid);
   try {
     const response = await axios.get(
       process.env.FLASK_URL +
