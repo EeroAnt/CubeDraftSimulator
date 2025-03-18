@@ -5,7 +5,7 @@ import { WebSocketServer } from 'ws';
 import { v4 as uuidv4 } from 'uuid';
 import { config } from 'dotenv';
 import fs from 'fs';
-import { broadcastDrafts } from './service/Broadcasts.js';
+import { broadcastLobbies } from './service/Broadcasts.js';
 
 if (fs.existsSync('.env')) {
   config();
@@ -35,5 +35,5 @@ server.listen(wsPort, () => {
   console.log(`Server listening on port ${wsPort}`);
 });
 
-intervalIDs['Draft Broadcasts'] = setInterval(() =>
-  broadcastDrafts(), 2000);
+intervalIDs['Lobby Broadcasts'] = setInterval(() =>
+  broadcastLobbies(), 2000);
