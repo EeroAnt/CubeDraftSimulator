@@ -14,7 +14,8 @@ export const Home = ({
   setOwner,
   setToken,
   admin,
-  setDraftInitiated
+  setDraftInitiated,
+  decryptedMessage
 }) => {
 
   return (
@@ -33,6 +34,7 @@ export const Home = ({
           username={username}
           setUsername={setUsername}
           setHomeMode={setHomeMode}
+          connection={connection}
         />
       )}
       {homeMode === "Create" && (
@@ -54,6 +56,7 @@ export const Home = ({
         setHomeMode={setHomeMode}
         username={username}
         connection={connection}
+        decryptedMessage={decryptedMessage}
        /> 
       )}
     </div>

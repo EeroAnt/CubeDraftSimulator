@@ -6,7 +6,7 @@ import {
   DraftParameterCheckbox,
   setupDraft
 } from "../../";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 
@@ -47,15 +47,15 @@ export const Login = ({ setUsername, admin, connection, setHomeMode }) => {
   )
 }
 
-export const Menu = ({ username, setUsername, setHomeMode }) => {
+export const Menu = ({ username, setUsername, setHomeMode, connection }) => {
 
   const logout = () => {
     setHomeMode("Login")
     setUsername("")
   }
 
-  const testJoin = () => {
-    console.log(username)
+  const goToJoin = () => {
+    sendMessage(connection, { type: "Draft Selection" })
     setHomeMode("Join")
   }
 
@@ -63,7 +63,7 @@ export const Menu = ({ username, setUsername, setHomeMode }) => {
     <div className="main">
       <h1>Hi {username}</h1>
       <Button name="Create draft" onClick={() => setHomeMode("Create")} />
-      <Button name="Join draft" onClick={() => testJoin()} />
+      <Button name="Join draft" onClick={() => goToJoin()} />
       <Button name="Back" onClick={() => logout()} />
     </div>
   )
@@ -110,8 +110,22 @@ export const CreateDraft = ({ setMode, numberOfPlayers, setNumberOfPlayers, setO
   )
 }
 
-export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection }) => {
+export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection, decryptedMessage }) => {
 
+  const [drafts, setDrafts] = useState([])
+
+  const getDrafts = () => {
+    const message = {
+      type: "Get Drafts"
+    }
+    sendMessage(connection, message)
+  }
+
+  useEffect(() => {
+    if (decryptedMessage && decryptedMessage.drafts) {
+      setDrafts(decryptedMessage.drafts)
+    }
+  }, [decryptedMessage])
   const joinLobby = (token) => {
     const message = {
       type: "Join Lobby",
@@ -128,6 +142,15 @@ export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection
       <h2>Join Draft with a token</h2>
       <Form onSubmit={joinLobby} name="joinDraftForm" />
       <Button name="Back" onClick={() => setHomeMode("Menu")} />
+      <Button name="Get Drafts" onClick={() => getDrafts()} />
+      {!drafts ? null : drafts.map((draft, index) => {
+        return (
+          <div key={index}>
+            <p>{draft}</p>
+            <Button name="Join" onClick={() => joinLobby(draft)} />
+          </div>
+        )
+      })}
     </div>
   )
 }
