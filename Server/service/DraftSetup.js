@@ -66,6 +66,7 @@ export function joinLobby(data, uuid) {
 
   } else {
 
+    users[uuid].draftSelection = false;
     users[uuid].token = data.token;
     drafts[data.token].players =
       drafts[data.token].players.concat(users[uuid]);
