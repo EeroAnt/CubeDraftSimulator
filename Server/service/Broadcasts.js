@@ -17,15 +17,30 @@ export const broadcastUserlist = (draft) => {
  });
 };
 
-export const broadcastDrafts = () => {
+export const broadcastLobbies = () => {
   const draftsToBroadcast = Object.values(drafts).map(draft => {
-    return {
-      token: draft.token,
-      players: draft.players.length
-    };
+    if (draft.state === "Setup Complete") {
+      return {
+        token: draft.token,
+        players: draft.players.length,
+        maxPlayers: draft.player_count
+      };
+    }
   });
-  console.log(users);
-  console.log(draftsToBroadcast);
+  if (draftsToBroadcast.length === 0) {
+    return;
+  }
+  const message = {
+    status: "OK",
+    type: "Drafts",
+    drafts: draftsToBroadcast
+  };
+  Object.values(users).forEach(user => {
+    if (user.draftSelection) {
+      console.log("Broadcasting drafts to " + user.username);
+      sendMessage(user.uuid, message);
+    }
+  });
 };
 
 export const broadcastDraftStatus = (draft, status) => {
