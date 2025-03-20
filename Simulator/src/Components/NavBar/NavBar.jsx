@@ -38,7 +38,7 @@ export function DraftNavbar({ onClickNavbar, buttonName, queues, statsButton }) 
   );
 }
 
-export function PostDraftNavBar({ admin, connection, token, basicLands, setBasicLands, commanders, main, side }) {
+export function PostDraftNavBar({ owner, connection, token, basicLands, setBasicLands, commanders, main, side }) {
   const [draftDataDecision, setDraftDataDecision] = useState(true)
 
 
@@ -97,7 +97,7 @@ export function PostDraftNavBar({ admin, connection, token, basicLands, setBasic
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Button name="Copy Deck to Clipboard" onClick={() => copyDeckToClipBoard()} />
-            {admin === "T" && draftDataDecision ? (<>
+            {owner === "T" && draftDataDecision ? (<>
               <Button name="Validate draft data" onClick={() => handleDataDecision(true)} />
               <Button name="Ignore draft data" onClick={() => handleDataDecision(false)} />
             </>) : ""}

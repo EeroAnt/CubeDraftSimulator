@@ -28,7 +28,6 @@ export const useGameState = () => {
   const [typeFilter, setTypeFilter] = useState(["All"])
   const [colorFilterPos, setColorFilterPos] = useState([])
   const [colorFilterNeg, setColorFilterNeg] = useState([])
-  const [admin, setAdmin] = useState(() => searchParams.get("a") || "F");
   const [decryptedMessage, setDecryptedMessage] = useState("")
   const [canalDredgerOwner, setCanalDredgerOwner] = useState(() => searchParams.get("cdo") || "");
   const [canalDredger, setCanalDredger] = useState(() => searchParams.get("cd") || "F");
@@ -37,13 +36,13 @@ export const useGameState = () => {
 
   useEffect(() => {
     if (mode === "Home") {
-      setSearchParams({ u: username, d: token, a: admin, h: homeMode });
+      setSearchParams({ u: username, d: token, h: homeMode });
     } else if (mode === "Lobby") {
-      setSearchParams({ u: username, d: token, n: numberOfPlayers, p: playersInLobby, s: seatToken, o: owner, a: admin });
+      setSearchParams({ u: username, d: token, n: numberOfPlayers, p: playersInLobby, s: seatToken, o: owner });
     } else if (mode === "Draft") {
-      setSearchParams({ u: username, d: token, s: seatToken, o: owner, a: admin, cdo: canalDredgerOwner, cd: canalDredger });
+      setSearchParams({ u: username, d: token, s: seatToken, o: owner, cdo: canalDredgerOwner, cd: canalDredger });
     }
-  }, [username, token, numberOfPlayers, playersInLobby, seatToken, canalDredger, canalDredgerOwner, owner, admin, mode, homeMode]);
+  }, [username, token, numberOfPlayers, playersInLobby, seatToken, canalDredger, canalDredgerOwner, owner, mode, homeMode]);
 
   useEffect(() => {
     if (decryptedMessage.type === "Seat token") {
@@ -96,7 +95,6 @@ export const useGameState = () => {
     typeFilter, setTypeFilter,
     colorFilterPos, setColorFilterPos,
     colorFilterNeg, setColorFilterNeg,
-    admin, setAdmin,
     decryptedMessage,
     canalDredgerOwner, setCanalDredgerOwner,
     canalDredger, setCanalDredger,

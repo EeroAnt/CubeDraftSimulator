@@ -10,18 +10,7 @@ import { useEffect, useState } from 'react';
 
 
 
-export const Login = ({ setUsername, admin, connection, setHomeMode }) => {
-
-  const [password, setPassword] = useState("")
-
-  const passkey = (value) => {
-    setPassword(value)
-    const message = {
-      type: "Admin",
-      passkey: value
-    }
-    sendMessage(connection, message)
-  }
+export const Login = ({ setUsername, connection, setHomeMode }) => {
 
   const login = (username) => {
     setUsername(username)
@@ -40,14 +29,6 @@ export const Login = ({ setUsername, admin, connection, setHomeMode }) => {
       <div className="form-container">
         <Form onSubmit={login} name="loginform" />
       </div>
-      {password === "" && admin !== "T" && (
-        <>
-          <h2>Are you admin?</h2>
-          <div className="form-container">
-            <Form onSubmit={passkey} name="passkey" />
-          </div>
-        </>
-      )}
     </>
   );
 }

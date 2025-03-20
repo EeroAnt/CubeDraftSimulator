@@ -39,7 +39,7 @@ export function PostDraft({
   colorFilterNeg,
   setColorFilterPos,
   setColorFilterNeg,
-  admin,
+  owner,
   decryptedMessage
 }) {
 
@@ -57,7 +57,7 @@ export function PostDraft({
 
   const renderNavbar = () => {
     return <PostDraftNavBar
-      admin={admin}
+      owner={owner}
       connection={connection}
       token={token}
       username={username}
