@@ -1,5 +1,5 @@
 import { Button } from '../'
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 import { sendMessage } from '../../Services'
 
 
@@ -15,7 +15,7 @@ const renderPlayers = message => {
 
 
 
-export const Lobby = ({ setMode, connection, numberOfPlayers, owner, token, decryptedMessage, playersInLobby, setPlayersInLobby }) => {
+export const Lobby = ({ setMode, connection, numberOfPlayers, owner, token, decryptedMessage, playersInLobby }) => {
 
   const startDraft = () => {
     const message = {
@@ -25,18 +25,19 @@ export const Lobby = ({ setMode, connection, numberOfPlayers, owner, token, decr
     sendMessage(connection, message)
   }
 
-  useEffect(() => {
-    if (decryptedMessage && decryptedMessage.players) {
-      const numPlayers = Object.keys(decryptedMessage.players).length;
-      setPlayersInLobby(numPlayers)
-    } else if (decryptedMessage && decryptedMessage.status === "OK" && decryptedMessage.type === "Start Draft") {
-      setMode("Draft")
-    } else if (decryptedMessage && decryptedMessage.status === "Draft Already Started") {
-      console.log(decryptedMessage.status)
-    } else if (decryptedMessage && decryptedMessage.status != "OK") {
-      console.log(decryptedMessage.status)
-    }
-  }, [decryptedMessage, numberOfPlayers])
+  // useEffect(() => {
+  //   if (decryptedMessage && decryptedMessage.players) {
+  //     const numPlayers = Object.keys(decryptedMessage.players).length;
+  //     setPlayersInLobby(numPlayers)
+  //   } else if (decryptedMessage && decryptedMessage.status === "OK" && decryptedMessage.type === "Start Draft") {
+  //     console.log("Draft started")
+  //     setMode("Draft")
+  //   } else if (decryptedMessage && decryptedMessage.status === "Draft Already Started") {
+  //     console.log(decryptedMessage.status)
+  //   } else if (decryptedMessage && decryptedMessage.status != "OK") {
+  //     console.log(decryptedMessage.status)
+  //   }
+  // }, [decryptedMessage, numberOfPlayers])
 
 
   if (decryptedMessage && decryptedMessage.status === "OK" && decryptedMessage.type === "Playerlist") {
@@ -78,8 +79,7 @@ export const Lobby = ({ setMode, connection, numberOfPlayers, owner, token, decr
         <Button name="Go Back" onClick={() => setMode("Home")} />
       </div>
     )
-  }
-  else if (decryptedMessage && decryptedMessage.status != 'OK') {
+  } else if (decryptedMessage && decryptedMessage.status != 'OK') {
     return (
       <div className="main">
         <h1>Not in Lobby</h1>

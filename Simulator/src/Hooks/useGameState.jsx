@@ -33,6 +33,12 @@ export const useGameState = () => {
   const [canalDredger, setCanalDredger] = useState(() => searchParams.get("cd") || "F");
   const [draftInitiated, setDraftInitiated] = useState(false)
   const [playersInLobby, setPlayersInLobby] = useState(() => searchParams.get("p") || 0)
+  const [drafts, setDrafts] = useState([])
+
+  useEffect(() => {
+    console.log("mode", mode)
+    console.log("homeMode", homeMode)
+  }, [mode, homeMode])
 
   useEffect(() => {
     if (mode === "Home") {
@@ -45,10 +51,54 @@ export const useGameState = () => {
   }, [username, token, numberOfPlayers, playersInLobby, seatToken, canalDredger, canalDredgerOwner, owner, mode, homeMode]);
 
   useEffect(() => {
-    if (decryptedMessage.type === "Seat token") {
-      setSeatToken(decryptedMessage.seat)
+    if (decryptedMessage) {
+      console.log(decryptedMessage)
+    if (mode === "Home") {
+      if (homeMode === "Join Draft") {
+        if (decryptedMessage.drafts) {
+          setDrafts(decryptedMessage.drafts)
+        }
+      }}
+    if (homeMode === "Create" || mode === "Waiting") {
+      if (decryptedMessage.status === "OK" && decryptedMessage.type === "Playerlist") {
+        setMode("Lobby")
+      }
     }
+    if (mode === "Lobby") {
+      if (decryptedMessage.players) {
+        const numPlayers = Object.keys(decryptedMessage.players).length;
+        setPlayersInLobby(numPlayers)
+      } else if (decryptedMessage.status === "OK" && decryptedMessage.type === "Start Draft") {
+        setMode("Draft")
+      } else if (decryptedMessage.status === "Draft Already Started") {
+        console.log(decryptedMessage.status)
+      } else if (decryptedMessage.status != "OK") {
+        console.log(decryptedMessage.status)
+      }
+    }
+    if (mode === "Draft") {
+      if (decryptedMessage.type === "Seat token") {
+        setSeatToken(decryptedMessage.seat)
+      }
+    }}
   }, [decryptedMessage])
+
+  const messageQueue = [];
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  const processQueue = () => {
+    if (messageQueue.length === 0) {
+      setIsProcessing(false);
+      return;
+    }
+    setIsProcessing(true);
+    const nextMessage = messageQueue.shift();
+    setDecryptedMessage(nextMessage);
+    setTimeout(() => {
+      processQueue();
+    }, 0);
+  };
+
 
   const connection = useWebSocket(import.meta.env.VITE_REACT_APP_WS_URL, {
     share: true,
@@ -65,9 +115,10 @@ export const useGameState = () => {
     onMessage: (e) => {
       const decrypted = decrypt(e.data)
       const parsed = JSON.parse(decrypted)
-      setTimeout(() => {
-        setDecryptedMessage(parsed);
-      }, 0);
+      messageQueue.push(parsed);  // Add incoming messages to the queue
+      if (!isProcessing) {
+        processQueue();
+      }
     }
   })
 
@@ -100,6 +151,7 @@ export const useGameState = () => {
     canalDredger, setCanalDredger,
     draftInitiated, setDraftInitiated,
     playersInLobby, setPlayersInLobby,
+    drafts,
     connection
   };
 }

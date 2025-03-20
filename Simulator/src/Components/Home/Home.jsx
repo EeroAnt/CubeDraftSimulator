@@ -13,7 +13,7 @@ export const Home = ({
   setOwner,
   setToken,
   setDraftInitiated,
-  decryptedMessage
+  drafts
 }) => {
 
   return (
@@ -53,7 +53,7 @@ export const Home = ({
             setHomeMode={setHomeMode}
             username={username}
             connection={connection}
-            decryptedMessage={decryptedMessage}
+            drafts={drafts}
           />
         )}
       </div>

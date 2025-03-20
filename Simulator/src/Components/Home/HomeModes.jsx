@@ -6,7 +6,7 @@ import {
   DraftParameterCheckbox,
   setupDraft
 } from "../../";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 
 
@@ -46,7 +46,7 @@ export const Menu = ({ username, setUsername, setHomeMode, connection }) => {
   }
 
   return (
-    <div className="body">
+    <div>
       <h1>Hi {username}</h1>
       <Button name="Create draft" onClick={() => setHomeMode("Create")} />
       <Button name="Join draft" onClick={() => goToJoin()} />
@@ -81,7 +81,7 @@ export const CreateDraft = ({ setMode, numberOfPlayers, setNumberOfPlayers, setO
   }
 
   return (
-    <div className="body">
+    <div>
       <h2>Setup a new Draft</h2>
       <DraftParametersForm name="number of players" handleChange={(e) => { e.preventDefault(); setNumberOfPlayers(Number(e.target.value)) }} defaultVal={numberOfPlayers} />
       <DraftParametersForm name="number of rounds" handleChange={(e) => { e.preventDefault(); setNumOfRounds(Number(e.target.value)) }} defaultVal={numOfRounds} />
@@ -96,9 +96,9 @@ export const CreateDraft = ({ setMode, numberOfPlayers, setNumberOfPlayers, setO
   )
 }
 
-export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection, decryptedMessage }) => {
+export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection, drafts }) => {
 
-  const [drafts, setDrafts] = useState([])
+
 
   const getDrafts = () => {
     const message = {
@@ -107,11 +107,11 @@ export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection
     sendMessage(connection, message)
   }
 
-  useEffect(() => {
-    if (decryptedMessage && decryptedMessage.drafts) {
-      setDrafts(decryptedMessage.drafts)
-    }
-  }, [decryptedMessage])
+  // useEffect(() => {
+  //   if (decryptedMessage && decryptedMessage.drafts) {
+  //     setDrafts(decryptedMessage.drafts)
+  //   }
+  // }, [decryptedMessage])
 
   const joinLobby = (token) => {
     const message = {
@@ -125,7 +125,7 @@ export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection
   }
 
   return (
-    <div className="body">
+    <div>
       <h2>Join Draft with a token</h2>
       <Form onSubmit={joinLobby} name="joinDraftForm" />
       <Button name="Back" onClick={() => setHomeMode("Menu")} />
