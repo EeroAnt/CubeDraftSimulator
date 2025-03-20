@@ -1,6 +1,6 @@
 import { users, drafts, intervalIDs } from "./State.js";
 import { getDraft } from "./DataBaseCommunications.js";
-import { sendMessage } from "./Messaging.js";
+import { queueMessage } from "./Messaging.js";
 import { broadcastUserlist, broadcastDraftStatus } from "./Broadcasts.js";
 import { shuffleArray } from "./Utils.js";
 import { checkDraftStatus } from "./DraftStatus.js";
@@ -26,7 +26,7 @@ export async function createLobby(data, uuid) {
         data.land_ratio
       );
 
-      sendMessage(uuid, message);
+      queueMessage(uuid, message);
 
       if (message.status === "Setup OK") {
 
@@ -52,18 +52,18 @@ export function joinLobby(data, uuid) {
   if (Object.keys(drafts).includes(data.token) === false) {
 
     const message = { status: 'No Draft Found With That Token' };
-    sendMessage(uuid, message);
+    queueMessage(uuid, message);
 
   } else if (drafts[data.token].players.length >=
     drafts[data.token].player_count) {
 
     const message = { status: 'Lobby Full' };
-    sendMessage(uuid, message);
+    queueMessage(uuid, message);
 
   } else if (drafts[data.token].state === 'drafting') {
 
     const message = { status: 'Draft Already Started' };
-    sendMessage(uuid, message);
+    queueMessage(uuid, message);
 
   } else {
 

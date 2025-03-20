@@ -1,5 +1,5 @@
 import { broadcastUserlist, broadcastLobbies } from "./Broadcasts.js";
-import { users, drafts, connections } from "./State.js";
+import { users, drafts, connections, intervalIDs } from "./State.js";
 import {
   createLobby,
   joinLobby,
@@ -8,12 +8,13 @@ import {
 } from "./DraftSetup.js";
 import { sendDraftData } from "./DataBaseCommunications.js";
 import { parseDraftData } from "./DraftDataParser.js";
-import { sendMessage } from "./Messaging.js";
+import { queueMessage } from "./Messaging.js";
 import { handlePick, giveLastCard } from "./DraftFunctions.js";
 import { setCommander, removeCommander, moveCards } from "./DeckManagement.js";
 import { decrypt } from "./encryption.js";
 
 export const handleClose = (uuid) => {
+  clearInterval(intervalIDs[uuid]);
   if (users[uuid].token && drafts[users[uuid].token]) {
     broadcastUserlist(drafts[users[uuid].token]);
     if (Object.keys(drafts).includes(users[uuid].token)) {
@@ -49,7 +50,7 @@ export async function handleMessage(message, uuid) {
         status: 'OK',
         type: 'Admin'
       };
-      sendMessage(uuid, message);
+      queueMessage(uuid, message);
     }
 
   } else if (data.type === "Login") {
@@ -133,6 +134,6 @@ export async function handleMessage(message, uuid) {
       type: 'Seat token',
       seat: users[uuid].seat.token
     };
-    sendMessage(uuid, message);
+    queueMessage(uuid, message);
   }
 };

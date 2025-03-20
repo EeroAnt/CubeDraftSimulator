@@ -1,11 +1,17 @@
 import { handleClose, handleMessage } from './service/WebSocketHandler.js';
-import { connections, users, intervalIDs } from './service/State.js';
+import {
+  connections,
+  users,
+  intervalIDs,
+  messageQueues
+} from './service/State.js';
 import http from 'http';
 import { WebSocketServer } from 'ws';
 import { v4 as uuidv4 } from 'uuid';
 import { config } from 'dotenv';
 import fs from 'fs';
 import { broadcastLobbies } from './service/Broadcasts.js';
+import { processMessageQueue } from './service/Messaging.js';
 
 if (fs.existsSync('.env')) {
   config();
@@ -20,6 +26,8 @@ wsServer.on('connection', (connection) => {
   const uuid = uuidv4();
   console.log(`New connection: (${uuid})`);
   connections[uuid] = connection;
+  messageQueues[uuid] = [];
+  intervalIDs[uuid] = setInterval(() => processMessageQueue(uuid), 200);
   users[uuid] = {
     uuid: uuid,
     username: "",

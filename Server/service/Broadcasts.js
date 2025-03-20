@@ -1,5 +1,5 @@
 import { connections, drafts, users } from "./State.js";
-import { sendMessage } from "./Messaging.js";
+import { queueMessage } from "./Messaging.js";
 
 export const broadcastUserlist = (draft) => {
   Object.values(draft.players).forEach(player => {
@@ -11,7 +11,7 @@ export const broadcastUserlist = (draft) => {
 	const message = result;
 	if (Object.keys(connections).includes(player.uuid)) {
       
-    sendMessage(player.uuid, message);
+    queueMessage(player.uuid, message);
     
     }
  });
@@ -35,7 +35,7 @@ export const broadcastLobbies = () => {
   Object.values(users).forEach(user => {
     if (user.draftSelection) {
       console.log("Broadcasting drafts to " + user.username);
-      sendMessage(user.uuid, message);
+      queueMessage(user.uuid, message);
     }
   });
 };
@@ -43,7 +43,7 @@ export const broadcastLobbies = () => {
 export const broadcastDraftStatus = (draft, status) => {
   const message = { status: "OK", type: status };
   Object.values(draft.players).forEach(player => {
-    sendMessage(player.uuid, message);
+    queueMessage(player.uuid, message);
   });
 };
 
@@ -64,7 +64,7 @@ export const broadcastQueues = (draft) => {
     queues: queues
   };
   Object.values(draft.players).forEach(player => {
-    sendMessage(player.uuid, message);
+    queueMessage(player.uuid, message);
   });
 };
 
@@ -77,7 +77,7 @@ export const broadcastCanalDredger = (draft, seatNumber) => {
       owner: "T"
     };
 
-	  sendMessage(player.uuid, message);
+	  queueMessage(player.uuid, message);
 
 	} else {
   	const message = {
@@ -86,7 +86,7 @@ export const broadcastCanalDredger = (draft, seatNumber) => {
       owner: ""
     };
 
-    sendMessage(player.uuid, message);
+    queueMessage(player.uuid, message);
 
   }});
 };

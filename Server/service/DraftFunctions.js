@@ -1,5 +1,5 @@
 import { calculateNextSeatNumber, shuffleArray } from './Utils.js';
-import { sendMessage } from './Messaging.js';
+import { queueMessage } from './Messaging.js';
 import { broadcastCanalDredger } from './Broadcasts.js';
 
 export function handlePick(data, draft, userSeat, uuid) {
@@ -100,7 +100,7 @@ export function sendCards(uuid, userSeat) {
     side: userSeat.side
   };
 
-  sendMessage(uuid, message);
+  queueMessage(uuid, message);
 
 };
 
@@ -110,7 +110,7 @@ export function sendPackAtHand(uuid, userSeat) {
     type: "Pack",
     pack: userSeat.packAtHand.cards
   };
-  sendMessage(uuid, message);
+  queueMessage(uuid, message);
 }
 
 export function giveLastCard(draft, pack) {
