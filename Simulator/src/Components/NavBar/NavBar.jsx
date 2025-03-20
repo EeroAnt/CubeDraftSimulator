@@ -1,26 +1,12 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import { Button, ManaSymbol, } from '..'
+import { Button, ManaSymbol } from '..'
 import { useState } from 'react';
 import './NavBar.css'
 import { sendMessage } from '../../Services';
 import { useEffect } from 'react';
 import React from 'react';
-
-export function HomeNavBar() {
-  return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
-}
 
 export function DraftNavbar({ onClickNavbar, buttonName, queues, statsButton }) {
   const [queueDisplay, setQueueDisplay] = useState("")

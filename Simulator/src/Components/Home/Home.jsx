@@ -1,6 +1,5 @@
-import { HomeNavBar } from "../../"
 import { Login, Menu, CreateDraft, JoinDraft } from "./HomeModes"
-
+import styles from "./Home.module.css"
 
 export const Home = ({
   setMode,
@@ -19,46 +18,47 @@ export const Home = ({
 }) => {
 
   return (
-    <div className="main">
-      <HomeNavBar />
-      {homeMode === "Login" && (
-        <Login
-          setUsername={setUsername}
-          admin={admin}
-          connection={connection}
-          setHomeMode={setHomeMode}
-        />
-      )}
-      {homeMode === "Menu" && (
-        <Menu
-          username={username}
-          setUsername={setUsername}
-          setHomeMode={setHomeMode}
-          connection={connection}
-        />
-      )}
-      {homeMode === "Create" && (
-        <CreateDraft
-          setMode={setMode}
-          numberOfPlayers={numberOfPlayers}
-          setNumberOfPlayers={setNumberOfPlayers}
-          setOwner={setOwner}
-          setToken={setToken}
-          setDraftInitiated={setDraftInitiated}
-          setHomeMode={setHomeMode}
-          connection={connection}
-        />
-      )}
-      {homeMode === "Join" && (
-       <JoinDraft
-        setToken={setToken}
-        setMode={setMode}
-        setHomeMode={setHomeMode}
-        username={username}
-        connection={connection}
-        decryptedMessage={decryptedMessage}
-       /> 
-      )}
+    <div className={styles.main}>
+      <div className={styles.menu}>
+        {homeMode === "Login" && (
+          <Login
+            setUsername={setUsername}
+            admin={admin}
+            connection={connection}
+            setHomeMode={setHomeMode}
+          />
+        )}
+        {homeMode === "Menu" && (
+          <Menu
+            username={username}
+            setUsername={setUsername}
+            setHomeMode={setHomeMode}
+            connection={connection}
+          />
+        )}
+        {homeMode === "Create" && (
+          <CreateDraft
+            setMode={setMode}
+            numberOfPlayers={numberOfPlayers}
+            setNumberOfPlayers={setNumberOfPlayers}
+            setOwner={setOwner}
+            setToken={setToken}
+            setDraftInitiated={setDraftInitiated}
+            setHomeMode={setHomeMode}
+            connection={connection}
+          />
+        )}
+        {homeMode === "Join" && (
+          <JoinDraft
+            setToken={setToken}
+            setMode={setMode}
+            setHomeMode={setHomeMode}
+            username={username}
+            connection={connection}
+            decryptedMessage={decryptedMessage}
+          />
+        )}
+      </div>
     </div>
   )
 }
