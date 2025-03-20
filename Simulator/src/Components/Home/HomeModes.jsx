@@ -34,17 +34,22 @@ export const Login = ({ setUsername, admin, connection, setHomeMode }) => {
   }
 
   return (
-    <div className="main">
+    <>
       <h1>Home</h1>
       <h2>Who are you?</h2>
-      <Form onSubmit={login} name="loginform" />
-      {(password === "" && admin !== "T") ? (
+      <div className="form-container">
+        <Form onSubmit={login} name="loginform" />
+      </div>
+      {password === "" && admin !== "T" && (
         <>
           <h2>Are you admin?</h2>
-          <Form onSubmit={passkey} name="passkey" />
-        </>) : (null)}
-    </div>
-  )
+          <div className="form-container">
+            <Form onSubmit={passkey} name="passkey" />
+          </div>
+        </>
+      )}
+    </>
+  );
 }
 
 export const Menu = ({ username, setUsername, setHomeMode, connection }) => {
@@ -60,7 +65,7 @@ export const Menu = ({ username, setUsername, setHomeMode, connection }) => {
   }
 
   return (
-    <div className="main">
+    <div className="body">
       <h1>Hi {username}</h1>
       <Button name="Create draft" onClick={() => setHomeMode("Create")} />
       <Button name="Join draft" onClick={() => goToJoin()} />
@@ -95,7 +100,7 @@ export const CreateDraft = ({ setMode, numberOfPlayers, setNumberOfPlayers, setO
   }
 
   return (
-    <div className="main">
+    <div className="body">
       <h2>Setup a new Draft</h2>
       <DraftParametersForm name="number of players" handleChange={(e) => { e.preventDefault(); setNumberOfPlayers(Number(e.target.value)) }} defaultVal={numberOfPlayers} />
       <DraftParametersForm name="number of rounds" handleChange={(e) => { e.preventDefault(); setNumOfRounds(Number(e.target.value)) }} defaultVal={numOfRounds} />
@@ -139,22 +144,22 @@ export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection
   }
 
   return (
-    <div className="main">
+    <div className="body">
       <h2>Join Draft with a token</h2>
       <Form onSubmit={joinLobby} name="joinDraftForm" />
       <Button name="Back" onClick={() => setHomeMode("Menu")} />
       <Button name="Get Lobbies" onClick={() => getDrafts()} />
 
       {drafts && drafts
-      .filter(draft => draft.players > 0)
-      .map((draft, index) => (
-        <div key={index}>
-          <p>{draft.token} {draft.players} / {draft.maxPlayers}</p>
-          {draft.players < draft.maxPlayers && (
-            <Button name="Join" onClick={() => joinLobby(draft.token)} />
-          )}
-        </div>
-      ))}
+        .filter(draft => draft.players > 0)
+        .map((draft, index) => (
+          <div key={index}>
+            <p>{draft.token} {draft.players} / {draft.maxPlayers}</p>
+            {draft.players < draft.maxPlayers && (
+              <Button name="Join" onClick={() => joinLobby(draft.token)} />
+            )}
+          </div>
+        ))}
     </div>
   )
 }

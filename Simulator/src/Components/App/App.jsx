@@ -1,6 +1,5 @@
 import styles from './App.module.css'
 import { Home, Draft, Lobby, PostDraft, WaitingRoom } from '../'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import { useGameState } from '../../Hooks/useGameState'
 
 export const App = () => {
