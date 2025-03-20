@@ -12,7 +12,6 @@ export const Home = ({
   connection,
   setOwner,
   setToken,
-  admin,
   setDraftInitiated,
   decryptedMessage
 }) => {
@@ -23,7 +22,6 @@ export const Home = ({
         {homeMode === "Login" && (
           <Login
             setUsername={setUsername}
-            admin={admin}
             connection={connection}
             setHomeMode={setHomeMode}
           />
