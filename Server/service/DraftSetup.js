@@ -103,8 +103,13 @@ export function startDraft(data) {
   }
 
   checkDraftStatus(drafts[data.token]);
-  intervalIDs[data.token] = setInterval(() =>
-    checkDraftStatus(drafts[data.token]), 500);
+  if (intervalIDs[data.token]) {
+    clearInterval(intervalIDs[data.token]);
+  }
+
+  intervalIDs[data.token] = setInterval(() => {
+    checkDraftStatus(drafts[data.token]);
+  }, 500);
 
 };
 
