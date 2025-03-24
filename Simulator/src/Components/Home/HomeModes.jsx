@@ -98,16 +98,6 @@ export const CreateDraft = ({ setMode, numberOfPlayers, setNumberOfPlayers, setO
 
 export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection, drafts }) => {
 
-
-
-  const getDrafts = () => {
-    const message = {
-      type: "Get Lobbies"
-    }
-    sendMessage(connection, message)
-  }
-
-
   const joinLobby = (token) => {
     const message = {
       type: "Join Lobby",
@@ -121,41 +111,44 @@ export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection
 
   return (
     <div>
-      <h2>Join a Lobby</h2>
-      {/* <Form onSubmit={joinLobby} name="joinDraftForm" /> */}
-      <Button name="Back" onClick={() => setHomeMode("Menu")} />
-      <Button name="Get Lobbies" onClick={() => getDrafts()} />
       {drafts && drafts
         .filter(draft => draft.players > 0).length > 0
-        && (
-          <table>
-            <thead>
-              <tr>
-                <th>Token</th>
-                <th>Players</th>
-                <th>Max Players</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {drafts.filter(draft => draft.players > 0)
-                .map((draft, index) => (
-                  <tr key={index}>
-                    <td>{draft.token}</td>
-                    <td>{draft.players}</td>
-                    <td>{draft.maxPlayers}</td>
-                    <td>
-                      {draft.players < draft.maxPlayers ? (
-                        <Button name="Join" onClick={() => joinLobby(draft.token)} />
-                      ) : (
-                        "-"
-                      )}
-                    </td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
-        )}
+        ? (
+          <>
+            <h2>Join a Lobby</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Token</th>
+                  <th>Players</th>
+                  <th>Max Players</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {drafts.filter(draft => draft.players > 0)
+                  .map((draft, index) => (
+                    <tr key={index}>
+                      <td>{draft.token}</td>
+                      <td>{draft.players}</td>
+                      <td>{draft.maxPlayers}</td>
+                      <td>
+                        {draft.players < draft.maxPlayers ? (
+                          <Button name="Join" onClick={() => joinLobby(draft.token)} />
+                        ) : (
+                          "-"
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </>
+        ) : (
+          <h2>No Lobbies available</h2>
+        )
+      }
+      <Button name="Back" onClick={() => setHomeMode("Menu")} />
     </div>
   )
 }
