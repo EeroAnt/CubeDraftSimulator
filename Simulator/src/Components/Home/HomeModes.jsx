@@ -107,11 +107,6 @@ export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection
     sendMessage(connection, message)
   }
 
-  // useEffect(() => {
-  //   if (decryptedMessage && decryptedMessage.drafts) {
-  //     setDrafts(decryptedMessage.drafts)
-  //   }
-  // }, [decryptedMessage])
 
   const joinLobby = (token) => {
     const message = {
