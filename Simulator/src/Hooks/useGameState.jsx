@@ -57,77 +57,85 @@ export const useGameState = () => {
   useEffect(() => {
     if (decryptedMessage) {
       console.log(decryptedMessage)
-    if (mode === "Home") {
-      if (homeMode === "Join Draft") {
-        if (decryptedMessage.drafts) {
-          setDrafts(decryptedMessage.drafts)
+      if (mode === "Home") {
+        if (homeMode === "Join Draft") {
+          if (decryptedMessage.drafts) {
+            setDrafts(decryptedMessage.drafts)
+          }
         }
       }
-    }
-    if (homeMode === "Create" || mode === "Waiting") {
-      if (decryptedMessage.status === "OK" && decryptedMessage.type === "Playerlist") {
-        setMode("Lobby")
-      }
-      if (decryptedMessage && decryptedMessage.status === "Setup OK") {
-        setMode("Lobby")
-      } else if (decryptedMessage && decryptedMessage.status === "Setup Failed") {
-        console.log(decryptedMessage.errors)
-        alert("Setup failed")
-        setDraftInitiated(false)
-      } 
-    }
-    if (mode === "Lobby") {
-      if (decryptedMessage.players) {
-        const numPlayers = Object.keys(decryptedMessage.players).length;
-        setPlayersInLobby(numPlayers)
-        setPlayerList(decryptedMessage.players)
-        if (lobbyMode !== "LobbySuccess") {
-          setLobbyMode("LobbySuccess")
+      if (homeMode === "Create" || mode === "Waiting") {
+        if (decryptedMessage.status === "OK" && decryptedMessage.type === "Playerlist") {
+          setMode("Lobby")
         }
-      } else if (decryptedMessage.status === "OK" && decryptedMessage.type === "Start Draft") {
-        setMode("Draft")
-      } else if (decryptedMessage.status === "Draft Already Started") {
-        setLobbyMode("DraftStarted")
-      } else if (decryptedMessage.status === "Lobby Full") {
-        setLobbyMode("LobbyFull")
-      } else if (decryptedMessage.status != "OK") {
-        setLobbyMode("LobbyFailed")
+        if (decryptedMessage && decryptedMessage.status === "Setup OK") {
+          setMode("Lobby")
+        } else if (decryptedMessage && decryptedMessage.status === "Setup Failed") {
+          console.log(decryptedMessage.errors)
+          alert("Setup failed")
+          setDraftInitiated(false)
+        }
       }
-    }
-    if (mode === "Draft") {
-      if (decryptedMessage.type === "Seat token") {
-        setSeatToken(decryptedMessage.seat)
+      if (mode === "Lobby") {
+        if (decryptedMessage.players) {
+          const numPlayers = Object.keys(decryptedMessage.players).length;
+          setPlayersInLobby(numPlayers)
+          setPlayerList(decryptedMessage.players)
+          if (lobbyMode !== "LobbySuccess") {
+            setLobbyMode("LobbySuccess")
+          }
+        } else if (decryptedMessage.status === "OK" && decryptedMessage.type === "Start Draft") {
+          setMode("Draft")
+        } else if (decryptedMessage.status === "Draft Already Started") {
+          setLobbyMode("DraftStarted")
+        } else if (decryptedMessage.status === "Lobby Full") {
+          setLobbyMode("LobbyFull")
+        } else if (decryptedMessage.status != "OK") {
+          setLobbyMode("LobbyFailed")
+        }
       }
-      if (decryptedMessage && decryptedMessage.type === "Pack") {
+      if (mode === "Draft") {
+        if (decryptedMessage.type === "Seat token") {
+          setSeatToken(decryptedMessage.seat)
+        }
+        if (decryptedMessage && decryptedMessage.type === "Pack") {
 
-        console.log("Pack received")
-        setPack(decryptedMessage.pack)
-  
-      } else if (decryptedMessage && decryptedMessage.type === "End Draft") {
-  
-        setMode("DeckBuilder")
-  
-      } else if (decryptedMessage && decryptedMessage.type === "Picked Cards") {
-  
-        setMain(decryptedMessage.main)
-        setSide(decryptedMessage.side)
-        setCommanders(decryptedMessage.commanders)
-  
-      } else if (decryptedMessage && decryptedMessage.type === "Canal Dredger") {
-        console.log("canal dredger")
-        setCanalDredgerOwner(decryptedMessage.owner)
-        setCanalDredger("T")
-  
-      } else if (decryptedMessage && decryptedMessage.type === "Post Draft") {
-  
-        setMode("Post Draft")
-  
-      } else if (decryptedMessage && decryptedMessage.type === "Queues") {
-  
-        setQueues(decryptedMessage.queues)
-  
+          console.log("Pack received")
+          setPack(decryptedMessage.pack)
+
+        } else if (decryptedMessage && decryptedMessage.type === "End Draft") {
+
+          setMode("DeckBuilder")
+
+        } else if (decryptedMessage && decryptedMessage.type === "Picked Cards") {
+
+          setMain(decryptedMessage.main)
+          setSide(decryptedMessage.side)
+          setCommanders(decryptedMessage.commanders)
+
+        } else if (decryptedMessage && decryptedMessage.type === "Canal Dredger") {
+          console.log("canal dredger")
+          setCanalDredgerOwner(decryptedMessage.owner)
+          setCanalDredger("T")
+
+        } else if (decryptedMessage && decryptedMessage.type === "Post Draft") {
+
+          setMode("Post Draft")
+
+        } else if (decryptedMessage && decryptedMessage.type === "Queues") {
+
+          setQueues(decryptedMessage.queues)
+
+        }
       }
-    }}
+      if (mode === "Post Draft") {
+        if (decryptedMessage.type === "Picked Cards") {
+          setMain(decryptedMessage.main)
+          setSide(decryptedMessage.side)
+          setCommanders(decryptedMessage.commanders)
+        }
+      }
+    }
   }, [decryptedMessage])
 
   const messageQueue = [];
@@ -193,7 +201,6 @@ export const useGameState = () => {
     typeFilter, setTypeFilter,
     colorFilterPos, setColorFilterPos,
     colorFilterNeg, setColorFilterNeg,
-    decryptedMessage,
     canalDredgerOwner, setCanalDredgerOwner,
     canalDredger, setCanalDredger,
     draftInitiated, setDraftInitiated,

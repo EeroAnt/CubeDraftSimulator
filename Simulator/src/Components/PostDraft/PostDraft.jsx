@@ -1,5 +1,5 @@
 import { PostDraftNavBar, DeckBuilder, SideBar } from "../";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import './postdraft.css'
 import { sendMessage } from "../../Services";
 
@@ -7,11 +7,8 @@ export function PostDraft({
   connection,
   token,
   main,
-  setMain,
   side,
-  setSide,
   commanders,
-  setCommanders,
   username,
   seatToken,
   showMain,
@@ -39,21 +36,11 @@ export function PostDraft({
   colorFilterNeg,
   setColorFilterPos,
   setColorFilterNeg,
-  owner,
-  decryptedMessage
+  owner
 }) {
 
 
   const [basicLands, setBasicLands] = useState([0, 0, 0, 0, 0, 0])
-
-  useEffect(() => {
-    if (decryptedMessage && decryptedMessage.type === "Picked Cards") {
-      setMain(decryptedMessage.main)
-      setSide(decryptedMessage.side)
-      setCommanders(decryptedMessage.commanders)
-    }
-  }, [decryptedMessage])
-
 
   const renderNavbar = () => {
     return <PostDraftNavBar
