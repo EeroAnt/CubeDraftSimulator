@@ -6,10 +6,10 @@ export const FormSubmitButton = ({ name }) => {
   )
 }
 
-export const Button = ({ name, onClick }) => {
+export const Button = ({ name, onClick, className="main" }) => {
   return (
     <>
-      <button onClick={onClick}>{name}</button>
+      <button className={className} onClick={onClick}>{name}</button>
     </>
   )
 }

@@ -1,19 +1,20 @@
 .basiclands {
-  left: 70%;
-  position: relative;
+  left: 40%;
+  position: fixed;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 0;
   list-style: none;
   width: 100%;
   max-width: 40px;
   max-height: 40px;
-  margin: 0 auto;
+  gap: 5px;
 }
 
 .basiclandinput {
   display: auto;
-  width: 50px;
+  width: 25px;
 }
 
 .navbar {
@@ -25,6 +26,11 @@
 }
 
 .leftSection {
+  display: flex;
+  align-items: center;
+}
+
+.landSection {
   display: flex;
   align-items: center;
 }

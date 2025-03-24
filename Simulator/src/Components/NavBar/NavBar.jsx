@@ -1,6 +1,3 @@
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
 import styles from './NavBar.module.css';
 import { Button, ManaSymbol } from '..'
 import { useState } from 'react';
@@ -91,19 +88,17 @@ export function PostDraftNavBar({ owner, connection, token, basicLands, setBasic
     navigator.clipboard.writeText(deck.join("\n"))
   }
 
-  return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Nav className="me-auto">
-          <Button name="Copy Deck to Clipboard" onClick={() => copyDeckToClipBoard()} />
-          {owner === "T" && draftDataDecision ? (<>
-            <Button name="Validate draft data" onClick={() => handleDataDecision(true)} />
-            <Button name="Ignore draft data" onClick={() => handleDataDecision(false)} />
-          </>) : ""}
-          {BasicLands()}
-        </Nav>
-      </Container>
-    </Navbar>
+  return (<div className={styles.navbar}>
+    <div className={styles.leftSection}>
+      <Button name="Copy Deck to Clipboard" className={styles.navButton} onClick={() => copyDeckToClipBoard()} />
+      {owner === "T" && draftDataDecision ? (<>
+        <Button name="Validate draft data" className={styles.navButton} onClick={() => handleDataDecision(true)} />
+        <Button name="Ignore draft data" className={styles.navButton} onClick={() => handleDataDecision(false)} />
+      </>) : ""}
+    </div>
+    <div className={styles.landSection}>
+      {BasicLands()}
+    </div>
+  </div>
   );
 }
