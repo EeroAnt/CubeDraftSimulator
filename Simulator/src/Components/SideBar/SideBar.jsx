@@ -1,6 +1,7 @@
 import { useEffect, createRef } from "react";
 import { Image, Button, ManaSymbol } from "../";
 import { sendMessage } from "../../Services";
+import styles from './SideBar.module.css'
 
 export const SideBar = ({
   lastClicked,
@@ -101,11 +102,12 @@ export const SideBar = ({
           <Image imageUrl={lastClicked.image_url} backsideUrl={lastClicked.backside_image_url} />
         )}
         <p>
-          <Button name={showMain ? ("Show Side") : ("Show Main")} onClick={() => switchView()} />
-          <Button name={showMain ? ("Move to Side") : ("Move to Main")} onClick={() => moveCards()} />
+          <Button name={showMain ? ("Show Side") : ("Show Main")} className={styles.button} onClick={() => switchView()} />
+          <Button name={showMain ? ("Move to Side") : ("Move to Main")} className={styles.button} onClick={() => moveCards()} />
         </p>
         <p><Button
           name={selectedCommanders.length === 1 ? (showMain ? "Move Commander to Main" : "Move Commander to Side") : "Set Commander"}
+          className={styles.button}
           onClick={selectedCommanders.length === 1 ? (() => removeCommander()) : (() => appointCommander())} /></p>
         <div className="commander">
           <span className="text">Commanders</span>

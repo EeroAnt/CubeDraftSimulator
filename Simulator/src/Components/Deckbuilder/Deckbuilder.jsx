@@ -224,7 +224,7 @@ export const DeckBuilder = ({
         </div>
         {(main.concat(commanders).concat(side).length > 2) ? (bars ? (
           <div className="curveChart">
-            <Button name="Show lines" onClick={() => setBars(!bars)} />
+            <Button name="Show lines" className="button" onClick={() => setBars(!bars)} />
 
             <BarChart
               dataset={dataset}
@@ -239,7 +239,7 @@ export const DeckBuilder = ({
 
           </div>) : (
           <div className="curveChart">
-            <Button name="Show bars" onClick={() => setBars(!bars)} />
+            <Button name="Show bars" className="button" onClick={() => setBars(!bars)} />
 
             <LineChart
               xAxis={[{ data: manaValuesList, label: 'Mana Value' }]}

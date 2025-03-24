@@ -119,8 +119,8 @@ export const Draft = ({
     if (canalDredgerOwner === "T" || canalDredger === "F" || (pack && pack.length > 1)) {
       return (
         <>
-          <Button name="Pick to main" onClick={() => confirmPick("main")} />
-          <Button name="Pick to side" onClick={() => confirmPick("side")} />
+          <Button name="Pick to main" className="button" onClick={() => confirmPick("main")} />
+          <Button name="Pick to side" className="button" onClick={() => confirmPick("side")} />
         </>)
     } else {
       return (

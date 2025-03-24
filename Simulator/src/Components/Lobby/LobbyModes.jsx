@@ -1,4 +1,5 @@
 import { Button } from "../";
+import styles from './Lobby.module.css'
 
 export const DraftStarted = ({ setMode }) => {
   return (
@@ -47,7 +48,7 @@ export const LobbySuccess = ({ owner, token, playersInLobby, numberOfPlayers, st
               <>
                 <h2>Everyone is here</h2><h2>Players:</h2>
                 {renderPlayers(playerList)}
-                <Button name="Start Draft" onClick={startDraft} />
+                <Button name="Start Draft" className={styles.button} onClick={startDraft} />
               </>
             ) : (
               <>

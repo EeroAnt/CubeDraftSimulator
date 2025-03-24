@@ -9,7 +9,11 @@
   background-color: #f0f0f0; /* Example background color */
   padding: 20px;
 }
-  
+
+.button {
+  font-family: 'Courier New', Courier, monospace
+}
+
 .typeFilter {
   order: 1;
   flex: 1;
