@@ -39,7 +39,6 @@ export const DraftParametersForm = ({ name, value, handleChange, defaultVal }) =
         {name}
       </label>
       <input type="number" value={value} min={0} max={10} defaultValue={defaultVal} onChange={handleChange} />
-      <br />
     </>
   );
 }
@@ -50,6 +49,7 @@ export const DraftParameterCheckbox = ({ name, value, handleChange }) => {
       <label>
         {name}
       </label>
+      <br />
       <input type="checkbox" value={value} onChange={handleChange} />
       <br />
     </>
