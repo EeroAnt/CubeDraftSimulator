@@ -1,30 +1,23 @@
 # CubeDraftSimulator
-![DraftSimulator](https://github.com/EeroAnt/CubeDraftSimulator/actions/workflows/python-app.yml/badge.svg)
+<!-- ![DraftSimulator](https://github.com/EeroAnt/CubeDraftSimulator/actions/workflows/python-app.yml/badge.svg) -->
 ## About
 
 ### Problems
-Playing our MTG Commander Cube is one of my favourite things, but setting up the draft takes hours and drafting takes easily 4 more and then everyone still has to finish their decks. So we're lucky, if everyone get's to play a single round, when we would be ready to go.
+Playing our MTG Commander Cube is one of my favorite things, but setting up the draft takes hours. The drafting itself can take another four, and then everyone still has to build their decks. If we're lucky, we get to play a single round before the day is over.
 
-Another challenge is that refining our 2000+ card monolith of a cube is cumbersome and I find it hard to make cuts, even as they would most probably be beneficial for the health of the Cube.
+Another challenge is managing our 2000+ card cube. Refining it is cumbersome, and making cuts — despite being beneficial for the cube's health — is difficult.
 
 ### Solution
-By creating a web app to for this:
- - Setting up the draft goes from multiple hours of dull and error-prone card handling to a click and a handful of seconds (or maybe a little more)
- - Everyone can draft from their homes so the day for the games is only for the games
- - We could collect data from the drafts to see which cards go unpicked, however fond I might be with them
+A web app solves these problems by:
+ - Reducing draft setup from hours of tedious and error-prone card handling to just a few seconds (or maybe a little more).
+ - Allowing everyone to draft remotely, so game day is only about playing.
+ - Collecting draft data to identify cards that consistently go unpicked, making it easier to refine the cube — even if I’m personally attached to some of them.
 
+## Current Status
 
-### [More technical take](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/technical%20side.md)
+Development is ongoing. I've built a text-based interface for managing the database, but there's no live version at the moment since I moved the database off the cloud to cut costs. Keeping it local works fine, as the app only runs when I’m using it. I'm currently working on a major overhaul, and hopefully, a much-improved version will be ready for release soon.
 
-### [Worklog](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/worklog.md)(in Finnish)
-
-
-## Where are we now
-Version 1.0.0 is up and running. Deckbuilder is not functional, but drafting works, drafted cards can be extracted as a csv and draft data is gathered. This is enough for now. Once I find the time to continue the full stack course, I'll build CI-pipeline for JavaScript parts and start working on improvements*. I'm going to build a separate website for the datavisualization for cost reasons.
-
-*The work on improvements has begun, and I've built a text interface for the management of the database.
-
-## Done, but not live
+### Done, but not live
 
  - Encryption for WebSocket communication
  - refactoring backend
@@ -37,12 +30,17 @@ Version 1.0.0 is up and running. Deckbuilder is not functional, but drafting wor
  - save drafts to database
  - fix draft setup without commander packs (nodejs read length of rounds rather than checked which round was last and so when commander round (round 0) was missing, the length didn't correspond with the amount of rounds properly..)
 
-## TODO
+### TODO
 
  - setup local PostgreSQL to listen the app
  - a web page for statistics
  - refactor and fix frontend
  - update readme
+
+
+### [More technical take](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/technical%20side.md)
+
+<!-- ### [Worklog](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/worklog.md)(in Finnish) -->
 
 ## Steps
 
