@@ -42,18 +42,7 @@ export async function handleMessage(message, uuid) {
   console.log("Message from: " + uuid);
   console.log(data.type);
 
-  if (data.type === "Admin") {
-
-    if (process.env.PASSKEY === data.passkey) {
-      console.log("Admin Connected");
-      const message = {
-        status: 'OK',
-        type: 'Admin'
-      };
-      queueMessage(uuid, message);
-    }
-
-  } else if (data.type === "Login") {
+  if (data.type === "Login") {
 
     users[uuid].username = data.username;
     users[uuid].token = "";
