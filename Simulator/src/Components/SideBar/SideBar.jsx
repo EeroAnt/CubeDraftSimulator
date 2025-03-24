@@ -9,6 +9,7 @@ export const SideBar = ({
   selectedCommanders,
   commanderColorIdentity,
   commanders,
+  mainColorIdentity,
   main,
   side,
   selectedCards,
@@ -112,7 +113,7 @@ export const SideBar = ({
         <div className="commander">
           <span className="text">Commanders</span>
           {commanderColorIdentity.map((color, index) => (
-            <span key={index} className="mana-symbol">
+            <span key={index} className={styles.manasymbol}>
               <ManaSymbol symbol={color} />
             </span>
           ))}
@@ -123,7 +124,28 @@ export const SideBar = ({
             <li key={index} className={selectedCommanders.includes(card) ? ("clicked") : ("notClicked")} onClick={() => selectCommander(card)}>{card.name}</li>
           ))}
         </ul>
-        <span className="text ">{showMain ? (`Main ${basicLands ? main.length + basicLands.reduce((accumulator, currentValue) => accumulator + currentValue, 0) : main.length} /${100 - commanders.length}`) : ("Side")}</span>
+        <span className="text">
+          {showMain ? (
+            <>
+              {`Main ${basicLands
+                  ? main.length +
+                  basicLands.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+                  : main.length
+                } /${100 - commanders.length}`}
+              {mainColorIdentity.length > 0 && (
+                <span className={styles.manasymbols}>
+                  {mainColorIdentity.map((color, index) => (
+                    <span key={index} className={styles.manasymbol}>
+                      <ManaSymbol symbol={color} />
+                    </span>
+                  ))}
+                </span>
+              )}
+            </>
+          ) : (
+            "Side"
+          )}
+        </span>
       </div>
       <div className="sidenav-body">
         {showMain ? (

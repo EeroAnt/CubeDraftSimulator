@@ -62,7 +62,6 @@ export const DeckBuilder = ({
   setCurveOfDisplayed,
   maxManaValue,
   setMaxManaValue,
-  setCommanderColorIdentity,
   showDeckbuilder,
   colorFilterPos,
   colorFilterNeg,
@@ -179,20 +178,6 @@ export const DeckBuilder = ({
     setCurveOfDisplayed(Array.from({ length: maxManaValue + 1 }, (_, index) => cardsToDisplayWithoutLands.filter(card => showMain ? (main.includes(card)) : (side.includes(card))).filter(card => card.mana_value === index).length))
 
   }, [main, side, commanders, typeFilter, showDeckbuilder, colorFilterPos, colorFilterNeg, showMain])
-
-
-  useEffect(() => {
-    if (commanders.length === 0) {
-      setCommanderColorIdentity(["C"])
-    } else if (commanders.length === 1) {
-      setCommanderColorIdentity(commanders[0].color_identity.split(""))
-    } else {
-      const combined = commanders[0].color_identity.split("").concat(commanders[1].color_identity.split(""))
-      const unique = [...new Set(combined)]
-      unique.length < 2 ? setCommanderColorIdentity(unique) : setCommanderColorIdentity(unique.filter(color => color !== "C"))
-    }
-  }, [commanders])
-
 
   return (
     <>

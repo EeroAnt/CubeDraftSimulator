@@ -75,8 +75,8 @@
 }
 
 .mana-symbol {
-  width: 6%; /* Adjust as needed */
-  height: 6%; /* Adjust as needed */
+  width: 16px; /* Adjust as needed */
+  height: 16px; /* Adjust as needed */
 }
 
 .text {

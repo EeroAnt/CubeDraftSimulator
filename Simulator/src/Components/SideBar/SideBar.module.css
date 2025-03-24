@@ -1,3 +1,14 @@
 .button {
   font-family: 'Courier New', Courier, monospace
 }
+
+.manasymbols {
+  display: inline-flex; /* Estää elementin venymisen */
+  gap: 2px; /* Lisää tilaa ikonien väliin */
+  vertical-align: baseline /* Pitää ikonit linjassa tekstin kanssa */
+}
+.manasymbol {
+  display: inline-block; /* Varmistaa, että yksittäiset ikonit pysyvät rivissä */
+  width: 16px;
+  height: 16px;
+}

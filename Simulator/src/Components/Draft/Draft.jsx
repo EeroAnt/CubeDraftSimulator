@@ -26,7 +26,7 @@ export const Draft = ({
   maxManaValue,
   setMaxManaValue,
   commanderColorIdentity,
-  setCommanderColorIdentity,
+  mainColorIdentity,
   showDeckbuilder,
   setShowDeckbuilder,
   cardsToDisplay,
@@ -61,16 +61,6 @@ export const Draft = ({
 
     const newMaxManaValue = Math.max(...main.concat(side).concat(commanders).map(obj => obj.mana_value));
     setMaxManaValue(newMaxManaValue);
-
-    if (commanders.length === 0) {
-      setCommanderColorIdentity(["C"])
-    } else if (commanders.length === 1) {
-      setCommanderColorIdentity(commanders[0].color_identity.split(""))
-    } else {
-      const combined = commanders[0].color_identity.split("").concat(commanders[1].color_identity.split(""))
-      const unique = [...new Set(combined)]
-      setCommanderColorIdentity(unique.length < 2 ? unique : unique.filter(color => color !== "C"));
-    }
 
     const mainWithoutLands = main.filter(card => !card.types.includes("Land"))
     const newCurveOfMain = Array.from({ length: newMaxManaValue + 1 }, (_, index) => mainWithoutLands.concat(commanders).filter(card => card.mana_value === index).length);
@@ -142,6 +132,7 @@ export const Draft = ({
           selectedCommanders={selectedCommanders}
           commanderColorIdentity={commanderColorIdentity}
           commanders={commanders}
+          mainColorIdentity={mainColorIdentity}
           main={main}
           side={side}
           selectedCards={selectedCards}
@@ -266,7 +257,6 @@ export const Draft = ({
             maxManaValue={maxManaValue}
             setMaxManaValue={setMaxManaValue}
             commanderColorIdentity={commanderColorIdentity}
-            setCommanderColorIdentity={setCommanderColorIdentity}
             showDeckbuilder={showDeckbuilder}
             colorFilterPos={colorFilterPos}
             colorFilterNeg={colorFilterNeg}

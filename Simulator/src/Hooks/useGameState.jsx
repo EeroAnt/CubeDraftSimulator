@@ -23,6 +23,7 @@ export const useGameState = () => {
   const [curveOfDisplayed, setCurveOfDisplayed] = useState([])
   const [maxManaValue, setMaxManaValue] = useState(0)
   const [commanderColorIdentity, setCommanderColorIdentity] = useState(["C"])
+  const [mainColorIdentity, setMainColorIdentity] = useState(["C"])
   const [showDeckbuilder, setShowDeckbuilder] = useState(false)
   const [cardsToDisplay, setCardsToDisplay] = useState([])
   const [typeFilter, setTypeFilter] = useState(["All"])
@@ -38,6 +39,30 @@ export const useGameState = () => {
   const [playerList, setPlayerList] = useState([])
   const [queues, setQueues] = useState([])
   const [pack, setPack] = useState([])
+
+  useEffect(() => {
+    if (commanders.length === 0) {
+      setCommanderColorIdentity(["C"])
+    } else if (commanders.length === 1) {
+      setCommanderColorIdentity(commanders[0].color_identity.split(""))
+    } else {
+      const combined = commanders[0].color_identity.split("").concat(commanders[1].color_identity.split(""))
+      const unique = [...new Set(combined)]
+      unique.length < 2 ? setCommanderColorIdentity(unique) : setCommanderColorIdentity(unique.filter(color => color !== "C"))
+    }
+  }, [commanders])
+
+  useEffect(() => {
+    if (main.length === 0) {
+      setMainColorIdentity(["C"])
+    } else if (main.length === 1) {
+      setMainColorIdentity(main[0].color_identity.split(""))
+    } else {
+      const combined = main.map(card => card.color_identity.split("")).flat()
+      const unique = [...new Set(combined)]
+      unique.length < 2 ? setMainColorIdentity(unique) : setMainColorIdentity(unique.filter(color => color !== "C"))
+    }
+  }, [main])
 
   useEffect(() => {
     console.log("mode", mode)
@@ -196,7 +221,8 @@ export const useGameState = () => {
     curveOfMain, setCurveOfMain,
     curveOfDisplayed, setCurveOfDisplayed,
     maxManaValue, setMaxManaValue,
-    commanderColorIdentity, setCommanderColorIdentity,
+    commanderColorIdentity,
+    mainColorIdentity,
     showDeckbuilder, setShowDeckbuilder,
     cardsToDisplay, setCardsToDisplay,
     typeFilter, setTypeFilter,

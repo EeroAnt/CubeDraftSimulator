@@ -26,7 +26,6 @@ export function PostDraft({
   maxManaValue,
   setMaxManaValue,
   commanderColorIdentity,
-  setCommanderColorIdentity,
   showDeckbuilder,
   cardsToDisplay,
   setCardsToDisplay,
@@ -134,7 +133,6 @@ export function PostDraft({
       maxManaValue={maxManaValue}
       setMaxManaValue={setMaxManaValue}
       commanderColorIdentity={commanderColorIdentity}
-      setCommanderColorIdentity={setCommanderColorIdentity}
       showDeckbuilder={showDeckbuilder}
       colorFilterPos={colorFilterPos}
       colorFilterNeg={colorFilterNeg}
