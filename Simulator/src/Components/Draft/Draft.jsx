@@ -63,19 +63,13 @@ export const Draft = ({
     setMaxManaValue(newMaxManaValue);
 
     if (commanders.length === 0) {
-
       setCommanderColorIdentity(["C"])
-
     } else if (commanders.length === 1) {
-
       setCommanderColorIdentity(commanders[0].color_identity.split(""))
-
     } else {
-
       const combined = commanders[0].color_identity.split("").concat(commanders[1].color_identity.split(""))
       const unique = [...new Set(combined)]
       setCommanderColorIdentity(unique.length < 2 ? unique : unique.filter(color => color !== "C"));
-
     }
 
     const mainWithoutLands = main.filter(card => !card.types.includes("Land"))
@@ -87,78 +81,31 @@ export const Draft = ({
   }, [main, side, commanders])
 
 
-  // useEffect(() => {
-
-  //   if (decryptedMessage && decryptedMessage.type === "Pack") {
-
-  //     console.log("Pack received")
-  //     setPack(decryptedMessage.pack)
-
-  //   } else if (decryptedMessage && decryptedMessage.type === "End Draft") {
-
-  //     setMode("DeckBuilder")
-
-  //   } else if (decryptedMessage && decryptedMessage.type === "Picked Cards") {
-
-  //     setMain(decryptedMessage.main)
-  //     setSide(decryptedMessage.side)
-  //     setCommanders(decryptedMessage.commanders)
-
-  //   } else if (decryptedMessage && decryptedMessage.type === "Canal Dredger") {
-  //     console.log("canal dredger")
-  //     setCanalDredgerOwner(decryptedMessage.owner)
-  //     setCanalDredger("T")
-
-  //   } else if (decryptedMessage && decryptedMessage.type === "Post Draft") {
-
-  //     setMode("Post Draft")
-
-  //   } else if (decryptedMessage && decryptedMessage.type === "Queues") {
-
-  //     setQueues(decryptedMessage.queues)
-
-  //   }
-  // }, [decryptedMessage])
-
-
-
-
   const selectCards = (card) => {
 
     setSelectedCommanders([])
     setLastClicked(card)
 
     if (selectedCards.includes(card)) {
-
       setSelectedCards(selectedCards.filter(c => c !== card))
-
     } else {
-
       setSelectedCards([...selectedCards, card])
-
     }
   }
-
 
   const moveCards = () => {
 
     if (selectedCards.length === 0) {
-
       alert("No card selected")
-
     } else {
-
       const message = {
         type: "Move Cards",
         cards: selectedCards,
         to: showMain ? ("side") : ("main"),
         from: showMain ? ("main") : ("side")
       };
-
       sendMessage(connection, message)
-
     }
-
     setSelectedCards([])
   }
 
@@ -167,7 +114,6 @@ export const Draft = ({
     setLastClicked(card)
     setSelectedCommanders([card])
   }
-
 
   const renderPickButtons = () => {
     if (canalDredgerOwner === "T" || canalDredger === "F" || (pack && pack.length > 1)) {
@@ -184,7 +130,6 @@ export const Draft = ({
       )
     }
   }
-
 
   function renderSideBar() {
     return (
@@ -218,7 +163,7 @@ export const Draft = ({
           onClickNavbar={() => setShowDeckbuilder(!showDeckbuilder)}
           buttonName={showDeckbuilder ? ("Show Draft") : ("Show Stats")}
           queues={queues}
-          statsButton = {statsButton}
+          statsButton={statsButton}
         />
       </>
     )
