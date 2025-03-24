@@ -121,23 +121,41 @@ export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection
 
   return (
     <div>
-      <h2>Join Draft with a token</h2>
-      <Form onSubmit={joinLobby} name="joinDraftForm" />
+      <h2>Join a Lobby</h2>
+      {/* <Form onSubmit={joinLobby} name="joinDraftForm" /> */}
       <Button name="Back" onClick={() => setHomeMode("Menu")} />
       <Button name="Get Lobbies" onClick={() => getDrafts()} />
-
       {drafts && drafts
-        .filter(draft => draft.players > 0)
-        .map((draft, index) => {
-          console.log(draft)
-          return (
-          <div key={index}>
-            <p>{draft.token} {draft.players} / {draft.maxPlayers}</p>
-            {draft.players < draft.maxPlayers && (
-              <Button name="Join" onClick={() => joinLobby(draft.token)} />
-            )}
-          </div>
-        )})}
+        .filter(draft => draft.players > 0).length > 0
+        && (
+          <table>
+            <thead>
+              <tr>
+                <th>Token</th>
+                <th>Players</th>
+                <th>Max Players</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {drafts.filter(draft => draft.players > 0)
+                .map((draft, index) => (
+                  <tr key={index}>
+                    <td>{draft.token}</td>
+                    <td>{draft.players}</td>
+                    <td>{draft.maxPlayers}</td>
+                    <td>
+                      {draft.players < draft.maxPlayers ? (
+                        <Button name="Join" onClick={() => joinLobby(draft.token)} />
+                      ) : (
+                        "-"
+                      )}
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        )}
     </div>
   )
 }
