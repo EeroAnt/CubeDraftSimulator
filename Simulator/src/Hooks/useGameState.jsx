@@ -62,11 +62,19 @@ export const useGameState = () => {
         if (decryptedMessage.drafts) {
           setDrafts(decryptedMessage.drafts)
         }
-      }}
+      }
+    }
     if (homeMode === "Create" || mode === "Waiting") {
       if (decryptedMessage.status === "OK" && decryptedMessage.type === "Playerlist") {
         setMode("Lobby")
       }
+      if (decryptedMessage && decryptedMessage.status === "Setup OK") {
+        setMode("Lobby")
+      } else if (decryptedMessage && decryptedMessage.status === "Setup Failed") {
+        console.log(decryptedMessage.errors)
+        alert("Setup failed")
+        setDraftInitiated(false)
+      } 
     }
     if (mode === "Lobby") {
       if (decryptedMessage.players) {

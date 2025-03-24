@@ -1,17 +1,6 @@
-import { useEffect } from "react"
 import { Button } from "../../"
 
-export const WaitingRoom = ({ setMode, decryptedMessage, setDraftInitiated }) => {
-  useEffect(() => {
-    if (decryptedMessage && decryptedMessage.status === "Setup OK") {
-      setMode("Lobby")
-    } else if (decryptedMessage && decryptedMessage.status === "Setup Failed") {
-      console.log(decryptedMessage.errors)
-      alert("Setup failed\n" + decryptedMessage.errors.toString())
-      setDraftInitiated(false)
-
-    } 
-  }, [decryptedMessage])
+export const WaitingRoom = ({ setMode }) => {
 
   const cancelSetup = () => {
     setMode("Home")
