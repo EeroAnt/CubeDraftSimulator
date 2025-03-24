@@ -24,7 +24,7 @@ export function DraftNavbar({ onClickNavbar, buttonName, queues, statsButton }) 
   }, [queues])
 
   return (
-<div className={styles.navbar}>
+    <div className={styles.navbar}>
       <div className={styles.leftSection}>
         {statsButton ? (
           <button className={styles.navButton} onClick={onClickNavbar}>
@@ -95,14 +95,14 @@ export function PostDraftNavBar({ owner, connection, token, basicLands, setBasic
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Nav className="me-auto">
-            <Button name="Copy Deck to Clipboard" onClick={() => copyDeckToClipBoard()} />
-            {owner === "T" && draftDataDecision ? (<>
-              <Button name="Validate draft data" onClick={() => handleDataDecision(true)} />
-              <Button name="Ignore draft data" onClick={() => handleDataDecision(false)} />
-            </>) : ""}
-            {BasicLands()}
-          </Nav>
+        <Nav className="me-auto">
+          <Button name="Copy Deck to Clipboard" onClick={() => copyDeckToClipBoard()} />
+          {owner === "T" && draftDataDecision ? (<>
+            <Button name="Validate draft data" onClick={() => handleDataDecision(true)} />
+            <Button name="Ignore draft data" onClick={() => handleDataDecision(false)} />
+          </>) : ""}
+          {BasicLands()}
+        </Nav>
       </Container>
     </Navbar>
   );
