@@ -1,17 +1,17 @@
 .main{
   display: flex;
-  justify-content: center;  /* Center horizontally */
-  align-items: center;  /* Center vertically */
-  height: 100vh; /* Full screen height */
-  width: 100vw; /* Full screen width */
+  justify-content: center;
+  align-items: center; 
+  height: 100vh; 
+  width: 100vw;
   
 }
 
-.menu{
-  width: 300px;  /* Adjust as needed */
+ .menu{
+  width: 300px;  
   padding: 20px;
-  background-color: #222; /* Dark retro background */
-  border: 4px solid #c02e2e; /* White pixel-style border */
+  background-color: #222;
+  border: 4px solid #c02e2e; 
   text-align: center;
   font-family: 'Courier New', Courier, monospace
 }
