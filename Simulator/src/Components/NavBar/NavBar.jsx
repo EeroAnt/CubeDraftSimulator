@@ -1,9 +1,9 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import styles from './NavBar.module.css';
 import { Button, ManaSymbol } from '..'
 import { useState } from 'react';
-import './NavBar.css'
 import { sendMessage } from '../../Services';
 import { useEffect } from 'react';
 import React from 'react';
@@ -19,22 +19,23 @@ export function DraftNavbar({ onClickNavbar, buttonName, queues, statsButton }) 
         {index < queues.length - 1 && ", "}
       </React.Fragment>
     ));
-    
+
     setQueueDisplay(displayToSet)
   }, [queues])
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto w-100 d-flex align-items-center justify-content-between">
-            {statsButton ? <Button name={buttonName} onClick={onClickNavbar} /> : null}
-            <div className="mx-auto">{queueDisplay}</div>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+<div className={styles.navbar}>
+      <div className={styles.leftSection}>
+        {statsButton ? (
+          <button className={styles.navButton} onClick={onClickNavbar}>
+            {buttonName}
+          </button>
+        ) : null}
+      </div>
+      <div className={styles.centerSection}>
+        {queueDisplay}
+      </div>
+    </div>
   );
 }
 
@@ -45,14 +46,14 @@ export function PostDraftNavBar({ owner, connection, token, basicLands, setBasic
   const BasicLands = () => {
     const landTypes = ["W", "U", "B", "R", "G", "C"]
     return (
-      <div className="basic-lands">
+      <div className={styles.basiclands}>
         <>Basic Lands</>
         {landTypes.map((land, index) => {
           return (
             <>
               <ManaSymbol key={index} symbol={land} />
               <input
-                className='basic-land-input'
+                className={styles.basiclandinput}
                 type="number"
                 value={basicLands[index]}
                 onChange={(e) => { setBasicLands(basicLands.map((value, i) => i === index ? parseInt(e.target.value) : value)) }}></input>
@@ -94,7 +95,6 @@ export function PostDraftNavBar({ owner, connection, token, basicLands, setBasic
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Button name="Copy Deck to Clipboard" onClick={() => copyDeckToClipBoard()} />
             {owner === "T" && draftDataDecision ? (<>
@@ -103,7 +103,6 @@ export function PostDraftNavBar({ owner, connection, token, basicLands, setBasic
             </>) : ""}
             {BasicLands()}
           </Nav>
-        </Navbar.Collapse>
       </Container>
     </Navbar>
   );

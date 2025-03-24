@@ -1,0 +1,50 @@
+.basiclands {
+  left: 70%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  max-width: 40px;
+  max-height: 40px;
+  margin: 0 auto;
+}
+
+.basiclandinput {
+  display: auto;
+  width: 50px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  font-family: 'Courier New', Courier, monospace
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+}
+
+.centerSection {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.navButton {
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #4d909c;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Courier New', Courier, monospace
+}
+
+.navButton:hover {
+  background-color: #0056b3;
+}
