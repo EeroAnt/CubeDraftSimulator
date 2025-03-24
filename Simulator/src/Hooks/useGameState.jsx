@@ -58,8 +58,9 @@ export const useGameState = () => {
     if (decryptedMessage) {
       console.log(decryptedMessage)
       if (mode === "Home") {
-        if (homeMode === "Join Draft") {
+        if (homeMode === "Join") {
           if (decryptedMessage.drafts) {
+            console.log("hello")
             setDrafts(decryptedMessage.drafts)
           }
         }

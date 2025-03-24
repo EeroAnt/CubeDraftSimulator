@@ -128,14 +128,16 @@ export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection
 
       {drafts && drafts
         .filter(draft => draft.players > 0)
-        .map((draft, index) => (
+        .map((draft, index) => {
+          console.log(draft)
+          return (
           <div key={index}>
             <p>{draft.token} {draft.players} / {draft.maxPlayers}</p>
             {draft.players < draft.maxPlayers && (
               <Button name="Join" onClick={() => joinLobby(draft.token)} />
             )}
           </div>
-        ))}
+        )})}
     </div>
   )
 }
