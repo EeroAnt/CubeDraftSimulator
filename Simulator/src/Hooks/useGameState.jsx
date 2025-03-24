@@ -34,6 +34,10 @@ export const useGameState = () => {
   const [draftInitiated, setDraftInitiated] = useState(false)
   const [playersInLobby, setPlayersInLobby] = useState(() => searchParams.get("p") || 0)
   const [drafts, setDrafts] = useState([])
+  const [lobbyMode, setLobbyMode] = useState("")
+  const [playerList, setPlayerList] = useState([])
+  const [queues, setQueues] = useState([])
+  const [pack, setPack] = useState([])
 
   useEffect(() => {
     console.log("mode", mode)
@@ -68,17 +72,52 @@ export const useGameState = () => {
       if (decryptedMessage.players) {
         const numPlayers = Object.keys(decryptedMessage.players).length;
         setPlayersInLobby(numPlayers)
+        setPlayerList(decryptedMessage.players)
+        if (lobbyMode !== "LobbySuccess") {
+          setLobbyMode("LobbySuccess")
+        }
       } else if (decryptedMessage.status === "OK" && decryptedMessage.type === "Start Draft") {
         setMode("Draft")
       } else if (decryptedMessage.status === "Draft Already Started") {
-        console.log(decryptedMessage.status)
+        setLobbyMode("DraftStarted")
+      } else if (decryptedMessage.status === "Lobby Full") {
+        setLobbyMode("LobbyFull")
       } else if (decryptedMessage.status != "OK") {
-        console.log(decryptedMessage.status)
+        setLobbyMode("LobbyFailed")
       }
     }
     if (mode === "Draft") {
       if (decryptedMessage.type === "Seat token") {
         setSeatToken(decryptedMessage.seat)
+      }
+      if (decryptedMessage && decryptedMessage.type === "Pack") {
+
+        console.log("Pack received")
+        setPack(decryptedMessage.pack)
+  
+      } else if (decryptedMessage && decryptedMessage.type === "End Draft") {
+  
+        setMode("DeckBuilder")
+  
+      } else if (decryptedMessage && decryptedMessage.type === "Picked Cards") {
+  
+        setMain(decryptedMessage.main)
+        setSide(decryptedMessage.side)
+        setCommanders(decryptedMessage.commanders)
+  
+      } else if (decryptedMessage && decryptedMessage.type === "Canal Dredger") {
+        console.log("canal dredger")
+        setCanalDredgerOwner(decryptedMessage.owner)
+        setCanalDredger("T")
+  
+      } else if (decryptedMessage && decryptedMessage.type === "Post Draft") {
+  
+        setMode("Post Draft")
+  
+      } else if (decryptedMessage && decryptedMessage.type === "Queues") {
+  
+        setQueues(decryptedMessage.queues)
+  
       }
     }}
   }, [decryptedMessage])
@@ -152,6 +191,10 @@ export const useGameState = () => {
     draftInitiated, setDraftInitiated,
     playersInLobby, setPlayersInLobby,
     drafts,
+    lobbyMode,
+    playerList,
+    queues,
+    pack, setPack,
     connection
   };
 }

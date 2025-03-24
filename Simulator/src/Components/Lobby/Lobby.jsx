@@ -1,21 +1,9 @@
-import { Button } from '../'
-// import { useEffect } from 'react'
+
 import { sendMessage } from '../../Services'
+import { LobbyFailed, LobbySuccess, DraftStarted } from '../'
 
 
-const renderPlayers = message => {
-  return (
-    <ul>
-      {Object.keys(message.players).map(uuid => {
-        return <li key={uuid}>{message.players[uuid]}</li>
-      })}
-    </ul>
-  )
-}
-
-
-
-export const Lobby = ({ setMode, connection, numberOfPlayers, owner, token, decryptedMessage, playersInLobby }) => {
+export const Lobby = ({ connection, numberOfPlayers, owner, token, playersInLobby, lobbyMode, playerList, setMode }) => {
 
   const startDraft = () => {
     const message = {
@@ -25,67 +13,21 @@ export const Lobby = ({ setMode, connection, numberOfPlayers, owner, token, decr
     sendMessage(connection, message)
   }
 
-  // useEffect(() => {
-  //   if (decryptedMessage && decryptedMessage.players) {
-  //     const numPlayers = Object.keys(decryptedMessage.players).length;
-  //     setPlayersInLobby(numPlayers)
-  //   } else if (decryptedMessage && decryptedMessage.status === "OK" && decryptedMessage.type === "Start Draft") {
-  //     console.log("Draft started")
-  //     setMode("Draft")
-  //   } else if (decryptedMessage && decryptedMessage.status === "Draft Already Started") {
-  //     console.log(decryptedMessage.status)
-  //   } else if (decryptedMessage && decryptedMessage.status != "OK") {
-  //     console.log(decryptedMessage.status)
-  //   }
-  // }, [decryptedMessage, numberOfPlayers])
+  return (
+      <div className='main'>
+      {lobbyMode == "LobbySuccess" &&
+       (<LobbySuccess 
+          owner={owner}
+          token={token}
+          playersInLobby={playersInLobby}
+          numberOfPlayers={numberOfPlayers}
+          startDraft={startDraft}
+          playerList={playerList}
+       />)}
+      {lobbyMode == "LobbyFull" && (<LobbyFailed setMode={setMode} />)}
+      {lobbyMode == "DraftStarted" && (<DraftStarted setMode={setMode}/>)}
+      {lobbyMode == "LobbyFailed" && (<LobbyFailed setMode={setMode} />)}
+      </div>
+  )
 
-
-  if (decryptedMessage && decryptedMessage.status === "OK" && decryptedMessage.type === "Playerlist") {
-    return (
-      <div className="main">
-        <h1>Lobby</h1>
-        {owner === "T" ? (
-          <><h2>Draft Token: {token}</h2>
-            {playersInLobby == numberOfPlayers ? (
-              <>
-                <h2>Everyone is here</h2><h2>Players:</h2>
-                {renderPlayers(decryptedMessage)}
-                <Button name="Start Draft" onClick={startDraft} />
-              </>
-            ) : (
-              <>
-                <h3>Waiting for all players to join</h3>
-                <h2>Playercount: </h2>
-                <p>{playersInLobby} / {numberOfPlayers}</p>
-                <h2>Players present:</h2>
-                {renderPlayers(decryptedMessage)}
-              </>
-            )}
-          </>
-        ) : (
-          <>
-            <h2>Draft Token: {token}</h2>
-            <h2>Players present:</h2>
-            {renderPlayers(decryptedMessage)}
-          </>
-        )}
-      </div>
-    )
-  } else if (decryptedMessage && decryptedMessage.status === "Draft Already Started") {
-    return (
-      <div className="main">
-        <h1>Draft already started</h1>
-        <p></p>
-        <Button name="Go Back" onClick={() => setMode("Home")} />
-      </div>
-    )
-  } else if (decryptedMessage && decryptedMessage.status != 'OK') {
-    return (
-      <div className="main">
-        <h1>Not in Lobby</h1>
-        <p>{decryptedMessage.status}</p>
-        <Button name="Go Back" onClick={() => setMode("Home")} />
-      </div>
-    )
-  }
 }

@@ -5,15 +5,11 @@ import './draft.css'
 
 
 export const Draft = ({
-  setMode,
   connection,
   token,
   main,
-  setMain,
   side,
-  setSide,
   commanders,
-  setCommanders,
   seatToken,
   showMain,
   setShowMain,
@@ -41,16 +37,14 @@ export const Draft = ({
   colorFilterNeg,
   setColorFilterPos,
   setColorFilterNeg,
-  decryptedMessage,
   canalDredgerOwner,
-  setCanalDredgerOwner,
   canalDredger,
-  setCanalDredger
+  queues,
+  pack,
+  setPack
 }) => {
 
-  const [pack, setPack] = useState([])
   const [pick, setPick] = useState(0)
-  const [queues, setQueues] = useState([])
   const [statsButton, setStatsButton] = useState(false);
 
   useEffect(() => {
@@ -93,38 +87,38 @@ export const Draft = ({
   }, [main, side, commanders])
 
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    if (decryptedMessage && decryptedMessage.type === "Pack") {
+  //   if (decryptedMessage && decryptedMessage.type === "Pack") {
 
-      console.log("Pack received")
-      setPack(decryptedMessage.pack)
+  //     console.log("Pack received")
+  //     setPack(decryptedMessage.pack)
 
-    } else if (decryptedMessage && decryptedMessage.type === "End Draft") {
+  //   } else if (decryptedMessage && decryptedMessage.type === "End Draft") {
 
-      setMode("DeckBuilder")
+  //     setMode("DeckBuilder")
 
-    } else if (decryptedMessage && decryptedMessage.type === "Picked Cards") {
+  //   } else if (decryptedMessage && decryptedMessage.type === "Picked Cards") {
 
-      setMain(decryptedMessage.main)
-      setSide(decryptedMessage.side)
-      setCommanders(decryptedMessage.commanders)
+  //     setMain(decryptedMessage.main)
+  //     setSide(decryptedMessage.side)
+  //     setCommanders(decryptedMessage.commanders)
 
-    } else if (decryptedMessage && decryptedMessage.type === "Canal Dredger") {
-      console.log("canal dredger")
-      setCanalDredgerOwner(decryptedMessage.owner)
-      setCanalDredger("T")
+  //   } else if (decryptedMessage && decryptedMessage.type === "Canal Dredger") {
+  //     console.log("canal dredger")
+  //     setCanalDredgerOwner(decryptedMessage.owner)
+  //     setCanalDredger("T")
 
-    } else if (decryptedMessage && decryptedMessage.type === "Post Draft") {
+  //   } else if (decryptedMessage && decryptedMessage.type === "Post Draft") {
 
-      setMode("Post Draft")
+  //     setMode("Post Draft")
 
-    } else if (decryptedMessage && decryptedMessage.type === "Queues") {
+  //   } else if (decryptedMessage && decryptedMessage.type === "Queues") {
 
-      setQueues(decryptedMessage.queues)
+  //     setQueues(decryptedMessage.queues)
 
-    }
-  }, [decryptedMessage])
+  //   }
+  // }, [decryptedMessage])
 
 
 
