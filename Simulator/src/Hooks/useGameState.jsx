@@ -56,7 +56,7 @@ export const useGameState = () => {
 
   useEffect(() => {
     if (decryptedMessage) {
-      console.log(decryptedMessage)
+      // console.log(decryptedMessage) // Uncomment this line to view messages, it messes up some rendering tho.
       if (mode === "Home") {
         if (homeMode === "Join") {
           if (decryptedMessage.drafts) {
@@ -124,9 +124,9 @@ export const useGameState = () => {
           setMode("Post Draft")
 
         } else if (decryptedMessage && decryptedMessage.type === "Queues") {
-
-          setQueues(decryptedMessage.queues)
-
+          if (JSON.stringify(decryptedMessage.queues) !== JSON.stringify(queues)) {
+            setQueues(decryptedMessage.queues)
+          }
         }
       }
       if (mode === "Post Draft") {
