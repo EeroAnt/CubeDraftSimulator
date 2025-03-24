@@ -14,6 +14,9 @@ import styles from './Home.module.css'
 export const Login = ({ setUsername, connection, setHomeMode }) => {
 
   const login = (username) => {
+    if (username === "") {
+      return
+    }
     setUsername(username)
     const message = {
       type: "Login",
@@ -27,7 +30,7 @@ export const Login = ({ setUsername, connection, setHomeMode }) => {
     <>
       <h1>Home</h1>
       <h2>Who are you?</h2>
-      <div className="form-container">
+      <div className="formcontainer">
         <Form onSubmit={login} name="loginform" />
       </div>
     </>
@@ -49,9 +52,10 @@ export const Menu = ({ username, setUsername, setHomeMode, connection }) => {
   return (
     <div>
       <h1>Hi {username}</h1>
-      <Button name="Create draft" onClick={() => setHomeMode("Create")} />
-      <Button name="Join draft" onClick={() => goToJoin()} />
-      <Button name="Back" onClick={() => logout()} />
+      <Button name="Create draft" className={styles.button} onClick={() => setHomeMode("Create")} />
+      <Button name="Join draft" className={styles.button} onClick={() => goToJoin()} />
+        <br />
+      <Button name="Back" className={styles.button} onClick={() => logout()} />
     </div>
   )
 }
@@ -93,8 +97,8 @@ export const CreateDraft = ({ setMode, numberOfPlayers, setNumberOfPlayers, setO
         <DraftParametersForm name="ratio of land pool" handleChange={(e) => { e.preventDefault(); setLandRatio(Number(e.target.value)) }} defaultVal={landRatio} />
       </div>
       <DraftParameterCheckbox name="Commander pack included" handleChange={changeCommanderPacksIncluded} />
-      <Button name="init draft" onClick={() => submitSetup()} />
-      <Button name="Back" onClick={() => setHomeMode("Menu")} />
+      <Button name="init draft" className={styles.button} onClick={() => submitSetup()} />
+      <Button name="Back" className={styles.button} onClick={() => setHomeMode("Menu")} />
     </div>
   )
 }
@@ -137,7 +141,7 @@ export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection
                       <td>{draft.maxPlayers}</td>
                       <td>
                         {draft.players < draft.maxPlayers ? (
-                          <Button name="Join" onClick={() => joinLobby(draft.token)} />
+                          <Button name="Join" className={styles.button} onClick={() => joinLobby(draft.token)} />
                         ) : (
                           "-"
                         )}
@@ -151,7 +155,7 @@ export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection
           <h2>No Lobbies available</h2>
         )
       }
-      <Button name="Back" onClick={() => setHomeMode("Menu")} />
+      <Button name="Back" className={styles.button} onClick={() => setHomeMode("Menu")} />
     </div>
   )
 }

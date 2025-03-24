@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import styles from './Forms.module.css'
 
 export const Filter = ({ name, value, onChange }) => {
   return (
@@ -25,7 +26,10 @@ export function Form({ onSubmit, name }) {
           maxLength={16}
           onChange={(e) => setInput(e.target.value.split(/[^a-zA-Z0-9 ]/).join(''))}
         />
-        <input type="submit" />
+        <input
+          type="submit"
+          className={styles.submitButton}
+        />
       </form>
     </>
   )
