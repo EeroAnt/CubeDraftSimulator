@@ -29,6 +29,7 @@ Development is ongoing. I've built a text-based interface for managing the datab
  - limit symbols and length of usernames
  - save drafts to database
  - fix draft setup without commander packs (nodejs read length of rounds rather than checked which round was last and so when commander round (round 0) was missing, the length didn't correspond with the amount of rounds properly..)
+ - implemented message queues to front end (incoming) and back end (out going) to increase stability of the communication between them
 
 ### TODO
 
