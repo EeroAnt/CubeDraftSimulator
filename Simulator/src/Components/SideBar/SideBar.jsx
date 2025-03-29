@@ -37,7 +37,9 @@ export const SideBar = ({
       alert("You can have at most two commanders")
     } else if (selectedCards.length > 1) {
       alert("You can only set one commander at a time")
-    } else if (!selectedCards[0].types.includes("Legendary") || !selectedCards[0].types.includes("Creature")) {
+    } else if ((!selectedCards[0].types.includes("Legendary")
+       || !selectedCards[0].types.includes("Creature"))
+       && !selectedCards[0].oracle_text.includes(" can be your commander")) {
       alert("Only legendary creatures can be commanders")
     } else if (commanders.length === 1 &&
       ((selectedCards[0].color_identity.length > 2 || commanders[0].color_identity.length > 2) ||
