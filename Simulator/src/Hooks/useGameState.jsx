@@ -65,11 +65,6 @@ export const useGameState = () => {
   }, [main])
 
   useEffect(() => {
-    console.log("mode", mode)
-    console.log("homeMode", homeMode)
-  }, [mode, homeMode])
-
-  useEffect(() => {
     if (mode === "Home") {
       setSearchParams({ u: username, d: token, h: homeMode });
     } else if (mode === "Lobby") {
@@ -85,7 +80,6 @@ export const useGameState = () => {
       if (mode === "Home") {
         if (homeMode === "Join") {
           if (decryptedMessage.drafts) {
-            console.log("hello")
             setDrafts(decryptedMessage.drafts)
           }
         }
@@ -126,7 +120,6 @@ export const useGameState = () => {
         }
         if (decryptedMessage && decryptedMessage.type === "Pack") {
 
-          console.log("Pack received")
           setPack(decryptedMessage.pack)
 
         } else if (decryptedMessage && decryptedMessage.type === "End Draft") {
@@ -140,7 +133,7 @@ export const useGameState = () => {
           setCommanders(decryptedMessage.commanders)
 
         } else if (decryptedMessage && decryptedMessage.type === "Canal Dredger") {
-          console.log("canal dredger")
+          
           setCanalDredgerOwner(decryptedMessage.owner)
           setCanalDredger("T")
 
@@ -212,7 +205,7 @@ export const useGameState = () => {
     token, setToken,
     main, setMain,
     side, setSide,
-    commanders, setCommanders,
+    commanders,
     seatToken, setSeatToken,
     showMain, setShowMain,
     selectedCards, setSelectedCards,

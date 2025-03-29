@@ -82,7 +82,6 @@ export const CreateDraft = ({ setMode, numberOfPlayers, setNumberOfPlayers, setO
     setToken(newtoken)
     setupDraft(newtoken, numberOfPlayers, connection, numOfRounds, multiRatio, genericRatio, colorlessRatio, landRatio, commanderPackIncluded, setMode)
     setDraftInitiated(true)
-    console.log(newtoken)
   }
 
   return (
