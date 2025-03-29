@@ -11,8 +11,8 @@
 .menu {
   width: 400px;
   padding: 20px;
-  background-color: #22222283;
-  border: 4px solid #c02e2e;
+  background-color: #ada9bb;
+  border: 4px solid #8e3b37;
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
   position: relative; /* Ensures the wizard overlaps correctly */
