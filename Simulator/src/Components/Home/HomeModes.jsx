@@ -28,8 +28,7 @@ export const Login = ({ setUsername, connection, setHomeMode }) => {
 
   return (
     <>
-      <h1>Home</h1>
-      <h2>Who are you?</h2>
+      <h2>Who dares to enter?</h2>
       <div className="formcontainer">
         <Form onSubmit={login} name="loginform" />
       </div>
@@ -52,10 +51,11 @@ export const Menu = ({ username, setUsername, setHomeMode, connection }) => {
   return (
     <div>
       <h1>Hi {username}</h1>
+      <h3>What would you like to do?</h3>
       <Button name="Create draft" className={styles.button} onClick={() => setHomeMode("Create")} />
       <Button name="Join draft" className={styles.button} onClick={() => goToJoin()} />
         <br />
-      <Button name="Back" className={styles.button} onClick={() => logout()} />
+      <Button name="Go Back" className={styles.button} onClick={() => logout()} />
     </div>
   )
 }
@@ -86,7 +86,7 @@ export const CreateDraft = ({ setMode, numberOfPlayers, setNumberOfPlayers, setO
 
   return (
     <div>
-      <h2>Setup a new Draft</h2>
+      <h2>Sure! Let&apos;s setup a draft</h2>
       <div className={styles.formcontainer}>
         <DraftParametersForm name="number of players" handleChange={(e) => { e.preventDefault(); setNumberOfPlayers(Number(e.target.value)) }} defaultVal={numberOfPlayers} />
         <DraftParametersForm name="number of rounds" handleChange={(e) => { e.preventDefault(); setNumOfRounds(Number(e.target.value)) }} defaultVal={numOfRounds} />
@@ -97,7 +97,7 @@ export const CreateDraft = ({ setMode, numberOfPlayers, setNumberOfPlayers, setO
       </div>
       <DraftParameterCheckbox name="Commander pack included" handleChange={changeCommanderPacksIncluded} />
       <Button name="init draft" className={styles.button} onClick={() => submitSetup()} />
-      <Button name="Back" className={styles.button} onClick={() => setHomeMode("Menu")} />
+      <Button name="Go Back" className={styles.button} onClick={() => setHomeMode("Menu")} />
     </div>
   )
 }
@@ -121,7 +121,8 @@ export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection
         .filter(draft => draft.players > 0).length > 0
         ? (
           <>
-            <h2>Join a Lobby</h2>
+            <h2>Pick and choose!</h2>
+            <h3>Any lobby you&apos;d like</h3>
             <table>
               <thead>
                 <tr>
@@ -151,10 +152,10 @@ export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection
             </table>
           </>
         ) : (
-          <h2>No Lobbies available</h2>
+          <h2>There are no drafts here</h2>
         )
       }
-      <Button name="Back" className={styles.button} onClick={() => setHomeMode("Menu")} />
+      <Button name="Go Back" className={styles.button} onClick={() => setHomeMode("Menu")} />
     </div>
   )
 }
