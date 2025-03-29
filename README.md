@@ -20,7 +20,8 @@ Development is ongoing. I've built a text-based interface for managing the datab
 ### Done, but not live
 
  - Encryption for WebSocket communication
- - refactoring backend
+ - Enable atypical commanders to be set as commanders (for example Shorikai)
+ - refactoring of backend
  - generating url parameters for drafting to persist over reconnecting
  - data migrated from cloud to local server
  - make players queues visible to everyone
@@ -30,12 +31,12 @@ Development is ongoing. I've built a text-based interface for managing the datab
  - save drafts to database
  - fix draft setup without commander packs (nodejs read length of rounds rather than checked which round was last and so when commander round (round 0) was missing, the length didn't correspond with the amount of rounds properly..)
  - implemented message queues to front end (incoming) and back end (out going) to increase stability of the communication between them
+ - refactor and fix frontend
 
 ### TODO
 
  - setup local PostgreSQL to listen the app
  - a web page for statistics
- - refactor and fix frontend
  - update readme
 
 
