@@ -1,19 +1,21 @@
-.main{
+.main {
   display: flex;
+  flex-direction: column; /* Stack wizard and menu vertically */
+  align-items: center;
   justify-content: center;
-  align-items: center; 
-  height: 100vh; 
+  height: 100vh;
   width: 100vw;
-  
+  position: relative; /* Keep everything positioned inside */
 }
 
- .menu{
-  width: 400px;  
+.menu {
+  width: 400px;
   padding: 20px;
   background-color: #22222283;
-  border: 4px solid #c02e2e; 
+  border: 4px solid #c02e2e;
   text-align: center;
-  font-family: 'Courier New', Courier, monospace
+  font-family: 'Courier New', Courier, monospace;
+  position: relative; /* Ensures the wizard overlaps correctly */
 }
 
 .formcontainer {
@@ -30,9 +32,15 @@
 
 .formcontainer input {
   padding: 5px 10px;
-  width: 80%; 
+  width: 80%;
 }
 
 .button {
   font-family: 'Courier New', Courier, monospace
+}
+
+.wizard {
+  width: 350px; /* Adjust size as needed */
+  margin-bottom: -40px; /* Slight overlap with the menu */
+  z-index: 1; /* Ensure it's above the menu */
 }

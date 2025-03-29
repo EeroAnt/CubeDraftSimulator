@@ -16,8 +16,22 @@ export const Home = ({
   drafts
 }) => {
 
+  const wizardImages = {
+    Login: "/wizards/wiz_1_whoGoesThere.png",
+    Menu: "/wizards/wiz_2_hello.png",
+    Create: "/wizards/wiz_3_makeNewDraft.png",
+    Join: (drafts && drafts
+      .filter(draft => draft.players > 0).length > 0)
+      ? ("/wizards/wiz_5_happyForASuccesfulDraft.png")
+      : ("/wizards/wiz_4_sad.png")
+  };
+
+  const wizardImage = wizardImages[homeMode] || "/wizards/default-wizard.png"; // Fallback image
+
+
   return (
     <div className={styles.main}>
+      <img src={wizardImage} alt="Wizard" className={styles.wizard} />
       <div className={styles.menu}>
         {homeMode === "Login" && (
           <Login
