@@ -123,7 +123,7 @@ export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection
           <>
             <h2>Pick and choose!</h2>
             <h3>Any lobby you&apos;d like</h3>
-            <table>
+            <table className={styles.table}>
               <thead>
                 <tr>
                   <th>Token</th>
