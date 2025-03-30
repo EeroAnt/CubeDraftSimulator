@@ -15,6 +15,7 @@ export function checkDraftStatus(draft) {
       if (draft.round <= draft.last_round) {
         goToNextRound(draft);
       } else {
+        console.log(`Draft ${draft.token} ended successfully`);
         draft.state = 'deckbuilding';
         broadcastDraftStatus(draft, "Post Draft");
         clearInterval(intervalIDs[draft.token]);
