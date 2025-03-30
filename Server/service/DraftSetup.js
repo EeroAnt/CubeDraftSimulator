@@ -129,12 +129,17 @@ export function rejoinDraft(data, uuid) {
 
         drafts[data.token].table[seat].player = uuid;
         users[uuid].seat = drafts[data.token].table[seat];
+        sendCards(uuid, users[uuid].seat);
+        if (users[uuid].seat.packAtHand.cards.length > 0) {
+          sendPackAtHand(uuid, users[uuid].seat);
+        }
       }
     }
 
-    sendCards(uuid, users[uuid].seat);
-    if (users[uuid].seat.packAtHand.cards.length > 0) {
-      sendPackAtHand(uuid, users[uuid].seat);
+    if (drafts[data.token].state === 'deckbuilding') {
+      console.log('joining deckbuilding');
+      const message = { status: 'OK', type: 'Deckbuilding' };
+      queueMessage(uuid, message);
     }
   }
 };
