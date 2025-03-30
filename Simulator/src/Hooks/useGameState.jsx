@@ -40,6 +40,12 @@ export const useGameState = () => {
   const [queues, setQueues] = useState([])
   const [pack, setPack] = useState([])
   const [round, setRound] = useState("")
+  const [wizardSelection, setWizardSelection] = useState(1)
+
+  useEffect(() => {
+    console.log("wizardSelection", wizardSelection)
+    setWizardSelection(Math.floor(Math.random() * 3) + 1)
+  }, [round])
 
   useEffect(() => {
     if (commanders.length === 0) {
@@ -83,7 +89,8 @@ export const useGameState = () => {
       if (mode === "Home") {
         if (homeMode === "Join") {
           if (decryptedMessage.drafts) {
-            setDrafts(decryptedMessage.drafts)
+            const filteredDrafts = decryptedMessage.drafts.filter(draft => draft !== null && draft.players > 0);
+            setDrafts(filteredDrafts)
           }
         }
       }
