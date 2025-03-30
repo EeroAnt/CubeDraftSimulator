@@ -39,7 +39,7 @@ export const useGameState = () => {
   const [playerList, setPlayerList] = useState([])
   const [queues, setQueues] = useState([])
   const [pack, setPack] = useState([])
-  const [round, setRound] = useState("")
+  const [round, setRound] = useState(() => searchParams.get("r") || 0)
   const [wizardSelection, setWizardSelection] = useState(1)
 
   useEffect(() => {
@@ -77,7 +77,7 @@ export const useGameState = () => {
     } else if (mode === "Lobby") {
       setSearchParams({ u: username, d: token, n: numberOfPlayers, p: playersInLobby, s: seatToken, o: owner });
     } else if (mode === "Draft") {
-      setSearchParams({ u: username, d: token, s: seatToken, o: owner, cdo: canalDredgerOwner, cd: canalDredger });
+      setSearchParams({ u: username, d: token, s: seatToken, r: round, o: owner, cdo: canalDredgerOwner, cd: canalDredger });
     } else if (mode === "Post Draft") {
       setSearchParams({ u: username, d: token, s: seatToken, o: owner });
     }

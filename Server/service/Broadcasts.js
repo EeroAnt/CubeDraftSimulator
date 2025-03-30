@@ -96,7 +96,7 @@ export const broadcastRound = (draft) => {
   const message = {
     status: "OK",
     type: "Round",
-    round: (draft.round == 0) ? "Commander" : draft.round,
+    round: draft.round,
   };
   
   Object.values(draft.players).forEach(player => {

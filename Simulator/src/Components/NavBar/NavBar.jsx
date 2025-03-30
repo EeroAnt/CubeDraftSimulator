@@ -27,7 +27,7 @@ export function DraftNavbar({ onClickNavbar, buttonName, queues, statsButton, ro
           <Button name={buttonName} className="button" onClick={onClickNavbar} />
         ) : null}
         <div className={styles.round}>
-          Round: {round}
+          Round: {(round == 0 ? "Commander" : round)}
         </div>
       </div>
       <div className={styles.centerSection}>
