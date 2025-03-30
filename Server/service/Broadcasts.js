@@ -90,3 +90,16 @@ export const broadcastCanalDredger = (draft, seatNumber) => {
 
   }});
 };
+
+export const broadcastRound = (draft) => {
+
+  const message = {
+    status: "OK",
+    type: "Round",
+    round: (draft.round == 0) ? "Commander" : draft.round,
+  };
+  
+  Object.values(draft.players).forEach(player => {
+    queueMessage(player.uuid, message);
+  });
+};
