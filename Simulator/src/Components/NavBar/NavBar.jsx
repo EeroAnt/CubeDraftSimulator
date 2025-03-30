@@ -5,7 +5,7 @@ import { sendMessage } from '../../Services';
 import { useEffect } from 'react';
 import React from 'react';
 
-export function DraftNavbar({ onClickNavbar, buttonName, queues, statsButton }) {
+export function DraftNavbar({ onClickNavbar, buttonName, queues, statsButton, round }) {
   const [queueDisplay, setQueueDisplay] = useState("")
 
 
@@ -26,6 +26,9 @@ export function DraftNavbar({ onClickNavbar, buttonName, queues, statsButton }) 
         {statsButton ? (
           <Button name={buttonName} className="button" onClick={onClickNavbar} />
         ) : null}
+        <div className={styles.round}>
+          Round: {round}
+        </div>
       </div>
       <div className={styles.centerSection}>
         {queueDisplay}
