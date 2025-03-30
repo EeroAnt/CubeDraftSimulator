@@ -43,7 +43,6 @@ export const useGameState = () => {
   const [wizardSelection, setWizardSelection] = useState(1)
 
   useEffect(() => {
-    console.log("wizardSelection", wizardSelection)
     setWizardSelection(Math.floor(Math.random() * 3) + 1)
   }, [round])
 
