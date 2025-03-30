@@ -1,16 +1,26 @@
 services:
   cubesimulator:
-    image: cubedraftsimuflaskcont.azurecr.io/eerondevcubesimulator
+    image: cubedraftsimuflaskcont.azurecr.io/eerondevcubesimulator_dev
     build:
       context: .
-      dockerfile: Simu_Dockerfile
+      dockerfile: Simu_Dockerfile_dev
     ports:
-      - "80:80"
+      - "5173:5173"
+    volumes:
+      - ./Simulator:/app
+      - /app/node_modules  # Prevent host node_modules override
+    environment:
+      - HOST=0.0.0.0
+      - PORT=5173
+      - CHOKIDAR_USEPOLLING=true  # Better file watching in containers
+    command: npm run dev -- --host 0.0.0.0
+    stdin_open: true  # For interactive terminal
+    tty: true         # For colored output
     networks:
       - thisnetwork
   
   nodeserver:
-    image: cubedraftsimuflaskcont.azurecr.io/eerondevnodeserver
+    image: cubedraftsimuflaskcont.azurecr.io/eerondevnodeserver_dev
     build:
       context: .
       dockerfile: Server_Dockerfile_dev
@@ -20,7 +30,7 @@ services:
       - thisnetwork
 
   flaskserver:
-    image: cubedraftsimuflaskcont.azurecr.io/eerondevflaskserver
+    image: cubedraftsimuflaskcont.azurecr.io/eerondevflaskserver_dev
     build:
       context: .
       dockerfile: Flask_Dockerfile_dev

@@ -1,0 +1,14 @@
+FROM node:20.11.0
+
+WORKDIR /app
+
+COPY Simulator/package*.json /app/
+
+RUN npm install
+
+COPY Simulator/public /app/public
+COPY Simulator/src /app/src
+COPY Simulator/.eslintrc.cjs /app/eslintrc.cjs
+COPY Simulator/index.html /app/index.html
+COPY Simulator/vite.config.js /app/vite.config.js
+COPY Simulator/.env /app/.env
