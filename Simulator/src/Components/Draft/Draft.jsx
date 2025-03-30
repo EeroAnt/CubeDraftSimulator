@@ -118,7 +118,7 @@ export const Draft = ({
     } else {
       return (
         <>
-          <Button name="Give" onClick={() => giveAway()} />
+          <Button name="Give" className="button" onClick={() => giveAway()} />
         </>
       )
     }
@@ -180,113 +180,113 @@ export const Draft = ({
     }
   }
 
-  const wizardSelector = () => {
+  const wizardSelector = (wizardSelection) => {
     const wizards = {
       1: "Placeholder for A",
       2: "Placeholder for B",
       3: "Placeholder for C",
     };
-    if (wizards.wizardSelection) {
-      return <>{wizards[wizardSelection] || "Default Placeholder"}</>;
-    }
+
+    return <>{wizards[wizardSelection] || "Default Placeholder"}</>;
+
   };
 
-    const giveAway = () => {
-      if (pick) {
-        const message = {
-          type: "Give Last Card",
-          card: pick,
-          token: token,
-          seat: canalDredgerOwner
-        }
-        sendMessage(connection, message)
-        setPick(0)
-        setPack([])
-      } else {
-        console.log("No card picked")
+  const giveAway = () => {
+    if (pick) {
+      const message = {
+        type: "Give Last Card",
+        card: pick,
+        token: token,
+        seat: canalDredgerOwner
       }
+      sendMessage(connection, message)
+      setPick(0)
+      setPack([])
+    } else {
+      console.log("No card picked")
     }
+  }
 
 
-    if (!showDeckbuilder) {
-      if (pack && pack.length > 0) {
-        return (
-          <>
-            {renderSideBar()}
-            <div className={styles.main}>
-              {renderNavbar()}
-              <>
-                {renderPickButtons()}
-                <table className={styles.pack}>
-                  <tbody>
-                    {pack.reduce((rows, card, index) => {
-                      if (index % 5 === 0) rows.push([]);
-                      rows[rows.length - 1].push(
-                        <td key={index} className={pick === card.id ? (styles.selected) : (styles.card)} onClick={() => setPick(card.id)}>
-                          <Image imageUrl={card.image_url} backsideUrl={card.backside_image_url} />
-                        </td>
-                      );
-                      return rows;
-                    }, []).map((row, rowIndex) => (
-                      <tr key={rowIndex}>{row}</tr>
-                    ))}
-                  </tbody>
-                </table>
-              </>
-            </div>
-          </>
-        );
-      } else {
-        return (
-          <>
-            {renderSideBar()}
-            <div className={styles.main}>
-              {renderNavbar()}
-              <div className={styles.noPackHeader}>
-                <h1>Draft</h1>
-              </div>
-              <div className={styles.noPack}>
-                <h2>Waiting for pack</h2>
-              </div>
-              <div className={styles.noPackWizard}>
-                {wizardSelector()}
-              </div>
-            </div>
-          </>
-        );
-      }
+  if (!showDeckbuilder) {
+    if (pack && pack.length > 0) {
+      return (
+        <>
+          {renderSideBar()}
+          <div className={styles.main}>
+            {renderNavbar()}
+            <>
+              {renderPickButtons()}
+              <table className={styles.pack}>
+                <tbody>
+                  {pack.reduce((rows, card, index) => {
+                    if (index % 5 === 0) rows.push([]);
+                    rows[rows.length - 1].push(
+                      <td key={index} className={pick === card.id ? (styles.selected) : (styles.card)} onClick={() => setPick(card.id)}>
+                        <Image imageUrl={card.image_url} backsideUrl={card.backside_image_url} />
+                      </td>
+                    );
+                    return rows;
+                  }, []).map((row, rowIndex) => (
+                    <tr key={rowIndex}>{row}</tr>
+                  ))}
+                </tbody>
+              </table>
+            </>
+          </div>
+        </>
+      );
     } else {
       return (
         <>
           {renderSideBar()}
           <div className={styles.main}>
             {renderNavbar()}
-            <DeckBuilder
-              main={main}
-              side={side}
-              commanders={commanders}
-              showMain={showMain}
-              selectedCards={selectedCards}
-              selectCards={selectCards}
-              cardsToDisplay={cardsToDisplay}
-              setCardsToDisplay={setCardsToDisplay}
-              typeFilter={typeFilter}
-              setTypeFilter={setTypeFilter}
-              curveOfMain={curveOfMain}
-              setCurveOfMain={setCurveOfMain}
-              curveOfDisplayed={curveOfDisplayed}
-              setCurveOfDisplayed={setCurveOfDisplayed}
-              maxManaValue={maxManaValue}
-              setMaxManaValue={setMaxManaValue}
-              commanderColorIdentity={commanderColorIdentity}
-              showDeckbuilder={showDeckbuilder}
-              colorFilterPos={colorFilterPos}
-              colorFilterNeg={colorFilterNeg}
-              setColorFilterPos={setColorFilterPos}
-              setColorFilterNeg={setColorFilterNeg}
-            />
+            <div className={styles.noPackHeader}>
+              <h1>Draft</h1>
+            </div>
+            <div className={styles.noPack}>
+              <h2>Waiting for pack</h2>
+            </div>
+            <div className={styles.noPackWizard}>
+              {wizardSelector(wizardSelection)}
+            </div>
           </div>
         </>
-      )
+      );
     }
+  } else {
+    return (
+      <>
+        {renderSideBar()}
+        <div className={styles.main}>
+          {renderNavbar()}
+          <DeckBuilder
+            main={main}
+            side={side}
+            commanders={commanders}
+            showMain={showMain}
+            selectedCards={selectedCards}
+            selectCards={selectCards}
+            cardsToDisplay={cardsToDisplay}
+            setCardsToDisplay={setCardsToDisplay}
+            typeFilter={typeFilter}
+            setTypeFilter={setTypeFilter}
+            curveOfMain={curveOfMain}
+            setCurveOfMain={setCurveOfMain}
+            curveOfDisplayed={curveOfDisplayed}
+            setCurveOfDisplayed={setCurveOfDisplayed}
+            maxManaValue={maxManaValue}
+            setMaxManaValue={setMaxManaValue}
+            commanderColorIdentity={commanderColorIdentity}
+            showDeckbuilder={showDeckbuilder}
+            colorFilterPos={colorFilterPos}
+            colorFilterNeg={colorFilterNeg}
+            setColorFilterPos={setColorFilterPos}
+            setColorFilterNeg={setColorFilterNeg}
+          />
+        </div>
+      </>
+    )
   }
+}
