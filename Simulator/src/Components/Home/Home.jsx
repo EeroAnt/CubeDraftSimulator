@@ -15,13 +15,13 @@ export const Home = ({
   setDraftInitiated,
   drafts
 }) => {
+  console.log("drafts", drafts)
 
   const wizardImages = {
     Login: "/wizards/wiz_1_whoGoesThere.png",
     Menu: "/wizards/wiz_2_hello.png",
     Create: "/wizards/wiz_3_makeNewDraft.png",
-    Join: (drafts && drafts
-      .filter(draft => draft.players > 0).length > 0)
+    Join: (drafts.length > 0)
       ? ("/wizards/wiz_5_happyForASuccesfulDraft.png")
       : ("/wizards/wiz_4_sad.png")
   };

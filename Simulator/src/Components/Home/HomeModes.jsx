@@ -117,7 +117,7 @@ export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection
 
   return (
     <div>
-      {drafts && drafts
+      {drafts && drafts.length > 0 && drafts
         .filter(draft => draft.players > 0).length > 0
         ? (
           <>
