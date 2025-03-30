@@ -15,7 +15,6 @@ export const Home = ({
   setDraftInitiated,
   drafts
 }) => {
-  console.log("drafts", drafts)
 
   const wizardImages = {
     Login: "/wizards/wiz_1_whoGoesThere.png",
