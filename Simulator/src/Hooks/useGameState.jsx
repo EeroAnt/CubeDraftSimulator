@@ -48,6 +48,10 @@ export const useGameState = () => {
   }, [round])
 
   useEffect(() => {
+    setWizardSelection(Math.floor(Math.random() * 3) + 1)
+  }, [])
+
+  useEffect(() => {
     if (commanders.length === 0) {
       setCommanderColorIdentity(["C"])
     } else if (commanders.length === 1) {
@@ -244,6 +248,7 @@ export const useGameState = () => {
     playerList,
     queues,
     pack, setPack,
-    connection
+    connection,
+    wizardSelection
   };
 }
