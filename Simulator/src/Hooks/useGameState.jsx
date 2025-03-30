@@ -39,6 +39,7 @@ export const useGameState = () => {
   const [playerList, setPlayerList] = useState([])
   const [queues, setQueues] = useState([])
   const [pack, setPack] = useState([])
+  const [round, setRound] = useState("")
 
   useEffect(() => {
     if (commanders.length === 0) {
@@ -71,6 +72,8 @@ export const useGameState = () => {
       setSearchParams({ u: username, d: token, n: numberOfPlayers, p: playersInLobby, s: seatToken, o: owner });
     } else if (mode === "Draft") {
       setSearchParams({ u: username, d: token, s: seatToken, o: owner, cdo: canalDredgerOwner, cd: canalDredger });
+    } else if (mode === "Post Draft") {
+      setSearchParams({ u: username, d: token, s: seatToken, o: owner });
     }
   }, [username, token, numberOfPlayers, playersInLobby, seatToken, canalDredger, canalDredgerOwner, owner, mode, homeMode]);
 
@@ -88,9 +91,9 @@ export const useGameState = () => {
         if (decryptedMessage.status === "OK" && decryptedMessage.type === "Playerlist") {
           setMode("Lobby")
         }
-        if (decryptedMessage && decryptedMessage.status === "Setup OK") {
+        if (decryptedMessage.status === "Setup OK") {
           setMode("Lobby")
-        } else if (decryptedMessage && decryptedMessage.status === "Setup Failed") {
+        } else if (decryptedMessage.status === "Setup Failed") {
           console.log(decryptedMessage.errors)
           alert("Setup failed")
           setDraftInitiated(false)
@@ -115,33 +118,36 @@ export const useGameState = () => {
         }
       }
       if (mode === "Draft") {
+        if (decryptedMessage.type === "Round") {
+          setRound(decryptedMessage.round)
+          } 
         if (decryptedMessage.type === "Seat token") {
           setSeatToken(decryptedMessage.seat)
         }
-        if (decryptedMessage && decryptedMessage.type === "Pack") {
+        if (decryptedMessage.type === "Pack") {
 
           setPack(decryptedMessage.pack)
 
-        } else if (decryptedMessage && decryptedMessage.type === "End Draft") {
+        } else if (decryptedMessage.type === "End Draft") {
 
           setMode("DeckBuilder")
 
-        } else if (decryptedMessage && decryptedMessage.type === "Picked Cards") {
+        } else if (decryptedMessage.type === "Picked Cards") {
 
           setMain(decryptedMessage.main)
           setSide(decryptedMessage.side)
           setCommanders(decryptedMessage.commanders)
 
-        } else if (decryptedMessage && decryptedMessage.type === "Canal Dredger") {
+        } else if (decryptedMessage.type === "Canal Dredger") {
           
           setCanalDredgerOwner(decryptedMessage.owner)
           setCanalDredger("T")
 
-        } else if (decryptedMessage && decryptedMessage.type === "Post Draft") {
+        } else if (decryptedMessage.type === "Post Draft") {
 
           setMode("Post Draft")
 
-        } else if (decryptedMessage && decryptedMessage.type === "Queues") {
+        } else if (decryptedMessage.type === "Queues") {
           if (JSON.stringify(decryptedMessage.queues) !== JSON.stringify(queues)) {
             setQueues(decryptedMessage.queues)
           }
@@ -203,10 +209,11 @@ export const useGameState = () => {
     username, setUsername,
     owner, setOwner,
     token, setToken,
-    main, setMain,
-    side, setSide,
+    main,
+    side,
     commanders,
-    seatToken, setSeatToken,
+    seatToken,
+    round,
     showMain, setShowMain,
     selectedCards, setSelectedCards,
     selectedCommanders, setSelectedCommanders,
