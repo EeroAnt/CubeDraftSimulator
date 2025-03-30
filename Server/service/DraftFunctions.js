@@ -95,9 +95,9 @@ export function sendCards(uuid, userSeat) {
   const message = {
     status: "OK",
     type: "Picked Cards",
-    commanders: userSeat.commanders,
-    main: userSeat.main,
-    side: userSeat.side
+    commanders: userSeat?.commanders || [],
+    main: userSeat?.main || [],
+    side: userSeat?.side || []
   };
 
   queueMessage(uuid, message);
