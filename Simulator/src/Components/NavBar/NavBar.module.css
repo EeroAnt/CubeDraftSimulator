@@ -21,8 +21,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  font-family: 'Courier New', Courier, monospace
+  background-color: #ada9bb;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 14px 0;
 }
 
 .leftSection {
@@ -38,19 +39,4 @@
 .centerSection {
   flex-grow: 1;
   text-align: center;
-}
-
-.navButton {
-  padding: 5px 10px;
-  font-size: 14px;
-  background-color: #4d909c;
-  color: black;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-family: 'Courier New', Courier, monospace
-}
-
-.navButton:hover {
-  background-color: #0056b3;
 }

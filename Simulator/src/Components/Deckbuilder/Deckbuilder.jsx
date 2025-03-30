@@ -2,8 +2,7 @@ import { Button, Image, ManaFilter } from '../';
 import { useState, useEffect } from 'react';
 import { BarChart } from '@mui/x-charts/BarChart';
 import { LineChart } from '@mui/x-charts/LineChart';
-
-import './Deckbuilder.css'
+import styles from './Deckbuilder.module.css'
 
 
 function filterCardsPos(cards, criteria) {
@@ -104,7 +103,7 @@ export const DeckBuilder = ({
     const filterfunc = type === "Pos" ? amountOfFilteredCardsPos : amountOfFilteredCardsNeg
     if (filterfunc(deck, all, criteria) === "0/0") return null
     return (
-      <div className={selectedTypefilter === name ? ('current') : ('typeFilterObject')} onClick={() => handleTypeFilter([type].concat(criteria), name)}>
+      <div className={selectedTypefilter === name ? (styles.current) : (styles.typeFilterObject)} onClick={() => handleTypeFilter([type].concat(criteria), name)}>
         <h5>{name}</h5>
         <p>{filterfunc(deck, all, criteria)}</p>
       </div>
@@ -115,15 +114,15 @@ export const DeckBuilder = ({
     if (colorFilterPos !== undefined) {
       if (colorFilterPos.includes(color)) {
         return (
-          <ManaFilter className="Color-included" symbol={color} onClick={() => handleManaFilter(color)} />
+          <ManaFilter className={styles.colorIncluded} symbol={color} onClick={() => handleManaFilter(color)} />
         )
       } else if (colorFilterNeg.includes(color)) {
         return (
-          <ManaFilter className="Color-excluded" symbol={color} onClick={() => handleManaFilter(color)} />
+          <ManaFilter className={styles.colorExcluded} symbol={color} onClick={() => handleManaFilter(color)} />
         )
       } else {
         return (
-          <ManaFilter className="Color-neutral" symbol={color} onClick={() => handleManaFilter(color)} />
+          <ManaFilter className={styles.colorNeutral} symbol={color} onClick={() => handleManaFilter(color)} />
         )
       }
     }
@@ -181,15 +180,15 @@ export const DeckBuilder = ({
 
   return (
     <>
-      <div className='deckStats'>
-        <div className='colorFilter'>
-          <span className="colorFilter">
+      <div className={styles.deckStats}>
+        <div className={styles.colorFilter}>
+          <span className={styles.colorFilter}>
             {["W", "U", "B", "R", "G", "C"].map((color, index) => (
               <ColorFilter key={index} color={color} />
             ))}
           </span>
         </div>
-        <div className='typeFilter'>
+        <div className={styles.typeFilter}>
 
           <TypeFilterObject name="Creatures" type="Pos" criteria={criteria.creature} deck={deck} all={all} />
           <TypeFilterObject name="Non-Creatures" type="Neg" criteria={criteria.nonCreature} deck={deck} all={all} />
@@ -208,7 +207,7 @@ export const DeckBuilder = ({
           <TypeFilterObject name="Conspiracies" type="Pos" criteria={criteria.conspiracies} deck={deck} all={all} />
         </div>
         {(main.concat(commanders).concat(side).length > 2) ? (bars ? (
-          <div className="curveChart">
+          <div className={styles.curveChart}>
             <Button name="Show lines" className="button" onClick={() => setBars(!bars)} />
 
             <BarChart
@@ -223,7 +222,7 @@ export const DeckBuilder = ({
             />
 
           </div>) : (
-          <div className="curveChart">
+          <div className={styles.curveChart}>
             <Button name="Show bars" className="button" onClick={() => setBars(!bars)} />
 
             <LineChart
@@ -239,12 +238,12 @@ export const DeckBuilder = ({
           </div>
         )) : (null)}
       </div>
-      <table className="displayed">
+      <table className={styles.displayed}>
         <tbody>
           {cardsToDisplay.filter(card => showMain ? (main.includes(card)) : (side.includes(card))).reduce((rows, card, index) => {
             if (index % 5 === 0) rows.push([]); // Start a new row every 5 cards
             rows[rows.length - 1].push(
-              <td key={index} className={selectedCards.includes(card) ? ("selected") : ("card")} onClick={() => selectCards(card)}>
+              <td key={index} className={selectedCards.includes(card) ? (styles.selected) : (styles.card)} onClick={() => selectCards(card)}>
                 <Image imageUrl={card.image_url} backsideUrl={card.backside_image_url} />
               </td>
             );

@@ -3,12 +3,73 @@
 }
 
 .manasymbols {
-  display: inline-flex; /* Estää elementin venymisen */
-  gap: 2px; /* Lisää tilaa ikonien väliin */
-  vertical-align: baseline /* Pitää ikonit linjassa tekstin kanssa */
+  display: inline-flex;
+  gap: 2px;
+  vertical-align: baseline
 }
+
 .manasymbol {
-  display: inline-block; /* Varmistaa, että yksittäiset ikonit pysyvät rivissä */
+  display: inline-block;
   width: 16px;
   height: 16px;
+}
+
+.ulcardlist {
+  list-style-type: none;
+  margin-left: -6%;
+  padding: 10px;
+  margin: 0;
+}
+
+.sidenav {
+  height: 100vh;
+  width: 18%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #797586;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidenav-header {
+  position: sticky;
+  top: 0;
+  background: #f5f5f5;
+  padding: 10px;
+  z-index: 2;
+}
+.sidenavmain {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: calc(100vh - 150px);
+}
+
+.sidenavbody {
+  position: fixed;
+  overflow-y: auto;
+}
+
+.commander {
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  font-size: 120%;
+  font-weight: bold;
+}
+
+.sidenavheader img {
+  max-width: 100%;
+}
+
+.clicked {
+  background-color: aqua;
+}
+
+.notclicked {
+  background-color: #797586;
 }

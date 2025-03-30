@@ -1,12 +1,14 @@
 import { PostDraftNavBar, DeckBuilder, SideBar } from "../";
 import { useState } from "react";
 import './postdraft.css'
+import styles from './PostDraft.module.css'
 import { sendMessage } from "../../Services";
 
 export function PostDraft({
   connection,
   token,
   main,
+  mainColorIdentity,
   side,
   commanders,
   username,
@@ -93,23 +95,23 @@ export function PostDraft({
 
   const renderSideBar = () => {
     return <SideBar
-      lastClicked={lastClicked}
-      token={token}
-      seatToken={seatToken}
-      showMain={showMain}
-      selectedCommanders={selectedCommanders}
-      commanderColorIdentity={commanderColorIdentity}
-      commanders={commanders}
-      main={main}
-      side={side}
-      selectedCards={selectedCards}
-      selectCards={selectCards}
-      selectCommander={selectCommander}
-      moveCards={moveCards}
-      setShowMain={setShowMain}
-      setSelectedCards={setSelectedCards}
-      connection={connection}
-      basicLands={basicLands}
+    lastClicked={lastClicked}
+    token={token}
+    seatToken={seatToken}
+    showMain={showMain}
+    selectedCommanders={selectedCommanders}
+    commanderColorIdentity={commanderColorIdentity}
+    commanders={commanders}
+    mainColorIdentity={mainColorIdentity}
+    main={main}
+    side={side}
+    selectedCards={selectedCards}
+    selectCards={selectCards}
+    selectCommander={selectCommander}
+    moveCards={moveCards}
+    setShowMain={setShowMain}
+    setSelectedCards={setSelectedCards}
+    connection={connection}
     />
   }
 
@@ -144,7 +146,7 @@ export function PostDraft({
   return <div className="draft">
 
     {renderSideBar()}
-    <div className="main">
+    <div className={styles.main}>
       {renderNavbar()}
       {renderDeckbuilder()}
     </div>

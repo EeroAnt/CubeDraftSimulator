@@ -90,7 +90,11 @@
   flex: 0 0 50px; /* Adjust the width as needed */
 }
 
-.colorFilter .Color-excluded {
+.colorNeutral {
+  background-color: transparent;
+}
+
+.colorExcluded {
     outline: 25px solid rgba(63, 41, 15, 0.616) !important;
 	outline-offset: -25px;
     overflow: hidden;
@@ -98,7 +102,7 @@
 
 }
 
-.colorFilter .Color-included {
+.colorIncluded {
   background-color: rgb(140, 202, 223); /* Example background color */
 }
   

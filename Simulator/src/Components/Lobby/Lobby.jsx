@@ -1,6 +1,7 @@
 
 import { sendMessage } from '../../Services'
 import { LobbyFailed, LobbySuccess, DraftStarted } from '../'
+import styles from './Lobby.module.css'
 
 
 export const Lobby = ({ connection, numberOfPlayers, owner, token, playersInLobby, lobbyMode, playerList, setMode }) => {
@@ -14,7 +15,7 @@ export const Lobby = ({ connection, numberOfPlayers, owner, token, playersInLobb
   }
 
   return (
-      <div className='main'>
+      <div className={styles.main}>
       {lobbyMode == "LobbySuccess" &&
        (<LobbySuccess 
           owner={owner}

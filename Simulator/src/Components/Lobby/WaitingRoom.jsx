@@ -1,4 +1,5 @@
 import { Button } from "../../"
+import styles from './Lobby.module.css'
 
 export const WaitingRoom = ({ setMode }) => {
 
@@ -7,8 +8,8 @@ export const WaitingRoom = ({ setMode }) => {
   }
 
   return (
-    <div className="main">
+    <div className={styles.main}>
       <h1>Waiting for server response</h1>
-      <Button name="Cancel" onClick={() => cancelSetup()} />
+      <Button name="Cancel" className="button" onClick={() => cancelSetup()} />
     </div>
 )}

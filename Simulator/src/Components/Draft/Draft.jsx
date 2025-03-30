@@ -2,6 +2,7 @@ import { Button, Image, DraftNavbar, DeckBuilder, SideBar } from "../";
 import { useState, useEffect } from "react";
 import { sendMessage, getSeatToken } from "../../Services";
 import './draft.css'
+import styles from './Draft.module.css'
 
 
 export const Draft = ({
@@ -198,16 +199,16 @@ export const Draft = ({
       return (
         <>
           {renderSideBar()}
-          <div className="main">
+          <div className={styles.main}>
             {renderNavbar()}
             <>
               {renderPickButtons()}
-              <table className="pack">
+              <table className={styles.pack}>
                 <tbody>
                   {pack.reduce((rows, card, index) => {
                     if (index % 5 === 0) rows.push([]);
                     rows[rows.length - 1].push(
-                      <td key={index} className={pick === card.id ? ("selected") : ("card")} onClick={() => setPick(card.id)}>
+                      <td key={index} className={pick === card.id ? (styles.selected) : (styles.card)} onClick={() => setPick(card.id)}>
                         <Image imageUrl={card.image_url} backsideUrl={card.backside_image_url} />
                       </td>
                     );
@@ -225,10 +226,14 @@ export const Draft = ({
       return (
         <>
           {renderSideBar()}
-          <div className="main">
+          <div className={styles.main}>
             {renderNavbar()}
-            <h1>Draft</h1>
-            <h2>Waiting for pack</h2>
+            <div className={styles.noPackHeader}>
+              <h1>Draft</h1>
+            </div>
+            <div className={styles.noPack}>
+              <h2>Waiting for pack</h2>
+            </div>
           </div>
         </>
       );
@@ -237,7 +242,7 @@ export const Draft = ({
     return (
       <>
         {renderSideBar()}
-        <div className="main">
+        <div className={styles.main}>
           {renderNavbar()}
           <DeckBuilder
             main={main}

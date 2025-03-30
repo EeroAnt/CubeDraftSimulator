@@ -24,9 +24,7 @@ export function DraftNavbar({ onClickNavbar, buttonName, queues, statsButton }) 
     <div className={styles.navbar}>
       <div className={styles.leftSection}>
         {statsButton ? (
-          <button className={styles.navButton} onClick={onClickNavbar}>
-            {buttonName}
-          </button>
+          <Button name={buttonName} className="button" onClick={onClickNavbar} />
         ) : null}
       </div>
       <div className={styles.centerSection}>
@@ -90,10 +88,10 @@ export function PostDraftNavBar({ owner, connection, token, basicLands, setBasic
 
   return (<div className={styles.navbar}>
     <div className={styles.leftSection}>
-      <Button name="Copy Deck to Clipboard" className={styles.navButton} onClick={() => copyDeckToClipBoard()} />
+      <Button name="Copy Deck to Clipboard" className="button" onClick={() => copyDeckToClipBoard()} />
       {owner === "T" && draftDataDecision ? (<>
-        <Button name="Validate draft data" className={styles.navButton} onClick={() => handleDataDecision(true)} />
-        <Button name="Ignore draft data" className={styles.navButton} onClick={() => handleDataDecision(false)} />
+        <Button name="Validate draft data" className="button" onClick={() => handleDataDecision(true)} />
+        <Button name="Ignore draft data" className="button" onClick={() => handleDataDecision(false)} />
       </>) : ""}
     </div>
     <div className={styles.landSection}>
