@@ -88,6 +88,11 @@ export const useGameState = () => {
 
   useEffect(() => {
     if (decryptedMessage) {
+      console.log(decryptedMessage)
+      if (decryptedMessage.status === "No Draft") {
+        alert("No draft found")
+        setMode("Home")
+      }
       // console.log(decryptedMessage) // Uncomment this line to view messages, it messes up some rendering tho.
       if (mode === "Home") {
         if (homeMode === "Join") {
@@ -130,7 +135,7 @@ export const useGameState = () => {
       if (mode === "Draft") {
         if (decryptedMessage.type === "Round") {
           setRound(decryptedMessage.round)
-          } 
+        }
         if (decryptedMessage.type === "Seat token") {
           setSeatToken(decryptedMessage.seat)
         }
@@ -149,7 +154,7 @@ export const useGameState = () => {
           setCommanders(decryptedMessage.commanders)
 
         } else if (decryptedMessage.type === "Canal Dredger") {
-          
+
           setCanalDredgerOwner(decryptedMessage.owner)
           setCanalDredger("T")
 
@@ -169,6 +174,10 @@ export const useGameState = () => {
           setSide(decryptedMessage.side)
           setCommanders(decryptedMessage.commanders)
         }
+      }
+      if (decryptedMessage.type === "Deckbuilding") {
+        console.log("here")
+        setMode("Post Draft")
       }
     }
   }, [decryptedMessage])
