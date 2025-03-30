@@ -176,7 +176,6 @@ export const useGameState = () => {
         }
       }
       if (decryptedMessage.type === "Deckbuilding") {
-        console.log("here")
         setMode("Post Draft")
       }
     }
