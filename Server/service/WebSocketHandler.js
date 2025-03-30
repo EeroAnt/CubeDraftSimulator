@@ -18,7 +18,7 @@ export const handleClose = (uuid) => {
   if (users[uuid].token && drafts[users[uuid].token]) {
     broadcastUserlist(drafts[users[uuid].token]);
     if (Object.keys(drafts).includes(users[uuid].token)) {
-      console.log('deleting');
+      console.log('deleting player from the draft');
       drafts[users[uuid].token].players =
         drafts[users[uuid].token].players.filter(
           player => player.uuid !== uuid
@@ -35,7 +35,7 @@ export const handleClose = (uuid) => {
 };
 
 export async function handleMessage(message, uuid) {
- 
+
   const decryptedMessage = decrypt(message.toString());
   const data = JSON.parse(decryptedMessage);
 
@@ -62,18 +62,24 @@ export async function handleMessage(message, uuid) {
     joinLobby(data, uuid);
 
   } else if (data.type === "Rejoin Lobby") {
+    if (data.token && drafts[data.token]) {
 
-    users[uuid].username = data.username;
-    users[uuid].token = data.token;
-    console.log("Login: " + data.username);
-    joinLobby(data, uuid);
+
+      users[uuid].username = data.username;
+      users[uuid].token = data.token;
+      console.log("Login: " + data.username);
+      joinLobby(data, uuid);
+    } else {
+      const message = { status: 'No Draft' };
+      queueMessage(uuid, message);
+    }
 
   } else if (data.type === 'Start Draft') {
 
     startDraft(data);
 
   } else if (data.type === 'Pick') {
-    
+
     const draft = drafts[data.token];
     const userSeat = users[uuid].seat;
 
@@ -106,11 +112,16 @@ export async function handleMessage(message, uuid) {
 
   } else if (data.type === 'Rejoin Draft') {
 
-    users[uuid].username = data.username;
-    users[uuid].token = "";
-    console.log("Login: " + data.username);
+    if (data.token && drafts[data.token]) {
+      users[uuid].username = data.username;
+      users[uuid].token = "";
+      console.log("Login: " + data.username);
 
-    rejoinDraft(data, uuid);
+      rejoinDraft(data, uuid);
+    } else {
+      const message = { status: 'No Draft' };
+      queueMessage(uuid, message);
+    }
 
   } else if (data.type === 'Draft Data Decision') {
     if (data.decision) {
