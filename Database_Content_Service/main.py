@@ -1,5 +1,10 @@
 from operations.main_ui  import main_ui
-from operations.database_connection import connect_to_db, close_db
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "SharedDBConnection")))
+
+from database_connection import connect_to_db, close_db
 
 def main():
 	cursor, connection = connect_to_db()
