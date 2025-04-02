@@ -8,6 +8,7 @@ export const NavBar = ({
   setColorIdState,
   setDraftPoolState,
   setMode,
+  data,
 }) => {
   const colorIdItems = ["Single Color", "Two Color", "Three Color"];
   const draftPools = [
@@ -62,6 +63,12 @@ export const NavBar = ({
       >
         <div className="text-white text-lg font-bold" key="NavBarHeader">
           CubeStats
+          <button
+            onClick={() => console.log(data)}
+            className="bg-blue-500 text-white px-4 py-2 rounded mt-4"
+          >
+            thing
+          </button>
         </div>
         <div className="space-x-4" key="NavBarButtons">
           {Button("Home", OnClickHome)}
