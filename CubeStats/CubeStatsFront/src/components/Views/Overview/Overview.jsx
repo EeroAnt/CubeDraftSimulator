@@ -1,22 +1,28 @@
-import { useEffect, useState } from "react";
+import { Chart } from '../../Charts'
 
-export const Overview = () => {
-  const [message, setMessage] = useState("");
-  const baseUrl = import.meta.env.VITE_API_BASE_URL;
-
-  useEffect(() => {
-    fetch(baseUrl + "/api/data")
-      .then((res) => res.json())
-      .then((data) => setMessage(data))
-      .catch((err) => console.error("Virhe haettaessa dataa:", err));
-  }, []);
+export const Overview = ({ data }) => {
 
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center">
-      <h1 className="text-4xl font-bold text-blue-600">Overview</h1>
-      <button className="bg-blue-500 text-white px-4 py-2 rounded mt-4" onClick={() => console.log(message)}>
-        Click Me
-      </button>
+    <div className="min-h-screen bg-gray-100 flex flex flex-col items-center">
+      <h1 className="text-4xl font-bold text-blue-600 mt-6">Overview</h1>
+      {data && (
+        <>
+          <div className="w-full max-w-4xl p-6 bg-white shadow-md rounded-lg mt-6">
+            <h2 className="text-2xl font-semibold mb-4">Single Color Average Picks</h2>
+            <Chart data={data.single_color_avg_picks} />
+          </div>
+
+          <div className="w-full max-w-4xl p-6 bg-white shadow-md rounded-lg mt-6">
+            <h2 className="text-2xl font-semibold mb-4">Two Color Average Picks</h2>
+            <Chart data={data.single_color_avg_picks} />
+          </div>
+
+          <div className="w-full max-w-4xl p-6 bg-white shadow-md rounded-lg mt-6">
+            <h2 className="text-2xl font-semibold mb-4">Three Color Average Picks</h2>
+            <Chart data={data.single_color_avg_picks} />
+          </div>
+        </>
+      )}
     </div>
   );
 };
