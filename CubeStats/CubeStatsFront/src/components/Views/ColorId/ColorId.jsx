@@ -1,4 +1,4 @@
-import { Button, TextFilter, TwoThumbSlider } from "../../";
+import { Button, TextFilter, TwoThumbSlider, CardView } from "../../";
 import { useState, useEffect } from "react";
 
 export const ColorId = ({ data, colorIdState }) => {
@@ -83,6 +83,7 @@ export const ColorId = ({ data, colorIdState }) => {
               max={20}
               maxValueSetter={setMaxManaValue}
             />
+            <CardView cards={data.cards} />
           </div>
         </>
       )}

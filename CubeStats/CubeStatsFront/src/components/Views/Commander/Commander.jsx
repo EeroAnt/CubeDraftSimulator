@@ -1,4 +1,4 @@
-import { TextFilter, TwoThumbSlider } from "../../Filters";
+import { TextFilter, TwoThumbSlider, CardView } from "../../";
 import { useState } from "react";
 
 export const Commander = ({ data }) => {
@@ -32,6 +32,7 @@ export const Commander = ({ data }) => {
               max={20}
               maxValueSetter={setMaxManaValue}
             />
+            <CardView cards={data.cards} />
           </div>
         </>
       )}
