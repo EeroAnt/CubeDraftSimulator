@@ -2,6 +2,7 @@ import { Button, TextFilter, TwoThumbSlider, CardView } from "../../";
 import { useState, useEffect } from "react";
 
 export const ColorId = ({ data, colorIdState }) => {
+  const [cards, setCards] = useState([]);
   const colorIdSets = {
     "Single Color": ["W", "U", "B", "R", "G", "C"],
     "Two Color": ["GW", "RU", "BR", "RW", "BG", "BW", "GU", "UW", "GR", "BU"],
@@ -25,6 +26,12 @@ export const ColorId = ({ data, colorIdState }) => {
   const [minManaValue, setMinManaValue] = useState(0);
   const [maxManaValue, setMaxManaValue] = useState(20);
 
+  const [unfilteredCards, setUnfilteredCards] = useState(
+    data.cards.filter((card) =>
+      colorIdSets[colorIdState].includes(card.color_identity),
+    ),
+  );
+
   const onClickColorId = (color) => {
     if (colorIds.includes(color)) {
       setColorIds(colorIds.filter((id) => id !== color));
@@ -34,13 +41,52 @@ export const ColorId = ({ data, colorIdState }) => {
   };
 
   useEffect(() => {
-    setColorIds(colorIdSets[colorIdState]);
+    const newState = colorIdState;
+    setColorIds(colorIdSets[newState]);
     setNameFilter("");
     setOracleFilter("");
     setTypeFilter("");
     setMinManaValue(0);
     setMaxManaValue(20);
+    setUnfilteredCards(
+      data.cards.filter((card) =>
+        colorIdSets[newState].includes(card.color_identity),
+      ),
+    );
   }, [colorIdState]);
+
+  useEffect(() => {
+    const filteredCards = unfilteredCards.filter((card) => {
+      const matchesName = card.name
+        .toLowerCase()
+        .includes(nameFilter.toLowerCase());
+      const matchesOracle = card.oracle_text
+        .toLowerCase()
+        .includes(oracleFilter.toLowerCase());
+      const matchesType = card.types
+        .toLowerCase()
+        .includes(typeFilter.toLowerCase());
+      const matchesManaValue =
+        card.mv >= minManaValue && card.mv <= maxManaValue;
+      const matchesColorId = colorIds.includes(card.color_identity);
+      return (
+        matchesName &&
+        matchesOracle &&
+        matchesType &&
+        matchesManaValue &&
+        matchesColorId
+      );
+    });
+    setCards(filteredCards);
+  }, [
+    nameFilter,
+    oracleFilter,
+    typeFilter,
+    minManaValue,
+    maxManaValue,
+    unfilteredCards,
+    colorIds,
+  ]);
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center">
@@ -83,7 +129,7 @@ export const ColorId = ({ data, colorIdState }) => {
               max={20}
               maxValueSetter={setMaxManaValue}
             />
-            <CardView cards={data.cards} />
+            <CardView cards={cards} />
           </div>
         </>
       )}
