@@ -36,7 +36,7 @@ Development is ongoing. I've built a text-based interface for managing the datab
 ### TODO
 
  - setup local PostgreSQL to listen the app
- - a web page for statistics
+ - a web page for statistics test
  - update readme
 
 
