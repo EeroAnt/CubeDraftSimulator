@@ -35,6 +35,7 @@ function App() {
         setShowColorIdMenu={setShowColorIdMenu}
         setColorIdState={setColorIdState}
         setDraftPoolState={setDraftPoolsState}
+        mode={mode}
         setMode={setMode}
         data={data}
       />
@@ -49,7 +50,7 @@ function App() {
       ) : null}
       {mode === "draftPools" && !loading ? (
         <DraftPool data={data} draftPoolsState={draftPoolsState} />
-        ) : null}
+      ) : null}
       {mode === "commanders" && !loading ? <Commander data={data} /> : null}
     </>
   );

@@ -1,29 +1,36 @@
 import "./Buttons.css";
 
-export function Button(title, onClick) {
+export const Button = ({ title, onClick, modeType, modeTarget }) => {
+  const className =
+    modeType === modeTarget
+      ? "bg-gray-500 text-white px-4 py-2 rounded"
+      : "bg-blue-500 text-white px-4 py-2 rounded";
   return (
-    <button
-      onClick={onClick}
-      className="bg-blue-500 text-white px-4 py-2 rounded"
-    >
+    <button onClick={onClick} className={className}>
       {title}
     </button>
   );
-}
+};
 
-export function ButtonWithDropdownMenu(
+export const ButtonWithDropdownMenu = ({
   title,
   items,
   onClick,
   state,
   onClickChild,
-) {
+  modeType,
+  modeTarget,
+}) => {
+  const className =
+    modeType === modeTarget
+      ? "bg-gray-500 text-white px-4 py-2 rounded h-10 flex items-center justify-center gap-1"
+      : "bg-blue-500 text-white px-4 py-2 rounded h-10 flex items-center justify-center gap-1";
   return (
     <div className="relative inline-block text-left">
       <div>
         <button
           type="button"
-          className="bg-blue-500 text-white px-4 py-2 rounded h-10 flex items-center justify-center gap-1"
+          className={className}
           id="menu-button"
           aria-expanded="true"
           aria-haspopup="true"
@@ -69,4 +76,4 @@ export function ButtonWithDropdownMenu(
       )}
     </div>
   );
-}
+};

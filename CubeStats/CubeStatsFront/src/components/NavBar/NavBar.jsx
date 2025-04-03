@@ -7,6 +7,7 @@ export const NavBar = ({
   setShowColorIdMenu,
   setColorIdState,
   setDraftPoolState,
+  mode,
   setMode,
   data,
 }) => {
@@ -44,16 +45,17 @@ export const NavBar = ({
     setShowDraftPools(false);
   };
 
-  function OnClickHome() {
+  const onClickHome = () => {
     setMode("home");
     setShowDraftPools(false);
     setShowColorIdMenu(false);
-  }
-  function OnClickCommanders() {
+  };
+
+  const onClickCommanders = () => {
     setMode("commanders");
     setShowDraftPools(false);
     setShowColorIdMenu(false);
-  }
+  };
 
   return (
     <nav className="bg-gray-800 p-4" key="NavBar">
@@ -71,22 +73,37 @@ export const NavBar = ({
           </button>
         </div>
         <div className="space-x-4" key="NavBarButtons">
-          {Button("Home", OnClickHome)}
-          {ButtonWithDropdownMenu(
-            "Color Identity",
-            colorIdItems,
-            onClickColorId,
-            showColorIdMenu,
-            onClickColorIdChild,
-          )}
-          {ButtonWithDropdownMenu(
-            "Draft Pools",
-            draftPools,
-            onClickDraftPools,
-            showDraftPools,
-            onClickDraftPoolsChild,
-          )}
-          {Button("Commanders", OnClickCommanders)}
+          <Button
+            title={"Home"}
+            onClick={onClickHome}
+            modeType={mode}
+            modeTarget={"home"}
+          />
+          <ButtonWithDropdownMenu
+            title={"Color Identity"}
+            items={colorIdItems}
+            onClick={onClickColorId}
+            state={showColorIdMenu}
+            onClickChild={onClickColorIdChild}
+            modeType={mode}
+            modeTarget={"colorId"}
+          />
+          <ButtonWithDropdownMenu
+            title={"Draft Pools"}
+            items={draftPools}
+            onClick={onClickDraftPools}
+            state={showDraftPools}
+            onClickChild={onClickDraftPoolsChild}
+            modeType={mode}
+            modeTarget={"draftPools"}
+          />
+          <Button
+            title={"Commanders"}
+            onClick={onClickCommanders}
+            modeType={mode}
+            modeTarget={"commanders"}
+          />
+          {/* {Button("Commanders", OnClickCommanders)} */}
         </div>
       </div>
     </nav>
