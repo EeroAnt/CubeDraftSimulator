@@ -1,7 +1,11 @@
-import { Button } from "../../";
+import { Button, TextFilter } from "../../";
 import { useState } from "react";
 
 export const ColorId = ({ data, colorIdState }) => {
+  const [colorId, setColorId] = useState("");
+  const [oracleFilter, setOracleFilter] = useState("");
+  const [typeFilter, setTypeFilter] = useState("");
+  const [nameFilter, setNameFilter] = useState("");
   const colorIds = {
     "Single Color": ["W", "U", "B", "R", "G", "C"],
     "Two Color": ["GW", "RU", "BR", "RW", "BG", "BW", "GU", "UW", "GR", "BU"],
@@ -19,10 +23,9 @@ export const ColorId = ({ data, colorIdState }) => {
     ],
   };
 
-  const [colorId, setColorId] = useState("");
   const onClickColorId = (color) => {
     setColorId(color);
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center">
@@ -41,6 +44,21 @@ export const ColorId = ({ data, colorIdState }) => {
                 />
               ))}
             </div>
+            <TextFilter
+              name="Name"
+              value={nameFilter}
+              onChange={(e) => setNameFilter(e.target.value)}
+            />
+            <TextFilter
+              name="Text"
+              value={oracleFilter}
+              onChange={(e) => setOracleFilter(e.target.value)}
+            />
+            <TextFilter
+              name="Type"
+              value={typeFilter}
+              onChange={(e) => setTypeFilter(e.target.value)}
+            />
           </div>
         </>
       )}
