@@ -5,7 +5,7 @@ export const Commander = ({ data }) => {
   const [oracleFilter, setOracleFilter] = useState("");
   const [nameFilter, setNameFilter] = useState("");
   const [minManaValue, setMinManaValue] = useState(0);
-  const [maxManaValue, setMaxManaValue] = useState(10);
+  const [maxManaValue, setMaxManaValue] = useState(20);
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center">

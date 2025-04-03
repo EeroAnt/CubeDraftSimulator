@@ -1,5 +1,5 @@
 import { Button, TextFilter, TwoThumbSlider } from "../../";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const ColorId = ({ data, colorIdState }) => {
   const colorIdSets = {
@@ -23,7 +23,7 @@ export const ColorId = ({ data, colorIdState }) => {
   const [typeFilter, setTypeFilter] = useState("");
   const [nameFilter, setNameFilter] = useState("");
   const [minManaValue, setMinManaValue] = useState(0);
-  const [maxManaValue, setMaxManaValue] = useState(10);
+  const [maxManaValue, setMaxManaValue] = useState(20);
 
   const onClickColorId = (color) => {
     if (colorIds.includes(color)) {
@@ -32,6 +32,13 @@ export const ColorId = ({ data, colorIdState }) => {
       setColorIds(colorIds.concat(color));
     }
   };
+
+  useEffect(() => {
+    setColorIds(colorIdSets[colorIdState]);
+    setNameFilter("");
+    setOracleFilter("");
+    setTypeFilter("");
+  }, [colorIdState]);
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center">
