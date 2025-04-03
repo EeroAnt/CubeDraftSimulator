@@ -1,4 +1,5 @@
 from operations.json_writer import write_json
+from operations.get_test_cards import get_test_cards
 
 def generateDataCache(cursor):
   # Run the SQL queries to generate the data cache
@@ -13,20 +14,6 @@ def generateDataCache(cursor):
     "W": 6.6,
     "U": 7.2
   }
-  data["best_cards"] = {
-    "single_color": {
-      "R": ["Lightning Bolt", "Shock"],
-      "G": ["Llanowar Elves", "Giant Growth"],
-      "B": ["Doom Blade", "Thoughtseize"],
-      "W": ["Path to Exile", "Swords to Plowshares"],
-      "U": ["Counterspell", "Brainstorm"]
-    },
-    "multicolor": {
-      "RG": ["Stormbreath Dragon", "Scute Swarm"],
-      "UB": ["Snapcaster Mage", "Thoughtseize"],
-      "RW": ["Lightning Helix", "Boros Charm"],
-      "GU": ["Nissa, Who Shakes the World", "Hydroid Krasis"]
-    }
-  }
+  data["test_cards"] = get_test_cards(cursor)
   write_json(data)
   return
