@@ -1,4 +1,4 @@
-import { Button, TextFilter } from "../../";
+import { Button, TextFilter, TwoThumbSlider } from "../../";
 import { useState } from "react";
 
 export const ColorId = ({ data, colorIdState }) => {
@@ -6,6 +6,8 @@ export const ColorId = ({ data, colorIdState }) => {
   const [oracleFilter, setOracleFilter] = useState("");
   const [typeFilter, setTypeFilter] = useState("");
   const [nameFilter, setNameFilter] = useState("");
+  const [minManaValue, setMinManaValue] = useState(0);
+  const [maxManaValue, setMaxManaValue] = useState(10);
   const colorIds = {
     "Single Color": ["W", "U", "B", "R", "G", "C"],
     "Two Color": ["GW", "RU", "BR", "RW", "BG", "BW", "GU", "UW", "GR", "BU"],
@@ -58,6 +60,13 @@ export const ColorId = ({ data, colorIdState }) => {
               name="Type"
               value={typeFilter}
               onChange={(e) => setTypeFilter(e.target.value)}
+            />
+            <TwoThumbSlider
+              name="Mana Value"
+              min={0}
+              minValueSetter={setMinManaValue}
+              max={20}
+              maxValueSetter={setMaxManaValue}
             />
           </div>
         </>
