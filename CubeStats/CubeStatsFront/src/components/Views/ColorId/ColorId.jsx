@@ -2,13 +2,7 @@ import { Button, TextFilter, TwoThumbSlider } from "../../";
 import { useState } from "react";
 
 export const ColorId = ({ data, colorIdState }) => {
-  const [colorId, setColorId] = useState("");
-  const [oracleFilter, setOracleFilter] = useState("");
-  const [typeFilter, setTypeFilter] = useState("");
-  const [nameFilter, setNameFilter] = useState("");
-  const [minManaValue, setMinManaValue] = useState(0);
-  const [maxManaValue, setMaxManaValue] = useState(10);
-  const colorIds = {
+  const colorIdSets = {
     "Single Color": ["W", "U", "B", "R", "G", "C"],
     "Two Color": ["GW", "RU", "BR", "RW", "BG", "BW", "GU", "UW", "GR", "BU"],
     "Three Color": [
@@ -24,9 +18,19 @@ export const ColorId = ({ data, colorIdState }) => {
       "GUW",
     ],
   };
+  const [colorIds, setColorIds] = useState(colorIdSets[colorIdState]);
+  const [oracleFilter, setOracleFilter] = useState("");
+  const [typeFilter, setTypeFilter] = useState("");
+  const [nameFilter, setNameFilter] = useState("");
+  const [minManaValue, setMinManaValue] = useState(0);
+  const [maxManaValue, setMaxManaValue] = useState(10);
 
   const onClickColorId = (color) => {
-    setColorId(color);
+    if (colorIds.includes(color)) {
+      setColorIds(colorIds.filter((id) => id !== color));
+    } else {
+      setColorIds(colorIds.concat(color));
+    }
   };
 
   return (
@@ -36,31 +40,33 @@ export const ColorId = ({ data, colorIdState }) => {
         <>
           <div className="w-full max-w-4xl p-6 bg-white shadow-md rounded-lg mt-6">
             <div className="flex flex-wrap gap-2">
-              {colorIds[colorIdState]?.map((color) => (
+              {colorIdSets[colorIdState]?.map((color) => (
                 <Button
                   key={color}
                   title={color}
                   onClick={() => onClickColorId(color)}
-                  modeType={colorId}
+                  modeType={colorIds}
                   modeTarget={color}
                 />
               ))}
             </div>
-            <TextFilter
-              name="Name"
-              value={nameFilter}
-              onChange={(e) => setNameFilter(e.target.value)}
-            />
-            <TextFilter
-              name="Text"
-              value={oracleFilter}
-              onChange={(e) => setOracleFilter(e.target.value)}
-            />
-            <TextFilter
-              name="Type"
-              value={typeFilter}
-              onChange={(e) => setTypeFilter(e.target.value)}
-            />
+            <div className="flex flex-row gap-4">
+              <TextFilter
+                name="Name"
+                value={nameFilter}
+                onChange={(e) => setNameFilter(e.target.value)}
+              />
+              <TextFilter
+                name="Text"
+                value={oracleFilter}
+                onChange={(e) => setOracleFilter(e.target.value)}
+              />
+              <TextFilter
+                name="Type"
+                value={typeFilter}
+                onChange={(e) => setTypeFilter(e.target.value)}
+              />
+            </div>
             <TwoThumbSlider
               name="Mana Value"
               min={0}
