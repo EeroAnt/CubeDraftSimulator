@@ -38,6 +38,8 @@ export const ColorId = ({ data, colorIdState }) => {
     setNameFilter("");
     setOracleFilter("");
     setTypeFilter("");
+    setMinManaValue(0);
+    setMaxManaValue(20);
   }, [colorIdState]);
 
   return (
