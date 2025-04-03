@@ -1,12 +1,30 @@
 import { TextFilter, TwoThumbSlider, CardView } from "../../";
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 
 export const DraftPool = ({ data, draftPoolsState }) => {
+  const [cards, setCards] = useState([]);
   const [oracleFilter, setOracleFilter] = useState("");
   const [nameFilter, setNameFilter] = useState("");
   const [typeFilter, setTypeFilter] = useState("");
   const [minManaValue, setMinManaValue] = useState(0);
   const [maxManaValue, setMaxManaValue] = useState(20);
+
+  const draftPools = {
+    Multicolor: "M",
+    Land: "L",
+    Colorless: "C",
+    White: "W",
+    Blue: "U",
+    Black: "B",
+    Red: "R",
+    Green: "G",
+  };
+
+  const [unfilteredCards, setUnfilteredCards] = useState(
+    data.cards.filter(
+      (card) => card.draft_pool === draftPools[draftPoolsState],
+    ),
+  );
 
   useEffect(() => {
     setNameFilter("");
@@ -14,7 +32,37 @@ export const DraftPool = ({ data, draftPoolsState }) => {
     setTypeFilter("");
     setMinManaValue(0);
     setMaxManaValue(20);
+    setUnfilteredCards(
+      data.cards.filter(
+        (card) => card.draft_pool === draftPools[draftPoolsState],
+      ),
+    );
   }, [draftPoolsState]);
+
+  useEffect(() => {
+    const filteredCards = unfilteredCards.filter((card) => {
+      const matchesName = card.name
+        .toLowerCase()
+        .includes(nameFilter.toLowerCase());
+      const matchesOracle = card.oracle_text
+        .toLowerCase()
+        .includes(oracleFilter.toLowerCase());
+      const matchesType = card.types
+        .toLowerCase()
+        .includes(typeFilter.toLowerCase());
+      const matchesManaValue =
+        card.mv >= minManaValue && card.mv <= maxManaValue;
+      return matchesName && matchesOracle && matchesType && matchesManaValue;
+    });
+    setCards(filteredCards);
+  }, [
+    unfilteredCards,
+    nameFilter,
+    oracleFilter,
+    typeFilter,
+    minManaValue,
+    maxManaValue,
+  ]);
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center">
@@ -50,8 +98,9 @@ export const DraftPool = ({ data, draftPoolsState }) => {
                 minValueSetter={setMinManaValue}
                 max={20}
                 maxValueSetter={setMaxManaValue}
-              />)}
-              <CardView cards={data.cards} />
+              />
+            )}
+            <CardView cards={cards} />
           </div>
         </>
       )}
