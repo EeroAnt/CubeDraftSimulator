@@ -14,6 +14,6 @@ def generateDataCache(cursor):
     "W": 6.6,
     "U": 7.2
   }
-  data["test_cards"] = get_test_cards(cursor)
+  data["cards"] = get_test_cards(cursor)
   write_json(data)
   return
