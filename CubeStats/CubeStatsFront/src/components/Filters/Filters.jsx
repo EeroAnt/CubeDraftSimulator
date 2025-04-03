@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 
 export const TextFilter = ({ name, value, onChange }) => {
   return (
-    <div className="flex flex-col gap-2 mb-4">
+    <div className="flex flex-col gap-2 mb-4 flex-grow  ">
       <label className="text-gray-700 font-semibold">{name}</label>
       <input
         type="text"
