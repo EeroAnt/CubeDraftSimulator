@@ -1,3 +1,5 @@
+import "./Buttons.css";
+
 export function Button(title, onClick) {
   return (
     <button
@@ -21,7 +23,7 @@ export function ButtonWithDropdownMenu(
       <div>
         <button
           type="button"
-          className="bg-blue-500 text-white px-4 py-2 rounded"
+          className="bg-blue-500 text-white px-4 py-2 rounded h-10 flex items-center justify-center gap-1"
           id="menu-button"
           aria-expanded="true"
           aria-haspopup="true"
@@ -29,7 +31,7 @@ export function ButtonWithDropdownMenu(
         >
           {title}
           <svg
-            className="-mr-1 size-5 text-gray-400"
+            className="size-5 text-gray-400"
             viewBox="0 0 20 20"
             fill="currentColor"
             aria-hidden="true"
