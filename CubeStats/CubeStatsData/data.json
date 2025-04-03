@@ -47,5 +47,57 @@
         "Hydroid Krasis"
       ]
     }
-  }
+  },
+  "test cards": [
+    {
+      "id" : 886,
+      "name" : "Phthisis",
+      "mv" :	7,
+      "colorId":"B",
+      "type":	"Sorcery",
+      "oracle" : "Destroy target creature. Its controller loses life equal to its power plus its toughness.Suspend 5—{1}{B} (Rather than cast this card from your hand, you may pay {1}{B} and exile it with five time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, cast it without paying its mana cost.)",
+      "image_url" :	"https://cards.scryfall.io/normal/front/9/8/98b84356-fa97-4f61-bd84-e8efd7f46e38.jpg?1631586724",
+      "draft_pool":"B"
+    },
+    {
+      "id" : 887,
+      "name" : "Decree of Pain",
+      "mv" :	8,
+      "colorId":"B",
+      "type":	"Sorcery",
+      "oracle" : "Destroy all creatures. They can't be regenerated. Draw a card for each creature destroyed this way.\nCycling {3}{B}{B} ({3}{B}{B}, Discard this card: Draw a card.)\nWhen you cycle Decree of Pain, all creatures get -2/-2 until end of turn.",
+      "image_url" :	"https://cards.scryfall.io/normal/front/7/a/7af6702a-a7d9-4d86-8ba2-364417a31dbb.jpg?1689997017",
+      "draft_pool":"B"
+    },
+    {
+      "id" : 888,
+      "name" : "Nihil Spellbomb",
+      "mv" :	1,
+      "colorId":"B",
+      "type":	"Artifact",
+      "oracle" : "{T}, Sacrifice Nihil Spellbomb: Exile target player's graveyard.\nWhen Nihil Spellbomb is put into a graveyard from the battlefield, you may pay {B}. If you do, draw a card.",
+      "image_url" :	"https://cards.scryfall.io/normal/front/e/5/e5892a23-efae-4731-9b8f-41c87960fe93.jpg?1562442193",
+      "draft_pool":"B"
+    },
+    {
+      "id" : 889,
+      "name" : "Cranial Plating",
+      "mv" :	2,
+      "colorId":"B",
+      "type":	"Artifact — Equipment",
+      "oracle" : "Equipped creature gets +1/+0 for each artifact you control.\n{B}{B}: Attach Cranial Plating to target creature you control.\nEquip {1}",
+      "image_url" :	"https://cards.scryfall.io/normal/front/e/1/e1375f17-bc25-4a65-98b7-4785bbdbe974.jpg?1599953696",
+      "draft_pool":"B"
+    },
+    {
+      "id" : 890,
+      "name" : "Skeleton Shard",
+      "mv" :	3,
+      "colorId":"B",
+      "type":	"Artifact",
+      "oracle" : "{3}, {T} or {B}, {T}: Return target artifact creature card from your graveyard to your hand.",
+      "image_url" :	"https://cards.scryfall.io/normal/front/e/e/ee0d0da7-70de-4174-8f71-3e8861270dfb.jpg?1562843361",
+      "draft_pool":"B"
+    }
+  ]
 }
