@@ -1,10 +1,10 @@
 import { TextFilter, TwoThumbSlider, DraftedCardView } from "../../";
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 
 export const Commander = ({ data }) => {
   const [cards, setCards] = useState([]);
-  const [unfilteredCards, setUnfilteredCards] = useState(
-    data.cards.drafted_cards.filter((card) => card.is_commander === "true"),
+  const unfilteredCards = data.cards.drafted_cards.filter(
+    (card) => card.is_commander === "true",
   );
   const getMaxMV = (cards) => Math.max(...cards.map((card) => card.mv), 0);
   const getMinMV = (cards) => Math.min(...cards.map((card) => card.mv));
