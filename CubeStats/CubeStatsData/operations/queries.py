@@ -1,21 +1,52 @@
 def random_test_cards_query(amount):
-	sql = f"""
-  SELECT
+  sql = f"""
+SELECT
 	  *
-	FROM
+FROM
 	  cards
-	ORDER BY
+ORDER BY
 	  random()
-	LIMIT %s;""" % amount
-	return sql
+LIMIT %s;""" % amount
+  return sql
 
 def get_commander_ids_query():
   sql = """
-  select
+SELECT
     card_id
-  from
+FROM
     commanders;"""
   return sql
+
+def get_picks_query():
+  sql = """
+CREATE TEMP TABLE temp_picked_cards (
+    card_id INTEGER,
+    pick INTEGER
+);
+
+INSERT INTO temp_picked_cards (card_id, pick)
+SELECT 
+    UNNEST(ARRAY[pick1, pick2, pick3, pick4, pick5, pick6, pick7, pick8, pick9, pick10, 
+                 pick11, pick12, pick13, pick14, pick15]) AS card_id,
+    UNNEST(ARRAY[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]) AS pick
+FROM picked_packs;
+"""
+  return sql
+
+def get_commander_picks_query():
+	sql = """
+CREATE TEMP TABLE temp_picked_commanders (
+    card_id INTEGER,
+    pick INTEGER
+);
+
+INSERT INTO temp_picked_cards (card_id, pick)
+SELECT 
+    UNNEST(ARRAY[pick1, pick2, pick3, pick4, pick5]) AS card_id,
+    UNNEST(ARRAY[1,2,3,4,5]) AS pick
+FROM picked_commander_packs;
+"""
+	
 # From here on, the queries are using outdated schema and are not used anymore.
 def draft_pool_ratings_query():
 	sql = """
