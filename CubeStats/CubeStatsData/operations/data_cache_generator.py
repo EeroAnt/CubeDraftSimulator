@@ -1,8 +1,10 @@
 from operations.json_writer import write_json
 from operations.get_cards import generate_cards_object
+from operations.temp_tables_creator import create_temp_tables
 
 def generateDataCache(cursor):
   # Run the SQL queries to generate the data cache
+  create_temp_tables(cursor)
   # Store the results in a dictionary
   # Write the json file
   data = {}
@@ -17,3 +19,4 @@ def generateDataCache(cursor):
   data["cards"] = generate_cards_object(cursor)
   write_json(data)
   return
+
