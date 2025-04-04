@@ -41,7 +41,8 @@ SELECT
     c.draft_pool,
     c.color_identity
 FROM expanded_picks e
-LEFT JOIN cards c ON e.card_id = c.id;
+LEFT JOIN cards c ON e.card_id = c.id
+WHERE c.id IS NOT NULL;
 """
   return sql
 
@@ -66,7 +67,8 @@ SELECT
     e.pick,
     c.color_identity
 FROM expanded_picks e
-LEFT JOIN cards c ON e.card_id = c.id;
+LEFT JOIN cards c ON e.card_id = c.id
+WHERE c.id IS NOT NULL;
 """
   return sql
 
@@ -74,7 +76,8 @@ def get_pick_rates_query():
   sql = """
 SELECT
     card_id,
-		AVG(pick)
+		AVG(pick) as avg_pick,
+    COUNT(*) as amount_of_picks
 FROM
     temp_picked_cards
 GROUP BY
@@ -86,132 +89,64 @@ def get_commander_pick_rates_query():
   sql = """
 SELECT
     card_id,
-		AVG(pick)
+		AVG(pick) as avg_pick,
+    COUNT(*) as amount_of_picks
 FROM
     temp_picked_commanders
 GROUP BY
     card_id;
 """
   return sql
-# From here on, the queries are using outdated schema and are not used anymore.
-def draft_pool_ratings_query():
-	sql = """
-	select
-	  avg(pick_number)::numeric(10,2),
-	  draft_pool
-	from
-	  picks
-	left join
-	  cards
-	on
-	  card_id=cards.id
-	group by
-	  draft_pool;"""
-	return sql
 
-def bottom_cards_query(pool, amount):
-	sql = f"""
-	select
-	  name,
-	  image_url,
-	  backside_image_url,
-	  avg(pick_number)::numeric(10,2) as avg_pick,
-	  count(*) as amount_of_picks
-	from
-	  picks
-	left join
-	  cards
-	on
-	  card_id=cards.id
-	where 
-	  draft_pool like '{pool}'
-	group by
-	  name,
-	  image_url,
-	  backside_image_url
-	HAVING
-	  avg(pick_number) IS NOT NULL
-	order by
-	  avg_pick desc
-	limit
-	  {amount};"""
-	return sql
+def get_average_picks_by_color_identity_query():
+  sql = """
+SELECT
+    color_identity,
+    AVG(pick) AS avg_pick
+FROM
+    temp_picked_cards
+GROUP BY
+    color_identity;
+"""
+  return sql
 
-def bottom_cards_from_multi_query(color_identity, amount):
-	sql = f"""
-	select
-	  name,
-	  image_url,
-	  backside_image_url,
-	  avg(pick_number)::numeric(10,2) as avg_pick,
-	  count(*) as amount_of_picks
-	from
-	  picks
-	left join
-	  cards
-	on
-	  card_id=cards.id
-	where 
-	  color_identity like '{color_identity}'
-	  and
-	  draft_pool like 'M'
-	group by
-	  name,
-	  image_url,
-	  backside_image_url
-	HAVING
-	  avg(pick_number) IS NOT NULL
-	order by
-	  avg_pick desc
-	limit
-	  {amount};"""
-	return sql
+def get_average_picks_by_draft_pool_query():
+  sql = """
+SELECT
+    draft_pool,
+    AVG(pick) AS avg_pick
+FROM
+    temp_picked_cards
+GROUP BY
+    draft_pool;
+"""
+  return sql
 
-def multipool_distribution_query():
-	sql = """
-	select
-	  count(*) as amount,
-	  color_identity
-	from
-	  cards
-	where
-	  draft_pool like 'M'
-	group by
-	  color_identity
-	order by
-	  amount desc;"""
-	return sql
+def get_color_distribution_of_multi_query():
+  sql = """
+SELECT
+    color_identity,
+    COUNT(*) AS amount_of_cards
+FROM
+    cards
+WHERE
+    draft_pool = 'M'
+GROUP BY
+    color_identity;
+"""
+  return sql
 
-def commander_color_distribution_query():
-	sql = """
-	select
-	  count(*) as amount,
-	  color_identity
-	from
-	  commanders
-	left join
-	  cards
-	on
-	  cards.id=card_id
-	where
-	  draft_pool like 'M'
-	group by
-	  color_identity
-	order by
-	  amount desc;"""
-	return sql
-
-def commanders_query():
-	sql = """
-	select
-	  name,
-	  color_identity,
-	  image_url,
-	  backside_image_url
-	from
-	  commanders
-	left join
-	  cards
-	on
-	  cards.id=card_id;"""
-	return sql
+def get_color_distribution_of_commander_query():
+  sql = """
+SELECT
+    c.color_identity,
+    COUNT(*) AS amount_of_cards
+FROM
+    commanders co
+LEFT JOIN cards c ON c.id = co.card_id    
+WHERE
+    c.id IS NOT NULL
+GROUP BY
+    color_identity;
+"""
+  return sql
