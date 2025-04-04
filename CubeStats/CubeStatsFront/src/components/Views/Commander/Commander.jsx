@@ -1,4 +1,4 @@
-import { TextFilter, TwoThumbSlider, DraftedCardView } from "../../";
+import { TextFilter, TwoThumbSlider, DraftedCardView, Button } from "../../";
 import { useState, useEffect } from "react";
 
 export const Commander = ({ data }) => {
@@ -6,11 +6,15 @@ export const Commander = ({ data }) => {
   const unfilteredCards = data.cards.drafted_cards.filter(
     (card) => card.is_commander === "true",
   );
+  const colorIdSet = [
+    ...new Set(unfilteredCards.map((card) => card.color_identity)),
+  ];
   const getMaxMV = (cards) => Math.max(...cards.map((card) => card.mv), 0);
   const getMinMV = (cards) => Math.min(...cards.map((card) => card.mv));
 
   const [oracleFilter, setOracleFilter] = useState("");
   const [nameFilter, setNameFilter] = useState("");
+  const [colorIds, setColorIds] = useState(colorIdSet);
   const [minManaValue, setMinManaValue] = useState(getMinMV(unfilteredCards));
   const [maxManaValue, setMaxManaValue] = useState(getMaxMV(unfilteredCards));
   const minDomainValue = getMinMV(unfilteredCards);
@@ -26,10 +30,19 @@ export const Commander = ({ data }) => {
         .includes(oracleFilter.toLowerCase());
       const matchesManaValue =
         card.mv >= minManaValue && card.mv <= maxManaValue;
-      return matchesName && matchesOracle && matchesManaValue;
+      const matchesColorId = colorIds.includes(card.color_identity);
+      return matchesName && matchesOracle && matchesManaValue && matchesColorId;
     });
     setCards(filteredCards);
-  }, [unfilteredCards, nameFilter, oracleFilter, minManaValue, maxManaValue]);
+  }, [nameFilter, oracleFilter, minManaValue, maxManaValue, colorIds]);
+
+  const onClickColorId = (color) => {
+    if (colorIds.includes(color)) {
+      setColorIds(colorIds.filter((id) => id !== color));
+    } else {
+      setColorIds(colorIds.concat(color));
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center">
@@ -37,6 +50,17 @@ export const Commander = ({ data }) => {
       {data && (
         <>
           <div className="w-full max-w-4xl p-6 bg-white shadow-md rounded-lg mt-6">
+            <div className="flex flex-wrap gap-2">
+              {colorIdSet?.map((color) => (
+                <Button
+                  key={color}
+                  title={color}
+                  onClick={() => onClickColorId(color)}
+                  modeType={colorIds}
+                  modeTarget={color}
+                />
+              ))}
+            </div>
             <div className="flex flex-row gap-4">
               <TextFilter
                 name="Name"
@@ -56,7 +80,7 @@ export const Commander = ({ data }) => {
               max={maxDomainValue}
               maxValueSetter={setMaxManaValue}
             />
-            <DraftedCardView cards={cards} sortKey={"avg_commander_pick"}/>
+            <DraftedCardView cards={cards} sortKey={"avg_commander_pick"} />
           </div>
         </>
       )}
