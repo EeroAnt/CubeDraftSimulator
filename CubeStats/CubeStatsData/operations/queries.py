@@ -73,7 +73,7 @@ WHERE c.id IS NOT NULL;
 GET_CARDS_QUERY = """
 SELECT
     *
-FROMYe
+FROM
     cards;
 """
 
