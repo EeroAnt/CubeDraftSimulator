@@ -21,15 +21,27 @@ def get_picks_query():
   sql = """
 CREATE TEMP TABLE temp_picked_cards (
     card_id INTEGER,
-    pick INTEGER
+    pick INTEGER,
+    draft_pool TEXT,
+    color_identity TEXT
 );
 
-INSERT INTO temp_picked_cards (card_id, pick)
+INSERT INTO temp_picked_cards (card_id, pick, draft_pool, color_identity)
+WITH expanded_picks AS (
+    SELECT 
+        id AS pack_id,  -- Keep track of the original row from picked_packs
+        UNNEST(ARRAY[pick1, pick2, pick3, pick4, pick5, pick6, pick7, pick8, pick9, pick10, 
+                     pick11, pick12, pick13, pick14, pick15]) AS card_id,
+        UNNEST(ARRAY[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]) AS pick
+    FROM picked_packs
+)
 SELECT 
-    UNNEST(ARRAY[pick1, pick2, pick3, pick4, pick5, pick6, pick7, pick8, pick9, pick10, 
-                 pick11, pick12, pick13, pick14, pick15]) AS card_id,
-    UNNEST(ARRAY[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]) AS pick
-FROM picked_packs;
+    e.card_id,
+    e.pick,
+    c.draft_pool,
+    c.color_identity
+FROM expanded_picks e
+LEFT JOIN cards c ON e.card_id = c.id;
 """
   return sql
 
@@ -37,14 +49,24 @@ def get_commander_picks_query():
   sql = """
 CREATE TEMP TABLE temp_picked_commanders (
     card_id INTEGER,
-    pick INTEGER
+    pick INTEGER,
+    color_identity TEXT
 );
 
-INSERT INTO temp_picked_commanders (card_id, pick)
+INSERT INTO temp_picked_commanders (card_id, pick, color_identity)
+WITH expanded_picks AS (
+    SELECT 
+        id AS pack_id,  -- Keep track of the original row from picked_commander_packs
+        UNNEST(ARRAY[pick1, pick2, pick3, pick4, pick5]) AS card_id,
+        UNNEST(ARRAY[1,2,3,4,5]) AS pick
+    FROM picked_commander_packs
+)
 SELECT 
-    UNNEST(ARRAY[pick1, pick2, pick3, pick4, pick5]) AS card_id,
-    UNNEST(ARRAY[1,2,3,4,5]) AS pick
-FROM picked_commander_packs;
+    e.card_id,
+    e.pick,
+    c.color_identity
+FROM expanded_picks e
+LEFT JOIN cards c ON e.card_id = c.id;
 """
   return sql
 
