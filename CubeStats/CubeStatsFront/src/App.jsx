@@ -1,5 +1,5 @@
 import "./App.css";
-import { NavBar, Overview, Commander, DraftPool, ColorId } from "./components/";
+import { NavBar, Overview, Commander, DraftPool, ColorId, NotDrafted } from "./components/";
 import { useState, useEffect } from "react";
 
 function App() {
@@ -52,6 +52,7 @@ function App() {
         <DraftPool data={data} draftPoolsState={draftPoolsState} />
       ) : null}
       {mode === "commanders" && !loading ? <Commander data={data} /> : null}
+      {mode === "notDrafted" && !loading ? <NotDrafted data={data} /> : null}
     </>
   );
 }

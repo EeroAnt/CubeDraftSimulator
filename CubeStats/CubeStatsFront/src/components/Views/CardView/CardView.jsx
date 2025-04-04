@@ -82,3 +82,38 @@ export const DraftedCardView = ({ cards, sortKey }) => {
     </div>
   );
 };
+
+export const NotDraftedCardView = ({ cards }) => {
+  const displayCards = [...cards].slice(0, 200);
+  function renderCard(card) {
+    return (
+      <div
+        key={card.id}
+        className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
+      >
+        <div className="p-2">
+          <CardImage
+            imageUrl={card.image_url}
+            backsideUrl={card.backside_image_url}
+          />
+          <div className="mt-2 text-center">
+            <h3 className="text-sm font-medium truncate">{card.name}</h3>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-full max-w-6xl mt-8">
+      {cards.length > 200 && (
+        <div className="text-center mt-4 text-gray-500 text-sm">
+          Only showing the first 200 out of {cards.length} cards.
+        </div>
+      )}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        {displayCards.map((card, index) => renderCard(card, index))}
+      </div>
+    </div>
+  );
+}

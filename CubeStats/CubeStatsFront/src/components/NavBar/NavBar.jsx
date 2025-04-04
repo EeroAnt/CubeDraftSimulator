@@ -55,6 +55,11 @@ export const NavBar = ({
     setShowDraftPools(false);
     setShowColorIdMenu(false);
   };
+  const onClickNotDrafted = () => {
+    setMode("notDrafted");
+    setShowDraftPools(false);
+    setShowColorIdMenu(false);
+  };
 
   return (
     <nav className="bg-gray-800 p-4" key="NavBar">
@@ -96,7 +101,12 @@ export const NavBar = ({
             modeType={mode}
             modeTarget={"commanders"}
           />
-          {/* {Button("Commanders", OnClickCommanders)} */}
+          <Button
+            title={"Not Drafted"}
+            onClick={onClickNotDrafted}
+            modeType={mode}
+            modeTarget={"notDrafted"}
+          />
         </div>
       </div>
     </nav>
