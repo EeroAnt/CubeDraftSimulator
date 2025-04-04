@@ -9,16 +9,15 @@ ORDER BY
 LIMIT %s;""" % amount
   return sql
 
-def get_commander_ids_query():
-  sql = """
+GET_COMMANDER_IDS_QUERY = """
 SELECT
     card_id
 FROM
     commanders;"""
-  return sql
 
-def get_picks_query():
-  sql = """
+GENERATE_PICKS_TABLE = """
+DROP TABLE IF EXISTS temp_picked_cards;
+
 CREATE TEMP TABLE temp_picked_cards (
     card_id INTEGER,
     pick INTEGER,
@@ -44,10 +43,10 @@ FROM expanded_picks e
 LEFT JOIN cards c ON e.card_id = c.id
 WHERE c.id IS NOT NULL;
 """
-  return sql
 
-def get_commander_picks_query():
-  sql = """
+GENERATE_COMMANDER_PICKS_TABLE = """
+DROP TABLE IF EXISTS temp_picked_commanders;
+
 CREATE TEMP TABLE temp_picked_commanders (
     card_id INTEGER,
     pick INTEGER,
@@ -70,10 +69,15 @@ FROM expanded_picks e
 LEFT JOIN cards c ON e.card_id = c.id
 WHERE c.id IS NOT NULL;
 """
-  return sql
 
-def get_pick_rates_query():
-  sql = """
+GET_CARDS_QUERY = """
+SELECT
+    *
+FROMYe
+    cards;
+"""
+
+GET_PICK_RATES_QUERY = """
 SELECT
     card_id,
 		AVG(pick) as avg_pick,
@@ -83,10 +87,8 @@ FROM
 GROUP BY
     card_id;
 """
-  return sql
 
-def get_commander_pick_rates_query():
-  sql = """
+GET_COMMANDER_PICK_RATES_QUERY = """
 SELECT
     card_id,
 		AVG(pick) as avg_pick,
@@ -96,10 +98,8 @@ FROM
 GROUP BY
     card_id;
 """
-  return sql
 
-def get_average_picks_by_color_identity_query():
-  sql = """
+GET_AVERAGE_PICKS_BY_COLOR_IDENTITY_QUERY = """
 SELECT
     color_identity,
     AVG(pick) AS avg_pick
@@ -108,10 +108,8 @@ FROM
 GROUP BY
     color_identity;
 """
-  return sql
 
-def get_average_picks_by_draft_pool_query():
-  sql = """
+GET_AVERAGE_PICKS_BY_DRAFT_POOL_QUERY = """
 SELECT
     draft_pool,
     AVG(pick) AS avg_pick
@@ -120,10 +118,8 @@ FROM
 GROUP BY
     draft_pool;
 """
-  return sql
 
-def get_color_distribution_of_multi_query():
-  sql = """
+GET_COLOR_DISTRIBUTION_OF_MULTI_QUERY = """
 SELECT
     color_identity,
     COUNT(*) AS amount_of_cards
@@ -134,10 +130,8 @@ WHERE
 GROUP BY
     color_identity;
 """
-  return sql
 
-def get_color_distribution_of_commander_query():
-  sql = """
+GET_COLOR_DISTRIBUTION_OF_COMMANDER_QUERY = """
 SELECT
     c.color_identity,
     COUNT(*) AS amount_of_cards
@@ -149,4 +143,3 @@ WHERE
 GROUP BY
     color_identity;
 """
-  return sql
