@@ -19,8 +19,6 @@ app.get("/api/data", async (req, res) => {
   try {
     const response = await fetch(process.env.DATA_URL);
     const data = await response.json();
-    console.log(data);
-    console.log(typeof data);
     res.json(data);
   } catch (error) {
     console.error("Error fetching data:", error);
