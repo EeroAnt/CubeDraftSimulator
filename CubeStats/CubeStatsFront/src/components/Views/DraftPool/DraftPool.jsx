@@ -2,13 +2,6 @@ import { TextFilter, TwoThumbSlider, CardView } from "../../";
 import { useState, useEffect } from "react";
 
 export const DraftPool = ({ data, draftPoolsState }) => {
-  const [cards, setCards] = useState([]);
-  const [oracleFilter, setOracleFilter] = useState("");
-  const [nameFilter, setNameFilter] = useState("");
-  const [typeFilter, setTypeFilter] = useState("");
-  const [minManaValue, setMinManaValue] = useState(0);
-  const [maxManaValue, setMaxManaValue] = useState(20);
-
   const draftPools = {
     Multicolor: "M",
     Land: "L",
@@ -19,21 +12,37 @@ export const DraftPool = ({ data, draftPoolsState }) => {
     Red: "R",
     Green: "G",
   };
-
   const [unfilteredCards, setUnfilteredCards] = useState(
-    data.cards.filter(
+    data.cards.drafted_cards.filter(
       (card) => card.draft_pool === draftPools[draftPoolsState],
     ),
   );
 
+  const getMaxMV = (cards) => Math.max(...cards.map((card) => card.mv), 0);
+
+  const [cards, setCards] = useState([]);
+  const [oracleFilter, setOracleFilter] = useState("");
+  const [nameFilter, setNameFilter] = useState("");
+  const [typeFilter, setTypeFilter] = useState("");
+  const [minManaValue, setMinManaValue] = useState(0);
+  const [maxManaValue, setMaxManaValue] = useState(getMaxMV(unfilteredCards));
+  const [maxDomainValue, setMaxDomainValue] = useState(
+    getMaxMV(unfilteredCards),
+  );
+
   useEffect(() => {
+    const newState = draftPoolsState;
+    const newUnfilteredCards = data.cards.drafted_cards.filter((card) =>
+      draftPools[newState].includes(card.draft_pool),
+    );
     setNameFilter("");
     setOracleFilter("");
     setTypeFilter("");
     setMinManaValue(0);
-    setMaxManaValue(20);
+    setMaxManaValue(getMaxMV(unfilteredCards));
+    setMaxDomainValue(getMaxMV(newUnfilteredCards));
     setUnfilteredCards(
-      data.cards.filter(
+      data.cards.drafted_cards.filter(
         (card) => card.draft_pool === draftPools[draftPoolsState],
       ),
     );
@@ -96,7 +105,7 @@ export const DraftPool = ({ data, draftPoolsState }) => {
                 name="Mana Value"
                 min={0}
                 minValueSetter={setMinManaValue}
-                max={20}
+                max={maxDomainValue}
                 maxValueSetter={setMaxManaValue}
               />
             )}
