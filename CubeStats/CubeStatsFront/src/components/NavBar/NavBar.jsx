@@ -1,5 +1,5 @@
 import "./NavBar.css";
-import { Button, ButtonWithDropdownMenu } from "../Buttons";
+import { NavBarButton, ButtonWithDropdownMenu } from "../Buttons";
 export const NavBar = ({
   showDraftPools,
   setShowDraftPools,
@@ -71,7 +71,7 @@ export const NavBar = ({
           CubeStats
         </div>
         <div className="space-x-4" key="NavBarButtons">
-          <Button
+          <NavBarButton
             title={"Overview"}
             onClick={onClickHome}
             modeType={mode}
@@ -95,13 +95,13 @@ export const NavBar = ({
             modeType={mode}
             modeTarget={"draftPools"}
           />
-          <Button
+          <NavBarButton
             title={"Commanders"}
             onClick={onClickCommanders}
             modeType={mode}
             modeTarget={"commanders"}
           />
-          <Button
+          <NavBarButton
             title={"Not Drafted"}
             onClick={onClickNotDrafted}
             modeType={mode}

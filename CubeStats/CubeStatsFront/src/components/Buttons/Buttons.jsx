@@ -1,5 +1,17 @@
 import "./Buttons.css";
 
+export const NavBarButton = ({ title, onClick, modeType, modeTarget }) => {
+  const className =
+    (typeof modeType === "string" && modeType === modeTarget) ||
+    (typeof modeType === "object" && !modeType.includes(modeTarget))
+      ? "bg-blue-800 text-white px-4 py-2 rounded"
+      : "bg-blue-500 text-white px-4 py-2 rounded";
+  return (
+    <button onClick={onClick} className={className}>
+      {title}
+    </button>
+  );
+};
 export const Button = ({ title, onClick, modeType, modeTarget }) => {
   const className =
     (typeof modeType === "string" && modeType === modeTarget) ||
@@ -13,6 +25,7 @@ export const Button = ({ title, onClick, modeType, modeTarget }) => {
   );
 };
 
+
 export const ButtonWithDropdownMenu = ({
   title,
   items,
@@ -24,7 +37,7 @@ export const ButtonWithDropdownMenu = ({
 }) => {
   const className =
     modeType === modeTarget
-      ? "bg-gray-500 text-white px-4 py-2 rounded h-10 flex items-center justify-center gap-1"
+      ? "bg-blue-800 text-white px-4 py-2 rounded h-10 flex items-center justify-center gap-1"
       : "bg-blue-500 text-white px-4 py-2 rounded h-10 flex items-center justify-center gap-1";
   return (
     <div className="relative inline-block text-left">
