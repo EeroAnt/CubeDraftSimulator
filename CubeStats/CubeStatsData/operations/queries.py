@@ -131,7 +131,7 @@ GROUP BY
     color_identity;
 """
 
-GET_COLOR_DISTRIBUTION_OF_COMMANDER_QUERY = """
+GET_COLOR_DISTRIBUTION_OF_COMMANDERS_QUERY = """
 SELECT
     c.color_identity,
     COUNT(*) AS amount_of_cards
