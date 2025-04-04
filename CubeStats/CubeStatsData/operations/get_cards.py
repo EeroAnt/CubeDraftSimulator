@@ -6,7 +6,7 @@ def generate_cards_object(cursor):
     rows = cursor.fetchall()
     cards = []
     for row in rows:
-        cards.append({
+        card = {
             "id": row[0],
             "name": row[1],
             "mv": row[2],
@@ -16,7 +16,12 @@ def generate_cards_object(cursor):
             "image_url": row[6],
             "backside_image_url": row[7],
             "draft_pool": row[8]
-        })
+        }
+
+        if row[0] in commander_ids:
+            card["is_commander"] = "true"
+
+        cards.append(card)
     return cards
 
 def get_commander_ids(cursor):
