@@ -39,7 +39,7 @@ export const DraftPool = ({ data, draftPoolsState }) => {
     setOracleFilter("");
     setTypeFilter("");
     setMinManaValue(0);
-    setMaxManaValue(getMaxMV(unfilteredCards));
+    setMaxManaValue(getMaxMV(newUnfilteredCards));
     setMaxDomainValue(getMaxMV(newUnfilteredCards));
     setUnfilteredCards(
       data.cards.drafted_cards.filter(
