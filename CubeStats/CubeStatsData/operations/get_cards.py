@@ -25,8 +25,8 @@ def generate_cards_object(cursor):
             cards_not_picked.append(card)
 
     cards_data = {
-        "picked_cards": picked_cards,
-        "cards_not_picked": cards_not_picked
+        "drafted_cards": picked_cards,
+        "cards_not_drafted": cards_not_picked
     }
 
     return cards_data
