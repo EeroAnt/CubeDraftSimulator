@@ -27,7 +27,7 @@ export const ColorId = ({ data, colorIdState }) => {
   const [maxManaValue, setMaxManaValue] = useState(20);
 
   const [unfilteredCards, setUnfilteredCards] = useState(
-    data.cards.filter((card) =>
+    data?.cards.drafted_cards.filter((card) =>
       colorIdSets[colorIdState].includes(card.color_identity),
     ),
   );
@@ -49,7 +49,7 @@ export const ColorId = ({ data, colorIdState }) => {
     setMinManaValue(0);
     setMaxManaValue(20);
     setUnfilteredCards(
-      data.cards.filter((card) =>
+      data.cards.drafted_cards.filter((card) =>
         colorIdSets[newState].includes(card.color_identity),
       ),
     );
