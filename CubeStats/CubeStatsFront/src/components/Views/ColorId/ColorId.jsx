@@ -19,18 +19,21 @@ export const ColorId = ({ data, colorIdState }) => {
       "GUW",
     ],
   };
-  const [colorIds, setColorIds] = useState(colorIdSets[colorIdState]);
-  const [oracleFilter, setOracleFilter] = useState("");
-  const [typeFilter, setTypeFilter] = useState("");
-  const [nameFilter, setNameFilter] = useState("");
-  const [minManaValue, setMinManaValue] = useState(0);
-  const [maxManaValue, setMaxManaValue] = useState(20);
-
   const [unfilteredCards, setUnfilteredCards] = useState(
     data?.cards.drafted_cards.filter((card) =>
       colorIdSets[colorIdState].includes(card.color_identity),
     ),
   );
+  const [colorIds, setColorIds] = useState(colorIdSets[colorIdState]);
+  const [oracleFilter, setOracleFilter] = useState("");
+  const [typeFilter, setTypeFilter] = useState("");
+  const [nameFilter, setNameFilter] = useState("");
+  const [minManaValue, setMinManaValue] = useState(0);
+  const [maxManaValue, setMaxManaValue] = useState(
+    Math.max(...unfilteredCards.map((card) => card.mv), 0),
+  );
+
+
 
   const onClickColorId = (color) => {
     if (colorIds.includes(color)) {
@@ -42,17 +45,16 @@ export const ColorId = ({ data, colorIdState }) => {
 
   useEffect(() => {
     const newState = colorIdState;
+    const newUnfilteredCards = data.cards.drafted_cards.filter((card) =>
+      colorIdSets[newState].includes(card.color_identity),
+    );
     setColorIds(colorIdSets[newState]);
     setNameFilter("");
     setOracleFilter("");
     setTypeFilter("");
     setMinManaValue(0);
-    setMaxManaValue(20);
-    setUnfilteredCards(
-      data.cards.drafted_cards.filter((card) =>
-        colorIdSets[newState].includes(card.color_identity),
-      ),
-    );
+    setMaxManaValue(Math.max(...newUnfilteredCards.map((card) => card.mv), 0));
+    setUnfilteredCards(newUnfilteredCards);
   }, [colorIdState]);
 
   useEffect(() => {
@@ -123,10 +125,11 @@ export const ColorId = ({ data, colorIdState }) => {
               />
             </div>
             <TwoThumbSlider
+              key={colorIdState}
               name="Mana Value"
               min={0}
               minValueSetter={setMinManaValue}
-              max={20}
+              max={maxManaValue}
               maxValueSetter={setMaxManaValue}
             />
             <CardView cards={cards} />
