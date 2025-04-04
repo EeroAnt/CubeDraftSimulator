@@ -19,6 +19,9 @@ export const ColorId = ({ data, colorIdState }) => {
       "GUW",
     ],
   };
+
+  const getMaxMV = (cards) => Math.max(...cards.map(card => card.mv), 0);
+
   const [unfilteredCards, setUnfilteredCards] = useState(
     data?.cards.drafted_cards.filter((card) =>
       colorIdSets[colorIdState].includes(card.color_identity),
@@ -29,11 +32,10 @@ export const ColorId = ({ data, colorIdState }) => {
   const [typeFilter, setTypeFilter] = useState("");
   const [nameFilter, setNameFilter] = useState("");
   const [minManaValue, setMinManaValue] = useState(0);
-  const [maxManaValue, setMaxManaValue] = useState(
-    Math.max(...unfilteredCards.map((card) => card.mv), 0),
+  const [maxManaValue, setMaxManaValue] = useState(getMaxMV(unfilteredCards));
+  const [maxDomainValue, setMaxDomainValue] = useState(
+    getMaxMV(unfilteredCards),
   );
-
-
 
   const onClickColorId = (color) => {
     if (colorIds.includes(color)) {
@@ -53,7 +55,8 @@ export const ColorId = ({ data, colorIdState }) => {
     setOracleFilter("");
     setTypeFilter("");
     setMinManaValue(0);
-    setMaxManaValue(Math.max(...newUnfilteredCards.map((card) => card.mv), 0));
+    setMaxManaValue(getMaxMV(newUnfilteredCards));
+    setMaxDomainValue(getMaxMV(newUnfilteredCards));
     setUnfilteredCards(newUnfilteredCards);
   }, [colorIdState]);
 
@@ -129,7 +132,7 @@ export const ColorId = ({ data, colorIdState }) => {
               name="Mana Value"
               min={0}
               minValueSetter={setMinManaValue}
-              max={maxManaValue}
+              max={maxDomainValue}
               maxValueSetter={setMaxManaValue}
             />
             <CardView cards={cards} />
