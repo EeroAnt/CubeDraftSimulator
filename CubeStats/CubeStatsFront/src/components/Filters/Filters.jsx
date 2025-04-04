@@ -31,8 +31,16 @@ export const TwoThumbSlider = ({
   const rangeRef = useRef(null);
 
   useEffect(() => {
+    setMinValue(min);
+  }, [min]);
+
+  useEffect(() => {
+    setMaxValue(max);
+  }, [max]);
+
+  useEffect(() => {
     updateRange();
-  }, [minValue, maxValue]);
+  }, [minValue, maxValue, min, max]);
 
   const updateRange = () => {
     if (rangeRef.current) {
