@@ -1,11 +1,35 @@
-import { TextFilter, TwoThumbSlider, CardView } from "../../";
-import { useState } from "react";
+import { TextFilter, TwoThumbSlider, DraftedCardView } from "../../";
+import { useState, useEffect, use } from "react";
 
 export const Commander = ({ data }) => {
+  const [cards, setCards] = useState([]);
+  const [unfilteredCards, setUnfilteredCards] = useState(
+    data.cards.drafted_cards.filter((card) => card.is_commander === "true"),
+  );
+  const getMaxMV = (cards) => Math.max(...cards.map((card) => card.mv), 0);
+  const getMinMV = (cards) => Math.min(...cards.map((card) => card.mv));
+
   const [oracleFilter, setOracleFilter] = useState("");
   const [nameFilter, setNameFilter] = useState("");
-  const [minManaValue, setMinManaValue] = useState(0);
-  const [maxManaValue, setMaxManaValue] = useState(20);
+  const [minManaValue, setMinManaValue] = useState(getMinMV(unfilteredCards));
+  const [maxManaValue, setMaxManaValue] = useState(getMaxMV(unfilteredCards));
+  const minDomainValue = getMinMV(unfilteredCards);
+  const maxDomainValue = getMaxMV(unfilteredCards);
+
+  useEffect(() => {
+    const filteredCards = unfilteredCards.filter((card) => {
+      const matchesName = card.name
+        .toLowerCase()
+        .includes(nameFilter.toLowerCase());
+      const matchesOracle = card.oracle_text
+        .toLowerCase()
+        .includes(oracleFilter.toLowerCase());
+      const matchesManaValue =
+        card.mv >= minManaValue && card.mv <= maxManaValue;
+      return matchesName && matchesOracle && matchesManaValue;
+    });
+    setCards(filteredCards);
+  }, [unfilteredCards, nameFilter, oracleFilter, minManaValue, maxManaValue]);
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center">
@@ -27,12 +51,12 @@ export const Commander = ({ data }) => {
             </div>
             <TwoThumbSlider
               name="Mana Value"
-              min={0}
+              min={minDomainValue}
               minValueSetter={setMinManaValue}
-              max={20}
+              max={maxDomainValue}
               maxValueSetter={setMaxManaValue}
             />
-            <CardView cards={data.cards} />
+            <DraftedCardView cards={cards} sortKey={"avg_commander_pick"}/>
           </div>
         </>
       )}
