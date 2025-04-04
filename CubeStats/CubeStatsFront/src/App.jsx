@@ -21,7 +21,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (data.single_color_avg_picks) {
+    if (data.cards) {
       setLoading(false);
     }
   }, [data]);
