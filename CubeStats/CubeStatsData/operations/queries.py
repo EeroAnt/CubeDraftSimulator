@@ -8,6 +8,14 @@ def random_test_cards_query(amount):
 	  random()
 	LIMIT %s;""" % amount
 	return sql
+
+def get_commander_ids_query():
+  sql = """
+  select
+    card_id
+  from
+    commanders;"""
+  return sql
 # From here on, the queries are using outdated schema and are not used anymore.
 def draft_pool_ratings_query():
 	sql = """

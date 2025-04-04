@@ -1,5 +1,5 @@
 from operations.json_writer import write_json
-from operations.get_test_cards import get_test_cards
+from operations.get_cards import generate_cards_object
 
 def generateDataCache(cursor):
   # Run the SQL queries to generate the data cache
@@ -14,6 +14,6 @@ def generateDataCache(cursor):
     "W": 6.6,
     "U": 7.2
   }
-  data["cards"] = get_test_cards(cursor)
+  data["cards"] = generate_cards_object(cursor)
   write_json(data)
   return
