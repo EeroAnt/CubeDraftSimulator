@@ -34,19 +34,43 @@ FROM picked_packs;
   return sql
 
 def get_commander_picks_query():
-	sql = """
+  sql = """
 CREATE TEMP TABLE temp_picked_commanders (
     card_id INTEGER,
     pick INTEGER
 );
 
-INSERT INTO temp_picked_cards (card_id, pick)
+INSERT INTO temp_picked_commanders (card_id, pick)
 SELECT 
     UNNEST(ARRAY[pick1, pick2, pick3, pick4, pick5]) AS card_id,
     UNNEST(ARRAY[1,2,3,4,5]) AS pick
 FROM picked_commander_packs;
 """
-	
+  return sql
+
+def get_pick_rates_query():
+  sql = """
+SELECT
+    card_id,
+		AVG(pick)
+FROM
+    temp_picked_cards
+GROUP BY
+    card_id;
+"""
+  return sql
+
+def get_commander_pick_rates_query():
+  sql = """
+SELECT
+    card_id,
+		AVG(pick)
+FROM
+    temp_picked_commanders
+GROUP BY
+    card_id;
+"""
+  return sql
 # From here on, the queries are using outdated schema and are not used anymore.
 def draft_pool_ratings_query():
 	sql = """
