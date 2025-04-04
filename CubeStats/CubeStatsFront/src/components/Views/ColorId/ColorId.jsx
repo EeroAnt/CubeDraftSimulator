@@ -1,4 +1,4 @@
-import { Button, TextFilter, TwoThumbSlider, CardView } from "../../";
+import { Button, TextFilter, TwoThumbSlider, DraftedCardView } from "../../";
 import { useState, useEffect } from "react";
 
 export const ColorId = ({ data, colorIdState }) => {
@@ -135,7 +135,7 @@ export const ColorId = ({ data, colorIdState }) => {
               max={maxDomainValue}
               maxValueSetter={setMaxManaValue}
             />
-            <CardView cards={cards} />
+            <DraftedCardView cards={cards} sortKey={"avg_pick"} />
           </div>
         </>
       )}

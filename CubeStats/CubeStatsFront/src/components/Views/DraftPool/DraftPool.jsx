@@ -1,4 +1,4 @@
-import { TextFilter, TwoThumbSlider, CardView } from "../../";
+import { TextFilter, TwoThumbSlider, DraftedCardView } from "../../";
 import { useState, useEffect } from "react";
 
 export const DraftPool = ({ data, draftPoolsState }) => {
@@ -109,7 +109,7 @@ export const DraftPool = ({ data, draftPoolsState }) => {
                 maxValueSetter={setMaxManaValue}
               />
             )}
-            <CardView cards={cards} />
+            <DraftedCardView cards={cards} sortKey={"avg_pick"} />
           </div>
         </>
       )}
