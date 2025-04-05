@@ -70,7 +70,7 @@ export const TwoThumbSlider = ({
           {name}: {minValue} - {maxValue}
         </h3>
 
-        <div className="relative h-2 mt-10">
+        <div className="relative h-2 mt-4">
           {/* Track background */}
           <div
             ref={trackRef}
@@ -95,7 +95,7 @@ export const TwoThumbSlider = ({
             max={max}
             value={minValue}
             onChange={handleMinChange}
-            className="absolute w-full h-2 appearance-none bg-transparent pointer-events-none thumb-slider"
+            className="absolute w-full h-2 appearance-none bg-transparent pointer-events-none thumb-slider -translate-y-1/2"
           />
 
           {/* Max thumb */}
@@ -106,12 +106,12 @@ export const TwoThumbSlider = ({
             max={max}
             value={maxValue}
             onChange={handleMaxChange}
-            className="absolute w-full h-2 appearance-none bg-transparent pointer-events-none thumb-slider"
+            className="absolute w-full h-2 appearance-none bg-transparent pointer-events-none thumb-slider -translate-y-1/2"
           />
         </div>
       </div>
 
-      <div className="flex justify-between text-sm text-gray-600">
+      <div className="flex justify-between text-sm text-gray-700 -mt-6">
         <span>{min}</span>
         <span>{max}</span>
       </div>

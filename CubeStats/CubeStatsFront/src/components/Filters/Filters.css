@@ -2,6 +2,7 @@
 
 .thumb-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
+  transform: translateY(35%);
   pointer-events: auto;
   width: 24px;
   height: 24px;
