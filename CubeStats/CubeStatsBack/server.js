@@ -1,5 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 import cors from "cors";
 
 dotenv.config();
@@ -10,11 +12,14 @@ const PORT = process.env.PORT;
 app.use(cors());
 app.use(express.json());
 
-app.get("/api/hello", (req, res) => {
-  res.json({ message: "Yhteys toimii!" });
-});
+
+// Serve static files from React
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+app.use(express.static(join(__dirname, '/dist')));
 
 app.get("/api/data", async (req, res) => {
+  console.log("Fetching data from:", process.env.DATA_URL);
 
   try {
     const response = await fetch(process.env.DATA_URL);
@@ -25,5 +30,11 @@ app.get("/api/data", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch data" });
   }
 });
+
+app.get('*', (req, res) => {
+  res.sendFile(join(__dirname + '/dist/index.html'));
+});
+
+
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
