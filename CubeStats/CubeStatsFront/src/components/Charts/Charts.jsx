@@ -4,7 +4,9 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  ResponsiveContainer
+  ResponsiveContainer,
+  PieChart,
+  Pie,
 } from 'recharts';
 
 export function Chart({ data }) {
@@ -28,3 +30,30 @@ export function Chart({ data }) {
     </ResponsiveContainer>
   );
 }
+
+export const PieCharts = ({ data, header }) => {
+  const chartData = data.map(([name, value]) => ({
+    name: name,
+    value: value,
+  }));
+  return (
+    <ResponsiveContainer width="100%" height={300}>
+      <h4 className="text-2xl font-semibold mb-4">{header}</h4>
+      <PieChart>
+        <Pie
+          data={chartData}
+          dataKey="value"
+          nameKey="name"
+          cx="50%"
+          cy="50%"
+          outerRadius={80}
+          fill="#8884d8"
+          label={({ name, percent }) => `${name} (${(percent * 100).toFixed(0)}%)`}
+        />
+        <Tooltip
+          formatter={(value, name, props) => [value, props.payload.name]}
+        />
+      </PieChart>
+    </ResponsiveContainer>
+  );
+};
