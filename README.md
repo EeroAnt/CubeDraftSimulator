@@ -2,6 +2,9 @@
 <!-- ![DraftSimulator](https://github.com/EeroAnt/CubeDraftSimulator/actions/workflows/python-app.yml/badge.svg) -->
 ## About
 
+### Status:
+1.1.0 of the draft app and [the analytics page](https://cubestats-app.azurewebsites.net/) are live now. I will be going over the documentation as a whole soonish.  
+
 ### Problems
 Playing our MTG Commander Cube is one of my favorite things, but setting up the draft takes hours. The drafting itself can take another four, and then everyone still has to build their decks. If we're lucky, we get to play a single round before the day is over.
 
@@ -17,7 +20,7 @@ A web app solves these problems by:
 
 Development is ongoing. I've built a text-based interface for managing the database, but there's no live version at the moment since I moved the database off the cloud to cut costs. Keeping it local works fine, as the app only runs when I’m using it. I'm currently working on a major overhaul, and hopefully, a much-improved version will be ready for release soon.
 
-### Done, but not live
+### We are actually live with the following:
 
  - Encryption for WebSocket communication
  - Enable atypical commanders to be set as commanders (for example Shorikai)
@@ -32,11 +35,11 @@ Development is ongoing. I've built a text-based interface for managing the datab
  - fix draft setup without commander packs (nodejs read length of rounds rather than checked which round was last and so when commander round (round 0) was missing, the length didn't correspond with the amount of rounds properly..)
  - implemented message queues to front end (incoming) and back end (out going) to increase stability of the communication between them
  - refactor and fix frontend
+ - setup local PostgreSQL to listen the app
+ - a web page for statistics test
 
 ### TODO
 
- - setup local PostgreSQL to listen the app
- - a web page for statistics test
  - update readme
 
 
