@@ -88,7 +88,6 @@ export const useGameState = () => {
 
   useEffect(() => {
     if (decryptedMessage) {
-      console.log(decryptedMessage)
       if (decryptedMessage.status === "No Draft") {
         alert("No draft found")
         setMode("Home")
@@ -201,7 +200,7 @@ export const useGameState = () => {
   const connection = useWebSocket(import.meta.env.VITE_REACT_APP_WS_URL, {
     share: true,
     onOpen: async () => {
-      console.log('opened')
+      console.log("Connecting to:", import.meta.env.VITE_REACT_APP_WS_URL);
       const { message, newMode } = await reconnect(username, token, seatToken)
       sendMessage(connection, message)
       if (mode !== newMode) {
