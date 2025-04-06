@@ -29,6 +29,7 @@ export function Form({ onSubmit, name }) {
         <input
           type="submit"
           className={styles.submitButton}
+          value="Submit"
         />
       </form>
     </>
