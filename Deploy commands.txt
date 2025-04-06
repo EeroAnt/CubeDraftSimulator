@@ -2,18 +2,24 @@ Luo imaget uudestaan
 docker-compose up --build -d
 
 Päivitä imaget
+
 FLASK
+
 docker tag cubedraftsimuflaskcont.azurecr.io/eeronliveflaskserver cubedraftsimuflaskcont.azurecr.io/eeronliveflaskserver:latest
-
 docker push cubedraftsimuflaskcont.azurecr.io/eeronliveflaskserver:latest
+
 NODE
+
 docker tag cubedraftsimuflaskcont.azurecr.io/eeronlivenodeserver cubedraftsimuflaskcont.azurecr.io/eeronlivenodeserver:latest
-
 docker push cubedraftsimuflaskcont.azurecr.io/eeronlivenodeserver:latest
-SIMU
-docker tag cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator:latest
 
+SIMU
+
+docker tag cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator:latest
 docker push cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator:latest
+
+Delete old ACI container group (to avoid caching older images)
+az container delete --resource-group SimuAppi --name CubeDraftSimulator --yes
 
 
 Deployaa ACI. Muista vaihtaa kirjottaa jotain ympäristömuuttujiin vaikka että päivittää judui
