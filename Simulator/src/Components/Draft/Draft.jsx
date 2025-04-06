@@ -182,12 +182,24 @@ export const Draft = ({
 
   const wizardSelector = (wizardSelection) => {
     const wizards = {
-      1: "Placeholder for A",
-      2: "Placeholder for B",
-      3: "Placeholder for C",
+      1: "HOW CAN THIS TAKE SO LONG?!",
+      2: "Someone is taking their time...",
+      3: "Zzzzz...",
+    };
+    const wizardImages = {
+      1: "/wizards/velho_waiting_angry.png",
+      2: "/wizards/velho_waiting_sigh.png",
+      3: "/wizards/velho_waiting_yawn.png",
     };
 
-    return <>{wizards[wizardSelection] || "Default Placeholder"}</>;
+    return (
+    <div className={styles.wizardWrapper}>
+      <img src={wizardImages[wizardSelection]} alt="Wizard" className={styles.wizardImage} />
+      <div className={styles.wizardText}>
+        {wizards[wizardSelection] || "Default Placeholder"}
+      </div>
+    </div>
+    )
 
   };
 

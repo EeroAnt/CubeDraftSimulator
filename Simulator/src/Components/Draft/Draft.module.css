@@ -52,3 +52,20 @@
   font-size: 16px;
   margin-top: 10px;
 }
+
+.wizardWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.wizardImage {
+  width: 150px; /* or whatever looks good */
+  margin-bottom: 10px;
+}
+
+.wizardText {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
