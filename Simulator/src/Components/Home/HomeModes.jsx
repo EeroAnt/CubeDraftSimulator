@@ -50,7 +50,7 @@ export const Menu = ({ username, setUsername, setHomeMode, connection }) => {
 
   return (
     <div>
-      <h1>Hi {username}</h1>
+      <h1>Oh hi {username}!</h1>
       <h3>What would you like to do?</h3>
       <Button name="Create draft" className={styles.button} onClick={() => setHomeMode("Create")} />
       <Button name="Join draft" className={styles.button} onClick={() => goToJoin()} />
@@ -86,7 +86,7 @@ export const CreateDraft = ({ setMode, numberOfPlayers, setNumberOfPlayers, setO
 
   return (
     <div>
-      <h2>Sure! Let&apos;s setup a draft</h2>
+      <h2>A draft you say? What kind?</h2>
       <div className={styles.formcontainer}>
         <DraftParametersForm name="number of players" handleChange={(e) => { e.preventDefault(); setNumberOfPlayers(Number(e.target.value)) }} defaultVal={numberOfPlayers} />
         <DraftParametersForm name="number of rounds" handleChange={(e) => { e.preventDefault(); setNumOfRounds(Number(e.target.value)) }} defaultVal={numOfRounds} />
@@ -152,7 +152,7 @@ export const JoinDraft = ({ setToken, setMode, setHomeMode, username, connection
             </table>
           </>
         ) : (
-          <h2>There are no drafts here</h2>
+          <h2>There are no drafts<br/> to be found</h2>
         )
       }
       <Button name="Go Back" className={styles.button} onClick={() => setHomeMode("Menu")} />

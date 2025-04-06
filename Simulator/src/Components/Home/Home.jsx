@@ -17,12 +17,12 @@ export const Home = ({
 }) => {
 
   const wizardImages = {
-    Login: "/wizards/wiz_1_whoGoesThere.png",
-    Menu: "/wizards/wiz_2_hello.png",
-    Create: "/wizards/wiz_3_makeNewDraft.png",
+    Login: "/wizards/velho1_whoGoes.png",
+    Menu: "/wizards/velho2_henlo.png",
+    Create: "/wizards/velho3_makeTheDraftYouSay.png",
     Join: (drafts.length > 0)
-      ? ("/wizards/wiz_5_happyForASuccesfulDraft.png")
-      : ("/wizards/wiz_4_sad.png")
+      ? ("/wizards/velho5_enticingStuff.png")
+      : ("/wizards/velho4_sad.png")
   };
 
   const wizardImage = wizardImages[homeMode] || "/wizards/default-wizard.png"; // Fallback image
