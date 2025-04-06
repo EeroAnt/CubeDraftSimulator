@@ -12,7 +12,7 @@ def setup_draft(specs, identifier):
 		failed_setup = {"state":"Setup Failed", "errors": errors}
 		generate_json(failed_setup, identifier)
 		return None, None, None, errors
-	pools, conn = generate_pools(specs)
+	pools, conn, server = generate_pools(specs)
 	if specs["commander_packs"]:
 		commander_packs = create_commander_packs(pools["commanders"])
 	else:
@@ -21,7 +21,7 @@ def setup_draft(specs, identifier):
 	dealt_packs = deal_packs(commander_packs, normal_packs, specs["player_count"], specs["normal_rounds"])
 	finished_setup = generate_table(dealt_packs, specs["player_count"], specs["normal_rounds"], specs["commander_packs"])
 	generate_json(finished_setup, identifier)
-	return commander_packs, normal_packs, conn, errors
+	return commander_packs, normal_packs, conn, server, errors
 
 
 def generate_table(setup_to_finish, player_count, normal_rounds=8, commander_packs=True):

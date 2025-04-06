@@ -20,3 +20,5 @@ setuptools==68.2.2
 six==1.16.0
 Werkzeug==3.0.1
 wheel==0.41.2
+sshtunnel>=0.4.0
+paramiko>=2.11.0

@@ -3,7 +3,7 @@ from src.operations.database.queries.read_draft_data_queries import draft_pool_r
 from json import dump
 
 def generate_data(identifier):
-	cur, conn = connect_to_db()
+	cur, conn, server = connect_to_db()
 	cur.execute(draft_pool_ratings_query())
 	draft_pool_ratings = cur.fetchall()
 
@@ -36,7 +36,7 @@ def generate_data(identifier):
 		data["bottom cards query"][i] = [(name, image_url, backside_image_url, float(avg_pick), amount_of_picks) for name, image_url, backside_image_url, avg_pick, amount_of_picks in data["bottom cards query"][i]]
 
 
-	close_db(conn)
+	close_db(conn, server)
 
 	with open(f"templates/data{identifier}.json", "w") as f:
 		dump(data, f)

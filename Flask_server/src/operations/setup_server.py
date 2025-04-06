@@ -4,7 +4,7 @@ def setup(specs, identifier="test"):
 	from time import time
 	
 	start = time()
-	commander_packs, normal_packs, conn, errors = setup_draft(specs, identifier)
+	commander_packs, normal_packs, conn, server, errors = setup_draft(specs, identifier)
 	
 	if errors:
 		print("Draft setup failed.")
@@ -12,7 +12,7 @@ def setup(specs, identifier="test"):
 		close_db(conn)
 		return errors
 	
-	close_db(conn)
+	close_db(conn, server)
 	print("Draft setup complete.")
 	print("Time elapsed: " + str(time() - start) + " seconds.")
 	return identifier

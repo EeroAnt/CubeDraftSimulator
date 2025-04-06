@@ -5,7 +5,7 @@ from src.operations.database.db import connect_to_db
 
 def generate_pools(specs):
 
-	cur, conn = connect_to_db()
+	cur, conn, server = connect_to_db()
 	pools = {}
 	commander_ids = []
 
@@ -40,7 +40,7 @@ def generate_pools(specs):
 			cur=cur
 			)
 
-	return pools, conn
+	return pools, conn, server
 
 def generate_commander_pool(player_count, cur):
 	commanders = []

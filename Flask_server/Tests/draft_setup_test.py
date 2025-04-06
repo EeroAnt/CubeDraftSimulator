@@ -23,8 +23,8 @@ class TestSuccesfulDraftSetup(unittest.TestCase):
 	}
 		specs_for_commanders["number_of_structured_packs"] = ceil(15*specs_for_commanders["normal_rounds"]*specs_for_commanders["player_count"]/specs_for_commanders["uncut_pack_size"])
 		self.player_count = 8
-		self.pool, self.conn = generate_pools(specs_for_commanders)
-		close_db(self.conn)
+		self.pool, self.conn, self.server = generate_pools(specs_for_commanders)
+		close_db(self.conn, self.server)
 		self.commander_packs = create_commander_packs(self.pool["commanders"])
 		self.normal_packs = create_normal_packs(self.pool, specs_for_commanders)
 		self.finished_setup = deal_packs(self.commander_packs, self.normal_packs, self.player_count, specs_for_commanders["normal_rounds"])
