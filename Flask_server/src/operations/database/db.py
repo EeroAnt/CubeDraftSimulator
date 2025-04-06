@@ -1,5 +1,5 @@
 from sshtunnel import SSHTunnelForwarder
-from paramiko import RSAKey, MissingHostKeyPolicy
+from paramiko import RSAKey
 from io import StringIO
 import psycopg2
 from dotenv import load_dotenv
@@ -13,8 +13,7 @@ def connect_to_db():
   passphrase = getenv("SSH_PASSPHRASE", None)
   private_key = RSAKey.from_private_key(
     StringIO(key_str),
-    password=passphrase,
-    ssh_missing_host_key_policy=MissingHostKeyPolicy()
+    password=passphrase
     )
   server = SSHTunnelForwarder(
     (getenv("DNS"), int(getenv("DNS_PORT"))),
