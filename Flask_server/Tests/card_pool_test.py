@@ -28,7 +28,7 @@ class TestGeneratePools(unittest.TestCase):
 		"uncut_pack_size": 18
 	}
 		specs_for_no_commanders["number_of_structured_packs"] = ceil(15*specs_for_no_commanders["normal_rounds"]*specs_for_no_commanders["player_count"]/specs_for_no_commanders["uncut_pack_size"])
-		self.pools, self.conn, self.server = generate_pools(specs_for_commanders)
+		self.pools, self.conn = generate_pools(specs_for_commanders)
 		self.pools_without_commanders, self.conn_without_commanders = generate_pools(specs_for_no_commanders)
 	
 	def test_amount_of_commanders(self):
@@ -53,4 +53,4 @@ class TestGeneratePools(unittest.TestCase):
 
 	@classmethod
 	def tearDownClass(self):
-		close_db(self.conn, self.server)
+		close_db(self.conn)
