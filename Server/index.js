@@ -58,6 +58,3 @@ server.on('error', (error) => {
 });
 intervalIDs['Lobby Broadcasts'] = setInterval(() =>
   broadcastLobbies(), 2000);
-setInterval(() => {
-  console.log(`[HEARTBEAT] Still alive at ${new Date().toISOString()}`);
-}, 10000);
