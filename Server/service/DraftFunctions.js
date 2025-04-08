@@ -1,6 +1,6 @@
 import { calculateNextSeatNumber, shuffleArray } from './Utils.js';
 import { queueMessage } from './Messaging.js';
-import { broadcastCanalDredger } from './Broadcasts.js';
+import { handleCanalDredger } from './DraftState.js';
 
 export function handlePick(data, draft, userSeat, uuid) {
 
@@ -18,7 +18,7 @@ export function handlePick(data, draft, userSeat, uuid) {
     if (cardToAdd.id === 1887) {
       console.log("Canal Dredger");
       draft.canalDredger = userSeat.number;
-      broadcastCanalDredger(draft, userSeat.number);
+      handleCanalDredger(draft, userSeat.number);
     }
 
   } else {

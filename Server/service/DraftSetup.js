@@ -1,7 +1,11 @@
 import { users, drafts, intervalIDs } from "./State.js";
 import { getDraft } from "./DataBaseCommunications.js";
 import { queueMessage } from "./Messaging.js";
-import { broadcastUserlist, broadcastDraftStatus } from "./Broadcasts.js";
+import {
+  broadcastUserlist,
+  broadcastDraftStatus,
+  broadcastDraftState
+} from "./Broadcasts.js";
 import { shuffleArray } from "./Utils.js";
 import { checkDraftStatus } from "./DraftStatus.js";
 import { sendCards, sendPackAtHand } from "./DraftFunctions.js";
@@ -108,7 +112,9 @@ export function startDraft(data) {
   }
 
   intervalIDs[data.token] = setInterval(() => {
+    console.log('checking draft status', drafts[data.token].token);
     checkDraftStatus(drafts[data.token]);
+    broadcastDraftState(drafts[data.token]);
   }, 500);
 
 };

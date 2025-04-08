@@ -1,5 +1,6 @@
 import { connections, drafts, users } from "./State.js";
 import { queueMessage } from "./Messaging.js";
+import { extractDraftState, extractQueues } from "./DraftState.js";
 
 export const broadcastUserlist = (draft) => {
   Object.values(draft.players).forEach(player => {
@@ -47,6 +48,21 @@ export const broadcastDraftStatus = (draft, status) => {
   });
 };
 
+export const broadcastDraftState = (draft) => {
+  console.log("Broadcasting draft state to players", draft.token);
+  const queues = extractQueues(draft);
+  draft.players.forEach(player => {
+    const state = extractDraftState(draft, player);
+    const message = {
+      status: "OK",
+      type: "DraftState",
+      state: state,
+      queues: queues,
+    };
+    queueMessage(player.uuid, message);
+  });
+};
+
 export const broadcastQueues = (draft) => {
   const queues = [];
   draft.players.forEach(player => {
@@ -63,32 +79,6 @@ export const broadcastQueues = (draft) => {
     type: "Queues",
     queues: queues
   };
-  Object.values(draft.players).forEach(player => {
-    queueMessage(player.uuid, message);
-  });
-};
-
-export const broadcastCanalDredger = (draft, seatNumber) => {
-  Object.values(draft.players).forEach(player => {
-	if (player.seat.number === seatNumber) {
-	  const message = {
-      status: "OK",
-      type: "Canal Dredger",
-      owner: "T"
-    };
-
-	  queueMessage(player.uuid, message);
-
-	} else {
-  	const message = {
-      status: "OK",
-      type: "Canal Dredger",
-      owner: ""
-    };
-
-    queueMessage(player.uuid, message);
-
-  }});
 };
 
 export const broadcastRound = (draft) => {
