@@ -3,7 +3,7 @@
 ## About
 
 ### Status:
-1.1.0 of the draft app and [the analytics page](https://cubestats-app.azurewebsites.net/) are live now. I will be going over the documentation as a whole soonish.  
+1.1.0 of [the draft app](http://eeroncubedraftsimu.northeurope.azurecontainer.io/) and [the analytics page](https://cubestats-app.azurewebsites.net/) are live now. I will be going over the documentation as a whole soonish.  
 
 ### Problems
 Playing our MTG Commander Cube is one of my favorite things, but setting up the draft takes hours. The drafting itself can take another four, and then everyone still has to build their decks. If we're lucky, we get to play a single round before the day is over.
