@@ -1,6 +1,15 @@
 {
   "scripts": {
     "dev": "docker-compose -f docker-compose-dev.yml up --build",
-    "build": "docker-compose -f docker-compose.yml up --build -d"
+    "build": "docker-compose -f docker-compose.yml up --build -d",
+    "tag_flask": "docker tag cubedraftsimuflaskcont.azurecr.io/eeronliveflaskserver cubedraftsimuflaskcont.azurecr.io/eeronliveflaskserver:latest",
+    "push_flask": "docker push cubedraftsimuflaskcont.azurecr.io/eeronliveflaskserver:latest",
+    "tag_node": "docker tag cubedraftsimuflaskcont.azurecr.io/eeronlivenodeserver cubedraftsimuflaskcont.azurecr.io/eeronlivenodeserver:latest",
+    "push_node": "docker push cubedraftsimuflaskcont.azurecr.io/eeronlivenodeserver:latest",
+    "tag_front":"docker tag cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator:latest",
+    "push_front":"docker push cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator:latest",
+    "remove_aci": "az container delete --resource-group SimuAppi --name CubeDraftSimulator --yes",
+    "deploy_aci": "az container create --resource-group SimuAppi --file deploy-aci.yaml",
+    "deploy": "npm run build && npm run tag_flask && npm run push_flask && npm run tag_node && npm run push_node && npm run tag_front && npm run push_front && npm run remove_aci && npm run deploy_aci"
   }
 }
