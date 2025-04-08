@@ -18,11 +18,11 @@ SIMU
 docker tag cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator:latest
 docker push cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator:latest
 
-Delete old ACI container group (to avoid caching older images)
+Poista vanha ACI container group
 az container delete --resource-group SimuAppi --name CubeDraftSimulator --yes
 
 
-Deployaa ACI. Muista vaihtaa kirjottaa jotain ympäristömuuttujiin vaikka että päivittää judui
+Deploy ACI.
 az container create --resource-group SimuAppi --file deploy-aci.yaml
 
 
