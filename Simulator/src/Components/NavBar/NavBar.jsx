@@ -86,7 +86,19 @@ export function PostDraftNavBar({ owner, connection, token, basicLands, setBasic
     side.forEach((card) => {
       deck.push("1 " + card.name)
     })
-    navigator.clipboard.writeText(deck.join("\n"))
+    const deckString = deck.join("\n");
+
+    // Fallback prompt if clipboard API isn't available
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(deckString)
+        .then(() => console.log("Copied to clipboard!"))
+        .catch((err) => {
+          console.error("Clipboard write failed:", err);
+          window.prompt("Copy the deck:", deckString);
+        });
+    } else {
+      window.prompt("Copy the deck:", deckString);
+    }
   }
 
   return (<div className={styles.navbar}>
