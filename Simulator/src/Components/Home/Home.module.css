@@ -40,8 +40,9 @@
 }
 
 .wizard {
-  width: 350px;
-  margin-bottom: -60px;
+  width: 400px;
+  image-rendering: pixelated;
+  margin-bottom: -70px;
   z-index: 1;
 }
 
