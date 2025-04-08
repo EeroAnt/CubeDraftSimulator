@@ -50,6 +50,12 @@ export const useGameState = () => {
     setWizardSelection(Math.floor(Math.random() * 3) + 1)
   }, [])
 
+  const arraysEqualById = (a, b) =>
+    Array.isArray(a) &&
+    Array.isArray(b) &&
+    a.length === b.length &&
+    a.every((val, i) => val.id === b[i].id);
+
   useEffect(() => {
     if (commanders.length === 0) {
       setCommanderColorIdentity(["C"])
@@ -87,21 +93,34 @@ export const useGameState = () => {
   }, [username, token, numberOfPlayers, playersInLobby, seatToken, canalDredger, canalDredgerOwner, owner, mode, homeMode]);
 
   useEffect(() => {
-    if (decryptedMessage) {
-      if (decryptedMessage.status === "No Draft") {
-        alert("No draft found")
-        setMode("Home")
-      }
-      // console.log(decryptedMessage) // Uncomment this line to view messages, it messes up some rendering tho.
-      if (mode === "Home") {
+    if (!decryptedMessage) return;
+    if (decryptedMessage.status === "No Draft") {
+      alert("No draft found")
+      setMode("Home")
+      return
+    }
+    switch (mode) {
+      case "Home":
         if (homeMode === "Join") {
           if (decryptedMessage.drafts) {
             const filteredDrafts = decryptedMessage.drafts.filter(draft => draft !== null && draft.players > 0);
             setDrafts(filteredDrafts)
           }
         }
-      }
-      if (homeMode === "Create" || mode === "Waiting") {
+        if (homeMode === "Create") {
+          if (decryptedMessage.status === "OK" && decryptedMessage.type === "Playerlist") {
+            setMode("Lobby")
+          }
+          if (decryptedMessage.status === "Setup OK") {
+            setMode("Lobby")
+          } else if (decryptedMessage.status === "Setup Failed") {
+            console.log(decryptedMessage.errors)
+            alert("Setup failed")
+            setDraftInitiated(false)
+          }
+        }
+        break;
+      case "Waiting":
         if (decryptedMessage.status === "OK" && decryptedMessage.type === "Playerlist") {
           setMode("Lobby")
         }
@@ -112,8 +131,8 @@ export const useGameState = () => {
           alert("Setup failed")
           setDraftInitiated(false)
         }
-      }
-      if (mode === "Lobby") {
+        break;
+      case "Lobby":
         if (decryptedMessage.players) {
           const numPlayers = Object.keys(decryptedMessage.players).length;
           setPlayersInLobby(numPlayers)
@@ -130,53 +149,59 @@ export const useGameState = () => {
         } else if (decryptedMessage.status != "OK") {
           setLobbyMode("LobbyFailed")
         }
-      }
-      if (mode === "Draft") {
-        if (decryptedMessage.type === "Round") {
-          setRound(decryptedMessage.round)
-        }
-        if (decryptedMessage.type === "Seat token") {
-          setSeatToken(decryptedMessage.seat)
-        }
-        if (decryptedMessage.type === "Pack") {
-
-          setPack(decryptedMessage.pack)
-
+        break;
+      case "Draft":
+        if (decryptedMessage.status === "OK" && decryptedMessage.type === "DraftState") {
+          setQueues(decryptedMessage.queues)
+          if (decryptedMessage.state) {
+            const payload = decryptedMessage.state
+            setSeatToken(payload.seat)
+            if (!arraysEqualById(payload.main, main)) {
+              setMain(payload.main)
+            }
+            if (!arraysEqualById(payload.commanders, commanders)) {
+              setCommanders(payload.commanders)
+            }
+            if (!arraysEqualById(payload.side, side)) {
+              setSide(payload.side)
+            }
+            setPack(payload.packAtHand)
+            setRound(payload.round)
+            if (payload.canalDredger !== "false") {
+              setCanalDredgerOwner(payload.canalDredgerOwner)
+              setCanalDredger("T")
+            }
+          }
         } else if (decryptedMessage.type === "End Draft") {
 
           setMode("DeckBuilder")
-
-        } else if (decryptedMessage.type === "Picked Cards") {
-
-          setMain(decryptedMessage.main)
-          setSide(decryptedMessage.side)
-          setCommanders(decryptedMessage.commanders)
-
-        } else if (decryptedMessage.type === "Canal Dredger") {
-
-          setCanalDredgerOwner(decryptedMessage.owner)
-          setCanalDredger("T")
 
         } else if (decryptedMessage.type === "Post Draft") {
 
           setMode("Post Draft")
 
-        } else if (decryptedMessage.type === "Queues") {
-          if (JSON.stringify(decryptedMessage.queues) !== JSON.stringify(queues)) {
-            setQueues(decryptedMessage.queues)
-          }
+          // } else if (decryptedMessage.type === "Queues") {
+          //   if (JSON.stringify(decryptedMessage.queues) !== JSON.stringify(queues)) {
+          //     setQueues(decryptedMessage.queues)
+          //   }
         }
-      }
-      if (mode === "Post Draft") {
+        break;
+      case "DeckBuilder":
         if (decryptedMessage.type === "Picked Cards") {
           setMain(decryptedMessage.main)
           setSide(decryptedMessage.side)
           setCommanders(decryptedMessage.commanders)
         }
-      }
-      if (decryptedMessage.type === "Deckbuilding") {
-        setMode("Post Draft")
-      }
+        if (decryptedMessage.type === "Deckbuilding") {
+          setMode("Post Draft")
+        }
+        break;
+      case "Post Draft":
+        if (decryptedMessage.type === "Picked Cards") {
+          setMain(decryptedMessage.main)
+          setSide(decryptedMessage.side)
+          setCommanders(decryptedMessage.commanders)
+        }
     }
   }, [decryptedMessage])
 
