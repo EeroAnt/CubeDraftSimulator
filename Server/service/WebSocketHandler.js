@@ -104,15 +104,15 @@ export async function handleMessage(message, uuid) {
       break;
 
     case "Set Commander":
-      setCommander(data, users[uuid].seat, uuid);
+      setCommander(data, users[uuid].seat);
       break;
 
     case "Remove Commander":
-      removeCommander(data, users[uuid].seat, uuid);
+      removeCommander(data, users[uuid].seat);
       break;
 
     case "Move Cards":
-      moveCards(data, users[uuid].seat, uuid);
+      moveCards(data, users[uuid].seat);
       break;
 
     case "Rejoin Draft":
