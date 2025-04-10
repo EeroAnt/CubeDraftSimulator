@@ -6,9 +6,7 @@ export const Commander = ({ data }) => {
   const unfilteredCards = data.cards.drafted_cards.filter(
     (card) => card.is_commander === "true",
   );
-  const colorIdSet = [
-    ...new Set(unfilteredCards.map((card) => card.color_identity)),
-  ];
+  const colorIdSet = data.colors.picked_commander_color_ids;
   const getMaxMV = (cards) => Math.max(...cards.map((card) => card.mv), 0);
   const getMinMV = (cards) => Math.min(...cards.map((card) => card.mv));
 
