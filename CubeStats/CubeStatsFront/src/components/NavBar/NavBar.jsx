@@ -22,6 +22,12 @@ export const NavBar = ({
     "Green",
   ];
 
+  const onClickHome = () => {
+    setMode("home");
+    setShowDraftPools(false);
+    setShowColorIdMenu(false);
+  };
+
   const onClickColorId = () => {
     setShowColorIdMenu(!showColorIdMenu);
     setShowDraftPools(false);
@@ -44,8 +50,8 @@ export const NavBar = ({
     setShowDraftPools(false);
   };
 
-  const onClickHome = () => {
-    setMode("home");
+  const onClickOverview = () => {
+    setMode("overview");
     setShowDraftPools(false);
     setShowColorIdMenu(false);
   };
@@ -72,10 +78,16 @@ export const NavBar = ({
         </div>
         <div className="space-x-4" key="NavBarButtons">
           <NavBarButton
-            title={"Overview"}
+            title={"Home"}
             onClick={onClickHome}
             modeType={mode}
             modeTarget={"home"}
+          />
+          <NavBarButton
+            title={"Overview"}
+            onClick={onClickOverview}
+            modeType={mode}
+            modeTarget={"overview"}
           />
           <ButtonWithDropdownMenu
             title={"Color Identity"}

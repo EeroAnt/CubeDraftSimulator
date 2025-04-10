@@ -81,7 +81,7 @@ export const NotDrafted = ({ data }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center">
+    <>
       <h1 className="text-4xl font-bold text-blue-600 mt-6">
         Not Drafted Cards
       </h1>
@@ -128,6 +128,6 @@ export const NotDrafted = ({ data }) => {
           </div>
         </>
       )}
-    </div>
+    </>
   );
 };

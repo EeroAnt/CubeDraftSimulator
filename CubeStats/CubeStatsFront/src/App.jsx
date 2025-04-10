@@ -1,5 +1,5 @@
 import "./App.css";
-import { NavBar, Overview, Commander, DraftPool, ColorId, NotDrafted } from "./components/";
+import { NavBar, Home, Overview, Commander, DraftPool, ColorId, NotDrafted } from "./components/";
 import { useState, useEffect } from "react";
 
 function App() {
@@ -44,15 +44,18 @@ function App() {
           <div className="w-10 h-10 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
         </div>
       ) : null}
-      {mode === "home" && !loading ? <Overview data={data} /> : null}
-      {mode === "colorId" && !loading ? (
-        <ColorId data={data} colorIdState={colorIdState} />
-      ) : null}
-      {mode === "draftPools" && !loading ? (
-        <DraftPool data={data} draftPoolsState={draftPoolsState} />
-      ) : null}
-      {mode === "commanders" && !loading ? <Commander data={data} /> : null}
-      {mode === "notDrafted" && !loading ? <NotDrafted data={data} /> : null}
+      <div className="min-h-screen bg-gray-100 flex flex-col items-center">
+        {mode === "home" ? <Home /> : null}
+        {mode === "overview" && !loading ? <Overview data={data} /> : null}
+        {mode === "colorId" && !loading ? (
+          <ColorId data={data} colorIdState={colorIdState} />
+        ) : null}
+        {mode === "draftPools" && !loading ? (
+          <DraftPool data={data} draftPoolsState={draftPoolsState} />
+        ) : null}
+        {mode === "commanders" && !loading ? <Commander data={data} /> : null}
+        {mode === "notDrafted" && !loading ? <NotDrafted data={data} /> : null}
+      </div>
     </>
   );
 }

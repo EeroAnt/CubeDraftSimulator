@@ -45,7 +45,7 @@ export const Commander = ({ data }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center">
+    <>
       <h1 className="text-4xl font-bold text-blue-600 mt-6">Commanders</h1>
       {data && (
         <>
@@ -84,6 +84,6 @@ export const Commander = ({ data }) => {
           </div>
         </>
       )}
-    </div>
+    </>
   );
 };

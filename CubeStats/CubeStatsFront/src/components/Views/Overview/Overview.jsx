@@ -27,7 +27,7 @@ export const Overview = ({ data }) => {
       (color) => color[0].length === 3,
     );
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center">
+    <>
       <h1 className="text-4xl font-bold text-blue-600 mt-6">Overview</h1>
       {data && (
         <>
@@ -79,6 +79,6 @@ export const Overview = ({ data }) => {
           </div>
         </>
       )}
-    </div>
+    </>
   );
 };
