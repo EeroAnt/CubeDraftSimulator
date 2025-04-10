@@ -143,3 +143,57 @@ WHERE
 GROUP BY
     color_identity;
 """
+
+GET_COLOR_IDS_OF_PICKED_COMMADERS_QUERY = """
+SELECT
+    DISTINCT color_identity
+FROM
+    temp_picked_commanders;
+"""
+
+GET_COLOR_IDS_OF_PICKED_MULTICOLOR_QUERY = """
+SELECT
+    DISTINCT color_identity
+FROM
+    temp_picked_cards
+WHERE
+    draft_pool = 'M';
+"""
+
+GET_COLOR_IDS_OF_SINGLE_COLOR_QUERY = """
+SELECT
+    DISTINCT color_identity
+FROM
+    temp_picked_cards
+WHERE
+    length(color_identity) = 1;
+"""
+
+GET_COLOR_IDS_OF_TWO_COLOR_QUERY = """
+SELECT
+    DISTINCT color_identity
+FROM
+    temp_picked_cards
+WHERE
+    length(color_identity) = 2;
+"""
+
+GET_COLOR_IDS_OF_THREE_COLOR_QUERY = """
+SELECT
+    DISTINCT color_identity
+FROM
+    temp_picked_cards
+WHERE
+    length(color_identity) = 3;
+"""
+
+GET_COLOR_IDS_OF_NOT_PICKED_CARDS_QUERY = """
+SELECT
+    DISTINCT color_identity
+FROM
+    cards
+WHERE
+    id NOT IN (SELECT DISTINCT card_id FROM temp_picked_cards)
+AND
+    id NOT IN (SELECT DISTINCT card_id FROM temp_picked_commanders);
+"""
