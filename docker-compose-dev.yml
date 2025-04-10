@@ -1,14 +1,18 @@
 services:
   cubesimulator:
-    image: cubedraftsimuflaskcont.azurecr.io/eerondevcubesimulator_dev
     build:
       context: .
       dockerfile: Simu_Dockerfile_dev
     ports:
       - "5173:5173"
     volumes:
-      - ./Simulator:/app
-      - /app/node_modules  # Prevent host node_modules override
+      - ./Simulator/src:/app/src
+      - ./Simulator/public:/app/public
+      - ./Simulator/package.json:/app/package.json
+      - ./Simulator/package-lock.json:/app/package-lock.json
+      - ./Simulator/index.html:/app/index.html
+      - ./Simulator/vite.config.js:/app/vite.config.js
+      - /app/node_modules
     environment:
       - HOST=0.0.0.0
       - PORT=5173
