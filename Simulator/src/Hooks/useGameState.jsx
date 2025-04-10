@@ -99,7 +99,7 @@ export const useGameState = () => {
     if (decryptedMessage.ackToken) {
       const message = {
         type: "Ack",
-        token: decryptedMessage.ackToken,
+        ackToken: decryptedMessage.ackToken,
       }
       sendMessage(connection, message)
     }
@@ -226,6 +226,10 @@ export const useGameState = () => {
     }, 0);
   };
 
+  function sanitizeJsonString(str) {
+    // Replace all non-printable control characters except \n, \t
+    return str.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, ' ');
+  }
 
   const connection = useWebSocket(import.meta.env.VITE_REACT_APP_WS_URL, {
     share: true,
@@ -241,13 +245,24 @@ export const useGameState = () => {
     onError: (e) => console.log('error', e),
     onMessage: (e) => {
       const key = import.meta.env.VITE_MY_ENCRYPTION;
-      console.log("Received message payload:", e.data);
-      const decrypted = decrypt(JSON.parse(e.data), key);
-      console.log("decrypted", decrypted)
-      const parsed = JSON.parse(decrypted)
-      messageQueue.push(parsed);  // Add incoming messages to the queue
-      if (!isProcessing) {
-        processQueue();
+      const { message } = JSON.parse(e.data);
+      const decrypted = decrypt(message, key);
+      const sanitizedDecrypted = sanitizeJsonString(decrypted);
+      try {
+        const parsed = JSON.parse(sanitizedDecrypted);
+        messageQueue.push(parsed);  // Add incoming messages to the queue
+        if (!isProcessing) {
+          processQueue();
+        }
+      } catch (err) {
+        console.error("‼️ JSON parse failed:", err.message);
+        for (let i = 0; i < decrypted.length; i++) {
+          const code = decrypted.charCodeAt(i);
+          if (code < 32 || code === 127) {
+            console.warn(`Control char at ${i}: \\u${code.toString(16).padStart(4, '0')}`);
+          }
+        }
+        console.log("Decrypted string:", decrypted);
       }
     }
   })

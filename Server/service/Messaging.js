@@ -1,9 +1,17 @@
-import { connections, messageQueues, last_acked_message } from "./State.js";
+import {
+  connections,
+  messageQueues,
+  last_acked_message,
+  retryCounts,
+  retryTimers,
+} from "./State.js";
 import { encrypt } from "./encryption.js";
 import { v4 as uuidv4 } from 'uuid';
 
+const MAX_RETRIES = 5;
+const RETRY_DELAY = 2000;
+
 export const queueMessage = (uuid, message) => {
-  console.log("Message:", message);
   const messageToQueue = addToken(message);
   console.log("Message with token:", messageToQueue);
   messageQueues[uuid].push(messageToQueue);
@@ -17,17 +25,20 @@ export const processMessageQueue = (uuid) => {
 
   if (!last_acked_message[uuid]) {
     try {
-      console.log("Sending message:", nextMessage);
-      const encryptedMessage = encrypt(
-        JSON.stringify(nextMessage),
-        process.env.MY_ENCRYPTION
-      );
-      console.log("Encrypted message:", encryptedMessage);
-      connections[uuid].send(JSON.stringify(encryptedMessage));
-      last_acked_message[uuid] = nextMessage.ackToken;
+      const sanitizedMessage = sanitize(nextMessage);
+      const json = JSON.stringify(sanitizedMessage);
+      const encryptedMessage = encrypt(json, process.env.MY_ENCRYPTION);
+      connections[uuid].send(JSON.stringify({ message: encryptedMessage }));
+      last_acked_message[uuid] = sanitizedMessage.ackToken;
+
+      retryCounts[uuid] = 0;
+      setupRetry(uuid);
     } catch (error) {
       console.error("Error sending message:", error);
     }
+  } else {
+    console.log("Last acked message:", last_acked_message[uuid]);
+    console.log("amount of messages in queue:", messageQueues[uuid].length);
   }
 };
 
@@ -39,3 +50,42 @@ const addToken = (message) => {
   };
   return messageWithToken;
 };
+
+const setupRetry = (uuid) => {
+  clearTimeout(retryTimers[uuid]);
+
+  retryTimers[uuid] = setTimeout(() => {
+    retryCounts[uuid] = (retryCounts[uuid] || 0) + 1;
+
+    if (retryCounts[uuid] > MAX_RETRIES) {
+      console.warn(`Max retries reached for ${uuid}, dropping message.`);
+      messageQueues[uuid].shift();
+      last_acked_message[uuid] = null;
+      processMessageQueue(uuid);
+      return;
+    }
+
+    console.log(`Retrying message for ${uuid}, attempt #${retryCounts[uuid]}`);
+    last_acked_message[uuid] = null;
+    processMessageQueue(uuid); // re-send the current message
+  }, RETRY_DELAY);
+};
+
+
+function sanitizeValue(val) {
+  if (typeof val !== 'string') return val;
+  // Replace all non-printable characters except \n and \t
+  return val.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, ' ');
+}
+
+function sanitize(obj) {
+  if (Array.isArray(obj)) {
+    return obj.map(sanitize);
+  } else if (obj && typeof obj === 'object') {
+    return Object.fromEntries(
+      Object.entries(obj).map(([k, v]) => [k, sanitize(v)])
+    );
+  } else {
+    return sanitizeValue(obj);
+  }
+}

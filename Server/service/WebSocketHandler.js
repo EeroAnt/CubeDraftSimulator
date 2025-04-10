@@ -5,7 +5,9 @@ import {
   connections,
   intervalIDs,
   messageQueues,
-  last_acked_message
+  last_acked_message,
+  retryCounts,
+  retryTimers
 } from "./State.js";
 import {
   createLobby,
@@ -141,8 +143,10 @@ export async function handleMessage(message, uuid) {
       break;
     case "Ack":
       if (last_acked_message[uuid] === data.ackToken) {
+        clearTimeout(retryTimers[uuid]);
         messageQueues[uuid].shift();
         last_acked_message[uuid] = null;
+        retryCounts[uuid] = 0;
         processMessageQueue(uuid);
       }
       break;
