@@ -97,47 +97,45 @@ export const ColorId = ({ data, colorIdState }) => {
     <>
       <h1 className="text-4xl font-bold text-blue-600 mt-6">{colorIdState}</h1>
       {data && (
-        <>
-          <div className="w-full max-w-4xl p-6 bg-white shadow-md rounded-lg mt-6">
-            <div className="flex flex-wrap gap-2">
-              {colorIdSets[colorIdState]?.map((color) => (
-                <Button
-                  key={color}
-                  title={color}
-                  onClick={() => onClickColorId(color)}
-                  modeType={colorIds}
-                  modeTarget={color}
-                />
-              ))}
-            </div>
-            <div className="flex flex-row gap-4">
-              <TextFilter
-                name="Name"
-                value={nameFilter}
-                onChange={(e) => setNameFilter(e.target.value)}
+        <div className="w-full max-w-4xl p-6 bg-white shadow-md rounded-lg mt-6">
+          <div className="flex flex-wrap gap-2">
+            {colorIdSets[colorIdState]?.map((color) => (
+              <Button
+                key={color}
+                title={color}
+                onClick={() => onClickColorId(color)}
+                modeType={colorIds}
+                modeTarget={color}
               />
-              <TextFilter
-                name="Text"
-                value={oracleFilter}
-                onChange={(e) => setOracleFilter(e.target.value)}
-              />
-              <TextFilter
-                name="Type"
-                value={typeFilter}
-                onChange={(e) => setTypeFilter(e.target.value)}
-              />
-            </div>
-            <TwoThumbSlider
-              key={colorIdState}
-              name="Mana Value"
-              min={0}
-              minValueSetter={setMinManaValue}
-              max={maxDomainValue}
-              maxValueSetter={setMaxManaValue}
-            />
-            <DraftedCardView cards={cards} sortKey={"avg_pick"} />
+            ))}
           </div>
-        </>
+          <div className="flex flex-row gap-4">
+            <TextFilter
+              name="Name"
+              value={nameFilter}
+              onChange={(e) => setNameFilter(e.target.value)}
+            />
+            <TextFilter
+              name="Text"
+              value={oracleFilter}
+              onChange={(e) => setOracleFilter(e.target.value)}
+            />
+            <TextFilter
+              name="Type"
+              value={typeFilter}
+              onChange={(e) => setTypeFilter(e.target.value)}
+            />
+          </div>
+          <TwoThumbSlider
+            key={colorIdState}
+            name="Mana Value"
+            min={0}
+            minValueSetter={setMinManaValue}
+            max={maxDomainValue}
+            maxValueSetter={setMaxManaValue}
+          />
+          <DraftedCardView cards={cards} sortKey={"avg_pick"} />
+        </div>
       )}
     </>
   );
