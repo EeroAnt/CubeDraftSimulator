@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "run-p dev:back dev:front",
     "dev:back": "npm --prefix CubeStatsBack run dev",
-    "dev:front": "npm --prefix CubeStatsFront run dev"
+    "dev:front": "npm --prefix CubeStatsFront run dev",
+    "deploy": "cd CubeStatsFront && npm run build && cd ../CubeStatsBack && npm run deploy"
   },
   "keywords": [],
   "author": "",
