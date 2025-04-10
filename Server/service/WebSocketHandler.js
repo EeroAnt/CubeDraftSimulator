@@ -4,6 +4,7 @@ import {
   drafts,
   connections,
   intervalIDs,
+  messageQueues,
   last_acked_message
 } from "./State.js";
 import {
@@ -14,7 +15,7 @@ import {
 } from "./DraftSetup.js";
 import { sendDraftData } from "./DataBaseCommunications.js";
 import { parseDraftData } from "./DraftDataParser.js";
-import { queueMessage } from "./Messaging.js";
+import { queueMessage, processMessageQueue } from "./Messaging.js";
 import { handlePick, giveLastCard } from "./DraftFunctions.js";
 import { setCommander, removeCommander, moveCards } from "./DeckManagement.js";
 import { decrypt } from "./encryption.js";
@@ -42,7 +43,10 @@ export const handleClose = (uuid) => {
 
 export async function handleMessage(message, uuid) {
 
-  const decryptedMessage = decrypt(message.toString());
+  const decryptedMessage = decrypt(
+    message.toString(),
+    process.env.MY_ENCRYPTION
+  );
   const data = JSON.parse(decryptedMessage);
 
   console.log("Message from: " + uuid);
@@ -136,7 +140,11 @@ export async function handleMessage(message, uuid) {
       queueMessage(uuid, message);
       break;
     case "Ack":
-      last_acked_message[uuid] = data.ackToken;
+      if (last_acked_message[uuid] === data.ackToken) {
+        messageQueues[uuid].shift();
+        last_acked_message[uuid] = null;
+        processMessageQueue(uuid);
+      }
       break;
     default:
       console.log("Unknown message type: " + JSON.stringify(data));

@@ -240,7 +240,10 @@ export const useGameState = () => {
     onClose: () => console.log('closed'),
     onError: (e) => console.log('error', e),
     onMessage: (e) => {
-      const decrypted = decrypt(e.data)
+      const key = import.meta.env.VITE_MY_ENCRYPTION;
+      console.log("Received message payload:", e.data);
+      const decrypted = decrypt(JSON.parse(e.data), key);
+      console.log("decrypted", decrypted)
       const parsed = JSON.parse(decrypted)
       messageQueue.push(parsed);  // Add incoming messages to the queue
       if (!isProcessing) {
