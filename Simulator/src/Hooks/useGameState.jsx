@@ -94,6 +94,7 @@ export const useGameState = () => {
 
   useEffect(() => {
     if (!decryptedMessage) return;
+    console.log("message received", decryptedMessage)
     if (decryptedMessage.status === "No Draft") {
       alert("No draft found")
       setMode("Home")
@@ -180,10 +181,6 @@ export const useGameState = () => {
 
           setMode("Post Draft")
 
-          // } else if (decryptedMessage.type === "Queues") {
-          //   if (JSON.stringify(decryptedMessage.queues) !== JSON.stringify(queues)) {
-          //     setQueues(decryptedMessage.queues)
-          //   }
         }
         break;
       case "DeckBuilder":
