@@ -11,34 +11,7 @@ export const NotDrafted = ({ data }) => {
   const [minManaValue, setMinManaValue] = useState(0);
   const [maxManaValue, setMaxManaValue] = useState(getMaxMV(unfilteredCards));
   const maxDomainValue = getMaxMV(unfilteredCards);
-  const colorIdSet = [
-    "W",
-    "U",
-    "B",
-    "R",
-    "G",
-    "C",
-    "GW",
-    "RU",
-    "BR",
-    "RW",
-    "BG",
-    "BW",
-    "GU",
-    "UW",
-    "GR",
-    "BU",
-    "BGU",
-    "GRW",
-    "BGW",
-    "RUW",
-    "GRU",
-    "BUW",
-    "BRW",
-    "BGR",
-    "BRU",
-    "GUW",
-  ];
+  const colorIdSet = data.colors.not_picked_color_ids;
   const [colorIds, setColorIds] = useState(colorIdSet);
 
   useEffect(() => {
