@@ -11,12 +11,11 @@ def generate_cards_object(cursor):
     cards_not_picked = []
     for card in cards:
 
-        if card["id"] in commander_ids:
-            card["is_commander"] = "true"
         if card["id"] in pick_rates:
             card["avg_pick"] = pick_rates[card["id"]]["avg_pick"]
             card["amount_of_picks"] = pick_rates[card["id"]]["amount_of_picks"]
         if card["id"] in commander_pick_rates:
+            card["is_commander"] = "true"
             card["avg_commander_pick"] = commander_pick_rates[card["id"]]["avg_pick"]
             card["amount_of_commander_picks"] = commander_pick_rates[card["id"]]["amount_of_picks"]
         if card["id"] in pick_rates or card["id"] in commander_pick_rates:

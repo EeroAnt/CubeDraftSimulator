@@ -8326,7 +8326,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/c/6/c681e33b-3d60-4aaa-8186-51866d8b79d1.jpg?1689999208",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 9.0,
         "amount_of_picks": 1
       },
@@ -8379,9 +8378,9 @@
         "image_url": "https://cards.scryfall.io/normal/front/c/8/c839d302-bf85-4a30-a49a-dbbd48695b5c.jpg?1673308128",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 7.0,
         "amount_of_picks": 1,
+        "is_commander": "true",
         "avg_commander_pick": 5.0,
         "amount_of_commander_picks": 1
       },
@@ -8395,7 +8394,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/1/e/1e3b82a7-ebef-4190-9f50-40b992ba89c9.jpg?1591321318",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 6.0,
         "amount_of_picks": 1
       },
@@ -8527,7 +8525,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/0/0/003dc436-a3af-4e65-b4f8-387155fbcb85.jpg?1604194919",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 3.0,
         "amount_of_picks": 1
       },
@@ -8554,9 +8551,9 @@
         "image_url": "https://cards.scryfall.io/normal/front/c/c/cc8331ab-adc9-45c6-9728-66afc72d901c.jpg?1673308068",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 14.0,
         "amount_of_picks": 1,
+        "is_commander": "true",
         "avg_commander_pick": 4.0,
         "amount_of_commander_picks": 1
       },
@@ -8623,9 +8620,9 @@
         "image_url": "https://cards.scryfall.io/normal/front/6/3/6336b0af-3c7d-4b8e-a0e7-d4d15078fc04.jpg?1690017036",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 3.0,
         "amount_of_picks": 1,
+        "is_commander": "true",
         "avg_commander_pick": 3.0,
         "amount_of_commander_picks": 1
       },
@@ -8692,7 +8689,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/6/e/6e19c383-88bd-4bde-ac81-c0eb6d5b5bd4.jpg?1562436569",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 5.0,
         "amount_of_picks": 1
       },
@@ -8771,7 +8767,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/d/6/d6fb929c-1b8d-4d1d-aa69-ac6189cd7ebf.jpg?1690016831",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 5.0,
         "amount_of_picks": 1
       },
@@ -8811,9 +8806,9 @@
         "image_url": "https://cards.scryfall.io/normal/front/7/2/7297dd81-8367-42e9-abf9-9227e202e7ae.jpg?1576385369",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 1.0,
         "amount_of_picks": 1,
+        "is_commander": "true",
         "avg_commander_pick": 3.0,
         "amount_of_commander_picks": 1
       },
@@ -8892,7 +8887,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/8/5/85b6ec91-0ecc-431c-bf85-220c615e0a80.jpg?1562615351",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 5.0,
         "amount_of_picks": 1
       },
@@ -8920,7 +8914,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/4/e/4e3c30c7-c52e-41a0-b7c2-21d39c05160b.jpg?1584831753",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 9.0,
         "amount_of_picks": 2
       },
@@ -9078,7 +9071,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/3/7/374b5d57-fd20-4062-9ec2-24ac557d9dde.jpg?1604195020",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 12.0,
         "amount_of_picks": 1
       },
@@ -9131,7 +9123,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/9/b/9b46b4ee-263a-4a4b-8fbc-3ea6fa9ba56b.jpg?1591321523",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 11.5,
         "amount_of_picks": 2
       },
@@ -9289,7 +9280,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/b/d/bd39ebe5-2725-4cfb-8a94-54e71d55e8b3.jpg?1673305654",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 15.0,
         "amount_of_picks": 1
       },
@@ -9342,7 +9332,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/a/1/a1de7031-f589-4af5-9c63-06fb7ec7a6b5.jpg?1637631578",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 9.0,
         "amount_of_picks": 1
       },
@@ -9566,7 +9555,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/4/0/4029c3a0-a999-453a-a838-7adb81e481ee.jpg?1593814495",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 14.0,
         "amount_of_picks": 1
       },
@@ -9646,6 +9634,7 @@
         "image_url": "https://cards.scryfall.io/normal/front/a/b/abb21cf7-c5e6-4be5-8da5-9d29e95e2208.jpg?1625978098",
         "backside_image_url": "",
         "draft_pool": "M",
+        "is_commander": "true",
         "avg_commander_pick": 2.0,
         "amount_of_commander_picks": 1
       },
@@ -9830,7 +9819,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/7/e/7e599847-8ab0-4fd6-b2c0-cb44a7669aa5.jpg?1682209825",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 1.0,
         "amount_of_picks": 1
       },
@@ -9909,9 +9897,9 @@
         "image_url": "https://cards.scryfall.io/normal/front/3/d/3dd0bf11-4e43-43f1-82e3-755beed0ede0.jpg?1673149145",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 12.0,
         "amount_of_picks": 2,
+        "is_commander": "true",
         "avg_commander_pick": 3.0,
         "amount_of_commander_picks": 1
       },
@@ -9964,7 +9952,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/c/b/cb12173d-3afb-4e8b-b612-fa7737a8c6c2.jpg?1689999266",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 12.0,
         "amount_of_picks": 1
       },
@@ -10227,9 +10214,9 @@
         "image_url": "https://cards.scryfall.io/normal/front/6/e/6e5baa27-3f6b-49bb-9927-5afc21b9cc3f.jpg?1592673353",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 1.0,
         "amount_of_picks": 1,
+        "is_commander": "true",
         "avg_commander_pick": 5.0,
         "amount_of_commander_picks": 1
       },
@@ -10322,9 +10309,9 @@
         "image_url": "https://cards.scryfall.io/normal/front/2/1/2183cfb3-6bf5-4fbc-b535-a42ba954e8a3.jpg?1574767851",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 1.0,
         "amount_of_picks": 1,
+        "is_commander": "true",
         "avg_commander_pick": 2.0,
         "amount_of_commander_picks": 1
       },
@@ -10364,9 +10351,9 @@
         "image_url": "https://cards.scryfall.io/normal/front/8/2/82c8cac8-29ce-43cc-bdb4-428c614d8545.jpg?1698988490",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 13.0,
         "amount_of_picks": 1,
+        "is_commander": "true",
         "avg_commander_pick": 5.0,
         "amount_of_commander_picks": 1
       },
@@ -10523,9 +10510,9 @@
         "image_url": "https://cards.scryfall.io/normal/front/2/5/25a8c801-df0c-402b-a41c-4703a2abfb66.jpg?1593273661",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 1.0,
         "amount_of_picks": 1,
+        "is_commander": "true",
         "avg_commander_pick": 1.0,
         "amount_of_commander_picks": 1
       },
@@ -10632,9 +10619,9 @@
         "image_url": "https://cards.scryfall.io/normal/front/e/b/ebdd967d-b364-47ad-a1c2-49b155f72c5b.jpg?1689999222",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 15.0,
         "amount_of_picks": 1,
+        "is_commander": "true",
         "avg_commander_pick": 3.0,
         "amount_of_commander_picks": 1
       },
@@ -10674,7 +10661,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/6/3/63f7cf94-78f6-4f30-ab24-8b90231520f1.jpg?1562777403",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 6.5,
         "amount_of_picks": 2
       },
@@ -10742,9 +10728,9 @@
         "image_url": "https://cards.scryfall.io/normal/front/5/0/50c1de2c-1acc-47c8-9b5e-a9dae3da8a49.jpg?1562302164",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 14.0,
         "amount_of_picks": 1,
+        "is_commander": "true",
         "avg_commander_pick": 4.0,
         "amount_of_commander_picks": 1
       },
@@ -10798,9 +10784,9 @@
         "image_url": "https://cards.scryfall.io/normal/front/3/2/3242a9f0-2ba3-4852-ac8f-366772ac1c62.jpg?1673148917",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 3.0,
         "amount_of_picks": 1,
+        "is_commander": "true",
         "avg_commander_pick": 2.0,
         "amount_of_commander_picks": 1
       },
@@ -10880,7 +10866,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/c/6/c658f583-c115-43c7-9986-2c6010549313.jpg?1673485071",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 13.5,
         "amount_of_picks": 2
       },
@@ -10921,7 +10906,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/5/6/567697db-8d47-404f-b0da-b00409431f28.jpg?1689999198",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 13.0,
         "amount_of_picks": 1
       },
@@ -11015,7 +10999,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/4/9/490994c6-9fef-482b-835d-a64350bfaa8d.jpg?1562824820",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 7.0,
         "amount_of_picks": 1
       },
@@ -11069,7 +11052,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/f/e/fe28de73-76f3-4a9e-a020-dbe5921b9be5.jpg?1650599568",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 13.0,
         "amount_of_picks": 1
       },
@@ -11097,7 +11079,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/8/c/8caa7115-1b26-4615-842f-671b24dc96d8.jpg?1673149181",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 4.0,
         "amount_of_picks": 1
       },
@@ -11192,9 +11173,9 @@
         "image_url": "https://cards.scryfall.io/normal/front/c/e/cedfc5b7-9242-4680-b284-debc8b5a9bc7.jpg?1559959275",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 3.0,
         "amount_of_picks": 1,
+        "is_commander": "true",
         "avg_commander_pick": 1.0,
         "amount_of_commander_picks": 1
       },
@@ -11221,9 +11202,9 @@
         "image_url": "https://cards.scryfall.io/normal/front/6/d/6df5843d-63f7-4091-80d7-a595f08851c2.jpg?1702330294",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 10.0,
         "amount_of_picks": 1,
+        "is_commander": "true",
         "avg_commander_pick": 1.0,
         "amount_of_commander_picks": 1
       },
@@ -11277,7 +11258,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/5/a/5a293c45-1e73-4527-be2f-2dcd5c47b610.jpg?1650730165",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 9.0,
         "amount_of_picks": 1
       },
@@ -11291,7 +11271,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/7/3/73c18cb4-96b1-4af2-912e-974e22877ede.jpg?1673148799",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_pick": 14.0,
         "amount_of_picks": 1
       },
@@ -20801,8 +20780,7 @@
         "oracle_text": "Hexproof (This creature can't be the target of spells or abilities your opponents control.)\nWhenever Geist of Saint Traft attacks, create a 4/4 white Angel creature token with flying that's tapped and attacking. Exile that token at end of combat.",
         "image_url": "https://cards.scryfall.io/normal/front/5/4/541b9d55-f237-4ff2-9e47-c58a381f0633.jpg?1641603441",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1411,
@@ -21176,8 +21154,7 @@
         "oracle_text": "Companion \u2014 Your starting deck contains only cards with even mana values. (If this card is your chosen companion, you may put it into your hand from outside the game for {3} as a sorcery.)\nWhen Gyruda enters the battlefield, each player mills four cards. Put a creature card with an even mana value from among the milled cards onto the battlefield under your control.",
         "image_url": "https://cards.scryfall.io/normal/front/9/7/97eb1804-6fd8-4917-af36-87fdfce39d3a.jpg?1591228372",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1475,
@@ -21298,8 +21275,7 @@
         "oracle_text": "Indestructible\nAs long as your devotion to black and red is less than seven, Mogis isn't a creature.\nAt the beginning of each opponent's upkeep, Mogis deals 2 damage to that player unless they sacrifice a creature.",
         "image_url": "https://cards.scryfall.io/normal/front/2/a/2a0417bf-b735-46d7-9985-2d991051020f.jpg?1593092789",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1500,
@@ -21321,8 +21297,7 @@
         "oracle_text": "You can't cast this spell unless an opponent lost life this turn.\nFlying, trample\nCreature spells you cast cost {1} less to cast for each 1 life your opponents have lost this turn.",
         "image_url": "https://cards.scryfall.io/normal/front/0/4/04f3db71-802f-488c-b40d-ac90df2d660a.jpg?1562782015",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1504,
@@ -21531,8 +21506,7 @@
         "oracle_text": "You can't cast noncreature spells.\nWhenever you tap a land for mana, add one mana of any type that land produced.",
         "image_url": "https://cards.scryfall.io/normal/front/0/d/0dcdad71-323e-41e0-a1b3-9fd5b753e71c.jpg?1584831692",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1546,
@@ -21565,8 +21539,7 @@
         "oracle_text": "Flying, trample\nWhenever a Dragon you control attacks, it gains double strike until end of turn.",
         "image_url": "https://cards.scryfall.io/normal/front/3/5/35ad1ce5-6054-4f0c-8fbe-636be576d408.jpg?1631588294",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1551,
@@ -21577,8 +21550,7 @@
         "oracle_text": "Trample\nWhenever Borborygmos deals combat damage to a player, put a +1/+1 counter on each creature you control.",
         "image_url": "https://cards.scryfall.io/normal/front/7/c/7c4a08e9-06c7-43e9-a855-4f507a35ae8b.jpg?1593272594",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1553,
@@ -21589,8 +21561,7 @@
         "oracle_text": "Landfall \u2014 Whenever a land enters the battlefield under your control, create a 5/5 red and green Elemental creature token.\nWhenever Omnath, Locus of Rage or another Elemental you control dies, Omnath deals 3 damage to any target.",
         "image_url": "https://cards.scryfall.io/normal/front/0/8/08c14bb4-c9d9-41ce-a075-a441522a52c6.jpg?1604195144",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1554,
@@ -21612,8 +21583,7 @@
         "oracle_text": "{2}{G/W}, {T}: Create a 1/1 green and white Elf Warrior creature token.\n{4}{G/W}{G/W}, {T}: For each creature token you control, create a token that's a copy of that creature.",
         "image_url": "https://cards.scryfall.io/normal/front/b/9/b91dadcb-31e9-43b0-b425-c9311af3e9d7.jpg?1599708272",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1557,
@@ -21745,8 +21715,7 @@
         "oracle_text": "Indestructible\nAs long as your devotion to green and white is less than seven, Karametra isn't a creature.\nWhenever you cast a creature spell, you may search your library for a Forest or Plains card, put it onto the battlefield tapped, then shuffle.",
         "image_url": "https://cards.scryfall.io/normal/front/2/b/2bd9d26e-984c-4cf8-8c46-447f9776668f.jpg?1591321337",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1588,
@@ -21856,8 +21825,7 @@
         "oracle_text": "Whenever an opponent casts a noncreature spell, that player loses 2 life and you gain 2 life.",
         "image_url": "https://cards.scryfall.io/normal/front/b/3/b3e47d49-e5b5-487b-a1ec-373dbf89b2ec.jpg?1673148829",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1606,
@@ -22154,8 +22122,7 @@
         "oracle_text": "Indestructible\nAs long as your devotion to blue and red is less than seven, Keranos isn't a creature.\nReveal the first card you draw on each of your turns. Whenever you reveal a land card this way, draw a card. Whenever you reveal a nonland card this way, Keranos deals 3 damage to any target.",
         "image_url": "https://cards.scryfall.io/normal/front/a/b/ab70c262-37a9-4dcd-80bb-d4422368eade.jpg?1593096418",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1660,
@@ -22210,8 +22177,7 @@
         "oracle_text": "Play with the top card of your library revealed.\nYou may cast instant and sorcery spells from the top of your library.\nWhenever you cast an instant or sorcery spell from your library, copy it. You may choose new targets for the copy.",
         "image_url": "https://cards.scryfall.io/normal/front/6/6/66011fe8-8c5d-4990-a324-5839515dcacb.jpg?1690016885",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1665,
@@ -22222,8 +22188,7 @@
         "oracle_text": "This spell can't be countered.\nFlying\nWhenever you draw a card, Niv-Mizzet, Parun deals 1 damage to any target.\nWhenever a player casts an instant or sorcery spell, you draw a card.",
         "image_url": "https://cards.scryfall.io/normal/front/3/0/3035a97f-5104-4b56-84a4-5206e75607fc.jpg?1674142512",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1668,
@@ -22322,8 +22287,7 @@
         "oracle_text": "Jarad, Golgari Lich Lord gets +1/+1 for each creature card in your graveyard.\n{1}{B}{G}, Sacrifice another creature: Each opponent loses life equal to the sacrificed creature's power.\nSacrifice a Swamp and a Forest: Return Jarad from your graveyard to your hand.",
         "image_url": "https://cards.scryfall.io/normal/front/c/6/c6717954-35d8-4d7e-95aa-f7d26d15d4b2.jpg?1592673383",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1692,
@@ -22356,8 +22320,7 @@
         "oracle_text": "Indestructible\nWhenever Sapling of Colfenor attacks, reveal the top card of your library. If it's a creature card, you gain life equal to that card's toughness, lose life equal to its power, then put it into your hand.",
         "image_url": "https://cards.scryfall.io/normal/front/3/3/33c19062-9e1c-4cae-bb97-7ca9e4523593.jpg?1625978030",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1697,
@@ -22500,8 +22463,7 @@
         "oracle_text": "First strike, vigilance\nHeroic \u2014 Whenever you cast a spell that targets Anax and Cymede, creatures you control get +1/+1 and gain trample until end of turn.",
         "image_url": "https://cards.scryfall.io/normal/front/6/3/63cb977e-bd42-43b1-83d1-124e7a413aca.jpg?1562819079",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1714,
@@ -22556,8 +22518,7 @@
         "oracle_text": "Flying\nMentor (Whenever this creature attacks, put a +1/+1 counter on target attacking creature with lesser power.)\nAt the beginning of combat on your turn, choose up to one target creature you control. Until end of turn, that creature gets +2/+0, gains trample if it's red, and gains vigilance if it's white.",
         "image_url": "https://cards.scryfall.io/normal/front/a/8/a8e9f4d2-bba5-4061-8ae7-a68b912f2c11.jpg?1572893504",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1724,
@@ -22568,8 +22529,7 @@
         "oracle_text": "Lifelink\n{R}, {T}, Sacrifice another creature: Brion Stoutarm deals damage equal to the sacrificed creature's power to target player or planeswalker.",
         "image_url": "https://cards.scryfall.io/normal/front/b/0/b097c70a-d1d6-4972-b94d-d7d8a6f443e2.jpg?1562439762",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1727,
@@ -22624,8 +22584,7 @@
         "oracle_text": "Melee (Whenever this creature attacks, it gets +1/+1 until end of turn for each opponent you attacked this combat.)\nOther creatures you control have melee. (If a creature has multiple instances of melee, each triggers separately.)",
         "image_url": "https://cards.scryfall.io/normal/front/0/1/01c2337d-1c3c-4c5e-8b06-dc8a8c56164e.jpg?1673305427",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1739,
@@ -22768,8 +22727,7 @@
         "oracle_text": "{T}, Sacrifice another creature: Search your library for a creature card with mana value equal to 1 plus the sacrificed creature's mana value, put that card onto the battlefield, then shuffle. Activate only as a sorcery.",
         "image_url": "https://cards.scryfall.io/normal/front/8/4/84abfc59-10a7-4cb5-9cdd-81797116c810.jpg?1572893948",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1768,
@@ -22802,8 +22760,7 @@
         "oracle_text": "Flying\nWhenever Derevi, Empyrial Tactician enters the battlefield or a creature you control deals combat damage to a player, you may tap or untap target permanent.\n{1}{G}{W}{U}: Put Derevi onto the battlefield from the command zone.",
         "image_url": "https://cards.scryfall.io/normal/front/3/a/3a1d0dad-18a8-489e-ac11-08f64b72fda4.jpg?1592673365",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1780,
@@ -22814,8 +22771,7 @@
         "oracle_text": "Vigilance, trample\n{2}, {T}: Exile another target creature. Return that card to the battlefield under its owner's control at the beginning of the next end step.",
         "image_url": "https://cards.scryfall.io/normal/front/5/4/54e2d6c2-a233-4e37-94c9-673a4a957e0c.jpg?1673149092",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1781,
@@ -22837,8 +22793,7 @@
         "oracle_text": "Flying, vigilance, menace\nWhenever Yennett, Cryptic Sovereign attacks, reveal the top card of your library. You may cast it without paying its mana cost if its mana value is odd. If you don't cast it, draw a card.",
         "image_url": "https://cards.scryfall.io/normal/front/2/8/28ee11c9-fa23-4863-8a18-25a008f18da5.jpg?1689999337",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1812,
@@ -22882,8 +22837,7 @@
         "oracle_text": "Flying\nAt the beginning of your upkeep, sacrifice Nicol Bolas unless you pay {U}{B}{R}.\nWhenever Nicol Bolas deals damage to an opponent, that player discards their hand.",
         "image_url": "https://cards.scryfall.io/normal/front/8/e/8e92ba96-372c-418d-b271-45e1bf5c7af5.jpg?1562438472",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1797,
@@ -22927,8 +22881,7 @@
         "oracle_text": "{2}{B}, Sacrifice a creature: Each other player sacrifices a creature.\n{2}{R}, Sacrifice an artifact: Each other player sacrifices an artifact.\n{2}{G}, Sacrifice an enchantment: Each other player sacrifices an enchantment.",
         "image_url": "https://cards.scryfall.io/normal/front/5/2/52a30e27-4c52-4191-8541-e25732a2dd42.jpg?1673149130",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1802,
@@ -22950,8 +22903,7 @@
         "oracle_text": "When you cast this spell, create X 0/1 red Kobold creature tokens named Kobolds of Kher Keep, where X is the amount of mana spent to cast it.\nFlying\nSacrifice another creature: Prossh, Skyraider of Kher gets +1/+0 until end of turn.",
         "image_url": "https://cards.scryfall.io/normal/front/8/8/889c1a0f-7df2-4497-8058-04358173d7e8.jpg?1562438016",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1804,
@@ -22962,8 +22914,7 @@
         "oracle_text": "Vigilance, reach\nAll creatures attack each combat if able.\nWhenever a creature attacks you or a planeswalker you control, put a +1/+1 counter on Thantis, the Warweaver.",
         "image_url": "https://cards.scryfall.io/normal/front/9/1/91c54ac0-0edc-406f-8a22-f2996f604f36.jpg?1592710296",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1805,
@@ -22974,8 +22925,7 @@
         "oracle_text": "Flying\nWhenever Vaevictis Asmadi, the Dire attacks, for each player, choose target permanent that player controls. Those players sacrifice those permanents. Each player who sacrificed a permanent this way reveals the top card of their library, then puts it onto the battlefield if it's a permanent card.",
         "image_url": "https://cards.scryfall.io/normal/front/d/1/d19fdc00-21eb-48dc-966a-6b634dc5a2c4.jpg?1562304374",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1874,
@@ -22997,8 +22947,7 @@
         "oracle_text": "Flying\nWhenever Rith, the Awakener deals combat damage to a player, you may pay {2}{G}. If you do, choose a color, then create a 1/1 green Saproling creature token for each permanent of that color.",
         "image_url": "https://cards.scryfall.io/normal/front/8/2/822bb102-58a8-47c7-ab44-6fef29885425.jpg?1562919155",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1814,
@@ -23064,8 +23013,7 @@
         "oracle_text": "Protection from white and from black\nWhenever you cast a creature spell, put a +1/+1 counter on Animar, Soul of Elements.\nCreature spells you cast cost {1} less to cast for each +1/+1 counter on Animar.",
         "image_url": "https://cards.scryfall.io/normal/front/a/3/a3da57d0-1ae3-4f05-a52d-eb76ad56cae7.jpg?1673148281",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1827,
@@ -23087,8 +23035,7 @@
         "oracle_text": "Flying\nWhenever an opponent draws a card except the first one they draw in each of their draw steps, create a 1/1 green Snake creature token.\nWhenever Xyris, the Writhing Storm deals combat damage to a player, you and that player each draw that many cards.",
         "image_url": "https://cards.scryfall.io/normal/front/a/f/af0db1d6-5cb1-4917-8e8f-69d5dc184404.jpg?1673305716",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1833,
@@ -23154,8 +23101,7 @@
         "oracle_text": "Flying\nWhenever you cast a noncreature spell, create a 1/1 white Spirit creature token with flying.\nSacrifice a Spirit: Add {R}.",
         "image_url": "https://cards.scryfall.io/normal/front/f/d/fdb034c8-bae0-4f66-98f1-1b3cdc072f17.jpg?1689999115",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1847,
@@ -23199,8 +23145,7 @@
         "oracle_text": "Delve (Each card you exile from your graveyard while casting this spell pays for {1}.)\n{2}{G/U}{G/U}: Mill two cards, then return a nonland card of an opponent's choice from your graveyard to your hand.",
         "image_url": "https://cards.scryfall.io/normal/front/d/7/d7b7d726-c395-4af4-aa6a-e8e0c0582a1f.jpg?1559959246",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1858,
@@ -23211,8 +23156,7 @@
         "oracle_text": "Deathtouch\nSkip your draw step.\nAt the beginning of your upkeep, if you have fewer than seven cards in hand, draw cards equal to the difference.",
         "image_url": "https://cards.scryfall.io/normal/front/f/9/f9f3869d-dbc1-42bb-aa43-8e4c2e79cfc1.jpg?1562276547",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1865,
@@ -29119,8 +29063,7 @@
         "oracle_text": "Tap an untapped nontoken artifact you control: Add {G}.\nTap two untapped nontoken artifacts you control: Exile the top card of your library. You may play it this turn.",
         "image_url": "https://cards.scryfall.io/normal/front/3/e/3eedd979-783d-4721-92de-965b77c20576.jpg?1673307996",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2706,
@@ -29131,8 +29074,7 @@
         "oracle_text": "At the beginning of your end step, create a Treasure token for each creature that died this turn. (It's an artifact with \"{T}, Sacrifice this artifact: Add one mana of any color.\")",
         "image_url": "https://cards.scryfall.io/normal/front/c/3/c3da2b1a-76c5-4d36-bdf8-025b86f61eb5.jpg?1699601213",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2719,
@@ -29143,8 +29085,7 @@
         "oracle_text": "{1}, {T}: Draw two cards, then discard a card. Create a 1/1 colorless Pilot creature token with \"This creature crews Vehicles as though its power were 2 greater.\"\nCrew 8 (Tap any number of creatures you control with total power 8 or more: This Vehicle becomes an artifact creature until end of turn.)\nShorikai, Genesis Engine can be your commander.",
         "image_url": "https://cards.scryfall.io/normal/front/9/6/969ac7dd-f3aa-4888-9ff0-d16a31b5e7a9.jpg?1653966849",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2720,
@@ -29155,8 +29096,7 @@
         "oracle_text": "White spells you cast cost {1} less to cast.\nBlue spells you cast cost {1} less to cast.\nSpells your opponents cast cost {1} more to cast.",
         "image_url": "https://cards.scryfall.io/normal/front/f/4/f43748ea-1d65-4ee8-9c66-221412a284c0.jpg?1673148699",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2721,
@@ -29167,8 +29107,7 @@
         "oracle_text": "Whenever you activate a ninjutsu ability, look at the top three cards of your library. Put one of them into your hand and the rest on the bottom of your library in any order. This ability triggers only once each turn.\nEach creature card in your hand has ninjutsu {2}{U}{B}.",
         "image_url": "https://cards.scryfall.io/normal/front/8/8/8887f26d-b097-4fbc-9c48-bdc656409a32.jpg?1654568594",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2722,
@@ -29179,8 +29118,7 @@
         "oracle_text": "At the beginning of your upkeep, each opponent loses X life and you scry X, where X is the number of Zombies you control.\n{2}{U}{B}: Exile target creature card from a graveyard. Create a token that's a copy of it, except it's a 4/4 black Zombie.\nWhen The Scarab God dies, return it to its owner's hand at the beginning of the next end step.",
         "image_url": "https://cards.scryfall.io/normal/front/f/4/f4f414ef-84a2-4694-9e98-51bee4576c84.jpg?1689999233",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2707,
@@ -29191,8 +29129,7 @@
         "oracle_text": "Whenever you sacrifice a permanent, put a +1/+1 counter on Juri, Master of the Revue.\nWhen Juri dies, it deals damage equal to its power to any target.",
         "image_url": "https://cards.scryfall.io/normal/front/a/e/aec6b2b7-625a-451d-bc0b-4456f5bf2719.jpg?1608911166",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2708,
@@ -29203,8 +29140,7 @@
         "oracle_text": "This spell costs {1} less to cast for each creature in your party.\nFlying, deathtouch, haste\nOther creatures you control have deathtouch.\nWhenever a creature you control deals combat damage to a planeswalker, destroy that planeswalker.",
         "image_url": "https://cards.scryfall.io/normal/front/a/c/ac81448c-f87b-4ca1-b951-b359216ab1d0.jpg?1604200613",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2712,
@@ -29215,8 +29151,7 @@
         "oracle_text": "Whenever a non-Human creature you control attacks, look at the top six cards of your library. You may put a Human creature card from among them onto the battlefield tapped and attacking. It gains indestructible until end of turn. Put the rest of the cards on the bottom of your library in a random order.",
         "image_url": "https://cards.scryfall.io/normal/front/5/d/5dd13a6c-23d3-44ce-a628-cb1c19d777c4.jpg?1654630670",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2713,
@@ -29227,8 +29162,7 @@
         "oracle_text": "Flying, first strike\nIf a source would deal damage to an opponent or a permanent an opponent controls, that source deals double that damage to that player or permanent instead.\nIf a source would deal damage to you or a permanent you control, prevent half that damage, rounded up.",
         "image_url": "https://cards.scryfall.io/normal/front/9/0/900b8908-ba51-472e-ab7a-43bd07f90577.jpg?1706547139",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2714,
@@ -29239,8 +29173,7 @@
         "oracle_text": "Haste\nWhenever Risona, Asari Commander deals combat damage to a player, if it doesn't have an indestructible counter on it, put an indestructible counter on it.\nWhenever combat damage is dealt to you, remove an indestructible counter from Risona.",
         "image_url": "https://cards.scryfall.io/normal/front/5/1/51d8f1fa-ca92-4e2e-91e8-195bdad82def.jpg?1654568577",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2709,
@@ -29251,8 +29184,7 @@
         "oracle_text": "Forestwalk (This creature can't be blocked as long as defending player controls a Forest.)\nIf one or more tokens would be created under your control, those tokens plus that many 1/1 green Squirrel creature tokens are created instead.\n{B}, Sacrifice X Squirrels: Target creature gets +X/-X until end of turn.",
         "image_url": "https://cards.scryfall.io/normal/front/1/7/1785cf85-1ac0-4246-9b89-1a8221a8e1b2.jpg?1626097239",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2710,
@@ -29263,8 +29195,7 @@
         "oracle_text": "Whenever Hapatra, Vizier of Poisons deals combat damage to a player, you may put a -1/-1 counter on target creature.\nWhenever you put one or more -1/-1 counters on a creature, create a 1/1 green Snake creature token with deathtouch.",
         "image_url": "https://cards.scryfall.io/normal/front/5/6/56fbbcc9-db23-4902-b0f7-cea78a2a36af.jpg?1543676055",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2711,
@@ -29275,8 +29206,7 @@
         "oracle_text": "{T}, Sacrifice up to three permanents: If there were three or more card types among the sacrificed permanents, each opponent loses 3 life, you gain 3 life, and you draw three cards.",
         "image_url": "https://cards.scryfall.io/normal/front/2/e/2ef42c3f-f22e-4e99-adb0-9e8f8d442347.jpg?1674137411",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2724,
@@ -29287,8 +29217,7 @@
         "oracle_text": "Whenever you cast a creature spell that doesn't share a creature type with a creature you control or a creature card in your graveyard, copy that spell. (A copy of a creature spell becomes a token.)",
         "image_url": "https://cards.scryfall.io/normal/front/c/9/c9ae01f9-7461-47b4-aa1e-93bd6ff1bf9e.jpg?1627709617",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2725,
@@ -29299,8 +29228,7 @@
         "oracle_text": "Cascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order.)\nSpells you cast with mana value 6 or greater have cascade.",
         "image_url": "https://cards.scryfall.io/normal/front/8/a/8afceb13-877a-4256-9ba6-851b6924ffd9.jpg?1608911148",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2741,
@@ -29311,8 +29239,7 @@
         "oracle_text": "At the beginning of your upkeep, choose target opponent. This turn, that player can't cast spells or activate abilities and plays with their hand revealed. You may play lands and cast spells from that player's hand this turn.",
         "image_url": "https://cards.scryfall.io/normal/front/1/3/13ac5292-9817-4f5d-b3fa-611f9ba44443.jpg?1599708366",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2727,
@@ -29323,8 +29250,7 @@
         "oracle_text": "Other creatures you control get +1/+1.\nLandfall \u2014 Whenever a land enters the battlefield under your control, create a 1/1 white Human Warrior creature token.",
         "image_url": "https://cards.scryfall.io/normal/front/c/c/cc3707f1-ed9d-412e-a7be-b6d8b554bd6c.jpg?1665822506",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2728,
@@ -29335,8 +29261,7 @@
         "oracle_text": "Flying\nAt the beginning of your end step, choose a player. They put two +1/+1 counters on a creature they control. Choose a second player to draw a card. Then choose a third player to create two Treasure tokens.",
         "image_url": "https://cards.scryfall.io/normal/front/3/b/3b3e889a-5865-4464-9923-bffa25c50cd2.jpg?1674137513",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2729,
@@ -29347,8 +29272,7 @@
         "oracle_text": "Whenever another creature enters the battlefield under your control, you gain life equal to that creature's toughness.\n{1}{G}{W}, {T}: Populate. (Create a token that's a copy of a creature token you control.)",
         "image_url": "https://cards.scryfall.io/normal/front/3/4/34ea44f2-cb2f-4b86-83fc-fe507f05bb9d.jpg?1568004834",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2731,
@@ -29359,8 +29283,7 @@
         "oracle_text": "If a creature dying causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.\nCreature tokens you control have vigilance and lifelink.",
         "image_url": "https://cards.scryfall.io/normal/front/c/d/cd14f1ce-7fcd-485c-b7ca-01c5b45fdc01.jpg?1689999296",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2732,
@@ -29371,8 +29294,7 @@
         "oracle_text": "Rather than pay {2} for each previous time you've cast this spell from the command zone this game, pay 2 life that many times.\nFlying, lifelink\nWhenever a player casts a spell, they lose 2 life.",
         "image_url": "https://cards.scryfall.io/normal/front/e/3/e32453a1-1fd9-4bda-aaa8-7c287e4c2587.jpg?1608911200",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2733,
@@ -29383,8 +29305,7 @@
         "oracle_text": "Whenever you gain life, put two +1/+1 counters on Karlov of the Ghost Council.\n{W}{B}, Remove six +1/+1 counters from Karlov of the Ghost Council: Exile target creature.",
         "image_url": "https://cards.scryfall.io/normal/front/f/7/f7c41011-a9eb-451c-a76d-67d2dcf47c52.jpg?1703964236",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2734,
@@ -29395,8 +29316,7 @@
         "oracle_text": "Lifelink\nWhenever another creature dies, put a +1/+1 counter on Elenda, the Dusk Rose.\nWhen Elenda dies, create X 1/1 white Vampire creature tokens with lifelink, where X is Elenda's power.",
         "image_url": "https://cards.scryfall.io/normal/front/e/1/e18feca3-1b1b-4456-8873-25a24849a917.jpg?1698988428",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2735,
@@ -29407,8 +29327,7 @@
         "oracle_text": "Flying\nWhenever a player attacks one of your opponents, if that opponent has more life than another of your opponents, that attacking player draws a card and you put two +1/+1 counters on a creature you control.",
         "image_url": "https://cards.scryfall.io/normal/front/d/0/d0adb0c2-d45f-4c51-a4df-05f75c83e46a.jpg?1712354672",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2747,
@@ -29419,8 +29338,7 @@
         "oracle_text": "Flying\nAt the beginning of your end step, you may sacrifice another creature. When you do, Ziatora, the Incinerator deals damage equal to that creature's power to any target and you create three Treasure tokens.",
         "image_url": "https://cards.scryfall.io/normal/front/b/a/ba4fa4c8-f09f-4d97-a7d1-1b93caf7d4f9.jpg?1664413989",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2748,
@@ -29431,8 +29349,7 @@
         "oracle_text": "Flying\nWhenever Korvold, Fae-Cursed King enters the battlefield or attacks, sacrifice another permanent.\nWhenever you sacrifice a permanent, put a +1/+1 counter on Korvold and draw a card.",
         "image_url": "https://cards.scryfall.io/normal/front/9/2/92ea1575-eb64-43b5-b604-c6e23054f228.jpg?1571197150",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2749,
@@ -29443,8 +29360,7 @@
         "oracle_text": "Haste\nWhenever a creature you control with haste attacks, create a tapped Treasure token.",
         "image_url": "https://cards.scryfall.io/normal/front/6/3/636058c3-bacc-4a66-8988-832ab0cc9be6.jpg?1664413521",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2750,
@@ -29455,8 +29371,7 @@
         "oracle_text": "Vigilance\nA player losing unspent mana causes that player to lose that much life.\n{1}, {T}: Each player adds {B}{R}{G}.",
         "image_url": "https://cards.scryfall.io/normal/front/e/a/ead8a1f5-6260-47fa-a649-43711ec5bbeb.jpg?1608911265",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2753,
@@ -29467,8 +29382,7 @@
         "oracle_text": "As long as your life total is less than or equal to half your starting life total, Myrkul, Lord of Bones has indestructible.\nWhenever another nontoken creature you control dies, you may exile it. If you do, create a token that's a copy of that card, except it's an enchantment and loses all other card types.",
         "image_url": "https://cards.scryfall.io/normal/front/8/2/82824d05-5215-459a-aa73-3c5a6be3d464.jpg?1674137617",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2754,
@@ -29479,8 +29393,7 @@
         "oracle_text": "Whenever Anafenza, the Foremost attacks, put a +1/+1 counter on another target tapped creature you control.\nIf a nontoken creature an opponent owns would die or a creature card not on the battlefield would be put into an opponent's graveyard, exile that card instead.",
         "image_url": "https://cards.scryfall.io/normal/front/c/8/c8b432a7-53da-4480-b571-e6feb1364a3a.jpg?1562793427",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2755,
@@ -29491,8 +29404,7 @@
         "oracle_text": "Each creature assigns combat damage equal to its toughness rather than its power.",
         "image_url": "https://cards.scryfall.io/normal/front/e/0/e0ad8e7f-cda0-4529-94fc-dd3709158a94.jpg?1673148514",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2742,
@@ -29503,8 +29415,7 @@
         "oracle_text": "Double strike\nMaster Tactician \u2014 Whenever one or more tokens enter the battlefield under your control, draw a card.\nChapter Master \u2014 {6}: Create two 2/2 white Astartes Warrior creature tokens with vigilance.",
         "image_url": "https://cards.scryfall.io/normal/front/e/7/e7517e8e-b424-4731-ba9d-6132bdefa6bf.jpg?1674058408",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2743,
@@ -29515,8 +29426,7 @@
         "oracle_text": "At the beginning of your upkeep, you gain 2 life.\nWhenever you gain life, you may pay {1}. If you do, draw a card and each opponent loses 1 life.\nAt the beginning of your upkeep, if Oloro, Ageless Ascetic is in the command zone, you gain 2 life.",
         "image_url": "https://cards.scryfall.io/normal/front/a/b/abf8df47-405c-42d8-be9e-0f0d0a49589b.jpg?1562931285",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2744,
@@ -29527,8 +29437,7 @@
         "oracle_text": "Flying, deathtouch, lifelink\nOther creatures you control with flying get +1/+0.\nWhenever you cast an artifact or enchantment spell, create a 1/1 blue Faerie creature token with flying.",
         "image_url": "https://cards.scryfall.io/normal/front/a/b/abc9e41e-fd03-4b6f-8f44-17ba94fa44f5.jpg?1673484923",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2751,
@@ -29539,8 +29448,7 @@
         "oracle_text": "If a nontoken creature would die, exile that card with a blood counter on it instead.\nAs long as an exiled creature card with a blood counter on it has flying, Rayami, First of the Fallen has flying. The same is true for first strike, double strike, deathtouch, haste, hexproof, indestructible, lifelink, menace, protection, reach, trample, and vigilance.",
         "image_url": "https://cards.scryfall.io/normal/front/6/9/6997ad62-f34c-4490-aee4-6d5c08e14709.jpg?1654667344",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2752,
@@ -29551,8 +29459,7 @@
         "oracle_text": "Whenever you cast an enchantment spell, if you don't control a creature named Keimi, create Keimi, a legendary 3/3 black and green Frog creature token with \"Whenever you cast an enchantment spell, each opponent loses 1 life and you gain 1 life.\"\n{1}{G/U}: Tatsunari, Toad Rider and target Frog you control can't be blocked this turn except by creatures with flying or reach.",
         "image_url": "https://cards.scryfall.io/normal/front/a/b/abf42833-43d0-4b05-b499-d13b2c577ee8.jpg?1654567411",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2745,
@@ -29563,8 +29470,7 @@
         "oracle_text": "Flying, vigilance\nWhenever a creature with defender enters the battlefield under your control, draw a card.\nEach creature you control with defender assigns combat damage equal to its toughness rather than its power and can attack as though it didn't have defender.",
         "image_url": "https://cards.scryfall.io/normal/front/1/e/1e90c638-d4b2-4243-bbc4-1cc10516c40f.jpg?1666961830",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2768,
@@ -29575,8 +29481,7 @@
         "oracle_text": "Spiritual Leader \u2014 At the beginning of combat on your turn, put a +1/+1 counter on target creature.\nPsychic Stimulus \u2014 {T}: Add {C}{C}. When you next cast a spell with {X} in its mana cost or activate an ability with {X} in its activation cost this turn, copy that spell or ability. You may choose new targets for the copy. (A copy of a permanent spell becomes a token.)",
         "image_url": "https://cards.scryfall.io/normal/front/4/f/4f86e7cc-2b6e-49d0-964e-bba0c51cc11d.jpg?1674058398",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2715,
@@ -29587,8 +29492,7 @@
         "oracle_text": "Ward {2} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {2}.)\nThree Autostubs \u2014 Whenever another source you control deals exactly 1 damage to a permanent or player, Ghyrson Starn, Kelermorph deals 2 damage to that permanent or player.",
         "image_url": "https://cards.scryfall.io/normal/front/f/a/fa7349d9-c82f-4cf8-a852-92168d1f4966.jpg?1673309394",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2716,
@@ -29599,8 +29503,7 @@
         "oracle_text": "Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, Veyran, Voice of Duality gets +1/+1 until end of turn.\nIf you casting or copying an instant or sorcery spell causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.",
         "image_url": "https://cards.scryfall.io/normal/front/f/3/f34cd711-55b2-4802-9878-d22314c0cc9c.jpg?1712354807",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2717,
@@ -29611,8 +29514,7 @@
         "oracle_text": "Whenever you cast an instant or sorcery spell with mana value greater than the number of experience counters you have, you get an experience counter.\nInstant and sorcery spells you cast cost {1} less to cast for each experience counter you have.",
         "image_url": "https://cards.scryfall.io/normal/front/8/2/82f949d0-41a0-4491-9057-bfb2bb20bdb3.jpg?1689999174",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2718,
@@ -29623,8 +29525,7 @@
         "oracle_text": "Flying\nWard\u2014{3}, Pay 3 life.\nWhenever you cast a noncreature spell, create X 1/1 red Phyrexian Goblin creature tokens, where X is the mana value of that spell. They gain haste until end of turn.",
         "image_url": "https://cards.scryfall.io/normal/front/b/2/b298cf34-7aa5-4f97-a86c-7f28d2113b87.jpg?1675957207",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2757,
@@ -29635,8 +29536,7 @@
         "oracle_text": "{2}, {T}: Create a 0/1 green Egg creature token with defender.\nWhenever an Egg you control dies, reveal cards from the top of your library until you reveal a creature card. Put that card onto the battlefield and the rest on the bottom of your library in a random order.",
         "image_url": "https://cards.scryfall.io/normal/front/2/b/2b8414f7-22c3-4e1c-934b-4a0e7acf951d.jpg?1673305450",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2760,
@@ -29647,8 +29547,7 @@
         "oracle_text": "When Rocco, Cabaretti Caterer enters the battlefield, if you cast it, you may search your library for a creature card with mana value X or less, put it onto the battlefield, then shuffle.",
         "image_url": "https://cards.scryfall.io/normal/front/b/6/b6cf8b35-2a81-40fd-b383-becb81bef806.jpg?1664413683",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2769,
@@ -29659,8 +29558,7 @@
         "oracle_text": "Creatures you control have haste.\nCascade, cascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order. Then do it again.)",
         "image_url": "https://cards.scryfall.io/normal/front/a/4/a49c58b3-180f-420b-b091-114fda000360.jpg?1689999126",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2770,
@@ -29671,8 +29569,7 @@
         "oracle_text": "Flash\nThis spell can't be countered.\nCreature spells you control can't be countered.\nOther creatures you control have trample.",
         "image_url": "https://cards.scryfall.io/normal/front/e/8/e8efe72d-3c01-4dd6-b3dd-0382ac09dc52.jpg?1673305671",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2765,
@@ -29683,8 +29580,7 @@
         "oracle_text": "If a creature attacking causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.",
         "image_url": "https://cards.scryfall.io/normal/front/a/0/a062a004-984e-4b62-960c-af7288f7a3e9.jpg?1690575102",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2766,
@@ -29695,8 +29591,7 @@
         "oracle_text": "Flying\nWhenever Kaalia of the Vast attacks an opponent, you may put an Angel, Demon, or Dragon creature card from your hand onto the battlefield tapped and attacking that opponent.",
         "image_url": "https://cards.scryfall.io/normal/front/e/7/e71c8c39-3fbb-4a42-9cf6-b3224f5a56fc.jpg?1717013745",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2762,
@@ -29707,8 +29602,7 @@
         "oracle_text": "Ward\u2014Sacrifice a legendary artifact or legendary creature.\nWhenever an opponent casts a spell, amass Orcs 1.\nWhenever an Army you control deals combat damage to a player, the Ring tempts you.\nWhenever the Ring tempts you, you may discard your hand. If you do, draw four cards.",
         "image_url": "https://cards.scryfall.io/normal/front/0/3/034e0929-b2c7-4b5f-94f2-8eaf4fb1a2a1.jpg?1693611218",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2763,
@@ -29719,8 +29613,7 @@
         "oracle_text": "At the beginning of each player's draw step, that player draws an additional card.\nWhenever an opponent draws a card, Nekusar, the Mindrazer deals 1 damage to that player.",
         "image_url": "https://cards.scryfall.io/normal/front/4/a/4afdc65d-3c97-47af-83fa-df340389802e.jpg?1689999186",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2767,
@@ -29731,8 +29624,7 @@
         "oracle_text": "Trample\nWhen Child of Alara dies, destroy all nonland permanents. They can't be regenerated.",
         "image_url": "https://cards.scryfall.io/normal/front/b/2/b2373625-af3c-4c2a-a1d1-5288c446955d.jpg?1673148447",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2758,
@@ -29743,8 +29635,7 @@
         "oracle_text": "Creatures you control get +1/+0 and have vigilance as long as you control three or more creatures.\nCreatures you control also get +1/+0 and have trample as long as you control six or more creatures.\nCreatures you control also get +1/+0 and have double strike as long as you control nine or more creatures.",
         "image_url": "https://cards.scryfall.io/normal/front/f/9/f9c69d75-651f-4b75-b65d-79999d2069f6.jpg?1664413153",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2759,
@@ -29755,8 +29646,7 @@
         "oracle_text": "Vigilance, reach, trample\nWhen Zacama, Primal Calamity enters the battlefield, if you cast it, untap all lands you control.\n{2}{R}: Zacama deals 3 damage to target creature.\n{2}{G}: Destroy target artifact or enchantment.\n{2}{W}: You gain 3 life.",
         "image_url": "https://cards.scryfall.io/normal/front/0/5/05c5a9a8-badd-43ab-8408-a13e75407681.jpg?1700342995",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2761,
@@ -29767,8 +29657,7 @@
         "oracle_text": "If you would create one or more tokens, you may instead create that many 2/2 green Cat creature tokens with haste or that many 3/1 green Dog creature tokens with vigilance.",
         "image_url": "https://cards.scryfall.io/normal/front/c/5/c5f9326a-2a41-45b3-97c3-548f0bdc0882.jpg?1664413197",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2771,
@@ -29779,8 +29668,7 @@
         "oracle_text": "Whenever you cast an instant or sorcery spell, you may pay {U}{R}. If you do, copy that spell. You may choose new targets for the copy.\nWhenever another nontoken creature enters the battlefield under your control, you may pay {G}{U}. If you do, create a token that's a copy of that creature.",
         "image_url": "https://cards.scryfall.io/normal/front/7/0/70dd138f-391a-4956-bc2a-fe186429c71a.jpg?1599708286",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2772,
@@ -29791,8 +29679,7 @@
         "oracle_text": "Flying, ward {2}\nWhenever another nontoken Dragon enters the battlefield under your control, create a token that's a copy of it, except the token isn't legendary.",
         "image_url": "https://cards.scryfall.io/normal/front/a/9/a934590b-5c70-4f07-af67-fbe817a99531.jpg?1674137589",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2738,
@@ -29803,8 +29690,7 @@
         "oracle_text": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nYou may look at the top card of your library any time.\nYou may cast noncreature spells from the top of your library. If you cast a spell this way, you may cast it as though it had flash.",
         "image_url": "https://cards.scryfall.io/normal/front/c/0/c0728027-a1ec-4814-87c4-10c3baced0e0.jpg?1673148571",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2739,
@@ -29815,8 +29701,7 @@
         "oracle_text": "Vigilance, lifelink\nWhen Aragorn, King of Gondor enters the battlefield, you become the monarch.\nWhenever Aragorn attacks, up to one target creature can't block this turn. If you're the monarch, creatures can't block this turn.",
         "image_url": "https://cards.scryfall.io/normal/front/1/c/1c7ac04c-8510-468b-aa6f-f249bde9ff87.jpg?1686963734",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2740,
@@ -29827,8 +29712,7 @@
         "oracle_text": "Creatures you control have prowess.\nWhenever Narset, Enlightened Exile attacks, exile target noncreature, nonland card with mana value less than Narset's power from a graveyard and copy it. You may cast the copy without paying its mana cost.",
         "image_url": "https://cards.scryfall.io/normal/front/8/2/827ecc44-0b00-4515-8953-bc91fa03705a.jpg?1684340776",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2764,
@@ -29839,8 +29723,7 @@
         "oracle_text": "Whenever one or more creatures you control that entered the battlefield this turn deal combat damage to a player, create a 5/5 red Dragon Spirit creature token with flying.\n{1}{R}: Creatures you control gain haste until end of turn.",
         "image_url": "https://cards.scryfall.io/normal/front/5/b/5b661b53-2e58-4dcc-9100-fc00e0fdb606.jpg?1683582714",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2723,
@@ -29851,8 +29734,7 @@
         "oracle_text": "Flying\nAs Talion, the Kindly Lord enters the battlefield, choose a number between 1 and 10.\nWhenever an opponent casts a spell with mana value, power, or toughness equal to the chosen number, that player loses 2 life and you draw a card.",
         "image_url": "https://cards.scryfall.io/normal/front/6/2/62a6b452-c796-45c6-b4d1-0ae3d675e38e.jpg?1692939468",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2704,
@@ -29863,8 +29745,7 @@
         "oracle_text": "When Kardur, Doomscourge enters the battlefield, until your next turn, creatures your opponents control attack each combat if able and attack a player other than you if able.\nWhenever an attacking creature dies, each opponent loses 1 life and you gain 1 life.",
         "image_url": "https://cards.scryfall.io/normal/front/9/6/9685e2a0-5573-41bc-a914-f40c3011459b.jpg?1631051543",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2705,
@@ -29875,8 +29756,7 @@
         "oracle_text": "Deathtouch\nMystic Arcanum \u2014 At the beginning of your end step, exile the top card of your library. Until the end of your next turn, you may play that card.\nPact Boon \u2014 Whenever you play a card from exile, create a Treasure token.",
         "image_url": "https://cards.scryfall.io/normal/front/d/7/d743336e-d5c7-4053-a23d-92ec7581f74e.jpg?1631839207",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2756,
@@ -29887,8 +29767,7 @@
         "oracle_text": "Flying, vigilance, toxic 2\nCorrupted \u2014 At the beginning of your end step, each opponent who has three or more poison counters exiles the top card of their library face down. You may look at and play those cards for as long as they remain exiled, and you may spend mana as though it were mana of any color to cast those spells.",
         "image_url": "https://cards.scryfall.io/normal/front/a/b/ab866ec4-dcb4-47ef-8de1-a369986609c0.jpg?1675905559",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2730,
@@ -29899,8 +29778,7 @@
         "oracle_text": "This spell costs {1} less to cast for each creature you control with a +1/+1 counter on it.\nCreature spells you cast cost {1} less to cast for each creature you control with a +1/+1 counter on it.",
         "image_url": "https://cards.scryfall.io/normal/front/a/d/adc7f8f3-140d-4dd0-aacc-b81b2b93eb67.jpg?1689999064",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2746,
@@ -29911,8 +29789,7 @@
         "oracle_text": "Flying, trample\nFalco Spara, Pactweaver enters the battlefield with a shield counter on it.\nYou may look at the top card of your library any time.\nYou may cast spells from the top of your library by removing a counter from a creature you control in addition to paying their other costs.",
         "image_url": "https://cards.scryfall.io/normal/front/a/e/ae25db8c-3d10-4196-b002-9d2aabd5f4de.jpg?1664413016",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2736,
@@ -29923,8 +29800,7 @@
         "oracle_text": "Whenever you cast a Phyrexian creature or artifact creature spell, incubate X, where X is that spell's mana value. (Create an Incubator token with X +1/+1 counters on it and \"{2}: Transform this artifact.\" It transforms into a 0/0 Phyrexian artifact creature.)\nAt the beginning of each end step, if a Phyrexian died under your control this turn, proliferate.",
         "image_url": "https://cards.scryfall.io/normal/front/f/0/f0d31ae7-8580-402a-a917-3d626a9e1f49.jpg?1682207211",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2737,
@@ -29935,8 +29811,7 @@
         "oracle_text": "Each creature that's enchanted by an Aura you control can't attack you or planeswalkers you control.\nAt the beginning of your end step, each opponent loses X life and you gain X life, where X is the number of Auras you control.",
         "image_url": "https://cards.scryfall.io/normal/front/e/c/ecead4cd-47ae-4c42-b15c-1b29b5caba18.jpg?1692939281",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2354,
