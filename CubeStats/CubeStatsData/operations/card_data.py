@@ -2,7 +2,6 @@ from operations.queries import *
 
 def generate_cards_object(cursor):
     cards = get_cards(cursor)
-    commander_ids = get_commander_ids(cursor)
     
     pick_rates = get_pick_rates(cursor)
     commander_pick_rates = get_commander_pick_rates(cursor)
