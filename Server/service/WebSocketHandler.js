@@ -1,5 +1,11 @@
 import { broadcastUserlist, broadcastLobbies } from "./Broadcasts.js";
-import { users, drafts, connections, intervalIDs } from "./State.js";
+import {
+  users,
+  drafts,
+  connections,
+  intervalIDs,
+  last_acked_message
+} from "./State.js";
 import {
   createLobby,
   joinLobby,
@@ -41,99 +47,99 @@ export async function handleMessage(message, uuid) {
 
   console.log("Message from: " + uuid);
   console.log(data.type);
+  switch (data.type) {
+    case "Connect":
+      console.log("New connection: " + uuid);
+      break;
 
-  if (data.type === "Login") {
-
-    users[uuid].username = data.username;
-    users[uuid].token = "";
-    console.log("Login: " + data.username);
-
-  } else if (data.type === "Create Lobby") {
-
-    createLobby(data, uuid);
-
-  } else if (data.type === "Get Lobbies") {
-
-    users[uuid].draftSelection = true;
-    broadcastLobbies();
-
-  } else if (data.type === "Join Lobby") {
-
-    joinLobby(data, uuid);
-
-  } else if (data.type === "Rejoin Lobby") {
-    if (data.token && drafts[data.token]) {
-
-
-      users[uuid].username = data.username;
-      users[uuid].token = data.token;
-      console.log("Login: " + data.username);
-      joinLobby(data, uuid);
-    } else {
-      const message = { status: 'No Draft' };
-      queueMessage(uuid, message);
-    }
-
-  } else if (data.type === 'Start Draft') {
-
-    startDraft(data);
-
-  } else if (data.type === 'Pick') {
-
-    const draft = drafts[data.token];
-    const userSeat = users[uuid].seat;
-
-    handlePick(data, draft, userSeat, uuid);
-
-  } else if (data.type === 'Give Last Card') {
-
-    const draft = drafts[data.token];
-    const pack = users[uuid].seat.packAtHand;
-
-    giveLastCard(draft, pack);
-
-  } else if (data.type === 'Set Commander') {
-
-    const userSeat = users[uuid].seat;
-
-    setCommander(data, userSeat, uuid);
-
-  } else if (data.type === 'Remove Commander') {
-
-    const userSeat = users[uuid].seat;
-
-    removeCommander(data, userSeat, uuid);
-
-  } else if (data.type === 'Move Cards') {
-
-    const userSeat = users[uuid].seat;
-
-    moveCards(data, userSeat, uuid);
-
-  } else if (data.type === 'Rejoin Draft') {
-
-    if (data.token && drafts[data.token]) {
+    case "Login":
       users[uuid].username = data.username;
       users[uuid].token = "";
       console.log("Login: " + data.username);
+      break;
 
-      rejoinDraft(data, uuid);
-    } else {
-      const message = { status: 'No Draft' };
+    case "Create Lobby":
+      createLobby(data, uuid);
+      break;
+
+    case "Get Lobbies":
+      users[uuid].draftSelection = true;
+      broadcastLobbies();
+      break;
+
+    case "Join Lobby":
+      joinLobby(data, uuid);
+      break;
+
+    case "Rejoin Lobby":
+      if (data.token && drafts[data.token]) {
+
+        users[uuid].username = data.username;
+        users[uuid].token = data.token;
+        console.log("Login: " + data.username);
+        joinLobby(data, uuid);
+
+      } else {
+        const message = { status: 'No Draft' };
+        queueMessage(uuid, message);
+      }
+      break;
+
+    case "Start Draft":
+      startDraft(data);
+      break;
+
+    case "Pick":
+      handlePick(data, drafts[data.token], users[uuid].seat, uuid);
+      break;
+
+    case "Give Last Card":
+      giveLastCard(drafts[data.token], users[uuid].seat.packAtHand);
+      break;
+
+    case "Set Commander":
+      setCommander(data, users[uuid].seat, uuid);
+      break;
+
+    case "Remove Commander":
+      removeCommander(data, users[uuid].seat, uuid);
+      break;
+
+    case "Move Cards":
+      moveCards(data, users[uuid].seat, uuid);
+      break;
+
+    case "Rejoin Draft":
+
+      if (data.token && drafts[data.token]) {
+        users[uuid].username = data.username;
+        users[uuid].token = "";
+        console.log("Login: " + data.username);
+
+        rejoinDraft(data, uuid);
+      } else {
+        const message = { status: 'No Draft' };
+        queueMessage(uuid, message);
+      }
+
+    case "Draft Data Decision":
+      if (data.decision) {
+        const draftData = parseDraftData(drafts[data.token]);
+        sendDraftData(draftData);
+      }
+    case "Get Seat Token":
+      const message = {
+        status: 'OK',
+        type: 'Seat token',
+        seat: users[uuid].seat.token
+      };
       queueMessage(uuid, message);
-    }
-
-  } else if (data.type === 'Draft Data Decision') {
-    if (data.decision) {
-      const draftData = parseDraftData(drafts[data.token]);
-      sendDraftData(draftData);
-    }
-  } else if (data.type === 'Get Seat Token') {
-    const message = {
-      status: 'OK',
-      type: 'Seat token',
-      seat: users[uuid].seat.token
-    };
-    queueMessage(uuid, message);
+      break;
+    case "Ack":
+      last_acked_message[uuid] = data.ackToken;
+      break;
+    default:
+      console.log("Unknown message type: " + JSON.stringify(data));
+      break;
   }
-};
+}

@@ -31,7 +31,6 @@ const wsServer = new WebSocketServer({ server: server });
 wsServer.on('connection', (connection) => {
 
   const uuid = uuidv4();
-  console.log(`New connection: (${uuid})`);
   connections[uuid] = connection;
   messageQueues[uuid] = [];
   intervalIDs[uuid] = setInterval(() => processMessageQueue(uuid), 200);
