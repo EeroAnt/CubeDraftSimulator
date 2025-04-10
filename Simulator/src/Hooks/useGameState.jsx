@@ -41,6 +41,7 @@ export const useGameState = () => {
   const [pack, setPack] = useState([])
   const [round, setRound] = useState(() => searchParams.get("r") || 0)
   const [wizardSelection, setWizardSelection] = useState(1)
+  // const [lastAcked, setLastAcked] = useState("")
 
   useEffect(() => {
     setWizardSelection(Math.floor(Math.random() * 3) + 1)
@@ -95,6 +96,13 @@ export const useGameState = () => {
   useEffect(() => {
     if (!decryptedMessage) return;
     console.log("message received", decryptedMessage)
+    if (decryptedMessage.ackToken) {
+      const message = {
+        type: "Ack",
+        token: decryptedMessage.ackToken,
+      }
+      sendMessage(connection, message)
+    }
     if (decryptedMessage.status === "No Draft") {
       alert("No draft found")
       setMode("Home")
