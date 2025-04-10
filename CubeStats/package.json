@@ -1,0 +1,19 @@
+{
+  "name": "cubestats",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "run-p dev:back dev:front",
+    "dev:back": "npm --prefix CubeStatsBack run dev",
+    "dev:front": "npm --prefix CubeStatsFront run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
