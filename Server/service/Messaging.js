@@ -25,7 +25,7 @@ export const processMessageQueue = (uuid) => {
 
   if (!last_acked_message[uuid]) {
     try {
-      const sanitizedMessage = sanitize(nextMessage);
+      const sanitizedMessage = deepSanitize(nextMessage);
       const json = JSON.stringify(sanitizedMessage);
       const encryptedMessage = encrypt(json, process.env.MY_ENCRYPTION);
       connections[uuid].send(JSON.stringify({ message: encryptedMessage }));
@@ -67,25 +67,21 @@ const setupRetry = (uuid) => {
 
     console.log(`Retrying message for ${uuid}, attempt #${retryCounts[uuid]}`);
     last_acked_message[uuid] = null;
-    processMessageQueue(uuid); // re-send the current message
+    processMessageQueue(uuid);
   }, RETRY_DELAY);
 };
 
 
-function sanitizeValue(val) {
-  if (typeof val !== 'string') return val;
-  // Replace all non-printable characters except \n and \t
-  return val.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, ' ');
-}
 
-function sanitize(obj) {
-  if (Array.isArray(obj)) {
-    return obj.map(sanitize);
+function deepSanitize(obj) {
+  if (typeof obj === 'string') {
+    return obj.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, ' ');
+  } else if (Array.isArray(obj)) {
+    return obj.map(deepSanitize);
   } else if (obj && typeof obj === 'object') {
     return Object.fromEntries(
-      Object.entries(obj).map(([k, v]) => [k, sanitize(v)])
+      Object.entries(obj).map(([k, v]) => [k, deepSanitize(v)])
     );
-  } else {
-    return sanitizeValue(obj);
   }
+  return obj;
 }

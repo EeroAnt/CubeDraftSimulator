@@ -231,6 +231,20 @@ export const useGameState = () => {
     return str.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, ' ');
   }
 
+  function deepSanitizeStrings(obj) {
+    if (typeof obj === 'string') {
+      return sanitizeJsonString(obj);
+    } else if (Array.isArray(obj)) {
+      return obj.map(deepSanitizeStrings);
+    } else if (obj && typeof obj === 'object') {
+      const result = {};
+      for (const key in obj) {
+        result[key] = deepSanitizeStrings(obj[key]);
+      }
+      return result;
+    }
+    return obj;
+  }
   const connection = useWebSocket(import.meta.env.VITE_REACT_APP_WS_URL, {
     share: true,
     onOpen: async () => {
@@ -250,7 +264,8 @@ export const useGameState = () => {
       const sanitizedDecrypted = sanitizeJsonString(decrypted);
       try {
         const parsed = JSON.parse(sanitizedDecrypted);
-        messageQueue.push(parsed);  // Add incoming messages to the queue
+        const cleanParsed = deepSanitizeStrings(parsed);
+        messageQueue.push(cleanParsed);
         if (!isProcessing) {
           processQueue();
         }
