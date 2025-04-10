@@ -4,20 +4,9 @@ import { useState, useEffect } from "react";
 export const ColorId = ({ data, colorIdState }) => {
   const [cards, setCards] = useState([]);
   const colorIdSets = {
-    "Single Color": ["W", "U", "B", "R", "G", "C"],
-    "Two Color": ["GW", "RU", "BR", "RW", "BG", "BW", "GU", "UW", "GR", "BU"],
-    "Three Color": [
-      "BGU",
-      "GRW",
-      "BGW",
-      "RUW",
-      "GRU",
-      "BUW",
-      "BRW",
-      "BGR",
-      "BRU",
-      "GUW",
-    ],
+    "Single Color": data.colors.single_color_ids,
+    "Two Color": data.colors.two_color_ids,
+    "Three Color": data.colors.three_color_ids,
   };
 
   const getMaxMV = (cards) => Math.max(...cards.map(card => card.mv), 0);
