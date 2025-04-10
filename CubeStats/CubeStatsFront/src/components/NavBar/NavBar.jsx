@@ -76,7 +76,8 @@ export const NavBar = ({
         <div className="text-white text-lg font-bold" key="NavBarHeader">
           CubeStats
         </div>
-        <div className="space-x-4" key="NavBarButtons">
+        <img src={"/velho1_whoGoes.png"} alt="Wizard" />
+        <div className="flex flex-wrap gap-2 md:gap-4" key="NavBarButtons">
           <NavBarButton
             title={"Home"}
             onClick={onClickHome}
@@ -119,6 +120,14 @@ export const NavBar = ({
             modeType={mode}
             modeTarget={"notDrafted"}
           />
+          <a
+            href="https://github.com/EeroAnt/CubeDraftSimulator"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition inline-flex items-center justify-center h-10"
+          >
+            GitHub
+          </a>
         </div>
       </div>
     </nav>
