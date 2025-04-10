@@ -1,15 +1,11 @@
 import { checkIfRoundIsDone } from "./Utils.js";
 import {
   broadcastDraftStatus,
-  broadcastQueues,
-  broadcastRound
 } from "./Broadcasts.js";
 import { drafts, intervalIDs } from "./State.js";
-import { sendPackAtHand } from "./DraftFunctions.js";
 
 export function checkDraftStatus(draft) {
   if (draft.state === 'drafting' && draft.players.length > 0) {
-    broadcastQueues(draft);
     if (checkIfRoundIsDone(draft.table)) {
       draft.round++;
       if (draft.round <= draft.last_round) {
@@ -45,7 +41,6 @@ export function checkDraftStatus(draft) {
 
 function goToNextRound(draft) {
   console.log('round:', draft.round);
-  broadcastRound(draft);
   draft.direction *= -1;
   for (let i = 0; i < draft.player_count; i++) {
     const player = draft.players[i];
@@ -59,11 +54,7 @@ function dealPacks(draft) {
   for (const seat in draft.table) {
     if (draft.table[seat].packAtHand.cards.length === 0 &&
       draft.table[seat].queue.length > 0) {
-
-      console.log('giving pack to player');
-
       draft.table[seat].packAtHand = draft.table[seat].queue.shift();
-      sendPackAtHand(draft.table[seat].player, draft.table[seat]);
     }
   }
 }

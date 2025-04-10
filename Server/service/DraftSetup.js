@@ -8,7 +8,6 @@ import {
 } from "./Broadcasts.js";
 import { shuffleArray } from "./Utils.js";
 import { checkDraftStatus } from "./DraftStatus.js";
-import { sendCards, sendPackAtHand } from "./DraftFunctions.js";
 
 export async function createLobby(data, uuid) {
 
@@ -37,7 +36,6 @@ export async function createLobby(data, uuid) {
         broadcastUserlist(drafts[data.token]);
         intervalIDs[data.token] = setInterval(() =>
           checkDraftStatus(drafts[data.token]), 5000);
-
       }
 
     } catch (error) {
@@ -116,7 +114,6 @@ export function startDraft(data) {
     checkDraftStatus(drafts[data.token]);
     broadcastDraftState(drafts[data.token]);
   }, 500);
-
 };
 
 export function rejoinDraft(data, uuid) {
@@ -135,10 +132,6 @@ export function rejoinDraft(data, uuid) {
 
         drafts[data.token].table[seat].player = uuid;
         users[uuid].seat = drafts[data.token].table[seat];
-        sendCards(uuid, users[uuid].seat);
-        if (users[uuid].seat.packAtHand.cards.length > 0) {
-          sendPackAtHand(uuid, users[uuid].seat);
-        }
       }
     }
 

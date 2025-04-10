@@ -29,8 +29,6 @@ export function handlePick(data, draft, userSeat, uuid) {
 
   passPackToNextPlayer(draft, userSeat);
 
-  sendCards(uuid, userSeat);
-
 };
 
 function updateDraftPicks(draft, pickedCard, userSeat) {
@@ -89,29 +87,6 @@ function passPackToNextPlayer(draft, userSeat) {
   userSeat.packAtHand = { "cards": [], "picks": [] };
 
 };
-
-export function sendCards(uuid, userSeat) {
-
-  const message = {
-    status: "OK",
-    type: "Picked Cards",
-    commanders: userSeat?.commanders || [],
-    main: userSeat?.main || [],
-    side: userSeat?.side || []
-  };
-
-  queueMessage(uuid, message);
-
-};
-
-export function sendPackAtHand(uuid, userSeat) {
-  const message = {
-    status: "OK",
-    type: "Pack",
-    pack: userSeat.packAtHand.cards
-  };
-  queueMessage(uuid, message);
-}
 
 export function giveLastCard(draft, pack) {
 
