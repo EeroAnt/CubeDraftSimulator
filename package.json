@@ -2,6 +2,9 @@
   "scripts": {
     "dev": "docker-compose -f docker-compose-dev.yml up --build",
     "build": "docker-compose -f docker-compose.yml up --build -d",
+    "clean_dev": "docker-compose -f docker-compose-dev.yml build --no-cache && docker-compose -f docker-compose-dev.yml up --force-recreate",
+    "clean_build": "docker-compose -f docker-compose.yml build --no-cache && docker-compose -f docker-compose.yml up -d --force-recreate",
+    "nuke": "docker-compose -f docker-compose.yml down -v && docker-compose -f docker-compose-dev.yml down -v && docker system prune --all --force",
     "tag_flask": "docker tag cubedraftsimuflaskcont.azurecr.io/eeronliveflaskserver cubedraftsimuflaskcont.azurecr.io/eeronliveflaskserver:latest",
     "push_flask": "docker push cubedraftsimuflaskcont.azurecr.io/eeronliveflaskserver:latest",
     "tag_node": "docker tag cubedraftsimuflaskcont.azurecr.io/eeronlivenodeserver cubedraftsimuflaskcont.azurecr.io/eeronlivenodeserver:latest",
