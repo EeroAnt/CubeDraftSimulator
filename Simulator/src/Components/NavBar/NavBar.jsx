@@ -48,14 +48,15 @@ export function PostDraftNavBar({ owner, connection, token, basicLands, setBasic
         <>Basic Lands</>
         {landTypes.map((land, index) => {
           return (
-            <>
+            <React.Fragment key={land + index}>
               <ManaSymbol key={index} symbol={land} />
               <input
                 className={styles.basiclandinput}
                 type="number"
                 value={basicLands[index]}
                 onChange={(e) => { setBasicLands(basicLands.map((value, i) => i === index ? parseInt(e.target.value) : value)) }}></input>
-            </>)
+            </React.Fragment>
+          )
         })
         }
       </div>
@@ -101,17 +102,18 @@ export function PostDraftNavBar({ owner, connection, token, basicLands, setBasic
     }
   }
 
-  return (<div className={styles.navbar}>
-    <div className={styles.leftSection}>
-      <Button name="Copy Deck to Clipboard" className="button" onClick={() => copyDeckToClipBoard()} />
-      {owner === "T" && draftDataDecision ? (<>
-        <Button name="Validate draft data" className="button" onClick={() => handleDataDecision(true)} />
-        <Button name="Ignore draft data" className="button" onClick={() => handleDataDecision(false)} />
-      </>) : ""}
+  return (
+    <div className={styles.navbar}>
+      <div className={styles.leftSection}>
+        <Button name="Copy Deck to Clipboard" className="button" onClick={() => copyDeckToClipBoard()} />
+        {owner === "T" && draftDataDecision ? (<>
+          <Button name="Validate draft data" className="button" onClick={() => handleDataDecision(true)} />
+          <Button name="Ignore draft data" className="button" onClick={() => handleDataDecision(false)} />
+        </>) : ""}
+      </div>
+      <div className={styles.landSection}>
+        {BasicLands()}
+      </div>
     </div>
-    <div className={styles.landSection}>
-      {BasicLands()}
-    </div>
-  </div>
   );
 }
