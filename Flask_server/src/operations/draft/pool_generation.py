@@ -48,6 +48,7 @@ def generate_commander_pool(player_count, cur):
 	cur.execute(commander_pool_query(),(player_count*5,))
 	for commander in cur.fetchall():
 		commander = sql_to_dict(commander)
+		commander = normalize_text_fields(commander)
 		commander_ids.append(str(commander["id"]))
 		commanders.append(commander)
 	return commanders, commander_ids
@@ -57,6 +58,7 @@ def generate_multicolored_pool(sql_for_multicolored_pool, pool_size, cur):
 	cur.execute(sql_for_multicolored_pool, (pool_size,))
 	for card in cur.fetchall():
 		card = sql_to_dict(card)
+		card = normalize_text_fields(card)
 		cards.append(card)
 	return cards
 
@@ -65,5 +67,19 @@ def generate_generic_pool(pool, pool_size, cur):
 	cur.execute(generic_pool_query(pool), (pool_size,))
 	for card in cur.fetchall():
 		card = sql_to_dict(card)
+		card = normalize_text_fields(card)
 		cards.append(card)
 	return cards
+
+def normalize_text_fields(card):
+  replacements = {
+        "—": "-",         # em dash
+        "•": "-",         # bullet point
+        "“": '"', "”": '"',
+        "‘": "'", "’": "'",
+    }
+  for key in ("oracle_text", "types", "name", "subtypes"):
+        if key in card and isinstance(card[key], str):
+            for old, new in replacements.items():
+                card[key] = card[key].replace(old, new)
+  return card
