@@ -35,7 +35,7 @@ export function checkDraftStatus(draft) {
     clearInterval(intervalIDs[draft.token]);
   } else if (draft.players.length == 0) {
     clearInterval(intervalIDs[draft.token]);
-    console.log(`Draft ${draft.token} ended`);
+    console.log(`Draft ${draft.token} abandoned`);
   }
 }
 
