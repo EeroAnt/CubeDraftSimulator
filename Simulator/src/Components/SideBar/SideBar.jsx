@@ -19,7 +19,8 @@ export const SideBar = ({
   setShowMain,
   setSelectedCards,
   connection,
-  basicLands
+  basicLands,
+  token
 }) => {
   const headerRef = createRef()
 
@@ -48,6 +49,7 @@ export const SideBar = ({
     } else {
       const message = {
         type: "Set Commander",
+        token: token,
         card: selectedCards[0].id
       }
       sendMessage(connection, message)
