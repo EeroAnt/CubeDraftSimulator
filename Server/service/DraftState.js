@@ -1,7 +1,6 @@
 export const extractDraftState = (draft, player) => {
 
   const seat = player.seat;
-  console.log("breaks here",draft);
   if (!seat) {
     console.error('Seat not found for player:', player.uuid);
     return null;
@@ -14,7 +13,6 @@ export const extractDraftState = (draft, player) => {
     main: seat.main,
     side: seat.side,
     canalDredger: seat.canalDredger || "false",
-    canalDredgerOwner: draft.canalDredger || "false",
   };
   return state;
 };
@@ -33,9 +31,25 @@ export const extractQueues = (draft) => {
   return queues;
 };
 
-export const handleCanalDredger = (draft, seatNumber) => {
-  draft.canalDredger = seatNumber;
-  Object.values(draft.players).forEach(player => {
-  	player.seat.canalDredger = "true";
+export const handleCanalDredger = (draft, uuid) => {
+  // Find the seat of the player who picked the last card
+  const seatEntry = Object.entries(draft.table).find(
+    ([_, seat]) => seat.player === uuid
+  );
+
+  if (!seatEntry) {
+    console.error("Could not find seat for UUID:", uuid);
+    return;
+  }
+
+  const [seatKey, seat] = seatEntry;
+
+  // Mark this seat's token as the canalDredger
+  draft.canalDredger = seat.token;
+
+  // Assign canalDredger state per seat
+  Object.values(draft.table).forEach(seatObj => {
+    seatObj.canalDredger =
+      seatObj.token !== draft.canalDredger ? "true" : "false";
   });
 };

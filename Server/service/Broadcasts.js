@@ -1,6 +1,17 @@
-import { connections, drafts, users } from "./State.js";
+import {
+  connections,
+  drafts,
+  users,
+  broadcastedQueues,
+  draftStates,
+  lastBroadcastTimestamps
+} from "./State.js";
 import { queueMessage } from "./Messaging.js";
 import { extractDraftState, extractQueues } from "./DraftState.js";
+import deepEqual from "fast-deep-equal";
+
+const BROADCAST_INTERVAL_MS = 10_000;
+
 
 export const broadcastUserlist = (draft) => {
   Object.values(draft.players).forEach(player => {
@@ -59,6 +70,22 @@ export const broadcastDraftState = (draft) => {
       state: state,
       queues: queues,
     };
+
+    const lastSent = lastBroadcastTimestamps[player.uuid] || 0;
+    const timeSinceLast = Date.now() - lastSent;
+
+    const shouldSend =
+      !deepEqual(queues, broadcastedQueues[draft.token]) ||
+      !deepEqual(state, draftStates[player.uuid]) ||
+      timeSinceLast > BROADCAST_INTERVAL_MS;
+
+    if (!shouldSend) {
+      return;
+    }
+    
+    broadcastedQueues[draft.token] = queues;
+    draftStates[player.uuid] = state;
+    lastBroadcastTimestamps[player.uuid] = Date.now();
     queueMessage(player.uuid, message);
   });
 };

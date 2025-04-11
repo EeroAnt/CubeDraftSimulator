@@ -17,8 +17,8 @@ export function handlePick(data, draft, userSeat, uuid) {
 
     if (cardToAdd.id === 1887) {
       console.log("Canal Dredger");
-      draft.canalDredger = userSeat.number;
-      handleCanalDredger(draft, userSeat.number);
+
+      handleCanalDredger(draft, uuid);
     }
 
   } else {
@@ -90,11 +90,18 @@ function passPackToNextPlayer(draft, userSeat) {
 
 export function giveLastCard(draft, pack) {
 
-  draft.table[`seat${draft.canalDredger}`].queue =
-    draft.table[`seat${draft.canalDredger}`].queue.concat([pack]);
-  pack = { "cards": [], "picks": [] };
+  const seatKey = Object.keys(draft.table).find(
+    key => draft.table[key].token === draft.canalDredger
+  );
 
-};
+  if (!seatKey) {
+    console.warn("Canal Dredger seat not found for token:", draft.canalDredger);
+    return;
+  }
+
+  draft.table[seatKey].queue.push(pack);
+  pack = { cards: [], picks: [] };
+}
 
 export function sendCards(uuid, userSeat) {
 

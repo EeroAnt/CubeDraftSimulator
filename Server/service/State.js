@@ -7,3 +7,6 @@ export const last_acked_message = {};
 export const last_updated_draftstate = {};
 export const retryCounts = {};
 export const retryTimers = {};
+export const broadcastedQueues = {};
+export const draftStates = {};
+export const lastBroadcastTimestamps = {};
