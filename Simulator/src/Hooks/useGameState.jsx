@@ -5,7 +5,7 @@ import { decrypt, reconnect, sendMessage } from '../Services'
 
 export const useGameState = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [mode, setMode] = useState("Home")
+  const [mode, setMode] = useState(() => searchParams.get("m") || "Home")
   const [homeMode, setHomeMode] = useState(() => searchParams.get("h") || "Login");
   const [numberOfPlayers, setNumberOfPlayers] = useState(() => searchParams.get("n") || 1);
   const [username, setUsername] = useState(() => searchParams.get("u") || "");
@@ -87,12 +87,15 @@ export const useGameState = () => {
     } else if (mode === "Lobby") {
       setSearchParams({ u: username, d: token, n: numberOfPlayers, p: playersInLobby, s: seatToken, o: owner });
     } else if (mode === "Draft") {
-      setSearchParams({ u: username, d: token, s: seatToken, r: round, o: owner, cdo: canalDredgerOwner, cd: canalDredger });
+      setSearchParams({ u: username, d: token, s: seatToken, r: round, o: owner, cdo: canalDredgerOwner, cd: canalDredger, m: "Draft" });
     } else if (mode === "Post Draft") {
-      setSearchParams({ u: username, d: token, s: seatToken, o: owner });
+      setSearchParams({ u: username, d: token, s: seatToken, o: owner, m: "Waiting" });
     }
   }, [username, token, numberOfPlayers, playersInLobby, seatToken, canalDredger, canalDredgerOwner, owner, mode, homeMode]);
 
+  useEffect(() => {
+    console.log(mode)
+  }, [mode])
   useEffect(() => {
     if (!decryptedMessage) return;
     console.log("message received", decryptedMessage)
@@ -109,7 +112,7 @@ export const useGameState = () => {
       return
     }
     if (decryptedMessage.type === "Deckbuilding") {
-      setMode("Post Draft")
+      setMode("Waiting")
     }
     switch (mode) {
       case "Home":
@@ -142,6 +145,12 @@ export const useGameState = () => {
           console.log(decryptedMessage.errors)
           alert("Setup failed")
           setDraftInitiated(false)
+        }
+        if (decryptedMessage.status === "OK" && decryptedMessage.type === "Picked Cards") {
+          setMain(decryptedMessage.main)
+          setSide(decryptedMessage.side)
+          setCommanders(decryptedMessage.commanders)
+          setTimeout(() => setMode("Post Draft"), 200)
         }
         break;
       case "Lobby":

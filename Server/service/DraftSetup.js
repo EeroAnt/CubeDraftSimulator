@@ -141,7 +141,7 @@ export function rejoinDraft(data, uuid) {
       console.log('joining deckbuilding');
       const message = { status: 'OK', type: 'Deckbuilding' };
       queueMessage(uuid, message);
-      sendCards(uuid, drafts[data.token].table[uuid]);
+      sendCards(uuid, users[uuid].seat);
     }
   }
 };

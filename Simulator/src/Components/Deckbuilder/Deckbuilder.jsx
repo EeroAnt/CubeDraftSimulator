@@ -206,37 +206,36 @@ export const DeckBuilder = ({
           <TypeFilterObject name="Permanents" type="Neg" criteria={criteria.permanents} deck={deck} all={all} />
           <TypeFilterObject name="Conspiracies" type="Pos" criteria={criteria.conspiracies} deck={deck} all={all} />
         </div>
-        {(main.concat(commanders).concat(side).length > 2) ? (bars ? (
-          <div className={styles.curveChart}>
-            <Button name="Show lines" className="button" onClick={() => setBars(!bars)} />
-
-            <BarChart
-              dataset={dataset}
-              xAxis={[{ scaleType: 'band', dataKey: 'manavalue', label: 'Mana Value' }]}
-              series={[
-                { dataKey: "main", label: "Main", valueFormatter },
-                { dataKey: "displayed", label: "Displayed", valueFormatter }
-              ]}
-              width={500}
-              height={300}
-            />
-
-          </div>) : (
-          <div className={styles.curveChart}>
-            <Button name="Show bars" className="button" onClick={() => setBars(!bars)} />
-
-            <LineChart
-              xAxis={[{ data: manaValuesList, label: 'Mana Value' }]}
-              series={[
-                { curve: "linear", data: curveOfMain, label: "Main" },
-                { curve: "linear", data: curveOfDisplayed, label: "Displayed" },
-              ]}
-              width={500}
-              height={300}
-            />
-
-          </div>
-        )) : (null)}
+        {(Array.isArray(curveOfMain) && Array.isArray(curveOfDisplayed) && curveOfMain.length > 0 && curveOfDisplayed.length > 0) && (
+          (main.concat(commanders).concat(side).length > 2) ? (bars ? (
+            <div className={styles.curveChart}>
+              <Button name="Show lines" className="button" onClick={() => setBars(!bars)} />
+              <BarChart
+                dataset={dataset}
+                xAxis={[{ scaleType: 'band', dataKey: 'manavalue', label: 'Mana Value' }]}
+                series={[
+                  { dataKey: "main", label: "Main", valueFormatter },
+                  { dataKey: "displayed", label: "Displayed", valueFormatter }
+                ]}
+                width={500}
+                height={300}
+              />
+            </div>
+          ) : (
+            <div className={styles.curveChart}>
+              <Button name="Show bars" className="button" onClick={() => setBars(!bars)} />
+              <LineChart
+                xAxis={[{ data: manaValuesList, label: 'Mana Value' }]}
+                series={[
+                  { curve: "linear", data: curveOfMain, label: "Main" },
+                  { curve: "linear", data: curveOfDisplayed, label: "Displayed" },
+                ]}
+                width={500}
+                height={300}
+              />
+            </div>
+          )) : null
+        )}
       </div>
       <table className={styles.displayed}>
         <tbody>
@@ -256,4 +255,5 @@ export const DeckBuilder = ({
     </>
   )
 }
+
 
