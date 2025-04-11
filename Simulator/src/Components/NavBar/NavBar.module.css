@@ -1,15 +1,11 @@
 .basiclands {
-  left: 40%;
-  position: fixed;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 5px;
   padding: 0;
   list-style: none;
-  width: 100%;
   max-width: 40px;
-  max-height: 40px;
-  gap: 5px;
 }
 
 .basiclandinput {
@@ -24,6 +20,7 @@
   background-color: #ada9bb;
   font-family: 'Courier New', Courier, monospace;
   padding: 14px 0;
+  margin-right: 25%;
 }
 
 .leftSection {
