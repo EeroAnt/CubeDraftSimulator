@@ -95,23 +95,23 @@ export function PostDraft({
 
   const renderSideBar = () => {
     return <SideBar
-    lastClicked={lastClicked}
-    token={token}
-    seatToken={seatToken}
-    showMain={showMain}
-    selectedCommanders={selectedCommanders}
-    commanderColorIdentity={commanderColorIdentity}
-    commanders={commanders}
-    mainColorIdentity={mainColorIdentity}
-    main={main}
-    side={side}
-    selectedCards={selectedCards}
-    selectCards={selectCards}
-    selectCommander={selectCommander}
-    moveCards={moveCards}
-    setShowMain={setShowMain}
-    setSelectedCards={setSelectedCards}
-    connection={connection}
+      lastClicked={lastClicked}
+      token={token}
+      seatToken={seatToken}
+      showMain={showMain}
+      selectedCommanders={selectedCommanders}
+      commanderColorIdentity={commanderColorIdentity}
+      commanders={commanders}
+      mainColorIdentity={mainColorIdentity}
+      main={main}
+      side={side}
+      selectedCards={selectedCards}
+      selectCards={selectCards}
+      selectCommander={selectCommander}
+      moveCards={moveCards}
+      setShowMain={setShowMain}
+      setSelectedCards={setSelectedCards}
+      connection={connection}
     />
   }
 
@@ -143,12 +143,13 @@ export function PostDraft({
     />;
   };
 
-  return <div className="draft">
-
-    {renderSideBar()}
-    <div className={styles.main}>
-      {renderNavbar()}
-      {renderDeckbuilder()}
+  return (
+    <div className="draft">
+      {renderSideBar()}
+      <div className={styles.main}>
+        {renderNavbar()}
+        {renderDeckbuilder()}
+      </div>
     </div>
-  </div>;
+  );
 }
