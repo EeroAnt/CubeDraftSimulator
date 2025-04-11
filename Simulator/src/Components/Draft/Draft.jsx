@@ -92,6 +92,7 @@ export const Draft = ({
       alert("No card selected")
     } else {
       const message = {
+        token: token,
         type: "Move Cards",
         cards: selectedCards,
         to: showMain ? ("side") : ("main"),
