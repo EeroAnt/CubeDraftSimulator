@@ -69,18 +69,3 @@ const setupRetry = (uuid) => {
     processMessageQueue(uuid);
   }, RETRY_DELAY);
 };
-
-
-
-function deepSanitize(obj) {
-  if (typeof obj === 'string') {
-    return obj.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, ' ');
-  } else if (Array.isArray(obj)) {
-    return obj.map(deepSanitize);
-  } else if (obj && typeof obj === 'object') {
-    return Object.fromEntries(
-      Object.entries(obj).map(([k, v]) => [k, deepSanitize(v)])
-    );
-  }
-  return obj;
-}
