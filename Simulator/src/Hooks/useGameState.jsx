@@ -108,6 +108,9 @@ export const useGameState = () => {
       setMode("Home")
       return
     }
+    if (decryptedMessage.type === "Deckbuilding") {
+      setMode("Post Draft")
+    }
     switch (mode) {
       case "Home":
         if (homeMode === "Join") {
@@ -197,9 +200,6 @@ export const useGameState = () => {
           setSide(decryptedMessage.side)
           setCommanders(decryptedMessage.commanders)
         }
-        if (decryptedMessage.type === "Deckbuilding") {
-          setMode("Post Draft")
-        }
         break;
       case "Post Draft":
         if (decryptedMessage.type === "Picked Cards") {
@@ -228,7 +228,7 @@ export const useGameState = () => {
 
   function sanitizeJsonString(str) {
     // Replace all non-printable control characters except \n, \t
-    return str.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, ' ');
+    return str.replace(/[^\u0020-\u007E\r\n\t]/g, ' ');
   }
 
   function deepSanitizeStrings(obj) {
@@ -249,7 +249,7 @@ export const useGameState = () => {
     share: true,
     onOpen: async () => {
       console.log("Connecting to:", import.meta.env.VITE_REACT_APP_WS_URL);
-      const { message, newMode } = await reconnect(username, token, seatToken)
+      const { message, newMode } = await reconnect(username, token, seatToken, setUsername, setToken, setSeatToken)
       sendMessage(connection, message)
       if (mode !== newMode) {
         setMode(newMode)

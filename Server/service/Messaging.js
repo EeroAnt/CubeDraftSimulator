@@ -25,11 +25,10 @@ export const processMessageQueue = (uuid) => {
 
   if (!last_acked_message[uuid]) {
     try {
-      const sanitizedMessage = deepSanitize(nextMessage);
-      const json = JSON.stringify(sanitizedMessage);
+      const json = JSON.stringify(nextMessage);
       const encryptedMessage = encrypt(json, process.env.MY_ENCRYPTION);
       connections[uuid].send(JSON.stringify({ message: encryptedMessage }));
-      last_acked_message[uuid] = sanitizedMessage.ackToken;
+      last_acked_message[uuid] = nextMessage.ackToken;
 
       retryCounts[uuid] = 0;
       setupRetry(uuid);
