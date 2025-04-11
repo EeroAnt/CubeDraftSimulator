@@ -18,7 +18,7 @@ import {
 import { sendDraftData } from "./DataBaseCommunications.js";
 import { parseDraftData } from "./DraftDataParser.js";
 import { queueMessage, processMessageQueue } from "./Messaging.js";
-import { handlePick, giveLastCard } from "./DraftFunctions.js";
+import { handlePick, giveLastCard, sendCards } from "./DraftFunctions.js";
 import { setCommander, removeCommander, moveCards } from "./DeckManagement.js";
 import { decrypt } from "./encryption.js";
 
@@ -105,14 +105,23 @@ export async function handleMessage(message, uuid) {
 
     case "Set Commander":
       setCommander(data, users[uuid].seat);
+      if (drafts[data.token].state === "deckbuilding") {
+        sendCards(uuid, users[uuid].seat);
+      }
       break;
 
     case "Remove Commander":
       removeCommander(data, users[uuid].seat);
+      if (drafts[data.token].state === "deckbuilding") {
+        sendCards(uuid, users[uuid].seat);
+      }
       break;
 
     case "Move Cards":
       moveCards(data, users[uuid].seat);
+      if (drafts[data.token].state === "deckbuilding") {
+        sendCards(uuid, users[uuid].seat);
+      }
       break;
 
     case "Rejoin Draft":

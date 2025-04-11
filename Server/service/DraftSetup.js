@@ -8,6 +8,7 @@ import {
 } from "./Broadcasts.js";
 import { shuffleArray } from "./Utils.js";
 import { checkDraftStatus } from "./DraftStatus.js";
+import { sendCards } from "./DraftFunctions.js";
 
 export async function createLobby(data, uuid) {
 
@@ -123,8 +124,9 @@ export function rejoinDraft(data, uuid) {
     users[uuid].token = data.token;
     drafts[data.token].players =
       drafts[data.token].players.concat(users[uuid]);
-    broadcastUserlist(drafts[data.token]);
-
+    if (drafts[data.token].state === 'drafting') {
+      broadcastUserlist(drafts[data.token]);
+    }
     for (const seat in drafts[data.token].table) {
 
       if (drafts[data.token].table[seat].token === data.seat &&
@@ -139,6 +141,7 @@ export function rejoinDraft(data, uuid) {
       console.log('joining deckbuilding');
       const message = { status: 'OK', type: 'Deckbuilding' };
       queueMessage(uuid, message);
+      sendCards(uuid, drafts[data.token].table[uuid]);
     }
   }
 };
