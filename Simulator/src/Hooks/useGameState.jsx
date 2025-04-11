@@ -30,7 +30,6 @@ export const useGameState = () => {
   const [colorFilterPos, setColorFilterPos] = useState([])
   const [colorFilterNeg, setColorFilterNeg] = useState([])
   const [decryptedMessage, setDecryptedMessage] = useState("")
-  const [canalDredgerOwner, setCanalDredgerOwner] = useState(() => searchParams.get("cdo") || "");
   const [canalDredger, setCanalDredger] = useState(() => searchParams.get("cd") || "F");
   const [draftInitiated, setDraftInitiated] = useState(false)
   const [playersInLobby, setPlayersInLobby] = useState(() => searchParams.get("p") || 0)
@@ -87,18 +86,14 @@ export const useGameState = () => {
     } else if (mode === "Lobby") {
       setSearchParams({ u: username, d: token, n: numberOfPlayers, p: playersInLobby, s: seatToken, o: owner });
     } else if (mode === "Draft") {
-      setSearchParams({ u: username, d: token, s: seatToken, r: round, o: owner, cdo: canalDredgerOwner, cd: canalDredger, m: "Draft" });
+      setSearchParams({ u: username, d: token, s: seatToken, r: round, o: owner, cd: canalDredger, m: "Draft" });
     } else if (mode === "Post Draft") {
       setSearchParams({ u: username, d: token, s: seatToken, o: owner, m: "Waiting" });
     }
-  }, [username, token, numberOfPlayers, playersInLobby, seatToken, canalDredger, canalDredgerOwner, owner, mode, homeMode]);
+  }, [username, token, numberOfPlayers, playersInLobby, seatToken, canalDredger, owner, mode, homeMode]);
 
   useEffect(() => {
-    console.log(mode)
-  }, [mode])
-  useEffect(() => {
     if (!decryptedMessage) return;
-    console.log("message received", decryptedMessage)
     if (decryptedMessage.ackToken) {
       const message = {
         type: "Ack",
@@ -188,10 +183,7 @@ export const useGameState = () => {
             }
             setPack(payload.packAtHand)
             setRound(payload.round)
-            if (payload.canalDredger !== "false") {
-              setCanalDredgerOwner(payload.canalDredgerOwner)
-              setCanalDredger("T")
-            }
+            setCanalDredger(payload.canalDredger === "true" ? "T" : "F");
           }
         } else if (decryptedMessage.type === "End Draft") {
 
@@ -317,8 +309,7 @@ export const useGameState = () => {
     typeFilter, setTypeFilter,
     colorFilterPos, setColorFilterPos,
     colorFilterNeg, setColorFilterNeg,
-    canalDredgerOwner, setCanalDredgerOwner,
-    canalDredger, setCanalDredger,
+    canalDredger,
     draftInitiated, setDraftInitiated,
     playersInLobby, setPlayersInLobby,
     drafts,

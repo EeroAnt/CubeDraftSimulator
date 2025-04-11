@@ -38,7 +38,6 @@ export const Draft = ({
   colorFilterNeg,
   setColorFilterPos,
   setColorFilterNeg,
-  canalDredgerOwner,
   canalDredger,
   queues,
   pack,
@@ -110,7 +109,7 @@ export const Draft = ({
   }
 
   const renderPickButtons = () => {
-    if (canalDredgerOwner === "T" || canalDredger === "F" || (pack && pack.length > 1)) {
+    if (canalDredger === "F" || (pack && pack.length > 1)) {
       return (
         <>
           <Button name="Pick to main" className="button" onClick={() => confirmPick("main")} />
@@ -210,7 +209,6 @@ export const Draft = ({
         type: "Give Last Card",
         card: pick,
         token: token,
-        seat: canalDredgerOwner
       }
       sendMessage(connection, message)
       setPick(0)
