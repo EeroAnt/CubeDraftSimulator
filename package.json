@@ -13,6 +13,6 @@
     "push_front":"docker push cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator:latest",
     "remove_aci": "az container delete --resource-group SimuAppi --name CubeDraftSimulator --yes",
     "deploy_aci": "az container create --resource-group SimuAppi --file deploy-aci.yaml",
-    "deploy": "npm run build && npm run tag_flask && npm run push_flask && npm run tag_node && npm run push_node && npm run tag_front && npm run push_front && npm run remove_aci && npm run deploy_aci"
+    "deploy": "npm run clean_build && npm run tag_flask && npm run push_flask && npm run tag_node && npm run push_node && npm run tag_front && npm run push_front && npm run remove_aci && npm run deploy_aci"
   }
 }
