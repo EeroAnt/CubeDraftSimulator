@@ -9,6 +9,11 @@ export const Home = () => {
         categories perform over time. It’s a tool for tracking trends and
         balancing the cube.
       </p>
+      <br />
+      <p className="text-base text-gray-700">
+        And thanks to my friend{" "}
+        <a href="https://samulituomainen.wixsite.com/portfolio" className="text-blue-600 underline hover:text-blue-800">Samuli Tuomainen</a> for the help with the design and the wizards.
+      </p>
 
       <br />
       <h1 className="text-2xl font-bold">

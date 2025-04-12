@@ -2,6 +2,9 @@
 <!-- ![DraftSimulator](https://github.com/EeroAnt/CubeDraftSimulator/actions/workflows/python-app.yml/badge.svg) -->
 ## About
 
+### The important bit:
+Thanks to [Samuli Tuomainen](https://samulituomainen.wixsite.com/portfolio) for the wizards and for the help designing the draft app. 
+
 ### Status:
 1.1.0 of [the draft app](http://eeroncubedraftsimu.northeurope.azurecontainer.io/) and [the analytics page](https://cubestats-app.azurewebsites.net/) are live now. I will be going over the documentation as a whole soonish.  
 
@@ -34,9 +37,14 @@ Development is ongoing. I've built a text-based interface for managing the datab
  - save drafts to database
  - fix draft setup without commander packs (nodejs read length of rounds rather than checked which round was last and so when commander round (round 0) was missing, the length didn't correspond with the amount of rounds properly..)
  - implemented message queues to front end (incoming) and back end (out going) to increase stability of the communication between them
+ - implement acks and retries to WebSocket messaging 
  - refactor and fix frontend
  - setup local PostgreSQL to listen the app
  - a web page for statistics test
+ - fix copying the decklist
+ - fix setting basic lands
+ - fix user reconnecting to draft and post draft
+
 
 ### TODO
 
