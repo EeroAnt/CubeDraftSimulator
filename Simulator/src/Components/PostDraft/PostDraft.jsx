@@ -112,6 +112,7 @@ export function PostDraft({
       setShowMain={setShowMain}
       setSelectedCards={setSelectedCards}
       connection={connection}
+      basicLands={basicLands}
     />
   }
 
