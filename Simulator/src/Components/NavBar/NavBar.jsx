@@ -98,7 +98,24 @@ export function PostDraftNavBar({ owner, connection, token, basicLands, setBasic
           window.prompt("Copy the deck:", deckString);
         });
     } else {
-      window.prompt("Copy the deck:", deckString);
+      const popup = window.open("", "Deck Export", "width=600,height=800");
+      if (popup) {
+        popup.document.title = "Deck Export";
+        const textarea = popup.document.createElement("textarea");
+        textarea.value = deckString;
+        textarea.style.width = "100%";
+        textarea.style.height = "100%";
+        textarea.style.border = "none";
+        textarea.style.outline = "none";
+        textarea.style.fontFamily = "monospace";
+        textarea.style.fontSize = "14px";
+        popup.document.body.style.margin = "0";
+        popup.document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+      } else {
+        window.prompt("Copy the deck:", deckString); // ultimate fallback
+      }
     }
   }
 
