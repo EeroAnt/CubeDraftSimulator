@@ -40,6 +40,12 @@ export function DraftNavbar({ onClickNavbar, buttonName, queues, statsButton, ro
 export function PostDraftNavBar({ owner, connection, token, basicLands, setBasicLands, commanders, main, side }) {
   const [draftDataDecision, setDraftDataDecision] = useState(true)
 
+  const handleBasicLandChange = (index, value) => {
+    const parsed = parseInt(value);
+    const newValue = (!isNaN(parsed) && parsed >= 0) ? parsed : 0;
+
+    setBasicLands(basicLands.map((v, i) => i === index ? newValue : v));
+  };
 
   const BasicLands = () => {
     const landTypes = ["W", "U", "B", "R", "G", "C"]
@@ -54,7 +60,9 @@ export function PostDraftNavBar({ owner, connection, token, basicLands, setBasic
                 className={styles.basiclandinput}
                 type="number"
                 value={basicLands[index]}
-                onChange={(e) => { setBasicLands(basicLands.map((value, i) => i === index ? parseInt(e.target.value) : value)) }}></input>
+                onChange={(e) => handleBasicLandChange(index, e.target.value)}
+              >
+              </input>
             </React.Fragment>
           )
         })
