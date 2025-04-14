@@ -5,9 +5,6 @@
 ### The important bit:
 Thanks to [Samuli Tuomainen](https://samulituomainen.wixsite.com/portfolio) for the wizards and for the help designing the draft app. 
 
-### Status:
-1.1.0 of [the draft app](http://eeroncubedraftsimu.northeurope.azurecontainer.io/) and [the analytics page](https://cubestats-app.azurewebsites.net/) are live now. I will be going over the documentation as a whole soonish.  
-
 ### Problems
 Playing our MTG Commander Cube is one of my favorite things, but setting up the draft takes hours. The drafting itself can take another four, and then everyone still has to build their decks. If we're lucky, we get to play a single round before the day is over.
 
@@ -21,83 +18,59 @@ A web app solves these problems by:
 
 ## Current Status
 
-Development is ongoing. I've built a text-based interface for managing the database, but there's no live version at the moment since I moved the database off the cloud to cut costs. Keeping it local works fine, as the app only runs when I’m using it. I'm currently working on a major overhaul, and hopefully, a much-improved version will be ready for release soon.
+1.1.0 of the draft app is functional and [the analytics page](https://cubestats-app.azurewebsites.net/) is live now. I will be going over the documentation as a whole soonish.  
 
-### We are actually live with the following:
+I've also built a text-based interface for managing the cubes content. And scripts to update the analytics data after new drafts.
 
- - Encryption for WebSocket communication
- - Enable atypical commanders to be set as commanders (for example Shorikai)
- - refactoring of backend
- - generating url parameters for drafting to persist over reconnecting
- - data migrated from cloud to local server
- - make players queues visible to everyone
- - change the output of draft app to copy to clipboard from downloading a csv
- - redo database
- - limit symbols and length of usernames
- - save drafts to database
- - fix draft setup without commander packs (nodejs read length of rounds rather than checked which round was last and so when commander round (round 0) was missing, the length didn't correspond with the amount of rounds properly..)
- - implemented message queues to front end (incoming) and back end (out going) to increase stability of the communication between them
- - implement acks and retries to WebSocket messaging 
- - refactor and fix frontend
- - setup local PostgreSQL to listen the app
- - a web page for statistics test
- - fix copying the decklist
- - fix setting basic lands
- - fix user reconnecting to draft and post draft
+### Database Setup and Schema Overview
+The database has been migrated to a locally hosted PostgreSQL server. As part of the migration, I simplified the schema and added support for storing the outcomes of actual drafts.
 
+The current schema includes the following tables:
+ - cards: The central table containing card data used throughout the application.
+ - commanders: Stores commander options by referencing card_ids from the cards table.
+ - picked_packs: Each row represents a pack picked during a draft. It includes an id and 15 columns (pick1 to pick15) storing card_ids in the order they were picked.
+ - picked_commander_packs: Similar to picked_packs, but for 5-card commander packs (pick1 to pick5).
+ - drafts: Records draft outcomes with columns for draft_token, seat_token, card_id, and username. This table is also used to generate sorted card lists for traditional (physical) play.
 
-### TODO
+### Setting up a draft
+The user can configure the ratios of different draft pools and choose whether to include smaller commander packs at the start of the draft. 
 
- - update readme
-
-
-### [More technical take](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/technical%20side.md)
-
-<!-- ### [Worklog](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/worklog.md)(in Finnish) -->
-
-## Steps
-
-### Setting up the databases
-Database is now local and rework is underway. Azure was good, but it got too costly.
-
-### Setting up the draft
-User can choose the ratios of different draft pools and whether they wish to have smaller commander packs to start of the draft.
-
-The default structure for the normal 15 card packs we've used so far:
- - 3 cards from Multicolored card pool
+The default ratios for the regular 15 card packs we've used so far:
+ - 3 cards from multicolored card pool
  - 2 cards from each of the single colored pools
- - 3 from colorless (this used to be 2, but I feel the artifacts could use a little more representation) and
+ - 3 from colorless and
  - 2 from lands
- 
-Shuffle this pack of 18 cards and cut three.
 
-This will be customisable in the next release.
+After submitting the desired setup, the Flask API checks whether the setup is valid.
+It calculates the number of structured packs by rounding up the result of the formula:
+(15 cards per pack × rounds × number of players) / sum of the pool ratios
 
-So there's some randomness in each pack. I've also used the cut cards to build up these more random packs to partially to mix it up and partially to keep the distribution in check. Also, we once were close of running out of one of the pools.
+For n players, the setup requires 5n commander cards. These are drawn from the multicolored pool before any other cards are selected. Each remaining pool must contain enough cards to supply their respective shares to the structured packs. If any requirement isn't met, the setup is canceled and the user is notified. If all checks pass, the setup proceeds.
 
-8 normal packs of 15 per player, we need 120 cards per player. 120*player_count/18 rounded up tells how many structured packs to build and the rest are made from the leftovers.
+Commander packs are created and removed from the multicolored pool.
+Cards are then drawn according to the ratios and used to assemble structured packs, which are shuffled and trimmed to exactly 15 cards each.
+Any leftover (cut) cards are used to form additional randomized 15-card packs.
 
-### The drafting
-Everyone "opens" their packs at the same time, picks a card and passes the rest to the next player. A player can see the next pack only after making the pick and passing the rest of the pack before. After the each pack of the round has been drafted, new packs are "opened" and the order of players is reversed. This countinues from the commander pack throughout all 8 "normal" packs. Here's a view of what it looks at the moment:
+The final pool of packs is shuffled and assigned to seats using randomized seat tokens, and the draft table is initialized.
+
+The completed setup is then sent to the Node.js server.
+
+### The drafting phase
+
+Once all seats are occupied, the draft can begin. The Node.js server tracks the draft state and broadcasts updates to all players. During the draft, players pick cards from packs and assign them to either their main deck or sideboard.
+
 ![](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/DraftView.PNG)
 
-There is a second view that has more space and information for the deckbuilding part. At the moment it looks like this:
+The top navbar shows the player's queue of incoming packs and indicates which players are currently picking. A bolded username means that player has a pack in hand. From the navbar, players can also switch to the Deckbuilding view.
+
 ![](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/DeckbuilderView.PNG)
 
-### Outside of the drafting
-Due to how I've decided to structure the packs, it doesn't really matter if there's more blue cards than red cards in the cube as they both get a equal representation in each draft apart from the one with more cards will be more diluted in terms of archetypes. This is an actual problem with the cube I have refused to solve for now. The dilution that is. Every color is diluted in a 2000 card cube.
+In the Deckbuilding view, picked cards are displayed as full card images instead of a text list. Players can filter cards by color or (pseudo-)types, and view the mana value curve of their main deck or filtered selection—either as a bar or line chart.
 
-By collecting the drafting data we can see if for some reason or other, one color is picked less than the others so we can try to obtain better and more appealing cards for that color. So far we've just been piling cards that we think we'd like to see in the cube, but the drafting experience would be better with more balanced cube. The plain power of the card is not the only factor to take in of course. Some card has to be the last pick of every pack, but we can identify cards that go unpicked time after time and consider cutting them from the pool. Maybe showcasing some of the most wanted cards too could be fun.
+The post-draft view is very similar to the Deckbuilding view, but without draft-related elements like the pack queue or the option to switch back to the draft. Instead, it includes input fields for adding basic lands and a button to copy the completed deck to the clipboard. The copied deck is formatted for direct use in the Cockatrice platform, making it easy to play the draft virtually if desired.
 
-It could be fun also to give post games rankings for the cards as well. Some sort of positive/negative surprise value or maybe mention of a 'hate pick'. A numeric value would help to represent the stats but we could also collect some epic tales of how x card turned the whole game around. I could save the decks as a whole and maybe try to use this with a possible bot in the future.
 
-While drafting and building the deck, it is good to have the statistics interactive in real time, but it might be better to update the pick tables only after the draft part is done.
-
-### Bots
-Initially I will implement a simple bot that picks a random card from the pack everytime. Simply to help testing the app and if we want more players to a draft than we have willing humans available. I'll probably disable the pick stats from the bots picks altogether so they don't affect the rankings and I'm considering also disabling them from human players when there's too many bots. Not sure yet.
-
-Somewhere in the more distant future, we can start thinking of an AI for the bots. Well a crude one can be implemented very soon. Use the average pick value from the pick if available, otherwise randomise a value from the pickvalue range and pick the best one available. But a more sophisticated one later on might be cool that recognises it's commanders colors and archetypes even and aims to build and actual, functional deck could be cool. I have no idea how to approach this, but let's not let it stop us.
-
+![](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/PostDraftView.PNG)
 
 ## License
 
