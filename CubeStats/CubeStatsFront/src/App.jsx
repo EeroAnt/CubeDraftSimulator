@@ -45,7 +45,7 @@ function App() {
         </div>
       ) : null}
       <div className="min-h-screen bg-gray-100 flex flex-col items-center">
-        {mode === "home" ? <Home /> : null}
+        {mode === "home" && !loading ? <Home /> : null}
         {mode === "overview" && !loading ? <Overview data={data} /> : null}
         {mode === "colorId" && !loading ? (
           <ColorId data={data} colorIdState={colorIdState} />
