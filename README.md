@@ -24,17 +24,6 @@ A web app solves these problems by:
 
 I've also built a text-based interface for managing the cubes content. And scripts to update the analytics data after new drafts.
 
-### Database Setup and Schema Overview
-
-The database has been migrated to a locally hosted PostgreSQL server. As part of the migration, I simplified the schema and added support for storing the outcomes of actual drafts.
-
-The current schema includes the following tables:
- - cards: The central table containing card data used throughout the application.
- - commanders: Stores commander options by referencing card_ids from the cards table.
- - picked_packs: Each row represents a pack picked during a draft. It includes an id and 15 columns (pick1 to pick15) storing card_ids in the order they were picked.
- - picked_commander_packs: Similar to picked_packs, but for 5-card commander packs (pick1 to pick5).
- - drafts: Records draft outcomes with columns for draft_token, seat_token, card_id, and username. This table is also used to generate sorted card lists for traditional (physical) play.
-
 ### Setting up a draft
 
 The user can configure the ratios of different draft pools and choose whether to include smaller commander packs at the start of the draft. 
@@ -63,11 +52,11 @@ The completed setup is then sent to the Node.js server.
 
 Once all seats are occupied, the draft can begin. The Node.js server tracks the draft state and broadcasts updates to all players. During the draft, players pick cards from packs and assign them to either their main deck or sideboard.
 
-![](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/DraftView.PNG)
+![](./Documentation/DraftView.PNG)
 
 The top navbar shows the player's queue of incoming packs and indicates which players are currently picking. A bolded username means that player has a pack in hand. From the navbar, players can also switch to the Deckbuilding view.
 
-![](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/DeckbuilderView.PNG)
+![](./Documentation/DeckbuilderView.PNG)
 
 In the Deckbuilding view, picked cards are displayed as full card images instead of a text list. Players can filter cards by color or (pseudo-)types, and view the mana value curve of their main deck or filtered selection—either as a bar or line chart.
 
@@ -75,6 +64,10 @@ The post-draft view is very similar to the Deckbuilding view, but without draft-
 
 
 ![](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/PostDraftView.PNG)
+
+## Learn More
+
+For more technical details about the architecture, components, and data handling, check out the [technical documentation](./Documentation/technical side.md).
 
 ## License
 
