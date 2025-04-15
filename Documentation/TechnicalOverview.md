@@ -1,8 +1,4 @@
-## The idea:
-
-![](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/Architecture.PNG)
-
-Mermaid schema:
+## Mermaid schema:
 ```mermaid
 graph TD
 
