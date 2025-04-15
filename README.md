@@ -6,11 +6,13 @@
 Thanks to [Samuli Tuomainen](https://samulituomainen.wixsite.com/portfolio) for the wizards and for the help designing the draft app. 
 
 ### Problems
+
 Playing our MTG Commander Cube is one of my favorite things, but setting up the draft takes hours. The drafting itself can take another four, and then everyone still has to build their decks. If we're lucky, we get to play a single round before the day is over.
 
 Another challenge is managing our 2000+ card cube. Refining it is cumbersome, and making cuts — despite being beneficial for the cube's health — is difficult.
 
 ### Solution
+
 A web app solves these problems by:
  - Reducing draft setup from hours of tedious and error-prone card handling to just a few seconds (or maybe a little more).
  - Allowing everyone to draft remotely, so game day is only about playing.
@@ -23,6 +25,7 @@ A web app solves these problems by:
 I've also built a text-based interface for managing the cubes content. And scripts to update the analytics data after new drafts.
 
 ### Database Setup and Schema Overview
+
 The database has been migrated to a locally hosted PostgreSQL server. As part of the migration, I simplified the schema and added support for storing the outcomes of actual drafts.
 
 The current schema includes the following tables:
@@ -33,6 +36,7 @@ The current schema includes the following tables:
  - drafts: Records draft outcomes with columns for draft_token, seat_token, card_id, and username. This table is also used to generate sorted card lists for traditional (physical) play.
 
 ### Setting up a draft
+
 The user can configure the ratios of different draft pools and choose whether to include smaller commander packs at the start of the draft. 
 
 The default ratios for the regular 15 card packs we've used so far:
