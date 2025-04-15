@@ -3,7 +3,8 @@
 ![](https://github.com/EeroAnt/CubeDraftSimulator/blob/main/Documentation/Architecture.PNG)
 
 Mermaid schema:
-```mermaid graph TD
+```mermaid
+graph TD
 
     subgraph GitHub Pages
         DraftData[data.json]
