@@ -67,7 +67,7 @@ The post-draft view is very similar to the Deckbuilding view, but without draft-
 
 ## Learn More
 
-For more technical details about the architecture, components, and data handling, check out the [technical documentation](./Documentation/technical side.md).
+For more technical details about the architecture, components, and data handling, check out the [technical documentation](./Documentation/TechnicalOverview.md).
 
 ## License
 
