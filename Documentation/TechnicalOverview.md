@@ -44,12 +44,3 @@ graph TD
 | Flask API |	DB middleware (via SSH) |
 | Node.js Backend | Backend logic + WebSocket manager for Draft App |
 | React Frontend | Draft UI |
-
-### Database Setup and Schema Overview
-
-The database has been migrated to a locally hosted PostgreSQL server. As part of the migration, I simplified the schema and added support for storing the outcomes of actual drafts.
-
-The current schema includes the following tables:
-
-
-
