@@ -32,6 +32,15 @@ graph TD
 
  ```
 
+| Component | Description | 
+|----------|----------|
+| PostgreSQL Database  | 	Local PostgreSQL storing all data  |
+| Database Content Service  | For maintaining contents of the cube  |
+| CubeStatsData ETL | Builds JSON stats from local DB |
+| CubeStats Web App | Loads JSON stats from GitHub Pages |
+| Flask API |	DB middleware (via SSH) |
+| Node.js Backend | Backend logic + WebSocket manager for Draft App |
+| React Frontend | Draft UI |
 
 ### Database Setup and Schema Overview
 
