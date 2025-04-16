@@ -6,7 +6,7 @@
 graph TD
 
     subgraph GitHub Pages
-        DraftData[data.json]
+        DraftData(data.json)
     end
 
     subgraph Azure WebApp
@@ -26,7 +26,7 @@ graph TD
     subgraph Azure Container Instance
         React[React Frontend]
         Node[(Node.js Backend)]
-        FlaskAPI[Flask API]
+        FlaskAPI[(Flask API)]
         
         React <-- WebSocket --> Node
         Node -- HTTP --> FlaskAPI
