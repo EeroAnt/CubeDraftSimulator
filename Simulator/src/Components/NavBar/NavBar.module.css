@@ -1,18 +1,45 @@
 .basiclands {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   gap: 5px;
   padding: 0;
   list-style: none;
+}
+
+.basiclands img {
   max-width: 40px;
+  max-height: 40px;
 }
 
 .basiclandinput {
   display: auto;
-  width: 25px;
+  width: 40px;
 }
 
+.basiclandinputwrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.basiclandvalue {
+  font-variant-numeric: tabular-nums;
+  width: 2ch;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.basiclandbuttonstack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.basiclandbuttonstack button {
+  padding: 0.3rem;
+  line-height: 0.4;
+}
 .navbar {
   display: flex;
   justify-content: space-between;

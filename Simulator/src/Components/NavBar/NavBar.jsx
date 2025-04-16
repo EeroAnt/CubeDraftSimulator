@@ -42,7 +42,7 @@ export function PostDraftNavBar({ owner, connection, token, basicLands, setBasic
 
   const handleBasicLandChange = (index, value) => {
     const parsed = parseInt(value);
-    const newValue = (!isNaN(parsed) && parsed >= 0) ? parsed : 0;
+    const newValue = (!isNaN(parsed) && parsed >= 0) ? Math.min(parsed, 99) : 0;
 
     setBasicLands(basicLands.map((v, i) => i === index ? newValue : v));
   };
@@ -56,13 +56,15 @@ export function PostDraftNavBar({ owner, connection, token, basicLands, setBasic
           return (
             <React.Fragment key={land + index}>
               <ManaSymbol key={index} symbol={land} />
-              <input
-                className={styles.basiclandinput}
-                type="number"
-                value={basicLands[index]}
-                onChange={(e) => handleBasicLandChange(index, e.target.value)}
-              >
-              </input>
+              <div className={styles.basiclandinputwrapper}>
+                <span className={styles.basiclandvalue}>
+                  {basicLands[index].toString().padStart(2, '0')}
+                </span>
+                <div className={styles.basiclandbuttonstack}>
+                  <button onClick={() => handleBasicLandChange(index, basicLands[index] + 1)}>+</button>
+                  <button onClick={() => handleBasicLandChange(index, basicLands[index] - 1)}>-</button>
+                </div>
+              </div>
             </React.Fragment>
           )
         })
