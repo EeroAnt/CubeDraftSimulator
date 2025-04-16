@@ -1,4 +1,7 @@
-## Mermaid schema:
+# MTG Draft Application - Technical Documentation
+
+## System Overview
+
 ```mermaid
 graph TD
 
@@ -34,8 +37,8 @@ graph TD
 
 | Component | Description | 
 |----------|----------|
-| PostgreSQL Database  | 	Local PostgreSQL storing all data  |
-| Database Content Service  | For maintaining contents of the cube  |
+| [PostgreSQL Database](./PostgreSQL.md)  | 	Local PostgreSQL storing all data  |
+| [Database Content Service](./DCS.md)  | For maintaining contents of the cube  |
 | CubeStatsData ETL | Builds JSON stats from local DB |
 | CubeStats Web App | Loads JSON stats from GitHub Pages |
 | Flask API |	DB middleware (via SSH) |
@@ -47,10 +50,6 @@ graph TD
 The database has been migrated to a locally hosted PostgreSQL server. As part of the migration, I simplified the schema and added support for storing the outcomes of actual drafts.
 
 The current schema includes the following tables:
- - cards: The central table containing card data used throughout the application.
- - commanders: Stores commander options by referencing card_ids from the cards table.
- - picked_packs: Each row represents a pack picked during a draft. It includes an id and 15 columns (pick1 to pick15) storing card_ids in the order they were picked.
- - picked_commander_packs: Similar to picked_packs, but for 5-card commander packs (pick1 to pick5).
- - drafts: Records draft outcomes with columns for draft_token, seat_token, card_id, and username. This table is also used to generate sorted card lists for traditional (physical) play.
+
 
 
