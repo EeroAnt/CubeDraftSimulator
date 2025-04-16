@@ -15,7 +15,7 @@ graph TD
     end
 
     subgraph Local Machine
-        DB[(PostgreSQL Database)]
+        DB((PostgreSQL Database))
         DCS[(Database Content Service)]
         CubeStatsData[(CubeStatsData ETL)]
         DCS -- Local Connection --> DB
