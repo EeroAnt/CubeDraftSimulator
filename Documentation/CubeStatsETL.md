@@ -11,6 +11,9 @@ Extracts and transforms draft data from the local PostgreSQL database into a sta
 - `data.json`, structured for use by the CubeStats frontend
 - Currently hosted on GitHub Pages
 
+## Location
+Both the `data.json` and and the scripts are found in `CubeStats/CubeStatsData` directory.
+
 ## Structure of `data.json`
 
 ### 1. `aggregates`

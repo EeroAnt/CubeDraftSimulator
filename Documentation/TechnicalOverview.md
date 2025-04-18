@@ -40,7 +40,7 @@ graph TD
 | [PostgreSQL Database](./PostgreSQL.md)  | 	Local PostgreSQL storing all data  |
 | [Database Content Service](./DCS.md)  | For maintaining contents of the cube  |
 | [CubeStatsData ETL](./CubeStatsETL.md) | Builds JSON stats from local DB |
-| CubeStats Web App | Loads JSON stats from GitHub Pages |
+| [CubeStats WebApp](./CubeStatsWebApp.md) | Loads JSON stats from GitHub Pages |
 | Flask API |	DB middleware (via SSH) |
 | Node.js Backend | Backend logic + WebSocket manager for Draft App |
 | React Frontend | Draft UI |
