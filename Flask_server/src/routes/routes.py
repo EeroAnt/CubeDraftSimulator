@@ -5,8 +5,6 @@ from src.operations.setup_server import setup
 from src.operations.error_handling.api_parameter_errors import api_parameter_errors
 from src.operations.database.send_draft_data import send_draft_data
 from math import ceil
-from random import choices
-from string import ascii_letters, digits
 import json
 
 @app.route("/")
