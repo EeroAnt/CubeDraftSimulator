@@ -3,27 +3,31 @@
 <title>Cube Draft API</title>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
-    <title>Your API Name</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
+  <title>CubeDraft Flask API</title>
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <h1>Cube Draft Setup API</h1>
-            <p>Simple API to setup drafts for our virtual cube drafts</p>
-        </header>
+  <div class="container">
+    <header>
+      <h1>Cube Draft Setup API</h1>
+      <p>A simple API for generating randomized draft tables for a custom Magic: The Gathering cube.</p>
+    </header>
 
-        <section class="api-info">
-            <h2>About the API</h2>
-            <p>Welcome! Behind this page magic happens. For a small price of a get-request with the right parameters, python script runs to set up a table for 4 to 9 players and randomises the contents for the packs in less than a second.</p>
-            <p>After this it sends the whole thing as a json for our host server to manage. </p>
-			<p>I'm running everything on a free tier so it might not work or be slow at times. If you were to use it, I advice to load this page before as starting up the container might take a handful of seconds.</p>
-        </section>
+    <section class="api-info">
+      <h2>About the API</h2>
+      <p>This API provides a lightweight interface for setting up draft sessions for 4 to 9 players. It generates
+        randomized card packs based on predefined cube data and returns the full draft configuration as a JSON response.
+      </p>
+      <p>The API is designed to support a virtual draft environment by preparing balanced draft states
+        that can be consumed by a host application.</p>
+      <p><strong>Note:</strong> This service runs on a free-tier container and may experience brief delays after periods
+        of inactivity. To reduce startup time, it can help to open this page shortly before beginning a draft.</p>
+    </section>
 
-    </div>
+  </div>
 </body>
 
 </html>
