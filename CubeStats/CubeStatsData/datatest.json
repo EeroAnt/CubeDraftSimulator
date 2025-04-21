@@ -315,7 +315,279 @@
         "BGU",
         7
       ]
-    ]
+    ],
+    "color_id_aggregates": {
+      "R": {
+        "Creature": 136,
+        "Enchantment": 65,
+        "Instant": 50,
+        "Sorcery": 53,
+        "Planeswalker": 9,
+        "Artifact": 5,
+        "Land": 6,
+        "Total": 314
+      },
+      "C": {
+        "Creature": 97,
+        "Enchantment": 0,
+        "Instant": 6,
+        "Sorcery": 6,
+        "Planeswalker": 6,
+        "Artifact": 256,
+        "Land": 64,
+        "Total": 373
+      },
+      "U": {
+        "Creature": 122,
+        "Enchantment": 52,
+        "Instant": 69,
+        "Sorcery": 48,
+        "Planeswalker": 6,
+        "Artifact": 8,
+        "Land": 4,
+        "Total": 298
+      },
+      "G": {
+        "Creature": 137,
+        "Enchantment": 60,
+        "Instant": 20,
+        "Sorcery": 39,
+        "Planeswalker": 6,
+        "Artifact": 5,
+        "Land": 6,
+        "Total": 265
+      },
+      "W": {
+        "Creature": 125,
+        "Enchantment": 61,
+        "Instant": 29,
+        "Sorcery": 35,
+        "Planeswalker": 11,
+        "Artifact": 4,
+        "Land": 5,
+        "Total": 263
+      },
+      "B": {
+        "Creature": 114,
+        "Enchantment": 50,
+        "Instant": 33,
+        "Sorcery": 57,
+        "Planeswalker": 6,
+        "Artifact": 6,
+        "Land": 3,
+        "Total": 261
+      },
+      "GW": {
+        "Creature": 22,
+        "Enchantment": 10,
+        "Instant": 11,
+        "Sorcery": 2,
+        "Planeswalker": 1,
+        "Artifact": 2,
+        "Land": 9,
+        "Total": 56
+      },
+      "RU": {
+        "Creature": 23,
+        "Enchantment": 5,
+        "Instant": 11,
+        "Sorcery": 2,
+        "Planeswalker": 2,
+        "Artifact": 7,
+        "Land": 10,
+        "Total": 57
+      },
+      "BR": {
+        "Creature": 28,
+        "Enchantment": 7,
+        "Instant": 6,
+        "Sorcery": 6,
+        "Planeswalker": 0,
+        "Artifact": 5,
+        "Land": 8,
+        "Total": 59
+      },
+      "RW": {
+        "Creature": 19,
+        "Enchantment": 4,
+        "Instant": 9,
+        "Sorcery": 8,
+        "Planeswalker": 2,
+        "Artifact": 4,
+        "Land": 10,
+        "Total": 55
+      },
+      "BG": {
+        "Creature": 21,
+        "Enchantment": 6,
+        "Instant": 8,
+        "Sorcery": 11,
+        "Planeswalker": 1,
+        "Artifact": 2,
+        "Land": 10,
+        "Total": 57
+      },
+      "BW": {
+        "Creature": 28,
+        "Enchantment": 5,
+        "Instant": 8,
+        "Sorcery": 10,
+        "Planeswalker": 3,
+        "Artifact": 4,
+        "Land": 9,
+        "Total": 63
+      },
+      "GU": {
+        "Creature": 25,
+        "Enchantment": 5,
+        "Instant": 7,
+        "Sorcery": 5,
+        "Planeswalker": 4,
+        "Artifact": 3,
+        "Land": 11,
+        "Total": 57
+      },
+      "UW": {
+        "Creature": 24,
+        "Enchantment": 8,
+        "Instant": 8,
+        "Sorcery": 4,
+        "Planeswalker": 2,
+        "Artifact": 6,
+        "Land": 9,
+        "Total": 57
+      },
+      "GR": {
+        "Creature": 24,
+        "Enchantment": 5,
+        "Instant": 4,
+        "Sorcery": 7,
+        "Planeswalker": 1,
+        "Artifact": 3,
+        "Land": 8,
+        "Total": 52
+      },
+      "BU": {
+        "Creature": 26,
+        "Enchantment": 4,
+        "Instant": 8,
+        "Sorcery": 4,
+        "Planeswalker": 3,
+        "Artifact": 4,
+        "Land": 8,
+        "Total": 56
+      },
+      "RUW": {
+        "Creature": 8,
+        "Enchantment": 2,
+        "Instant": 2,
+        "Sorcery": 2,
+        "Planeswalker": 0,
+        "Artifact": 0,
+        "Land": 1,
+        "Total": 15
+      },
+      "GUW": {
+        "Creature": 7,
+        "Enchantment": 2,
+        "Instant": 3,
+        "Sorcery": 1,
+        "Planeswalker": 1,
+        "Artifact": 0,
+        "Land": 1,
+        "Total": 15
+      },
+      "BRU": {
+        "Creature": 7,
+        "Enchantment": 0,
+        "Instant": 2,
+        "Sorcery": 1,
+        "Planeswalker": 2,
+        "Artifact": 1,
+        "Land": 1,
+        "Total": 14
+      },
+      "BGW": {
+        "Creature": 8,
+        "Enchantment": 1,
+        "Instant": 3,
+        "Sorcery": 2,
+        "Planeswalker": 0,
+        "Artifact": 0,
+        "Land": 1,
+        "Total": 15
+      },
+      "GRW": {
+        "Creature": 11,
+        "Enchantment": 1,
+        "Instant": 2,
+        "Sorcery": 2,
+        "Planeswalker": 0,
+        "Artifact": 0,
+        "Land": 1,
+        "Total": 17
+      },
+      "GRU": {
+        "Creature": 11,
+        "Enchantment": 1,
+        "Instant": 1,
+        "Sorcery": 1,
+        "Planeswalker": 0,
+        "Artifact": 0,
+        "Land": 1,
+        "Total": 15
+      },
+      "BUW": {
+        "Creature": 10,
+        "Enchantment": 1,
+        "Instant": 4,
+        "Sorcery": 0,
+        "Planeswalker": 0,
+        "Artifact": 3,
+        "Land": 1,
+        "Total": 17
+      },
+      "BRW": {
+        "Creature": 8,
+        "Enchantment": 1,
+        "Instant": 2,
+        "Sorcery": 1,
+        "Planeswalker": 0,
+        "Artifact": 0,
+        "Land": 1,
+        "Total": 13
+      },
+      "BGR": {
+        "Creature": 10,
+        "Enchantment": 1,
+        "Instant": 2,
+        "Sorcery": 2,
+        "Planeswalker": 0,
+        "Artifact": 0,
+        "Land": 1,
+        "Total": 16
+      },
+      "BGU": {
+        "Creature": 8,
+        "Enchantment": 1,
+        "Instant": 1,
+        "Sorcery": 1,
+        "Planeswalker": 0,
+        "Artifact": 0,
+        "Land": 1,
+        "Total": 12
+      },
+      "BGRUW": {
+        "Creature": 5,
+        "Enchantment": 0,
+        "Instant": 0,
+        "Sorcery": 0,
+        "Planeswalker": 0,
+        "Artifact": 0,
+        "Land": 0,
+        "Total": 5
+      }
+    }
   },
   "cards": {
     "drafted_cards": [

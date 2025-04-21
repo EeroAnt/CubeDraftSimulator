@@ -144,13 +144,20 @@ GROUP BY
     color_identity;
 """
 
-GET_COLOR_IDS_OF_PICKED_COMMADERS_QUERY = """
+GET_COLOR_IDS_OF_COMMANDERS_QUERY = """
 SELECT
     color_identity
-FROM (
-    SELECT DISTINCT color_identity
-    FROM temp_picked_commanders
-) AS sub
+FROM(
+    SELECT
+        DISTINCT cards.color_identity
+    FROM 
+        commanders
+    LEFT JOIN
+        cards
+    ON
+        commanders.card_id = cards.id
+) AS
+    sub
 ORDER BY
     length(color_identity);
 """
@@ -213,3 +220,42 @@ FROM(
 ORDER BY
     length(color_identity);
 """
+
+GET_COLOR_IDS = """
+SELECT
+    color_identity
+FROM(
+    SELECT
+        DISTINCT color_identity
+    FROM
+        cards
+) AS sub
+ORDER BY
+    length(color_identity);
+"""
+
+def get_types_of_color_id(cursor, color_id, type_part):
+    sql = """
+    SELECT
+        count(*)
+    FROM
+        cards
+    WHERE
+        color_identity = %s
+    AND
+        types LIKE %s;
+    """
+    cursor.execute(sql, (color_id, f"%{type_part}%"))
+    return cursor.fetchone()
+
+def get_total_of_color_id(cursor, color_id):
+    sql = """
+    SELECT
+        count(*)
+    FROM
+        cards
+    WHERE
+        color_identity = %s;
+    """
+    cursor.execute(sql, (color_id,))
+    return cursor.fetchone()

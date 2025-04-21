@@ -5,6 +5,7 @@ def generate_cards_object(cursor):
     
     pick_rates = get_pick_rates(cursor)
     commander_pick_rates = get_commander_pick_rates(cursor)
+    commander_ids = get_commander_ids(cursor)
 
     picked_cards = []
     cards_not_picked = []
@@ -13,8 +14,9 @@ def generate_cards_object(cursor):
         if card["id"] in pick_rates:
             card["avg_pick"] = pick_rates[card["id"]]["avg_pick"]
             card["amount_of_picks"] = pick_rates[card["id"]]["amount_of_picks"]
-        if card["id"] in commander_pick_rates:
+        if card["id"] in commander_ids:
             card["is_commander"] = "true"
+        if card["id"] in commander_pick_rates:
             card["avg_commander_pick"] = commander_pick_rates[card["id"]]["avg_pick"]
             card["amount_of_commander_picks"] = commander_pick_rates[card["id"]]["amount_of_picks"]
         if card["id"] in pick_rates or card["id"] in commander_pick_rates:
