@@ -45,6 +45,6 @@ This project serves as my first larger-scale independent build, and the architec
 | [Database Content Service](./DCS.md)  | For maintaining contents of the cube  |
 | [CubeStatsData ETL](./CubeStatsETL.md) | Builds JSON stats from local DB |
 | [CubeStats WebApp](./CubeStatsWebApp.md) | Loads JSON stats from GitHub Pages |
-| Flask API |	DB middleware (via SSH) |
+| [Flask API](./FlaskAPI.md) |	DB middleware (via SSH) |
 | Node.js Backend | Backend logic + WebSocket manager for Draft App |
 | React Frontend | Draft UI |
