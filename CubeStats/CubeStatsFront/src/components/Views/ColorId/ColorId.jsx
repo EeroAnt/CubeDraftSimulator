@@ -1,4 +1,5 @@
 import { Button, TextFilter, TwoThumbSlider, DraftedCardView } from "../../";
+import { matchesRegex } from "../../../utils/";
 import { useState, useEffect } from "react";
 
 export const ColorId = ({ data, colorIdState }) => {
@@ -54,12 +55,8 @@ export const ColorId = ({ data, colorIdState }) => {
       const matchesName = card.name
         .toLowerCase()
         .includes(nameFilter.toLowerCase());
-      const matchesOracle = card.oracle_text
-        .toLowerCase()
-        .includes(oracleFilter.toLowerCase());
-      const matchesType = card.types
-        .toLowerCase()
-        .includes(typeFilter.toLowerCase());
+      const matchesOracle = matchesRegex(card.oracle_text, oracleFilter);
+      const matchesType = matchesRegex(card.types, typeFilter);
       const matchesManaValue =
         card.mv >= minManaValue && card.mv <= maxManaValue;
       const matchesColorId = colorIds.includes(card.color_identity);
