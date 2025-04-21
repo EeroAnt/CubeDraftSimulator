@@ -56,10 +56,11 @@ A companion interface to explore data from the custom Magic: The Gathering cube 
 - Includes a breakdown of card type distributions from all colors allowed under each commander's identity — useful for evaluating archetype support
 
 ### Not Drafted
-- Lists all cube cards that haven’t yet appeared in a recorded draft
-- Useful for identifying cards that are still untested or not selected during pack setup
-- Helps guide future playtesting and cube adjustments
+- Search and filter across the entire cube, regardless of draft data
+- Useful for exploring support for specific playstyles, archetypes, or deck ideas
+- Handy for verifying if a particular card exists in the cube, even if it hasn’t been drafted yet
 
 ## Notes
 - The app relies on `data.json` structure staying consistent — changes to the format should be mirrored in the frontend
 - Designed to work seamlessly with the backend and ETL pipeline without live database access
+- Text filters for **type** and **oracle text** fields support regular expressions (`RegExp`), allowing advanced pattern-based search
