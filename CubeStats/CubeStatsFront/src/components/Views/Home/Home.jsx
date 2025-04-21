@@ -84,7 +84,13 @@ export const Home = () => {
           Browse cards grouped by their color identity — single, dual, or
           three-color. Cards are sorted by lowest pick rate first, highlighting
           the less favored choices, which are particularly useful for my
-          analysis and cube tuning.
+          analysis and cube tuning. 
+          </p>
+        <br />
+        <p>
+          The cards can be filtered by color identity, name, type, oracle text
+          and mana value. Type and oracle text here and filters elsewhere
+          recognise regex patterns, allowing for more complex queries.
         </p>
       </div>
 
@@ -95,6 +101,11 @@ export const Home = () => {
           Explore pick rate data within each draft pool. This view helps
           identify how individual cards perform across the color, multicolor,
           colorless, and land segments — supporting balance checks and tuning.
+        </p>
+        <br />
+        <p>
+          Depending on the pool, you can filter by color identity, name, type,
+          oracle text, and mana value.
         </p>
       </div>
 
@@ -121,11 +132,17 @@ export const Home = () => {
 
       <div>
         <br />
-        <h3 className="text-lg font-semibold">Not Drafted</h3>
+        <h3 className="text-lg font-semibold">All Cards</h3>
         <p>
-          This view shows cards that haven’t yet appeared in any recorded draft,
-          simply because of the cube’s large size and limited play frequency. It
-          is useful for ongoing cube curation.
+          This view lets you browse and filter the entire cube — regardless of
+          whether cards have been drafted or not. It’s useful for exploring
+          support for specific archetypes or verifying if certain cards are
+          included.
+        </p>
+        <br />
+        <p>
+          The cards can be filtered by color identity, name, type, oracle text,
+          and mana value.
         </p>
       </div>
     </div>
