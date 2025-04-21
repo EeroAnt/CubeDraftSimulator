@@ -12,7 +12,13 @@ export const Home = () => {
       <br />
       <p className="text-base text-gray-700">
         And thanks to my friend{" "}
-        <a href="https://samulituomainen.wixsite.com/portfolio" className="text-blue-600 underline hover:text-blue-800">Samuli Tuomainen</a> for the help with the design and the wizards.
+        <a
+          href="https://samulituomainen.wixsite.com/portfolio"
+          className="text-blue-600 underline hover:text-blue-800"
+        >
+          Samuli Tuomainen
+        </a>{" "}
+        for the help with the design and the wizards.
       </p>
 
       <br />
@@ -94,11 +100,22 @@ export const Home = () => {
 
       <div>
         <br />
-        <h3 className="text-lg font-semibold">Commander Packs</h3>
+        <h3 className="text-lg font-semibold">Commanders</h3>
         <p>
-          Similar to the color identity and draft pool views, but dedicated to
-          commander pack picks. Here you can analyze which commanders are being
-          picked — or ignored — across drafts.
+          This view helps explore how different commanders are supported within
+          the cube. By selecting a color identity, you can browse all commanders
+          that match it, along with their draft pick data (when available).
+          Beneath each group, you’ll find a type distribution table showing how
+          many cards of each type — creatures, enchantments, instants, etc. —
+          are available across all valid sub-color identities.
+        </p>
+        <br />
+        <p>
+          This allows you to evaluate how well the cube supports different
+          commander strategies. For example, if you’re curious about an
+          enchantress commander in colors W and G, the table shows how many
+          enchantments exist in W, G, and WG, giving insight into whether the
+          archetype is viable or lacking in support.
         </p>
       </div>
 
