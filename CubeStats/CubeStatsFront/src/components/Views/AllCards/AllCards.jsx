@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { TextFilter, TwoThumbSlider, NotDraftedCardView, Button } from "../../";
+import { TextFilter, TwoThumbSlider, NotDraftedCardView, Button } from "../..";
 
-export const NotDrafted = ({ data }) => {
-  const unfilteredCards = data?.cards.cards_not_drafted;
+export const AllCards = ({ data }) => {
+  const unfilteredCards = data?.cards.cards_not_drafted.concat(
+    data?.cards.drafted_cards,
+  );
   const getMaxMV = (cards) => Math.max(...cards.map((card) => card.mv), 0);
   const [cards, setCards] = useState([]);
   const [oracleFilter, setOracleFilter] = useState("");
@@ -55,9 +57,7 @@ export const NotDrafted = ({ data }) => {
 
   return (
     <>
-      <h1 className="text-4xl font-bold text-blue-600 mt-6">
-        Not Drafted Cards
-      </h1>
+      <h1 className="text-4xl font-bold text-blue-600 mt-6">All Cards</h1>
       {data && (
         <div className="w-full max-w-4xl p-6 bg-white shadow-md rounded-lg mt-6">
           <div className="flex flex-wrap gap-2">

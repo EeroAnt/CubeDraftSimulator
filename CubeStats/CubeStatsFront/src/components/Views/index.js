@@ -3,5 +3,5 @@ export * from "./Commander";
 export * from "./DraftPool";
 export * from "./Overview";
 export * from "./CardView";
-export * from "./NotDrafted";
+export * from "./AllCards";
 export * from "./Home";

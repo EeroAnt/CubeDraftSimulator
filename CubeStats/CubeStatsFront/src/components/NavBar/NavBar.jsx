@@ -61,8 +61,8 @@ export const NavBar = ({
     setShowDraftPools(false);
     setShowColorIdMenu(false);
   };
-  const onClickNotDrafted = () => {
-    setMode("notDrafted");
+  const onClickAllCards = () => {
+    setMode("allCards");
     setShowDraftPools(false);
     setShowColorIdMenu(false);
   };
@@ -115,10 +115,10 @@ export const NavBar = ({
             modeTarget={"commanders"}
           />
           <NavBarButton
-            title={"Not Drafted"}
-            onClick={onClickNotDrafted}
+            title={"All Cards"}
+            onClick={onClickAllCards}
             modeType={mode}
-            modeTarget={"notDrafted"}
+            modeTarget={"allCards"}
           />
           <a
             href="https://github.com/EeroAnt/CubeDraftSimulator"
