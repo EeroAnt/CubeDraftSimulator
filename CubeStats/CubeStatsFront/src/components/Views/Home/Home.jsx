@@ -18,7 +18,7 @@ export const Home = () => {
         >
           Samuli Tuomainen
         </a>{" "}
-        for the help with the design and the wizards.
+        for the help with the design and for the wizards.
       </p>
 
       <br />
@@ -84,8 +84,8 @@ export const Home = () => {
           Browse cards grouped by their color identity — single, dual, or
           three-color. Cards are sorted by lowest pick rate first, highlighting
           the less favored choices, which are particularly useful for my
-          analysis and cube tuning. 
-          </p>
+          analysis and cube tuning.
+        </p>
         <br />
         <p>
           The cards can be filtered by color identity, name, type, oracle text
