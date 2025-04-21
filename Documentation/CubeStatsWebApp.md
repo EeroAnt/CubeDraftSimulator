@@ -51,9 +51,9 @@ A companion interface to explore data from the custom Magic: The Gathering cube 
 - After filtering (e.g., by mana value), shows the bottom and top 20 cards by pick rate to surface performance outliers.
 - Useful for balancing pool content and ensuring representation across color and archetype boundaries.
 
-### Commander Packs
-- Dedicated view for analyzing picks from commander packs
-- Highlights pick trends and overlooked commanders
+### Commanders
+- View all commanders by color identity, with draft pick data where available
+- Includes a breakdown of card type distributions from all colors allowed under each commander's identity — useful for evaluating archetype support
 
 ### Not Drafted
 - Lists all cube cards that haven’t yet appeared in a recorded draft

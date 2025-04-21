@@ -27,6 +27,8 @@ Precomputed statistics used for visual summaries and charts.
   Counts of each color combination within the **multicolor** draft pool.
 - `color_distribution_of_commanders`:  
   Distribution of color identities among available commanders.
+- `color_id_aggregates`:  
+  Contains distributions of cards types in different color identities
 
 ### 2. `cards`
 Detailed card-level information used for filtering and display in the frontend.
