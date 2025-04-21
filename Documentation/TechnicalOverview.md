@@ -35,6 +35,10 @@ graph TD
 
  ```
 
+## Development context
+
+This project serves as my first larger-scale independent build, and the architecture reflects a balance between exploring new technologies and leveraging tools I’m already comfortable with. Rather than optimizing for large-scale efficiency, decisions were made with learning and practicality in mind. For example, the system initially ran entirely in the Azure cloud for better performance, but was migrated to a local PostgreSQL setup due to post-trial costs. While SSH tunneling introduces some latency, it’s currently the only notable bottleneck. Given the low likelihood of wider use, suboptimal but stable solutions are perfectly acceptable — at least for now.
+
 | Component | Description | 
 |----------|----------|
 | [PostgreSQL Database](./PostgreSQL.md)  | 	Local PostgreSQL storing all data  |
