@@ -1,38 +1,22 @@
-import { TextFilter, TwoThumbSlider, DraftedCardView, Button } from "../../";
+import { DraftedCardView, Button } from "../../";
 import { useState, useEffect } from "react";
 
 export const Commander = ({ data }) => {
   const [cards, setCards] = useState([]);
-  const unfilteredCards = data.cards.drafted_cards.filter(
-    (card) => card.is_commander === "true",
-  );
-  const colorIdSet = data.colors.picked_commander_color_ids;
-  const getMaxMV = (cards) => Math.max(...cards.map((card) => card.mv), 0);
-  const getMinMV = (cards) => Math.min(...cards.map((card) => card.mv));
+  const unfilteredCards = data.cards.drafted_cards
+    .concat(data.cards.cards_not_drafted)
+    .filter((card) => card.is_commander === "true");
+  const colorIdSet = data.colors.commander_color_ids;
 
-  const [oracleFilter, setOracleFilter] = useState("");
-  const [nameFilter, setNameFilter] = useState("");
   const [colorIds, setColorIds] = useState(colorIdSet);
-  const [minManaValue, setMinManaValue] = useState(getMinMV(unfilteredCards));
-  const [maxManaValue, setMaxManaValue] = useState(getMaxMV(unfilteredCards));
-  const minDomainValue = getMinMV(unfilteredCards);
-  const maxDomainValue = getMaxMV(unfilteredCards);
 
   useEffect(() => {
     const filteredCards = unfilteredCards.filter((card) => {
-      const matchesName = card.name
-        .toLowerCase()
-        .includes(nameFilter.toLowerCase());
-      const matchesOracle = card.oracle_text
-        .toLowerCase()
-        .includes(oracleFilter.toLowerCase());
-      const matchesManaValue =
-        card.mv >= minManaValue && card.mv <= maxManaValue;
       const matchesColorId = colorIds.includes(card.color_identity);
-      return matchesName && matchesOracle && matchesManaValue && matchesColorId;
+      return matchesColorId;
     });
     setCards(filteredCards);
-  }, [nameFilter, oracleFilter, minManaValue, maxManaValue, colorIds]);
+  }, [colorIds]);
 
   const onClickColorId = (color) => {
     if (colorIds.includes(color)) {
@@ -40,6 +24,13 @@ export const Commander = ({ data }) => {
     } else {
       setColorIds(colorIds.concat(color));
     }
+  };
+
+  const filterByColorId = (colorId) => {
+    const filteredCards = unfilteredCards.filter((card) => {
+      return card.color_identity === colorId;
+    });
+    return filteredCards;
   };
 
   return (
@@ -59,26 +50,15 @@ export const Commander = ({ data }) => {
                 />
               ))}
             </div>
-            <div className="flex flex-row gap-4">
-              <TextFilter
-                name="Name"
-                value={nameFilter}
-                onChange={(e) => setNameFilter(e.target.value)}
-              />
-              <TextFilter
-                name="Text"
-                value={oracleFilter}
-                onChange={(e) => setOracleFilter(e.target.value)}
-              />
-            </div>
-            <TwoThumbSlider
-              name="Mana Value"
-              min={minDomainValue}
-              minValueSetter={setMinManaValue}
-              max={maxDomainValue}
-              maxValueSetter={setMaxManaValue}
-            />
-            <DraftedCardView cards={cards} sortKey={"avg_commander_pick"} />
+            {colorIds.map((colorId) => (
+              <div key={colorId} className="mt-6">
+                <h2 className="text-xl font-semibold mb-2">Color: {colorId}</h2>
+                <DraftedCardView
+                  cards={filterByColorId(colorId)}
+                  sortKey="avg_commander_pick"
+                />
+              </div>
+            ))}
           </div>
         </>
       )}
