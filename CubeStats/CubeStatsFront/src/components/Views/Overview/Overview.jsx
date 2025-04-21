@@ -1,29 +1,29 @@
 import { Chart, PieCharts } from '../../'
 
 export const Overview = ({ data }) => {
-  const singleColorAverages = data?.aggragates?.color_id_averages?.filter(
+  const singleColorAverages = data?.aggregates?.color_id_averages?.filter(
     (color) => color[0].length === 1,
   );
-  const twoColorAverages = data?.aggragates?.color_id_averages?.filter(
+  const twoColorAverages = data?.aggregates?.color_id_averages?.filter(
     (color) => color[0].length === 2,
   );
-  const threeColorAverages = data?.aggragates?.color_id_averages?.filter(
+  const threeColorAverages = data?.aggregates?.color_id_averages?.filter(
     (color) => color[0].length === 3,
   );
   const twoColorDistributions =
-    data?.aggragates?.color_distribution_of_multi?.filter(
+    data?.aggregates?.color_distribution_of_multi?.filter(
       (color) => color[0].length === 2,
     );
   const threeColorDistributions =
-    data?.aggragates?.color_distribution_of_multi?.filter(
+    data?.aggregates?.color_distribution_of_multi?.filter(
       (color) => color[0].length === 3,
     );
   const commanderTwoColorDistributions =
-    data?.aggragates?.color_distribution_of_commanders?.filter(
+    data?.aggregates?.color_distribution_of_commanders?.filter(
       (color) => color[0].length === 2,
     );
   const commanderThreeColorDistributions =
-    data?.aggragates?.color_distribution_of_commanders?.filter(
+    data?.aggregates?.color_distribution_of_commanders?.filter(
       (color) => color[0].length === 3,
     );
   return (
