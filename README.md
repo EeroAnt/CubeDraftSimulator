@@ -20,7 +20,7 @@ A web app solves these problems by:
 
 ## Current Status
 
-1.1.1 of the draft app is functional and [the analytics page](https://cubestats-app.azurewebsites.net/) is live now. I will be going over the documentation as a whole soonish.  
+1.1.1 of the draft app is functional and [the analytics page](https://cubestats.azurewebsites.net/) is live now. I will be going over the documentation as a whole soonish.  
 
 I've also built a text-based interface for managing the cubes content. And scripts to update the analytics data after new drafts.
 
