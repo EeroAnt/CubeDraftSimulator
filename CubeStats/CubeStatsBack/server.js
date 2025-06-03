@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import cors from "cors";
+import fetch from 'node-fetch';
 
 dotenv.config();
 

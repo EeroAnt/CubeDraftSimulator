@@ -2,7 +2,7 @@ version: "3.4"
 
 services:
   cubesimulator:
-    image: cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator
+    image: cubecontainers.azurecr.io/draft-simulator-front
     build:
       context: .
       dockerfile: Simu_Dockerfile
@@ -12,17 +12,17 @@ services:
       - thisnetwork
   
   nodeserver:
-    image: cubedraftsimuflaskcont.azurecr.io/eeronlivenodeserver
+    image: cubecontainers.azurecr.io/draft-simulator-back
     build:
       context: .
       dockerfile: Server_Dockerfile
     ports:
-      - "3001:3001"
+      - "3301:3001"
     networks:
       - thisnetwork
 
   flaskserver:
-    image: cubedraftsimuflaskcont.azurecr.io/eeronliveflaskserver
+    image: cubecontainers.azurecr.io/draft-simulator-flask
     build:
       context: .
       dockerfile: Flask_Dockerfile

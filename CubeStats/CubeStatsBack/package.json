@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "dotenv -e .dev.env -- nodemon server.js",
-    "deploy": "az webapp up --name cubestats-app --runtime \"NODE|18-lts\" --location westeurope"
+    "deploy": "az webapp up --name cubestats --runtime \"NODE|20-lts\" --resource-group cubedraftsimulator --location swedencentral"
   },
   "dependencies": {
     "cors": "^2.8.5",
