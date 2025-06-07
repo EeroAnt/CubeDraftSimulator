@@ -19,8 +19,8 @@ export default [
       "max-len": ["error", { code: 80 }],
       "semi": "error",
       "prefer-const": "error",
-      "no-undef": "error", // Herjaa määrittelemättömistä muuttujista
-      "no-unused-vars": "warn", // Herjaa käyttämättömistä muuttujista
+      "no-undef": ["error", { allow: ["clearTimeout"]}],
+      "no-unused-vars": "warn",
       "no-console": ["warn", { allow: ["log", "error"] }],
     },
     plugins: {
