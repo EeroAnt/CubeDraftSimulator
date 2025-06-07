@@ -21,6 +21,7 @@ import { queueMessage, processMessageQueue } from "./Messaging.js";
 import { handlePick, giveLastCard, sendCards } from "./DraftFunctions.js";
 import { setCommander, removeCommander, moveCards } from "./DeckManagement.js";
 import { decrypt } from "./encryption.js";
+import { addNPC } from "./NPC.js";
 
 export const handleClose = (uuid) => {
   clearInterval(intervalIDs[uuid]);
@@ -149,6 +150,9 @@ export async function handleMessage(message, uuid) {
         seat: users[uuid].seat.token
       };
       queueMessage(uuid, message);
+      break;
+    case "Add NPC":
+      addNPC(drafts[data.token]);
       break;
     case "Ack":
       if (last_acked_message[uuid] === data.ackToken) {
