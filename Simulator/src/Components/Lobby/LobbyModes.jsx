@@ -29,7 +29,7 @@ export const LobbyFull = ({ setMode }) => {
   )
 }
 
-export const LobbySuccess = ({ owner, token, playersInLobby, numberOfPlayers, startDraft, playerList, connection }) => {
+export const LobbySuccess = ({ owner, token, playersInLobby, numberOfPlayers, startDraft, playerList, connection, hasNPC }) => {
   const renderPlayers = playerList => {
     return (
       <ul>
@@ -45,7 +45,16 @@ export const LobbySuccess = ({ owner, token, playersInLobby, numberOfPlayers, st
       token: token
     }
     sendMessage(connection, message);
+    console.log(playerList);
   }
+  const removeNPC = () => {
+    const message = {
+      type: "Remove NPC",
+      token: token
+    }
+    sendMessage(connection, message);
+  }
+
   return (
     <>
       <h1>Lobby</h1>
@@ -63,6 +72,9 @@ export const LobbySuccess = ({ owner, token, playersInLobby, numberOfPlayers, st
               <h2>Playercount: </h2>
               <p>{playersInLobby} / {numberOfPlayers}</p>
               <Button name="Add NPC" className={styles.button} onClick={() => addNPC()} />
+              {hasNPC ? (
+                <Button name="Remove NPC" className={styles.button} onClick={() => removeNPC()} />
+              ) : (null)}
               <h2>Players present:</h2>
               {renderPlayers(playerList)}
             </>

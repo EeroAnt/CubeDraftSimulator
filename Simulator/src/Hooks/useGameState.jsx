@@ -40,6 +40,7 @@ export const useGameState = () => {
   const [pack, setPack] = useState([])
   const [round, setRound] = useState(() => searchParams.get("r") || 0)
   const [wizardSelection, setWizardSelection] = useState(1)
+  const [hasNPC, setHasNPC] = useState(false);
   // const [lastAcked, setLastAcked] = useState("")
 
   useEffect(() => {
@@ -153,6 +154,11 @@ export const useGameState = () => {
           const numPlayers = Object.keys(decryptedMessage.players).length;
           setPlayersInLobby(numPlayers)
           setPlayerList(decryptedMessage.players)
+          if (decryptedMessage.hasNPC) {
+            setHasNPC(true);
+          } else {
+            setHasNPC(false);
+          }
           if (lobbyMode !== "LobbySuccess") {
             setLobbyMode("LobbySuccess")
           }
@@ -318,6 +324,7 @@ export const useGameState = () => {
     queues,
     pack, setPack,
     connection,
-    wizardSelection
+    wizardSelection,
+    hasNPC
   };
 }

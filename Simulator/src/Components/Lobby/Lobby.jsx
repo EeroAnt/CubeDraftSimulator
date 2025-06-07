@@ -4,7 +4,7 @@ import { LobbyFailed, LobbySuccess, DraftStarted } from '../'
 import styles from './Lobby.module.css'
 
 
-export const Lobby = ({ connection, numberOfPlayers, owner, token, playersInLobby, lobbyMode, playerList, setMode }) => {
+export const Lobby = ({ connection, numberOfPlayers, owner, token, playersInLobby, lobbyMode, playerList, setMode, hasNPC }) => {
 
   const startDraft = () => {
     const message = {
@@ -25,6 +25,7 @@ export const Lobby = ({ connection, numberOfPlayers, owner, token, playersInLobb
           startDraft={startDraft}
           playerList={playerList}
           connection={connection}
+          hasNPC={hasNPC}
        />)}
       {lobbyMode == "LobbyFull" && (<LobbyFailed setMode={setMode} />)}
       {lobbyMode == "DraftStarted" && (<DraftStarted setMode={setMode}/>)}
