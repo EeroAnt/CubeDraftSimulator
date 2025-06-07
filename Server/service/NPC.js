@@ -1,5 +1,5 @@
 import { broadcastUserlist } from "./Broadcasts.js";
-import { messageQueues, intervalIDs } from "./State.js";
+import { intervalIDs } from "./State.js";
 import { handlePick } from "./DraftFunctions.js";
 
 const NPCNames = [
@@ -38,8 +38,7 @@ export const addNPC = (draft) => {
     token: draft["token"],
     isNPC: true
   };
-  messageQueues[npc.uuid] = [];
-    intervalIDs[npc.uuid] = setInterval(() => processNPC(npc.uuid, draft), 6000);
+  intervalIDs[npc.uuid] = setInterval(() => processNPC(npc.uuid, draft), 200);
   draft["players"].push(npc);
   broadcastUserlist(draft);
 };
@@ -59,22 +58,18 @@ export const removeNPC = (draft) => {
   broadcastUserlist(draft);
   clearInterval(intervalIDs[npc.uuid]);
   delete intervalIDs[npc.uuid];
-  delete messageQueues[npc.uuid];
   console.log(`Removed NPC: ${npc.username}`);
 };
 
 const processNPC = (npcUUID, draft) => {
-  console.log(`Processing NPC: ${npcUUID}`);
   const seat = findSeatByUUID(draft, npcUUID);
-  console.log(seat);
-  if (seat?.packAtHand?.cards) {
+  if (seat?.packAtHand?.cards.length) {
     const data = {
       card: seat.packAtHand.cards[Math.floor(Math.random() * seat.packAtHand.cards.length)].id,
       zone: "main",
       isNPC: true
     };
     console.log(`NPC ${npcUUID} is picking a card.`);
-    console.log(data);
     handlePick(data, draft, seat, npcUUID);
   }
 };
