@@ -24,6 +24,7 @@ export const Lobby = ({ connection, numberOfPlayers, owner, token, playersInLobb
           numberOfPlayers={numberOfPlayers}
           startDraft={startDraft}
           playerList={playerList}
+          connection={connection}
        />)}
       {lobbyMode == "LobbyFull" && (<LobbyFailed setMode={setMode} />)}
       {lobbyMode == "DraftStarted" && (<DraftStarted setMode={setMode}/>)}

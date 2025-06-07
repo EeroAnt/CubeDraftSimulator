@@ -1,4 +1,4 @@
-import { Button } from "../";
+import { Button, sendMessage } from "../../";
 import styles from './Lobby.module.css'
 
 export const DraftStarted = ({ setMode }) => {
@@ -29,7 +29,7 @@ export const LobbyFull = ({ setMode }) => {
   )
 }
 
-export const LobbySuccess = ({ owner, token, playersInLobby, numberOfPlayers, startDraft, playerList }) => {
+export const LobbySuccess = ({ owner, token, playersInLobby, numberOfPlayers, startDraft, playerList, connection }) => {
   const renderPlayers = playerList => {
     return (
       <ul>
@@ -38,6 +38,13 @@ export const LobbySuccess = ({ owner, token, playersInLobby, numberOfPlayers, st
         })}
       </ul>
     )
+  }
+  const addNPC = () => {
+    const message = {
+      type: "Add NPC",
+      token: token
+    }
+    sendMessage(connection, message);
   }
   return (
     <>
@@ -55,6 +62,7 @@ export const LobbySuccess = ({ owner, token, playersInLobby, numberOfPlayers, st
               <h3>Waiting for all players to join</h3>
               <h2>Playercount: </h2>
               <p>{playersInLobby} / {numberOfPlayers}</p>
+              <Button name="Add NPC" className={styles.button} onClick={() => addNPC()} />
               <h2>Players present:</h2>
               {renderPlayers(playerList)}
             </>
