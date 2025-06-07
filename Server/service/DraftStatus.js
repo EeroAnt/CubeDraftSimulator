@@ -5,7 +5,8 @@ import {
 import { drafts, intervalIDs } from "./State.js";
 
 export function checkDraftStatus(draft) {
-  if (draft.state === 'drafting' && draft.players.length > 0) {
+  const nonNPCPlayers = draft.players.filter(player => !player.isNPC);
+  if (draft.state === 'drafting' && nonNPCPlayers.length > 0) {
     if (checkIfRoundIsDone(draft.table)) {
       draft.round++;
       if (draft.round <= draft.last_round) {
@@ -19,21 +20,24 @@ export function checkDraftStatus(draft) {
     } else {
       dealPacks(draft);
     }
-  } else if (draft.players.length === 0 && draft.state === 'drafting') {
+  } else if (nonNPCPlayers.length === 0 && draft.state === 'drafting') {
+    clearNPCIntervals(draft);
     draft.state = 'disconnected';
     console.log(`Draft ${draft.token} disconnected`);
     clearInterval(intervalIDs[draft.token]);
-
   } else if (draft.state === 'done') {
+    clearNPCIntervals(draft);
     console.log(`Draft ${draft.token} ended`);
     clearInterval(intervalIDs[draft.token]);
     broadcastDraftStatus(draft, "End Draft");
-  } else if (draft.players.length == 0 && draft.state === 'Setup Complete') {
+  } else if (nonNPCPlayers == 0 && draft.state === 'Setup Complete') {
     console.log(`Lobby ${draft.token} empty`);
+    clearNPCIntervals(draft);
     console.log(`Deleting lobby ${draft.token}`);
     delete drafts[draft.token];
     clearInterval(intervalIDs[draft.token]);
-  } else if (draft.players.length == 0) {
+  } else if (nonNPCPlayers.length == 0) {
+    clearNPCIntervals(draft);
     clearInterval(intervalIDs[draft.token]);
     console.log(`Draft ${draft.token} abandoned`);
   }
@@ -57,4 +61,13 @@ function dealPacks(draft) {
       draft.table[seat].packAtHand = draft.table[seat].queue.shift();
     }
   }
+}
+
+function clearNPCIntervals(draft) {
+  draft.players.forEach(player => {
+    if (player.isNPC && intervalIDs[player.uuid]) {
+      clearInterval(intervalIDs[player.uuid]);
+      delete intervalIDs[player.uuid];
+    }
+  });
 }
