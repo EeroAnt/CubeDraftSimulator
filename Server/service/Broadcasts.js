@@ -17,8 +17,11 @@ export const broadcastUserlist = (draft) => {
   Object.values(draft.players).forEach(player => {
 	const result = draft.players.reduce((acc, player) => {
 		acc.players[player.uuid] = player.username;
+    if (player.isNPC) {
+      acc.hasNPC = true;
+    }
 		return acc;
-	  }, { status: "OK", type: "Playerlist", players: {} });
+	  }, { status: "OK", type: "Playerlist", players: {}, hasNPC: false });
 
 	const message = result;
 	if (Object.keys(connections).includes(player.uuid)) {
