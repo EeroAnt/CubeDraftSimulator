@@ -13,7 +13,7 @@ export function handlePick(data, draft, userSeat, uuid) {
   if (cardToAdd) {
 
     pickCard(data.zone, cardToAdd, userSeat);
-    updateDraftPicks(draft, cardToAdd.id, userSeat);
+    updateDraftPicks(draft, data.isNPC ? 0 : cardToAdd.id, userSeat);
 
     if (cardToAdd.id === 1887) {
       console.log("Canal Dredger");
