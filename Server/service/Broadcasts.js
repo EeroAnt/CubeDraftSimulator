@@ -25,9 +25,9 @@ export const broadcastUserlist = (draft) => {
 
 	const message = result;
 	if (Object.keys(connections).includes(player.uuid)) {
-      
+
     queueMessage(player.uuid, message);
-    
+
     }
  });
 };
@@ -58,6 +58,9 @@ export const broadcastLobbies = () => {
 export const broadcastDraftStatus = (draft, status) => {
   const message = { status: "OK", type: status };
   Object.values(draft.players).forEach(player => {
+    if (player.isNPC) {
+      return; // Skip NPCs
+    }
     queueMessage(player.uuid, message);
   });
 };
@@ -66,6 +69,9 @@ export const broadcastDraftState = (draft) => {
   console.log("Broadcasting draft state to players", draft.token);
   const queues = extractQueues(draft);
   draft.players.forEach(player => {
+    if (player.isNPC) {
+      return; // Skip NPCs
+    }
     const state = extractDraftState(draft, player);
     const message = {
       status: "OK",
@@ -89,37 +95,6 @@ export const broadcastDraftState = (draft) => {
     broadcastedQueues[draft.token] = queues;
     draftStates[player.uuid] = state;
     lastBroadcastTimestamps[player.uuid] = Date.now();
-    queueMessage(player.uuid, message);
-  });
-};
-
-export const broadcastQueues = (draft) => {
-  const queues = [];
-  draft.players.forEach(player => {
-    queues.push({
-      username: player.username,
-      seat: player.seat.number,
-      queue: player.seat.queue.length,
-      hand: player.seat.packAtHand.cards.length ? 1 : 0
-    });
-  });
-  queues.sort((a, b) => a.seat - b.seat);
-  const message = {
-    status: "OK",
-    type: "Queues",
-    queues: queues
-  };
-};
-
-export const broadcastRound = (draft) => {
-
-  const message = {
-    status: "OK",
-    type: "Round",
-    round: draft.round,
-  };
-  
-  Object.values(draft.players).forEach(player => {
     queueMessage(player.uuid, message);
   });
 };
