@@ -30,6 +30,9 @@ services:
       dockerfile: Server_Dockerfile_dev
     ports:
       - "3001:3001"
+    volumes:
+      - ./Server/index.js:/app/index.js
+      - ./Server/service/:/app/service/
     networks:
       - thisnetwork
 
