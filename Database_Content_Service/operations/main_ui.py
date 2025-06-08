@@ -4,6 +4,7 @@ from operations.search_ui import search_ui
 from operations.commanders_ui import manage_commanders_ui
 from operations.database_functions import print_cube_contents, inspect_cube_contents
 from operations.draft_pool_change_ui import draft_pool_change_ui
+from operations.print_draft_ui import print_draft_ui
 
 
 def main_ui(cursor):
@@ -15,6 +16,7 @@ def main_ui(cursor):
 	5: Change draft pool of a card
 	6: Print cube contents
 	7: Inspect cube contents
+	8: Print a draft
 	0: Exit"""
 	print(instructions)
 	choice = input("Enter your choice: ")
@@ -34,8 +36,10 @@ def main_ui(cursor):
 		elif choice == "7":
 			inspect_cube_contents(cursor)
 			input("Press enter to continue.")
+		elif choice == "8":
+			print_draft_ui(cursor)
 		else:
-			print("Invalid choice.")
+			print("!!!  Invalid choice  !!!")
 		print(instructions)
 		choice = input("Enter your choice: ")
 	return

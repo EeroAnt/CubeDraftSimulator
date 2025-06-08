@@ -225,3 +225,37 @@ def inspect_cube_contents(cursor):
 	print("Color distribution in commander pool:")
 	for ratio in commander_ratios:
 		print("{:<5} {}".format(ratio[0], ratio[1]))
+		
+def print_draft_contents(cursor, draft_id):
+    # Get commanders from this draft
+    cursor.execute("""
+        SELECT c.name, d.username
+        FROM Drafts d
+        JOIN Commanders cm ON d.card_id = cm.card_id
+        JOIN Cards c ON cm.card_id = c.id
+        WHERE d.draft_id = %s
+        ORDER BY c.name;
+    """, (draft_id,))
+    commanders = cursor.fetchall()
+
+    with open(f"draft_{draft_id}.txt", "w") as file:
+        for name, username in commanders:
+            file.write(f"    {name:<35} {username}\n")
+
+    # Get non-commander cards from this draft
+    cursor.execute("""
+        SELECT c.name, c.draft_pool, d.username
+        FROM Drafts d
+        JOIN Cards c ON d.card_id = c.id
+        WHERE d.draft_id = %s AND d.card_id NOT IN (
+            SELECT card_id FROM Commanders
+        )
+        ORDER BY c.draft_pool, c.name;
+    """, (draft_id,))
+    cards = cursor.fetchall()
+
+    with open(f"draft_{draft_id}.txt", "a") as file:
+        for name, draft_pool, username in cards:
+            file.write(f"{draft_pool:<3} {name:<35} {username}\n")
+
+    return
