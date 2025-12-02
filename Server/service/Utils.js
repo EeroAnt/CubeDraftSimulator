@@ -1,4 +1,4 @@
-import { npcStates } from "./State";
+import { npcStates } from "./State.js";
 
 export function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
