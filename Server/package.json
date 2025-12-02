@@ -21,7 +21,8 @@
     "json-server": "^1.0.0-alpha.22",
     "openai": "^6.9.1",
     "uuid": "^9.0.1",
-    "ws": "^8.16.0"
+    "ws": "^8.16.0",
+    "zod": "^4.1.13"
   },
   "devDependencies": {
     "all": "^0.0.0",
