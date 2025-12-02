@@ -1,0 +1,1 @@
+Every Legendary Creature that does not have type 'God' and has less than 3 colors in it's color identity, has partner keyword.

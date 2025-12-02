@@ -8,6 +8,11 @@ const Pick = z.object({
   reasoning: z.string().describe("One or two paragraphs explaining the pick")
 })
 
+const Analysis = z.object({
+  summary: z.string(),
+  analysis_ready: z.boolean().describe("Are you done with analysis now?")
+})
+
 export const callLLM = async (input, mode, maxAttempts = 5) => {
   const client = getClient();
   let attempt = 0;
@@ -16,6 +21,9 @@ export const callLLM = async (input, mode, maxAttempts = 5) => {
   switch (mode) {
     case "pick":
       format = zodTextFormat(Pick, "pick")
+      break;
+    case "analyze":
+      format = zodTextFormat(Analysis, "analysis")
       break;
     default:
       throw new Error(`Unknown mode for LLM call: ${mode}`);
