@@ -38,7 +38,7 @@ export function findSeatByUUID(draft, uuid) {
   return null;
 }
 
-export const getPickData = (seat) => {
+export const parsePickDataFromSeat = (seat) => {
   return seat.packAtHand.cards.map(card => ({
     id: card.id,
     name: card.name,

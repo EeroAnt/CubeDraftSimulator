@@ -2,7 +2,7 @@ import { broadcastUserlist } from "./Broadcasts.js";
 import { intervalIDs } from "./State.js";
 import { handlePick } from "./DraftFunctions.js";
 import { pickCardWithLLM } from "./AI/LLMCalls.js";
-import { findSeatByUUID, getPickData, parseAnalysisDataFromSeat } from "./Utils.js";
+import { findSeatByUUID, parsePickDataFromSeat, parseAnalysisDataFromSeat } from "./Utils.js";
 
 const NPCNames = [
   "NPC-Goofy",
@@ -126,7 +126,8 @@ const NPCPick = async (draft, seat, npcUUID) => {
   let cardId, reasoning;
 
   try {
-    const pickResult = await pickCardWithLLM(getPickData(seat));
+    const pickingData = parsePickDataFromSeat(seat)
+    const pickResult = await pickCardWithLLM(pickingData);
     cardId = pickResult.card;
     reasoning = pickResult.reasoning;
   } catch (error) {
@@ -148,6 +149,7 @@ const NPCPick = async (draft, seat, npcUUID) => {
 const NPCAnalyze = async (seat, npcUUID) => {
   const state = getNPCState(npcUUID)
   const analysisData = parseAnalysisDataFromSeat(seat, state.reasoning)
+
   
   await new Promise(resolve => setTimeout(resolve, 1000));
 }
