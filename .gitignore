@@ -7,3 +7,7 @@ deploy-aci.yaml
 __pycache__/
 Database_Content_Service/*.txt
 **node_modules**
+.terraform/
+.terraform**
+**.tfstate**
+**.tfvars
