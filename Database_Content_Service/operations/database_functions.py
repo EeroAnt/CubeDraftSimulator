@@ -4,20 +4,20 @@ from time import sleep
 
 def search_cards(cursor, query, choice):
 	choices = {
-		"1" : "name",
-		"2" : "types",
-		"3" : "oracle_text"
+		1 : "name",
+		2 : "types",
+		3 : "oracle_text"
 	}
-	cursor.execute(f"SELECT id, name, draft_pool, case when cards.id=card_id then 'yes' else 'no' end as commander from cards left join commanders on cards.id=card_id WHERE {choices[choice]} LIKE %s", (query,))
+	cursor.execute(f"SELECT id, name, draft_pool, case when cards.id=card_id then 'yes' else 'no' end as commander, active FROM cards LEFT JOIN commanders on cards.id=card_id WHERE {choices[choice]} LIKE %s", (query,))
 	cards = cursor.fetchall()
 	if len(cards) == 0:
 		print("No cards found.")
 	elif len(cards) > 100:
 		print(f"Too many cards found ({len(cards)}). Please refine your search.")
 	else:
-		print("{:<6} {:<40} {:<10} {}".format("id", "name", "draft pool", "commander"))
+		print("{:<6} {:<40} {:<10} {:<9} {:<6}".format("id", "name", "draft pool", "commander", "active"))
 		for card in cards:
-			print("{:<6} {:<40} {:<10} {}".format(card[0], card[1], card[2], card[3]))
+			print("{:<6} {:<40} {:<10} {:<9} {:<6}".format(card[0], card[1][:40], card[2], card[3], card[4]))
 		return cards
 
 def update_draft_pool(cursor, card_id):
@@ -37,21 +37,39 @@ def update_draft_pool(cursor, card_id):
 	return
 
 def check_card(cursor, cardname):
-	cursor.execute("SELECT * FROM Cards WHERE name = %s;", (cardname,))
-	card = cursor.fetchone()
-	if card != None:
-		return True
-	else:
-		return False
+    cursor.execute("SELECT active FROM Cards WHERE name = %s;", (cardname,))
+    card = cursor.fetchone()
+    
+    if card is None:
+        return True  # Card not present at all
+    elif not card[0]:
+        return "inactive"  # Card exists but is inactive
+    else:
+        return False  # Card exists and is active
 
 def add_card(cursor, cardname):
 	card = fetch_card_json(cardname)
 	if card == None:
 		print(f"{cardname} not found.")
 		return
-	if check_card(cursor, cardname):
-		print(f"{cardname} is already in the database.")
+	card_status = check_card(cursor, cardname)
+	if not card_status:
+		print(f"{cardname} is already active in the database.")
 		return
+	elif card_status == "inactive":
+		print(f"{cardname} has been removed from the cube earlier")
+		add_anyway = input("Would you like to add it back? (y/n)")
+		if add_anyway == "y":
+			print(f"Reactivating {card['name']}")
+			cursor.execute("BEGIN;")
+			cursor.execute("""
+					UPDATE cards
+					SET active = true
+					WHERE name = %s;
+									""", (card["name"]))
+			cursor.execute("COMMIT;")
+		return
+
 	cursor.execute("BEGIN;")
 	cursor.execute("""INSERT INTO
 				Cards(
@@ -93,9 +111,8 @@ def remove_card(cursor, card_id):
 		confirmation = input(f"Are you sure you want to delete {card[1]}? (y/n)")
 		if confirmation == "y":
 			remove_commander(cursor, card_id)
-			remove_from_picks(cursor, card_id)
 			cursor.execute("BEGIN;")
-			cursor.execute("DELETE FROM Cards WHERE id = %s;", (card_id,))
+			cursor.execute("UPDATE cards SET active = false WHERE id = %s;", (card_id,))
 			cursor.execute("COMMIT;")
 			print(f"{card[1]} has been deleted.")
 	else:
@@ -106,7 +123,7 @@ def remove_multiple_cards(cursor):
 	cards = read_txt_file("delete.txt")
 	for card in cards:
 		print(card)
-		cursor.execute("SELECT * FROM Cards WHERE name like %s;", ('%'+card+'%',))
+		cursor.execute("SELECT * FROM Cards WHERE name LIKE %s;", ('%'+card+'%',))
 		thingy = cursor.fetchall()
 		if len(thingy) == 1:
 			print(thingy[0][0])
@@ -135,7 +152,7 @@ def add_multiple_commanders(cursor):
 	for card in cards:
 		print(card)
 		cursor.execute("ROLLBACK;")
-		cursor.execute("SELECT * FROM Cards WHERE name like %s;", ('%'+card+'%',))
+		cursor.execute("SELECT * FROM Cards WHERE name LIKE %s;", ('%'+card+'%',))
 		thingy = cursor.fetchall()
 		if len(thingy) == 1:
 			card_id = thingy[0][0]
@@ -162,20 +179,8 @@ def remove_commander(cursor, card_id):
 		print("Card not found.")
 	return
 
-def remove_from_picks(cursor, card_id):
-	cursor.execute("SELECT * FROM Cards WHERE id = %s;", (card_id,))
-	card = cursor.fetchone()
-	if card != None:
-		cursor.execute("BEGIN;")
-		cursor.execute("DELETE FROM Picks WHERE card_id = %s;", (card_id,))
-		cursor.execute("COMMIT;")
-		print(f"{card[1]} has been removed from the picks.")
-	else:
-		print("Card not found.")
-	return
-
 def print_cube_contents(cursor):
-	cursor.execute("SELECT name, cards.id FROM Commanders left join Cards on Commanders.card_id = Cards.id order by name;")
+	cursor.execute("SELECT name, cards.id FROM Commanders LEFT JOIN Cards ON Commanders.card_id = Cards.id ORDER BY name;")
 	commanders = cursor.fetchall()
 	with open("cube.txt", "w") as file:
 		for commander in commanders:
@@ -183,7 +188,7 @@ def print_cube_contents(cursor):
 	
 	commander_ids = [commander[1] for commander in commanders]
 
-	cursor.execute("SELECT name, draft_pool FROM Cards Where id not in %s order by draft_pool, name;", (tuple(commander_ids),))
+	cursor.execute("SELECT name, draft_pool FROM Cards WHERE id not in %s AND active = true  draft_pool, name;", (tuple(commander_ids),))
 	cards = cursor.fetchall()
 	with open("cube.txt", "a") as file:
 		for card in cards:
@@ -202,24 +207,24 @@ def inspect_cube_contents(cursor):
 		"R" : "Red",
 		"G" : "Green"
 	}
-	cursor.execute("Select count(*), draft_pool from cards group by draft_pool order by count(*) desc;")
+	cursor.execute("SELECT count(*), draft_pool FROM cards WHERE active = true GROUP BY draft_pool ORDER BY count(*) desc;")
 	draft_pools = cursor.fetchall()
 	print("Pool sizes:")
 	for pool in draft_pools:
 		print("{:<5} {}".format(pool[0], pools[pool[1]]))
 
-	cursor.execute("Select count(*), color_identity from cards where draft_pool like 'M' group by color_identity order by count(*) desc;")
+	cursor.execute("SELECT count(*), color_identity FROM cards WHERE draft_pool LIKE 'M' AND active = true GROUP BY color_identity ORDER BY count(*) desc;")
 	multi_ratios = cursor.fetchall()
 	print("\n")
 	print("Color distribution in multicolor cards:")
 	for ratio in multi_ratios:
 		print("{:<5} {}".format(ratio[0], ratio[1]))
 
-	cursor.execute("Select count(*) from commanders;")
+	cursor.execute("SELECT count(*) FROM commanders;")
 	commanders = cursor.fetchone()
 	print("\n")
 	print(f"Amount of commanders: {commanders[0]}")
-	cursor.execute("Select count(*), color_identity from commanders left join cards on commanders.card_id = cards.id group by color_identity order by count(*) desc;")
+	cursor.execute("SELECT count(*), color_identity FROM commanders LEFT JOIN cards ON commanders.card_id = cards.id GROUP BY color_identity ORDER BY count(*) desc;")
 	commander_ratios = cursor.fetchall()
 	print("\n")
 	print("Color distribution in commander pool:")

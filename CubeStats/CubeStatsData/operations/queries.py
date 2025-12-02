@@ -41,7 +41,8 @@ SELECT
     c.color_identity
 FROM expanded_picks e
 LEFT JOIN cards c ON e.card_id = c.id
-WHERE c.id IS NOT NULL;
+WHERE c.id IS NOT NULL
+  AND c.active = true;
 """
 
 GENERATE_COMMANDER_PICKS_TABLE = """
@@ -67,7 +68,8 @@ SELECT
     c.color_identity
 FROM expanded_picks e
 LEFT JOIN cards c ON e.card_id = c.id
-WHERE c.id IS NOT NULL;
+WHERE c.id IS NOT NULL
+  AND c.active = true;
 """
 
 GET_CARDS_QUERY = """
@@ -140,6 +142,7 @@ FROM
 LEFT JOIN cards c ON c.id = co.card_id    
 WHERE
     c.id IS NOT NULL
+AND c.active = true
 GROUP BY
     color_identity;
 """

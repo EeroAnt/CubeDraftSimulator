@@ -7,13 +7,22 @@ def search_ui(cursor):
 	3: Search by text
 	0: Cancel"""
 	print(instructions)
-	choice= input("Enter your choice: ")
-	while choice != "0":
+	try:
+		choice= int(input("Enter your choice: "))
+	except ValueError:
+		print("Invalid choice.")
+		return
+	while choice != 0:
 		query = str(input("Enter the query you want to search for (0 to cancel):"))
 		while query != "0":
 			query = "%" + query + "%"
 			search_cards(cursor, query, choice)		
 			input("Press enter to continue.")
 			query = str(input("Enter the query you want to search for (0 to cancel):"))
-		choice= input("Enter your choice: ")
+		try:
+			print(instructions)
+			choice= int(input("Enter your choice: "))
+		except ValueError:
+			print("Invalid choice.")
+			return
 	return

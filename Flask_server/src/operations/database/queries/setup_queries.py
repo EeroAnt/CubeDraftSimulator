@@ -31,6 +31,8 @@ def multicolored_pool_query(commander_ids):
 		  Cards
 		WHERE
 		  draft_pool='M'
+		AND
+      active = true
 		ORDER BY
 		  RANDOM()
 		LIMIT
@@ -43,6 +45,8 @@ def multicolored_pool_query(commander_ids):
 		Cards
 		WHERE
 		draft_pool='M'
+		AND
+      active = true
 		AND
 		id NOT IN (
 			{','.join(commander_ids)})
@@ -60,6 +64,8 @@ def generic_pool_query(pool):
 	  Cards
 	WHERE
 	  draft_pool='{pool}'
+  AND
+    active = true
 	ORDER BY
 	  RANDOM()
 	LIMIT
@@ -71,7 +77,9 @@ def cube_size_query():
 	SELECT
 	  COUNT(*)
 	FROM
-	  Cards;"""
+	  Cards
+	WHERE
+	  active = true;"""
 	return sql
 
 def pool_size_query():
@@ -81,5 +89,7 @@ def pool_size_query():
 	FROM
 	  Cards
 	WHERE
-	  draft_pool=%s;"""
+	  draft_pool=%s
+  AND
+    active = true;"""
 	return sql
