@@ -1,3 +1,5 @@
+import { npcStates } from "./State";
+
 export function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -50,15 +52,34 @@ export const parsePickDataFromSeat = (seat) => {
 };
 
 export const parseAnalysisDataFromSeat = (seat, reasoning) => {
-  return {
-    latestReasoning: reasoning,
+  const data = {
     cards: seat.main.map(card => ({
       id: card.id,
       name: card.name,
       mana_value: card.mana_value,
       color_identity: card.color_identity,
       types: card.types,
-      oracle_text: card.oracle_text
+      oracle_text: card.oracle_text,
+      tags: card.tags || []
     }))
   };
+  
+  if (reasoning) data.latestReasoning = reasoning;
+  if (seat.analysis_summary) data.previousAnalysis = seat.analysis_summary;
+  
+  return data;
+};
+
+export const getNPCState = (npcUUID) => {
+  if (!npcStates.has(npcUUID)) {
+    npcStates.set(npcUUID, {
+      isPicking: false,
+      isAnalyzing: false,
+      hasCardsToPickFrom: false,
+      context: null,
+      latestReasoning: null,
+      analysisComplete: true,
+    });
+  }
+  return npcStates.get(npcUUID);
 };

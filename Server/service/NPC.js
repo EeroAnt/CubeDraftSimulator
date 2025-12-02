@@ -1,8 +1,8 @@
 import { broadcastUserlist } from "./Broadcasts.js";
 import { intervalIDs } from "./State.js";
 import { handlePick } from "./DraftFunctions.js";
-import { pickCardWithLLM } from "./AI/LLMCalls.js";
-import { findSeatByUUID, parsePickDataFromSeat, parseAnalysisDataFromSeat } from "./Utils.js";
+import { pickCardWithLLM, analyzePoolWithLLM } from "./AI/LLMCalls.js";
+import { findSeatByUUID, parsePickDataFromSeat, parseAnalysisDataFromSeat, getNPCState } from "./Utils.js";
 
 const NPCNames = [
   "NPC-Goofy",
@@ -22,22 +22,6 @@ const getNPCName = (draft) => {
   return availableNames[Math.floor(Math.random() * availableNames.length)];
 };
 
-// Track NPC state
-const npcStates = new Map();
-
-const getNPCState = (npcUUID) => {
-  if (!npcStates.has(npcUUID)) {
-    npcStates.set(npcUUID, {
-      isPicking: false,
-      isAnalyzing: false,
-      hasCardsToPickFrom: false,
-      context: null,
-      latestReasoning: null,
-      analysisComplete: true,
-    });
-  }
-  return npcStates.get(npcUUID);
-};
 
 export const addNPC = (draft) => {
   if (!draft || !draft["players"] || !draft["token"]) {
@@ -110,8 +94,8 @@ const processNPC = async (npcUUID, draft) => {
     
     state.isAnalyzing = true;
     try {
-      await NPCAnalyze(seat, npcUUID);
       console.log("we analyzing")
+      await NPCAnalyze(seat, npcUUID);
       state.analysisComplete = true;
     } finally {
       console.log("we done analyzing")
@@ -149,7 +133,6 @@ const NPCPick = async (draft, seat, npcUUID) => {
 const NPCAnalyze = async (seat, npcUUID) => {
   const state = getNPCState(npcUUID)
   const analysisData = parseAnalysisDataFromSeat(seat, state.reasoning)
-
-  
-  await new Promise(resolve => setTimeout(resolve, 1000));
+  const context = await analyzePoolWithLLM(analysisData, npcUUID)
+  seat["analysis_summary"] = context.summary
 }

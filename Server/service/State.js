@@ -10,3 +10,4 @@ export const retryTimers = {};
 export const broadcastedQueues = {};
 export const draftStates = {};
 export const lastBroadcastTimestamps = {};
+export const npcStates = new Map();
