@@ -1,7 +1,8 @@
 import { broadcastUserlist } from "./Broadcasts.js";
 import { intervalIDs } from "./State.js";
 import { handlePick } from "./DraftFunctions.js";
-import { analyzePoolInBackground, pickCardWithLLM } from "./AI/LLMCalls.js";
+import { pickCardWithLLM } from "./AI/LLMCalls.js";
+import { findSeatByUUID, getPickData, parseAnalysisDataFromSeat } from "./Utils.js";
 
 const NPCNames = [
   "NPC-Goofy",
@@ -29,7 +30,10 @@ const getNPCState = (npcUUID) => {
     npcStates.set(npcUUID, {
       isPicking: false,
       isAnalyzing: false,
+      hasCardsToPickFrom: false,
       context: null,
+      latestReasoning: null,
+      analysisComplete: true,
     });
   }
   return npcStates.get(npcUUID);
@@ -85,27 +89,44 @@ export const removeNPC = (draft) => {
 
 const processNPC = async (npcUUID, draft) => {
   const seat = findSeatByUUID(draft, npcUUID);
-  if (!seat?.packAtHand?.cards.length) return;
+
   // try to pick with llm, fall back to random if failed
 
   const state = getNPCState(npcUUID);
 
+  state.hasCardsToPickFrom = !!seat?.packAtHand?.cards.length;
   // Already picking, don't start another
-  if (state.isPicking) return;
-  state.isPicking = true;
+  if (state.isPicking || state.isAnalyzing) return;
+  if (state.hasCardsToPickFrom) {
+    state.isPicking = true;
+    try {
+      await NPCPick(draft, seat, npcUUID)
+      state.analysisComplete = false;
+    } finally {
+      state.isPicking = false
+    }
+  } else {
+    if (state.analysisComplete) return;
+    
+    state.isAnalyzing = true;
+    try {
+      await NPCAnalyze(seat, npcUUID);
+      console.log("we analyzing")
+      state.analysisComplete = true;
+    } finally {
+      console.log("we done analyzing")
+      state.isAnalyzing = false;
+    }
+  }
+};
 
-  // // Cancel any ongoing analysis when new pick is needed
-  // if (state.currentAnalysis) {
-  //   state.currentAnalysis.abort();
-  //   state.currentAnalysis = null;
-  //   state.isAnalyzing = false;
-  // }
-  
+const NPCPick = async (draft, seat, npcUUID) => {
   console.log(`NPC ${npcUUID} is picking a card.`);
-
+  const state = getNPCState(npcUUID)
   let cardId, reasoning;
+
   try {
-    const pickResult = await pickCardWithLLM(seat);
+    const pickResult = await pickCardWithLLM(getPickData(seat));
     cardId = pickResult.card;
     reasoning = pickResult.reasoning;
   } catch (error) {
@@ -114,7 +135,7 @@ const processNPC = async (npcUUID, draft) => {
     reasoning = "Random pick (LLM unavailable)";
   }
 
-  console.log(`card ${cardId} was picked with reasoning:\n${reasoning}`)
+  state.latestReasoning = reasoning
 
   const data = {
     card: cardId,
@@ -122,18 +143,11 @@ const processNPC = async (npcUUID, draft) => {
     isNPC: true
   };
   handlePick(data, draft, seat, npcUUID);
-  state.isPicking = false;
-  // setup for next pack
-  // analyzePoolInBackground(npcUUID, seat, reasoning);
+}
 
-};
-
-function findSeatByUUID(draft, uuid) {
-  for (const seatKey of Object.keys(draft.table)) {
-    const seat = draft.table[seatKey];
-    if (seat.player === uuid) {
-      return seat;
-    }
-  }
-  return null;
+const NPCAnalyze = async (seat, npcUUID) => {
+  const state = getNPCState(npcUUID)
+  const analysisData = parseAnalysisDataFromSeat(seat, state.reasoning)
+  
+  await new Promise(resolve => setTimeout(resolve, 1000));
 }

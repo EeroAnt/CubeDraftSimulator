@@ -2,7 +2,7 @@ import { loadPrompt } from "./PromptReader.js";
 import { callLLM } from "./Caller.js";
 
 
-export const pickCardWithLLM = async (seat) => {
+export const pickCardWithLLM = async (pickData) => {
   
   const systemMessage = loadPrompt("pick_a_card.md")
   
@@ -15,7 +15,7 @@ export const pickCardWithLLM = async (seat) => {
   input.push(
     {
       role: "system",
-      content: JSON.stringify(seat.packAtHand.cards)
+      content: JSON.stringify(pickData)
     }
   )
   const response = await callLLM(input, "pick")
