@@ -13,7 +13,7 @@ const RETRY_DELAY = 2000;
 
 export const queueMessage = (uuid, message) => {
   const messageToQueue = addToken(message);
-  console.log("Message with token:", messageToQueue);
+  // console.log("Message with token:", messageToQueue);
   messageQueues[uuid].push(messageToQueue);
 };
 
@@ -36,8 +36,8 @@ export const processMessageQueue = (uuid) => {
       console.error("Error sending message:", error);
     }
   } else {
-    console.log("Last acked message:", last_acked_message[uuid]);
-    console.log("amount of messages in queue:", messageQueues[uuid].length);
+    // console.log("Last acked message:", last_acked_message[uuid]);
+    // console.log("amount of messages in queue:", messageQueues[uuid].length);
   }
 };
 

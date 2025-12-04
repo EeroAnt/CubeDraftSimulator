@@ -111,7 +111,7 @@ export function startDraft(data) {
   }
 
   intervalIDs[data.token] = setInterval(() => {
-    console.log('checking draft status', drafts[data.token].token);
+    // console.log('checking draft status', drafts[data.token].token);
     checkDraftStatus(drafts[data.token]);
     broadcastDraftState(drafts[data.token]);
   }, 500);

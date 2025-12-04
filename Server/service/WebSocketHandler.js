@@ -52,8 +52,8 @@ export async function handleMessage(message, uuid) {
   );
   const data = JSON.parse(decryptedMessage);
 
-  console.log("Message from: " + uuid);
-  console.log(data.type);
+  // console.log("Message from: " + uuid);
+  // console.log(data.type);
   switch (data.type) {
     case "Connect":
       console.log("New connection: " + uuid);

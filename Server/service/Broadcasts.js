@@ -49,7 +49,7 @@ export const broadcastLobbies = () => {
   };
   Object.values(users).forEach(user => {
     if (user.draftSelection) {
-      console.log("Broadcasting drafts to " + user.username);
+      // console.log("Broadcasting drafts to " + user.username);
       queueMessage(user.uuid, message);
     }
   });
@@ -66,7 +66,7 @@ export const broadcastDraftStatus = (draft, status) => {
 };
 
 export const broadcastDraftState = (draft) => {
-  console.log("Broadcasting draft state to players", draft.token);
+  // console.log("Broadcasting draft state to players", draft.token);
   const queues = extractQueues(draft);
   draft.players.forEach(player => {
     if (player.isNPC) {
