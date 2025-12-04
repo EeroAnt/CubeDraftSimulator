@@ -73,9 +73,6 @@ export const removeNPC = (draft) => {
 
 const processNPC = async (npcUUID, draft) => {
   const seat = findSeatByUUID(draft, npcUUID);
-
-  // try to pick with llm, fall back to random if failed
-
   const state = getNPCState(npcUUID);
 
   state.hasCardsToPickFrom = !!seat?.packAtHand?.cards.length;
@@ -83,26 +80,32 @@ const processNPC = async (npcUUID, draft) => {
     state.packsRemaining = draft.last_round - draft.round;
   }
 
-  // Already picking, don't start another
   if (state.isPicking || state.isAnalyzing) return;
+  
   if (state.hasCardsToPickFrom) {
     state.isPicking = true;
     try {
-      await NPCPick(draft, seat, npcUUID)
+      await NPCPick(draft, seat, npcUUID);
       state.analysisComplete = false;
     } finally {
-      state.isPicking = false
+      state.isPicking = false;
     }
   } else {
     if (state.analysisComplete) return;
     
     state.isAnalyzing = true;
     try {
-      console.log(`NPC ${npcUUID} is analysing its pool.`)
-      await NPCAnalyze(seat, npcUUID);
+      console.log(`NPC ${npcUUID} is analysing its pool.`);
+      const context = await analyzePoolWithLLM(seat, npcUUID);
+      if (context?.summary) {
+        seat.analysis_summary = context.summary;
+      }
       state.analysisComplete = true;
+    } catch (error) {
+      console.warn(`NPC ${npcUUID} analysis failed:`, error.message);
+      state.analysisComplete = true;  // Mark complete to avoid infinite retry loop
     } finally {
-      console.log(`NPC ${npcUUID} has finished analyzing.`)
+      console.log(`NPC ${npcUUID} has finished analyzing.`);
       state.isAnalyzing = false;
     }
   }
@@ -116,8 +119,16 @@ const NPCPick = async (draft, seat, npcUUID) => {
   try {
     const pickingData = parsePickDataFromSeat(seat)
     const pickResult = await pickCardWithLLM(pickingData);
+
+    // Validate the picked card exists in the pack
+    const pickedCard = seat.packAtHand.cards.find(c => c.id === pickResult.card);
+    if (!pickedCard) {
+      throw new Error(`LLM picked invalid card ID: ${pickResult.card}`);
+    }
+
     cardId = pickResult.card;
     reasoning = pickResult.reasoning;
+    
     if (pickResult.tags?.length) {
       const card = seat.packAtHand.cards.find(c => c.id === cardId);
       if (card) {
@@ -144,9 +155,4 @@ const NPCPick = async (draft, seat, npcUUID) => {
     isNPC: true
   };
   handlePick(data, draft, seat, npcUUID);
-}
-
-const NPCAnalyze = async (seat, npcUUID) => {
-  const context = await analyzePoolWithLLM(seat, npcUUID)
-  seat["analysis_summary"] = context.summary
 }
