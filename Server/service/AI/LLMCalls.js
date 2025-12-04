@@ -1,6 +1,7 @@
 import { loadPrompt } from "./PromptReader.js";
 import { callLLM } from "./Caller.js";
-import { getNPCState } from "../Utils.js";
+import { getNPCState, parseAnalysisDataFromSeat } from "../Utils.js";
+import { operateTools } from "./Tools.js";
 
 
 export const pickCardWithLLM = async (pickData) => {
@@ -19,47 +20,69 @@ export const pickCardWithLLM = async (pickData) => {
     }
   )
   const response = await callLLM(input, "pick")
-  // Parse response to extract card ID and reasoning
-  return {
+  const data = {
     card: response.card_id,
-    reasoning: response.reasoning
+    reasoning: response.reasoning,
   };
+  if (response.tags) data.tags = response.tags;
+  // Parse response to extract card ID and reasoning
+  return data
 };
 
-export const analyzePoolWithLLM = async (analysisData, npcUUID) => {
+export const analyzePoolWithLLM = async (seat, npcUUID) => {
   const max_loop = 5;
   let call_number = 0;
+  let response;
+  let badCalls = [];
 
-  let response
+  const systemMessage = (
+    loadPrompt("analyzer.md") +
+    loadPrompt("default_commander_rule.md") +
+    loadPrompt("tools.md")
+  );
 
-  const systemMessage = loadPrompt("analyzer.md") + loadPrompt("default_commander_rule.md")
-
-  
   while (call_number < max_loop) {
     call_number++;
+    
+    const state = getNPCState(npcUUID);
+    const analysisData = parseAnalysisDataFromSeat(seat, state.reasoning);
+    
     const input = [
-      {
+      { role: "system", content: systemMessage },
+      { role: "system", content: `This is analysis call ${call_number} out of ${max_loop}`},
+      { role: "user", content: JSON.stringify(analysisData) }
+    ];
+    if (state.packsRemaining) {
+      input.push({
         role: "system",
-        content: systemMessage
-      }
-    ]
-    input.push(
-      {
-        role: "user",
-        content: JSON.stringify(analysisData)
-      }
-    )
-    const state = getNPCState(npcUUID)
+        content: `There are ${state.packsRemaining} rounds of packs of 15 left after this pack has finished.`
+      })
+    }
+
     if (state.hasCardsToPickFrom) {
+      input.push({
+        role: "system",
+        content: "Cards are waiting. Finalize your summary now."
+      });
+    }
+
+    if (badCalls.length) {
       input.push(
         {
           role: "system",
-          content: "After this response, a new card will be picked. So this call has to provide a plan for that pick. No more tool calls"
+          content: JSON.stringify(badCalls)
         }
       )
     }
-    response = await callLLM(input, "analyze")
+
+    response = await callLLM(input, "analyze");
+    
     if (response.analysis_ready || state.hasCardsToPickFrom) break;
+    
+    if (response.tool_calls) {
+      badCalls = operateTools(response.tool_calls, seat);
+    }
   }
-  return response
-}
+  
+  return response;
+};
