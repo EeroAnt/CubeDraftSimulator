@@ -37,7 +37,7 @@ export const callLLM = async (input, mode, maxAttempts = 5) => {
   const client = getClient();
   let attempt = 0;
   let format = ""
-  const TIMEOUT_MS = 60000; // 1 minute
+  const TIMEOUT_MS = 45000; // 45 s
 
   input.push({
     role: "system",
@@ -57,7 +57,7 @@ export const callLLM = async (input, mode, maxAttempts = 5) => {
 
   while (attempt < maxAttempts) {
     try {
-const res = await withTimeout(
+      const res = await withTimeout(
         client.responses.parse({
           model: process.env.MODEL,
           input: input,
