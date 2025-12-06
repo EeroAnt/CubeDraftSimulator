@@ -11,3 +11,9 @@ export const broadcastedQueues = {};
 export const draftStates = {};
 export const lastBroadcastTimestamps = {};
 export const npcStates = new Map();
+export let clientIndex = 0;
+
+export function nextClientIndex(total) {
+  clientIndex = (clientIndex + 1) % total;
+  return clientIndex;
+}
