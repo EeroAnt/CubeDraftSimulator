@@ -8,5 +8,7 @@ variable "regions" {
     italy   = "italynorth"
     germany = "germanywestcentral"
     france  = "francecentral"
+    westeurope = "westeurope"
+    spain = "spaincentral"
   }
 }
