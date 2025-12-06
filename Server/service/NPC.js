@@ -1,8 +1,10 @@
 import { broadcastUserlist } from "./Broadcasts.js";
-import { intervalIDs } from "./State.js";
+import { intervalIDs, npcStates } from "./State.js";
 import { handlePick } from "./DraftFunctions.js";
 import { pickCardWithLLM, analyzePoolWithLLM } from "./AI/LLMCalls.js";
 import { findSeatByUUID, parsePickDataFromSeat, getNPCState } from "./Utils.js";
+import { saveDraftPool } from "./NPCResults.js";
+import { createWriteUp } from "./AI/Caller.js";
 
 const NPCNames = [
   "NPC-Goofy",
@@ -63,19 +65,41 @@ export const removeNPC = (draft) => {
   broadcastUserlist(draft);
   clearInterval(intervalIDs[npc.uuid]);
   delete intervalIDs[npc.uuid];
-  const state = npcStates.get(npcUUID);
+  const state = npcStates.get(npc.uuid);
   if (state?.currentAnalysis) {
     state.currentAnalysis.abort();
   }
-  npcStates.delete(npcUUID);
+  npcStates.delete(npc.uuid);
   console.log(`Removed NPC: ${npc.username}`);
 };
 
 const processNPC = async (npcUUID, draft) => {
   const seat = findSeatByUUID(draft, npcUUID);
   const state = getNPCState(npcUUID);
+  if (!seat) return;
 
-  state.hasCardsToPickFrom = !!seat?.packAtHand?.cards.length;
+  // Handle deckbuilding phase - generate write-up then clean up
+  if (draft.state === 'deckbuilding') {
+    if (state.isWritingUp) return;
+    
+    state.isWritingUp = true;
+    try {
+      console.log(`${npcUUID} is writing draft recap.`);
+      saveDraftPool(seat, npcUUID)
+      await createWriteUp(seat, npcUUID);
+    } catch (error) {
+      console.warn(`${npcUUID} write-up failed:`, error.message);
+    } finally {
+      console.log(`${npcUUID} has finished write-up.`);
+      clearInterval(intervalIDs[npcUUID]);
+      npcStates.delete(npcUUID);
+    }
+    return;
+  }
+  
+  state.reassess_game_plans = (seat.main.length - 5) % 15 === 0;
+
+    state.hasCardsToPickFrom = !!seat?.packAtHand?.cards.length;
   if (draft.last_round !== undefined) {
     state.packsRemaining = draft.last_round - draft.round;
   }
@@ -91,62 +115,66 @@ const processNPC = async (npcUUID, draft) => {
       state.isPicking = false;
     }
   } else {
-    if (state.analysisComplete) return;
+    if (state.analysisComplete || seat.queue.length > 0) return;
     
     state.isAnalyzing = true;
     try {
-      console.log(`NPC ${npcUUID} is analysing its pool.`);
+      console.log(`${npcUUID} is analysing its pool.`);
       const context = await analyzePoolWithLLM(seat, npcUUID);
       if (context?.summary) {
         seat.analysis_summary = context.summary;
       }
       state.analysisComplete = true;
     } catch (error) {
-      console.warn(`NPC ${npcUUID} analysis failed:`, error.message);
+      console.warn(`${npcUUID} analysis failed:`, error.message);
       state.analysisComplete = true;  // Mark complete to avoid infinite retry loop
     } finally {
-      console.log(`NPC ${npcUUID} has finished analyzing.`);
+      console.log(`${npcUUID} has finished analyzing.`);
       state.isAnalyzing = false;
     }
   }
 };
 
 const NPCPick = async (draft, seat, npcUUID) => {
-  console.log(`NPC ${npcUUID} is picking a card.`);
+  console.log(`${npcUUID} is picking a card.`);
   const state = getNPCState(npcUUID)
   let cardId, reasoning;
 
-  try {
-    const pickingData = parsePickDataFromSeat(seat)
-    const pickResult = await pickCardWithLLM(pickingData);
+  if (seat.packAtHand.cards < 2) {
+    cardId = seat.packAtHand.cards[0].id;
+    reasoning = "Last card in the pack";
+  } else {
+    try {
+      const pickingData = parsePickDataFromSeat(seat)
+      const pickResult = await pickCardWithLLM(pickingData);
 
-    // Validate the picked card exists in the pack
-    const pickedCard = seat.packAtHand.cards.find(c => c.id === pickResult.card);
-    if (!pickedCard) {
-      throw new Error(`LLM picked invalid card ID: ${pickResult.card}`);
-    }
+      // Validate the picked card exists in the pack
+      const pickedCard = seat.packAtHand.cards.find(c => c.id === pickResult.card);
+      if (!pickedCard) {
+        throw new Error(`LLM picked invalid card ID: ${pickResult.card}`);
+      }
 
-    cardId = pickResult.card;
-    reasoning = pickResult.reasoning;
-    
-    if (pickResult.tags?.length) {
-      const card = seat.packAtHand.cards.find(c => c.id === cardId);
-      if (card) {
-        if (!card.tags) card.tags = [];
-        for (const tag of pickResult.tags) {
-          if (!card.tags.includes(tag)) card.tags.push(tag);
-          // Also add to seat's tag registry
-          if (!seat.tags) seat.tags = [];
-          if (!seat.tags.includes(tag)) seat.tags.push(tag);
+      cardId = pickResult.card;
+      reasoning = pickResult.reasoning;
+      
+      if (pickResult.tags?.length) {
+        const card = seat.packAtHand.cards.find(c => c.id === cardId);
+        if (card) {
+          if (!card.tags) card.tags = [];
+          for (const tag of pickResult.tags) {
+            if (!card.tags.includes(tag)) card.tags.push(tag);
+            // Also add to seat's tag registry
+            if (!seat.tags) seat.tags = [];
+            if (!seat.tags.includes(tag)) seat.tags.push(tag);
+          }
         }
       }
+    } catch (error) {
+      console.warn('LLM pick failed, falling back to random:', error);
+      cardId = seat.packAtHand.cards[Math.floor(Math.random() * seat.packAtHand.cards.length)].id;
+      reasoning = "Random pick (LLM unavailable)";
     }
-  } catch (error) {
-    console.warn('LLM pick failed, falling back to random:', error);
-    cardId = seat.packAtHand.cards[Math.floor(Math.random() * seat.packAtHand.cards.length)].id;
-    reasoning = "Random pick (LLM unavailable)";
   }
-
   state.latestReasoning = reasoning
 
   const data = {
