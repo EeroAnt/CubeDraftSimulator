@@ -43,30 +43,46 @@ export function findSeatByUUID(draft, uuid) {
 const buildGamePlanStats = (seat) => {
   if (!seat.game_plans || !Object.keys(seat.game_plans).length) return null;
   
+  const toColorArray = (ci) => {
+    if (!ci) return [];
+    if (Array.isArray(ci)) return ci.map(c => String(c).trim()).filter(Boolean);
+    return String(ci).trim().split('').map(c => c.trim()).filter(Boolean);
+  };
+
   const gamePlans = {};
   for (const [key, plan] of Object.entries(seat.game_plans)) {
-    const planColors = plan.color_identity.split('');
+    const planColors = toColorArray(plan.color_identity);
     
     // All cards fitting color identity
     const fittingCards = seat.main.filter(card => {
-      const cardColors = card.color_identity.split('');
+      const cardColors = toColorArray(card.color_identity);
+      // if plan has no colors, treat as match-none (or change to match-all by removing this check)
+      if (!planColors.length) return false;
       return cardColors.every(c => planColors.includes(c));
     });
     
     // Non-land cards fitting color identity
-    const nonLandFitting = fittingCards.filter(card => !card.types.toLowerCase().includes('land'));
-    
+    const nonLandFitting = fittingCards.filter(card => !(card.types || '').toLowerCase().includes('land'));
+
+    // --- mana curve ---
+    const curve = {};
+    for (const card of nonLandFitting) {
+      const mv = card.mana_value;
+      if (mv === null || mv === undefined) continue;
+      curve[mv] = (curve[mv] || 0) + 1;
+    }
+
     // Count by card type (only non-zero)
     const typeStats = {};
     const cardTypes = ['creature', 'instant', 'sorcery', 'enchantment', 'artifact', 'planeswalker', 'battle', 'land'];
     for (const type of cardTypes) {
-      const count = fittingCards.filter(card => card.types.toLowerCase().includes(type)).length;
+      const count = fittingCards.filter(card => (card.types || '').toLowerCase().includes(type)).length;
       if (count > 0) typeStats[type] = count;
     }
     
     // Count by relevant tag (include zeros)
     const tagStats = {};
-    for (const tag of plan.relevant_tags) {
+    for (const tag of (plan.relevant_tags || [])) {
       tagStats[tag] = fittingCards.filter(card => card.tags?.includes(tag)).length;
     }
 
@@ -74,19 +90,22 @@ const buildGamePlanStats = (seat) => {
       ...plan,
       cards_in_colors: nonLandFitting.length,
       type_breakdown: typeStats,
-      tag_breakdown: tagStats
+      tag_breakdown: tagStats,
+      curve
     };
   }
+
   return gamePlans;
 };
 
-const parseCardData = (card, includeTags = false) => ({
-  id: card.id,
+
+const parseCardData = (card, includeTags = false, includeID = true) => ({
   name: card.name,
   mana_value: card.mana_value,
   color_identity: card.color_identity.split(''),
   types: card.types,
   oracle_text: card.oracle_text,
+  ...(includeID && {id: card.id}),
   ...(includeTags && { tags: card.tags || [] })
 });
 
@@ -113,10 +132,24 @@ export const parseAnalysisDataFromSeat = (seat, reasoning) => {
   if (reasoning) data.latestReasoning = reasoning;
   if (seat.tags?.length) data.available_tags = seat.tags;
   if (seat.incompatible_commanders?.length) data.incompatible_commanders = seat.incompatible_commanders;
+  if (seat.past_game_plans) data.past_game_plans = seat.past_game_plans
   
   const gamePlans = buildGamePlanStats(seat);
   if (gamePlans) data.game_plans = gamePlans;
   
+  return data;
+};
+
+export const parseWriteUpDataFromSeat = (seat) => {
+  const data = {
+    cards: seat.main.map(card => parseCardData(card, true, false))
+  };
+
+  const gamePlans = buildGamePlanStats(seat);
+  if (gamePlans) data.game_plans = gamePlans;
+
+  if (seat.past_game_plans) data.past_game_plans = seat.past_game_plans
+
   return data;
 };
 
