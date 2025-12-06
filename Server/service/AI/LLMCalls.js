@@ -58,6 +58,9 @@ export const analyzePoolWithLLM = async (seat, npcUUID) => {
         content: `There are ${state.packsRemaining} rounds of packs of 15 left after this pack has finished.`
       })
     }
+    if (state.reassess_game_plans) {
+      input.push({ role: "system", content: "reassess_game_plans: true"})
+    }
 
     if (state.hasCardsToPickFrom) {
       input.push({
