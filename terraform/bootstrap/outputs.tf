@@ -1,12 +1,9 @@
-output "ai_foundry_endpoint" {
-  value = module.ai_foundry.ai_foundry_endpoint
-}
-
-output "model_name" {
-  value = module.ai_foundry.model_name
-}
-
-output "api_key" {
-  value = module.ai_foundry.api_key
+output "ai_foundry_configs" {
+  value = [
+    for k, v in module.ai_foundry.endpoints : {
+      endpoint = v.endpoint
+      key      = v.key
+    }
+  ]
   sensitive = true
 }
