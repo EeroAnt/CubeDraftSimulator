@@ -11,3 +11,4 @@ Database_Content_Service/*.txt
 .terraform**
 **.tfstate**
 **.tfvars
+**drafts
