@@ -33,6 +33,7 @@ services:
     volumes:
       - ./Server/index.js:/app/index.js
       - ./Server/service/:/app/service/
+      - ./Server/drafts/:/app/drafts
     networks:
       - thisnetwork
 
