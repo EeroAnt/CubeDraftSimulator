@@ -39,10 +39,10 @@ jobs:
       - name: Build and push images
         run: |
           # Build all images with docker-compose
-          docker-compose build
+          docker compose build
           
           # Push all images
-          docker-compose push
+          docker compose push
 
       - name: Log in to Azure CLI
         uses: azure/login@v1
