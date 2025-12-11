@@ -14,7 +14,7 @@ on:
       - 'Flask_Dockerfile'
       - 'docker-compose.yml'
       - 'deploy-aci.yaml'
-      - '.github/workflows/deploy-aci.yml'
+      - '.github/workflows/deploy-prod.yml'
 
 env:
   REGISTRY: cubecontainers.azurecr.io
