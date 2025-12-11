@@ -1,0 +1,46 @@
+apiVersion: 2019-12-01
+location: swedencentral
+name: CubeDraftSimulator
+properties:
+  containers:
+  - name: eeronsimulator
+    properties:
+      image: cubecontainers.azurecr.io/draft-simulator-front:latest
+      resources:
+        requests:
+          cpu: 0.5
+          memoryInGb: 1
+      ports:
+      - port: 80
+  - name: eeronnode
+    properties:
+      image: cubecontainers.azurecr.io/draft-simulator-back:latest
+      resources:
+        requests:
+          cpu: 0.5
+          memoryInGb: 1
+      ports:
+      - port: 3001
+  - name: eeronflask
+    properties:
+      image: cubecontainers.azurecr.io/draft-simulator-flask:latest
+      resources:
+        requests:
+          cpu: 0.5
+          memoryInGb: 1
+      ports:
+      - port: 5002
+  imageRegistryCredentials:
+  - server: cubecontainers.azurecr.io
+    username: cubecontainers
+    password: __ACR_PASSWORD__
+  osType: Linux
+  ipAddress:
+    type: Public
+    dnsNameLabel: eeroncubedraftapp
+    ports:
+    - protocol: tcp
+      port: 80
+    - protocol: tcp
+      port: 3001
+type: Microsoft.ContainerInstance/containerGroups
