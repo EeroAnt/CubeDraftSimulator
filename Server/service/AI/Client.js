@@ -29,8 +29,8 @@ export function getClient() {
       apiKey: process.env.KEY_SPAIN
     },
     {
-      endpoint: process.env.ENDPOINT_WESTEU,
-      apiKey: process.env.KEY_WESTEU
+      endpoint: process.env.ENDPOINT_SWISS,
+      apiKey: process.env.KEY_SWISS
     },
   ]
   const cfg = CLIENTS[clientIndex];
