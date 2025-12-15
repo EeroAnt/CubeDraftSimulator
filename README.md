@@ -24,7 +24,7 @@ A web app solves these problems by:
 
 I've also built a text-based interface for managing the cubes content. And scripts to update the analytics data after new drafts.
 
-The work on NPC-drafters has begun. I now have a working shell. NPCs can be added to the draft and they will pick cards at random and do not generate draft data. Next up is to write Drafter Agents with OpenAI responses API and leave the random picking as a fall back for timeouts and such.
+Agentic LLM-drafters are now live.
 
 ### Setting up a draft
 
