@@ -15,7 +15,7 @@ A companion interface to explore data from the custom Magic: The Gathering cube 
 
 ## Folder Structure Highlights
 - `src/components/`: Shared UI components, charts, buttons, filters, navbar
-- `src/Views/`: Contains the main views, conditionally rendered based on `mode`:
+- `src/components/Views/`: Contains the main views, conditionally rendered based on `mode`:
   - `Overview`
   - `ColorId` (Color Identity)
   - `DraftPool`
