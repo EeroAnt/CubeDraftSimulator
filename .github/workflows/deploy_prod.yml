@@ -37,6 +37,9 @@ jobs:
           password: ${{ secrets.ACR_PASSWORD }}
 
       - name: Build and push images
+        env:
+          VITE_REACT_APP_WS_URL: ws://eeroncubedraftapp.swedencentral.azurecontainer.io:3001
+          VITE_MY_ENCRYPTION: ${{ secrets.ENCRYPTION_KEY }}
         run: |
           # Build all images with docker-compose
           docker compose build
@@ -48,22 +51,9 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      - name: Deploy to ACI
+          
+      - name: Restart ACI
         run: |
-          # Substitute the ACR password in the deployment file
-          sed -i 's/__ACR_PASSWORD__/${{ secrets.ACR_PASSWORD }}/g' deploy-aci.yaml
-          
-          # Delete existing container group
-          az container delete \
+          az container restart \
             --resource-group ${{ env.RESOURCE_GROUP }} \
-            --name ${{ env.CONTAINER_GROUP }} \
-            --yes || true
-          
-          # Wait for cleanup
-          sleep 10
-          
-          # Create new container group
-          az container create \
-            --resource-group ${{ env.RESOURCE_GROUP }} \
-            --file deploy-aci.yaml
+            --name ${{ env.CONTAINER_GROUP }}

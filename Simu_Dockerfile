@@ -1,5 +1,8 @@
 FROM node:20.11.0 AS build
 
+ARG VITE_REACT_APP_WS_URL
+ARG VITE_MY_ENCRYPTION
+
 WORKDIR /app
 
 COPY Simulator/package*.json /app/
@@ -11,7 +14,9 @@ COPY Simulator/src /app/src
 COPY Simulator/.eslintrc.cjs /app/eslintrc.cjs
 COPY Simulator/index.html /app/index.html
 COPY Simulator/vite.config.js /app/vite.config.js
-COPY Simulator/.env /app/.env
+
+RUN echo "VITE_REACT_APP_WS_URL=$VITE_REACT_APP_WS_URL" > .env && \
+    echo "VITE_MY_ENCRYPTION=$VITE_MY_ENCRYPTION" >> .env
 
 RUN npm run build
 

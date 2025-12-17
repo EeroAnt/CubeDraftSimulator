@@ -9,7 +9,6 @@ WORKDIR /app
 COPY Server/package*.json ./
 RUN npm install
 
-COPY Server/.env /app/.env
 COPY Server/index.js /app/index.js
 COPY Server/service/ /app/service/
 
