@@ -14,7 +14,5 @@ provider "azurerm" {
 
 module "ai_foundry" {
   source = "../modules/AI/"
-
-  location = var.location
   resource_group = var.resource_group
 }

@@ -1,4 +1,3 @@
-variable "location" {}
 variable "resource_group" {}
 
 ## Using multiple regions lets us circumvent rate limits
