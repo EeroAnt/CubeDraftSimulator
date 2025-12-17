@@ -12,7 +12,11 @@ provider "azurerm" {
   subscription_id = var.sub_id
 }
 
-module "ai_foundry" {
-  source = "../modules/AI/"
-  resource_group = var.resource_group
+module "statsWebApp" {
+  source = "../../modules/statisticsWebApp/"
+
+  location = var.location
+  resourcegroup = var.resourcegroup
+  webapp_name = var.webapp_name
+  serviceplan = var.serviceplan
 }

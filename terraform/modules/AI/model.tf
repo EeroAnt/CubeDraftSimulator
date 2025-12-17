@@ -11,7 +11,7 @@ resource "azurerm_cognitive_deployment" "drafter" {
   }
 
   sku {
-    name     = "DataZoneStandard"
+    name     = "GlobalStandard"
     capacity = 200
   }
 

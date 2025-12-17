@@ -1,29 +1,15 @@
-Luo imaget uudestaan
-docker-compose up --build -d
+docker compose build
 
-Päivitä imaget
+az acr login -n cubecontainers
 
-FLASK
-
-docker tag cubedraftsimuflaskcont.azurecr.io/eeronliveflaskserver cubedraftsimuflaskcont.azurecr.io/eeronliveflaskserver:latest
-docker push cubedraftsimuflaskcont.azurecr.io/eeronliveflaskserver:latest
-
-NODE
-
-docker tag cubedraftsimuflaskcont.azurecr.io/eeronlivenodeserver cubedraftsimuflaskcont.azurecr.io/eeronlivenodeserver:latest
-docker push cubedraftsimuflaskcont.azurecr.io/eeronlivenodeserver:latest
-
-SIMU
-
-docker tag cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator:latest
-docker push cubedraftsimuflaskcont.azurecr.io/eeronlivecubesimulator:latest
+docker compose push
 
 Poista vanha ACI container group
-az container delete --resource-group SimuAppi --name CubeDraftSimulator --yes
+az container delete --resource-group cubedraftsimulator --name CubeDraftSimulator --yes
 
 
 Deploy ACI.
-az container create --resource-group SimuAppi --file deploy-aci.yaml
+az container create --resource-group cubedraftsimulator --file deploy-aci.yaml
 
 
 Oikee subscription:

@@ -19,7 +19,6 @@ COPY Flask_server/src /app/src
 COPY Flask_server/templates/index.html /app/templates/index.html
 COPY Flask_server/templates/__init__.py /app/templates/__init__.py
 COPY Flask_server/static /app/static
-COPY Flask_server/.env /app/.env
 # Creates a non-root user with an explicit UID and adds permission to access the /app folder
 # For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers
 RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app

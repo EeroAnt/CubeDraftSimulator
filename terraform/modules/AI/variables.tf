@@ -1,5 +1,7 @@
-variable "location" {}
 variable "resource_group" {}
+
+## Using multiple regions lets us circumvent rate limits
+
 variable "regions" {
   type = map(string)
   default = {
@@ -8,7 +10,7 @@ variable "regions" {
     italy   = "italynorth"
     germany = "germanywestcentral"
     france  = "francecentral"
-    westeurope = "westeurope"
+    swiss = "switzerlandnorth"
     spain = "spaincentral"
   }
 }

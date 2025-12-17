@@ -46,5 +46,6 @@ This project serves as my first larger-scale independent build, and the architec
 | [CubeStatsData ETL](./CubeStatsETL.md) | Builds JSON stats from local DB |
 | [CubeStats WebApp](./CubeStatsWebApp.md) | Loads JSON stats from GitHub Pages |
 | [Flask API](./FlaskAPI.md) |	DB middleware (via SSH) |
+| [AI drafter Agents](./AI.md) | LLM-powered NPCs that draft, analyze, and build game plans |
 | Node.js Backend | Backend logic + WebSocket manager for Draft App |
 | React Frontend | Draft UI |

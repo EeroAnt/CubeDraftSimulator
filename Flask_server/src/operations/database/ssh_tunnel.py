@@ -1,5 +1,6 @@
 from sshtunnel import SSHTunnelForwarder, BaseSSHTunnelForwarderError
 from paramiko import RSAKey
+import base64
 from io import StringIO
 from dotenv import load_dotenv
 from os import getenv
@@ -9,7 +10,7 @@ def create_tunnel(retries=3, delay=5):
   
   load_dotenv()
 
-  key_str = getenv("SSH_KEY")
+  key_str = base64.b64decode(getenv("SSH_KEY")).decode('utf-8')
   passphrase = getenv("SSH_PASSPHRASE", None)
   private_key = RSAKey.from_private_key(
     StringIO(key_str),
