@@ -98,5 +98,5 @@ Details on each component from the system diagram:
 | [CubeStats WebApp](./CubeStatsWebApp.md) | Loads JSON stats from GitHub Pages |
 | [Flask API](./FlaskAPI.md) |	DB middleware (via SSH) |
 | [AI drafter Agents](./AI.md) | LLM-powered NPCs that draft, analyze, and build game plans |
-| Node.js Backend | Backend logic + WebSocket manager for Draft App |
-| React Frontend | Draft UI |
+| [Node.js Backend](./Backend.md) | Backend logic + WebSocket manager for Draft App |
+| [React Frontend](FrontEnd.md) | Draft UI |
