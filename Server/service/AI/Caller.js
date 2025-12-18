@@ -135,7 +135,7 @@ export const createWriteUp = async (seat, npcUUID) => {
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
     }
-    fs.writeFileSync(`${dir}/${npcUUID}_writeup.txt`, content);
+    fs.writeFileSync(`${dir}/${npcUUID}_writeup.md`, content);
     
     // Also store on seat if you want it accessible
     seat.write_up = content;

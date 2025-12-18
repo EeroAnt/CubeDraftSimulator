@@ -11,3 +11,5 @@ Database_Content_Service/*.txt
 **.tfstate**
 **.tfvars
 **drafts
+/NPC-*
+/files.tar.gz
