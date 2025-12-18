@@ -14,15 +14,19 @@ def send_draft_data(data):
     
     cur, conn = connect_to_db()
     cur.execute("BEGIN;")
+    
+    draft_data_decision = data.get("draftDataDecision", False)
 
-    commander_packs = list(filter(lambda x: len(x)==5, data["packs"]))
-    normal_packs = list(filter(lambda x: len(x)!=5, data["packs"]))
+    if draft_data_decision:
 
-    for pack in normal_packs:
-      cur.execute(sending_packs_query(), (tuple(pack)))
+      commander_packs = list(filter(lambda x: len(x)==5, data["packs"]))
+      normal_packs = list(filter(lambda x: len(x)!=5, data["packs"]))
 
-    for pack in commander_packs:
-      cur.execute(sending_commander_packs_query(), (tuple(pack)))
+      for pack in normal_packs:
+        cur.execute(sending_packs_query(), (tuple(pack)))
+
+      for pack in commander_packs:
+        cur.execute(sending_commander_packs_query(), (tuple(pack)))
 
     for i in data["pools"]:
       for card in i["cards"]:

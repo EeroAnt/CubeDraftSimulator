@@ -139,10 +139,8 @@ export async function handleMessage(message, uuid) {
       }
 
     case "Draft Data Decision":
-      if (data.decision) {
-        const draftData = parseDraftData(drafts[data.token]);
-        sendDraftData(draftData);
-      }
+      const draftData = parseDraftData(drafts[data.token], data.decision);
+      sendDraftData(draftData);
     case "Get Seat Token":
       const message = {
         status: 'OK',

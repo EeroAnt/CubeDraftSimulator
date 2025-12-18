@@ -1,4 +1,4 @@
-export function parseDraftData(draft) {
+export function parseDraftData(draft, draftDataDecision) {
 
   const draftedPools = draft.players.map(player => {
     const seatKey = `seat${player.seat.number}`;
@@ -19,7 +19,8 @@ export function parseDraftData(draft) {
 }).filter(player => player !== null);
   const draftData = {
     packs: draft.picked_packs,
-    pools: draftedPools
+    pools: draftedPools,
+    draftDataDecision: draftDataDecision
   };
   return draftData;
 }
