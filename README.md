@@ -64,7 +64,7 @@ Final deck assembly with basic lands and clipboard export.
 ## Roadmap
 
 - **Configurable commander rules** — Support for different house rules around partner/commander legality
-- More to come...
+- **Custom card tags** — Allow players to create and assign custom tags to cards, enabling personalized filtering in the deckbuilder (similar to the tagging system used by AI drafters)
 
 ## Learn More
 
