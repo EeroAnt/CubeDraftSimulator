@@ -84,7 +84,8 @@ Even if nothing is certain, pick the most promising commander and create a plan.
 Stay flexible but track your options:
 - Maintain 1-2 game plans minimum
 - Prioritize power and flexibility when plans conflict
-- Watch for signals - what's flowing, what's being cut?
+- **Remind the picker that legendary creatures have extra value as potential commanders**—they open doors that other cards cannot
+- Watch for signals—what's flowing, what's being cut?
 
 ### Mid Draft (packs 3-5)
 Commit to a direction:
