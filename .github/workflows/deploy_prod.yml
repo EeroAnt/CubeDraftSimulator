@@ -46,14 +46,3 @@ jobs:
           
           # Push all images
           docker compose push
-
-      - name: Log in to Azure CLI
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-          
-      - name: Restart ACI
-        run: |
-          az container start \
-            --resource-group ${{ env.RESOURCE_GROUP }} \
-            --name ${{ env.CONTAINER_GROUP }}
