@@ -10,7 +10,8 @@ export async function getDraft(
   multi_ratio,
   generic_ratio,
   colorless_ratio,
-  land_ratio
+  land_ratio,
+  partner_rules
 ) {
 
   console.log("Getting Draft");
@@ -36,7 +37,8 @@ export async function getDraft(
         direction: -1,
         picks: {},
         commanderpicks: {},
-        picked_packs: []
+        picked_packs: [],
+        partner_rules: partner_rules
       };
 
       drafts[token].table = data.table;

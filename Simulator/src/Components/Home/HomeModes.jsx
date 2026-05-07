@@ -60,7 +60,7 @@ export const Menu = ({ username, setUsername, setHomeMode, connection }) => {
   )
 }
 
-export const CreateDraft = ({ setMode, numberOfPlayers, setNumberOfPlayers, setOwner, setToken, setDraftInitiated, setHomeMode, connection }) => {
+export const CreateDraft = ({ setMode, numberOfPlayers, setNumberOfPlayers, setOwner, setToken, setDraftInitiated, setHomeMode, connection, setPartnerRules, partnerRules }) => {
 
   const [commanderPackIncluded, setCommanderPackIncluded] = useState(false)
   const [numOfRounds, setNumOfRounds] = useState(8)
@@ -68,6 +68,12 @@ export const CreateDraft = ({ setMode, numberOfPlayers, setNumberOfPlayers, setO
   const [genericRatio, setGenericRatio] = useState(2)
   const [colorlessRatio, setColorlessRatio] = useState(3)
   const [landRatio, setLandRatio] = useState(2)
+
+  const partnerRulesOptions = {
+    0: "2 Color legends have partner, no gods",
+    1: "Can partner up to 4 colors, no gods",
+    2: "Every legend has partner"
+  }
 
   const changeCommanderPacksIncluded = () => {
     setCommanderPackIncluded(!commanderPackIncluded)
@@ -80,13 +86,24 @@ export const CreateDraft = ({ setMode, numberOfPlayers, setNumberOfPlayers, setO
     }
     const newtoken = token()
     setToken(newtoken)
-    setupDraft(newtoken, numberOfPlayers, connection, numOfRounds, multiRatio, genericRatio, colorlessRatio, landRatio, commanderPackIncluded, setMode)
-    setDraftInitiated(true)
+    console.log("Partner rules: " + partnerRules)
+    //setupDraft(newtoken, numberOfPlayers, connection, numOfRounds, multiRatio, genericRatio, colorlessRatio, landRatio, commanderPackIncluded, setMode, partnerRules)
+    //setDraftInitiated(true)
   }
 
   return (
     <div>
       <h2>A draft you say? What kind?</h2>
+      <h3>Partner rules</h3>
+      <select onChange={(e) => { e.preventDefault(); setPartnerRules(Number(e.target.value)) }} defaultValue={partnerRules}>
+        {Object.keys(partnerRulesOptions).map((option) => (
+          <option key={option} value={option}>
+            {partnerRulesOptions[option]}
+          </option>
+        ))}
+      </select>
+      <br />
+      <h3>Draft Parameters</h3>
       <div className={styles.formcontainer}>
         <DraftParametersForm name="number of players" handleChange={(e) => { e.preventDefault(); setNumberOfPlayers(Number(e.target.value)) }} defaultVal={numberOfPlayers} />
         <DraftParametersForm name="number of rounds" handleChange={(e) => { e.preventDefault(); setNumOfRounds(Number(e.target.value)) }} defaultVal={numOfRounds} />
@@ -96,6 +113,7 @@ export const CreateDraft = ({ setMode, numberOfPlayers, setNumberOfPlayers, setO
         <DraftParametersForm name="ratio of land pool" handleChange={(e) => { e.preventDefault(); setLandRatio(Number(e.target.value)) }} defaultVal={landRatio} />
       </div>
       <DraftParameterCheckbox name="Commander pack included" handleChange={changeCommanderPacksIncluded} />
+
       <Button name="init draft" className={styles.button} onClick={() => submitSetup()} />
       <Button name="Go Back" className={styles.button} onClick={() => setHomeMode("Menu")} />
     </div>
