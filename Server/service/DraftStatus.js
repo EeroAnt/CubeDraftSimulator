@@ -3,11 +3,9 @@ import {
   broadcastDraftStatus,
 } from "./Broadcasts.js";
 import { drafts, intervalIDs } from "./State.js";
-import { parseDraftData } from "./DraftDataParser.js";
-import { sendDraftData } from "./DataBaseCommunications.js";
 
 export function checkDraftStatus(draft) {
-  const nonNPCPlayers = [1];
+  const nonNPCPlayers = draft.players.filter(player => !player.isNPC);
   if (draft.state === 'drafting' && nonNPCPlayers.length > 0) {
     if (checkIfRoundIsDone(draft.table)) {
       draft.round++;
@@ -18,8 +16,6 @@ export function checkDraftStatus(draft) {
         draft.state = 'deckbuilding';
         broadcastDraftStatus(draft, "Post Draft");
         clearInterval(intervalIDs[draft.token]);
-        const draftData = parseDraftData(draft, false)
-        sendDraftData(draftData)
       }
     } else {
       dealPacks(draft);
