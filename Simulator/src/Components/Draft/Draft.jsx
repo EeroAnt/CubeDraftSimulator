@@ -43,7 +43,8 @@ export const Draft = ({
   pack,
   setPack,
   round,
-  wizardSelection
+  wizardSelection,
+  partnerRules
 }) => {
 
   const [pick, setPick] = useState(0)
@@ -145,6 +146,7 @@ export const Draft = ({
           setShowMain={setShowMain}
           setSelectedCards={setSelectedCards}
           connection={connection}
+          partnerRules={partnerRules}
         />
       </>
     )

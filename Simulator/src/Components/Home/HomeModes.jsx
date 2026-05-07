@@ -86,9 +86,8 @@ export const CreateDraft = ({ setMode, numberOfPlayers, setNumberOfPlayers, setO
     }
     const newtoken = token()
     setToken(newtoken)
-    console.log("Partner rules: " + partnerRules)
-    //setupDraft(newtoken, numberOfPlayers, connection, numOfRounds, multiRatio, genericRatio, colorlessRatio, landRatio, commanderPackIncluded, setMode, partnerRules)
-    //setDraftInitiated(true)
+    setupDraft(newtoken, numberOfPlayers, connection, numOfRounds, multiRatio, genericRatio, colorlessRatio, landRatio, commanderPackIncluded, setMode, partnerRules)
+    setDraftInitiated(true)
   }
 
   return (
