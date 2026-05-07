@@ -31,7 +31,7 @@ export async function getDraft(
       drafts[token] = {
         token: token,
         player_count: player_count,
-        players: [users[uuid]],
+        players: [],
         round: -1 * commander_packs_included,
         direction: -1,
         picks: {},

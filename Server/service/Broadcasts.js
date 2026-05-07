@@ -14,22 +14,20 @@ const BROADCAST_INTERVAL_MS = 10_000;
 
 
 export const broadcastUserlist = (draft) => {
-  Object.values(draft.players).forEach(player => {
-	const result = draft.players.reduce((acc, player) => {
-		acc.players[player.uuid] = player.username;
+  const result = draft.players.reduce((acc, player) => {
+    acc.players[player.uuid] = player.username;
     if (player.isNPC) {
       acc.hasNPC = true;
     }
-		return acc;
-	  }, { status: "OK", type: "Playerlist", players: {}, hasNPC: false });
+    return acc;
+  }, { status: "OK", type: "Playerlist", players: {}, hasNPC: false });
 
-	const message = result;
-	if (Object.keys(connections).includes(player.uuid)) {
-
-    queueMessage(player.uuid, message);
-
-    }
- });
+  const message = result;
+  
+  // Lähetä kaikille yhteyksille
+  Object.keys(connections).forEach(uuid => {
+    queueMessage(uuid, message);
+  });
 };
 
 export const broadcastLobbies = () => {
