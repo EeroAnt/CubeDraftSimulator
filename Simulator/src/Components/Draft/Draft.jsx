@@ -118,7 +118,7 @@ const renderPickButtons = () => {
     return (
       <>
         {tagFlow.step === 'idle' && (
-          <Button name="Pick" className="button" onClick={() => pickAndTag()} />
+          <Button name="Pick" className="button" onClick={() => selectForTagging()} />
         )}
 
         {tagFlow.step === 'enterTag' && (
@@ -166,8 +166,8 @@ const renderPickButtons = () => {
         {tagFlow.step === 'chooseDestination' && (
           <div>
             <span>Tag: {tagFlow.tags.join(', ')} →</span>
-            <Button name="Main" className="button" onClick={() => confirmTaggedPick("main")} />
-            <Button name="Side" className="button" onClick={() => confirmTaggedPick("side")} />
+            <Button name="Main" className="button" onClick={() => confirmPick("main")} />
+            <Button name="Side" className="button" onClick={() => confirmPick("side")} />
           </div>
         )}
       </>
@@ -178,15 +178,16 @@ const renderPickButtons = () => {
   }
 }
 
-  const pickAndTag = () => {
+  const selectForTagging = () => {
     if (pick) {
+      console.log("Main: ", main);
       setTagFlow({ step: 'enterTag', tags: [] });
     } else {
       alert("No card picked");
     }
   }
 
-  const confirmTaggedPick = (target) => {
+  const confirmPick = (target) => {
     const message = {
       type: "Pick",
       card: pick,
