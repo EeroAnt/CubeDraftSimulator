@@ -42,6 +42,7 @@ export const useGameState = () => {
   const [wizardSelection, setWizardSelection] = useState(1)
   const [hasNPC, setHasNPC] = useState(false);
   const [partnerRules, setPartnerRules] = useState(0)
+  const [playerTags, setPlayerTags] = useState([])
   // const [lastAcked, setLastAcked] = useState("")
 
   useEffect(() => {
@@ -180,6 +181,7 @@ export const useGameState = () => {
             const payload = decryptedMessage.state
             setSeatToken(payload.seat)
             setPartnerRules(payload.partnerRules)
+            setPlayerTags(payload.playerTags)
             if (!arraysEqualById(payload.main, main)) {
               setMain(payload.main)
             }
@@ -328,6 +330,7 @@ export const useGameState = () => {
     connection,
     wizardSelection,
     hasNPC,
-    partnerRules, setPartnerRules
+    partnerRules, setPartnerRules,
+    playerTags
   };
 }
