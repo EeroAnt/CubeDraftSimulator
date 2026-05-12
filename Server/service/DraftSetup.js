@@ -102,6 +102,7 @@ export function startDraft(data) {
       player.seat = drafts[data.token].table[`seat${i}`];
       player.seat.number = i;
       player.seat.commanders = [];
+      player.seat.playerTags = [];
 
     }
   }

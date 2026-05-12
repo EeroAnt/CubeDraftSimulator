@@ -13,6 +13,7 @@ export const extractDraftState = (draft, player) => {
     main: seat.main,
     side: seat.side,
     canalDredger: seat.canalDredger || "false",
+    playerTags: seat.playerTags || [],
     partnerRules: draft.partner_rules || 0
   };
   return state;

@@ -36,6 +36,7 @@ def generate_table(setup_to_finish, player_count, normal_rounds=8, commander_pac
 			"side": [],
 			"packAtHand": {"cards" : [], "picks" : []},
 			"queue": [],
+			"tags": [],
 			"token" : "".join(choices(ascii_letters+digits, k=4))
 		}
 
