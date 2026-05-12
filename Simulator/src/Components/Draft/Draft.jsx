@@ -117,12 +117,24 @@ const renderPickButtons = () => {
   if (canalDredger === "F" || (pack && pack.length > 1)) {
     return (
       <>
-        <Button name="Pick to main" className="button" onClick={() => confirmPick("main")} />
-        <Button name="Pick to side" className="button" onClick={() => confirmPick("side")} />
-        <Button name="Pick with a tag" className="button" onClick={() => pickAndTag()} />
+        {tagFlow.step === 'idle' && (
+          <Button name="Pick" className="button" onClick={() => pickAndTag()} />
+        )}
 
         {tagFlow.step === 'enterTag' && (
           <div>
+            
+            <input
+              value={tagInput}
+              onChange={e => setTagInput(e.target.value)}
+              placeholder="New tag"
+            />
+            <Button name="Add" className="button" onClick={() => {
+              if (tagInput.trim() && !tagFlow.tags.includes(tagInput.trim())) {
+                setTagFlow({ ...tagFlow, tags: [...tagFlow.tags, tagInput.trim()] });
+                setTagInput('');
+              }
+            }} />
             {playerTags.length > 0 && playerTags.map(t => (
               <Button
                 key={t}
@@ -136,24 +148,12 @@ const renderPickButtons = () => {
                 }}
               />
             ))}
-            <input
-              value={tagInput}
-              onChange={e => setTagInput(e.target.value)}
-              placeholder="New tag"
-            />
-            <Button name="Add" className="button" onClick={() => {
-              if (tagInput.trim() && !tagFlow.tags.includes(tagInput.trim())) {
-                setTagFlow({ ...tagFlow, tags: [...tagFlow.tags, tagInput.trim()] });
-                setTagInput('');
-              }
-            }} />
+            <br />
             <Button
               name={`Done (${tagFlow.tags.length})`}
               className="button"
               onClick={() => {
-                if (tagFlow.tags.length > 0) {
-                  setTagFlow({ step: 'chooseDestination', tags: tagFlow.tags });
-                }
+                setTagFlow({ step: 'chooseDestination', tags: tagFlow.tags });
               }}
             />
             <Button name="Cancel" className="button" onClick={() => {
@@ -178,29 +178,11 @@ const renderPickButtons = () => {
   }
 }
 
-  const confirmPick = (target) => {
-    if (pick) {
-      const message = {
-        type: "Pick",
-        card: pick,
-        zone: target,
-        token: token
-      }
-      sendMessage(connection, message)
-      setPick(0)
-      setPack([])
-      setTagFlow({ step: 'idle', tags: [] });
-      setTagInput('');
-    } else {
-      console.log("No card picked")
-    }
-  }
-
   const pickAndTag = () => {
     if (pick) {
       setTagFlow({ step: 'enterTag', tags: [] });
     } else {
-      console.log("No card picked");
+      alert("No card picked");
     }
   }
 
