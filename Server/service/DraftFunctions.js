@@ -5,15 +5,21 @@ import { handleCanalDredger } from './DraftState.js';
 export function handlePick(data, draft, userSeat, uuid) {
 
   shuffleArray(userSeat.packAtHand.cards);
-  if (data.tags && data.tags.length > 0) {
-    userSeat.playerTags = [...new Set(userSeat.playerTags.concat(data.tags))];
-  }
 
   const cardToAdd = userSeat.packAtHand.cards.find(
     card => card.id === data.card
   );
 
   if (cardToAdd) {
+  
+    if (data.tags && data.tags.length > 0) {
+      userSeat.playerTags = [...new Set(userSeat.playerTags.concat(data.tags))];
+      if (cardToAdd.tags) {
+        cardToAdd.tags = [...new Set(cardToAdd.tags.concat(data.tags))];
+      } else {
+        cardToAdd.tags = data.tags;
+      }
+    }
 
     pickCard(data.zone, cardToAdd, userSeat);
     updateDraftPicks(draft, data.isNPC ? 0 : cardToAdd.id, userSeat);
