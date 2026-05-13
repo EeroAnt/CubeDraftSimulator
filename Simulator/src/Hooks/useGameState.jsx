@@ -237,6 +237,7 @@ export const useGameState = () => {
     setMain(data.main)
     setSide(data.side)
     setCommanders(data.commanders)
+    setPlayerTags(data.playerTags)
     const newLastClicked = [...data.main, ...data.side, ...data.commanders].find(card => card.id === lastClicked.id)
     setLastClicked(newLastClicked)
   }

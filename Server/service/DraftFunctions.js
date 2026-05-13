@@ -119,7 +119,8 @@ export function sendCards(uuid, userSeat) {
     type: "Picked Cards",
     commanders: userSeat?.commanders || [],
     main: userSeat?.main || [],
-    side: userSeat?.side || []
+    side: userSeat?.side || [],
+    playerTags: userSeat?.playerTags || []
   };
 
   queueMessage(uuid, message);
