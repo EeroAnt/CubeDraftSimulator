@@ -1,4 +1,4 @@
-import { Button, Image, DraftNavbar, DeckBuilder, SideBar } from "../";
+import { Button, Image, DraftNavbar, DeckBuilder, SideBar, TagControls } from "../";
 import { useState, useEffect } from "react";
 import { sendMessage, getSeatToken } from "../../Services";
 import './draft.css'
@@ -43,11 +43,15 @@ export const Draft = ({
   pack,
   setPack,
   round,
-  wizardSelection
+  wizardSelection,
+  partnerRules,
+  playerTags
 }) => {
 
   const [pick, setPick] = useState(0)
   const [statsButton, setStatsButton] = useState(false);
+  const [tagFlow, setTagFlow] = useState({ step: 'idle', tags: [] });
+
 
   useEffect(() => {
     if (!seatToken) {
@@ -112,16 +116,90 @@ export const Draft = ({
     if (canalDredger === "F" || (pack && pack.length > 1)) {
       return (
         <>
-          <Button name="Pick to main" className="button" onClick={() => confirmPick("main")} />
-          <Button name="Pick to side" className="button" onClick={() => confirmPick("side")} />
-        </>)
-    } else {
-      return (
-        <>
-          <Button name="Give" className="button" onClick={() => giveAway()} />
+          {tagFlow.step === 'idle' && (
+            <Button name="Pick" className="button" onClick={() => selectForTagging()} />
+          )}
+
+          {tagFlow.step === 'enterTag' && (
+            <TagControls
+              playerTags={playerTags}
+              onConfirm={(tags) => {
+                setTagFlow({ step: 'chooseDestination', tags });
+              }}
+              onCancel={() => {
+                setTagFlow({ step: 'idle', tags: [] });
+              }}
+            />
+          )}
+
+          {tagFlow.step === 'chooseDestination' && (
+            <div>
+              {tagFlow.tags.length > 0 ? (
+                <span>Move selected card with tags: <strong>{tagFlow.tags.join(', ')}</strong> </span>
+              ) : (
+                <span>Move selected card with no tags</span>
+              )}
+              <br/>
+              to: <Button name="Main" className="button" onClick={() => confirmPick("main")} />
+              <Button name="Side" className="button" onClick={() => confirmPick("side")} />
+              <Button name="Cancel" className="button" onClick={() => {
+                setTagFlow({ step: 'idle', tags: [] });
+              }} />
+            </div>
+          )}
         </>
-      )
+      );
+
+    } else {
+      return <Button name="Give" className="button" onClick={() => giveAway()} />;
     }
+  }
+
+  const selectForTagging = () => {
+    if (pick) {
+      setTagFlow({ step: 'enterTag', tags: [] });
+    } else {
+      alert("No card picked");
+    }
+  }
+
+  const confirmPick = (target) => {
+    const message = {
+      type: "Pick",
+      card: pick,
+      zone: target,
+      tags: tagFlow.tags,
+      token: token
+    };
+    sendMessage(connection, message);
+    setPick(0);
+    setPack([]);
+    setTagFlow({ step: 'idle', tags: [] });
+  }
+
+  const tagSelectedCards = (tags) => {
+    if (selectedCards.length === 0) {
+      alert("No cards selected");
+      return;
+    }
+    const message = {
+      type: "Tag",
+      cards: selectedCards.map(c => c.id),
+      tags: tags,
+      token: token
+    };
+    sendMessage(connection, message);
+    setSelectedCards([]);
+  }
+
+  const removeTagFromCard = (cardId, tag) => {
+    const message = {
+      type: "Remove Tag",
+      card: cardId,
+      tag: tag,
+      token: token
+    };
+    sendMessage(connection, message);
   }
 
   function renderSideBar() {
@@ -145,6 +223,8 @@ export const Draft = ({
           setShowMain={setShowMain}
           setSelectedCards={setSelectedCards}
           connection={connection}
+          partnerRules={partnerRules}
+          removeTagFromCard={removeTagFromCard}
         />
       </>
     )
@@ -162,22 +242,6 @@ export const Draft = ({
         />
       </>
     )
-  }
-
-  const confirmPick = (target) => {
-    if (pick) {
-      const message = {
-        type: "Pick",
-        card: pick,
-        zone: target,
-        token: token
-      }
-      sendMessage(connection, message)
-      setPick(0)
-      setPack([])
-    } else {
-      console.log("No card picked")
-    }
   }
 
   const wizardSelector = (wizardSelection) => {
@@ -233,7 +297,13 @@ export const Draft = ({
                   {pack.reduce((rows, card, index) => {
                     if (index % 5 === 0) rows.push([]);
                     rows[rows.length - 1].push(
-                      <td key={index} className={pick === card.id ? (styles.selected) : (styles.card)} onClick={() => setPick(card.id)}>
+                      <td
+                        key={index}
+                        className={pick === card.id ? styles.selected : styles.card}
+                        onClick={() => {
+                          if (tagFlow.step === 'idle') setPick(card.id);
+                        }}
+                      >
                         <Image imageUrl={card.image_url} backsideUrl={card.backside_image_url} />
                       </td>
                     );
@@ -295,6 +365,9 @@ export const Draft = ({
             colorFilterNeg={colorFilterNeg}
             setColorFilterPos={setColorFilterPos}
             setColorFilterNeg={setColorFilterNeg}
+            playerTags={playerTags}
+            tagSelectedCards={tagSelectedCards}
+            setSelectedCards={setSelectedCards}
           />
         </div>
       </>

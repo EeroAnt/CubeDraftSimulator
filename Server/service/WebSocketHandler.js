@@ -18,7 +18,7 @@ import {
 import { sendDraftData } from "./DataBaseCommunications.js";
 import { parseDraftData } from "./DraftDataParser.js";
 import { queueMessage, processMessageQueue } from "./Messaging.js";
-import { handlePick, giveLastCard, sendCards } from "./DraftFunctions.js";
+import { handlePick, giveLastCard, sendCards, tagCards, removeTag } from "./DraftFunctions.js";
 import { setCommander, removeCommander, moveCards } from "./DeckManagement.js";
 import { decrypt } from "./encryption.js";
 import { addNPC, removeNPC } from "./NPC.js";
@@ -99,6 +99,15 @@ export async function handleMessage(message, uuid) {
     case "Pick":
       handlePick(data, drafts[data.token], users[uuid].seat, uuid);
       break;
+    
+    case "Tag":
+      await tagCards(data, users[uuid].seat);
+      sendCards(uuid, users[uuid].seat);
+      break;
+    
+    case "Remove Tag":
+      await removeTag(data, users[uuid].seat);
+      sendCards(uuid, users[uuid].seat);
 
     case "Give Last Card":
       giveLastCard(drafts[data.token], users[uuid].seat.packAtHand);

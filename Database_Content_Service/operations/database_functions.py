@@ -188,7 +188,7 @@ def print_cube_contents(cursor):
 	
 	commander_ids = [commander[1] for commander in commanders]
 
-	cursor.execute("SELECT name, draft_pool FROM Cards WHERE id not in %s AND active = true  draft_pool, name;", (tuple(commander_ids),))
+	cursor.execute("SELECT name, draft_pool FROM Cards WHERE id not in %s AND active = true ORDER BY draft_pool, name;", (tuple(commander_ids),))
 	cards = cursor.fetchall()
 	with open("cube.txt", "a") as file:
 		for card in cards:

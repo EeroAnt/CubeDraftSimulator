@@ -25,13 +25,10 @@ export const broadcastUserlist = (draft) => {
 
 	const message = result;
 	if (Object.keys(connections).includes(player.uuid)) {
-
     queueMessage(player.uuid, message);
-
     }
  });
 };
-
 export const broadcastLobbies = () => {
   const draftsToBroadcast = Object.values(drafts).map(draft => {
     if (draft.state === "Setup Complete") {

@@ -20,7 +20,9 @@ export const SideBar = ({
   setSelectedCards,
   connection,
   basicLands,
-  token
+  token,
+  partnerRules,
+  removeTagFromCard
 }) => {
   const headerRef = createRef()
 
@@ -30,8 +32,7 @@ export const SideBar = ({
     setSelectedCards([])
   }
 
-
-  const appointCommander = () => {
+  const handleBasicFilters = (cards, commanders) => {
     if (selectedCards.length === 0) {
       alert("No card selected")
     } else if (commanders.length === 2) {
@@ -42,11 +43,47 @@ export const SideBar = ({
       || !selectedCards[0].types.includes("Creature"))
       && !selectedCards[0].oracle_text.includes(" can be your commander")) {
       alert("Only legendary creatures can be commanders")
-    } else if (commanders.length === 1 &&
-      ((selectedCards[0].color_identity.length > 2 || commanders[0].color_identity.length > 2) ||
-        selectedCards[0].types.includes("God") || commanders[0].types.includes("God"))) {
-      alert("Our house rules apply partner-rule to non-gods with less than 3 colors in their color identity")
     } else {
+      return true;
+    }
+    return false;
+  }
+
+
+  const handlePartnerRule = (commanders, selectedCards, partnerRules) => {
+    if (commanders.length === 1) {
+      const combined = [...new Set([...commanders[0].color_identity.split(""), ...selectedCards[0].color_identity.split("")])]
+      switch (partnerRules) {
+        case 0:
+          if (
+            ((selectedCards[0].color_identity.length > 2 || commanders[0].color_identity.length > 2) ||
+            selectedCards[0].types.includes("God") || commanders[0].types.includes("God"))
+          ) {
+          alert("Non-gods with less than 3 colors in their color identity have partner")
+          return false
+        }
+        break;
+        case 1:
+          if (
+            combined.length > 4 ||
+            selectedCards[0].types.includes("God") || commanders[0].types.includes("God")
+          ) {
+            alert("Non-gods can partner up to 4 colors in their color identity")
+            return false
+          }
+        break;
+        case 2:
+          return true;
+      }
+    }
+    return true;
+  }
+
+  const appointCommander = () => {
+    const basicFilter = handleBasicFilters(selectedCards, commanders)
+    const partnerFilter = handlePartnerRule(commanders, selectedCards, partnerRules)
+    if (basicFilter && partnerFilter) {
+      console.log("Setting commander:", selectedCards[0].name)
       const message = {
         type: "Set Commander",
         token: token,
@@ -109,7 +146,24 @@ export const SideBar = ({
         {Object.keys(lastClicked).length === 0 ? (
           <Image imageUrl={defaultImageUrl} backsideUrl="" />
         ) : (
-          <Image imageUrl={lastClicked.image_url} backsideUrl={lastClicked.backside_image_url} />
+          <>
+            <Image imageUrl={lastClicked.image_url} backsideUrl={lastClicked.backside_image_url} />
+            {lastClicked.tags && lastClicked.tags.length > 0 && (
+              <div className={styles.cardTags}>
+                {lastClicked.tags.map((tag, index) => (
+                  <span key={index} className={styles.tag}>
+                    {tag}
+                    <span
+                      className={styles.tagRemove}
+                      onClick={() => removeTagFromCard(lastClicked.id, tag)}
+                    >
+                      ✕
+                    </span>
+                  </span>
+                ))}
+              </div>
+            )}
+          </>
         )}
         <p>
           <Button name={showMain ? ("Show Side") : ("Show Main")} className={styles.button} onClick={() => switchView()} />

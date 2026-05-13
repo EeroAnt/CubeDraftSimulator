@@ -1,0 +1,32 @@
+.tagControls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.tagInput {
+  max-width: 120px;
+}
+
+.existingTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tagActions {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+}
+
+.tagButton {
+  font-family: 'Courier New', Courier, monospace
+}
+
+.selectedTagButton {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #378e3e;
+  color: white;
+}

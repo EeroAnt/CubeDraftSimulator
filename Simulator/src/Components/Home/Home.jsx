@@ -13,7 +13,9 @@ export const Home = ({
   setOwner,
   setToken,
   setDraftInitiated,
-  drafts
+  drafts,
+  setPartnerRules,
+  partnerRules
 }) => {
 
   const wizardImages = {
@@ -57,6 +59,8 @@ export const Home = ({
             setDraftInitiated={setDraftInitiated}
             setHomeMode={setHomeMode}
             connection={connection}
+            setPartnerRules={setPartnerRules}
+            partnerRules={partnerRules}
           />
         )}
         {homeMode === "Join" && (

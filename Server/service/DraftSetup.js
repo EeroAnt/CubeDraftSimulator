@@ -27,7 +27,8 @@ export async function createLobby(data, uuid) {
         data.multi_ratio,
         data.generic_ratio,
         data.colorless_ratio,
-        data.land_ratio
+        data.land_ratio,
+        data.partner_rules
       );
 
       queueMessage(uuid, message);
@@ -101,6 +102,7 @@ export function startDraft(data) {
       player.seat = drafts[data.token].table[`seat${i}`];
       player.seat.number = i;
       player.seat.commanders = [];
+      player.seat.playerTags = [];
 
     }
   }
