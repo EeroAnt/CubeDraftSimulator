@@ -237,11 +237,11 @@
       ],
       [
         "BR",
-        13
+        10
       ],
       [
         "GRW",
-        8
+        7
       ],
       [
         "RW",
@@ -249,7 +249,7 @@
       ],
       [
         "BGW",
-        7
+        8
       ],
       [
         "RUW",
@@ -273,7 +273,7 @@
       ],
       [
         "BG",
-        9
+        8
       ],
       [
         "BRU",
@@ -281,23 +281,23 @@
       ],
       [
         "GUW",
-        6
-      ],
-      [
-        "GU",
         7
       ],
       [
+        "GU",
+        8
+      ],
+      [
         "BW",
-        11
+        10
       ],
       [
         "UW",
-        8
+        7
       ],
       [
         "GR",
-        8
+        10
       ],
       [
         "BU",
@@ -305,7 +305,7 @@
       ],
       [
         "GW",
-        10
+        12
       ],
       [
         "BGRUW",
@@ -11764,7 +11764,6 @@
         "draft_pool": "M",
         "avg_pick": 8.5,
         "amount_of_picks": 2,
-        "is_commander": "true",
         "avg_commander_pick": 4.0,
         "amount_of_commander_picks": 1
       },
@@ -11947,7 +11946,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/d/b/db6c91ec-df14-460f-967c-f182562fe7d8.jpg?1581480984",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_commander_pick": 3.5,
         "amount_of_commander_picks": 2
       },
@@ -12139,7 +12137,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/f/b/fbea42c8-6e9f-499d-9d26-401536afd5c2.jpg?1604195177",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_commander_pick": 3.0,
         "amount_of_commander_picks": 1
       },
@@ -12206,8 +12203,7 @@
         "backside_image_url": "",
         "draft_pool": "M",
         "avg_pick": 5.0,
-        "amount_of_picks": 1,
-        "is_commander": "true"
+        "amount_of_picks": 1
       },
       {
         "id": 1480,
@@ -12339,7 +12335,6 @@
         "draft_pool": "M",
         "avg_pick": 1.0,
         "amount_of_picks": 1,
-        "is_commander": "true",
         "avg_commander_pick": 4.0,
         "amount_of_commander_picks": 2
       },
@@ -12472,8 +12467,7 @@
         "backside_image_url": "",
         "draft_pool": "M",
         "avg_pick": 5.0,
-        "amount_of_picks": 3,
-        "is_commander": "true"
+        "amount_of_picks": 3
       },
       {
         "id": 2154,
@@ -12889,7 +12883,6 @@
         "draft_pool": "M",
         "avg_pick": 6.0,
         "amount_of_picks": 1,
-        "is_commander": "true",
         "avg_commander_pick": 1.0,
         "amount_of_commander_picks": 1
       },
@@ -13182,7 +13175,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/e/7/e7b5893d-6df6-4cae-ae70-d02d443d1740.jpg?1562941484",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_commander_pick": 1.0,
         "amount_of_commander_picks": 1
       },
@@ -13405,8 +13397,7 @@
         "backside_image_url": "",
         "draft_pool": "M",
         "avg_pick": 5.333333333333333,
-        "amount_of_picks": 3,
-        "is_commander": "true"
+        "amount_of_picks": 3
       },
       {
         "id": 1621,
@@ -13418,7 +13409,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/8/7/871c19fc-7d99-4022-9e13-d679a9e3547e.jpg?1677541540",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_commander_pick": 3.0,
         "amount_of_commander_picks": 1
       },
@@ -13549,7 +13539,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/0/0/005ad65e-cf0b-48e9-a314-2ebba5a1400c.jpg?1562598065",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_commander_pick": 1.0,
         "amount_of_commander_picks": 1
       },
@@ -14322,7 +14311,6 @@
         "draft_pool": "M",
         "avg_pick": 1.0,
         "amount_of_picks": 1,
-        "is_commander": "true",
         "avg_commander_pick": 3.5,
         "amount_of_commander_picks": 2
       },
@@ -14364,7 +14352,6 @@
         "draft_pool": "M",
         "avg_pick": 15.0,
         "amount_of_picks": 1,
-        "is_commander": "true",
         "avg_commander_pick": 5.0,
         "amount_of_commander_picks": 2
       },
@@ -15116,7 +15103,6 @@
         "draft_pool": "M",
         "avg_pick": 15.0,
         "amount_of_picks": 1,
-        "is_commander": "true",
         "avg_commander_pick": 4.5,
         "amount_of_commander_picks": 2
       },
@@ -27213,8 +27199,7 @@
         "oracle_text": "Indestructible\nWhenever Sapling of Colfenor attacks, reveal the top card of your library. If it's a creature card, you gain life equal to that card's toughness, lose life equal to its power, then put it into your hand.",
         "image_url": "https://cards.scryfall.io/normal/front/3/3/33c19062-9e1c-4cae-bb97-7ca9e4523593.jpg?1625978030",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1700,
@@ -27324,8 +27309,7 @@
         "oracle_text": "First strike, vigilance\nHeroic \u2014 Whenever you cast a spell that targets Anax and Cymede, creatures you control get +1/+1 and gain trample until end of turn.",
         "image_url": "https://cards.scryfall.io/normal/front/6/3/63cb977e-bd42-43b1-83d1-124e7a413aca.jpg?1562819079",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 1714,
@@ -31131,8 +31115,7 @@
         "oracle_text": "At the beginning of your end step, create a Treasure token for each creature that died this turn. (It's an artifact with \"{T}, Sacrifice this artifact: Add one mana of any color.\")",
         "image_url": "https://cards.scryfall.io/normal/front/c/3/c3da2b1a-76c5-4d36-bdf8-025b86f61eb5.jpg?1699601213",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2719,
@@ -31718,7 +31701,8 @@
         "oracle_text": "Flying, vigilance\nActivated abilities of creatures your opponents control can't be activated.\nDrana and Linvala has all activated abilities of all creatures your opponents control. You may spend mana as though it were mana of any color to activate those abilities.",
         "image_url": "https://cards.scryfall.io/normal/front/b/b/bbda000f-3cf7-48b6-96ff-c23a3a64eab5.jpg?1682205227",
         "backside_image_url": "",
-        "draft_pool": "BW"
+        "draft_pool": "BW",
+        "is_commander": "true"
       },
       {
         "id": 2790,
@@ -32455,7 +32439,8 @@
         "oracle_text": "Whenever another nontoken creature you control enters, investigate.\n{T}, Sacrifice X Clues: Target opponent reveals the top X cards of their library. You may put a nonland permanent card with mana value X or less from among them onto the battlefield under your control. That player puts the rest on the bottom of their library in a random order.",
         "image_url": "https://cards.scryfall.io/normal/front/e/7/e786423d-3a49-4318-ac77-791918bcafcb.jpg?1706241017",
         "backside_image_url": "",
-        "draft_pool": "GU"
+        "draft_pool": "GU",
+        "is_commander": "true"
       },
       {
         "id": 2857,
@@ -32466,7 +32451,8 @@
         "oracle_text": "This spell costs {1} less to cast for each creature card in your graveyard.\nOnce during each of your turns, you may cast a creature spell from your graveyard.",
         "image_url": "https://cards.scryfall.io/normal/front/8/d/8d128887-13fb-4e54-90f2-d3c46b7b29d7.jpg?1702369890",
         "backside_image_url": "",
-        "draft_pool": "BGW"
+        "draft_pool": "BGW",
+        "is_commander": "true"
       },
       {
         "id": 2858,
@@ -32477,7 +32463,8 @@
         "oracle_text": "Vigilance\nWhenever you cast a creature spell, draw a card, then you may put a land card from your hand onto the battlefield.\n{3}, {T}: Return target creature you control to its owner's hand.",
         "image_url": "https://cards.scryfall.io/normal/front/d/1/d1499a4b-1af1-4913-8e26-57d0707264db.jpg?1706240978",
         "backside_image_url": "",
-        "draft_pool": "GUW"
+        "draft_pool": "GUW",
+        "is_commander": "true"
       },
       {
         "id": 2859,
@@ -32488,7 +32475,8 @@
         "oracle_text": "Flying\nOther permanents you control have hexproof.\nYou may look at the top card of your library any time.\nYou may cast Angel spells and Human spells from the top of your library.",
         "image_url": "https://cards.scryfall.io/normal/front/c/b/cba71725-d6df-44d7-a93b-934573759711.jpg?1684340854",
         "backside_image_url": "",
-        "draft_pool": "GW"
+        "draft_pool": "GW",
+        "is_commander": "true"
       },
       {
         "id": 2860,
@@ -32499,7 +32487,8 @@
         "oracle_text": "Flying\nYou, planeswalkers you control, and other creatures you control have hexproof.\n{4}{G}{G}: Put a +1/+1 counter on each creature you control.",
         "image_url": "https://cards.scryfall.io/normal/front/5/3/53876046-cdb8-4157-96cd-7832d3ad2549.jpg?1744479450",
         "backside_image_url": "",
-        "draft_pool": "GW"
+        "draft_pool": "GW",
+        "is_commander": "true"
       },
       {
         "id": 2861,
@@ -32510,7 +32499,8 @@
         "oracle_text": "Lifelink\nAt the beginning of each end step, if you gained life this turn, distribute up to that many +1/+1 counters among any number of other target creatures.",
         "image_url": "https://cards.scryfall.io/normal/front/2/9/29d3484f-abd1-43fe-99f8-e0fa0a7b6692.jpg?1608911191",
         "backside_image_url": "",
-        "draft_pool": "GW"
+        "draft_pool": "GW",
+        "is_commander": "true"
       },
       {
         "id": 2862,
@@ -32521,7 +32511,8 @@
         "oracle_text": "Flash\nWhen Ertai Resurrected enters, choose up to one \u2014\n\u2022 Counter target spell, activated ability, or triggered ability. Its controller draws a card.\n\u2022 Destroy another target creature or planeswalker. Its controller draws a card.",
         "image_url": "https://cards.scryfall.io/normal/front/7/f/7f7e780e-fbc5-4dc0-b5c7-efcb8645c7c6.jpg?1673307944",
         "backside_image_url": "",
-        "draft_pool": "BU"
+        "draft_pool": "BU",
+        "is_commander": "true"
       },
       {
         "id": 2863,
@@ -32532,7 +32523,8 @@
         "oracle_text": "If damage would be dealt to Dralnu, sacrifice that many permanents instead.\n{T}: Target instant or sorcery card in your graveyard gains flashback until end of turn. The flashback cost is equal to its mana cost. (You may cast that card from your graveyard for its flashback cost. Then exile it.)",
         "image_url": "https://cards.scryfall.io/normal/front/9/5/9554f402-35d4-43ac-9494-9d17d2a79092.jpg?1619403892",
         "backside_image_url": "",
-        "draft_pool": "BU"
+        "draft_pool": "BU",
+        "is_commander": "true"
       },
       {
         "id": 2864,
@@ -32554,7 +32546,8 @@
         "oracle_text": "Indestructible\nAs long as your devotion to red and green is less than seven, Xenagos isn't a creature.\nAt the beginning of combat on your turn, another target creature you control gains haste and gets +X/+X until end of turn, where X is that creature's power.",
         "image_url": "https://cards.scryfall.io/normal/front/6/f/6f1bc3bb-46da-492a-850c-f1f588ad8d18.jpg?1732546037",
         "backside_image_url": "",
-        "draft_pool": "GR"
+        "draft_pool": "GR",
+        "is_commander": "true"
       },
       {
         "id": 2866,
@@ -32565,7 +32558,8 @@
         "oracle_text": "Vigilance, reach\nRuric Thar attacks each combat if able.\nWhenever a player casts a noncreature spell, Ruric Thar deals 6 damage to that player.",
         "image_url": "https://cards.scryfall.io/normal/front/a/a/aa828bdc-221e-4e81-9e71-6f288690ddcd.jpg?1673149099",
         "backside_image_url": "",
-        "draft_pool": "GR"
+        "draft_pool": "GR",
+        "is_commander": "true"
       },
       {
         "id": 2867,
@@ -32576,7 +32570,8 @@
         "oracle_text": "Deathtouch\nWhenever another creature you control enters, you gain 1 life.\nWhenever another creature you control dies, each opponent loses 1 life.",
         "image_url": "https://cards.scryfall.io/normal/front/1/c/1c3f0ffe-cf51-4c30-8cd5-9e3c7e92c019.jpg?1673307936",
         "backside_image_url": "",
-        "draft_pool": "BW"
+        "draft_pool": "BW",
+        "is_commander": "true"
       },
       {
         "id": 2868,
@@ -32587,7 +32582,8 @@
         "oracle_text": "At the beginning of combat on your turn, another target creature you control gains haste and myriad until end of turn. (Whenever it attacks, for each opponent other than defending player, you may create a token copy that's tapped and attacking that player or a planeswalker they control. Exile the tokens at end of combat.)",
         "image_url": "https://cards.scryfall.io/normal/front/0/8/082a8ffc-a052-498f-b457-8d70ea18a943.jpg?1674137485",
         "backside_image_url": "",
-        "draft_pool": "RW"
+        "draft_pool": "RW",
+        "is_commander": "true"
       },
       {
         "id": 2869,
@@ -32598,7 +32594,8 @@
         "oracle_text": "Companion \u2014 Each permanent card in your starting deck has an activated ability. (If this card is your chosen companion, you may put it into your hand from outside the game for {3} as a sorcery.)\nAbilities you activate that aren't mana abilities cost {2} less to activate. This effect can't reduce the mana in that cost to less than one mana.\n{1}, {T}: Target creature can't block this turn.",
         "image_url": "https://cards.scryfall.io/normal/front/1/b/1bd8e61c-2ee8-4243-a848-7008810db8a0.jpg?1757150547",
         "backside_image_url": "",
-        "draft_pool": "RW"
+        "draft_pool": "RW",
+        "is_commander": "true"
       },
       {
         "id": 2870,
@@ -32609,7 +32606,8 @@
         "oracle_text": "Flying, vigilance, haste\nWhenever Aurelia attacks for the first time each turn, untap all creatures you control. After this phase, there is an additional combat phase.",
         "image_url": "https://cards.scryfall.io/normal/front/b/c/bc6ffc1c-575b-4116-83c9-d13b29886c35.jpg?1730491066",
         "backside_image_url": "",
-        "draft_pool": "RW"
+        "draft_pool": "RW",
+        "is_commander": "true"
       },
       {
         "id": 2871,
@@ -32620,7 +32618,8 @@
         "oracle_text": "Discard a card: You may cast a creature spell from your graveyard this turn. Activate only once each turn.\nWhenever a nontoken creature you control enters, if you didn't cast it from your hand, it gains haste until your next turn.",
         "image_url": "https://cards.scryfall.io/normal/front/d/8/d8089e7f-7619-43fe-8e0b-31ce5d988a1b.jpg?1626100713",
         "backside_image_url": "",
-        "draft_pool": "BR"
+        "draft_pool": "BR",
+        "is_commander": "true"
       },
       {
         "id": 2872,
@@ -32631,7 +32630,8 @@
         "oracle_text": "+1: Create a 1/1 colorless Servo artifact creature token.\n+1: The next spell you cast this turn has affinity for artifacts. (It costs {1} less to cast for each artifact you control as you cast it.)\n\u22127: For each artifact you control, create a token that's a copy of it. Those tokens gain haste. Exile those tokens at the beginning of the next end step.\nSaheeli, the Gifted can be your commander.",
         "image_url": "https://cards.scryfall.io/normal/front/c/a/ca095559-ac77-4186-8d9b-b75ce0607582.jpg?1592710284",
         "backside_image_url": "",
-        "draft_pool": "RU"
+        "draft_pool": "RU",
+        "is_commander": "true"
       },
       {
         "id": 2873,
