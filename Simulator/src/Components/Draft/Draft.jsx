@@ -1,4 +1,4 @@
-import { Button, Image, DraftNavbar, DeckBuilder, SideBar, TagControls } from "../";
+import { Button, Image, DraftNavbar, DeckBuilder, SideBar, TagControls, useTagActions } from "../";
 import { useState, useEffect } from "react";
 import { sendMessage, getSeatToken } from "../../Services";
 import './draft.css'
@@ -177,30 +177,8 @@ export const Draft = ({
     setTagFlow({ step: 'idle', tags: [] });
   }
 
-  const tagSelectedCards = (tags) => {
-    if (selectedCards.length === 0) {
-      alert("No cards selected");
-      return;
-    }
-    const message = {
-      type: "Tag",
-      cards: selectedCards.map(c => c.id),
-      tags: tags,
-      token: token
-    };
-    sendMessage(connection, message);
-    setSelectedCards([]);
-  }
 
-  const removeTagFromCard = (cardId, tag) => {
-    const message = {
-      type: "Remove Tag",
-      card: cardId,
-      tag: tag,
-      token: token
-    };
-    sendMessage(connection, message);
-  }
+  const { tagSelectedCards, removeTagFromCard } = useTagActions(connection, token, selectedCards, setSelectedCards);
 
   function renderSideBar() {
     return (
