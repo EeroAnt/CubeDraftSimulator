@@ -20,12 +20,13 @@ A web app that:
 
 ## Current Status
 
-Version 1.2.0 is live. [The analytics page](https://cubestats.azurewebsites.net/) is also available.
+Version 1.2.1 is live. [The analytics page](https://cubestats.azurewebsites.net/) is also available.
 
 ## Features
 
 **Draft Setup**
 - Configurable pack composition (multicolor, monocolor, colorless, lands)
+- Option to choose from 3 different partner rules 
 - Optional commander packs at the start
 - Automatic pack generation and seat assignment
 
@@ -35,7 +36,8 @@ Version 1.2.0 is live. [The analytics page](https://cubestats.azurewebsites.net/
 - AI-powered NPC drafters for solo or incomplete pods
 
 **Deckbuilding**
-- Color and type filtering
+- Players can create their own tags and tag cards with them
+- Color, type and tag filtering
 - Mana curve visualization (bar/line charts)
 - Commander selection with partner rule validation
 
@@ -60,11 +62,6 @@ Card filtering by color and type, with mana curve visualization.
 ![Post-Draft View](./Documentation/PostDraftView.PNG)
 
 Final deck assembly with basic lands and clipboard export.
-
-## Roadmap
-
-- **Configurable commander rules** — Support for different house rules around partner/commander legality
-- **Custom card tags** — Allow players to create and assign custom tags to cards, enabling personalized filtering in the deckbuilder (similar to the tagging system used by AI drafters)
 
 ## Learn More
 
