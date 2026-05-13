@@ -134,8 +134,13 @@ export const Draft = ({
 
           {tagFlow.step === 'chooseDestination' && (
             <div>
-              <span>Tags: {tagFlow.tags.join(', ')} →</span>
-              <Button name="Main" className="button" onClick={() => confirmPick("main")} />
+              {tagFlow.tags.length > 0 ? (
+                <span>Move selected card with tags: <strong>{tagFlow.tags.join(', ')}</strong> </span>
+              ) : (
+                <span>Move selected card with no tags</span>
+              )}
+              <br/>
+              to: <Button name="Main" className="button" onClick={() => confirmPick("main")} />
               <Button name="Side" className="button" onClick={() => confirmPick("side")} />
               <Button name="Cancel" className="button" onClick={() => {
                 setTagFlow({ step: 'idle', tags: [] });

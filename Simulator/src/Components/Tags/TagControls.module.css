@@ -20,3 +20,13 @@
   gap: 4px;
   width: 100%;
 }
+
+.tagButton {
+  font-family: 'Courier New', Courier, monospace
+}
+
+.selectedTagButton {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #378e3e;
+  color: white;
+}

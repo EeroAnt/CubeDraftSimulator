@@ -46,8 +46,8 @@ export const TagControls = ({
           {playerTags.map(t => (
             <Button
               key={t}
-              name={selectedTags.includes(t) ? `✓ ${t}` : t}
-              className="button"
+              name={t}
+              className={selectedTags.includes(t) ? styles.selectedTagButton : styles.tagButton}
               onClick={() => toggleTag(t)}
             />
           ))}
