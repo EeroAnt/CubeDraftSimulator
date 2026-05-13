@@ -76,6 +76,7 @@ export const DeckBuilder = ({
   const [showTagging, setShowTagging] = useState(false)
   const all = main.concat(side).concat(commanders)
   const deck = main.concat(commanders)
+  const [filterMode, setFilterMode] = useState('types')
   const criteria = {
     creature: ["Creature"],
     legendaries: ["Legendary"],
@@ -155,24 +156,27 @@ export const DeckBuilder = ({
       setSelectedTypefilter(name)
     }
   }
+  const handleTagFilter = (tag) => {
+    if (JSON.stringify(typeFilter) === JSON.stringify(["Tag", tag])) {
+      setTypeFilter(["All"]);
+      setSelectedTypefilter("");
+    } else {
+      setTypeFilter(["Tag", tag]);
+      setSelectedTypefilter(tag);
+    }
+  }
 
 
-  useEffect(() => {
-    setMaxManaValue(Math.max(...main.concat(side).concat(commanders).map(obj => obj.mana_value)));
-    let temp = showMain ? main.concat(commanders) : side
-    if (typeFilter[0] !== "All") {
-      typeFilter[0] === "Pos"
-        ? temp = filterCardsPos(temp, typeFilter)
-        : temp = filterCardsNeg(temp, typeFilter)
-    }
-    if (colorFilterPos !== undefined) {
-      if (colorFilterPos.length > 0) {
-        temp = temp.filter(card => card.color_identity.split("").some(color => colorFilterPos.includes(color)))
-      }
-      if (colorFilterNeg.length > 0) {
-        temp = temp.filter(card => !card.color_identity.split("").some(color => colorFilterNeg.includes(color)))
-      }
-    }
+useEffect(() => {
+  setMaxManaValue(Math.max(...main.concat(side).concat(commanders).map(obj => obj.mana_value)));
+  let temp = showMain ? main.concat(commanders) : side
+  if (typeFilter[0] === "Tag") {
+    temp = temp.filter(card => card.tags && card.tags.includes(typeFilter[1]));
+  } else if (typeFilter[0] !== "All") {
+    typeFilter[0] === "Pos"
+      ? temp = filterCardsPos(temp, typeFilter)
+      : temp = filterCardsNeg(temp, typeFilter)
+  }
 
     setCardsToDisplay(temp)
     const mainWithoutLands = main.filter(card => !card.types.includes("Land"))
@@ -213,8 +217,18 @@ export const DeckBuilder = ({
           onCancel={() => setShowTagging(false)}
         />
       )}
+      <div className={styles.cardActions}>
+        <Button
+            name={filterMode === 'types' ? "Show tags" : "Show types"}
+            className="button"
+            onClick={() => {
+              setFilterMode(filterMode === 'types' ? 'tags' : 'types');
+              setTypeFilter(["All"]);
+              setSelectedTypefilter("");
+            }}
+          />
+      </div>
       <div className={styles.deckStats}>
-
         <div className={styles.colorFilter}>
           <span className={styles.colorFilter}>
             {["W", "U", "B", "R", "G", "C"].map((color, index) => (
@@ -223,22 +237,45 @@ export const DeckBuilder = ({
           </span>
         </div>
         <div className={styles.typeFilter}>
+          
 
-          <TypeFilterObject name="Creatures" type="Pos" criteria={criteria.creature} deck={deck} all={all} />
-          <TypeFilterObject name="Non-Creatures" type="Neg" criteria={criteria.nonCreature} deck={deck} all={all} />
-          <TypeFilterObject name="Legendaries" type="Pos" criteria={criteria.legendaries} deck={deck} all={all} />
-          <TypeFilterObject name="Planeswalkers" type="Pos" criteria={criteria.planeswalkers} deck={deck} all={all} />
-          <TypeFilterObject name="Artifacts" type="Pos" criteria={criteria.artifacts} deck={deck} all={all} />
-          <TypeFilterObject name="Enchantments" type="Pos" criteria={criteria.enchantments} deck={deck} all={all} />
-          <TypeFilterObject name="Instants" type="Pos" criteria={criteria.instants} deck={deck} all={all} />
-          <TypeFilterObject name="Sorceries" type="Pos" criteria={criteria.sorceries} deck={deck} all={all} />
-          <TypeFilterObject name="Non-Basic Lands" type="Pos" criteria={criteria.lands} deck={deck} all={all} />
-          <TypeFilterObject name="Auras" type="Pos" criteria={criteria.auras} deck={deck} all={all} />
-          <TypeFilterObject name="Equipment" type="Pos" criteria={criteria.equipment} deck={deck} all={all} />
-          <TypeFilterObject name="Sagas" type="Pos" criteria={criteria.sagas} deck={deck} all={all} />
-          <TypeFilterObject name="Historics" type="Pos" criteria={criteria.historics} deck={deck} all={all} />
-          <TypeFilterObject name="Permanents" type="Neg" criteria={criteria.permanents} deck={deck} all={all} />
-          <TypeFilterObject name="Conspiracies" type="Pos" criteria={criteria.conspiracies} deck={deck} all={all} />
+          {filterMode === 'types' ? (
+            <>
+              <TypeFilterObject name="Creatures" type="Pos" criteria={criteria.creature} deck={deck} all={all} />
+              <TypeFilterObject name="Non-Creatures" type="Neg" criteria={criteria.nonCreature} deck={deck} all={all} />
+              <TypeFilterObject name="Legendaries" type="Pos" criteria={criteria.legendaries} deck={deck} all={all} />
+              <TypeFilterObject name="Planeswalkers" type="Pos" criteria={criteria.planeswalkers} deck={deck} all={all} />
+              <TypeFilterObject name="Artifacts" type="Pos" criteria={criteria.artifacts} deck={deck} all={all} />
+              <TypeFilterObject name="Enchantments" type="Pos" criteria={criteria.enchantments} deck={deck} all={all} />
+              <TypeFilterObject name="Instants" type="Pos" criteria={criteria.instants} deck={deck} all={all} />
+              <TypeFilterObject name="Sorceries" type="Pos" criteria={criteria.sorceries} deck={deck} all={all} />
+              <TypeFilterObject name="Non-Basic Lands" type="Pos" criteria={criteria.lands} deck={deck} all={all} />
+              <TypeFilterObject name="Auras" type="Pos" criteria={criteria.auras} deck={deck} all={all} />
+              <TypeFilterObject name="Equipment" type="Pos" criteria={criteria.equipment} deck={deck} all={all} />
+              <TypeFilterObject name="Sagas" type="Pos" criteria={criteria.sagas} deck={deck} all={all} />
+              <TypeFilterObject name="Historics" type="Pos" criteria={criteria.historics} deck={deck} all={all} />
+              <TypeFilterObject name="Permanents" type="Neg" criteria={criteria.permanents} deck={deck} all={all} />
+              <TypeFilterObject name="Conspiracies" type="Pos" criteria={criteria.conspiracies} deck={deck} all={all} />
+            </>
+          ) : (
+            <>
+              {playerTags.map(tag => {
+                const deckCount = deck.filter(c => c.tags && c.tags.includes(tag)).length;
+                const allCount = all.filter(c => c.tags && c.tags.includes(tag)).length;
+                if (allCount === 0) return null;
+                return (
+                  <div
+                    key={tag}
+                    className={selectedTypefilter === tag ? styles.current : styles.typeFilterObject}
+                    onClick={() => handleTagFilter(tag)}
+                  >
+                    <h5>{tag}</h5>
+                    <p>{deckCount}/{allCount}</p>
+                  </div>
+                );
+              })}
+            </>
+          )}
         </div>
         {(Array.isArray(curveOfMain) && Array.isArray(curveOfDisplayed) && curveOfMain.length > 0 && curveOfDisplayed.length > 0) && (
           (main.concat(commanders).concat(side).length > 2) ? (bars ? (
