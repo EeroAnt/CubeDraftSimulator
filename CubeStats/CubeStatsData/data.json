@@ -7,7 +7,7 @@
       ],
       [
         "B",
-        7.429553264604811
+        7.447916666666667
       ],
       [
         "RUW",
@@ -19,7 +19,7 @@
       ],
       [
         "RW",
-        6.666666666666667
+        6.613636363636363
       ],
       [
         "BGU",
@@ -43,7 +43,7 @@
       ],
       [
         "C",
-        7.571428571428571
+        7.5482546201232035
       ],
       [
         "BGRUW",
@@ -113,7 +113,7 @@
     "draft_pool_averages": [
       [
         "B",
-        7.429553264604811
+        7.447916666666667
       ],
       [
         "R",
@@ -121,7 +121,7 @@
       ],
       [
         "C",
-        7.438118811881188
+        7.4089775561097255
       ],
       [
         "W",
@@ -133,7 +133,7 @@
       ],
       [
         "M",
-        8.902325581395349
+        8.902097902097902
       ],
       [
         "U",
@@ -175,7 +175,7 @@
       ],
       [
         "BUW",
-        16
+        17
       ],
       [
         "BRW",
@@ -215,7 +215,7 @@
       ],
       [
         "BU",
-        46
+        47
       ],
       [
         "GW",
@@ -317,185 +317,215 @@
       ]
     ],
     "color_id_aggregates": {
-      "R": {
-        "Creature": 136,
-        "Enchantment": 65,
-        "Instant": 50,
-        "Sorcery": 53,
-        "Planeswalker": 9,
-        "Artifact": 5,
+      "": {
+        "Creature": 0,
+        "Enchantment": 0,
+        "Instant": 0,
+        "Sorcery": 0,
+        "Planeswalker": 0,
+        "Artifact": 1,
+        "Land": 5,
+        "Total": 5
+      },
+      "B": {
+        "Creature": 125,
+        "Enchantment": 52,
+        "Instant": 36,
+        "Sorcery": 63,
+        "Planeswalker": 6,
+        "Artifact": 7,
+        "Land": 3,
+        "Total": 283
+      },
+      "W": {
+        "Creature": 153,
+        "Enchantment": 63,
+        "Instant": 35,
+        "Sorcery": 40,
+        "Planeswalker": 11,
+        "Artifact": 9,
         "Land": 6,
-        "Total": 314
+        "Total": 307
+      },
+      "G": {
+        "Creature": 151,
+        "Enchantment": 62,
+        "Instant": 22,
+        "Sorcery": 41,
+        "Planeswalker": 6,
+        "Artifact": 5,
+        "Land": 7,
+        "Total": 286
       },
       "C": {
-        "Creature": 97,
+        "Creature": 110,
         "Enchantment": 0,
         "Instant": 6,
         "Sorcery": 6,
         "Planeswalker": 6,
-        "Artifact": 256,
+        "Artifact": 290,
         "Land": 64,
-        "Total": 373
+        "Total": 407
+      },
+      "R": {
+        "Creature": 150,
+        "Enchantment": 68,
+        "Instant": 55,
+        "Sorcery": 55,
+        "Planeswalker": 9,
+        "Artifact": 8,
+        "Land": 7,
+        "Total": 341
       },
       "U": {
-        "Creature": 122,
-        "Enchantment": 52,
-        "Instant": 69,
-        "Sorcery": 48,
+        "Creature": 148,
+        "Enchantment": 58,
+        "Instant": 73,
+        "Sorcery": 49,
         "Planeswalker": 6,
-        "Artifact": 8,
-        "Land": 4,
-        "Total": 298
-      },
-      "G": {
-        "Creature": 137,
-        "Enchantment": 60,
-        "Instant": 20,
-        "Sorcery": 39,
-        "Planeswalker": 6,
-        "Artifact": 5,
-        "Land": 6,
-        "Total": 265
-      },
-      "W": {
-        "Creature": 125,
-        "Enchantment": 61,
-        "Instant": 29,
-        "Sorcery": 35,
-        "Planeswalker": 11,
-        "Artifact": 4,
+        "Artifact": 14,
         "Land": 5,
-        "Total": 263
-      },
-      "B": {
-        "Creature": 114,
-        "Enchantment": 50,
-        "Instant": 33,
-        "Sorcery": 57,
-        "Planeswalker": 6,
-        "Artifact": 6,
-        "Land": 3,
-        "Total": 261
-      },
-      "GW": {
-        "Creature": 22,
-        "Enchantment": 10,
-        "Instant": 11,
-        "Sorcery": 2,
-        "Planeswalker": 1,
-        "Artifact": 2,
-        "Land": 9,
-        "Total": 56
+        "Total": 337
       },
       "RU": {
-        "Creature": 23,
+        "Creature": 28,
         "Enchantment": 5,
-        "Instant": 11,
+        "Instant": 12,
         "Sorcery": 2,
-        "Planeswalker": 2,
-        "Artifact": 7,
-        "Land": 10,
-        "Total": 57
-      },
-      "BR": {
-        "Creature": 28,
-        "Enchantment": 7,
-        "Instant": 6,
-        "Sorcery": 6,
-        "Planeswalker": 0,
-        "Artifact": 5,
-        "Land": 8,
-        "Total": 59
-      },
-      "RW": {
-        "Creature": 19,
-        "Enchantment": 4,
-        "Instant": 9,
-        "Sorcery": 8,
-        "Planeswalker": 2,
-        "Artifact": 4,
-        "Land": 10,
-        "Total": 55
-      },
-      "BG": {
-        "Creature": 21,
-        "Enchantment": 6,
-        "Instant": 8,
-        "Sorcery": 11,
-        "Planeswalker": 1,
-        "Artifact": 2,
-        "Land": 10,
-        "Total": 57
-      },
-      "BW": {
-        "Creature": 28,
-        "Enchantment": 5,
-        "Instant": 8,
-        "Sorcery": 10,
         "Planeswalker": 3,
-        "Artifact": 4,
-        "Land": 9,
-        "Total": 63
+        "Artifact": 10,
+        "Land": 11,
+        "Total": 65
       },
       "GU": {
-        "Creature": 25,
+        "Creature": 27,
         "Enchantment": 5,
         "Instant": 7,
         "Sorcery": 5,
         "Planeswalker": 4,
-        "Artifact": 3,
-        "Land": 11,
-        "Total": 57
+        "Artifact": 4,
+        "Land": 12,
+        "Total": 60
       },
       "UW": {
-        "Creature": 24,
+        "Creature": 29,
         "Enchantment": 8,
         "Instant": 8,
         "Sorcery": 4,
         "Planeswalker": 2,
-        "Artifact": 6,
-        "Land": 9,
-        "Total": 57
-      },
-      "GR": {
-        "Creature": 24,
-        "Enchantment": 5,
-        "Instant": 4,
-        "Sorcery": 7,
-        "Planeswalker": 1,
-        "Artifact": 3,
-        "Land": 8,
-        "Total": 52
+        "Artifact": 7,
+        "Land": 10,
+        "Total": 63
       },
       "BU": {
-        "Creature": 26,
+        "Creature": 36,
         "Enchantment": 4,
         "Instant": 8,
         "Sorcery": 4,
         "Planeswalker": 3,
-        "Artifact": 4,
-        "Land": 8,
-        "Total": 56
+        "Artifact": 7,
+        "Land": 9,
+        "Total": 67
       },
-      "RUW": {
-        "Creature": 8,
-        "Enchantment": 2,
-        "Instant": 2,
-        "Sorcery": 2,
+      "BR": {
+        "Creature": 33,
+        "Enchantment": 7,
+        "Instant": 6,
+        "Sorcery": 6,
         "Planeswalker": 0,
-        "Artifact": 0,
-        "Land": 1,
-        "Total": 15
+        "Artifact": 6,
+        "Land": 9,
+        "Total": 65
+      },
+      "RW": {
+        "Creature": 26,
+        "Enchantment": 5,
+        "Instant": 9,
+        "Sorcery": 8,
+        "Planeswalker": 2,
+        "Artifact": 6,
+        "Land": 11,
+        "Total": 63
+      },
+      "BG": {
+        "Creature": 24,
+        "Enchantment": 6,
+        "Instant": 8,
+        "Sorcery": 11,
+        "Planeswalker": 2,
+        "Artifact": 3,
+        "Land": 11,
+        "Total": 62
+      },
+      "BW": {
+        "Creature": 31,
+        "Enchantment": 5,
+        "Instant": 8,
+        "Sorcery": 10,
+        "Planeswalker": 3,
+        "Artifact": 5,
+        "Land": 10,
+        "Total": 67
+      },
+      "GR": {
+        "Creature": 30,
+        "Enchantment": 6,
+        "Instant": 4,
+        "Sorcery": 7,
+        "Planeswalker": 1,
+        "Artifact": 4,
+        "Land": 9,
+        "Total": 59
+      },
+      "GW": {
+        "Creature": 26,
+        "Enchantment": 10,
+        "Instant": 11,
+        "Sorcery": 2,
+        "Planeswalker": 1,
+        "Artifact": 3,
+        "Land": 10,
+        "Total": 61
       },
       "GUW": {
-        "Creature": 7,
+        "Creature": 8,
         "Enchantment": 2,
         "Instant": 3,
         "Sorcery": 1,
         "Planeswalker": 1,
         "Artifact": 0,
         "Land": 1,
-        "Total": 15
+        "Total": 16
+      },
+      "BGW": {
+        "Creature": 10,
+        "Enchantment": 1,
+        "Instant": 3,
+        "Sorcery": 2,
+        "Planeswalker": 0,
+        "Artifact": 0,
+        "Land": 1,
+        "Total": 17
+      },
+      "BUW": {
+        "Creature": 11,
+        "Enchantment": 1,
+        "Instant": 4,
+        "Sorcery": 0,
+        "Planeswalker": 0,
+        "Artifact": 3,
+        "Land": 1,
+        "Total": 18
+      },
+      "BGU": {
+        "Creature": 9,
+        "Enchantment": 1,
+        "Instant": 1,
+        "Sorcery": 1,
+        "Planeswalker": 0,
+        "Artifact": 0,
+        "Land": 1,
+        "Total": 13
       },
       "BRU": {
         "Creature": 7,
@@ -507,25 +537,35 @@
         "Land": 1,
         "Total": 14
       },
-      "BGW": {
+      "RUW": {
         "Creature": 8,
-        "Enchantment": 1,
-        "Instant": 3,
+        "Enchantment": 3,
+        "Instant": 2,
         "Sorcery": 2,
         "Planeswalker": 0,
         "Artifact": 0,
         "Land": 1,
-        "Total": 15
+        "Total": 16
       },
-      "GRW": {
-        "Creature": 11,
+      "BGR": {
+        "Creature": 12,
         "Enchantment": 1,
         "Instant": 2,
         "Sorcery": 2,
         "Planeswalker": 0,
         "Artifact": 0,
         "Land": 1,
-        "Total": 17
+        "Total": 18
+      },
+      "BRW": {
+        "Creature": 14,
+        "Enchantment": 1,
+        "Instant": 2,
+        "Sorcery": 1,
+        "Planeswalker": 0,
+        "Artifact": 0,
+        "Land": 1,
+        "Total": 19
       },
       "GRU": {
         "Creature": 11,
@@ -537,45 +577,15 @@
         "Land": 1,
         "Total": 15
       },
-      "BUW": {
-        "Creature": 10,
-        "Enchantment": 1,
-        "Instant": 4,
-        "Sorcery": 0,
-        "Planeswalker": 0,
-        "Artifact": 3,
-        "Land": 1,
-        "Total": 17
-      },
-      "BRW": {
-        "Creature": 8,
-        "Enchantment": 1,
-        "Instant": 2,
-        "Sorcery": 1,
-        "Planeswalker": 0,
-        "Artifact": 0,
-        "Land": 1,
-        "Total": 13
-      },
-      "BGR": {
-        "Creature": 10,
+      "GRW": {
+        "Creature": 13,
         "Enchantment": 1,
         "Instant": 2,
         "Sorcery": 2,
         "Planeswalker": 0,
         "Artifact": 0,
         "Land": 1,
-        "Total": 16
-      },
-      "BGU": {
-        "Creature": 8,
-        "Enchantment": 1,
-        "Instant": 1,
-        "Sorcery": 1,
-        "Planeswalker": 0,
-        "Artifact": 0,
-        "Land": 1,
-        "Total": 12
+        "Total": 19
       },
       "BGRUW": {
         "Creature": 5,
@@ -642,19 +652,6 @@
         "draft_pool": "B",
         "avg_pick": 8.0,
         "amount_of_picks": 1
-      },
-      {
-        "id": 890,
-        "name": "Skeleton Shard",
-        "mv": 3,
-        "color_identity": "B",
-        "types": "Artifact",
-        "oracle_text": "{3}, {T} or {B}, {T}: Return target artifact creature card from your graveyard to your hand.",
-        "image_url": "https://cards.scryfall.io/normal/front/e/e/ee0d0da7-70de-4174-8f71-3e8861270dfb.jpg?1562843361",
-        "backside_image_url": "",
-        "draft_pool": "B",
-        "avg_pick": 7.5,
-        "amount_of_picks": 2
       },
       {
         "id": 891,
@@ -13478,19 +13475,6 @@
         "amount_of_picks": 1
       },
       {
-        "id": 1627,
-        "name": "Teysa, Envoy of Ghosts",
-        "mv": 7,
-        "color_identity": "BW",
-        "types": "Legendary Creature \u2014 Human Advisor",
-        "oracle_text": "Vigilance, protection from creatures\nWhenever a creature deals combat damage to you, destroy that creature. Create a 1/1 white and black Spirit creature token with flying.",
-        "image_url": "https://cards.scryfall.io/normal/front/a/b/abb21cf7-c5e6-4be5-8da5-9d29e95e2208.jpg?1625978098",
-        "backside_image_url": "",
-        "draft_pool": "M",
-        "avg_commander_pick": 2.0,
-        "amount_of_commander_picks": 1
-      },
-      {
         "id": 1629,
         "name": "Firemind's Research",
         "mv": 2,
@@ -14311,19 +14295,6 @@
         "backside_image_url": "",
         "draft_pool": "M",
         "avg_pick": 7.0,
-        "amount_of_picks": 1
-      },
-      {
-        "id": 1733,
-        "name": "Agrus Kos, Wojek Veteran",
-        "mv": 5,
-        "color_identity": "RW",
-        "types": "Legendary Creature \u2014 Human Soldier",
-        "oracle_text": "Whenever Agrus Kos, Wojek Veteran attacks, attacking red creatures get +2/+0 and attacking white creatures get +0/+2 until end of turn.",
-        "image_url": "https://cards.scryfall.io/normal/front/c/2/c2521942-0ecd-45a9-bac6-04267a2c29ed.jpg?1598916720",
-        "backside_image_url": "",
-        "draft_pool": "M",
-        "avg_pick": 9.0,
         "amount_of_picks": 1
       },
       {
@@ -16322,19 +16293,6 @@
         "amount_of_picks": 1
       },
       {
-        "id": 1929,
-        "name": "Gruesome Slaughter",
-        "mv": 6,
-        "color_identity": "C",
-        "types": "Sorcery",
-        "oracle_text": "Until end of turn, colorless creatures you control gain \"{T}: This creature deals damage equal to its power to target creature.\"",
-        "image_url": "https://cards.scryfall.io/normal/front/3/d/3d3e464c-3032-4579-8840-4fe75474e3fb.jpg?1562909391",
-        "backside_image_url": "",
-        "draft_pool": "C",
-        "avg_pick": 9.5,
-        "amount_of_picks": 2
-      },
-      {
         "id": 1930,
         "name": "Chimeric Mass",
         "mv": 0,
@@ -16423,19 +16381,6 @@
         "backside_image_url": "",
         "draft_pool": "C",
         "avg_pick": 5.0,
-        "amount_of_picks": 1
-      },
-      {
-        "id": 1937,
-        "name": "Blue Ribbon",
-        "mv": 1,
-        "color_identity": "C",
-        "types": "Artifact \u2014 Equipment",
-        "oracle_text": "When Blue Ribbon enters the battlefield, ask a person outside the game which creature you control is most deserving of a blue ribbon. Attach Blue Ribbon to that creature.\nEquipped creature has best in show. (Whenever another creature becomes the target of a spell or ability you control, you may copy that spell or ability. If you do, the copy targets this creature.)\nEquip {3}",
-        "image_url": "https://cards.scryfall.io/normal/front/d/a/da67aec2-18ff-426a-a074-25cd34b01f9c.jpg?1673915030",
-        "backside_image_url": "",
-        "draft_pool": "C",
-        "avg_pick": 15.0,
         "amount_of_picks": 1
       },
       {
@@ -20297,19 +20242,6 @@
         "backside_image_url": "",
         "draft_pool": "B",
         "avg_pick": 7.0,
-        "amount_of_picks": 1
-      },
-      {
-        "id": 2383,
-        "name": "Choice of Damnations",
-        "mv": 6,
-        "color_identity": "B",
-        "types": "Sorcery \u2014 Arcane",
-        "oracle_text": "Target opponent chooses a number. You may have that player lose that much life. If you don't, that player sacrifices all but that many permanents.",
-        "image_url": "https://cards.scryfall.io/normal/front/0/5/05939f15-2d95-47df-b66f-131c3e7ea95f.jpg?1562492064",
-        "backside_image_url": "",
-        "draft_pool": "B",
-        "avg_pick": 2.0,
         "amount_of_picks": 1
       },
       {
@@ -28144,6 +28076,17 @@
         "draft_pool": "L"
       },
       {
+        "id": 2896,
+        "name": "Tree of Redemption",
+        "mv": 4,
+        "color_identity": "G",
+        "types": "Creature \u2014 Plant",
+        "oracle_text": "Defender\n{T}: Exchange your life total with this creature's toughness.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/f/4f55dae2-e6b4-4498-8abd-86d9717691f4.jpg?1744314321",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
         "id": 2124,
         "name": "Overgrown Tomb",
         "mv": 0,
@@ -28483,6 +28426,17 @@
         "image_url": "https://cards.scryfall.io/normal/front/9/7/97622209-9357-4347-8961-f77f8d2389d8.jpg?1608912282",
         "backside_image_url": "",
         "draft_pool": "R"
+      },
+      {
+        "id": 2383,
+        "name": "Choice of Damnations",
+        "mv": 6,
+        "color_identity": "B",
+        "types": "Sorcery \u2014 Arcane",
+        "oracle_text": "Target opponent chooses a number. You may have that player lose that much life. If you don't, that player sacrifices all but that many permanents.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/5/05939f15-2d95-47df-b66f-131c3e7ea95f.jpg?1562492064",
+        "backside_image_url": "",
+        "draft_pool": "B"
       },
       {
         "id": 2268,
@@ -29154,6 +29108,28 @@
         "image_url": "https://cards.scryfall.io/normal/front/7/d/7d67511b-c130-44d5-8536-4278a695627c.jpg?1562842618",
         "backside_image_url": "",
         "draft_pool": "B"
+      },
+      {
+        "id": 890,
+        "name": "Skeleton Shard",
+        "mv": 3,
+        "color_identity": "B",
+        "types": "Artifact",
+        "oracle_text": "{3}, {T} or {B}, {T}: Return target artifact creature card from your graveyard to your hand.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/e/ee0d0da7-70de-4174-8f71-3e8861270dfb.jpg?1562843361",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2984,
+        "name": "Avarice Totem",
+        "mv": 1,
+        "color_identity": "C",
+        "types": "Artifact",
+        "oracle_text": "{5}: Exchange control of this artifact and target nonland permanent.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/3/53a5cfa8-4091-445c-8641-64402cca7d2d.jpg?1562877041",
+        "backside_image_url": "",
+        "draft_pool": "C"
       },
       {
         "id": 2371,
@@ -30045,6 +30021,17 @@
         "image_url": "https://cards.scryfall.io/normal/front/5/7/572fb0dc-d876-4e1b-91d1-9c595f6f6f04.jpg?1690005563",
         "backside_image_url": "",
         "draft_pool": "C"
+      },
+      {
+        "id": 1733,
+        "name": "Agrus Kos, Wojek Veteran",
+        "mv": 5,
+        "color_identity": "RW",
+        "types": "Legendary Creature \u2014 Human Soldier",
+        "oracle_text": "Whenever Agrus Kos, Wojek Veteran attacks, attacking red creatures get +2/+0 and attacking white creatures get +0/+2 until end of turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/2/c2521942-0ecd-45a9-bac6-04267a2c29ed.jpg?1598916720",
+        "backside_image_url": "",
+        "draft_pool": "M"
       },
       {
         "id": 2537,
@@ -31666,6 +31653,2998 @@
         "image_url": "https://cards.scryfall.io/normal/front/3/a/3a8b11ad-d077-40b6-988c-0462e118fe3d.jpg?1676452514",
         "backside_image_url": "",
         "draft_pool": "L"
+      },
+      {
+        "id": 1937,
+        "name": "Blue Ribbon",
+        "mv": 1,
+        "color_identity": "C",
+        "types": "Artifact \u2014 Equipment",
+        "oracle_text": "When Blue Ribbon enters the battlefield, ask a person outside the game which creature you control is most deserving of a blue ribbon. Attach Blue Ribbon to that creature.\nEquipped creature has best in show. (Whenever another creature becomes the target of a spell or ability you control, you may copy that spell or ability. If you do, the copy targets this creature.)\nEquip {3}",
+        "image_url": "https://cards.scryfall.io/normal/front/d/a/da67aec2-18ff-426a-a074-25cd34b01f9c.jpg?1673915030",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 1929,
+        "name": "Gruesome Slaughter",
+        "mv": 6,
+        "color_identity": "C",
+        "types": "Sorcery",
+        "oracle_text": "Until end of turn, colorless creatures you control gain \"{T}: This creature deals damage equal to its power to target creature.\"",
+        "image_url": "https://cards.scryfall.io/normal/front/3/d/3d3e464c-3032-4579-8840-4fe75474e3fb.jpg?1562909391",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 1627,
+        "name": "Teysa, Envoy of Ghosts",
+        "mv": 7,
+        "color_identity": "BW",
+        "types": "Legendary Creature \u2014 Human Advisor",
+        "oracle_text": "Vigilance, protection from creatures\nWhenever a creature deals combat damage to you, destroy that creature. Create a 1/1 white and black Spirit creature token with flying.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/b/abb21cf7-c5e6-4be5-8da5-9d29e95e2208.jpg?1625978098",
+        "backside_image_url": "",
+        "draft_pool": "M"
+      },
+      {
+        "id": 2787,
+        "name": "Rakdos, Patron of Chaos",
+        "mv": 6,
+        "color_identity": "BR",
+        "types": "Legendary Creature \u2014 Demon",
+        "oracle_text": "Flying, trample\nAt the beginning of your end step, target opponent may sacrifice two nonland, nontoken permanents of their choice. If they don't, you draw two cards.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/c/cc6fd2d5-8eb2-4265-a1bf-d4ae635285af.jpg?1706242226",
+        "backside_image_url": "",
+        "draft_pool": "BR"
+      },
+      {
+        "id": 2788,
+        "name": "Serra's Emissary",
+        "mv": 7,
+        "color_identity": "W",
+        "types": "Creature \u2014 Angel",
+        "oracle_text": "Flying\nAs this creature enters, choose a card type.\nYou and creatures you control have protection from the chosen card type.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/6/b6534049-3045-4546-b1e8-e5b1b0df5f56.jpg?1626094056",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2789,
+        "name": "Drana and Linvala",
+        "mv": 4,
+        "color_identity": "BW",
+        "types": "Legendary Creature \u2014 Vampire Angel",
+        "oracle_text": "Flying, vigilance\nActivated abilities of creatures your opponents control can't be activated.\nDrana and Linvala has all activated abilities of all creatures your opponents control. You may spend mana as though it were mana of any color to activate those abilities.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/b/bbda000f-3cf7-48b6-96ff-c23a3a64eab5.jpg?1682205227",
+        "backside_image_url": "",
+        "draft_pool": "BW"
+      },
+      {
+        "id": 2790,
+        "name": "Angelic Arbiter",
+        "mv": 7,
+        "color_identity": "W",
+        "types": "Creature \u2014 Angel",
+        "oracle_text": "Flying\nEach opponent who cast a spell this turn can't attack with creatures.\nEach opponent who attacked with a creature this turn can't cast spells.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/6/8637d263-5d7e-45bc-aad3-d97f57e6898e.jpg?1600715393",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2791,
+        "name": "Archfiend of Despair",
+        "mv": 8,
+        "color_identity": "B",
+        "types": "Creature \u2014 Demon",
+        "oracle_text": "Flying\nYour opponents can't gain life.\nAt the beginning of each end step, each opponent loses life equal to the life that player lost this turn. (Damage causes loss of life.)",
+        "image_url": "https://cards.scryfall.io/normal/front/b/6/b6d1e901-cef9-45ca-a946-a4a9cba6702d.jpg?1689996871",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2792,
+        "name": "Valgavoth, Terror Eater",
+        "mv": 9,
+        "color_identity": "B",
+        "types": "Legendary Creature \u2014 Elder Demon",
+        "oracle_text": "Flying, lifelink\nWard\u2014Sacrifice three nonland permanents.\nIf a card you didn't control would be put into an opponent's graveyard from anywhere, exile it instead.\nDuring your turn, you may play cards exiled with Valgavoth. If you cast a spell this way, pay life equal to its mana value rather than pay its mana cost.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/7/7740ff55-67bb-409e-90f7-2c2c8b8c770a.jpg?1726286296",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2793,
+        "name": "Angel of Serenity",
+        "mv": 7,
+        "color_identity": "W",
+        "types": "Creature \u2014 Angel",
+        "oracle_text": "Flying\nWhen this creature enters, you may exile up to three other target creatures from the battlefield and/or creature cards from graveyards.\nWhen this creature leaves the battlefield, return the exiled cards to their owners' hands.",
+        "image_url": "https://cards.scryfall.io/normal/front/6/0/60301fbc-1bd4-4c37-ad19-660d625a090a.jpg?1625192849",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2794,
+        "name": "Razaketh, the Foulblooded",
+        "mv": 8,
+        "color_identity": "B",
+        "types": "Legendary Creature \u2014 Demon",
+        "oracle_text": "Flying, trample\nPay 2 life, Sacrifice another creature: Search your library for a card, put that card into your hand, then shuffle.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/6/d6bb956d-0df6-4910-9320-55f2c5674d98.jpg?1689997402",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2795,
+        "name": "Twinflame Tyrant",
+        "mv": 5,
+        "color_identity": "R",
+        "types": "Creature \u2014 Dragon",
+        "oracle_text": "Flying\nIf a source you control would deal damage to an opponent or a permanent an opponent controls, it deals double that damage instead.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/e/1eb34f51-0bd2-43c3-af95-2ce8dabcc7bb.jpg?1730488954",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2796,
+        "name": "Bloodletter of Aclazotz",
+        "mv": 4,
+        "color_identity": "B",
+        "types": "Creature \u2014 Vampire Demon",
+        "oracle_text": "Flying\nIf an opponent would lose life during your turn, they lose twice that much life instead. (Damage causes loss of life.)",
+        "image_url": "https://cards.scryfall.io/normal/front/d/4/d4f6027a-003a-4f9d-929a-0b6da1fa42c9.jpg?1699044094",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2797,
+        "name": "Neriv, Heart of the Storm",
+        "mv": 4,
+        "color_identity": "BRW",
+        "types": "Legendary Creature \u2014 Spirit Dragon",
+        "oracle_text": "Flying\nIf a creature you control that entered this turn would deal damage, it deals twice that much damage instead.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/5/b58112b0-a05c-4b98-b650-fd27ad97789f.jpg?1743204826",
+        "backside_image_url": "",
+        "draft_pool": "BRW"
+      },
+      {
+        "id": 2798,
+        "name": "Sower of Discord",
+        "mv": 6,
+        "color_identity": "B",
+        "types": "Creature \u2014 Demon",
+        "oracle_text": "Flying\nAs this creature enters, choose two players.\nWhenever damage is dealt to one of the chosen players, the other chosen player also loses that much life.",
+        "image_url": "https://cards.scryfall.io/normal/front/f/5/f532301e-9005-4770-9e04-868f69f6becf.jpg?1689997465",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2799,
+        "name": "Blast-Furnace Hellkite",
+        "mv": 9,
+        "color_identity": "R",
+        "types": "Creature \u2014 Dragon",
+        "oracle_text": "Artifact offering (You may cast this spell as though it had flash by sacrificing an artifact and paying the difference in mana costs between this and the sacrificed artifact. Mana cost includes color.)\nFlying, double strike\nCreatures attacking your opponents have double strike.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/4/04c349f2-69b1-48dd-a547-f2b55f542700.jpg?1730467762",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2800,
+        "name": "Herald of Eternal Dawn",
+        "mv": 7,
+        "color_identity": "W",
+        "types": "Creature \u2014 Angel",
+        "oracle_text": "Flash (You may cast this spell any time you could cast an instant.)\nFlying\nYou can't lose the game and your opponents can't win the game.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/9/c9fdfebf-98e0-4718-bac3-6eee1cd0623d.jpg?1730488653",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2801,
+        "name": "Angel of the Ruins",
+        "mv": 7,
+        "color_identity": "W",
+        "types": "Artifact Creature \u2014 Angel",
+        "oracle_text": "Flying\nWhen this creature enters, exile up to two target artifacts and/or enchantments.\nPlainscycling {2} ({2}, Discard this card: Search your library for a Plains card, reveal it, put it into your hand, then shuffle.)",
+        "image_url": "https://cards.scryfall.io/normal/front/4/a/4ad8d899-5901-4fc8-b4f0-adcc0d97fc6e.jpg?1752944529",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2802,
+        "name": "Karmic Guide",
+        "mv": 5,
+        "color_identity": "W",
+        "types": "Creature \u2014 Angel Spirit",
+        "oracle_text": "Flying, protection from black\nEcho {3}{W}{W} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nWhen this creature enters, return target creature card from your graveyard to the battlefield.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/2/b26d50dd-54a1-43ce-9884-3999f698d97b.jpg?1775940677",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2803,
+        "name": "Ancient Silver Dragon",
+        "mv": 8,
+        "color_identity": "U",
+        "types": "Creature \u2014 Elder Dragon",
+        "oracle_text": "Flying\nWhenever this creature deals combat damage to a player, roll a d20. Draw cards equal to the result. You have no maximum hand size for the rest of the game.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/e/ced18935-4ce9-466e-a88d-2b14ff8f989f.jpg?1674135398",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2804,
+        "name": "Astral Dragon",
+        "mv": 8,
+        "color_identity": "U",
+        "types": "Creature \u2014 Dragon",
+        "oracle_text": "Flying\nProject Image \u2014 When this creature enters, create two tokens that are copies of target noncreature permanent, except they're 3/3 Dragon creatures in addition to their other types, and they have flying.",
+        "image_url": "https://cards.scryfall.io/normal/front/6/7/670fbc63-4c9b-4e57-b53e-4ca4d7a224ba.jpg?1674140837",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2805,
+        "name": "Beledros Witherbloom",
+        "mv": 7,
+        "color_identity": "BG",
+        "types": "Legendary Creature \u2014 Elder Dragon",
+        "oracle_text": "Flying\nAt the beginning of each upkeep, create a 1/1 black and green Pest creature token with \"When this token dies, you gain 1 life.\"\nPay 10 life: Untap all lands you control. Activate only once each turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/4/144c2886-3d37-4a8a-8e37-99ccff66599e.jpg?1775941663",
+        "backside_image_url": "",
+        "draft_pool": "BG"
+      },
+      {
+        "id": 2806,
+        "name": "Betor, Kin to All",
+        "mv": 5,
+        "color_identity": "BGW",
+        "types": "Legendary Creature \u2014 Spirit Dragon",
+        "oracle_text": "Flying\nAt the beginning of your end step, if creatures you control have total toughness 10 or greater, draw a card. Then if creatures you control have total toughness 20 or greater, untap each creature you control. Then if creatures you control have total toughness 40 or greater, each opponent loses half their life, rounded up.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/4/b475b071-5545-483e-a397-89451f258602.jpg?1743204665",
+        "backside_image_url": "",
+        "draft_pool": "BGW"
+      },
+      {
+        "id": 2807,
+        "name": "Bruna, Light of Alabaster",
+        "mv": 6,
+        "color_identity": "UW",
+        "types": "Legendary Creature \u2014 Angel",
+        "oracle_text": "Flying, vigilance\nWhenever Bruna attacks or blocks, you may attach to it any number of Auras on the battlefield and you may put onto the battlefield attached to it any number of Aura cards that could enchant it from your graveyard and/or hand.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/8/58c56bad-68ed-4328-a7ea-c528b58dc2fd.jpg?1592711039",
+        "backside_image_url": "",
+        "draft_pool": "UW"
+      },
+      {
+        "id": 2808,
+        "name": "Daemogoth Titan",
+        "mv": 4,
+        "color_identity": "BG",
+        "types": "Creature \u2014 Demon",
+        "oracle_text": "Whenever this creature attacks or blocks, sacrifice a creature.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/2/c2f18828-ade7-4b99-97b2-e34bc2fdb68c.jpg?1627428470",
+        "backside_image_url": "",
+        "draft_pool": "BG"
+      },
+      {
+        "id": 2809,
+        "name": "Colossal Grave-Reaver",
+        "mv": 8,
+        "color_identity": "BG",
+        "types": "Creature \u2014 Dragon",
+        "oracle_text": "Flying\nWhenever this creature enters or attacks, mill three cards.\nWhenever one or more creature cards are put into your graveyard from your library, put one of them onto the battlefield.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/c/7c3f7d76-528a-490a-852a-071adcd7bd55.jpg?1743205875",
+        "backside_image_url": "",
+        "draft_pool": "BG"
+      },
+      {
+        "id": 2810,
+        "name": "Deceptive Frostkite",
+        "mv": 2,
+        "color_identity": "U",
+        "types": "Creature \u2014 Dragon",
+        "oracle_text": "Flying\nYou may have this creature enter as a copy of a creature you control with power 4 or greater, except it's a Dragon in addition to its other types and it has flying.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/f/1f87120f-d2a7-4c06-aadd-3ed5729d7abf.jpg?1743205750",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2811,
+        "name": "Diviner of Mist",
+        "mv": 5,
+        "color_identity": "U",
+        "types": "Creature \u2014 Dragon",
+        "oracle_text": "Flying\nWhenever this creature attacks, mill four cards. You may cast an instant or sorcery spell from your graveyard with mana value 4 or less without paying its mana cost. If that spell would be put into your graveyard, exile it instead.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/2/c2880977-4e68-4f04-9218-e6ade72238f6.jpg?1743205754",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2812,
+        "name": "Dragonborn Champion",
+        "mv": 4,
+        "color_identity": "GR",
+        "types": "Creature \u2014 Dragon Warrior",
+        "oracle_text": "Trample\nWhenever a source you control deals 5 or more damage to a player, draw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/f/9f6e43a7-84b9-4e89-bfe1-442d08df34d8.jpg?1771241912",
+        "backside_image_url": "",
+        "draft_pool": "GR"
+      },
+      {
+        "id": 2813,
+        "name": "Ethereal Valkyrie",
+        "mv": 6,
+        "color_identity": "UW",
+        "types": "Creature \u2014 Spirit Angel",
+        "oracle_text": "Flying\nWhenever this creature enters or attacks, draw a card, then exile a card from your hand face down. It becomes foretold. Its foretell cost is its mana cost reduced by {2}. (On a later turn, you may cast it for its foretell cost, even if this creature has left the battlefield.)",
+        "image_url": "https://cards.scryfall.io/normal/front/5/5/552912bf-4085-49ad-902f-5c41540df97a.jpg?1631233828",
+        "backside_image_url": "",
+        "draft_pool": "UW"
+      },
+      {
+        "id": 2814,
+        "name": "Exalted Flamer of Tzeentch",
+        "mv": 4,
+        "color_identity": "RU",
+        "types": "Creature \u2014 Demon",
+        "oracle_text": "Sorcerous Inspiration \u2014 At the beginning of your upkeep, return an instant or sorcery card at random from your graveyard to your hand.\nFire of Tzeentch \u2014 Whenever you cast an instant or sorcery spell, this creature deals 1 damage to each opponent.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/7/47ebc3bc-113f-437c-b60a-9597939d91ea.jpg?1673309359",
+        "backside_image_url": "",
+        "draft_pool": "RU"
+      },
+      {
+        "id": 2815,
+        "name": "Gluttonous Hellkite",
+        "mv": 3,
+        "color_identity": "BGR",
+        "types": "Creature \u2014 Dragon",
+        "oracle_text": "When you cast this spell, each player sacrifices X creatures. This creature enters with two +1/+1 counters on it for each creature sacrificed this way.\nFlying, trample",
+        "image_url": "https://cards.scryfall.io/normal/front/6/3/63f6e8da-31ea-4edf-89a9-f2b7f2234d7e.jpg?1717237840",
+        "backside_image_url": "",
+        "draft_pool": "BGR"
+      },
+      {
+        "id": 2816,
+        "name": "Guiding Spirit",
+        "mv": 3,
+        "color_identity": "UW",
+        "types": "Creature \u2014 Angel Spirit",
+        "oracle_text": "Flying\n{T}: If the top card of target player's graveyard is a creature card, put that card on top of that player's library.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/f/5f96d184-0ef8-40f7-98bc-bd4c53c57072.jpg?1587913153",
+        "backside_image_url": "",
+        "draft_pool": "UW"
+      },
+      {
+        "id": 2817,
+        "name": "Hammerhead Tyrant",
+        "mv": 6,
+        "color_identity": "U",
+        "types": "Creature \u2014 Dragon",
+        "oracle_text": "Flying\nWhenever you cast a spell, return up to one target nonland permanent an opponent controls with mana value less than or equal to that spell's mana value to its owner's hand.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/7/87d4d694-c80e-435a-ba1b-f2f1949f91fc.jpg?1743205757",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2818,
+        "name": "Harbinger of the Hunt",
+        "mv": 5,
+        "color_identity": "GR",
+        "types": "Creature \u2014 Dragon",
+        "oracle_text": "Flying\n{2}{R}: This creature deals 1 damage to each creature without flying.\n{2}{G}: This creature deals 1 damage to each other creature with flying.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/6/a6d448c2-ea3b-4098-9e0e-3b0832d6ad24.jpg?1743207144",
+        "backside_image_url": "",
+        "draft_pool": "GR"
+      },
+      {
+        "id": 2819,
+        "name": "Hraesvelgr of the First Brood",
+        "mv": 5,
+        "color_identity": "U",
+        "types": "Legendary Creature \u2014 Elder Dragon",
+        "oracle_text": "Flying, vigilance, ward {2}\nShiva's Aid \u2014 When Hraesvelgr enters and whenever you cast a noncreature spell, target creature gets +1/+0 until end of turn and can't be blocked this turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/b/abcfefe3-c66d-4512-bcc3-c9a39cfbb983.jpg?1748704328",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2820,
+        "name": "Hidetsugu and Kairi",
+        "mv": 5,
+        "color_identity": "BU",
+        "types": "Legendary Creature \u2014 Ogre Demon Dragon",
+        "oracle_text": "Flying\nWhen Hidetsugu and Kairi enters, draw three cards, then put two cards from your hand on top of your library in any order.\nWhen Hidetsugu and Kairi dies, exile the top card of your library. Target opponent loses life equal to its mana value. If it's an instant or sorcery card, you may cast it without paying its mana cost.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/1/81039daf-0d54-4474-a833-fa287ec10cf9.jpg?1682205289",
+        "backside_image_url": "",
+        "draft_pool": "BU"
+      },
+      {
+        "id": 2821,
+        "name": "Magnus the Red",
+        "mv": 5,
+        "color_identity": "RU",
+        "types": "Legendary Creature \u2014 Demon Primarch",
+        "oracle_text": "Flying\nUnearthly Power \u2014 Instant and sorcery spells you cast cost {1} less to cast for each creature token you control.\nBlade of Magnus \u2014 Whenever Magnus the Red deals combat damage to a player, create a 3/3 red Spawn creature token.",
+        "image_url": "https://cards.scryfall.io/normal/front/6/3/63050aa0-a7ea-4fe7-8746-7a11407ea0e4.jpg?1673309450",
+        "backside_image_url": "",
+        "draft_pool": "RU"
+      },
+      {
+        "id": 2822,
+        "name": "Shattered Seraph",
+        "mv": 7,
+        "color_identity": "BUW",
+        "types": "Creature \u2014 Angel Rogue",
+        "oracle_text": "Flying\nWhen this creature enters, you gain 3 life.\n{2}, Exile this card from your hand: Target land gains \"{T}: Add {W}, {U}, or {B}\" until this card is cast from exile. You may cast this card for as long as it remains exiled.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/c/cc75ba0d-230e-4ca4-bb40-bd05af2a4457.jpg?1664413745",
+        "backside_image_url": "",
+        "draft_pool": "M"
+      },
+      {
+        "id": 2823,
+        "name": "Sigarda, Host of Herons",
+        "mv": 5,
+        "color_identity": "GW",
+        "types": "Legendary Creature \u2014 Angel",
+        "oracle_text": "Flying, hexproof\nSpells and abilities your opponents control can't cause you to sacrifice permanents.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/f/8f7a6f6d-dfe3-40d3-90dc-58baa8924baf.jpg?1736468546",
+        "backside_image_url": "",
+        "draft_pool": "GW"
+      },
+      {
+        "id": 2824,
+        "name": "Silent-Blade Oni",
+        "mv": 7,
+        "color_identity": "BU",
+        "types": "Creature \u2014 Demon Ninja",
+        "oracle_text": "Ninjutsu {4}{U}{B} ({4}{U}{B}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nWhenever this creature deals combat damage to a player, look at that player's hand. You may cast a spell from among those cards without paying its mana cost.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/a/7ae71886-9e93-4d1c-b8f7-da7aafa83cf9.jpg?1712354778",
+        "backside_image_url": "",
+        "draft_pool": "BU"
+      },
+      {
+        "id": 2825,
+        "name": "Silumgar, the Drifting Death",
+        "mv": 6,
+        "color_identity": "BU",
+        "types": "Legendary Creature \u2014 Dragon",
+        "oracle_text": "Flying, hexproof\nWhenever a Dragon you control attacks, creatures defending player controls get -1/-1 until end of turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/a/ca5afa5e-6e8d-4390-8de5-217413807d89.jpg?1562623372",
+        "backside_image_url": "",
+        "draft_pool": "BU"
+      },
+      {
+        "id": 2826,
+        "name": "Teval, Arbiter of Virtue",
+        "mv": 5,
+        "color_identity": "BGU",
+        "types": "Legendary Creature \u2014 Spirit Dragon",
+        "oracle_text": "Flying, lifelink\nSpells you cast have delve. (Each card you exile from your graveyard while casting those spells pays for {1}.)\nWhenever you cast a spell, you lose life equal to its mana value.",
+        "image_url": "https://cards.scryfall.io/normal/front/2/7/27a93f5b-7b32-49f0-a179-b897828fe49a.jpg?1743204911",
+        "backside_image_url": "",
+        "draft_pool": "BGU"
+      },
+      {
+        "id": 2827,
+        "name": "Weeping Angel",
+        "mv": 3,
+        "color_identity": "BU",
+        "types": "Artifact Creature \u2014 Alien Angel",
+        "oracle_text": "Flash\nFirst strike, vigilance\nWhenever an opponent casts a creature spell, this creature isn't a creature until end of turn.\nIf this creature would deal combat damage to a creature, prevent that damage and that creature's owner shuffles it into their library.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/0/e0fd7b66-28f1-407b-bd60-6bcc577288cb.jpg?1696636785",
+        "backside_image_url": "",
+        "draft_pool": "BU"
+      },
+      {
+        "id": 2828,
+        "name": "Banshee of the Dread Choir",
+        "mv": 5,
+        "color_identity": "B",
+        "types": "Creature \u2014 Spirit",
+        "oracle_text": "Myriad (Whenever this creature attacks, for each opponent other than defending player, you may create a token copy that's tapped and attacking that player or a planeswalker they control. Exile the tokens at end of combat.)\nWhenever this creature deals combat damage to a player, that player discards a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/0/b019f6b5-ce8f-4b95-8fcb-72dc4931b3aa.jpg?1592672586",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2829,
+        "name": "Blade of Selves",
+        "mv": 2,
+        "color_identity": "C",
+        "types": "Artifact \u2014 Equipment",
+        "oracle_text": "Equipped creature has myriad. (Whenever it attacks, for each opponent other than defending player, you may create a token copy that's tapped and attacking that player or a planeswalker they control. Exile the tokens at end of combat.)\nEquip {4}",
+        "image_url": "https://cards.scryfall.io/normal/front/d/0/d0ca6a34-724f-47bb-b12d-c4998ffc3bf7.jpg?1743207279",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 2830,
+        "name": "Ironwill Forger",
+        "mv": 4,
+        "color_identity": "W",
+        "types": "Creature \u2014 Orc Artificer",
+        "oracle_text": "Lieutenant \u2014 At the beginning of combat on your turn, if you control your commander, target nonlegendary creature you control gains myriad until end of turn. (Whenever it attacks, for each opponent other than defending player, you may create a token copy that's tapped and attacking that player or a planeswalker they control. Exile the tokens at end of combat.)",
+        "image_url": "https://cards.scryfall.io/normal/front/5/3/53398f76-7c8a-4009-8f28-9ce586e2c7e4.jpg?1743205729",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2831,
+        "name": "Legion Loyalty",
+        "mv": 8,
+        "color_identity": "W",
+        "types": "Enchantment",
+        "oracle_text": "Creatures you control have myriad. (Whenever a creature with myriad attacks, for each opponent other than defending player, you may create a token copy that's tapped and attacking that player or a planeswalker they control. Exile the tokens at end of combat.)",
+        "image_url": "https://cards.scryfall.io/normal/front/1/1/11681eae-f5bd-4e78-a980-5ab58db0d9f3.jpg?1743206158",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2832,
+        "name": "The Master, Multiplied",
+        "mv": 6,
+        "color_identity": "BR",
+        "types": "Legendary Creature \u2014 Time Lord Rogue",
+        "oracle_text": "Myriad\nThe \"legend rule\" doesn't apply to creature tokens you control.\nTriggered abilities you control can't cause you to sacrifice or exile creature tokens you control.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/f/7f734ca0-91bc-4496-9bd7-2d09415e850f.jpg?1696636744",
+        "backside_image_url": "",
+        "draft_pool": "BR"
+      },
+      {
+        "id": 2833,
+        "name": "Otharri, Suns' Glory",
+        "mv": 5,
+        "color_identity": "RW",
+        "types": "Legendary Creature \u2014 Phoenix",
+        "oracle_text": "Flying, lifelink, haste\nWhenever Otharri attacks, you get an experience counter. Then create a 2/2 red Rebel creature token that's tapped and attacking for each experience counter you have.\n{2}{R}{W}, Tap an untapped Rebel you control: Return this card from your graveyard to the battlefield tapped.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/0/80c72839-0fa6-4b5f-83b7-6553ebf09bef.jpg?1738281232",
+        "backside_image_url": "",
+        "draft_pool": "RW"
+      },
+      {
+        "id": 2834,
+        "name": "Iroas, God of Victory",
+        "mv": 4,
+        "color_identity": "RW",
+        "types": "Legendary Enchantment Creature \u2014 God",
+        "oracle_text": "Indestructible\nAs long as your devotion to red and white is less than seven, Iroas isn't a creature.\nCreatures you control have menace.\nPrevent all damage that would be dealt to attacking creatures you control.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/4/b4036bb7-835d-4690-aca1-1ab566776e9a.jpg?1562415955",
+        "backside_image_url": "",
+        "draft_pool": "RW"
+      },
+      {
+        "id": 2835,
+        "name": "Commissar Severina Raine",
+        "mv": 3,
+        "color_identity": "BW",
+        "types": "Legendary Creature \u2014 Human Soldier",
+        "oracle_text": "Leading from the Front \u2014 Whenever Commissar Severina Raine attacks, each opponent loses X life, where X is the number of other attacking creatures.\nSummary Execution \u2014 {2}, Sacrifice another creature: You gain 2 life and draw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/4/94ba8b76-8de7-46da-b641-2503903f0f8a.jpg?1673309294",
+        "backside_image_url": "",
+        "draft_pool": "BW"
+      },
+      {
+        "id": 2836,
+        "name": "Voice of Victory",
+        "mv": 2,
+        "color_identity": "W",
+        "types": "Creature \u2014 Human Bard",
+        "oracle_text": "Mobilize 2 (Whenever this creature attacks, create two tapped and attacking 1/1 red Warrior creature tokens. Sacrifice them at the beginning of the next end step.)\nYour opponents can't cast spells during your turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/c/ec3de5f4-bb55-4ab9-995f-f3e0dc22c1bb.jpg?1758215927",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2837,
+        "name": "Zurgo Stormrender",
+        "mv": 3,
+        "color_identity": "BRW",
+        "types": "Legendary Creature \u2014 Orc Warrior",
+        "oracle_text": "Mobilize 1 (Whenever this creature attacks, create a tapped and attacking 1/1 red Warrior creature token. Sacrifice it at the beginning of the next end step.)\nWhenever a creature token you control leaves the battlefield, draw a card if it was attacking. Otherwise, each opponent loses 1 life.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/c/dc8eb325-75c9-4331-830d-3f7d62d77290.jpg?1745970988",
+        "backside_image_url": "",
+        "draft_pool": "BRW"
+      },
+      {
+        "id": 2838,
+        "name": "Audacious Thief",
+        "mv": 3,
+        "color_identity": "B",
+        "types": "Creature \u2014 Human Rogue",
+        "oracle_text": "Whenever this creature attacks, you draw a card and you lose 1 life.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/1/e1ff5e66-4718-43c3-8a58-1a0a8e788f83.jpg?1592516564",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2839,
+        "name": "Karlach, Fury of Avernus",
+        "mv": 5,
+        "color_identity": "R",
+        "types": "Legendary Creature \u2014 Tiefling Barbarian",
+        "oracle_text": "Whenever you attack, if it's the first combat phase of the turn, untap all attacking creatures. They gain first strike until end of turn. After this phase, there is an additional combat phase.\nChoose a Background (You can have a Background as a second commander.)",
+        "image_url": "https://cards.scryfall.io/normal/front/7/7/775480ed-f574-40cb-bd9b-21102eaaff63.jpg?1674136654",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2840,
+        "name": "Myrel, Shield of Argive",
+        "mv": 4,
+        "color_identity": "W",
+        "types": "Legendary Creature \u2014 Human Soldier",
+        "oracle_text": "During your turn, your opponents can't cast spells or activate abilities of artifacts, creatures, or enchantments.\nWhenever Myrel attacks, create X 1/1 colorless Soldier artifact creature tokens, where X is the number of Soldiers you control.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/6/e632ed57-bb00-4493-adef-7b4805edd7ea.jpg?1674420256",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2841,
+        "name": "Mardu Siegebreaker",
+        "mv": 4,
+        "color_identity": "BRW",
+        "types": "Creature \u2014 Human Warrior",
+        "oracle_text": "Deathtouch, haste\nWhen this creature enters, exile up to one other target creature you control until this creature leaves the battlefield.\nWhenever this creature attacks, for each opponent, create a tapped token that's a copy of the exiled card attacking that opponent. At the beginning of your next end step, sacrifice those tokens.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/0/3044b232-edf4-4000-9273-cc4653ad653a.jpg?1743204809",
+        "backside_image_url": "",
+        "draft_pool": "BRW"
+      },
+      {
+        "id": 2842,
+        "name": "Tectonic Giant",
+        "mv": 4,
+        "color_identity": "R",
+        "types": "Creature \u2014 Elemental Giant",
+        "oracle_text": "Whenever this creature attacks or becomes the target of a spell an opponent controls, choose one \u2014\n\u2022 This creature deals 3 damage to each opponent.\n\u2022 Exile the top two cards of your library. Choose one of them. Until the end of your next turn, you may play that card.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/1/4134a2aa-623c-49fc-bd87-26b861860ad5.jpg?1726284967",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2843,
+        "name": "Hammers of Moradin",
+        "mv": 3,
+        "color_identity": "W",
+        "types": "Creature \u2014 Dwarf Cleric",
+        "oracle_text": "Myriad (Whenever this creature attacks, for each opponent other than defending player, you may create a token copy that's tapped and attacking that player or a planeswalker they control. Exile the tokens at end of combat.)\nWhenever this creature attacks, for each opponent, tap up to one target creature that player controls.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/7/e7429a5b-5579-4c4e-89ff-ee7f43db37e4.jpg?1674135100",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2844,
+        "name": "Zurgo, Thunder's Decree",
+        "mv": 3,
+        "color_identity": "BRW",
+        "types": "Legendary Creature \u2014 Orc Warrior",
+        "oracle_text": "Mobilize 2 (Whenever this creature attacks, create two tapped and attacking 1/1 red Warrior creature tokens. Sacrifice them at the beginning of the next end step.)\nDuring your end step, Warrior tokens you control have \"This token can't be sacrificed.\"",
+        "image_url": "https://cards.scryfall.io/normal/front/b/d/bd93fb95-4268-45dc-8f0d-590c481a526d.jpg?1743204939",
+        "backside_image_url": "",
+        "draft_pool": "BRW"
+      },
+      {
+        "id": 2845,
+        "name": "Bone-Cairn Butcher",
+        "mv": 4,
+        "color_identity": "BRW",
+        "types": "Creature \u2014 Demon",
+        "oracle_text": "Mobilize 2 (Whenever this creature attacks, create two tapped and attacking 1/1 red Warrior creature tokens. Sacrifice them at the beginning of the next end step.)\nAttacking tokens you control have deathtouch.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/8/78bf36bc-6702-4c5d-b52d-ab7217cc8787.jpg?1743204667",
+        "backside_image_url": "",
+        "draft_pool": "BRW"
+      },
+      {
+        "id": 2846,
+        "name": "Arabella, Abandoned Doll",
+        "mv": 2,
+        "color_identity": "RW",
+        "types": "Legendary Artifact Creature \u2014 Toy",
+        "oracle_text": "Whenever Arabella attacks, it deals X damage to each opponent and you gain X life, where X is the number of creatures you control with power 2 or less.",
+        "image_url": "https://cards.scryfall.io/normal/front/f/6/f683d5a1-b8bf-446f-9fe3-88a4398bf3cf.jpg?1726286645",
+        "backside_image_url": "",
+        "draft_pool": "RW"
+      },
+      {
+        "id": 2847,
+        "name": "Esper Sentinel",
+        "mv": 1,
+        "color_identity": "W",
+        "types": "Artifact Creature \u2014 Human Soldier",
+        "oracle_text": "Whenever an opponent casts their first noncreature spell each turn, draw a card unless that player pays {X}, where X is this creature's power.",
+        "image_url": "https://cards.scryfall.io/normal/front/f/3/f3537373-ef54-4578-9d05-6216420ee349.jpg?1626093502",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2848,
+        "name": "Laelia, the Blade Reforged",
+        "mv": 3,
+        "color_identity": "R",
+        "types": "Legendary Creature \u2014 Spirit Warrior",
+        "oracle_text": "Haste\nWhenever Laelia attacks, exile the top card of your library. You may play that card this turn.\nWhenever one or more cards are put into exile from your library and/or your graveyard, put a +1/+1 counter on Laelia.",
+        "image_url": "https://cards.scryfall.io/normal/front/2/c/2cb16354-1211-4230-90e2-4858ba68f348.jpg?1775941309",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2849,
+        "name": "Goro-Goro, Disciple of Ryusei",
+        "mv": 2,
+        "color_identity": "R",
+        "types": "Legendary Creature \u2014 Goblin Samurai",
+        "oracle_text": "{R}: Creatures you control gain haste until end of turn.\n{3}{R}{R}: Create a 5/5 red Dragon Spirit creature token with flying. Activate only if you control an attacking modified creature. (Equipment, Auras you control, and counters are modifications.)",
+        "image_url": "https://cards.scryfall.io/normal/front/1/c/1ca736c7-35a9-48c7-b5a9-69b2a6e33ad0.jpg?1654567661",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2850,
+        "name": "Battle Angels of Tyr",
+        "mv": 4,
+        "color_identity": "W",
+        "types": "Creature \u2014 Angel Knight",
+        "oracle_text": "Flying, myriad\nWhenever this creature deals combat damage to a player, draw a card if that player has more cards in hand than each other player. Then you create a Treasure token if that player controls more lands than each other player. Then you gain 3 life if that player has more life than each other player.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/c/4c91dbf4-94fa-45d0-b8ed-a778b11d789b.jpg?1674134922",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2851,
+        "name": "Leonin Warleader",
+        "mv": 4,
+        "color_identity": "W",
+        "types": "Creature \u2014 Cat Soldier",
+        "oracle_text": "Whenever this creature attacks, create two 1/1 white Cat creature tokens with lifelink that are tapped and attacking.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/3/b31b2e5e-6572-462a-9fa0-1b2e660099e3.jpg?1562303835",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2852,
+        "name": "Firemane Commando",
+        "mv": 4,
+        "color_identity": "W",
+        "types": "Creature \u2014 Angel Soldier",
+        "oracle_text": "Flying\nWhenever you attack with two or more creatures, draw a card.\nWhenever another player attacks with two or more creatures, they draw a card if none of those creatures attacked you.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/8/c86269cc-bf4d-44b4-ad4b-8356857c532f.jpg?1775940630",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2853,
+        "name": "Thundering Raiju",
+        "mv": 4,
+        "color_identity": "R",
+        "types": "Creature \u2014 Spirit",
+        "oracle_text": "Haste\nWhenever this creature attacks, put a +1/+1 counter on target creature you control. Then this creature deals X damage to each opponent, where X is the number of modified creatures you control other than this creature. (Equipment, Auras you control, and counters are modifications.)",
+        "image_url": "https://cards.scryfall.io/normal/front/e/c/ec1a2920-6d39-4276-921c-65cc16a45f17.jpg?1654567892",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2854,
+        "name": "Emberwilde Captain",
+        "mv": 4,
+        "color_identity": "R",
+        "types": "Creature \u2014 Djinn Pirate",
+        "oracle_text": "When this creature enters, you become the monarch.\nWhenever an opponent attacks you while you're the monarch, this creature deals damage to that player equal to the number of cards in their hand.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/6/362850cd-d33c-4f61-9b3a-5de748adee7c.jpg?1608910178",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2855,
+        "name": "Rocco, Street Chef",
+        "mv": 3,
+        "color_identity": "GRW",
+        "types": "Legendary Creature \u2014 Elf Druid",
+        "oracle_text": "At the beginning of your end step, each player exiles the top card of their library. Until your next end step, each player may play the card they exiled this way.\nWhenever a player plays a land from exile or casts a spell from exile, you put a +1/+1 counter on target creature and create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")",
+        "image_url": "https://cards.scryfall.io/normal/front/c/d/cdb53ce7-845c-4c62-98a9-4fc33c67a07b.jpg?1684340828",
+        "backside_image_url": "",
+        "draft_pool": "GRW"
+      },
+      {
+        "id": 2856,
+        "name": "Lonis, Cryptozoologist",
+        "mv": 2,
+        "color_identity": "GU",
+        "types": "Legendary Creature \u2014 Snake Elf Scout",
+        "oracle_text": "Whenever another nontoken creature you control enters, investigate.\n{T}, Sacrifice X Clues: Target opponent reveals the top X cards of their library. You may put a nonland permanent card with mana value X or less from among them onto the battlefield under your control. That player puts the rest on the bottom of their library in a random order.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/7/e786423d-3a49-4318-ac77-791918bcafcb.jpg?1706241017",
+        "backside_image_url": "",
+        "draft_pool": "GU"
+      },
+      {
+        "id": 2857,
+        "name": "Karador, Ghost Chieftain",
+        "mv": 8,
+        "color_identity": "BGW",
+        "types": "Legendary Creature \u2014 Centaur Spirit",
+        "oracle_text": "This spell costs {1} less to cast for each creature card in your graveyard.\nOnce during each of your turns, you may cast a creature spell from your graveyard.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/d/8d128887-13fb-4e54-90f2-d3c46b7b29d7.jpg?1702369890",
+        "backside_image_url": "",
+        "draft_pool": "BGW"
+      },
+      {
+        "id": 2858,
+        "name": "Chulane, Teller of Tales",
+        "mv": 5,
+        "color_identity": "GUW",
+        "types": "Legendary Creature \u2014 Human Druid",
+        "oracle_text": "Vigilance\nWhenever you cast a creature spell, draw a card, then you may put a land card from your hand onto the battlefield.\n{3}, {T}: Return target creature you control to its owner's hand.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/1/d1499a4b-1af1-4913-8e26-57d0707264db.jpg?1706240978",
+        "backside_image_url": "",
+        "draft_pool": "GUW"
+      },
+      {
+        "id": 2859,
+        "name": "Sigarda, Font of Blessings",
+        "mv": 4,
+        "color_identity": "GW",
+        "types": "Legendary Creature \u2014 Angel",
+        "oracle_text": "Flying\nOther permanents you control have hexproof.\nYou may look at the top card of your library any time.\nYou may cast Angel spells and Human spells from the top of your library.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/b/cba71725-d6df-44d7-a93b-934573759711.jpg?1684340854",
+        "backside_image_url": "",
+        "draft_pool": "GW"
+      },
+      {
+        "id": 2860,
+        "name": "Shalai, Voice of Plenty",
+        "mv": 4,
+        "color_identity": "GW",
+        "types": "Legendary Creature \u2014 Angel",
+        "oracle_text": "Flying\nYou, planeswalkers you control, and other creatures you control have hexproof.\n{4}{G}{G}: Put a +1/+1 counter on each creature you control.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/3/53876046-cdb8-4157-96cd-7832d3ad2549.jpg?1744479450",
+        "backside_image_url": "",
+        "draft_pool": "GW"
+      },
+      {
+        "id": 2861,
+        "name": "Lathiel, the Bounteous Dawn",
+        "mv": 4,
+        "color_identity": "GW",
+        "types": "Legendary Creature \u2014 Unicorn",
+        "oracle_text": "Lifelink\nAt the beginning of each end step, if you gained life this turn, distribute up to that many +1/+1 counters among any number of other target creatures.",
+        "image_url": "https://cards.scryfall.io/normal/front/2/9/29d3484f-abd1-43fe-99f8-e0fa0a7b6692.jpg?1608911191",
+        "backside_image_url": "",
+        "draft_pool": "GW"
+      },
+      {
+        "id": 2862,
+        "name": "Ertai Resurrected",
+        "mv": 4,
+        "color_identity": "BU",
+        "types": "Legendary Creature \u2014 Phyrexian Human Wizard",
+        "oracle_text": "Flash\nWhen Ertai Resurrected enters, choose up to one \u2014\n\u2022 Counter target spell, activated ability, or triggered ability. Its controller draws a card.\n\u2022 Destroy another target creature or planeswalker. Its controller draws a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/f/7f7e780e-fbc5-4dc0-b5c7-efcb8645c7c6.jpg?1673307944",
+        "backside_image_url": "",
+        "draft_pool": "BU"
+      },
+      {
+        "id": 2863,
+        "name": "Dralnu, Lich Lord",
+        "mv": 5,
+        "color_identity": "BU",
+        "types": "Legendary Creature \u2014 Zombie Wizard",
+        "oracle_text": "If damage would be dealt to Dralnu, sacrifice that many permanents instead.\n{T}: Target instant or sorcery card in your graveyard gains flashback until end of turn. The flashback cost is equal to its mana cost. (You may cast that card from your graveyard for its flashback cost. Then exile it.)",
+        "image_url": "https://cards.scryfall.io/normal/front/9/5/9554f402-35d4-43ac-9494-9d17d2a79092.jpg?1619403892",
+        "backside_image_url": "",
+        "draft_pool": "BU"
+      },
+      {
+        "id": 2864,
+        "name": "X",
+        "mv": 2,
+        "color_identity": "BU",
+        "types": "Legendary Creature \u2014 Human Spy",
+        "oracle_text": "As long as X is in X's owner's opponent's hand, X's owner may cast X and activate X's abilities. That opponent can't cast X and plays with their hand revealed.\n{U}{B}, {T}: Put X into target opponent's hand.\n{3}{U}{B}: You may play a land or cast a spell from the hand X is in. If you cast a spell this way, you cast it without paying its mana cost.",
+        "image_url": "https://cards.scryfall.io/normal/front/f/7/f77f6e64-2470-4c6a-a92b-328e4edc3ea9.jpg?1562947258",
+        "backside_image_url": "",
+        "draft_pool": "BU"
+      },
+      {
+        "id": 2865,
+        "name": "Xenagos, God of Revels",
+        "mv": 5,
+        "color_identity": "GR",
+        "types": "Legendary Enchantment Creature \u2014 God",
+        "oracle_text": "Indestructible\nAs long as your devotion to red and green is less than seven, Xenagos isn't a creature.\nAt the beginning of combat on your turn, another target creature you control gains haste and gets +X/+X until end of turn, where X is that creature's power.",
+        "image_url": "https://cards.scryfall.io/normal/front/6/f/6f1bc3bb-46da-492a-850c-f1f588ad8d18.jpg?1732546037",
+        "backside_image_url": "",
+        "draft_pool": "GR"
+      },
+      {
+        "id": 2866,
+        "name": "Ruric Thar, the Unbowed",
+        "mv": 6,
+        "color_identity": "GR",
+        "types": "Legendary Creature \u2014 Ogre Warrior",
+        "oracle_text": "Vigilance, reach\nRuric Thar attacks each combat if able.\nWhenever a player casts a noncreature spell, Ruric Thar deals 6 damage to that player.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/a/aa828bdc-221e-4e81-9e71-6f288690ddcd.jpg?1673149099",
+        "backside_image_url": "",
+        "draft_pool": "GR"
+      },
+      {
+        "id": 2867,
+        "name": "Elas il-Kor, Sadistic Pilgrim",
+        "mv": 2,
+        "color_identity": "BW",
+        "types": "Legendary Creature \u2014 Phyrexian Kor Cleric",
+        "oracle_text": "Deathtouch\nWhenever another creature you control enters, you gain 1 life.\nWhenever another creature you control dies, each opponent loses 1 life.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/c/1c3f0ffe-cf51-4c30-8cd5-9e3c7e92c019.jpg?1673307936",
+        "backside_image_url": "",
+        "draft_pool": "BW"
+      },
+      {
+        "id": 2868,
+        "name": "Duke Ulder Ravengard",
+        "mv": 6,
+        "color_identity": "RW",
+        "types": "Legendary Creature \u2014 Human Noble Soldier",
+        "oracle_text": "At the beginning of combat on your turn, another target creature you control gains haste and myriad until end of turn. (Whenever it attacks, for each opponent other than defending player, you may create a token copy that's tapped and attacking that player or a planeswalker they control. Exile the tokens at end of combat.)",
+        "image_url": "https://cards.scryfall.io/normal/front/0/8/082a8ffc-a052-498f-b457-8d70ea18a943.jpg?1674137485",
+        "backside_image_url": "",
+        "draft_pool": "RW"
+      },
+      {
+        "id": 2869,
+        "name": "Zirda, the Dawnwaker",
+        "mv": 3,
+        "color_identity": "RW",
+        "types": "Legendary Creature \u2014 Elemental Fox",
+        "oracle_text": "Companion \u2014 Each permanent card in your starting deck has an activated ability. (If this card is your chosen companion, you may put it into your hand from outside the game for {3} as a sorcery.)\nAbilities you activate that aren't mana abilities cost {2} less to activate. This effect can't reduce the mana in that cost to less than one mana.\n{1}, {T}: Target creature can't block this turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/b/1bd8e61c-2ee8-4243-a848-7008810db8a0.jpg?1757150547",
+        "backside_image_url": "",
+        "draft_pool": "RW"
+      },
+      {
+        "id": 2870,
+        "name": "Aurelia, the Warleader",
+        "mv": 6,
+        "color_identity": "RW",
+        "types": "Legendary Creature \u2014 Angel",
+        "oracle_text": "Flying, vigilance, haste\nWhenever Aurelia attacks for the first time each turn, untap all creatures you control. After this phase, there is an additional combat phase.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/c/bc6ffc1c-575b-4116-83c9-d13b29886c35.jpg?1730491066",
+        "backside_image_url": "",
+        "draft_pool": "RW"
+      },
+      {
+        "id": 2871,
+        "name": "Chainer, Nightmare Adept",
+        "mv": 4,
+        "color_identity": "BR",
+        "types": "Legendary Creature \u2014 Human Minion",
+        "oracle_text": "Discard a card: You may cast a creature spell from your graveyard this turn. Activate only once each turn.\nWhenever a nontoken creature you control enters, if you didn't cast it from your hand, it gains haste until your next turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/8/d8089e7f-7619-43fe-8e0b-31ce5d988a1b.jpg?1626100713",
+        "backside_image_url": "",
+        "draft_pool": "BR"
+      },
+      {
+        "id": 2872,
+        "name": "Saheeli, the Gifted",
+        "mv": 4,
+        "color_identity": "RU",
+        "types": "Legendary Planeswalker \u2014 Saheeli",
+        "oracle_text": "+1: Create a 1/1 colorless Servo artifact creature token.\n+1: The next spell you cast this turn has affinity for artifacts. (It costs {1} less to cast for each artifact you control as you cast it.)\n\u22127: For each artifact you control, create a token that's a copy of it. Those tokens gain haste. Exile those tokens at the beginning of the next end step.\nSaheeli, the Gifted can be your commander.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/a/ca095559-ac77-4186-8d9b-b75ce0607582.jpg?1592710284",
+        "backside_image_url": "",
+        "draft_pool": "RU"
+      },
+      {
+        "id": 2873,
+        "name": "Deathleaper, Terror Weapon",
+        "mv": 4,
+        "color_identity": "GR",
+        "types": "Legendary Creature \u2014 Tyranid",
+        "oracle_text": "Flash\nHaste\nFlesh Hooks \u2014 Creatures you control that entered this turn have double strike.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/8/9819d50f-aae8-4e92-8dab-01eebace3c1e.jpg?1673309323",
+        "backside_image_url": "",
+        "draft_pool": "GR"
+      },
+      {
+        "id": 2874,
+        "name": "Phoenix Chick",
+        "mv": 1,
+        "color_identity": "R",
+        "types": "Creature \u2014 Phoenix",
+        "oracle_text": "Flying, haste\nThis creature can't block.\nWhenever you attack with three or more creatures, you may pay {R}{R}. If you do, return this card from your graveyard to the battlefield tapped and attacking with a +1/+1 counter on it.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/6/76bdc912-61da-428d-b0d7-3a38676a402a.jpg?1673307472",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2875,
+        "name": "The Balrog, Durin's Bane",
+        "mv": 7,
+        "color_identity": "BR",
+        "types": "Legendary Creature \u2014 Avatar Demon",
+        "oracle_text": "This spell costs {1} less to cast for each permanent sacrificed this turn.\nHaste\nThe Balrog can't be blocked except by legendary creatures.\nWhen The Balrog dies, destroy target artifact or creature an opponent controls.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/1/416880c3-cefb-45ea-bcc3-2ec7a70c8097.jpg?1686969678",
+        "backside_image_url": "",
+        "draft_pool": "BR"
+      },
+      {
+        "id": 2876,
+        "name": "Gingerbrute",
+        "mv": 1,
+        "color_identity": "C",
+        "types": "Artifact Creature \u2014 Food Golem",
+        "oracle_text": "Haste (This creature can attack and {T} as soon as it comes under your control.)\n{1}: This creature can't be blocked this turn except by creatures with haste.\n{2}, {T}, Sacrifice this creature: You gain 3 life.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/9/09a4578a-7dc6-4da3-93ee-913b10be5740.jpg?1692939880",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 2877,
+        "name": "Goldvein Hydra",
+        "mv": 1,
+        "color_identity": "G",
+        "types": "Creature \u2014 Hydra",
+        "oracle_text": "Vigilance, trample, haste\nThis creature enters with X +1/+1 counters on it.\nWhen this creature dies, create a number of tapped Treasure tokens equal to its power.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/b/3baebc29-bc89-4b56-a821-b5d3ca0cd3b4.jpg?1775941491",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 2878,
+        "name": "Beastcaller Savant",
+        "mv": 2,
+        "color_identity": "G",
+        "types": "Creature \u2014 Elf Shaman Ally",
+        "oracle_text": "Haste\n{T}: Add one mana of any color. Spend this mana only to cast a creature spell.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/c/cca9f5da-986c-43ab-a2ec-efb8b098c17c.jpg?1562943299",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 2879,
+        "name": "Charming Scoundrel",
+        "mv": 2,
+        "color_identity": "R",
+        "types": "Creature \u2014 Human Rogue",
+        "oracle_text": "Haste\nWhen this creature enters, choose one \u2014\n\u2022 Discard a card, then draw a card.\n\u2022 Create a Treasure token.\n\u2022 Create a Wicked Role token attached to target creature you control.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/8/c8090bcf-e17a-4110-a518-77ccd045b18f.jpg?1692938132",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2880,
+        "name": "Rabbit Battery",
+        "mv": 1,
+        "color_identity": "R",
+        "types": "Artifact Creature \u2014 Equipment Rabbit",
+        "oracle_text": "Haste\nEquipped creature gets +1/+1 and has haste.\nReconfigure {R} ({R}: Attach to target creature you control; or unattach from a creature. Reconfigure only as a sorcery. While attached, this isn't a creature.)",
+        "image_url": "https://cards.scryfall.io/normal/front/5/d/5d33a5b7-797b-4079-8d62-edd124c0fb5a.jpg?1654567784",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2881,
+        "name": "Shivan Devastator",
+        "mv": 1,
+        "color_identity": "R",
+        "types": "Creature \u2014 Dragon Hydra",
+        "oracle_text": "Flying, haste\nThis creature enters with X +1/+1 counters on it.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/f/1f5d274c-3a03-4f0d-97e8-7eef6508105d.jpg?1739412083",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2882,
+        "name": "Dreadhorde Butcher",
+        "mv": 2,
+        "color_identity": "BR",
+        "types": "Creature \u2014 Zombie Warrior",
+        "oracle_text": "Haste\nWhenever this creature deals combat damage to a player or planeswalker, put a +1/+1 counter on this creature.\nWhen this creature dies, it deals damage equal to its power to any target.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/5/457bc402-4c31-465c-95e1-694f686e257e.jpg?1557577122",
+        "backside_image_url": "",
+        "draft_pool": "BR"
+      },
+      {
+        "id": 2883,
+        "name": "Overgrown Battlement",
+        "mv": 2,
+        "color_identity": "G",
+        "types": "Creature \u2014 Wall",
+        "oracle_text": "Defender\n{T}: Add {G} for each creature you control with defender.",
+        "image_url": "https://cards.scryfall.io/normal/front/6/8/680f6308-4469-4565-873e-40fb5aaef27d.jpg?1743206975",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 2884,
+        "name": "Wall of Omens",
+        "mv": 2,
+        "color_identity": "W",
+        "types": "Creature \u2014 Wall",
+        "oracle_text": "Defender\nWhen this creature enters, draw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/d/3d134bb2-17ec-4e65-976e-f06fa983f3fb.jpg?1744479505",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2885,
+        "name": "The Pride of Hull Clade",
+        "mv": 11,
+        "color_identity": "GU",
+        "types": "Legendary Creature \u2014 Crocodile Elk Turtle",
+        "oracle_text": "This spell costs {X} less to cast, where X is the total toughness of creatures you control.\nDefender\n{2}{U}{U}: Until end of turn, target creature you control gets +1/+0, gains \"Whenever this creature deals combat damage to a player, draw cards equal to its toughness,\" and can attack as though it didn't have defender.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/d/edb40ab9-e552-4eb5-9c35-09094136dd4f.jpg?1706242068",
+        "backside_image_url": "",
+        "draft_pool": "GU"
+      },
+      {
+        "id": 2886,
+        "name": "Sunscape Familiar",
+        "mv": 2,
+        "color_identity": "W",
+        "types": "Creature \u2014 Wall",
+        "oracle_text": "Defender (This creature can't attack.)\nGreen spells and blue spells you cast cost {1} less to cast.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/6/9621f341-bf85-4b77-bf19-2fb013b4c955.jpg?1562926745",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2887,
+        "name": "Crashing Drawbridge",
+        "mv": 2,
+        "color_identity": "C",
+        "types": "Artifact Creature \u2014 Wall",
+        "oracle_text": "Defender\n{T}: Creatures you control gain haste until end of turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/1/018257cf-8981-4691-92ab-6a33f77c9680.jpg?1743207297",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 2888,
+        "name": "Wall of Frost",
+        "mv": 3,
+        "color_identity": "U",
+        "types": "Creature \u2014 Wall",
+        "oracle_text": "Defender\nWhenever this creature blocks a creature, that creature doesn't untap during its controller's next untap step.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/5/b5ab28ee-f70d-441b-bb4e-8e781f26e2bc.jpg?1593813182",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2889,
+        "name": "Hover Barrier",
+        "mv": 3,
+        "color_identity": "U",
+        "types": "Creature \u2014 Illusion Wall",
+        "oracle_text": "Defender, flying",
+        "image_url": "https://cards.scryfall.io/normal/front/8/8/884afdb3-0d5f-45a1-b57e-6c3760aa0031.jpg?1562789441",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2890,
+        "name": "Perimeter Captain",
+        "mv": 1,
+        "color_identity": "W",
+        "types": "Creature \u2014 Human Soldier",
+        "oracle_text": "Defender\nWhenever a creature you control with defender blocks, you may gain 2 life.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/e/4e532309-5cf9-4d12-b673-f9baad30b800.jpg?1562286827",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2891,
+        "name": "Crystal Barricade",
+        "mv": 2,
+        "color_identity": "W",
+        "types": "Artifact Creature \u2014 Wall",
+        "oracle_text": "Defender (This creature can't attack.)\nYou have hexproof. (You can't be the target of spells or abilities your opponents control.)\nPrevent all noncombat damage that would be dealt to other creatures you control.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/0/905d3e02-ea06-45e7-9adb-c8e7583323a2.jpg?1730488615",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2892,
+        "name": "Jeskai Barricade",
+        "mv": 2,
+        "color_identity": "W",
+        "types": "Creature \u2014 Wall",
+        "oracle_text": "Flash (You may cast this spell any time you could cast an instant.)\nDefender\nWhen this creature enters, you may return another target creature you control to its owner's hand.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/a/3aa2d511-6eec-42dd-9ebe-1260c8527856.jpg?1562824309",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2894,
+        "name": "Vine Trellis",
+        "mv": 2,
+        "color_identity": "G",
+        "types": "Creature \u2014 Plant Wall",
+        "oracle_text": "Defender (This creature can't attack.)\n{T}: Add {G}.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/6/4683fa31-da33-4313-82b5-0ed91f33e8d3.jpg?1562911544",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 2895,
+        "name": "Weathered Sentinels",
+        "mv": 3,
+        "color_identity": "C",
+        "types": "Artifact Creature \u2014 Wall",
+        "oracle_text": "Defender, vigilance, reach, trample\nThis creature can attack players who attacked you during their last turn as though it didn't have defender.\nWhenever this creature attacks, it gets +3/+3 and gains indestructible until end of turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/2/4/24a3df0f-071e-4639-b425-9f65ec6d4fc0.jpg?1743207408",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 2897,
+        "name": "Wall of Runes",
+        "mv": 1,
+        "color_identity": "U",
+        "types": "Creature \u2014 Wall",
+        "oracle_text": "Defender (This creature can't attack.)\nWhen this creature enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+        "image_url": "https://cards.scryfall.io/normal/front/6/a/6ac0f66a-213f-463e-8ebb-35ff5940ea06.jpg?1594735927",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2898,
+        "name": "Corrupted Shapeshifter",
+        "mv": 4,
+        "color_identity": "U",
+        "types": "Creature \u2014 Eldrazi Shapeshifter",
+        "oracle_text": "Devoid (This card has no color.)\nAs this creature enters, it becomes your choice of a 3/3 creature with flying, a 2/5 creature with vigilance, or a 0/12 creature with defender.",
+        "image_url": "https://cards.scryfall.io/normal/front/2/7/27534c8a-cb71-43bc-b706-80a525396222.jpg?1717011657",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2899,
+        "name": "Flumph",
+        "mv": 2,
+        "color_identity": "W",
+        "types": "Creature \u2014 Jellyfish",
+        "oracle_text": "Defender, flying\nWhenever this creature is dealt damage, you and target opponent each draw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/d/cdc86e78-8911-4a0d-ba3a-7802f8d991ef.jpg?1627701697",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2900,
+        "name": "Gatecreeper Vine",
+        "mv": 2,
+        "color_identity": "G",
+        "types": "Creature \u2014 Plant",
+        "oracle_text": "Defender\nWhen this creature enters, you may search your library for a basic land card or a Gate card, reveal it, put it into your hand, then shuffle.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/1/e1ebaed7-b3d5-4eb8-93f7-3a65fd7b89b6.jpg?1592754674",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 2901,
+        "name": "Drift of Phantasms",
+        "mv": 3,
+        "color_identity": "U",
+        "types": "Creature \u2014 Spirit",
+        "oracle_text": "Defender (This creature can't attack.)\nFlying\nTransmute {1}{U}{U} ({1}{U}{U}, Discard this card: Search your library for a card with the same mana value as this card, reveal it, put it into your hand, then shuffle. Transmute only as a sorcery.)",
+        "image_url": "https://cards.scryfall.io/normal/front/d/7/d722c22d-3cab-48b5-96cd-0874060ac9a4.jpg?1702429366",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2902,
+        "name": "Towering Titan",
+        "mv": 6,
+        "color_identity": "G",
+        "types": "Creature \u2014 Giant",
+        "oracle_text": "This creature enters with X +1/+1 counters on it, where X is the total toughness of other creatures you control.\nSacrifice a creature with defender: All creatures gain trample until end of turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/2/f/2f75be32-0e5a-4d4f-93b4-149892df381c.jpg?1743207052",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 2903,
+        "name": "Wall of Nets",
+        "mv": 3,
+        "color_identity": "W",
+        "types": "Creature \u2014 Wall",
+        "oracle_text": "Defender (This creature can't attack.)\nAt end of combat, exile all creatures blocked by this creature.\nWhen this creature leaves the battlefield, return all cards exiled with it to the battlefield under their owners' control.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/1/c1da8e79-365d-4a36-87c5-648085828f9f.jpg?1562088787",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2904,
+        "name": "Wall of Tears",
+        "mv": 2,
+        "color_identity": "U",
+        "types": "Creature \u2014 Wall",
+        "oracle_text": "Defender (This creature can't attack.)\nWhenever this creature blocks a creature, return that creature to its owner's hand at end of combat.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/6/4638d815-fb86-490c-84d6-777a1c6131d6.jpg?1587857364",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2905,
+        "name": "Karn, Legacy Reforged",
+        "mv": 5,
+        "color_identity": "C",
+        "types": "Legendary Artifact Creature \u2014 Golem",
+        "oracle_text": "Karn's power and toughness are each equal to the greatest mana value among artifacts you control.\nAt the beginning of your upkeep, add {C} for each artifact you control. This mana can't be spent to cast nonartifact spells. Until end of turn, you don't lose this mana as steps and phases end.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/2/4219b5ea-a252-4d76-a60a-9674340e8ed3.jpg?1684340871",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 2906,
+        "name": "Moonshadow",
+        "mv": 1,
+        "color_identity": "B",
+        "types": "Creature \u2014 Elemental",
+        "oracle_text": "Menace\nThis creature enters with six -1/-1 counters on it.\nWhenever one or more permanent cards are put into your graveyard from anywhere while this creature has a -1/-1 counter on it, remove a -1/-1 counter from this creature.",
+        "image_url": "https://cards.scryfall.io/normal/front/2/5/2573e694-eaa0-42ca-b470-2ab507cbcec1.jpg?1767952044",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2907,
+        "name": "Nowhere to Run",
+        "mv": 2,
+        "color_identity": "B",
+        "types": "Enchantment",
+        "oracle_text": "Flash\nWhen this enchantment enters, target creature an opponent controls gets -3/-3 until end of turn.\nCreatures your opponents control can be the targets of spells and abilities as though they didn't have hexproof. Ward abilities of those creatures don't trigger.",
+        "image_url": "https://cards.scryfall.io/normal/front/f/e/fee60e9d-9ee7-444a-88f3-c1929e1888fb.jpg?1726286262",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2908,
+        "name": "Guide of Souls",
+        "mv": 1,
+        "color_identity": "W",
+        "types": "Creature \u2014 Human Cleric",
+        "oracle_text": "Whenever another creature you control enters, you gain 1 life and get {E} (an energy counter).\nWhenever you attack, you may pay {E}{E}{E}. When you do, put two +1/+1 counters and a flying counter on target attacking creature. It becomes an Angel in addition to its other types.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/6/76c3cad2-1e25-4abe-878d-9194de6fcc27.jpg?1763472842",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2909,
+        "name": "Proteus Staff",
+        "mv": 3,
+        "color_identity": "U",
+        "types": "Artifact",
+        "oracle_text": "{2}{U}, {T}: Put target creature on the bottom of its owner's library. That creature's controller reveals cards from the top of their library until they reveal a creature card. The player puts that card onto the battlefield and the rest on the bottom of their library in any order. Activate only as a sorcery.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/5/55e5c69c-43d0-4f5b-8720-40074eb122bb.jpg?1562144304",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2910,
+        "name": "Sami, Wildcat Captain",
+        "mv": 6,
+        "color_identity": "RW",
+        "types": "Legendary Creature \u2014 Human Artificer Rogue",
+        "oracle_text": "Double strike, vigilance\nSpells you cast have affinity for artifacts. (They cost {1} less to cast for each artifact you control.)",
+        "image_url": "https://cards.scryfall.io/normal/front/b/e/bed64207-9193-4770-8f8f-e3203289d5a6.jpg?1752947484",
+        "backside_image_url": "",
+        "draft_pool": "RW"
+      },
+      {
+        "id": 2911,
+        "name": "Crypt Ghast",
+        "mv": 4,
+        "color_identity": "B",
+        "types": "Creature \u2014 Spirit",
+        "oracle_text": "Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.)\nWhenever you tap a Swamp for mana, add an additional {B}.",
+        "image_url": "https://cards.scryfall.io/normal/front/6/0/60bebd79-f88c-44ef-8920-e19031bad1d6.jpg?1702429435",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2912,
+        "name": "Radiate",
+        "mv": 5,
+        "color_identity": "R",
+        "types": "Instant",
+        "oracle_text": "Choose target instant or sorcery spell that targets only a single permanent or player. Copy that spell for each other permanent or player the spell could target. Each copy targets a different one of those permanents and players.",
+        "image_url": "https://cards.scryfall.io/normal/front/2/5/2562c25a-999e-4fb5-a595-f376c8abf1ff.jpg?1562628967",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2913,
+        "name": "Sadistic Shell Game",
+        "mv": 5,
+        "color_identity": "B",
+        "types": "Sorcery",
+        "oracle_text": "Starting with the next opponent in turn order, each player chooses a creature you don't control. Destroy the chosen creatures.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/c/4c5c8eb3-c866-4974-90eb-be99c07af1a1.jpg?1726284159",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2914,
+        "name": "Taigam, Master Opportunist",
+        "mv": 2,
+        "color_identity": "U",
+        "types": "Legendary Creature \u2014 Human Monk",
+        "oracle_text": "Flurry \u2014 Whenever you cast your second spell each turn, copy it, then exile the spell you cast with four time counters on it. If it doesn't have suspend, it gains suspend. (At the beginning of its owner's upkeep, they remove a time counter. When the last is removed, they may play it without paying its mana cost. If it's a creature, it has haste.)",
+        "image_url": "https://cards.scryfall.io/normal/front/8/6/8693d631-05f6-414d-9e49-6385746e8960.jpg?1743204200",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2915,
+        "name": "Truss, Chief Engineer",
+        "mv": 2,
+        "color_identity": "BU",
+        "types": "Legendary Creature \u2014 Vedalken Rogue Employee",
+        "oracle_text": "Whenever Truss, Chief Engineer enters or another creature dies, put a hack counter on Truss.\n{2}, {T}, Remove X hack counters from Truss: Add or subtract X from a number or number word on target spell or permanent until end of turn. This effect can't reduce a number below 1 or a number word below one.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/3/73b6f092-08b9-4c67-836a-28006ea3b2df.jpg?1673915004",
+        "backside_image_url": "",
+        "draft_pool": "M"
+      },
+      {
+        "id": 2916,
+        "name": "Scurry of Squirrels",
+        "mv": 3,
+        "color_identity": "G",
+        "types": "Creature \u2014 Squirrel Scout",
+        "oracle_text": "Myriad, myriad (Whenever this creature attacks, for each opponent other than defending player, you may create a token that's a copy of this creature that's tapped and attacking that player or a planeswalker they control. Then do it again. Exile the tokens at end of combat.)\nWhenever this creature deals combat damage to a player, put a +1/+1 counter on target creature you control.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/3/c343b965-af2b-45c3-babb-9242736cf1e5.jpg?1721428298",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 2917,
+        "name": "Twenty-Toed Toad",
+        "mv": 4,
+        "color_identity": "U",
+        "types": "Creature \u2014 Frog Wizard",
+        "oracle_text": "Your maximum hand size is twenty.\nWhenever you attack with two or more creatures, put a +1/+1 counter on this creature and draw a card.\nWhenever this creature attacks, you win the game if there are twenty or more counters on it or you have twenty or more cards in hand.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/b/1b3de0d8-5911-4743-8623-010f12c2055b.jpg?1734111522",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2918,
+        "name": "Jacked Rabbit",
+        "mv": 2,
+        "color_identity": "W",
+        "types": "Creature \u2014 Rabbit Warrior",
+        "oracle_text": "Ravenous (This creature enters with X +1/+1 counters on it. If X is 5 or more, draw a card when it enters.)\nWhenever this creature attacks, create a number of 1/1 white Rabbit creature tokens equal to this creature's power.",
+        "image_url": "https://cards.scryfall.io/normal/front/2/c/2c695df6-6bf2-4e6b-8500-e3116137ca27.jpg?1721428172",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2919,
+        "name": "Marionette Apprentice",
+        "mv": 2,
+        "color_identity": "B",
+        "types": "Creature \u2014 Human Artificer",
+        "oracle_text": "Fabricate 1 (When this creature enters, put a +1/+1 counter on it or create a 1/1 colorless Servo artifact creature token.)\nWhenever another creature or artifact you control is put into a graveyard from the battlefield, each opponent loses 1 life.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/1/d16f8670-f038-400a-83e7-a53a7f8c47ac.jpg?1717012013",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2920,
+        "name": "Coram, the Undertaker",
+        "mv": 4,
+        "color_identity": "BGR",
+        "types": "Legendary Creature \u2014 Human Warrior",
+        "oracle_text": "Coram gets +X/+0, where X is the greatest power among creature cards in all graveyards.\nWhenever Coram attacks, each player mills a card.\nDuring each of your turns, you may play a land and cast a spell from among cards in graveyards that were put there from libraries this turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/b/ab5cfb0c-8e95-4d2d-9e23-cf58c1c7e51c.jpg?1727175651",
+        "backside_image_url": "",
+        "draft_pool": "BGR"
+      },
+      {
+        "id": 2921,
+        "name": "Jeweled Lotus",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Artifact",
+        "oracle_text": "{T}, Sacrifice this artifact: Add three mana of any one color. Spend this mana only to cast your commander.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/7/d7183700-6941-4a3d-a581-4f33bea795e9.jpg?1727093687",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 2922,
+        "name": "Trigger Happy",
+        "mv": 2,
+        "color_identity": "R",
+        "types": "Instant",
+        "oracle_text": "Choose a triggered ability of target permanent. It triggers. You control that ability.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/c/5cafb84c-6e35-488c-a219-c6bbdb3ac565.jpg?1673914473",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2923,
+        "name": "Faramir, Prince of Ithilien",
+        "mv": 4,
+        "color_identity": "UW",
+        "types": "Legendary Creature \u2014 Human Noble",
+        "oracle_text": "At the beginning of your end step, choose an opponent. At the beginning of that player's next end step, you draw a card if they didn't attack you that turn. Otherwise, create three 1/1 white Human Soldier creature tokens.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/7/8700923a-e9ff-4ced-87fe-1ab26554623a.jpg?1686969755",
+        "backside_image_url": "",
+        "draft_pool": "UW"
+      },
+      {
+        "id": 2924,
+        "name": "Vnwxt, Verbose Host",
+        "mv": 2,
+        "color_identity": "U",
+        "types": "Legendary Creature \u2014 Homunculus",
+        "oracle_text": "Start your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\nYou have no maximum hand size.\nMax speed \u2014 If you would draw a card, draw two cards instead.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/9/893254c7-64cc-4cb9-b79f-2c41a8935ea0.jpg?1738356279",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2925,
+        "name": "Muddle, the Ever-Changing",
+        "mv": 4,
+        "color_identity": "RU",
+        "types": "Legendary Creature \u2014 Elemental Otter Shapeshifter",
+        "oracle_text": "Whenever you cast an instant or sorcery spell, Muddle becomes a copy of up to one target nonlegendary creature you control until end of turn, except it has myriad. (Whenever it attacks, for each opponent other than defending player, you may create a token copy that's tapped and attacking that player or a planeswalker they control. Exile the tokens at end of combat.)",
+        "image_url": "https://cards.scryfall.io/normal/front/9/1/916d3e31-3243-47b3-b7d2-ce9a6dd47aba.jpg?1776731076",
+        "backside_image_url": "",
+        "draft_pool": "RU"
+      },
+      {
+        "id": 2926,
+        "name": "Approach of the Second Sun",
+        "mv": 7,
+        "color_identity": "W",
+        "types": "Sorcery",
+        "oracle_text": "If this spell was cast from your hand and you've cast another spell named Approach of the Second Sun this game, you win the game. Otherwise, put Approach of the Second Sun into its owner's library seventh from the top and you gain 7 life.",
+        "image_url": "https://cards.scryfall.io/normal/front/f/d/fdf59a6e-7708-45a1-884d-d12e9f7b9ed9.jpg?1543674579",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2927,
+        "name": "Samut, the Driving Force",
+        "mv": 6,
+        "color_identity": "GRW",
+        "types": "Legendary Creature \u2014 Human Warrior Cleric",
+        "oracle_text": "First strike, vigilance, haste\nStart your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\nOther creatures you control get +X/+0, where X is your speed.\nNoncreature spells you cast cost {X} less to cast, where X is your speed.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/e/8efd8222-5c37-46d8-a2ec-1d7aae25320b.jpg?1738356742",
+        "backside_image_url": "",
+        "draft_pool": "GRW"
+      },
+      {
+        "id": 2928,
+        "name": "Farhaven Elf",
+        "mv": 3,
+        "color_identity": "G",
+        "types": "Creature \u2014 Elf Druid",
+        "oracle_text": "When this creature enters, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/2/320d0a4c-c556-4468-b934-bfdf17961a53.jpg?1631234906",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 2929,
+        "name": "Reanimate",
+        "mv": 1,
+        "color_identity": "B",
+        "types": "Sorcery",
+        "oracle_text": "Put target creature card from a graveyard onto the battlefield under your control. You lose life equal to that card's mana value.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/6/368b6903-5fc4-43e7-bd44-46b8107c8bb4.jpg?1738000013",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2930,
+        "name": "Persist",
+        "mv": 2,
+        "color_identity": "B",
+        "types": "Sorcery",
+        "oracle_text": "Return target nonlegendary creature card from your graveyard to the battlefield with a -1/-1 counter on it.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/7/b7a56356-91bf-42f5-ab21-af2c48e78fc3.jpg?1767866525",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2931,
+        "name": "Breach the Multiverse",
+        "mv": 7,
+        "color_identity": "B",
+        "types": "Sorcery",
+        "oracle_text": "Each player mills ten cards. For each player, choose a creature or planeswalker card in that player's graveyard. Put those cards onto the battlefield under your control. Then each creature you control becomes a Phyrexian in addition to its other types.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/a/daf51a76-7a57-4462-ae18-a19e817e49e5.jpg?1682203621",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2932,
+        "name": "Incarnation Technique",
+        "mv": 5,
+        "color_identity": "B",
+        "types": "Sorcery",
+        "oracle_text": "Demonstrate (When you cast this spell, you may copy it. If you do, choose an opponent to also copy it.)\nMill five cards, then return a creature card from your graveyard to the battlefield.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/6/9655deda-f02b-47a0-89a3-2904b11b84aa.jpg?1625191710",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2933,
+        "name": "Storm-Kiln Artist",
+        "mv": 4,
+        "color_identity": "R",
+        "types": "Creature \u2014 Dwarf Shaman",
+        "oracle_text": "This creature gets +1/+0 for each artifact you control.\nMagecraft \u2014 Whenever you cast or copy an instant or sorcery spell, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+        "image_url": "https://cards.scryfall.io/normal/front/d/a/da7ae8e0-cb6b-4386-8a30-9527d1af9be5.jpg?1775941380",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2934,
+        "name": "Archmage Emeritus",
+        "mv": 4,
+        "color_identity": "U",
+        "types": "Creature \u2014 Human Wizard",
+        "oracle_text": "Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, draw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/d/dd547601-d650-4a02-a3a4-890bcef03a7c.jpg?1775940916",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2935,
+        "name": "Haughty Djinn",
+        "mv": 3,
+        "color_identity": "U",
+        "types": "Creature \u2014 Djinn",
+        "oracle_text": "Flying\nHaughty Djinn's power is equal to the number of instant and sorcery cards in your graveyard.\nInstant and sorcery spells you cast cost {1} less to cast.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/c/8cabaf8a-5e19-4f26-be2b-7627b9c8e324.jpg?1743206330",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2936,
+        "name": "Teach by Example",
+        "mv": 2,
+        "color_identity": "RU",
+        "types": "Instant",
+        "oracle_text": "({U/R} can be paid with either {U} or {R}.)\nWhen you next cast an instant or sorcery spell this turn, copy that spell. You may choose new targets for the copy.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/1/516baae5-f7bf-4a90-a80d-192ff19dbae5.jpg?1730491119",
+        "backside_image_url": "",
+        "draft_pool": "RU"
+      },
+      {
+        "id": 2982,
+        "name": "Mishra's Bauble",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Artifact",
+        "oracle_text": "{T}, Sacrifice this artifact: Look at the top card of target player's library. Draw a card at the beginning of the next turn's upkeep.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/5/45bbbf9b-8fee-4c32-a513-02dac6ac8a39.jpg?1669300401",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 2937,
+        "name": "Mondrak, Glory Dominus",
+        "mv": 4,
+        "color_identity": "W",
+        "types": "Legendary Creature \u2014 Phyrexian Horror",
+        "oracle_text": "If one or more tokens would be created under your control, twice that many of those tokens are created instead.\n{1}{W/P}{W/P}, Sacrifice two other artifacts and/or creatures: Put an indestructible counter on Mondrak. ({W/P} can be paid with either {W} or 2 life.)",
+        "image_url": "https://cards.scryfall.io/normal/front/8/2/8296a455-21d5-498e-9029-2bdf0da855a8.jpg?1675956918",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2938,
+        "name": "Adeline, Resplendent Cathar",
+        "mv": 3,
+        "color_identity": "W",
+        "types": "Legendary Creature \u2014 Human Knight",
+        "oracle_text": "Vigilance\nAdeline's power is equal to the number of creatures you control.\nWhenever you attack, for each opponent, create a 1/1 white Human creature token that's tapped and attacking that player or a planeswalker they control.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/d/1de30c12-2011-495a-be25-f7a46b23e142.jpg?1743206101",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2939,
+        "name": "Call the Coppercoats",
+        "mv": 3,
+        "color_identity": "W",
+        "types": "Instant",
+        "oracle_text": "Strive \u2014 This spell costs {1}{W} more to cast for each target beyond the first.\nChoose any number of target opponents. Create X 1/1 white Human Soldier creature tokens, where X is the number of creatures those opponents control.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/2/e203daaf-bd68-4251-9106-00299b3ad662.jpg?1673483634",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2940,
+        "name": "Thought Monitor",
+        "mv": 7,
+        "color_identity": "U",
+        "types": "Artifact Creature \u2014 Construct",
+        "oracle_text": "Affinity for artifacts (This spell costs {1} less to cast for each artifact you control.)\nFlying\nWhen this creature enters, draw two cards.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/8/18a6ea89-417c-4ee0-a410-8a0067b92967.jpg?1752944665",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2941,
+        "name": "Emry, Lurker of the Loch",
+        "mv": 3,
+        "color_identity": "U",
+        "types": "Legendary Creature \u2014 Merfolk Wizard",
+        "oracle_text": "Affinity for artifacts (This spell costs {1} less to cast for each artifact you control.)\nWhen Emry enters, mill four cards.\n{T}: Choose target artifact card in your graveyard. You may cast that card this turn. (You still pay its costs. Timing rules still apply.)",
+        "image_url": "https://cards.scryfall.io/normal/front/c/9/c977d89a-bfd1-4e98-9d95-3e41c53dd188.jpg?1752944590",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2942,
+        "name": "The Reality Chip",
+        "mv": 2,
+        "color_identity": "U",
+        "types": "Legendary Artifact Creature \u2014 Equipment Jellyfish",
+        "oracle_text": "You may look at the top card of your library any time.\nAs long as The Reality Chip is attached to a creature, you may play lands and cast spells from the top of your library.\nReconfigure {2}{U} ({2}{U}: Attach to target creature you control; or unattach from a creature. Reconfigure only as a sorcery. While attached, this isn't a creature.)",
+        "image_url": "https://cards.scryfall.io/normal/front/d/8/d859de3a-0be1-4e66-b438-1c3d4ee756cd.jpg?1654566909",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2943,
+        "name": "All That Glitters",
+        "mv": 2,
+        "color_identity": "W",
+        "types": "Enchantment \u2014 Aura",
+        "oracle_text": "Enchant creature\nEnchanted creature gets +1/+1 for each artifact and/or enchantment you control.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/f/5fc0b82a-f943-4330-b9e7-bb4527354bfd.jpg?1715600785",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2944,
+        "name": "Titan of Industry",
+        "mv": 7,
+        "color_identity": "G",
+        "types": "Creature \u2014 Elemental",
+        "oracle_text": "Reach, trample\nWhen this creature enters, choose two \u2014\n\u2022 Destroy target artifact or enchantment.\n\u2022 Target player gains 5 life.\n\u2022 Create a 4/4 green Rhino Warrior creature token.\n\u2022 Put a shield counter on a creature you control.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/3/432f2b57-4e7e-4717-8707-8cdbc1aae154.jpg?1767731211",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 2945,
+        "name": "Apex Devastator",
+        "mv": 10,
+        "color_identity": "G",
+        "types": "Creature \u2014 Chimera Hydra",
+        "oracle_text": "Cascade, cascade, cascade, cascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order. Multiple instances of cascade each trigger separately.)",
+        "image_url": "https://cards.scryfall.io/normal/front/8/f/8fa281e1-5c48-4bba-b8e9-88c6f5f53abb.jpg?1608910550",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 2946,
+        "name": "Selvala, Heart of the Wilds",
+        "mv": 3,
+        "color_identity": "G",
+        "types": "Legendary Creature \u2014 Elf Scout",
+        "oracle_text": "Whenever another creature enters, its controller may draw a card if its power is greater than each other creature's power.\n{G}, {T}: Add X mana in any combination of colors, where X is the greatest power among creatures you control.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/1/812856be-cf51-42de-96d2-4ac91e71d442.jpg?1767731229",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 2947,
+        "name": "Farewell",
+        "mv": 6,
+        "color_identity": "W",
+        "types": "Sorcery",
+        "oracle_text": "Choose one or more \u2014\n\u2022 Exile all artifacts.\n\u2022 Exile all creatures.\n\u2022 Exile all enchantments.\n\u2022 Exile all graveyards.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/1/114d2180-093b-4838-97ad-badbc8ee50b0.jpg?1770634933",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2948,
+        "name": "Vanquish the Horde",
+        "mv": 8,
+        "color_identity": "W",
+        "types": "Sorcery",
+        "oracle_text": "This spell costs {1} less to cast for each creature on the battlefield.\nDestroy all creatures.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/7/87514302-be90-4afe-9508-d9742425d1ba.jpg?1771424407",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2949,
+        "name": "An Offer You Can't Refuse",
+        "mv": 1,
+        "color_identity": "U",
+        "types": "Instant",
+        "oracle_text": "Counter target noncreature spell. Its controller creates two Treasure tokens. (They're artifacts with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+        "image_url": "https://cards.scryfall.io/normal/front/a/8/a829747f-cf9b-4d81-ba66-9f0630ed4565.jpg?1730489199",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2950,
+        "name": "Stroke of Midnight",
+        "mv": 3,
+        "color_identity": "W",
+        "types": "Instant",
+        "oracle_text": "Destroy target nonland permanent. Its controller creates a 1/1 white Human creature token.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/0/b000f605-177f-459d-a197-fcf54efec2fb.jpg?1744441429",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2951,
+        "name": "Cut Down",
+        "mv": 1,
+        "color_identity": "B",
+        "types": "Instant",
+        "oracle_text": "Destroy target creature with total power and toughness 5 or less.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/5/753db072-5d6a-4f37-8f7d-255572ecd3bd.jpg?1673307061",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2952,
+        "name": "Kami of Whispered Hopes",
+        "mv": 3,
+        "color_identity": "G",
+        "types": "Creature \u2014 Spirit",
+        "oracle_text": "If one or more +1/+1 counters would be put on a permanent you control, that many plus one +1/+1 counters are put on that permanent instead.\n{T}: Add X mana of any one color, where X is this creature's power.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/b/0be4e5f6-a1fc-4a91-aafe-f963878cd1b3.jpg?1775941512",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 2953,
+        "name": "Tyvar, Jubilant Brawler",
+        "mv": 3,
+        "color_identity": "BG",
+        "types": "Legendary Planeswalker \u2014 Tyvar",
+        "oracle_text": "You may activate abilities of creatures you control as though those creatures had haste.\n+1: Untap up to one target creature.\n\u22122: Mill three cards, then you may return a creature card with mana value 2 or less from your graveyard to the battlefield.",
+        "image_url": "https://cards.scryfall.io/normal/front/6/6/66605fe1-9a20-4c95-b53e-1249cedb978b.jpg?1675957216",
+        "backside_image_url": "",
+        "draft_pool": "BG"
+      },
+      {
+        "id": 2954,
+        "name": "Charix, the Raging Isle",
+        "mv": 4,
+        "color_identity": "U",
+        "types": "Legendary Creature \u2014 Leviathan Crab",
+        "oracle_text": "Spells your opponents cast that target Charix cost {2} more to cast.\n{3}: Charix gets +X/-X until end of turn, where X is the number of Islands you control.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/8/e83a6804-1e3c-428c-af5e-1d56ba11c108.jpg?1604193709",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2955,
+        "name": "Wall of Stolen Identity",
+        "mv": 4,
+        "color_identity": "U",
+        "types": "Creature \u2014 Shapeshifter Wall",
+        "oracle_text": "You may have this creature enter as a copy of any creature on the battlefield, except it's a Wall in addition to its other types and has defender. When you do, tap the copied creature and it doesn't untap during its controller's untap step for as long as you control this creature.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/5/359cc32c-ba90-43e0-b584-09efd321a672.jpg?1568003451",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2956,
+        "name": "War Room",
+        "mv": 0,
+        "color_identity": "",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{3}, {T}, Pay life equal to the number of colors in your commanders' color identity: Draw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/7/0775b4be-881c-4832-8954-d961064315b6.jpg?1775942539",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 2983,
+        "name": "Puca's Mischief",
+        "mv": 4,
+        "color_identity": "U",
+        "types": "Enchantment",
+        "oracle_text": "At the beginning of your upkeep, you may exchange control of target nonland permanent you control and target nonland permanent an opponent controls with equal or lesser mana value.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/3/8380bd90-35f2-4936-995b-af6427f61752.jpg?1562832467",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2957,
+        "name": "Boseiju, Who Endures",
+        "mv": 0,
+        "color_identity": "G",
+        "types": "Legendary Land",
+        "oracle_text": "{T}: Add {G}.\nChannel \u2014 {1}{G}, Discard this card: Destroy target artifact, enchantment, or nonbasic land an opponent controls. That player may search their library for a land card with a basic land type, put it onto the battlefield, then shuffle. This ability costs {1} less to activate for each legendary creature you control.",
+        "image_url": "https://cards.scryfall.io/normal/front/2/1/2135ac5a-187b-4dc9-8f82-34e8d1603416.jpg?1654568912",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 2958,
+        "name": "Eiganjo, Seat of the Empire",
+        "mv": 0,
+        "color_identity": "W",
+        "types": "Legendary Land",
+        "oracle_text": "{T}: Add {W}.\nChannel \u2014 {2}{W}, Discard this card: It deals 4 damage to target attacking or blocking creature. This ability costs {1} less to activate for each legendary creature you control.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/3/c375a022-5b57-496d-a802-e4ea8376e9e4.jpg?1654568932",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2959,
+        "name": "Otawara, Soaring City",
+        "mv": 0,
+        "color_identity": "U",
+        "types": "Legendary Land",
+        "oracle_text": "{T}: Add {U}.\nChannel \u2014 {3}{U}, Discard this card: Return target artifact, creature, enchantment, or planeswalker to its owner's hand. This ability costs {1} less to activate for each legendary creature you control.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/8/486d7edc-d983-41f0-8b78-c99aecd72996.jpg?1654568960",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2960,
+        "name": "Sokenzan, Crucible of Defiance",
+        "mv": 0,
+        "color_identity": "R",
+        "types": "Legendary Land",
+        "oracle_text": "{T}: Add {R}.\nChannel \u2014 {3}{R}, Discard this card: Create two 1/1 colorless Spirit creature tokens. They gain haste until end of turn. This ability costs {1} less to activate for each legendary creature you control.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/a/aa548dcd-c1dd-492d-a69f-c65dfeef0633.jpg?1654569016",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2961,
+        "name": "Grothama, All-Devouring",
+        "mv": 5,
+        "color_identity": "G",
+        "types": "Legendary Creature \u2014 Wurm",
+        "oracle_text": "Other creatures have \"Whenever this creature attacks, you may have it fight Grothama, All-Devouring.\"\nWhen Grothama leaves the battlefield, each player draws cards equal to the amount of damage dealt to Grothama this turn by sources they controlled.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/b/ab8935b1-ec87-4330-9952-9ef8cd344531.jpg?1686634880",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 2962,
+        "name": "Delney, Streetwise Lookout",
+        "mv": 3,
+        "color_identity": "W",
+        "types": "Legendary Creature \u2014 Human Scout",
+        "oracle_text": "Creatures you control with power 2 or less can't be blocked by creatures with power 3 or greater.\nIf a triggered ability of a creature you control with power 2 or less triggers, that ability triggers an additional time.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/e/be219928-3d0e-4d00-b124-152ce8a8c13b.jpg?1706241477",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2963,
+        "name": "Agatha of the Vile Cauldron",
+        "mv": 2,
+        "color_identity": "GR",
+        "types": "Legendary Creature \u2014 Human Warlock",
+        "oracle_text": "Activated abilities of creatures you control cost {X} less to activate, where X is Agatha's power. This effect can't reduce the mana in that cost to less than one mana.\n{4}{R}{G}: Other creatures you control get +1/+1 and gain trample and haste until end of turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/6/d6c48f07-63b7-4a60-8da6-ce77405abf1e.jpg?1693248393",
+        "backside_image_url": "",
+        "draft_pool": "GR"
+      },
+      {
+        "id": 2964,
+        "name": "Fraying Omnipotence",
+        "mv": 5,
+        "color_identity": "B",
+        "types": "Sorcery",
+        "oracle_text": "Each player loses half their life, then discards half the cards in their hand, then sacrifices half the creatures they control of their choice. Round up each time.",
+        "image_url": "https://cards.scryfall.io/normal/front/f/0/f0fa0ad8-854a-4b4e-9f87-e1dfaa11253c.jpg?1562304896",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2965,
+        "name": "Scout's Warning",
+        "mv": 1,
+        "color_identity": "W",
+        "types": "Instant",
+        "oracle_text": "The next creature card you play this turn can be played as though it had flash.\nDraw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/6/e6639e3d-b0c4-4c08-83d5-f3fc58fac9b2.jpg?1562941250",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2966,
+        "name": "Bandage",
+        "mv": 1,
+        "color_identity": "W",
+        "types": "Instant",
+        "oracle_text": "Prevent the next 1 damage that would be dealt to any target this turn.\nDraw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/9/89dbe086-4c03-448f-a346-49bc08d02705.jpg?1562430336",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2967,
+        "name": "Guided Strike",
+        "mv": 2,
+        "color_identity": "W",
+        "types": "Instant",
+        "oracle_text": "Target creature gets +1/+0 and gains first strike until end of turn.\nDraw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/6/9696feed-e8e3-434d-b155-1f5734966b49.jpg?1562851607",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2968,
+        "name": "Cremate",
+        "mv": 1,
+        "color_identity": "B",
+        "types": "Instant",
+        "oracle_text": "Exile target card from a graveyard.\nDraw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/1/013d5260-f906-4f6a-97ed-725197743b60.jpg?1562781792",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2969,
+        "name": "Aphotic Wisps",
+        "mv": 1,
+        "color_identity": "B",
+        "types": "Instant",
+        "oracle_text": "Target creature becomes black and gains fear until end of turn. (It can't be blocked except by artifact creatures and/or black creatures.)\nDraw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/2/52fd47e7-02c5-4f91-bb3b-697c4c53232a.jpg?1562830208",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2970,
+        "name": "Cerulean Wisps",
+        "mv": 1,
+        "color_identity": "U",
+        "types": "Instant",
+        "oracle_text": "Target creature becomes blue until end of turn. Untap that creature.\nDraw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/d/0dca4f46-0aad-484f-b4ea-ed61a4fc1a89.jpg?1562826712",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2971,
+        "name": "Crimson Wisps",
+        "mv": 1,
+        "color_identity": "R",
+        "types": "Instant",
+        "oracle_text": "Target creature becomes red and gains haste until end of turn. (It can attack and {T} this turn.)\nDraw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/6/a65c81ff-fc5d-4191-93fb-52eb806457b7.jpg?1562834247",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2972,
+        "name": "Niveous Wisps",
+        "mv": 1,
+        "color_identity": "W",
+        "types": "Instant",
+        "oracle_text": "Target creature becomes white until end of turn. Tap that creature.\nDraw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/e/bea1e2c4-1671-4322-b8ba-e4e1a879cf37.jpg?1562835473",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2973,
+        "name": "Viridescent Wisps",
+        "mv": 1,
+        "color_identity": "G",
+        "types": "Instant",
+        "oracle_text": "Target creature becomes green and gets +1/+0 until end of turn.\nDraw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/6/c/6c33871f-0e6a-4616-b484-e79b1945255f.jpg?1562831309",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 2974,
+        "name": "Renegade Tactics",
+        "mv": 1,
+        "color_identity": "R",
+        "types": "Sorcery",
+        "oracle_text": "Target creature can't block this turn.\nDraw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/d/7dfa0e65-1ce0-4f8e-a78b-2ade2d25e748.jpg?1608910360",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2975,
+        "name": "Expedite",
+        "mv": 1,
+        "color_identity": "R",
+        "types": "Instant",
+        "oracle_text": "Target creature gains haste until end of turn.\nDraw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/8/b86c0628-0b61-44f2-91cc-1c3c309631ce.jpg?1608912250",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2976,
+        "name": "Fists of Flame",
+        "mv": 2,
+        "color_identity": "R",
+        "types": "Instant",
+        "oracle_text": "Draw a card. Until end of turn, target creature gains trample and gets +1/+0 for each card you've drawn this turn. (A creature with trample can deal excess combat damage to the player or planeswalker it's attacking.)",
+        "image_url": "https://cards.scryfall.io/normal/front/6/b/6b34af88-bc4e-4ca8-8662-7dc4050c62c5.jpg?1689997821",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2977,
+        "name": "Benefactor's Draught",
+        "mv": 2,
+        "color_identity": "G",
+        "types": "Instant",
+        "oracle_text": "Untap all creatures. Until end of turn, whenever a creature an opponent controls blocks, draw a card.\nDraw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/4/e40f3dfb-3c5d-468a-9e0e-610ad3e11787.jpg?1562423207",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 2978,
+        "name": "Explore",
+        "mv": 2,
+        "color_identity": "G",
+        "types": "Sorcery",
+        "oracle_text": "You may play an additional land this turn.\nDraw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/9/3976affd-8c2b-499a-a946-b629c2ba59c7.jpg?1712354565",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 2979,
+        "name": "Abundant Harvest",
+        "mv": 1,
+        "color_identity": "G",
+        "types": "Sorcery",
+        "oracle_text": "Choose land or nonland. Reveal cards from the top of your library until you reveal a card of the chosen kind. Put that card into your hand and the rest on the bottom of your library in a random order.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/1/516e137a-d9d9-4ba7-89fb-e680ddb2c2d1.jpg?1689998315",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 2980,
+        "name": "Chromatic Star",
+        "mv": 1,
+        "color_identity": "C",
+        "types": "Artifact",
+        "oracle_text": "{1}, {T}, Sacrifice this artifact: Add one mana of any color.\nWhen this artifact is put into a graveyard from the battlefield, draw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/2/c2e8d492-2c67-410b-b556-c157a14c4cec.jpg?1681724919",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 2981,
+        "name": "Chromatic Sphere",
+        "mv": 1,
+        "color_identity": "C",
+        "types": "Artifact",
+        "oracle_text": "{1}, {T}, Sacrifice this artifact: Add one mana of any color. Draw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/d/edabc8b2-4413-48e4-8d6f-521b19d839a6.jpg?1601080615",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 2985,
+        "name": "Illusionist's Gambit",
+        "mv": 4,
+        "color_identity": "U",
+        "types": "Instant",
+        "oracle_text": "Cast this spell only during the declare blockers step on an opponent's turn.\nRemove all attacking creatures from combat and untap them. After this phase, there is an additional combat phase. Each of those creatures attacks that combat if able. They can't attack you or planeswalkers you control that combat.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/0/a00cc6ab-e97c-4eba-bc7e-49d77690433b.jpg?1562928789",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2986,
+        "name": "Teferi's Realm",
+        "mv": 3,
+        "color_identity": "U",
+        "types": "World Enchantment",
+        "oracle_text": "At the beginning of each player's upkeep, that player chooses artifact, creature, land, or non-Aura enchantment. All nontoken permanents of that type phase out. (While they're phased out, they're treated as though they don't exist. Each one phases in before its controller untaps during their next untap step.)",
+        "image_url": "https://cards.scryfall.io/normal/front/a/b/aba3e4ea-2241-4f1e-a46b-70f512fe729e.jpg?1562278174",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2987,
+        "name": "Grip of Chaos",
+        "mv": 6,
+        "color_identity": "R",
+        "types": "Enchantment",
+        "oracle_text": "Whenever a spell or ability is put onto the stack, if it has a single target, reselect its target at random. (Select from among all legal targets.)",
+        "image_url": "https://cards.scryfall.io/normal/front/d/e/defbbd3a-0e7d-4af2-b25f-9003ddad0bf5.jpg?1562535751",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2988,
+        "name": "Thieves' Auction",
+        "mv": 7,
+        "color_identity": "R",
+        "types": "Sorcery",
+        "oracle_text": "Exile all nontoken permanents. Starting with you, each player chooses one of the exiled cards and puts it onto the battlefield tapped under their control. Repeat this process until all cards exiled this way have been chosen.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/9/c9e8ad32-a701-4b77-bb7e-0e440e4072da.jpg?1562935558",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2989,
+        "name": "Eye of the Storm",
+        "mv": 7,
+        "color_identity": "U",
+        "types": "Enchantment",
+        "oracle_text": "Whenever a player casts an instant or sorcery card, exile it. Then that player copies each instant or sorcery card exiled with this enchantment. For each copy, the player may cast the copy without paying its mana cost.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/9/49967eb9-5020-4f0a-8775-5114f6d96d75.jpg?1598914184",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2990,
+        "name": "Confusion in the Ranks",
+        "mv": 5,
+        "color_identity": "R",
+        "types": "Enchantment",
+        "oracle_text": "Whenever an artifact, creature, or enchantment enters, its controller chooses target permanent another player controls that shares a card type with it. Exchange control of those permanents.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/d/9d46aca2-4714-4d2c-9466-5f1c043b8726.jpg?1562152213",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 2991,
+        "name": "Zur's Weirding",
+        "mv": 4,
+        "color_identity": "U",
+        "types": "Enchantment",
+        "oracle_text": "Players play with their hands revealed.\nIf a player would draw a card, they reveal it instead. Then any other player may pay 2 life. If a player does, put that card into its owner's graveyard. Otherwise, that player draws a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/4/741612e3-fe3a-4099-9d2b-4a654c4ce949.jpg?1562737056",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2992,
+        "name": "Timesifter",
+        "mv": 5,
+        "color_identity": "C",
+        "types": "Artifact",
+        "oracle_text": "At the beginning of each upkeep, each player exiles the top card of their library. The player who exiled the card with the greatest mana value takes an extra turn after this one. If two or more players' cards are tied for greatest, the tied players repeat this process until the tie is broken.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/6/561cab0e-8874-4534-bf79-0c1488a9f0a5.jpg?1562144325",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 2993,
+        "name": "Tombstone Stairwell",
+        "mv": 4,
+        "color_identity": "B",
+        "types": "World Enchantment",
+        "oracle_text": "Cumulative upkeep {1}{B} (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)\nAt the beginning of each upkeep, if this enchantment is on the battlefield, each player creates a 2/2 black Zombie creature token with haste named Tombspawn for each creature card in their graveyard.\nAt the beginning of each end step and when this enchantment leaves the battlefield, destroy all tokens created with this enchantment. They can't be regenerated.",
+        "image_url": "https://cards.scryfall.io/normal/front/f/8/f8fe2f99-7ec2-490c-8ec3-aa2fb4680826.jpg?1562722862",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 2994,
+        "name": "Arboria",
+        "mv": 4,
+        "color_identity": "G",
+        "types": "World Enchantment",
+        "oracle_text": "Creatures can't attack a player unless that player cast a spell or put a nontoken permanent onto the battlefield during their last turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/1/b18f4de2-adfe-4784-bd57-9e2ad9088825.jpg?1675200294",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 2995,
+        "name": "Psychic Battle",
+        "mv": 5,
+        "color_identity": "U",
+        "types": "Enchantment",
+        "oracle_text": "Whenever a player chooses one or more targets, each player reveals the top card of their library. The player who reveals the card with the greatest mana value may change the target or targets. If two or more cards are tied for greatest, the target or targets remain unchanged. Changing targets this way doesn't trigger abilities of permanents named Psychic Battle.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/7/8758ca24-e613-43bf-be58-4cf557f82d0c.jpg?1562922363",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 2996,
+        "name": "Wild Research",
+        "mv": 3,
+        "color_identity": "RUW",
+        "types": "Enchantment",
+        "oracle_text": "{1}{W}: Search your library for an enchantment card and reveal that card. Put it into your hand, then discard a card at random. Then shuffle.\n{1}{U}: Search your library for an instant card and reveal that card. Put it into your hand, then discard a card at random. Then shuffle.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/f/8f00e6f1-e854-40b0-855d-7e0d7d233850.jpg?1562928707",
+        "backside_image_url": "",
+        "draft_pool": "RUW"
+      },
+      {
+        "id": 2997,
+        "name": "Oath of Druids",
+        "mv": 2,
+        "color_identity": "G",
+        "types": "Enchantment",
+        "oracle_text": "At the beginning of each player's upkeep, that player chooses target player who controls more creatures than they do and is their opponent. The first player may reveal cards from the top of their library until they reveal a creature card. If the first player does, that player puts that card onto the battlefield and all other cards revealed this way into their graveyard.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/d/9dad6b50-c415-4c55-8eac-bbc9d656c2fc.jpg?1562412357",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 2998,
+        "name": "Dimensional Breach",
+        "mv": 7,
+        "color_identity": "W",
+        "types": "Sorcery",
+        "oracle_text": "Exile all permanents. For as long as any of those cards remain exiled, at the beginning of each player's upkeep, that player returns one of the exiled cards they own to the battlefield.",
+        "image_url": "https://cards.scryfall.io/normal/front/f/1/f18f2832-07c5-47be-8966-b250fb997f78.jpg?1562536853",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 2999,
+        "name": "Gate to the Aether",
+        "mv": 6,
+        "color_identity": "C",
+        "types": "Artifact",
+        "oracle_text": "At the beginning of each player's upkeep, that player reveals the top card of their library. If it's an artifact, creature, enchantment, or land card, the player may put it onto the battlefield.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/2/c28fd840-e633-46d3-991a-b9fea95a2f28.jpg?1562157187",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3000,
+        "name": "Masterful Replication",
+        "mv": 6,
+        "color_identity": "U",
+        "types": "Instant",
+        "oracle_text": "Choose one \u2014\n\u2022 Create two 3/3 colorless Golem artifact creature tokens.\n\u2022 Choose target artifact you control. Each other artifact you control becomes a copy of that artifact until end of turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/6/860e81bd-769a-4e8a-97a4-b0ae653a593b.jpg?1682208807",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 3001,
+        "name": "Cyberdrive Awakener",
+        "mv": 6,
+        "color_identity": "U",
+        "types": "Artifact Creature \u2014 Construct",
+        "oracle_text": "Flying\nOther artifact creatures you control have flying.\nWhen this creature enters, each noncreature artifact you control becomes a 4/4 artifact creature until end of turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/9/19bf6b74-b236-42eb-8c88-d715cece6357.jpg?1752944575",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 3002,
+        "name": "Rise and Shine",
+        "mv": 2,
+        "color_identity": "U",
+        "types": "Sorcery",
+        "oracle_text": "Target noncreature artifact you control becomes a 0/0 artifact creature. Put four +1/+1 counters on each artifact that became a creature this way.\nOverload {4}{U}{U} (You may cast this spell for its overload cost. If you do, change \"target\" in its text to \"each.\")",
+        "image_url": "https://cards.scryfall.io/normal/front/8/1/816716d6-4234-4570-9a64-cb3bef388095.jpg?1682208865",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 3028,
+        "name": "Phyrexian Revoker",
+        "mv": 2,
+        "color_identity": "C",
+        "types": "Artifact Creature \u2014 Phyrexian Horror",
+        "oracle_text": "As this creature enters, choose a nonland card name.\nActivated abilities of sources with the chosen name can't be activated.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/5/d5ef9f3b-d6f8-4795-ba96-2f92b8792360.jpg?1674142679",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3003,
+        "name": "Kappa Cannoneer",
+        "mv": 6,
+        "color_identity": "U",
+        "types": "Artifact Creature \u2014 Turtle Warrior",
+        "oracle_text": "Improvise (Your artifacts can help cast this spell. Each artifact you tap after you're done activating mana abilities pays for {1}.)\nWard {4}\nWhenever this creature or another artifact you control enters, put a +1/+1 counter on this creature. It can't be blocked this turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/9/99cd996f-be74-4dbb-9460-6d650cedfca6.jpg?1759142729",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 3004,
+        "name": "Enthusiastic Mechanaut",
+        "mv": 2,
+        "color_identity": "RU",
+        "types": "Artifact Creature \u2014 Goblin Artificer",
+        "oracle_text": "Flying\nArtifact spells you cast cost {1} less to cast.",
+        "image_url": "https://cards.scryfall.io/normal/front/f/b/fbfcbfed-74c7-4b1e-897c-44f25e45a4a5.jpg?1752944940",
+        "backside_image_url": "",
+        "draft_pool": "RU"
+      },
+      {
+        "id": 3005,
+        "name": "Mycosynth Wellspring",
+        "mv": 2,
+        "color_identity": "C",
+        "types": "Artifact",
+        "oracle_text": "When this artifact enters or is put into a graveyard from the battlefield, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/1/c11c16ff-1786-4426-86b0-d7beb7a71798.jpg?1625978921",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3006,
+        "name": "Servo Schematic",
+        "mv": 2,
+        "color_identity": "C",
+        "types": "Artifact",
+        "oracle_text": "When this artifact enters or is put into a graveyard from the battlefield, create a 1/1 colorless Servo artifact creature token.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/f/af2299e0-d31f-4ec4-9497-16e494ee21e6.jpg?1576382430",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3007,
+        "name": "Myr Sire",
+        "mv": 2,
+        "color_identity": "C",
+        "types": "Artifact Creature \u2014 Phyrexian Myr",
+        "oracle_text": "When this creature dies, create a 1/1 colorless Phyrexian Myr artifact creature token.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/1/11ba43d1-e879-40e0-b49c-e009deb7e3aa.jpg?1689999714",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3008,
+        "name": "Mishra's Research Desk",
+        "mv": 1,
+        "color_identity": "R",
+        "types": "Artifact",
+        "oracle_text": "{1}, {T}, Sacrifice this artifact: Exile the top two cards of your library. Choose one of them. Until the end of your next turn, you may play that card.\nUnearth {1}{R} ({1}{R}: Return this card from your graveyard to the battlefield. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "image_url": "https://cards.scryfall.io/normal/front/b/b/bb142d99-b210-47c8-897c-be62f90d2192.jpg?1674421347",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 3009,
+        "name": "Glass Casket",
+        "mv": 2,
+        "color_identity": "W",
+        "types": "Artifact",
+        "oracle_text": "When this artifact enters, exile target creature an opponent controls with mana value 3 or less until this artifact leaves the battlefield.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/2/02c5c395-ee8b-47fd-ac52-256354c19cdf.jpg?1692936502",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 3010,
+        "name": "Experimental Synthesizer",
+        "mv": 1,
+        "color_identity": "R",
+        "types": "Artifact",
+        "oracle_text": "When this artifact enters or leaves the battlefield, exile the top card of your library. Until end of turn, you may play that card.\n{2}{R}, Sacrifice this artifact: Create a 2/2 white Samurai creature token with vigilance. Activate only as a sorcery.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/4/c47931c9-685d-4b83-8299-bc347224b4e8.jpg?1654567579",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 3011,
+        "name": "Oswald Fiddlebender",
+        "mv": 2,
+        "color_identity": "W",
+        "types": "Legendary Creature \u2014 Gnome Artificer",
+        "oracle_text": "Magical Tinkering \u2014 {W}, {T}, Sacrifice an artifact: Search your library for an artifact card with mana value equal to 1 plus the sacrificed artifact's mana value, put it onto the battlefield, then shuffle. Activate only as a sorcery.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/b/bba1650f-eddf-49a9-820e-489cb8d5b6fa.jpg?1627702172",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 3012,
+        "name": "Sai, Master Thopterist",
+        "mv": 3,
+        "color_identity": "U",
+        "types": "Legendary Creature \u2014 Human Artificer",
+        "oracle_text": "Whenever you cast an artifact spell, create a 1/1 colorless Thopter artifact creature token with flying.\n{1}{U}, Sacrifice two artifacts: Draw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/d/ad0b5c09-5075-408e-84c5-1095354ac53e.jpg?1689996602",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 3013,
+        "name": "Silas Renn, Seeker Adept",
+        "mv": 3,
+        "color_identity": "BU",
+        "types": "Legendary Artifact Creature \u2014 Human",
+        "oracle_text": "Deathtouch\nWhenever Silas Renn deals combat damage to a player, choose target artifact card in your graveyard. You may cast that card this turn.\nPartner (You can have two commanders if both have partner.)",
+        "image_url": "https://cards.scryfall.io/normal/front/4/e/4e3fe912-1374-47c7-b73f-89ef55c479c1.jpg?1562399367",
+        "backside_image_url": "",
+        "draft_pool": "BU"
+      },
+      {
+        "id": 3014,
+        "name": "Tameshi, Reality Architect",
+        "mv": 3,
+        "color_identity": "UW",
+        "types": "Legendary Creature \u2014 Moonfolk Wizard",
+        "oracle_text": "Whenever one or more noncreature permanents are returned to hand, draw a card. This ability triggers only once each turn.\n{X}{W}, Return a land you control to its owner's hand: Return target artifact or enchantment card with mana value X or less from your graveyard to the battlefield. Activate only as a sorcery.",
+        "image_url": "https://cards.scryfall.io/normal/front/2/6/26594b52-3e9c-4cde-88df-1f4e9e16676e.jpg?1654566985",
+        "backside_image_url": "",
+        "draft_pool": "UW"
+      },
+      {
+        "id": 3015,
+        "name": "Jan Jansen, Chaos Crafter",
+        "mv": 3,
+        "color_identity": "BRW",
+        "types": "Legendary Creature \u2014 Gnome Artificer",
+        "oracle_text": "Haste\n{T}, Sacrifice an artifact creature: Create two Treasure tokens.\n{T}, Sacrifice a noncreature artifact: Create two 1/1 colorless Construct artifact creature tokens.",
+        "image_url": "https://cards.scryfall.io/normal/front/6/b/6b215a08-41db-4440-8e33-34a84a33db50.jpg?1674137529",
+        "backside_image_url": "",
+        "draft_pool": "BRW"
+      },
+      {
+        "id": 3016,
+        "name": "Treasure Vault",
+        "mv": 0,
+        "color_identity": "",
+        "types": "Artifact Land",
+        "oracle_text": "{T}: Add {C}.\n{X}{X}, {T}, Sacrifice this land: Create X Treasure tokens.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/0/a0931eb3-b403-4b1a-ad46-a7b0a51bb9a4.jpg?1627710405",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3017,
+        "name": "Silverbluff Bridge",
+        "mv": 0,
+        "color_identity": "RU",
+        "types": "Artifact Land",
+        "oracle_text": "This land enters tapped.\nIndestructible\n{T}: Add {U} or {R}.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/f/8f14540a-479f-4a3c-8e5b-f482caf48451.jpg?1752945505",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3018,
+        "name": "Drossforge Bridge",
+        "mv": 0,
+        "color_identity": "BR",
+        "types": "Artifact Land",
+        "oracle_text": "This land enters tapped.\nIndestructible\n{T}: Add {B} or {R}.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/b/5b46b8d8-723a-4752-b97d-29ef83bd294c.jpg?1626099621",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3019,
+        "name": "Tanglepool Bridge",
+        "mv": 0,
+        "color_identity": "GU",
+        "types": "Artifact Land",
+        "oracle_text": "This land enters tapped.\nIndestructible\n{T}: Add {G} or {U}.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/7/57d2b895-8921-4615-a674-fb85eed5ea3f.jpg?1626099890",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3020,
+        "name": "Darkmoss Bridge",
+        "mv": 0,
+        "color_identity": "BG",
+        "types": "Artifact Land",
+        "oracle_text": "This land enters tapped.\nIndestructible\n{T}: Add {B} or {G}.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/c/3ca3ef68-ea62-4098-bd43-4597ff0647d4.jpg?1726285387",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3021,
+        "name": "Goldmire Bridge",
+        "mv": 0,
+        "color_identity": "BW",
+        "types": "Artifact Land",
+        "oracle_text": "This land enters tapped.\nIndestructible\n{T}: Add {W} or {B}.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/2/3235954d-a1b1-4822-b177-1691347d1e58.jpg?1682210483",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3022,
+        "name": "Mistvault Bridge",
+        "mv": 0,
+        "color_identity": "BU",
+        "types": "Artifact Land",
+        "oracle_text": "This land enters tapped.\nIndestructible\n{T}: Add {U} or {B}.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/f/9f36a6e2-3e51-4a30-a225-10cfe6650b9d.jpg?1739539029",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3023,
+        "name": "Razortide Bridge",
+        "mv": 0,
+        "color_identity": "UW",
+        "types": "Artifact Land",
+        "oracle_text": "This land enters tapped.\nIndestructible\n{T}: Add {W} or {U}.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/b/0bbd24cd-48f7-40d7-9741-f30108f04b84.jpg?1752945410",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3024,
+        "name": "Rustvale Bridge",
+        "mv": 0,
+        "color_identity": "RW",
+        "types": "Artifact Land",
+        "oracle_text": "This land enters tapped.\nIndestructible\n{T}: Add {R} or {W}.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/a/da54e458-1d4f-45f0-a225-99eb9c4049fb.jpg?1752945469",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3025,
+        "name": "Slagwoods Bridge",
+        "mv": 0,
+        "color_identity": "GR",
+        "types": "Artifact Land",
+        "oracle_text": "This land enters tapped.\nIndestructible\n{T}: Add {R} or {G}.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/5/e51b48e9-a75a-4acd-9462-5e1ac2b0d803.jpg?1626099860",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3026,
+        "name": "Thornglint Bridge",
+        "mv": 0,
+        "color_identity": "GW",
+        "types": "Artifact Land",
+        "oracle_text": "This land enters tapped.\nIndestructible\n{T}: Add {G} or {W}.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/d/9d483643-6a11-47f7-a0aa-190e0179525f.jpg?1626099925",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3027,
+        "name": "Walking Ballista",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Artifact Creature \u2014 Construct",
+        "oracle_text": "This creature enters with X +1/+1 counters on it.\n{4}: Put a +1/+1 counter on this creature.\nRemove a +1/+1 counter from this creature: It deals 1 damage to any target.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/2/5272436e-74f0-44c4-a291-ea8ebc3f1525.jpg?1599710252",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3029,
+        "name": "Pithing Needle",
+        "mv": 1,
+        "color_identity": "C",
+        "types": "Artifact",
+        "oracle_text": "As this artifact enters, choose a card name.\nActivated abilities of sources with the chosen name can't be activated unless they're mana abilities.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/7/776899f8-e977-42b7-8b54-6f726a349e3c.jpg?1673149414",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3030,
+        "name": "Retrofitter Foundry",
+        "mv": 1,
+        "color_identity": "C",
+        "types": "Artifact",
+        "oracle_text": "{3}: Untap this artifact.\n{2}, {T}: Create a 1/1 colorless Servo artifact creature token.\n{1}, {T}, Sacrifice a Servo: Create a 1/1 colorless Thopter artifact creature token with flying.\n{T}, Sacrifice a Thopter: Create a 4/4 colorless Construct artifact creature token.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/d/5da578b8-19e6-4068-9336-e7cd33c585f1.jpg?1592710366",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3031,
+        "name": "Signal Pest",
+        "mv": 1,
+        "color_identity": "C",
+        "types": "Artifact Creature \u2014 Pest",
+        "oracle_text": "Battle cry (Whenever this creature attacks, each other attacking creature gets +1/+0 until end of turn.)\nThis creature can't be blocked except by creatures with flying or reach.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/e/be065962-f2ed-4ab9-be6b-bfc66d63ff4e.jpg?1562614362",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3032,
+        "name": "Ornithopter",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Artifact Creature \u2014 Thopter",
+        "oracle_text": "Flying",
+        "image_url": "https://cards.scryfall.io/normal/front/3/0/305078a5-ac18-4721-bba2-3434eba5b1cf.jpg?1691675959",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3033,
+        "name": "Vault Skirge",
+        "mv": 2,
+        "color_identity": "B",
+        "types": "Artifact Creature \u2014 Phyrexian Imp",
+        "oracle_text": "({B/P} can be paid with either {B} or 2 life.)\nFlying\nLifelink (Damage dealt by this creature also causes you to gain that much life.)",
+        "image_url": "https://cards.scryfall.io/normal/front/f/2/f254239c-c07a-4c41-98f7-8f4de539c73e.jpg?1562882710",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 3034,
+        "name": "Memnite",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Artifact Creature \u2014 Construct",
+        "oracle_text": "",
+        "image_url": "https://cards.scryfall.io/normal/front/9/7/975459ba-e1c2-4800-a3fa-5c0cf8ce728f.jpg?1562925499",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3035,
+        "name": "Sparring Construct",
+        "mv": 1,
+        "color_identity": "C",
+        "types": "Artifact Creature \u2014 Construct",
+        "oracle_text": "When this creature dies, put a +1/+1 counter on target creature you control.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/a/badc7db8-386e-4fb6-aefa-591e99747eb2.jpg?1562741935",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3036,
+        "name": "Cathar Commando",
+        "mv": 2,
+        "color_identity": "W",
+        "types": "Creature \u2014 Human Soldier",
+        "oracle_text": "Flash\n{1}, Sacrifice this creature: Destroy target artifact or enchantment.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/c/7cd21530-ca72-4986-a0f2-142b9f23c413.jpg?1736467482",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 3037,
+        "name": "Etherium Sculptor",
+        "mv": 2,
+        "color_identity": "U",
+        "types": "Artifact Creature \u2014 Vedalken Artificer",
+        "oracle_text": "Artifact spells you cast cost {1} less to cast.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/0/b0556f20-1ea8-4ab5-9a09-dec9959f017b.jpg?1752944599",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 3038,
+        "name": "Prophetic Prism",
+        "mv": 2,
+        "color_identity": "C",
+        "types": "Artifact",
+        "oracle_text": "When this artifact enters, draw a card.\n{1}, {T}: Add one mana of any color.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/f/1fae351c-b918-4648-a361-d5239ae63156.jpg?1743419067",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3039,
+        "name": "Guild Globe",
+        "mv": 2,
+        "color_identity": "C",
+        "types": "Artifact",
+        "oracle_text": "When this artifact enters, draw a card.\n{2}, {T}, Sacrifice this artifact: Add two mana of different colors.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/7/a7faf99e-f61f-46cb-a275-2e12c41f1e31.jpg?1557577419",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3040,
+        "name": "Elsewhere Flask",
+        "mv": 2,
+        "color_identity": "C",
+        "types": "Artifact",
+        "oracle_text": "When this artifact enters, draw a card.\nSacrifice this artifact: Choose a basic land type. Each land you control becomes that type until end of turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/2/9273a17d-114b-4d54-a2a5-1047df8caa9d.jpg?1562833200",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3041,
+        "name": "Spare Supplies",
+        "mv": 2,
+        "color_identity": "C",
+        "types": "Artifact",
+        "oracle_text": "This artifact enters tapped.\nWhen this artifact enters, draw a card.\n{2}, {T}, Sacrifice this artifact: Draw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/5/a53baf25-1782-427b-a9dd-fc9b8dc6444f.jpg?1604201030",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3042,
+        "name": "Candy Trail",
+        "mv": 1,
+        "color_identity": "C",
+        "types": "Artifact \u2014 Food Clue",
+        "oracle_text": "When this artifact enters, scry 2.\n{2}, {T}, Sacrifice this artifact: You gain 3 life and draw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/a/1a860925-d912-49e5-9ddc-41ab26916bb3.jpg?1692939848",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3043,
+        "name": "Conjurer's Bauble",
+        "mv": 1,
+        "color_identity": "C",
+        "types": "Artifact",
+        "oracle_text": "{T}, Sacrifice this artifact: Put up to one target card from your graveyard on the bottom of your library. Draw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/2/d/2d32960e-d182-455f-8e74-eb11b10050da.jpg?1562876061",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3044,
+        "name": "Liquimetal Torque",
+        "mv": 2,
+        "color_identity": "C",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {C}.\n{T}: Target nonland permanent becomes an artifact in addition to its other types until end of turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/3/13c6101a-da40-4785-8ccb-4e779bbbdb55.jpg?1626099120",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3045,
+        "name": "Servo Exhibition",
+        "mv": 2,
+        "color_identity": "W",
+        "types": "Sorcery",
+        "oracle_text": "Create two 1/1 colorless Servo artifact creature tokens.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/a/9aba0c60-78e2-4e1c-a6ad-6f1c001ad7ee.jpg?1576380987",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 3046,
+        "name": "Cogworker's Puzzleknot",
+        "mv": 2,
+        "color_identity": "W",
+        "types": "Artifact",
+        "oracle_text": "When this artifact enters, create a 1/1 colorless Servo artifact creature token.\n{1}{W}, Sacrifice this artifact: Create a 1/1 colorless Servo artifact creature token.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/0/00d594df-c51b-4936-9af1-536dab1792ae.jpg?1576383045",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 3047,
+        "name": "Efficient Construction",
+        "mv": 4,
+        "color_identity": "U",
+        "types": "Enchantment",
+        "oracle_text": "Whenever you cast an artifact spell, create a 1/1 colorless Thopter artifact creature token with flying.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/f/af4d2f70-816c-4410-b3a3-9b9a4b69df52.jpg?1689996315",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 3048,
+        "name": "Pia Nalaar",
+        "mv": 3,
+        "color_identity": "R",
+        "types": "Legendary Creature \u2014 Human Artificer",
+        "oracle_text": "When Pia Nalaar enters, create a 1/1 colorless Thopter artifact creature token with flying.\n{1}{R}: Target artifact creature gets +1/+0 until end of turn.\n{1}, Sacrifice an artifact: Target creature can't block this turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/d/9d2502c8-bf80-404c-9a9a-b843d355fcaa.jpg?1625194002",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 3049,
+        "name": "Brudiclad, Telchor Engineer",
+        "mv": 6,
+        "color_identity": "RU",
+        "types": "Legendary Artifact Creature \u2014 Phyrexian Artificer",
+        "oracle_text": "Creature tokens you control have haste.\nAt the beginning of combat on your turn, create a 2/1 blue Phyrexian Myr artifact creature token. Then you may choose a token you control. If you do, each other token you control becomes a copy of that token.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/2/d24bf1df-5087-4ad6-a1aa-4eda2340cd8b.jpg?1775941684",
+        "backside_image_url": "",
+        "draft_pool": "RU"
+      },
+      {
+        "id": 3050,
+        "name": "Junk Diver",
+        "mv": 3,
+        "color_identity": "C",
+        "types": "Artifact Creature \u2014 Bird",
+        "oracle_text": "Flying\nWhen this creature dies, return another target artifact card from your graveyard to your hand.",
+        "image_url": "https://cards.scryfall.io/normal/front/6/b/6b5d53cb-bf80-43b0-b839-b11a64ff4c1b.jpg?1717013770",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3051,
+        "name": "Workshop Assistant",
+        "mv": 3,
+        "color_identity": "C",
+        "types": "Artifact Creature \u2014 Construct",
+        "oracle_text": "When this creature dies, return another target artifact card from your graveyard to your hand.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/9/e9387e8f-0e72-4212-81c8-e64050700c52.jpg?1608911774",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3052,
+        "name": "Maze of Ith",
+        "mv": 0,
+        "color_identity": "",
+        "types": "Land",
+        "oracle_text": "{T}: Untap target attacking creature. Prevent all combat damage that would be dealt to and dealt by that creature this turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/8/5889fde1-730d-43d0-aaa4-499784a80530.jpg?1675201242",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3053,
+        "name": "Mirage Mirror",
+        "mv": 3,
+        "color_identity": "C",
+        "types": "Artifact",
+        "oracle_text": "{2}: This artifact becomes a copy of target artifact, creature, enchantment, or land until end of turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/b/cb1252c2-b951-4125-93a2-9282b607b6a4.jpg?1690005610",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3054,
+        "name": "Sculpting Steel",
+        "mv": 3,
+        "color_identity": "C",
+        "types": "Artifact",
+        "oracle_text": "You may have this artifact enter as a copy of any artifact on the battlefield.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/1/d1958f01-77e9-4976-b7f8-f9b62aa78edc.jpg?1697184333",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3055,
+        "name": "Blinkmoth Nexus",
+        "mv": 0,
+        "color_identity": "",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{1}: This land becomes a 1/1 Blinkmoth artifact creature with flying until end of turn. It's still a land.\n{1}, {T}: Target Blinkmoth creature gets +1/+1 until end of turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/a/3ac535c1-9ef3-45b5-8959-7e79589d47ad.jpg?1599710351",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3056,
+        "name": "Inkmoth Nexus",
+        "mv": 0,
+        "color_identity": "",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{1}: This land becomes a 1/1 Phyrexian Blinkmoth artifact creature with flying and infect until end of turn. It's still a land. (It deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)",
+        "image_url": "https://cards.scryfall.io/normal/front/e/c/ec50c1c3-885e-47d3-ada7-cc0edbf09df1.jpg?1623098818",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3057,
+        "name": "War's Toll",
+        "mv": 4,
+        "color_identity": "R",
+        "types": "Enchantment",
+        "oracle_text": "Whenever an opponent taps a land for mana, tap all lands that player controls.\nIf a creature an opponent controls attacks, all creatures that opponent controls attack if able.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/a/3a08f7fe-8ca9-4604-85c8-9050298730ea.jpg?1562906728",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 3058,
+        "name": "Inkfathom Witch",
+        "mv": 2,
+        "color_identity": "BU",
+        "types": "Creature \u2014 Merfolk Wizard",
+        "oracle_text": "Fear (This creature can't be blocked except by artifact creatures and/or black creatures.)\n{2}{U}{B}: Each unblocked creature has base power and toughness 4/1 until end of turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/f/e/fe2837c6-8fb8-4ab6-97f3-3602a92374ec.jpg?1673485089",
+        "backside_image_url": "",
+        "draft_pool": "BU"
       }
     ]
   },
@@ -31749,12 +34728,13 @@
       "RUW"
     ],
     "not_picked_color_ids": [
-      "W",
-      "R",
+      "",
       "U",
-      "G",
+      "R",
       "C",
       "B",
+      "W",
+      "G",
       "GW",
       "RU",
       "BR",
@@ -31765,16 +34745,16 @@
       "UW",
       "GR",
       "BU",
-      "GRU",
       "RUW",
       "BGW",
+      "BUW",
       "GRW",
-      "BRW",
       "BGR",
       "BGU",
-      "BUW",
+      "BRW",
       "BRU",
-      "GUW"
+      "GUW",
+      "GRU"
     ]
   }
 }
