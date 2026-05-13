@@ -1,4 +1,4 @@
-import { PostDraftNavBar, DeckBuilder, SideBar } from "../";
+import { PostDraftNavBar, DeckBuilder, SideBar, useTagActions } from "../";
 import { useState } from "react";
 import './postdraft.css'
 import styles from './PostDraft.module.css'
@@ -37,11 +37,13 @@ export function PostDraft({
   colorFilterNeg,
   setColorFilterPos,
   setColorFilterNeg,
-  owner
+  owner,
+  playerTags
 }) {
 
-
   const [basicLands, setBasicLands] = useState([0, 0, 0, 0, 0, 0])
+
+  const { tagSelectedCards, removeTagFromCard } = useTagActions(connection, token, selectedCards, setSelectedCards);
 
   const renderNavbar = () => {
     return <PostDraftNavBar
@@ -57,7 +59,6 @@ export function PostDraft({
     />;
   };
 
-
   const selectCards = (card) => {
     setSelectedCommanders([])
     setLastClicked(card)
@@ -68,13 +69,11 @@ export function PostDraft({
     }
   }
 
-
   const selectCommander = (card) => {
     setSelectedCards([])
     setLastClicked(card)
     setSelectedCommanders([card])
   }
-
 
   const moveCards = () => {
     if (selectedCards.length === 0) {
@@ -91,7 +90,6 @@ export function PostDraft({
     }
     setSelectedCards([])
   }
-
 
   const renderSideBar = () => {
     return <SideBar
@@ -113,9 +111,9 @@ export function PostDraft({
       setSelectedCards={setSelectedCards}
       connection={connection}
       basicLands={basicLands}
+      removeTagFromCard={removeTagFromCard}
     />
   }
-
 
   const renderDeckbuilder = () => {
     return <DeckBuilder
@@ -141,6 +139,9 @@ export function PostDraft({
       colorFilterNeg={colorFilterNeg}
       setColorFilterPos={setColorFilterPos}
       setColorFilterNeg={setColorFilterNeg}
+      playerTags={playerTags}
+      tagSelectedCards={tagSelectedCards}
+      setSelectedCards={setSelectedCards}
     />;
   };
 
