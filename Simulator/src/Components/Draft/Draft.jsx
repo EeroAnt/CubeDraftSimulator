@@ -113,70 +113,73 @@ export const Draft = ({
     setSelectedCommanders([card])
   }
 
-const renderPickButtons = () => {
-  if (canalDredger === "F" || (pack && pack.length > 1)) {
-    return (
-      <>
-        {tagFlow.step === 'idle' && (
-          <Button name="Pick" className="button" onClick={() => selectForTagging()} />
-        )}
+  const renderPickButtons = () => {
+    if (canalDredger === "F" || (pack && pack.length > 1)) {
+      return (
+        <>
+          {tagFlow.step === 'idle' && (
+            <Button name="Pick" className="button" onClick={() => selectForTagging()} />
+          )}
 
-        {tagFlow.step === 'enterTag' && (
-          <div>
-            
-            <input
-              value={tagInput}
-              onChange={e => setTagInput(e.target.value)}
-              placeholder="New tag"
-            />
-            <Button name="Add" className="button" onClick={() => {
-              if (tagInput.trim() && !tagFlow.tags.includes(tagInput.trim())) {
-                setTagFlow({ ...tagFlow, tags: [...tagFlow.tags, tagInput.trim()] });
-                setTagInput('');
-              }
-            }} />
-            {playerTags.length > 0 && playerTags.map(t => (
+          {tagFlow.step === 'enterTag' && (
+            <div>
+              <input
+                value={tagInput}
+                onChange={e => setTagInput(e.target.value)}
+                placeholder="New tag"
+              />
+              <Button name="Add" className="button" onClick={() => {
+                if (tagInput.trim() && !tagFlow.tags.includes(tagInput.trim())) {
+                  setTagFlow({ ...tagFlow, tags: [...tagFlow.tags, tagInput.trim()] });
+                  setTagInput('');
+                }
+              }} />
+              {playerTags.length > 0 && playerTags.map(t => (
+                <Button
+                  key={t}
+                  name={tagFlow.tags.includes(t) ? `✓ ${t}` : t}
+                  className="button"
+                  onClick={() => {
+                    const updated = tagFlow.tags.includes(t)
+                      ? tagFlow.tags.filter(x => x !== t)
+                      : [...tagFlow.tags, t];
+                    setTagFlow({ ...tagFlow, tags: updated });
+                  }}
+                />
+              ))}
+              <br />
               <Button
-                key={t}
-                name={tagFlow.tags.includes(t) ? `✓ ${t}` : t}
+                name={`Done (${tagFlow.tags.length})`}
                 className="button"
                 onClick={() => {
-                  const updated = tagFlow.tags.includes(t)
-                    ? tagFlow.tags.filter(x => x !== t)
-                    : [...tagFlow.tags, t];
-                  setTagFlow({ ...tagFlow, tags: updated });
+                  setTagFlow({ step: 'chooseDestination', tags: tagFlow.tags });
                 }}
               />
-            ))}
-            <br />
-            <Button
-              name={`Done (${tagFlow.tags.length})`}
-              className="button"
-              onClick={() => {
-                setTagFlow({ step: 'chooseDestination', tags: tagFlow.tags });
-              }}
-            />
-            <Button name="Cancel" className="button" onClick={() => {
-              setTagFlow({ step: 'idle', tags: [] });
-              setTagInput('');
-            }} />
-          </div>
-        )}
+              <Button name="Cancel" className="button" onClick={() => {
+                setTagFlow({ step: 'idle', tags: [] });
+                setTagInput('');
+              }} />
+            </div>
+          )}
 
-        {tagFlow.step === 'chooseDestination' && (
-          <div>
-            <span>Tag: {tagFlow.tags.join(', ')} →</span>
-            <Button name="Main" className="button" onClick={() => confirmPick("main")} />
-            <Button name="Side" className="button" onClick={() => confirmPick("side")} />
-          </div>
-        )}
-      </>
-    );
+          {tagFlow.step === 'chooseDestination' && (
+            <div>
+              <span>Tag: {tagFlow.tags.join(', ')} →</span>
+              <Button name="Main" className="button" onClick={() => confirmPick("main")} />
+              <Button name="Side" className="button" onClick={() => confirmPick("side")} />
+              <Button name="Cancel" className="button" onClick={() => {
+                setTagFlow({ step: 'idle', tags: [] });
+                setTagInput('');
+              }} />
+            </div>
+          )}
+        </>
+      );
 
-  } else {
-    return <Button name="Give" className="button" onClick={() => giveAway()} />;
+    } else {
+      return <Button name="Give" className="button" onClick={() => giveAway()} />;
+    }
   }
-}
 
   const selectForTagging = () => {
     if (pick) {
@@ -296,7 +299,13 @@ const renderPickButtons = () => {
                   {pack.reduce((rows, card, index) => {
                     if (index % 5 === 0) rows.push([]);
                     rows[rows.length - 1].push(
-                      <td key={index} className={pick === card.id ? (styles.selected) : (styles.card)} onClick={() => setPick(card.id)}>
+                      <td
+                        key={index}
+                        className={pick === card.id ? styles.selected : styles.card}
+                        onClick={() => {
+                          if (tagFlow.step === 'idle') setPick(card.id);
+                        }}
+                      >
                         <Image imageUrl={card.image_url} backsideUrl={card.backside_image_url} />
                       </td>
                     );
