@@ -73,3 +73,12 @@
 .notclicked {
   background-color: #797586;
 }
+
+.tagRemove {
+  color: rgb(179, 25, 25);
+  border: none;
+  padding: 1px 1px;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-right: 5px;
+}

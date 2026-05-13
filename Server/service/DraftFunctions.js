@@ -125,3 +125,26 @@ export function sendCards(uuid, userSeat) {
   queueMessage(uuid, message);
 
 };
+
+export async function tagCards(data, userSeat) {
+  const { cards, tags } = data;
+  const userCards = [...(userSeat?.main || []), ...(userSeat?.side || []), ...(userSeat?.commanders || [])];
+  cards.forEach(cardId => {
+      const card = userCards.find(c => c.id === cardId);
+      if (card) {
+        console.log(`Tagging card ${card.name} (ID: ${card.id}) with tags:`, tags);
+        card.tags = [...new Set([...(card.tags || []), ...tags])];
+      }
+    });
+  userSeat.playerTags = [...new Set([...(userSeat.playerTags || []), ...tags])];
+};
+
+export async function removeTag(data, userSeat) {
+  const { card, tag } = data;
+  const userCards = [...(userSeat?.main || []), ...(userSeat?.side || []), ...(userSeat?.commanders || [])];
+  const cardToUpdate = userCards.find(c => c.id === card);
+  if (cardToUpdate) {
+    console.log(`Removing tag ${tag} from card ${cardToUpdate.name} (ID: ${cardToUpdate.id})`);
+    cardToUpdate.tags = (cardToUpdate.tags || []).filter(t => t !== tag);
+  };
+};

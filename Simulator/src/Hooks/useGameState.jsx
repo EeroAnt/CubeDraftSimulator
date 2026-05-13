@@ -145,9 +145,7 @@ export const useGameState = () => {
           setDraftInitiated(false)
         }
         if (decryptedMessage.status === "OK" && decryptedMessage.type === "Picked Cards") {
-          setMain(decryptedMessage.main)
-          setSide(decryptedMessage.side)
-          setCommanders(decryptedMessage.commanders)
+          handlePickedCards(decryptedMessage)
           setTimeout(() => setMode("Post Draft"), 200)
         }
         break;
@@ -195,6 +193,8 @@ export const useGameState = () => {
             setRound(payload.round)
             setCanalDredger(payload.canalDredger === "true" ? "T" : "F");
           }
+        } else if (decryptedMessage.type === "Picked Cards") {
+          handlePickedCards(decryptedMessage)
         } else if (decryptedMessage.type === "End Draft") {
 
           setMode("DeckBuilder")
@@ -207,16 +207,12 @@ export const useGameState = () => {
         break;
       case "DeckBuilder":
         if (decryptedMessage.type === "Picked Cards") {
-          setMain(decryptedMessage.main)
-          setSide(decryptedMessage.side)
-          setCommanders(decryptedMessage.commanders)
+          handlePickedCards(decryptedMessage)
         }
         break;
       case "Post Draft":
         if (decryptedMessage.type === "Picked Cards") {
-          setMain(decryptedMessage.main)
-          setSide(decryptedMessage.side)
-          setCommanders(decryptedMessage.commanders)
+          handlePickedCards(decryptedMessage)
         }
     }
   }, [decryptedMessage])
@@ -236,6 +232,14 @@ export const useGameState = () => {
       processQueue();
     }, 0);
   };
+
+  function handlePickedCards(data) {
+    setMain(data.main)
+    setSide(data.side)
+    setCommanders(data.commanders)
+    const newLastClicked = [...data.main, ...data.side, ...data.commanders].find(card => card.id === lastClicked.id)
+    setLastClicked(newLastClicked)
+  }
 
   function sanitizeJsonString(str) {
     // Replace all non-printable control characters except \n, \t

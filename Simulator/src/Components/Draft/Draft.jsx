@@ -1,4 +1,4 @@
-import { Button, Image, DraftNavbar, DeckBuilder, SideBar } from "../";
+import { Button, Image, DraftNavbar, DeckBuilder, SideBar, TagControls } from "../";
 import { useState, useEffect } from "react";
 import { sendMessage, getSeatToken } from "../../Services";
 import './draft.css'
@@ -51,7 +51,6 @@ export const Draft = ({
   const [pick, setPick] = useState(0)
   const [statsButton, setStatsButton] = useState(false);
   const [tagFlow, setTagFlow] = useState({ step: 'idle', tags: [] });
-  const [tagInput, setTagInput] = useState('');
 
 
   useEffect(() => {
@@ -122,54 +121,24 @@ export const Draft = ({
           )}
 
           {tagFlow.step === 'enterTag' && (
-            <div>
-              <input
-                value={tagInput}
-                onChange={e => setTagInput(e.target.value)}
-                placeholder="New tag"
-              />
-              <Button name="Add" className="button" onClick={() => {
-                if (tagInput.trim() && !tagFlow.tags.includes(tagInput.trim())) {
-                  setTagFlow({ ...tagFlow, tags: [...tagFlow.tags, tagInput.trim()] });
-                  setTagInput('');
-                }
-              }} />
-              {playerTags.length > 0 && playerTags.map(t => (
-                <Button
-                  key={t}
-                  name={tagFlow.tags.includes(t) ? `✓ ${t}` : t}
-                  className="button"
-                  onClick={() => {
-                    const updated = tagFlow.tags.includes(t)
-                      ? tagFlow.tags.filter(x => x !== t)
-                      : [...tagFlow.tags, t];
-                    setTagFlow({ ...tagFlow, tags: updated });
-                  }}
-                />
-              ))}
-              <br />
-              <Button
-                name={`Done (${tagFlow.tags.length})`}
-                className="button"
-                onClick={() => {
-                  setTagFlow({ step: 'chooseDestination', tags: tagFlow.tags });
-                }}
-              />
-              <Button name="Cancel" className="button" onClick={() => {
+            <TagControls
+              playerTags={playerTags}
+              onConfirm={(tags) => {
+                setTagFlow({ step: 'chooseDestination', tags });
+              }}
+              onCancel={() => {
                 setTagFlow({ step: 'idle', tags: [] });
-                setTagInput('');
-              }} />
-            </div>
+              }}
+            />
           )}
 
           {tagFlow.step === 'chooseDestination' && (
             <div>
-              <span>Tag: {tagFlow.tags.join(', ')} →</span>
+              <span>Tags: {tagFlow.tags.join(', ')} →</span>
               <Button name="Main" className="button" onClick={() => confirmPick("main")} />
               <Button name="Side" className="button" onClick={() => confirmPick("side")} />
               <Button name="Cancel" className="button" onClick={() => {
                 setTagFlow({ step: 'idle', tags: [] });
-                setTagInput('');
               }} />
             </div>
           )}
@@ -183,7 +152,6 @@ export const Draft = ({
 
   const selectForTagging = () => {
     if (pick) {
-      console.log("Main: ", main);
       setTagFlow({ step: 'enterTag', tags: [] });
     } else {
       alert("No card picked");
@@ -202,7 +170,31 @@ export const Draft = ({
     setPick(0);
     setPack([]);
     setTagFlow({ step: 'idle', tags: [] });
-    setTagInput('');
+  }
+
+  const tagSelectedCards = (tags) => {
+    if (selectedCards.length === 0) {
+      alert("No cards selected");
+      return;
+    }
+    const message = {
+      type: "Tag",
+      cards: selectedCards.map(c => c.id),
+      tags: tags,
+      token: token
+    };
+    sendMessage(connection, message);
+    setSelectedCards([]);
+  }
+
+  const removeTagFromCard = (cardId, tag) => {
+    const message = {
+      type: "Remove Tag",
+      card: cardId,
+      tag: tag,
+      token: token
+    };
+    sendMessage(connection, message);
   }
 
   function renderSideBar() {
@@ -227,6 +219,7 @@ export const Draft = ({
           setSelectedCards={setSelectedCards}
           connection={connection}
           partnerRules={partnerRules}
+          removeTagFromCard={removeTagFromCard}
         />
       </>
     )
@@ -367,6 +360,9 @@ export const Draft = ({
             colorFilterNeg={colorFilterNeg}
             setColorFilterPos={setColorFilterPos}
             setColorFilterNeg={setColorFilterNeg}
+            playerTags={playerTags}
+            tagSelectedCards={tagSelectedCards}
+            setSelectedCards={setSelectedCards}
           />
         </div>
       </>

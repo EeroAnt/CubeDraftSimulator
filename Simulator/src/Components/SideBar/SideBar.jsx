@@ -21,7 +21,8 @@ export const SideBar = ({
   connection,
   basicLands,
   token,
-  partnerRules
+  partnerRules,
+  removeTagFromCard
 }) => {
   const headerRef = createRef()
 
@@ -145,7 +146,24 @@ export const SideBar = ({
         {Object.keys(lastClicked).length === 0 ? (
           <Image imageUrl={defaultImageUrl} backsideUrl="" />
         ) : (
-          <Image imageUrl={lastClicked.image_url} backsideUrl={lastClicked.backside_image_url} />
+          <>
+            <Image imageUrl={lastClicked.image_url} backsideUrl={lastClicked.backside_image_url} />
+            {lastClicked.tags && lastClicked.tags.length > 0 && (
+              <div className={styles.cardTags}>
+                {lastClicked.tags.map((tag, index) => (
+                  <span key={index} className={styles.tag}>
+                    {tag}
+                    <span
+                      className={styles.tagRemove}
+                      onClick={() => removeTagFromCard(lastClicked.id, tag)}
+                    >
+                      ✕
+                    </span>
+                  </span>
+                ))}
+              </div>
+            )}
+          </>
         )}
         <p>
           <Button name={showMain ? ("Show Side") : ("Show Main")} className={styles.button} onClick={() => switchView()} />

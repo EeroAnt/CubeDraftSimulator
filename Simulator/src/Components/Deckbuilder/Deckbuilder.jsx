@@ -1,4 +1,4 @@
-import { Button, Image, ManaFilter } from '../';
+import { Button, Image, ManaFilter, TagControls } from '../';
 import { useState, useEffect } from 'react';
 import { BarChart } from '@mui/x-charts/BarChart';
 import { LineChart } from '@mui/x-charts/LineChart';
@@ -65,11 +65,15 @@ export const DeckBuilder = ({
   colorFilterPos,
   colorFilterNeg,
   setColorFilterPos,
-  setColorFilterNeg
+  setColorFilterNeg,
+  playerTags,
+  tagSelectedCards,
+  setSelectedCards
 }) => {
 
   const [selectedTypefilter, setSelectedTypefilter] = useState("")
   const [bars, setBars] = useState(true)
+  const [showTagging, setShowTagging] = useState(false)
   const all = main.concat(side).concat(commanders)
   const deck = main.concat(commanders)
   const criteria = {
@@ -180,7 +184,37 @@ export const DeckBuilder = ({
 
   return (
     <>
+      <div className={styles.cardActions}>
+        <Button
+          name={`Tag selected (${selectedCards.length})`}
+          className="button"
+          onClick={() => {
+            if (selectedCards.length === 0) {
+              alert("No cards selected");
+            } else {
+              setShowTagging(true);
+            }
+          }}
+        />
+        <Button
+          name="Clear selected"
+          className="button"
+          onClick={() => setSelectedCards([])}
+        />
+      </div>
+
+      {showTagging && (
+        <TagControls
+          playerTags={playerTags}
+          onConfirm={(tags) => {
+            tagSelectedCards(tags);
+            setShowTagging(false);
+          }}
+          onCancel={() => setShowTagging(false)}
+        />
+      )}
       <div className={styles.deckStats}>
+
         <div className={styles.colorFilter}>
           <span className={styles.colorFilter}>
             {["W", "U", "B", "R", "G", "C"].map((color, index) => (
@@ -255,5 +289,3 @@ export const DeckBuilder = ({
     </>
   )
 }
-
-

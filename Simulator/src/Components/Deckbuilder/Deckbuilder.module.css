@@ -105,4 +105,9 @@
 .colorIncluded {
   background-color: rgb(140, 202, 223); /* Example background color */
 }
-  
+
+.cardActions {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+}
