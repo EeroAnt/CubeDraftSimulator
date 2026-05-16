@@ -87,7 +87,7 @@
       ],
       [
         "BUW",
-        8.875
+        8.466666666666667
       ],
       [
         "BG",
@@ -133,7 +133,7 @@
       ],
       [
         "M",
-        8.902097902097902
+        8.88785046728972
       ],
       [
         "U",
@@ -293,7 +293,7 @@
       ],
       [
         "UW",
-        7
+        9
       ],
       [
         "GR",
@@ -408,14 +408,14 @@
         "Total": 60
       },
       "UW": {
-        "Creature": 29,
+        "Creature": 31,
         "Enchantment": 8,
         "Instant": 8,
         "Sorcery": 4,
         "Planeswalker": 2,
         "Artifact": 7,
         "Land": 10,
-        "Total": 63
+        "Total": 65
       },
       "BU": {
         "Creature": 36,
@@ -14854,19 +14854,6 @@
         "avg_pick": 8.666666666666666,
         "amount_of_picks": 3,
         "is_commander": "true"
-      },
-      {
-        "id": 1785,
-        "name": "Punish Ignorance",
-        "mv": 4,
-        "color_identity": "BUW",
-        "types": "Instant",
-        "oracle_text": "Counter target spell. Its controller loses 3 life and you gain 3 life.",
-        "image_url": "https://cards.scryfall.io/normal/front/9/b/9bc37d01-ffe5-4dfe-b59e-204df82d1d36.jpg?1562707043",
-        "backside_image_url": "",
-        "draft_pool": "M",
-        "avg_pick": 15.0,
-        "amount_of_picks": 1
       },
       {
         "id": 1786,
@@ -29776,6 +29763,17 @@
         "draft_pool": "C"
       },
       {
+        "id": 1785,
+        "name": "Punish Ignorance",
+        "mv": 4,
+        "color_identity": "BUW",
+        "types": "Instant",
+        "oracle_text": "Counter target spell. Its controller loses 3 life and you gain 3 life.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/b/9bc37d01-ffe5-4dfe-b59e-204df82d1d36.jpg?1562707043",
+        "backside_image_url": "",
+        "draft_pool": "M"
+      },
+      {
         "id": 2493,
         "name": "Aether Vial",
         "mv": 1,
@@ -34645,6 +34643,30 @@
         "image_url": "https://cards.scryfall.io/normal/front/f/e/fe2837c6-8fb8-4ab6-97f3-3602a92374ec.jpg?1673485089",
         "backside_image_url": "",
         "draft_pool": "BU"
+      },
+      {
+        "id": 3059,
+        "name": "The Council of Four",
+        "mv": 5,
+        "color_identity": "UW",
+        "types": "Legendary Creature \u2014 Human Noble",
+        "oracle_text": "Whenever a player draws their second card during their turn, you draw a card.\nWhenever a player casts their second spell during their turn, you create a 2/2 white Knight creature token.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/8/0873cfa8-046c-4b14-ae22-3fd6a691f763.jpg?1674137476",
+        "backside_image_url": "",
+        "draft_pool": "UW",
+        "is_commander": "true"
+      },
+      {
+        "id": 3060,
+        "name": "Will, Scion of Peace",
+        "mv": 3,
+        "color_identity": "UW",
+        "types": "Legendary Creature \u2014 Human Wizard",
+        "oracle_text": "Vigilance\n{T}: Spells you cast this turn that are white and/or blue cost {X} less to cast, where X is the amount of life you gained this turn. Activate only as a sorcery.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/6/162088ea-5f99-4244-9427-2fdfb2168fc3.jpg?1692939510",
+        "backside_image_url": "",
+        "draft_pool": "UW",
+        "is_commander": "true"
       }
     ]
   },
