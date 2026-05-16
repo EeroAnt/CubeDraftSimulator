@@ -87,7 +87,7 @@
       ],
       [
         "BUW",
-        8.466666666666667
+        8.071428571428571
       ],
       [
         "BG",
@@ -133,7 +133,7 @@
       ],
       [
         "M",
-        8.88785046728972
+        8.875878220140516
       ],
       [
         "U",
@@ -261,7 +261,7 @@
       ],
       [
         "BUW",
-        9
+        8
       ],
       [
         "BRW",
@@ -14897,22 +14897,6 @@
         "draft_pool": "M",
         "avg_pick": 10.0,
         "amount_of_picks": 1
-      },
-      {
-        "id": 1789,
-        "name": "Chromium, the Mutable",
-        "mv": 7,
-        "color_identity": "BUW",
-        "types": "Legendary Creature \u2014 Elder Dragon",
-        "oracle_text": "Flash\nThis spell can't be countered.\nFlying\nDiscard a card: Until end of turn, Chromium, the Mutable becomes a Human with base power and toughness 1/1, loses all abilities, and gains hexproof. It can't be blocked this turn.",
-        "image_url": "https://cards.scryfall.io/normal/front/5/0/50c1de2c-1acc-47c8-9b5e-a9dae3da8a49.jpg?1562302164",
-        "backside_image_url": "",
-        "draft_pool": "M",
-        "avg_pick": 14.0,
-        "amount_of_picks": 1,
-        "is_commander": "true",
-        "avg_commander_pick": 3.5,
-        "amount_of_commander_picks": 2
       },
       {
         "id": 1791,
@@ -34667,6 +34651,17 @@
         "backside_image_url": "",
         "draft_pool": "UW",
         "is_commander": "true"
+      },
+      {
+        "id": 1789,
+        "name": "Chromium, the Mutable",
+        "mv": 7,
+        "color_identity": "BUW",
+        "types": "Legendary Creature \u2014 Elder Dragon",
+        "oracle_text": "Flash\nThis spell can't be countered.\nFlying\nDiscard a card: Until end of turn, Chromium, the Mutable becomes a Human with base power and toughness 1/1, loses all abilities, and gains hexproof. It can't be blocked this turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/0/50c1de2c-1acc-47c8-9b5e-a9dae3da8a49.jpg?1562302164",
+        "backside_image_url": "",
+        "draft_pool": "M"
       }
     ]
   },
