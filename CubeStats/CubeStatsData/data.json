@@ -273,7 +273,7 @@
       ],
       [
         "BG",
-        8
+        9
       ],
       [
         "BRU",
@@ -448,14 +448,14 @@
         "Total": 63
       },
       "BG": {
-        "Creature": 24,
+        "Creature": 25,
         "Enchantment": 6,
         "Instant": 8,
         "Sorcery": 11,
         "Planeswalker": 2,
         "Artifact": 3,
         "Land": 11,
-        "Total": 62
+        "Total": 63
       },
       "BW": {
         "Creature": 31,
@@ -34662,6 +34662,18 @@
         "image_url": "https://cards.scryfall.io/normal/front/5/0/50c1de2c-1acc-47c8-9b5e-a9dae3da8a49.jpg?1562302164",
         "backside_image_url": "",
         "draft_pool": "M"
+      },
+      {
+        "id": 3061,
+        "name": "Belbe, Corrupted Observer",
+        "mv": 2,
+        "color_identity": "BG",
+        "types": "Legendary Creature \u2014 Phyrexian Zombie Elf",
+        "oracle_text": "At the beginning of each postcombat main phase, the active player adds {C}{C} for each of your opponents who lost life this turn. (Damage causes loss of life.)",
+        "image_url": "https://cards.scryfall.io/normal/front/b/4/b4427e73-8c60-490d-8ae3-53e872a5163e.jpg?1608911054",
+        "backside_image_url": "",
+        "draft_pool": "BG",
+        "is_commander": "true"
       }
     ]
   },
