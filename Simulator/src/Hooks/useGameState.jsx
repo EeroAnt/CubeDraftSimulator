@@ -162,6 +162,17 @@ export const useGameState = () => {
           if (lobbyMode !== "LobbySuccess") {
             setLobbyMode("LobbySuccess")
           }
+        } else if (decryptedMessage.type === "Exported Draft" && decryptedMessage.draft) {
+          const blob = new Blob(
+            [JSON.stringify(decryptedMessage.draft, null, 2)],
+            { type: "application/json" }
+          );
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "draft-export.json";
+          a.click();
+          URL.revokeObjectURL(url);
         } else if (decryptedMessage.status === "OK" && decryptedMessage.type === "Start Draft") {
           setMode("Draft")
         } else if (decryptedMessage.status === "Draft Already Started") {
@@ -214,6 +225,10 @@ export const useGameState = () => {
         if (decryptedMessage.type === "Picked Cards") {
           handlePickedCards(decryptedMessage)
         }
+        break;
+      default:
+        console.warn("Unhandled message in mode", mode, ":", decryptedMessage)
+        break;
     }
   }, [decryptedMessage])
 

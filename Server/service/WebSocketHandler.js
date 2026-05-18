@@ -18,7 +18,13 @@ import {
 import { sendDraftData } from "./DataBaseCommunications.js";
 import { parseDraftData } from "./DraftDataParser.js";
 import { queueMessage, processMessageQueue } from "./Messaging.js";
-import { handlePick, giveLastCard, sendCards, tagCards, removeTag } from "./DraftFunctions.js";
+import { handlePick,
+  giveLastCard,
+  sendCards,
+  tagCards,
+  removeTag,
+  exportDraft
+ } from "./DraftFunctions.js";
 import { setCommander, removeCommander, moveCards } from "./DeckManagement.js";
 import { decrypt } from "./encryption.js";
 import { addNPC, removeNPC } from "./NPC.js";
@@ -163,6 +169,9 @@ export async function handleMessage(message, uuid) {
       break;
     case "Remove NPC":
       removeNPC(drafts[data.token]);
+      break;
+    case "Export Draft":
+      exportDraft(drafts[data.token], uuid);
       break;
     case "Ack":
       if (last_acked_message[uuid] === data.ackToken) {
