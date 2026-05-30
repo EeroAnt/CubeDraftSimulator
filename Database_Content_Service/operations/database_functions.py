@@ -61,17 +61,21 @@ def add_card(cursor, cardname):
 		add_anyway = input("Would you like to add it back? (y/n)")
 		if add_anyway == "y":
 			print(f"Reactivating {card['name']}")
-			cursor.execute("BEGIN;")
-			cursor.execute("""
-					UPDATE cards
-					SET active = true
-					WHERE name = %s;
-									""", (card["name"]))
-			cursor.execute("COMMIT;")
+			try:
+				cursor.execute("BEGIN;")
+				cursor.execute("""
+            UPDATE cards
+            SET active = true
+            WHERE name = %s;
+                    """, (card["name"]))
+				cursor.execute("COMMIT;")
+			except Exception as e:
+				cursor.execute("ROLLBACK;")
+				print(f"Error reactivating {card['name']}: {e}")
 		return
-
-	cursor.execute("BEGIN;")
-	cursor.execute("""INSERT INTO
+	try:
+		cursor.execute("BEGIN;")
+		cursor.execute("""INSERT INTO
 				Cards(
 					name,
 					mv,
@@ -94,8 +98,12 @@ def add_card(cursor, cardname):
 					card["backside_image_url"],
 					card["draft_pool"]
 				)
-	)
-	cursor.execute("COMMIT;")
+		)
+		cursor.execute("COMMIT;")
+		print(f"{card['name']} has been added to the database.")
+	except Exception as e:
+		cursor.execute("ROLLBACK;")
+		print(f"Error adding {card['name']}: {e}")
 
 def add_multiple_cards(cursor):
 	cards = read_txt_file("cards.txt")

@@ -54,6 +54,13 @@ export const LobbySuccess = ({ owner, token, playersInLobby, numberOfPlayers, st
     }
     sendMessage(connection, message);
   }
+  const exportDraft = () => {
+    const message = {
+      type: "Export Draft",
+      token: token
+    }
+    sendMessage(connection, message);
+  }
 
   return (
     <>
@@ -75,6 +82,7 @@ export const LobbySuccess = ({ owner, token, playersInLobby, numberOfPlayers, st
               {hasNPC ? (
                 <Button name="Remove NPC" className={styles.button} onClick={() => removeNPC()} />
               ) : (null)}
+              <Button name="Export Draft" className={styles.button} onClick={() => exportDraft()} />
               <h2>Players present:</h2>
               {renderPlayers(playerList)}
             </>

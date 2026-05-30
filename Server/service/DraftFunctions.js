@@ -149,3 +149,12 @@ export async function removeTag(data, userSeat) {
     cardToUpdate.tags = (cardToUpdate.tags || []).filter(t => t !== tag);
   };
 };
+
+export function exportDraft(draft, uuid) {
+  const message = {
+    type: "Exported Draft",
+    draft: draft
+   }
+
+   queueMessage(uuid, message);
+};
