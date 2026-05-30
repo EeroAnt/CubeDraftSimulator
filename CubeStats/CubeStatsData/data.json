@@ -215,7 +215,7 @@
       ],
       [
         "BU",
-        47
+        48
       ],
       [
         "GW",
@@ -359,13 +359,13 @@
       },
       "C": {
         "Creature": 110,
-        "Enchantment": 0,
+        "Enchantment": 1,
         "Instant": 6,
         "Sorcery": 6,
         "Planeswalker": 6,
         "Artifact": 290,
-        "Land": 64,
-        "Total": 407
+        "Land": 65,
+        "Total": 409
       },
       "R": {
         "Creature": 150,
@@ -420,12 +420,12 @@
       "BU": {
         "Creature": 36,
         "Enchantment": 4,
-        "Instant": 8,
+        "Instant": 9,
         "Sorcery": 4,
         "Planeswalker": 3,
         "Artifact": 7,
         "Land": 9,
-        "Total": 67
+        "Total": 68
       },
       "BR": {
         "Creature": 34,
@@ -30286,6 +30286,17 @@
         "draft_pool": "C"
       },
       {
+        "id": 3064,
+        "name": "Just a Regular Land; Trust Me Bro",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Land",
+        "oracle_text": "Haste, myriad, annihilator 2, {T}: Add {0}",
+        "image_url": "/custom_cards/photo_2026-05-28_23-03-34.jpg",
+        "backside_image_url": null,
+        "draft_pool": "L"
+      },
+      {
         "id": 2583,
         "name": "Engineered Explosives",
         "mv": 0,
@@ -30847,6 +30858,17 @@
         "draft_pool": "M"
       },
       {
+        "id": 3066,
+        "name": "Counter Spell",
+        "mv": 3,
+        "color_identity": "BU",
+        "types": "Instant",
+        "oracle_text": "Counter any target.",
+        "image_url": "/custom_cards/photo_2026-05-28_23-04-07.jpg",
+        "backside_image_url": null,
+        "draft_pool": "M"
+      },
+      {
         "id": 2685,
         "name": "Fire Covenant",
         "mv": 3,
@@ -30999,6 +31021,17 @@
         "image_url": "https://cards.scryfall.io/normal/front/5/e/5e1c14a0-cd68-45fc-a127-422ca6113048.jpg?1625192511",
         "backside_image_url": "",
         "draft_pool": "M"
+      },
+      {
+        "id": 3065,
+        "name": "I Can Only Count to Four",
+        "mv": 10,
+        "color_identity": "C",
+        "types": "Legendary Enchantment",
+        "oracle_text": "Any number greater than 4 becomes 4.",
+        "image_url": "/custom_cards/9blsnu9xzskg1.jpeg",
+        "backside_image_url": null,
+        "draft_pool": "C"
       },
       {
         "id": 2695,
