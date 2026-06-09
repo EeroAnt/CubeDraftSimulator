@@ -317,56 +317,6 @@
       ]
     ],
     "color_id_aggregates": {
-      "": {
-        "Creature": 0,
-        "Enchantment": 0,
-        "Instant": 0,
-        "Sorcery": 0,
-        "Planeswalker": 0,
-        "Artifact": 1,
-        "Land": 5,
-        "Total": 5
-      },
-      "B": {
-        "Creature": 125,
-        "Enchantment": 52,
-        "Instant": 36,
-        "Sorcery": 63,
-        "Planeswalker": 6,
-        "Artifact": 7,
-        "Land": 3,
-        "Total": 283
-      },
-      "W": {
-        "Creature": 153,
-        "Enchantment": 63,
-        "Instant": 35,
-        "Sorcery": 40,
-        "Planeswalker": 11,
-        "Artifact": 9,
-        "Land": 6,
-        "Total": 307
-      },
-      "G": {
-        "Creature": 151,
-        "Enchantment": 62,
-        "Instant": 22,
-        "Sorcery": 41,
-        "Planeswalker": 6,
-        "Artifact": 5,
-        "Land": 7,
-        "Total": 286
-      },
-      "C": {
-        "Creature": 110,
-        "Enchantment": 1,
-        "Instant": 6,
-        "Sorcery": 6,
-        "Planeswalker": 6,
-        "Artifact": 290,
-        "Land": 65,
-        "Total": 409
-      },
       "R": {
         "Creature": 150,
         "Enchantment": 68,
@@ -376,6 +326,16 @@
         "Artifact": 8,
         "Land": 7,
         "Total": 341
+      },
+      "C": {
+        "Creature": 110,
+        "Enchantment": 1,
+        "Instant": 6,
+        "Sorcery": 6,
+        "Planeswalker": 6,
+        "Artifact": 291,
+        "Land": 70,
+        "Total": 414
       },
       "U": {
         "Creature": 148,
@@ -387,6 +347,46 @@
         "Land": 5,
         "Total": 337
       },
+      "G": {
+        "Creature": 151,
+        "Enchantment": 62,
+        "Instant": 22,
+        "Sorcery": 41,
+        "Planeswalker": 6,
+        "Artifact": 5,
+        "Land": 7,
+        "Total": 286
+      },
+      "W": {
+        "Creature": 153,
+        "Enchantment": 63,
+        "Instant": 35,
+        "Sorcery": 40,
+        "Planeswalker": 11,
+        "Artifact": 9,
+        "Land": 6,
+        "Total": 307
+      },
+      "B": {
+        "Creature": 125,
+        "Enchantment": 52,
+        "Instant": 36,
+        "Sorcery": 63,
+        "Planeswalker": 6,
+        "Artifact": 7,
+        "Land": 3,
+        "Total": 283
+      },
+      "GW": {
+        "Creature": 26,
+        "Enchantment": 10,
+        "Instant": 11,
+        "Sorcery": 2,
+        "Planeswalker": 1,
+        "Artifact": 3,
+        "Land": 10,
+        "Total": 61
+      },
       "RU": {
         "Creature": 28,
         "Enchantment": 5,
@@ -396,36 +396,6 @@
         "Artifact": 10,
         "Land": 11,
         "Total": 65
-      },
-      "GU": {
-        "Creature": 27,
-        "Enchantment": 5,
-        "Instant": 7,
-        "Sorcery": 5,
-        "Planeswalker": 4,
-        "Artifact": 4,
-        "Land": 12,
-        "Total": 60
-      },
-      "UW": {
-        "Creature": 31,
-        "Enchantment": 8,
-        "Instant": 8,
-        "Sorcery": 4,
-        "Planeswalker": 2,
-        "Artifact": 7,
-        "Land": 10,
-        "Total": 65
-      },
-      "BU": {
-        "Creature": 36,
-        "Enchantment": 4,
-        "Instant": 9,
-        "Sorcery": 4,
-        "Planeswalker": 3,
-        "Artifact": 7,
-        "Land": 9,
-        "Total": 68
       },
       "BR": {
         "Creature": 34,
@@ -467,6 +437,26 @@
         "Land": 10,
         "Total": 67
       },
+      "GU": {
+        "Creature": 27,
+        "Enchantment": 5,
+        "Instant": 7,
+        "Sorcery": 5,
+        "Planeswalker": 4,
+        "Artifact": 4,
+        "Land": 12,
+        "Total": 60
+      },
+      "UW": {
+        "Creature": 31,
+        "Enchantment": 8,
+        "Instant": 8,
+        "Sorcery": 4,
+        "Planeswalker": 2,
+        "Artifact": 7,
+        "Land": 10,
+        "Total": 65
+      },
       "GR": {
         "Creature": 30,
         "Enchantment": 6,
@@ -477,65 +467,15 @@
         "Land": 9,
         "Total": 59
       },
-      "GW": {
-        "Creature": 26,
-        "Enchantment": 10,
-        "Instant": 11,
-        "Sorcery": 2,
-        "Planeswalker": 1,
-        "Artifact": 3,
-        "Land": 10,
-        "Total": 61
-      },
-      "GUW": {
-        "Creature": 8,
-        "Enchantment": 2,
-        "Instant": 3,
-        "Sorcery": 1,
-        "Planeswalker": 1,
-        "Artifact": 0,
-        "Land": 1,
-        "Total": 16
-      },
-      "BGW": {
-        "Creature": 10,
-        "Enchantment": 1,
-        "Instant": 3,
-        "Sorcery": 2,
-        "Planeswalker": 0,
-        "Artifact": 0,
-        "Land": 1,
-        "Total": 17
-      },
-      "BUW": {
-        "Creature": 11,
-        "Enchantment": 1,
-        "Instant": 4,
-        "Sorcery": 0,
-        "Planeswalker": 0,
-        "Artifact": 3,
-        "Land": 1,
-        "Total": 18
-      },
-      "BGU": {
-        "Creature": 9,
-        "Enchantment": 1,
-        "Instant": 1,
-        "Sorcery": 1,
-        "Planeswalker": 0,
-        "Artifact": 0,
-        "Land": 1,
-        "Total": 13
-      },
-      "BRU": {
-        "Creature": 7,
-        "Enchantment": 0,
-        "Instant": 2,
-        "Sorcery": 1,
-        "Planeswalker": 2,
-        "Artifact": 1,
-        "Land": 1,
-        "Total": 14
+      "BU": {
+        "Creature": 36,
+        "Enchantment": 4,
+        "Instant": 9,
+        "Sorcery": 4,
+        "Planeswalker": 3,
+        "Artifact": 7,
+        "Land": 9,
+        "Total": 68
       },
       "RUW": {
         "Creature": 8,
@@ -547,21 +487,41 @@
         "Land": 1,
         "Total": 16
       },
-      "BGR": {
-        "Creature": 12,
-        "Enchantment": 1,
+      "GUW": {
+        "Creature": 8,
+        "Enchantment": 2,
+        "Instant": 3,
+        "Sorcery": 1,
+        "Planeswalker": 1,
+        "Artifact": 0,
+        "Land": 1,
+        "Total": 16
+      },
+      "BRU": {
+        "Creature": 7,
+        "Enchantment": 0,
         "Instant": 2,
+        "Sorcery": 1,
+        "Planeswalker": 2,
+        "Artifact": 1,
+        "Land": 1,
+        "Total": 14
+      },
+      "BGW": {
+        "Creature": 10,
+        "Enchantment": 1,
+        "Instant": 3,
         "Sorcery": 2,
         "Planeswalker": 0,
         "Artifact": 0,
         "Land": 1,
-        "Total": 18
+        "Total": 17
       },
-      "BRW": {
-        "Creature": 14,
+      "GRW": {
+        "Creature": 13,
         "Enchantment": 1,
         "Instant": 2,
-        "Sorcery": 1,
+        "Sorcery": 2,
         "Planeswalker": 0,
         "Artifact": 0,
         "Land": 1,
@@ -577,15 +537,45 @@
         "Land": 1,
         "Total": 15
       },
-      "GRW": {
-        "Creature": 13,
+      "BUW": {
+        "Creature": 11,
+        "Enchantment": 1,
+        "Instant": 4,
+        "Sorcery": 0,
+        "Planeswalker": 0,
+        "Artifact": 3,
+        "Land": 1,
+        "Total": 18
+      },
+      "BRW": {
+        "Creature": 14,
+        "Enchantment": 1,
+        "Instant": 2,
+        "Sorcery": 1,
+        "Planeswalker": 0,
+        "Artifact": 0,
+        "Land": 1,
+        "Total": 19
+      },
+      "BGR": {
+        "Creature": 12,
         "Enchantment": 1,
         "Instant": 2,
         "Sorcery": 2,
         "Planeswalker": 0,
         "Artifact": 0,
         "Land": 1,
-        "Total": 19
+        "Total": 18
+      },
+      "BGU": {
+        "Creature": 9,
+        "Enchantment": 1,
+        "Instant": 1,
+        "Sorcery": 1,
+        "Planeswalker": 0,
+        "Artifact": 0,
+        "Land": 1,
+        "Total": 13
       },
       "BGRUW": {
         "Creature": 5,
@@ -33551,17 +33541,6 @@
         "draft_pool": "U"
       },
       {
-        "id": 2956,
-        "name": "War Room",
-        "mv": 0,
-        "color_identity": "",
-        "types": "Land",
-        "oracle_text": "{T}: Add {C}.\n{3}, {T}, Pay life equal to the number of colors in your commanders' color identity: Draw a card.",
-        "image_url": "https://cards.scryfall.io/normal/front/0/7/0775b4be-881c-4832-8954-d961064315b6.jpg?1775942539",
-        "backside_image_url": "",
-        "draft_pool": "L"
-      },
-      {
         "id": 2983,
         "name": "Puca's Mischief",
         "mv": 4,
@@ -34200,17 +34179,6 @@
         "draft_pool": "BRW"
       },
       {
-        "id": 3016,
-        "name": "Treasure Vault",
-        "mv": 0,
-        "color_identity": "",
-        "types": "Artifact Land",
-        "oracle_text": "{T}: Add {C}.\n{X}{X}, {T}, Sacrifice this land: Create X Treasure tokens.",
-        "image_url": "https://cards.scryfall.io/normal/front/a/0/a0931eb3-b403-4b1a-ad46-a7b0a51bb9a4.jpg?1627710405",
-        "backside_image_url": "",
-        "draft_pool": "L"
-      },
-      {
         "id": 3017,
         "name": "Silverbluff Bridge",
         "mv": 0,
@@ -34585,17 +34553,6 @@
         "draft_pool": "C"
       },
       {
-        "id": 3052,
-        "name": "Maze of Ith",
-        "mv": 0,
-        "color_identity": "",
-        "types": "Land",
-        "oracle_text": "{T}: Untap target attacking creature. Prevent all combat damage that would be dealt to and dealt by that creature this turn.",
-        "image_url": "https://cards.scryfall.io/normal/front/5/8/5889fde1-730d-43d0-aaa4-499784a80530.jpg?1675201242",
-        "backside_image_url": "",
-        "draft_pool": "L"
-      },
-      {
         "id": 3053,
         "name": "Mirage Mirror",
         "mv": 3,
@@ -34618,28 +34575,6 @@
         "draft_pool": "C"
       },
       {
-        "id": 3055,
-        "name": "Blinkmoth Nexus",
-        "mv": 0,
-        "color_identity": "",
-        "types": "Land",
-        "oracle_text": "{T}: Add {C}.\n{1}: This land becomes a 1/1 Blinkmoth artifact creature with flying until end of turn. It's still a land.\n{1}, {T}: Target Blinkmoth creature gets +1/+1 until end of turn.",
-        "image_url": "https://cards.scryfall.io/normal/front/3/a/3ac535c1-9ef3-45b5-8959-7e79589d47ad.jpg?1599710351",
-        "backside_image_url": "",
-        "draft_pool": "L"
-      },
-      {
-        "id": 3056,
-        "name": "Inkmoth Nexus",
-        "mv": 0,
-        "color_identity": "",
-        "types": "Land",
-        "oracle_text": "{T}: Add {C}.\n{1}: This land becomes a 1/1 Phyrexian Blinkmoth artifact creature with flying and infect until end of turn. It's still a land. (It deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)",
-        "image_url": "https://cards.scryfall.io/normal/front/e/c/ec50c1c3-885e-47d3-ada7-cc0edbf09df1.jpg?1623098818",
-        "backside_image_url": "",
-        "draft_pool": "L"
-      },
-      {
         "id": 3057,
         "name": "War's Toll",
         "mv": 4,
@@ -34660,6 +34595,17 @@
         "image_url": "https://cards.scryfall.io/normal/front/f/e/fe2837c6-8fb8-4ab6-97f3-3602a92374ec.jpg?1673485089",
         "backside_image_url": "",
         "draft_pool": "BU"
+      },
+      {
+        "id": 3056,
+        "name": "Inkmoth Nexus",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{1}: This land becomes a 1/1 Phyrexian Blinkmoth artifact creature with flying and infect until end of turn. It's still a land. (It deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)",
+        "image_url": "https://cards.scryfall.io/normal/front/e/c/ec50c1c3-885e-47d3-ada7-cc0edbf09df1.jpg?1623098818",
+        "backside_image_url": "",
+        "draft_pool": "L"
       },
       {
         "id": 3059,
@@ -34731,6 +34677,50 @@
         "backside_image_url": "",
         "draft_pool": "RW",
         "is_commander": "true"
+      },
+      {
+        "id": 2956,
+        "name": "War Room",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{3}, {T}, Pay life equal to the number of colors in your commanders' color identity: Draw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/7/0775b4be-881c-4832-8954-d961064315b6.jpg?1775942539",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3016,
+        "name": "Treasure Vault",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Artifact Land",
+        "oracle_text": "{T}: Add {C}.\n{X}{X}, {T}, Sacrifice this land: Create X Treasure tokens.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/0/a0931eb3-b403-4b1a-ad46-a7b0a51bb9a4.jpg?1627710405",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3052,
+        "name": "Maze of Ith",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Land",
+        "oracle_text": "{T}: Untap target attacking creature. Prevent all combat damage that would be dealt to and dealt by that creature this turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/8/5889fde1-730d-43d0-aaa4-499784a80530.jpg?1675201242",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3055,
+        "name": "Blinkmoth Nexus",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{1}: This land becomes a 1/1 Blinkmoth artifact creature with flying until end of turn. It's still a land.\n{1}, {T}: Target Blinkmoth creature gets +1/+1 until end of turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/a/3ac535c1-9ef3-45b5-8959-7e79589d47ad.jpg?1599710351",
+        "backside_image_url": "",
+        "draft_pool": "L"
       }
     ]
   },
@@ -34814,13 +34804,12 @@
       "RUW"
     ],
     "not_picked_color_ids": [
-      "",
-      "U",
+      "W",
       "R",
+      "U",
+      "G",
       "C",
       "B",
-      "W",
-      "G",
       "GW",
       "RU",
       "BR",
@@ -34831,16 +34820,16 @@
       "UW",
       "GR",
       "BU",
+      "GRU",
       "RUW",
       "BGW",
-      "BUW",
       "GRW",
+      "BRW",
       "BGR",
       "BGU",
-      "BRW",
+      "BUW",
       "BRU",
-      "GUW",
-      "GRU"
+      "GUW"
     ]
   }
 }
