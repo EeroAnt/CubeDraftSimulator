@@ -18,7 +18,7 @@ def handle_card_json(card_json):
 	card_data = {}
 	card_data["name"] = card_json["name"]
 	card_data["mana_value"] = int(card_json["cmc"])
-	card_data["color_identity"] = "".join(card_json["color_identity"])
+	card_data["color_identity"] = "".join(card_json["color_identity"]) or "C"
 	card_data["types"] = "".join(card_json["type_line"])
 	if "card_faces" in card_json:
 		card_data["oracle_text"] = card_json["card_faces"][0]["oracle_text"]+" // "+card_json["card_faces"][1]["oracle_text"] 
@@ -33,7 +33,7 @@ def handle_card_json(card_json):
 		card_data["image_url"] = card_json["image_uris"]["normal"]
 		card_data["backside_image_url"] = ""
 	if "Land" in card_data["types"]:
-		if not card_data["color_identity"] or len(card_data["color_identity"]) > 1:
+		if card_data["color_identity"] == "C" or len(card_data["color_identity"]) > 1:
 			open(card_data["image_url"])
 			card_data["draft_pool"] = input("Enter the card's draft pool: ")
 		else:
