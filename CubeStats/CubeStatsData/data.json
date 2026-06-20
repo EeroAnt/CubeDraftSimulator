@@ -28373,17 +28373,6 @@
         "draft_pool": "R"
       },
       {
-        "id": 2383,
-        "name": "Choice of Damnations",
-        "mv": 6,
-        "color_identity": "B",
-        "types": "Sorcery \u2014 Arcane",
-        "oracle_text": "Target opponent chooses a number. You may have that player lose that much life. If you don't, that player sacrifices all but that many permanents.",
-        "image_url": "https://cards.scryfall.io/normal/front/0/5/05939f15-2d95-47df-b66f-131c3e7ea95f.jpg?1562492064",
-        "backside_image_url": "",
-        "draft_pool": "B"
-      },
-      {
         "id": 2268,
         "name": "Aggravated Assault",
         "mv": 3,
@@ -29051,17 +29040,6 @@
         "types": "Creature \u2014 Zombie",
         "oracle_text": "Whenever Noxious Ghoul or another Zombie enters the battlefield, all non-Zombie creatures get -1/-1 until end of turn.",
         "image_url": "https://cards.scryfall.io/normal/front/7/d/7d67511b-c130-44d5-8536-4278a695627c.jpg?1562842618",
-        "backside_image_url": "",
-        "draft_pool": "B"
-      },
-      {
-        "id": 890,
-        "name": "Skeleton Shard",
-        "mv": 3,
-        "color_identity": "B",
-        "types": "Artifact",
-        "oracle_text": "{3}, {T} or {B}, {T}: Return target artifact creature card from your graveyard to your hand.",
-        "image_url": "https://cards.scryfall.io/normal/front/e/e/ee0d0da7-70de-4174-8f71-3e8861270dfb.jpg?1562843361",
         "backside_image_url": "",
         "draft_pool": "B"
       },
@@ -29737,17 +29715,6 @@
         "draft_pool": "C"
       },
       {
-        "id": 1785,
-        "name": "Punish Ignorance",
-        "mv": 4,
-        "color_identity": "BUW",
-        "types": "Instant",
-        "oracle_text": "Counter target spell. Its controller loses 3 life and you gain 3 life.",
-        "image_url": "https://cards.scryfall.io/normal/front/9/b/9bc37d01-ffe5-4dfe-b59e-204df82d1d36.jpg?1562707043",
-        "backside_image_url": "",
-        "draft_pool": "M"
-      },
-      {
         "id": 2493,
         "name": "Aether Vial",
         "mv": 1,
@@ -29977,17 +29944,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/5/7/572fb0dc-d876-4e1b-91d1-9c595f6f6f04.jpg?1690005563",
         "backside_image_url": "",
         "draft_pool": "C"
-      },
-      {
-        "id": 1733,
-        "name": "Agrus Kos, Wojek Veteran",
-        "mv": 5,
-        "color_identity": "RW",
-        "types": "Legendary Creature \u2014 Human Soldier",
-        "oracle_text": "Whenever Agrus Kos, Wojek Veteran attacks, attacking red creatures get +2/+0 and attacking white creatures get +0/+2 until end of turn.",
-        "image_url": "https://cards.scryfall.io/normal/front/c/2/c2521942-0ecd-45a9-bac6-04267a2c29ed.jpg?1598916720",
-        "backside_image_url": "",
-        "draft_pool": "M"
       },
       {
         "id": 2537,
@@ -31641,39 +31597,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/3/a/3a8b11ad-d077-40b6-988c-0462e118fe3d.jpg?1676452514",
         "backside_image_url": "",
         "draft_pool": "L"
-      },
-      {
-        "id": 1937,
-        "name": "Blue Ribbon",
-        "mv": 1,
-        "color_identity": "C",
-        "types": "Artifact \u2014 Equipment",
-        "oracle_text": "When Blue Ribbon enters the battlefield, ask a person outside the game which creature you control is most deserving of a blue ribbon. Attach Blue Ribbon to that creature.\nEquipped creature has best in show. (Whenever another creature becomes the target of a spell or ability you control, you may copy that spell or ability. If you do, the copy targets this creature.)\nEquip {3}",
-        "image_url": "https://cards.scryfall.io/normal/front/d/a/da67aec2-18ff-426a-a074-25cd34b01f9c.jpg?1673915030",
-        "backside_image_url": "",
-        "draft_pool": "C"
-      },
-      {
-        "id": 1929,
-        "name": "Gruesome Slaughter",
-        "mv": 6,
-        "color_identity": "C",
-        "types": "Sorcery",
-        "oracle_text": "Until end of turn, colorless creatures you control gain \"{T}: This creature deals damage equal to its power to target creature.\"",
-        "image_url": "https://cards.scryfall.io/normal/front/3/d/3d3e464c-3032-4579-8840-4fe75474e3fb.jpg?1562909391",
-        "backside_image_url": "",
-        "draft_pool": "C"
-      },
-      {
-        "id": 1627,
-        "name": "Teysa, Envoy of Ghosts",
-        "mv": 7,
-        "color_identity": "BW",
-        "types": "Legendary Creature \u2014 Human Advisor",
-        "oracle_text": "Vigilance, protection from creatures\nWhenever a creature deals combat damage to you, destroy that creature. Create a 1/1 white and black Spirit creature token with flying.",
-        "image_url": "https://cards.scryfall.io/normal/front/a/b/abb21cf7-c5e6-4be5-8da5-9d29e95e2208.jpg?1625978098",
-        "backside_image_url": "",
-        "draft_pool": "M"
       },
       {
         "id": 2788,
@@ -33887,17 +33810,6 @@
         "draft_pool": "M"
       },
       {
-        "id": 1789,
-        "name": "Chromium, the Mutable",
-        "mv": 7,
-        "color_identity": "BUW",
-        "types": "Legendary Creature \u2014 Elder Dragon",
-        "oracle_text": "Flash\nThis spell can't be countered.\nFlying\nDiscard a card: Until end of turn, Chromium, the Mutable becomes a Human with base power and toughness 1/1, loses all abilities, and gains hexproof. It can't be blocked this turn.",
-        "image_url": "https://cards.scryfall.io/normal/front/5/0/50c1de2c-1acc-47c8-9b5e-a9dae3da8a49.jpg?1562302164",
-        "backside_image_url": "",
-        "draft_pool": "M"
-      },
-      {
         "id": 2956,
         "name": "War Room",
         "mv": 0,
@@ -34673,50 +34585,6 @@
         "backside_image_url": "",
         "draft_pool": "M",
         "is_commander": "true"
-      },
-      {
-        "id": 3062,
-        "name": "Imskir Iron-Eater",
-        "mv": 8,
-        "color_identity": "BR",
-        "types": "Legendary Creature \u2014 Demon",
-        "oracle_text": "Affinity for artifacts (This spell costs {1} less to cast for each artifact you control.)\nWhen Imskir enters, you draw X cards and you lose X life, where X is half the number of artifacts you control, rounded down.\n{3}{R}, Sacrifice an artifact: Imskir deals damage equal to the sacrificed artifact's mana value to any target.",
-        "image_url": "https://cards.scryfall.io/normal/front/5/4/541209fa-38b6-4d61-a72d-26bfb6ad5ead.jpg?1717012728",
-        "backside_image_url": "",
-        "draft_pool": "M"
-      },
-      {
-        "id": 3063,
-        "name": "Lorehold, the Historian",
-        "mv": 5,
-        "color_identity": "RW",
-        "types": "Legendary Creature \u2014 Elder Dragon",
-        "oracle_text": "Flying, haste\nEach instant and sorcery card in your hand has miracle {2}. (You may cast a card for its miracle cost when you draw it if it's the first card you drew this turn.)\nAt the beginning of each opponent's upkeep, you may discard a card. If you do, draw a card.",
-        "image_url": "https://cards.scryfall.io/normal/front/7/1/71a6701f-40f1-43ef-bff5-a5907fd67cd6.jpg?1775938396",
-        "backside_image_url": "",
-        "draft_pool": "M"
-      },
-      {
-        "id": 3059,
-        "name": "The Council of Four",
-        "mv": 5,
-        "color_identity": "UW",
-        "types": "Legendary Creature \u2014 Human Noble",
-        "oracle_text": "Whenever a player draws their second card during their turn, you draw a card.\nWhenever a player casts their second spell during their turn, you create a 2/2 white Knight creature token.",
-        "image_url": "https://cards.scryfall.io/normal/front/0/8/0873cfa8-046c-4b14-ae22-3fd6a691f763.jpg?1674137476",
-        "backside_image_url": "",
-        "draft_pool": "M"
-      },
-      {
-        "id": 3060,
-        "name": "Will, Scion of Peace",
-        "mv": 3,
-        "color_identity": "UW",
-        "types": "Legendary Creature \u2014 Human Wizard",
-        "oracle_text": "Vigilance\n{T}: Spells you cast this turn that are white and/or blue cost {X} less to cast, where X is the amount of life you gained this turn. Activate only as a sorcery.",
-        "image_url": "https://cards.scryfall.io/normal/front/1/6/162088ea-5f99-4244-9427-2fdfb2168fc3.jpg?1692939510",
-        "backside_image_url": "",
-        "draft_pool": "M"
       }
     ]
   },
