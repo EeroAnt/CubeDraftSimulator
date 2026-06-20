@@ -237,7 +237,7 @@
       ],
       [
         "BR",
-        11
+        10
       ],
       [
         "GRW",
@@ -245,7 +245,7 @@
       ],
       [
         "RW",
-        10
+        9
       ],
       [
         "BGW",
@@ -293,7 +293,7 @@
       ],
       [
         "UW",
-        9
+        7
       ],
       [
         "GR",
@@ -34475,18 +34475,6 @@
         "is_commander": "true"
       },
       {
-        "id": 3060,
-        "name": "Will, Scion of Peace",
-        "mv": 3,
-        "color_identity": "UW",
-        "types": "Legendary Creature \u2014 Human Wizard",
-        "oracle_text": "Vigilance\n{T}: Spells you cast this turn that are white and/or blue cost {X} less to cast, where X is the amount of life you gained this turn. Activate only as a sorcery.",
-        "image_url": "https://cards.scryfall.io/normal/front/1/6/162088ea-5f99-4244-9427-2fdfb2168fc3.jpg?1692939510",
-        "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
-      },
-      {
         "id": 2872,
         "name": "Saheeli, the Gifted",
         "mv": 4,
@@ -34675,18 +34663,6 @@
         "draft_pool": "M"
       },
       {
-        "id": 3059,
-        "name": "The Council of Four",
-        "mv": 5,
-        "color_identity": "UW",
-        "types": "Legendary Creature \u2014 Human Noble",
-        "oracle_text": "Whenever a player draws their second card during their turn, you draw a card.\nWhenever a player casts their second spell during their turn, you create a 2/2 white Knight creature token.",
-        "image_url": "https://cards.scryfall.io/normal/front/0/8/0873cfa8-046c-4b14-ae22-3fd6a691f763.jpg?1674137476",
-        "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
-      },
-      {
         "id": 3061,
         "name": "Belbe, Corrupted Observer",
         "mv": 2,
@@ -34707,8 +34683,7 @@
         "oracle_text": "Affinity for artifacts (This spell costs {1} less to cast for each artifact you control.)\nWhen Imskir enters, you draw X cards and you lose X life, where X is half the number of artifacts you control, rounded down.\n{3}{R}, Sacrifice an artifact: Imskir deals damage equal to the sacrificed artifact's mana value to any target.",
         "image_url": "https://cards.scryfall.io/normal/front/5/4/541209fa-38b6-4d61-a72d-26bfb6ad5ead.jpg?1717012728",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 3063,
@@ -34719,8 +34694,29 @@
         "oracle_text": "Flying, haste\nEach instant and sorcery card in your hand has miracle {2}. (You may cast a card for its miracle cost when you draw it if it's the first card you drew this turn.)\nAt the beginning of each opponent's upkeep, you may discard a card. If you do, draw a card.",
         "image_url": "https://cards.scryfall.io/normal/front/7/1/71a6701f-40f1-43ef-bff5-a5907fd67cd6.jpg?1775938396",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
+      },
+      {
+        "id": 3059,
+        "name": "The Council of Four",
+        "mv": 5,
+        "color_identity": "UW",
+        "types": "Legendary Creature \u2014 Human Noble",
+        "oracle_text": "Whenever a player draws their second card during their turn, you draw a card.\nWhenever a player casts their second spell during their turn, you create a 2/2 white Knight creature token.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/8/0873cfa8-046c-4b14-ae22-3fd6a691f763.jpg?1674137476",
+        "backside_image_url": "",
+        "draft_pool": "M"
+      },
+      {
+        "id": 3060,
+        "name": "Will, Scion of Peace",
+        "mv": 3,
+        "color_identity": "UW",
+        "types": "Legendary Creature \u2014 Human Wizard",
+        "oracle_text": "Vigilance\n{T}: Spells you cast this turn that are white and/or blue cost {X} less to cast, where X is the amount of life you gained this turn. Activate only as a sorcery.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/6/162088ea-5f99-4244-9427-2fdfb2168fc3.jpg?1692939510",
+        "backside_image_url": "",
+        "draft_pool": "M"
       }
     ]
   },
