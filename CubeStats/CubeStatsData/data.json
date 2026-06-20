@@ -233,7 +233,7 @@
     "color_distribution_of_commanders": [
       [
         "RU",
-        10
+        12
       ],
       [
         "BR",
@@ -33770,7 +33770,8 @@
         "oracle_text": "Creature tokens you control have haste.\nAt the beginning of combat on your turn, create a 2/1 blue Phyrexian Myr artifact creature token. Then you may choose a token you control. If you do, each other token you control becomes a copy of that token.",
         "image_url": "https://cards.scryfall.io/normal/front/d/2/d24bf1df-5087-4ad6-a1aa-4eda2340cd8b.jpg?1775941684",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 3057,
@@ -34495,7 +34496,8 @@
         "oracle_text": "Whenever you cast an instant or sorcery spell, Muddle becomes a copy of up to one target nonlegendary creature you control until end of turn, except it has myriad. (Whenever it attacks, for each opponent other than defending player, you may create a token copy that's tapped and attacking that player or a planeswalker they control. Exile the tokens at end of combat.)",
         "image_url": "https://cards.scryfall.io/normal/front/9/1/916d3e31-3243-47b3-b7d2-ce9a6dd47aba.jpg?1776731076",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 2927,
