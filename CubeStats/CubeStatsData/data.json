@@ -241,15 +241,15 @@
       ],
       [
         "GRW",
-        7
-      ],
-      [
-        "RW",
         9
       ],
       [
+        "RW",
+        10
+      ],
+      [
         "BGW",
-        8
+        9
       ],
       [
         "RUW",
@@ -265,11 +265,11 @@
       ],
       [
         "BRW",
-        6
+        10
       ],
       [
         "BGR",
-        8
+        9
       ],
       [
         "BG",
@@ -285,7 +285,7 @@
       ],
       [
         "GU",
-        8
+        9
       ],
       [
         "BW",
@@ -293,7 +293,7 @@
       ],
       [
         "UW",
-        7
+        10
       ],
       [
         "GR",
@@ -313,7 +313,7 @@
       ],
       [
         "BGU",
-        7
+        8
       ]
     ],
     "color_id_aggregates": {
@@ -11991,7 +11991,6 @@
         "draft_pool": "M",
         "avg_pick": 14.5,
         "amount_of_picks": 2,
-        "is_commander": "true",
         "avg_commander_pick": 4.0,
         "amount_of_commander_picks": 1
       },
@@ -12057,7 +12056,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/8/d/8dfcb129-4665-40e4-b5cb-a79f3f40ae5c.jpg?1593092799",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_commander_pick": 5.0,
         "amount_of_commander_picks": 1
       },
@@ -12498,7 +12496,6 @@
         "draft_pool": "M",
         "avg_pick": 9.0,
         "amount_of_picks": 2,
-        "is_commander": "true",
         "avg_commander_pick": 1.0,
         "amount_of_commander_picks": 1
       },
@@ -21973,8 +21970,7 @@
         "backside_image_url": "",
         "draft_pool": "M",
         "avg_pick": 1.0,
-        "amount_of_picks": 1,
-        "is_commander": "true"
+        "amount_of_picks": 1
       },
       {
         "id": 2712,
@@ -22072,7 +22068,6 @@
         "image_url": "https://cards.scryfall.io/normal/front/c/d/cd14f1ce-7fcd-485c-b7ca-01c5b45fdc01.jpg?1689999296",
         "backside_image_url": "",
         "draft_pool": "M",
-        "is_commander": "true",
         "avg_commander_pick": 1.0,
         "amount_of_commander_picks": 1
       },
@@ -31076,7 +31071,8 @@
         "oracle_text": "At the beginning of your end step, create a Treasure token for each creature that died this turn. (It's an artifact with \"{T}, Sacrifice this artifact: Add one mana of any color.\")",
         "image_url": "https://cards.scryfall.io/normal/front/c/3/c3da2b1a-76c5-4d36-bdf8-025b86f61eb5.jpg?1699601213",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 2719,
@@ -31111,8 +31107,7 @@
         "oracle_text": "Whenever you sacrifice a permanent, put a +1/+1 counter on Juri, Master of the Revue.\nWhen Juri dies, it deals damage equal to its power to any target.",
         "image_url": "https://cards.scryfall.io/normal/front/a/e/aec6b2b7-625a-451d-bc0b-4456f5bf2719.jpg?1608911166",
         "backside_image_url": "",
-        "draft_pool": "M",
-        "is_commander": "true"
+        "draft_pool": "M"
       },
       {
         "id": 2709,
@@ -32410,7 +32405,8 @@
         "oracle_text": "Whenever Truss, Chief Engineer enters or another creature dies, put a hack counter on Truss.\n{2}, {T}, Remove X hack counters from Truss: Add or subtract X from a number or number word on target spell or permanent until end of turn. This effect can't reduce a number below 1 or a number word below one.",
         "image_url": "https://cards.scryfall.io/normal/front/7/3/73b6f092-08b9-4c67-836a-28006ea3b2df.jpg?1673915004",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 2916,
@@ -33862,7 +33858,8 @@
         "oracle_text": "Flying, trample\nAt the beginning of your end step, target opponent may sacrifice two nonland, nontoken permanents of their choice. If they don't, you draw two cards.",
         "image_url": "https://cards.scryfall.io/normal/front/c/c/cc6fd2d5-8eb2-4265-a1bf-d4ae635285af.jpg?1706242226",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 2789,
@@ -33885,7 +33882,8 @@
         "oracle_text": "Flying\nIf a creature you control that entered this turn would deal damage, it deals twice that much damage instead.",
         "image_url": "https://cards.scryfall.io/normal/front/b/5/b58112b0-a05c-4b98-b650-fd27ad97789f.jpg?1743204826",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 2805,
@@ -33907,7 +33905,8 @@
         "oracle_text": "Flying\nAt the beginning of your end step, if creatures you control have total toughness 10 or greater, draw a card. Then if creatures you control have total toughness 20 or greater, untap each creature you control. Then if creatures you control have total toughness 40 or greater, each opponent loses half their life, rounded up.",
         "image_url": "https://cards.scryfall.io/normal/front/b/4/b475b071-5545-483e-a397-89451f258602.jpg?1743204665",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 2807,
@@ -33918,7 +33917,8 @@
         "oracle_text": "Flying, vigilance\nWhenever Bruna attacks or blocks, you may attach to it any number of Auras on the battlefield and you may put onto the battlefield attached to it any number of Aura cards that could enchant it from your graveyard and/or hand.",
         "image_url": "https://cards.scryfall.io/normal/front/5/8/58c56bad-68ed-4328-a7ea-c528b58dc2fd.jpg?1592711039",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 2808,
@@ -34072,7 +34072,8 @@
         "oracle_text": "Flying, lifelink\nSpells you cast have delve. (Each card you exile from your graveyard while casting those spells pays for {1}.)\nWhenever you cast a spell, you lose life equal to its mana value.",
         "image_url": "https://cards.scryfall.io/normal/front/2/7/27a93f5b-7b32-49f0-a179-b897828fe49a.jpg?1743204911",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 2827,
@@ -34094,7 +34095,8 @@
         "oracle_text": "Myriad\nThe \"legend rule\" doesn't apply to creature tokens you control.\nTriggered abilities you control can't cause you to sacrifice or exile creature tokens you control.",
         "image_url": "https://cards.scryfall.io/normal/front/7/f/7f734ca0-91bc-4496-9bd7-2d09415e850f.jpg?1696636744",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 2833,
@@ -34127,7 +34129,8 @@
         "oracle_text": "Leading from the Front \u2014 Whenever Commissar Severina Raine attacks, each opponent loses X life, where X is the number of other attacking creatures.\nSummary Execution \u2014 {2}, Sacrifice another creature: You gain 2 life and draw a card.",
         "image_url": "https://cards.scryfall.io/normal/front/9/4/94ba8b76-8de7-46da-b641-2503903f0f8a.jpg?1673309294",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 2837,
@@ -34138,7 +34141,8 @@
         "oracle_text": "Mobilize 1 (Whenever this creature attacks, create a tapped and attacking 1/1 red Warrior creature token. Sacrifice it at the beginning of the next end step.)\nWhenever a creature token you control leaves the battlefield, draw a card if it was attacking. Otherwise, each opponent loses 1 life.",
         "image_url": "https://cards.scryfall.io/normal/front/d/c/dc8eb325-75c9-4331-830d-3f7d62d77290.jpg?1745970988",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 2841,
@@ -34160,7 +34164,8 @@
         "oracle_text": "Mobilize 2 (Whenever this creature attacks, create two tapped and attacking 1/1 red Warrior creature tokens. Sacrifice them at the beginning of the next end step.)\nDuring your end step, Warrior tokens you control have \"This token can't be sacrificed.\"",
         "image_url": "https://cards.scryfall.io/normal/front/b/d/bd93fb95-4268-45dc-8f0d-590c481a526d.jpg?1743204939",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 2845,
@@ -34193,7 +34198,8 @@
         "oracle_text": "At the beginning of your end step, each player exiles the top card of their library. Until your next end step, each player may play the card they exiled this way.\nWhenever a player plays a land from exile or casts a spell from exile, you put a +1/+1 counter on target creature and create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")",
         "image_url": "https://cards.scryfall.io/normal/front/c/d/cdb53ce7-845c-4c62-98a9-4fc33c67a07b.jpg?1684340828",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 2856,
@@ -34300,7 +34306,8 @@
         "oracle_text": "As long as X is in X's owner's opponent's hand, X's owner may cast X and activate X's abilities. That opponent can't cast X and plays with their hand revealed.\n{U}{B}, {T}: Put X into target opponent's hand.\n{3}{U}{B}: You may play a land or cast a spell from the hand X is in. If you cast a spell this way, you cast it without paying its mana cost.",
         "image_url": "https://cards.scryfall.io/normal/front/f/7/f77f6e64-2470-4c6a-a92b-328e4edc3ea9.jpg?1562947258",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 2865,
@@ -34440,7 +34447,8 @@
         "oracle_text": "This spell costs {X} less to cast, where X is the total toughness of creatures you control.\nDefender\n{2}{U}{U}: Until end of turn, target creature you control gets +1/+0, gains \"Whenever this creature deals combat damage to a player, draw cards equal to its toughness,\" and can attack as though it didn't have defender.",
         "image_url": "https://cards.scryfall.io/normal/front/e/d/edb40ab9-e552-4eb5-9c35-09094136dd4f.jpg?1706242068",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 2910,
@@ -34451,7 +34459,8 @@
         "oracle_text": "Double strike, vigilance\nSpells you cast have affinity for artifacts. (They cost {1} less to cast for each artifact you control.)",
         "image_url": "https://cards.scryfall.io/normal/front/b/e/bed64207-9193-4770-8f8f-e3203289d5a6.jpg?1752947484",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 2920,
@@ -34462,7 +34471,8 @@
         "oracle_text": "Coram gets +X/+0, where X is the greatest power among creature cards in all graveyards.\nWhenever Coram attacks, each player mills a card.\nDuring each of your turns, you may play a land and cast a spell from among cards in graveyards that were put there from libraries this turn.",
         "image_url": "https://cards.scryfall.io/normal/front/a/b/ab5cfb0c-8e95-4d2d-9e23-cf58c1c7e51c.jpg?1727175651",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 2923,
@@ -34473,7 +34483,8 @@
         "oracle_text": "At the beginning of your end step, choose an opponent. At the beginning of that player's next end step, you draw a card if they didn't attack you that turn. Otherwise, create three 1/1 white Human Soldier creature tokens.",
         "image_url": "https://cards.scryfall.io/normal/front/8/7/8700923a-e9ff-4ced-87fe-1ab26554623a.jpg?1686969755",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 2925,
@@ -34495,7 +34506,8 @@
         "oracle_text": "First strike, vigilance, haste\nStart your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\nOther creatures you control get +X/+0, where X is your speed.\nNoncreature spells you cast cost {X} less to cast, where X is your speed.",
         "image_url": "https://cards.scryfall.io/normal/front/8/e/8efd8222-5c37-46d8-a2ec-1d7aae25320b.jpg?1738356742",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 2936,
@@ -34561,7 +34573,8 @@
         "oracle_text": "Whenever one or more noncreature permanents are returned to hand, draw a card. This ability triggers only once each turn.\n{X}{W}, Return a land you control to its owner's hand: Return target artifact or enchantment card with mana value X or less from your graveyard to the battlefield. Activate only as a sorcery.",
         "image_url": "https://cards.scryfall.io/normal/front/2/6/26594b52-3e9c-4cde-88df-1f4e9e16676e.jpg?1654566985",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 3015,
@@ -34572,7 +34585,8 @@
         "oracle_text": "Haste\n{T}, Sacrifice an artifact creature: Create two Treasure tokens.\n{T}, Sacrifice a noncreature artifact: Create two 1/1 colorless Construct artifact creature tokens.",
         "image_url": "https://cards.scryfall.io/normal/front/6/b/6b215a08-41db-4440-8e33-34a84a33db50.jpg?1674137529",
         "backside_image_url": "",
-        "draft_pool": "M"
+        "draft_pool": "M",
+        "is_commander": "true"
       },
       {
         "id": 3061,
