@@ -190,17 +190,32 @@ def remove_commander(cursor, card_id):
 def print_cube_contents(cursor):
 	cursor.execute("SELECT name, cards.id FROM Commanders LEFT JOIN Cards ON Commanders.card_id = Cards.id ORDER BY name;")
 	commanders = cursor.fetchall()
-	with open("cube.txt", "w") as file:
+	with open("cube.md", "w") as file:
+		file.write("### Commanders\n\n")
 		for commander in commanders:
-			file.write("{:<3} {}".format("",commander[0])+ "\n")
+			file.write("- " + commander[0] + "\n")
 	
 	commander_ids = [commander[1] for commander in commanders]
 
 	cursor.execute("SELECT name, draft_pool FROM Cards WHERE id not in %s AND active = true ORDER BY draft_pool, name;", (tuple(commander_ids),))
 	cards = cursor.fetchall()
-	with open("cube.txt", "a") as file:
+	draft_pools = {
+		"M" : "Multicolor",
+		"L" : "Lands",
+		"C" : "Colorless",
+		"U" : "Blue",
+		"W" : "White",
+		"B" : "Black",
+		"R" : "Red",
+    "G" : "Green"
+	}
+	pool_before = ""
+	with open("cube.md", "a") as file:
 		for card in cards:
-			file.write("{:<3} {}".format(card[1],card[0])+ "\n")
+			if card[1] != pool_before:
+				file.write("\n### " + draft_pools[card[1]] + "\n\n")
+				pool_before = card[1]
+			file.write("- " + card[0] + "\n")
 
 	return
 
