@@ -6,7 +6,11 @@ def fetch_card_json(card_name):
 	"""Fetches card data from Scryfall API and returns it as a JSON object."""
 	card_name = card_name.replace(" ", "+")
 	url = f"https://api.scryfall.com/cards/named?fuzzy={card_name}"
-	scryfall_response = requests.get(url).json()
+	headers = {
+		"User-Agent": "CubeDraftSimulator-DatabaseContentService/1.0",   # name + version of YOUR app
+		"Accept": "application/json;q=0.9,*/*;q=0.8",
+	}
+	scryfall_response = requests.get(url, headers=headers).json()
 	if "object" in scryfall_response and scryfall_response["object"] == "error":
 		print(f"Error: {scryfall_response['details']}")
 		return None
