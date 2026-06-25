@@ -48,6 +48,8 @@ def handle_card_json(card_json):
 	elif len(card_data["color_identity"]) > 1 and "Add" in card_data["oracle_text"]:
 		open(card_data["image_url"])
 		card_data["draft_pool"] = input("Enter the card's draft pool: ")
+	elif len(card_data["color_identity"]) > 1:
+		card_data["draft_pool"] = "M"
 	else:
 		card_data["draft_pool"] = card_data["color_identity"]
 	return card_data
