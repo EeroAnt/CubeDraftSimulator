@@ -67,7 +67,7 @@ def add_card(cursor, cardname):
             UPDATE cards
             SET active = true
             WHERE name = %s;
-                    """, (card["name"]))
+        """, (card["name"],))
 				cursor.execute("COMMIT;")
 			except Exception as e:
 				cursor.execute("ROLLBACK;")
