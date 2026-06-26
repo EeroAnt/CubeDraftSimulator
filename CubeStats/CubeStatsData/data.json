@@ -384,8 +384,8 @@
         "Sorcery": 2,
         "Planeswalker": 1,
         "Artifact": 3,
-        "Land": 10,
-        "Total": 64
+        "Land": 11,
+        "Total": 65
       },
       "RU": {
         "Creature": 30,
@@ -404,8 +404,8 @@
         "Sorcery": 6,
         "Planeswalker": 1,
         "Artifact": 6,
-        "Land": 9,
-        "Total": 69
+        "Land": 10,
+        "Total": 70
       },
       "RW": {
         "Creature": 27,
@@ -464,8 +464,8 @@
         "Sorcery": 9,
         "Planeswalker": 1,
         "Artifact": 4,
-        "Land": 9,
-        "Total": 62
+        "Land": 10,
+        "Total": 63
       },
       "BU": {
         "Creature": 37,
@@ -474,8 +474,8 @@
         "Sorcery": 4,
         "Planeswalker": 3,
         "Artifact": 7,
-        "Land": 9,
-        "Total": 70
+        "Land": 10,
+        "Total": 71
       },
       "RUW": {
         "Creature": 8,
@@ -36400,6 +36400,50 @@
         "image_url": "https://cards.scryfall.io/normal/front/2/8/28c44782-a12f-4ecc-a6e8-d569e2942a9a.jpg?1593813333",
         "backside_image_url": "",
         "draft_pool": "B"
+      },
+      {
+        "id": 3231,
+        "name": "Temple of Abandon",
+        "mv": 0,
+        "color_identity": "GR",
+        "types": "Land",
+        "oracle_text": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {R} or {G}.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/2/d2ce0759-6b24-41a6-8a24-16cf44dfc162.jpg?1743207768",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3232,
+        "name": "Temple of Deceit",
+        "mv": 0,
+        "color_identity": "BU",
+        "types": "Land",
+        "oracle_text": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {U} or {B}.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/1/e18748ce-e52e-4cd1-89d4-cd2578a0d574.jpg?1730491238",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3233,
+        "name": "Temple of Malice",
+        "mv": 0,
+        "color_identity": "BR",
+        "types": "Land",
+        "oracle_text": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {B} or {R}.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/7/d78eccc4-1500-43f1-94f5-b39c160b6381.jpg?1730491258",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3234,
+        "name": "Temple of Plenty",
+        "mv": 0,
+        "color_identity": "GW",
+        "types": "Land",
+        "oracle_text": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {G} or {W}.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/e/de1f7e5e-a503-4f99-91a1-2fdabb7d5e89.jpg?1743207789",
+        "backside_image_url": "",
+        "draft_pool": "L"
       }
     ]
   },
