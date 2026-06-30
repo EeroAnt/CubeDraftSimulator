@@ -332,8 +332,8 @@
         "Sorcery": 53,
         "Planeswalker": 6,
         "Artifact": 16,
-        "Land": 6,
-        "Total": 376
+        "Land": 7,
+        "Total": 377
       },
       "B": {
         "Creature": 132,
@@ -342,8 +342,8 @@
         "Sorcery": 69,
         "Planeswalker": 6,
         "Artifact": 10,
-        "Land": 4,
-        "Total": 302
+        "Land": 5,
+        "Total": 303
       },
       "W": {
         "Creature": 166,
@@ -352,8 +352,8 @@
         "Sorcery": 43,
         "Planeswalker": 11,
         "Artifact": 10,
-        "Land": 6,
-        "Total": 334
+        "Land": 7,
+        "Total": 335
       },
       "G": {
         "Creature": 169,
@@ -362,8 +362,8 @@
         "Sorcery": 47,
         "Planeswalker": 6,
         "Artifact": 6,
-        "Land": 7,
-        "Total": 324
+        "Land": 8,
+        "Total": 325
       },
       "C": {
         "Creature": 117,
@@ -372,8 +372,8 @@
         "Sorcery": 6,
         "Planeswalker": 6,
         "Artifact": 311,
-        "Land": 73,
-        "Total": 437
+        "Land": 76,
+        "Total": 440
       },
       "R": {
         "Creature": 153,
@@ -382,8 +382,8 @@
         "Sorcery": 58,
         "Planeswalker": 9,
         "Artifact": 10,
-        "Land": 7,
-        "Total": 354
+        "Land": 8,
+        "Total": 355
       },
       "RU": {
         "Creature": 30,
@@ -36773,6 +36773,94 @@
         "image_url": "https://cards.scryfall.io/normal/front/8/f/8f8a8f14-bced-4388-b263-5e70431b191f.jpg?1782744012",
         "backside_image_url": "",
         "draft_pool": "U"
+      },
+      {
+        "id": 3263,
+        "name": "Thran Portal",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Land \u2014 Gate",
+        "oracle_text": "This land enters tapped unless you control two or fewer other lands.\nAs this land enters, choose a basic land type.\nThis land is the chosen type in addition to its other types.\nMana abilities of this land cost an additional 1 life to activate.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/f/ef074a2e-a387-4af8-a180-74b145d93992.jpg?1782700396",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3267,
+        "name": "Gond Gate",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Land \u2014 Gate",
+        "oracle_text": "Gates you control enter untapped.\n{T}: Add {C}.\n{T}: Add one mana of any color that a Gate you control could produce.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/4/746672d9-7c6b-415e-9f34-3cc3ac557008.jpg?1782701126",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3268,
+        "name": "Heap Gate",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Land \u2014 Gate",
+        "oracle_text": "{T}: Add {C}.\n{1}, {T}: Add one mana of any color.\n{1}, {T}, Tap an untapped Gate you control: Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+        "image_url": "https://cards.scryfall.io/normal/front/6/8/68489d65-1978-48b1-a903-2ef38c583239.jpg?1782701127",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3264,
+        "name": "Black Dragon Gate",
+        "mv": 0,
+        "color_identity": "B",
+        "types": "Land \u2014 Gate",
+        "oracle_text": "This land enters tapped.\nAs this land enters, choose a color other than black.\n{T}: Add {B} or one mana of the chosen color.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/4/c4ceb589-c741-44ac-98c8-3d997953ee61.jpg?1782701133",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3265,
+        "name": "Citadel Gate",
+        "mv": 0,
+        "color_identity": "W",
+        "types": "Land \u2014 Gate",
+        "oracle_text": "This land enters tapped.\nAs this land enters, choose a color other than white.\n{T}: Add {W} or one mana of the chosen color.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/0/c0e6f002-9a10-49a1-8604-2b8ff57732dd.jpg?1782701131",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3266,
+        "name": "Cliffgate",
+        "mv": 0,
+        "color_identity": "R",
+        "types": "Land \u2014 Gate",
+        "oracle_text": "This land enters tapped.\nAs this land enters, choose a color other than red.\n{T}: Add {R} or one mana of the chosen color.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/5/557470dc-c594-4b26-81b9-356bedb0c215.jpg?1782701129",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3269,
+        "name": "Manor Gate",
+        "mv": 0,
+        "color_identity": "G",
+        "types": "Land \u2014 Gate",
+        "oracle_text": "This land enters tapped.\nAs this land enters, choose a color other than green.\n{T}: Add {G} or one mana of the chosen color.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/9/793d4978-9e00-453d-8dc2-6d51ad6c26b7.jpg?1782701125",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3270,
+        "name": "Sea Gate",
+        "mv": 0,
+        "color_identity": "U",
+        "types": "Land \u2014 Gate",
+        "oracle_text": "This land enters tapped.\nAs this land enters, choose a color other than blue.\n{T}: Add {U} or one mana of the chosen color.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/9/d97f31e1-bcaf-4316-a2de-49e2cf7566ec.jpg?1782701125",
+        "backside_image_url": "",
+        "draft_pool": "L"
       }
     ]
   },
