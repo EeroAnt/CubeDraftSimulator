@@ -187,7 +187,7 @@
       ],
       [
         "BG",
-        53
+        54
       ],
       [
         "BRU",
@@ -203,7 +203,7 @@
       ],
       [
         "GU",
-        50
+        52
       ],
       [
         "UW",
@@ -215,7 +215,11 @@
       ],
       [
         "BU",
-        59
+        61
+      ],
+      [
+        "BRUW",
+        1
       ],
       [
         "GW",
@@ -273,7 +277,7 @@
       ],
       [
         "BG",
-        10
+        11
       ],
       [
         "BRU",
@@ -285,7 +289,7 @@
       ],
       [
         "GU",
-        9
+        10
       ],
       [
         "BW",
@@ -304,6 +308,10 @@
         10
       ],
       [
+        "BRUW",
+        1
+      ],
+      [
         "GW",
         14
       ],
@@ -317,45 +325,25 @@
       ]
     ],
     "color_id_aggregates": {
-      "R": {
-        "Creature": 151,
-        "Enchantment": 71,
-        "Instant": 56,
-        "Sorcery": 58,
-        "Planeswalker": 9,
-        "Artifact": 9,
-        "Land": 7,
-        "Total": 351
-      },
-      "C": {
-        "Creature": 115,
-        "Enchantment": 1,
-        "Instant": 6,
-        "Sorcery": 6,
-        "Planeswalker": 6,
-        "Artifact": 308,
-        "Land": 72,
-        "Total": 433
-      },
       "U": {
-        "Creature": 164,
-        "Enchantment": 61,
-        "Instant": 82,
-        "Sorcery": 52,
-        "Planeswalker": 6,
-        "Artifact": 14,
-        "Land": 5,
-        "Total": 369
-      },
-      "G": {
         "Creature": 167,
-        "Enchantment": 68,
-        "Instant": 27,
-        "Sorcery": 46,
+        "Enchantment": 61,
+        "Instant": 84,
+        "Sorcery": 53,
         "Planeswalker": 6,
-        "Artifact": 6,
-        "Land": 7,
-        "Total": 319
+        "Artifact": 16,
+        "Land": 6,
+        "Total": 376
+      },
+      "B": {
+        "Creature": 132,
+        "Enchantment": 54,
+        "Instant": 38,
+        "Sorcery": 69,
+        "Planeswalker": 6,
+        "Artifact": 10,
+        "Land": 4,
+        "Total": 302
       },
       "W": {
         "Creature": 166,
@@ -367,25 +355,35 @@
         "Land": 6,
         "Total": 334
       },
-      "B": {
-        "Creature": 131,
-        "Enchantment": 54,
-        "Instant": 38,
-        "Sorcery": 68,
+      "G": {
+        "Creature": 169,
+        "Enchantment": 70,
+        "Instant": 27,
+        "Sorcery": 47,
         "Planeswalker": 6,
-        "Artifact": 9,
-        "Land": 4,
-        "Total": 299
+        "Artifact": 6,
+        "Land": 7,
+        "Total": 324
       },
-      "GW": {
-        "Creature": 28,
-        "Enchantment": 10,
-        "Instant": 12,
-        "Sorcery": 2,
-        "Planeswalker": 1,
-        "Artifact": 3,
-        "Land": 11,
-        "Total": 65
+      "C": {
+        "Creature": 117,
+        "Enchantment": 1,
+        "Instant": 6,
+        "Sorcery": 6,
+        "Planeswalker": 6,
+        "Artifact": 311,
+        "Land": 73,
+        "Total": 437
+      },
+      "R": {
+        "Creature": 153,
+        "Enchantment": 72,
+        "Instant": 56,
+        "Sorcery": 58,
+        "Planeswalker": 9,
+        "Artifact": 10,
+        "Land": 7,
+        "Total": 354
       },
       "RU": {
         "Creature": 30,
@@ -396,6 +394,36 @@
         "Artifact": 10,
         "Land": 11,
         "Total": 68
+      },
+      "GU": {
+        "Creature": 28,
+        "Enchantment": 6,
+        "Instant": 9,
+        "Sorcery": 5,
+        "Planeswalker": 4,
+        "Artifact": 4,
+        "Land": 12,
+        "Total": 64
+      },
+      "UW": {
+        "Creature": 33,
+        "Enchantment": 9,
+        "Instant": 8,
+        "Sorcery": 5,
+        "Planeswalker": 2,
+        "Artifact": 7,
+        "Land": 10,
+        "Total": 69
+      },
+      "BU": {
+        "Creature": 39,
+        "Enchantment": 4,
+        "Instant": 10,
+        "Sorcery": 4,
+        "Planeswalker": 3,
+        "Artifact": 9,
+        "Land": 10,
+        "Total": 73
       },
       "BR": {
         "Creature": 36,
@@ -418,14 +446,14 @@
         "Total": 65
       },
       "BG": {
-        "Creature": 27,
+        "Creature": 28,
         "Enchantment": 6,
         "Instant": 8,
         "Sorcery": 11,
         "Planeswalker": 2,
         "Artifact": 3,
         "Land": 11,
-        "Total": 65
+        "Total": 66
       },
       "BW": {
         "Creature": 32,
@@ -434,26 +462,6 @@
         "Sorcery": 11,
         "Planeswalker": 3,
         "Artifact": 5,
-        "Land": 10,
-        "Total": 69
-      },
-      "GU": {
-        "Creature": 27,
-        "Enchantment": 5,
-        "Instant": 9,
-        "Sorcery": 5,
-        "Planeswalker": 4,
-        "Artifact": 4,
-        "Land": 12,
-        "Total": 62
-      },
-      "UW": {
-        "Creature": 33,
-        "Enchantment": 9,
-        "Instant": 8,
-        "Sorcery": 5,
-        "Planeswalker": 2,
-        "Artifact": 7,
         "Land": 10,
         "Total": 69
       },
@@ -467,25 +475,15 @@
         "Land": 10,
         "Total": 63
       },
-      "BU": {
-        "Creature": 37,
-        "Enchantment": 4,
-        "Instant": 10,
-        "Sorcery": 4,
-        "Planeswalker": 3,
-        "Artifact": 7,
-        "Land": 10,
-        "Total": 71
-      },
-      "RUW": {
-        "Creature": 8,
-        "Enchantment": 3,
-        "Instant": 2,
+      "GW": {
+        "Creature": 28,
+        "Enchantment": 10,
+        "Instant": 12,
         "Sorcery": 2,
-        "Planeswalker": 0,
-        "Artifact": 0,
-        "Land": 1,
-        "Total": 16
+        "Planeswalker": 1,
+        "Artifact": 3,
+        "Land": 11,
+        "Total": 65
       },
       "GUW": {
         "Creature": 8,
@@ -493,6 +491,26 @@
         "Instant": 3,
         "Sorcery": 2,
         "Planeswalker": 1,
+        "Artifact": 0,
+        "Land": 1,
+        "Total": 17
+      },
+      "GRW": {
+        "Creature": 13,
+        "Enchantment": 1,
+        "Instant": 2,
+        "Sorcery": 2,
+        "Planeswalker": 0,
+        "Artifact": 0,
+        "Land": 1,
+        "Total": 19
+      },
+      "BGW": {
+        "Creature": 10,
+        "Enchantment": 1,
+        "Instant": 3,
+        "Sorcery": 2,
+        "Planeswalker": 0,
         "Artifact": 0,
         "Land": 1,
         "Total": 17
@@ -507,21 +525,51 @@
         "Land": 1,
         "Total": 14
       },
-      "BGW": {
-        "Creature": 10,
+      "BUW": {
+        "Creature": 11,
         "Enchantment": 1,
-        "Instant": 3,
+        "Instant": 4,
+        "Sorcery": 0,
+        "Planeswalker": 0,
+        "Artifact": 3,
+        "Land": 1,
+        "Total": 18
+      },
+      "BGU": {
+        "Creature": 9,
+        "Enchantment": 1,
+        "Instant": 1,
+        "Sorcery": 1,
+        "Planeswalker": 0,
+        "Artifact": 0,
+        "Land": 1,
+        "Total": 13
+      },
+      "RUW": {
+        "Creature": 8,
+        "Enchantment": 3,
+        "Instant": 2,
         "Sorcery": 2,
         "Planeswalker": 0,
         "Artifact": 0,
         "Land": 1,
-        "Total": 17
+        "Total": 16
       },
-      "GRW": {
+      "BGR": {
         "Creature": 13,
         "Enchantment": 1,
         "Instant": 2,
         "Sorcery": 2,
+        "Planeswalker": 0,
+        "Artifact": 0,
+        "Land": 1,
+        "Total": 19
+      },
+      "BRW": {
+        "Creature": 14,
+        "Enchantment": 1,
+        "Instant": 2,
+        "Sorcery": 1,
         "Planeswalker": 0,
         "Artifact": 0,
         "Land": 1,
@@ -537,45 +585,15 @@
         "Land": 1,
         "Total": 15
       },
-      "BUW": {
-        "Creature": 11,
-        "Enchantment": 1,
-        "Instant": 4,
+      "BRUW": {
+        "Creature": 1,
+        "Enchantment": 0,
+        "Instant": 0,
         "Sorcery": 0,
         "Planeswalker": 0,
-        "Artifact": 3,
-        "Land": 1,
-        "Total": 18
-      },
-      "BRW": {
-        "Creature": 14,
-        "Enchantment": 1,
-        "Instant": 2,
-        "Sorcery": 1,
-        "Planeswalker": 0,
-        "Artifact": 0,
-        "Land": 1,
-        "Total": 19
-      },
-      "BGR": {
-        "Creature": 13,
-        "Enchantment": 1,
-        "Instant": 2,
-        "Sorcery": 2,
-        "Planeswalker": 0,
-        "Artifact": 0,
-        "Land": 1,
-        "Total": 19
-      },
-      "BGU": {
-        "Creature": 9,
-        "Enchantment": 1,
-        "Instant": 1,
-        "Sorcery": 1,
-        "Planeswalker": 0,
-        "Artifact": 0,
-        "Land": 1,
-        "Total": 13
+        "Artifact": 1,
+        "Land": 0,
+        "Total": 1
       },
       "BGRUW": {
         "Creature": 5,
@@ -36444,31 +36462,343 @@
         "image_url": "https://cards.scryfall.io/normal/front/d/e/de1f7e5e-a503-4f99-91a1-2fdabb7d5e89.jpg?1743207789",
         "backside_image_url": "",
         "draft_pool": "L"
+      },
+      {
+        "id": 3235,
+        "name": "Rapacious Dragon",
+        "mv": 5,
+        "color_identity": "R",
+        "types": "Creature \u2014 Dragon",
+        "oracle_text": "Flying\nWhen this creature enters, create two Treasure tokens. (They're artifacts with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+        "image_url": "https://cards.scryfall.io/normal/front/1/0/1098504a-977a-4733-a1ee-086461113a84.jpg?1782686756",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 3236,
+        "name": "Relic Runner",
+        "mv": 2,
+        "color_identity": "U",
+        "types": "Creature \u2014 Human Rogue",
+        "oracle_text": "This creature can't be blocked if you've cast a historic spell this turn. (Artifacts, legendaries, and Sagas are historic.)",
+        "image_url": "https://cards.scryfall.io/normal/front/f/b/fbced19d-7035-4284-93b3-cf2d4bcf9734.jpg?1598304179",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 3237,
+        "name": "Arixmethes, Slumbering Isle",
+        "mv": 4,
+        "color_identity": "GU",
+        "types": "Legendary Creature \u2014 Kraken",
+        "oracle_text": "Arixmethes enters tapped with five slumber counters on it.\nAs long as Arixmethes has a slumber counter on it, it's a land. (It's not a creature.)\nWhenever you cast a spell, you may remove a slumber counter from Arixmethes.\n{T}: Add {G}{U}.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/f/bf561379-4e5f-486a-bcdf-6e08e105316e.jpg?1782689800",
+        "backside_image_url": "",
+        "draft_pool": "M",
+        "is_commander": "true"
+      },
+      {
+        "id": 3238,
+        "name": "Breya, Etherium Shaper",
+        "mv": 4,
+        "color_identity": "BRUW",
+        "types": "Legendary Artifact Creature \u2014 Human",
+        "oracle_text": "When Breya enters, create two 1/1 blue Thopter artifact creature tokens with flying.\n{2}, Sacrifice two artifacts: Choose one \u2014\n\u2022 Breya deals 3 damage to target player or planeswalker.\n\u2022 Target creature gets -4/-4 until end of turn.\n\u2022 You gain 5 life.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/b/8bf3929c-957f-4ea2-a27d-7d53979844af.jpg?1782691120",
+        "backside_image_url": "",
+        "draft_pool": "M",
+        "is_commander": "true"
+      },
+      {
+        "id": 3239,
+        "name": "Mazirek, Kraul Death Priest",
+        "mv": 5,
+        "color_identity": "BG",
+        "types": "Legendary Creature \u2014 Insect Shaman",
+        "oracle_text": "Flying\nWhenever a player sacrifices another permanent, put a +1/+1 counter on each creature you control.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/4/940ae3c2-7ac2-412b-afd0-c8b0099bc3aa.jpg?1782683140",
+        "backside_image_url": "",
+        "draft_pool": "M",
+        "is_commander": "true"
+      },
+      {
+        "id": 3240,
+        "name": "Beacon of Unrest",
+        "mv": 5,
+        "color_identity": "B",
+        "types": "Sorcery",
+        "oracle_text": "Put target artifact or creature card from a graveyard onto the battlefield under your control. Shuffle Beacon of Unrest into its owner's library.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/6/06bd199b-1855-4208-8bf7-8930e91ab139.jpg?1782744002",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 3241,
+        "name": "Skirsdag High Priest",
+        "mv": 2,
+        "color_identity": "B",
+        "types": "Creature \u2014 Human Cleric",
+        "oracle_text": "Morbid \u2014 {T}, Tap two untapped creatures you control: Create a 5/5 black Demon creature token with flying. Activate only if a creature died this turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/a/7a329b20-4e6e-45c9-aee0-51fe81dce543.jpg?1782726784",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 3242,
+        "name": "Oblivion Stone",
+        "mv": 3,
+        "color_identity": "C",
+        "types": "Artifact",
+        "oracle_text": "{4}, {T}: Put a fate counter on target permanent.\n{5}, {T}, Sacrifice this artifact: Destroy each nonland permanent without a fate counter on it, then remove all fate counters from all permanents.",
+        "image_url": "https://cards.scryfall.io/normal/front/f/0/f0cd5548-ce7b-493a-8119-62f000839e4d.jpg?1782701712",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3243,
+        "name": "Heartbeat of Spring",
+        "mv": 3,
+        "color_identity": "G",
+        "types": "Enchantment",
+        "oracle_text": "Whenever a player taps a land for mana, that player adds one mana of any type that land produced.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/c/8ccb1e59-b858-42cf-93f8-8a3badb3eaad.jpg?1782743931",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 3244,
+        "name": "Liege of the Tangle",
+        "mv": 8,
+        "color_identity": "G",
+        "types": "Creature \u2014 Elemental",
+        "oracle_text": "Trample\nWhenever this creature deals combat damage to a player, you may choose any number of target lands you control and put an awakening counter on each of them. Each of those lands is an 8/8 green Elemental creature for as long as it has an awakening counter on it. They're still lands.",
+        "image_url": "https://cards.scryfall.io/normal/front/f/0/f0dea9d0-9f93-460d-bf69-ae1c1172a95e.jpg?1782743928",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 3245,
+        "name": "Mana Reflection",
+        "mv": 6,
+        "color_identity": "G",
+        "types": "Enchantment",
+        "oracle_text": "If you tap a permanent for mana, it produces twice as much of that mana instead.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/1/81e0d739-990f-4ba5-b456-165c033014cf.jpg?1782743928",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 3246,
+        "name": "Glimmervoid",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Land",
+        "oracle_text": "At the beginning of the end step, if you control no artifacts, sacrifice this land.\n{T}: Add one mana of any color.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/a/4a639687-d9e3-46a8-bc9f-6ca3912c46ab.jpg?1782743824",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3247,
+        "name": "Baleful Strix",
+        "mv": 2,
+        "color_identity": "BU",
+        "types": "Artifact Creature \u2014 Bird",
+        "oracle_text": "Flying, deathtouch\nWhen this creature enters, draw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/e/be8439e6-f779-49f0-806a-b04995697a6a.jpg?1712354664",
+        "backside_image_url": "",
+        "draft_pool": "M"
+      },
+      {
+        "id": 3248,
+        "name": "Yavimaya's Embrace",
+        "mv": 8,
+        "color_identity": "GU",
+        "types": "Enchantment \u2014 Aura",
+        "oracle_text": "Enchant creature\nYou control enchanted creature.\nEnchanted creature gets +2/+2 and has trample.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/a/1ac29eb6-2770-4723-942b-b393c2abc02b.jpg?1782743888",
+        "backside_image_url": "",
+        "draft_pool": "M"
+      },
+      {
+        "id": 3249,
+        "name": "Bosh, Iron Golem",
+        "mv": 8,
+        "color_identity": "R",
+        "types": "Legendary Artifact Creature \u2014 Golem",
+        "oracle_text": "Trample\n{3}{R}, Sacrifice an artifact: Bosh deals damage equal to the sacrificed artifact's mana value to any target.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/9/09fb3b1f-c3a0-4da4-9b29-eff81fc1d562.jpg?1782705164",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 3250,
+        "name": "Rage Reflection",
+        "mv": 6,
+        "color_identity": "R",
+        "types": "Enchantment",
+        "oracle_text": "Creatures you control have double strike.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/7/b767e176-1df5-4adc-bf6b-418d71b4dbbe.jpg?1782743954",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 3251,
+        "name": "Academy Ruins",
+        "mv": 0,
+        "color_identity": "U",
+        "types": "Legendary Land",
+        "oracle_text": "{T}: Add {C}.\n{1}{U}, {T}: Put target artifact card from your graveyard on top of your library.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/9/a95b7645-154f-4904-bf71-db7eb24d4df2.jpg?1782743829",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 3252,
+        "name": "Force of Will",
+        "mv": 5,
+        "color_identity": "U",
+        "types": "Instant",
+        "oracle_text": "You may pay 1 life and exile a blue card from your hand rather than pay this spell's mana cost.\nCounter target spell.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/9/89f612d6-7c59-4a7b-a87d-45f789e88ba5.jpg?1782731064",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 3253,
+        "name": "Master Transmuter",
+        "mv": 4,
+        "color_identity": "U",
+        "types": "Artifact Creature \u2014 Human Artificer",
+        "oracle_text": "{U}, {T}, Return an artifact you control to its owner's hand: You may put an artifact card from your hand onto the battlefield.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/8/480eb74f-9e62-41f7-b48a-b4249aab5752.jpg?1782744014",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 3254,
+        "name": "Executioner's Capsule",
+        "mv": 1,
+        "color_identity": "B",
+        "types": "Artifact",
+        "oracle_text": "{1}{B}, {T}, Sacrifice this artifact: Destroy target nonblack creature.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/3/032ea333-96e1-4ad8-8947-21d6bc3a9f91.jpg?1782743989",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 3255,
+        "name": "Cogwork Assembler",
+        "mv": 3,
+        "color_identity": "C",
+        "types": "Artifact Creature \u2014 Assembly-Worker",
+        "oracle_text": "{7}: Create a token that's a copy of target artifact. That token gains haste. Exile it at the beginning of the next end step.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/4/e4bfde3f-f7d3-4902-b3cd-23f3fa53eff4.jpg?1782743879",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3256,
+        "name": "Sandstone Oracle",
+        "mv": 7,
+        "color_identity": "C",
+        "types": "Artifact Creature \u2014 Sphinx",
+        "oracle_text": "Flying\nWhen this creature enters, choose an opponent. If that player has more cards in hand than you, draw cards equal to the difference.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/7/c7333ea3-2c98-405a-a5cc-eecba9b14a00.jpg?1782733028",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3257,
+        "name": "Gelatinous Genesis",
+        "mv": 1,
+        "color_identity": "G",
+        "types": "Sorcery",
+        "oracle_text": "Create X X/X green Ooze creature tokens.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/e/4e5c2be0-76ab-4873-a1fc-9ff65a9347c7.jpg?1782743931",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 3258,
+        "name": "Whisperer of the Wilds",
+        "mv": 2,
+        "color_identity": "G",
+        "types": "Creature \u2014 Human Shaman",
+        "oracle_text": "{T}: Add {G}.\nFerocious \u2014 {T}: Add {G}{G}. Activate only if you control a creature with power 4 or greater.",
+        "image_url": "https://cards.scryfall.io/normal/front/2/c/2cf17d8a-c7ee-4909-bc80-4138dcfe7e67.jpg?1782743919",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 3259,
+        "name": "Sphinx Summoner",
+        "mv": 5,
+        "color_identity": "BU",
+        "types": "Artifact Creature \u2014 Sphinx",
+        "oracle_text": "Flying\nWhen this creature enters, you may search your library for an artifact creature card, reveal it, put it into your hand. then shuffle.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/d/ad955c4d-248b-4468-a975-abad97cf84a4.jpg?1782743894",
+        "backside_image_url": "",
+        "draft_pool": "M"
+      },
+      {
+        "id": 3260,
+        "name": "Esperzoa",
+        "mv": 3,
+        "color_identity": "U",
+        "types": "Artifact Creature \u2014 Jellyfish",
+        "oracle_text": "Flying\nAt the beginning of your upkeep, return an artifact you control to its owner's hand.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/2/7269b26a-058c-4a5c-aadf-733ea60f3de0.jpg?1782744022",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 3261,
+        "name": "Metallic Rebuke",
+        "mv": 3,
+        "color_identity": "U",
+        "types": "Instant",
+        "oracle_text": "Improvise (Your artifacts can help cast this spell. Each artifact you tap after you're done activating mana abilities pays for {1}.)\nCounter target spell unless its controller pays {3}.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/4/34785944-7b51-48a9-855c-3e656cd78251.jpg?1782744013",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 3262,
+        "name": "Reshape",
+        "mv": 2,
+        "color_identity": "U",
+        "types": "Sorcery",
+        "oracle_text": "As an additional cost to cast this spell, sacrifice an artifact.\nSearch your library for an artifact card with mana value X or less, put it onto the battlefield, then shuffle.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/f/8f8a8f14-bced-4388-b263-5e70431b191f.jpg?1782744012",
+        "backside_image_url": "",
+        "draft_pool": "U"
       }
     ]
   },
   "colors": {
     "commander_color_ids": [
-      "RU",
+      "BG",
       "BR",
       "RW",
-      "BG",
       "GU",
       "BW",
       "UW",
       "GR",
       "BU",
+      "RU",
       "GW",
-      "BGR",
-      "BRU",
-      "GUW",
-      "GRW",
       "BGU",
+      "GRW",
       "BGW",
       "RUW",
       "GRU",
       "BUW",
       "BRW",
+      "BGR",
+      "BRU",
+      "GUW",
+      "BRUW",
       "BGRUW"
     ],
     "picked_multicolor_color_ids": [
@@ -36543,16 +36873,17 @@
       "UW",
       "GR",
       "BU",
-      "GRU",
-      "RUW",
+      "GUW",
       "BGW",
+      "RUW",
       "GRW",
+      "BGU",
       "BRW",
       "BGR",
-      "BGU",
+      "GRU",
       "BUW",
       "BRU",
-      "GUW"
+      "BRUW"
     ]
   }
 }
