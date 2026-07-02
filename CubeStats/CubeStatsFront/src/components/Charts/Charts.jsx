@@ -15,8 +15,6 @@ const COLORS = {
 const getFill = (name) => (name.length === 1 ? COLORS[name] : `url(#grad-${name})`);
 const getStroke = (name) => (name === 'W' ? '#D2C99B' : '#ffffff');
 
-// Returns an ARRAY of <linearGradient> elements — NOT wrapped in a component.
-// These get dropped straight into a real <defs> that's a direct chart child.
 function buildGradients(names) {
   const multi = [...new Set(names)].filter((n) => n.length > 1);
   return multi.map((name) => {
@@ -80,7 +78,11 @@ const getFillV = (name) => (name.length === 1 ? COLORS[name] : `url(#gradv-${nam
 export const DistributionChart = ({ data, header }) => {
   const total = data.reduce((sum, [, value]) => sum + value, 0);
   const chartData = data
-    .map(([name, value]) => ({ name, pct: (value / total) * 100 }))
+    .map(([name, value]) => ({
+      name,
+      value,
+      pct: (value / total) * 100,
+    }))
     .sort((a, b) => b.pct - a.pct);
   const names = chartData.map((d) => d.name);
   const chartHeight = Math.max(240, chartData.length * 40 + 30);
@@ -105,7 +107,7 @@ export const DistributionChart = ({ data, header }) => {
           />
           <Tooltip
             cursor={{ fill: 'rgba(0,0,0,0.04)' }}
-            formatter={(value) => [`${Number(value).toFixed(1)}%`, 'Share']}
+            formatter={(value, name, props) => [`${props.payload.value} cards`]}
           />
           <Bar dataKey="pct" barSize={22} radius={[0, 4, 4, 0]}>
             {chartData.map((entry) => (
@@ -119,7 +121,7 @@ export const DistributionChart = ({ data, header }) => {
             <LabelList
               dataKey="pct"
               position="right"
-              formatter={(v) => `${Math.round(v)}%`}
+              formatter={(v) => `${v.toFixed(1)}%`}
               fill="#6b7280"
               fontSize={12}
             />
