@@ -1,32 +1,8 @@
+import { useState } from "react";
 import { CardImage } from "./";
 
-export const DraftedCardView = ({ cards, sortKey }) => {
-  let displayCards = [];
-  let bottomCards = [];
-  let topCards = [];
-  if (cards.length > 20) {
-    bottomCards = [...cards]
-      .sort((a, b) => {
-        const aValue = a[sortKey] ?? -Infinity;
-        const bValue = b[sortKey] ?? -Infinity;
-        return bValue - aValue;
-      })
-      .slice(0, 20);
-    topCards = [...cards]
-      .sort((a, b) => {
-        const aValue = a[sortKey] ?? Infinity;
-        const bValue = b[sortKey] ?? Infinity;
-
-        return aValue - bValue;
-      })
-      .slice(0, 20);
-  } else {
-    displayCards = [...cards].sort((a, b) => {
-      const aValue = a[sortKey] ?? -Infinity;
-      const bValue = b[sortKey] ?? -Infinity;
-      return bValue - aValue;
-    });
-  }
+export const DraftedCardView = ({ cards, sortKey, showAlphabetical = true }) => {
+  const [alphabetical, setAlphabetical] = useState(false);
 
   function renderCard(card) {
     return (
@@ -61,30 +37,91 @@ export const DraftedCardView = ({ cards, sortKey }) => {
     );
   }
 
+  const toggle = (showAlphabetical && 
+    <div className="flex gap-2 mb-4">
+      <button
+        onClick={() => setAlphabetical(false)}
+        className={`px-3 py-1 rounded-md text-sm font-medium ${
+          !alphabetical ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
+        }`}
+      >
+        By Pick
+      </button>
+      <button
+        onClick={() => setAlphabetical(true)}
+        className={`px-3 py-1 rounded-md text-sm font-medium ${
+          alphabetical ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
+        }`}
+      >
+        A–Z
+      </button>
+    </div>
+  );
+
+  if (alphabetical) {
+    const displayCards = [...cards].sort((a, b) => a.name.localeCompare(b.name));
+    return (
+      <div className="w-full max-w-6xl mt-8">
+        {toggle}
+        <div className="text-sm text-gray-500 mb-2">{displayCards.length} cards</div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          {displayCards.map((card) => renderCard(card))}
+        </div>
+      </div>
+    );
+  }
+
+
+  let displayCards = [];
+  let bottomCards = [];
+  let topCards = [];
+  if (cards.length > 20) {
+    bottomCards = [...cards]
+      .sort((a, b) => {
+        const aValue = a[sortKey] ?? -Infinity;
+        const bValue = b[sortKey] ?? -Infinity;
+        return bValue - aValue;
+      })
+      .slice(0, 20);
+    topCards = [...cards]
+      .sort((a, b) => {
+        const aValue = a[sortKey] ?? Infinity;
+        const bValue = b[sortKey] ?? Infinity;
+        return aValue - bValue;
+      })
+      .slice(0, 20);
+  } else {
+    displayCards = [...cards].sort((a, b) => {
+      const aValue = a[sortKey] ?? -Infinity;
+      const bValue = b[sortKey] ?? -Infinity;
+      return bValue - aValue;
+    });
+  }
+
   return cards.length <= 20 ? (
     <div className="w-full max-w-6xl mt-8">
+      {toggle}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        {displayCards.map((card, index) => renderCard(card, index))}
+        {displayCards.map((card) => renderCard(card))}
       </div>
     </div>
   ) : (
     <div className="w-full max-w-6xl mt-8">
+      {toggle}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        <h2 className="text-2xl font-semibold mb-4 col-span-full">
-          Bottom 20 Cards
-        </h2>
-        {bottomCards.map((card, index) => renderCard(card, index))}
-        <h2 className="text-2xl font-semibold mb-4 col-span-full">
-          Top 20 Cards
-        </h2>
-        {topCards.map((card, index) => renderCard(card, index))}
+        <h2 className="text-2xl font-semibold mb-4 col-span-full">Bottom 20 Cards</h2>
+        {bottomCards.map((card) => renderCard(card))}
+        <h2 className="text-2xl font-semibold mb-4 col-span-full">Top 20 Cards</h2>
+        {topCards.map((card) => renderCard(card))}
       </div>
     </div>
   );
 };
 
 export const NotDraftedCardView = ({ cards }) => {
-  const displayCards = [...cards].slice(0, 200);
+  const displayCards = [...cards]
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .slice(0, 200);
   function renderCard(card) {
     return (
       <div
@@ -116,4 +153,4 @@ export const NotDraftedCardView = ({ cards }) => {
       </div>
     </div>
   );
-}
+};
