@@ -230,6 +230,9 @@ def inspect_cube_contents(cursor):
 		"R" : "Red",
 		"G" : "Green"
 	}
+	cursor.execute("SELECT count(*) FROM cards WHERE active = true;")
+	total_cards = cursor.fetchone()
+	print(f"Total cards in cube: {total_cards[0]}")
 	cursor.execute("SELECT count(*), draft_pool FROM cards WHERE active = true GROUP BY draft_pool ORDER BY count(*) desc;")
 	draft_pools = cursor.fetchall()
 	print("Pool sizes:")
