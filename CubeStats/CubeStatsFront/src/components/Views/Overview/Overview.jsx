@@ -1,4 +1,4 @@
-import { Chart, PieCharts } from '../../'
+import { Chart, DistributionChart  } from '../../'
 
 export const Overview = ({ data }) => {
   const singleColorAverages = data?.aggregates?.color_id_averages?.filter(
@@ -50,10 +50,10 @@ export const Overview = ({ data }) => {
             <h2 className="text-2xl font-semibold mb-4">Color Distributions of MultiColors</h2>
             <div className="flex flex-row gap-4"> {/* Added flex container */}
               <div className="flex-1"> {/* Each chart gets equal space */}
-                <PieCharts data={twoColorDistributions} header={"Two Color"} />
+                <DistributionChart  data={twoColorDistributions} header={"Two Color"} />
               </div>
               <div className="flex-1">
-                <PieCharts
+                <DistributionChart 
                   data={threeColorDistributions}
                   header={"Three Color"}
                 />
@@ -64,13 +64,13 @@ export const Overview = ({ data }) => {
             <h2 className="text-2xl font-semibold mb-4">Color Distributions of Commanders</h2>
             <div className="flex flex-row gap-4"> {/* Added flex container */}
               <div className="flex-1"> {/* Each chart gets equal space */}
-                <PieCharts
+                <DistributionChart 
                   data={commanderTwoColorDistributions}
                   header={"Two Color"}
                 />
               </div>
               <div className="flex-1">
-                <PieCharts
+                <DistributionChart 
                   data={commanderThreeColorDistributions}
                   header={"Three Color"}
                 />
