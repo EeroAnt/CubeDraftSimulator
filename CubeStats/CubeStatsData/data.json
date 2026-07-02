@@ -372,8 +372,8 @@
         "Sorcery": 6,
         "Planeswalker": 6,
         "Artifact": 311,
-        "Land": 76,
-        "Total": 440
+        "Land": 81,
+        "Total": 445
       },
       "R": {
         "Creature": 153,
@@ -412,8 +412,8 @@
         "Sorcery": 5,
         "Planeswalker": 2,
         "Artifact": 7,
-        "Land": 10,
-        "Total": 69
+        "Land": 11,
+        "Total": 70
       },
       "BU": {
         "Creature": 39,
@@ -422,8 +422,8 @@
         "Sorcery": 4,
         "Planeswalker": 3,
         "Artifact": 9,
-        "Land": 10,
-        "Total": 73
+        "Land": 11,
+        "Total": 74
       },
       "BR": {
         "Creature": 36,
@@ -432,8 +432,8 @@
         "Sorcery": 6,
         "Planeswalker": 1,
         "Artifact": 6,
-        "Land": 10,
-        "Total": 70
+        "Land": 11,
+        "Total": 71
       },
       "RW": {
         "Creature": 27,
@@ -472,8 +472,8 @@
         "Sorcery": 9,
         "Planeswalker": 1,
         "Artifact": 4,
-        "Land": 10,
-        "Total": 63
+        "Land": 11,
+        "Total": 64
       },
       "GW": {
         "Creature": 28,
@@ -482,8 +482,8 @@
         "Sorcery": 2,
         "Planeswalker": 1,
         "Artifact": 3,
-        "Land": 11,
-        "Total": 65
+        "Land": 12,
+        "Total": 66
       },
       "GUW": {
         "Creature": 8,
@@ -511,9 +511,9 @@
         "Instant": 3,
         "Sorcery": 2,
         "Planeswalker": 0,
-        "Artifact": 0,
+        "Artifact": 2,
         "Land": 1,
-        "Total": 17
+        "Total": 19
       },
       "BRU": {
         "Creature": 7,
@@ -541,9 +541,9 @@
         "Instant": 1,
         "Sorcery": 1,
         "Planeswalker": 0,
-        "Artifact": 0,
+        "Artifact": 2,
         "Land": 1,
-        "Total": 13
+        "Total": 15
       },
       "RUW": {
         "Creature": 8,
@@ -551,9 +551,9 @@
         "Instant": 2,
         "Sorcery": 2,
         "Planeswalker": 0,
-        "Artifact": 0,
+        "Artifact": 2,
         "Land": 1,
-        "Total": 16
+        "Total": 18
       },
       "BGR": {
         "Creature": 13,
@@ -571,9 +571,9 @@
         "Instant": 2,
         "Sorcery": 1,
         "Planeswalker": 0,
-        "Artifact": 0,
+        "Artifact": 2,
         "Land": 1,
-        "Total": 19
+        "Total": 21
       },
       "GRU": {
         "Creature": 11,
@@ -581,9 +581,9 @@
         "Instant": 1,
         "Sorcery": 1,
         "Planeswalker": 0,
-        "Artifact": 0,
+        "Artifact": 2,
         "Land": 1,
-        "Total": 15
+        "Total": 17
       },
       "BRUW": {
         "Creature": 1,
@@ -36859,6 +36859,226 @@
         "types": "Land \u2014 Gate",
         "oracle_text": "This land enters tapped.\nAs this land enters, choose a color other than blue.\n{T}: Add {U} or one mana of the chosen color.",
         "image_url": "https://cards.scryfall.io/normal/front/d/9/d97f31e1-bcaf-4316-a2de-49e2cf7566ec.jpg?1782701125",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3271,
+        "name": "Bant Panorama",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{1}, {T}, Sacrifice this land: Search your library for a basic Forest, Plains, or Island card, put it onto the battlefield tapped, then shuffle.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/c/dc506497-4ecd-41d3-9042-f92f498251b0.jpg?1782701701",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3272,
+        "name": "Esper Panorama",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{1}, {T}, Sacrifice this land: Search your library for a basic Plains, Island, or Swamp card, put it onto the battlefield tapped, then shuffle.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/8/b89070ab-4fe6-4919-b160-b32100fb4930.jpg?1782701694",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3273,
+        "name": "Jund Panorama",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{1}, {T}, Sacrifice this land: Search your library for a basic Swamp, Mountain, or Forest card, put it onto the battlefield tapped, then shuffle.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/0/50d8346a-e0b5-41eb-be89-7d1eb0e84f28.jpg?1782701689",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3274,
+        "name": "Grixis Panorama",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{1}, {T}, Sacrifice this land: Search your library for a basic Island, Swamp, or Mountain card, put it onto the battlefield tapped, then shuffle.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/4/e49dd5f0-1afa-4301-acdb-28424e2553b9.jpg?1782701689",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3275,
+        "name": "Naya Panorama",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{1}, {T}, Sacrifice this land: Search your library for a basic Mountain, Forest, or Plains card, put it onto the battlefield tapped, then shuffle.",
+        "image_url": "https://cards.scryfall.io/normal/front/6/a/6a546a28-8df5-4080-9f50-af86d84a066f.jpg?1782701682",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3276,
+        "name": "Raugrin Crystal",
+        "mv": 3,
+        "color_identity": "RUW",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {U}, {R}, or {W}.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+        "image_url": "https://cards.scryfall.io/normal/front/c/5/c5bce0fb-53d6-47ee-8c5a-a99e50f67fc9.jpg?1782707096",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3277,
+        "name": "Ketria Crystal",
+        "mv": 3,
+        "color_identity": "GRU",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {G}, {U}, or {R}.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+        "image_url": "https://cards.scryfall.io/normal/front/7/d/7df435cb-3aeb-490a-8fca-91f3b6936965.jpg?1782707098",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3278,
+        "name": "Zagoth Crystal",
+        "mv": 3,
+        "color_identity": "BGU",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {B}, {G}, or {U}.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+        "image_url": "https://cards.scryfall.io/normal/front/9/1/9138a442-8e8b-465f-bb76-b6af7e6dab6f.jpg?1782707095",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3279,
+        "name": "Savai Crystal",
+        "mv": 3,
+        "color_identity": "BRW",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {R}, {W}, or {B}.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+        "image_url": "https://cards.scryfall.io/normal/front/6/9/6954a5c1-89b1-4edd-814e-8f88fd49cda3.jpg?1782707096",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3280,
+        "name": "Indatha Crystal",
+        "mv": 3,
+        "color_identity": "BGW",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {W}, {B}, or {G}.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+        "image_url": "https://cards.scryfall.io/normal/front/b/d/bdace59f-f025-4717-8eb4-3d1e13b31d2b.jpg?1782707099",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3281,
+        "name": "Abzan Banner",
+        "mv": 3,
+        "color_identity": "BGW",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {W}, {B}, or {G}.\n{W}{B}{G}, {T}, Sacrifice this artifact: Draw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/8/7855528a-ede9-49a9-8749-795a004fd927.jpg?1782713044",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3282,
+        "name": "Jeskai Banner",
+        "mv": 3,
+        "color_identity": "RUW",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {U}, {R}, or {W}.\n{U}{R}{W}, {T}, Sacrifice this artifact: Draw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/6/8/684dc050-a66b-4364-9880-56f383db6c0a.jpg?1782713040",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3283,
+        "name": "Mardu Banner",
+        "mv": 3,
+        "color_identity": "BRW",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {R}, {W}, or {B}.\n{R}{W}{B}, {T}, Sacrifice this artifact: Draw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/f/e/fe10c56d-a8e1-495d-a03a-0b920b44182f.jpg?1782713039",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3284,
+        "name": "Sultai Banner",
+        "mv": 3,
+        "color_identity": "BGU",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {B}, {G}, or {U}.\n{B}{G}{U}, {T}, Sacrifice this artifact: Draw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/6/1695cf35-8f7c-4674-bfd3-43520b13d084.jpg?1782713039",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3285,
+        "name": "Temur Banner",
+        "mv": 3,
+        "color_identity": "GRU",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {G}, {U}, or {R}.\n{G}{U}{R}, {T}, Sacrifice this artifact: Draw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/9/9990bdff-c27a-447f-b530-d8b7614fe9a0.jpg?1782713039",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3286,
+        "name": "Celestial Colonnade",
+        "mv": 0,
+        "color_identity": "UW",
+        "types": "Land",
+        "oracle_text": "This land enters tapped.\n{T}: Add {W} or {U}.\n{3}{W}{U}: Until end of turn, this land becomes a 4/4 white and blue Elemental creature with flying and vigilance. It's still a land.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/c/4c830a99-595b-4aed-9f6b-85a78917f498.jpg?1782746951",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3287,
+        "name": "Lavaclaw Reaches",
+        "mv": 0,
+        "color_identity": "BR",
+        "types": "Land",
+        "oracle_text": "This land enters tapped.\n{T}: Add {B} or {R}.\n{1}{B}{R}: Until end of turn, this land becomes a 2/2 black and red Elemental creature with \"{X}: This creature gets +X/+0 until end of turn.\" It's still a land.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/0/409fcd0c-8449-4623-8bf0-cd7ca0937a4a.jpg?1782746946",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3288,
+        "name": "Creeping Tar Pit",
+        "mv": 0,
+        "color_identity": "BU",
+        "types": "Land",
+        "oracle_text": "This land enters tapped.\n{T}: Add {U} or {B}.\n{1}{U}{B}: Until end of turn, this land becomes a 3/2 blue and black Elemental creature. It's still a land. It can't be blocked this turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/f/1f60e172-fcdc-4699-a212-815201375d47.jpg?1782700751",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3289,
+        "name": "Raging Ravine",
+        "mv": 0,
+        "color_identity": "GR",
+        "types": "Land",
+        "oracle_text": "This land enters tapped.\n{T}: Add {R} or {G}.\n{2}{R}{G}: Until end of turn, this land becomes a 3/3 red and green Elemental creature with \"Whenever this creature attacks, put a +1/+1 counter on it.\" It's still a land.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/9/3964c3a5-3ce7-4b73-89ec-ed1b9799aef8.jpg?1782684177",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3290,
+        "name": "Stirring Wildwood",
+        "mv": 0,
+        "color_identity": "GW",
+        "types": "Land",
+        "oracle_text": "This land enters tapped.\n{T}: Add {G} or {W}.\n{1}{G}{W}: Until end of turn, this land becomes a 3/4 green and white Elemental creature with reach. It's still a land.",
+        "image_url": "https://cards.scryfall.io/normal/front/2/2/22f40dfc-a35d-4094-9805-0de8b7f61cb0.jpg?1782746943",
         "backside_image_url": "",
         "draft_pool": "L"
       }
