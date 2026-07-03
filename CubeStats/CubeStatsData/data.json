@@ -392,8 +392,8 @@
         "Sorcery": 2,
         "Planeswalker": 3,
         "Artifact": 10,
-        "Land": 11,
-        "Total": 68
+        "Land": 12,
+        "Total": 69
       },
       "GU": {
         "Creature": 28,
@@ -402,8 +402,8 @@
         "Sorcery": 5,
         "Planeswalker": 4,
         "Artifact": 4,
-        "Land": 12,
-        "Total": 64
+        "Land": 13,
+        "Total": 65
       },
       "UW": {
         "Creature": 33,
@@ -412,8 +412,8 @@
         "Sorcery": 5,
         "Planeswalker": 2,
         "Artifact": 7,
-        "Land": 11,
-        "Total": 70
+        "Land": 12,
+        "Total": 71
       },
       "BU": {
         "Creature": 39,
@@ -422,8 +422,8 @@
         "Sorcery": 4,
         "Planeswalker": 3,
         "Artifact": 9,
-        "Land": 11,
-        "Total": 74
+        "Land": 12,
+        "Total": 75
       },
       "BR": {
         "Creature": 36,
@@ -432,8 +432,8 @@
         "Sorcery": 6,
         "Planeswalker": 1,
         "Artifact": 6,
-        "Land": 11,
-        "Total": 71
+        "Land": 12,
+        "Total": 72
       },
       "RW": {
         "Creature": 27,
@@ -442,8 +442,8 @@
         "Sorcery": 8,
         "Planeswalker": 2,
         "Artifact": 6,
-        "Land": 11,
-        "Total": 65
+        "Land": 12,
+        "Total": 66
       },
       "BG": {
         "Creature": 28,
@@ -452,8 +452,8 @@
         "Sorcery": 11,
         "Planeswalker": 2,
         "Artifact": 3,
-        "Land": 11,
-        "Total": 66
+        "Land": 12,
+        "Total": 67
       },
       "BW": {
         "Creature": 32,
@@ -462,8 +462,8 @@
         "Sorcery": 11,
         "Planeswalker": 3,
         "Artifact": 5,
-        "Land": 10,
-        "Total": 69
+        "Land": 11,
+        "Total": 70
       },
       "GR": {
         "Creature": 31,
@@ -472,8 +472,8 @@
         "Sorcery": 9,
         "Planeswalker": 1,
         "Artifact": 4,
-        "Land": 11,
-        "Total": 64
+        "Land": 12,
+        "Total": 65
       },
       "GW": {
         "Creature": 28,
@@ -482,8 +482,8 @@
         "Sorcery": 2,
         "Planeswalker": 1,
         "Artifact": 3,
-        "Land": 12,
-        "Total": 66
+        "Land": 13,
+        "Total": 67
       },
       "GUW": {
         "Creature": 8,
@@ -25068,6 +25068,17 @@
         "draft_pool": "R"
       },
       {
+        "id": 3292,
+        "name": "Fetid Heath",
+        "mv": 0,
+        "color_identity": "BW",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{W/B}, {T}: Add {W}{W}, {W}{B}, or {B}{B}.",
+        "image_url": "https://cards.scryfall.io/normal/front/f/4/f465ded8-0d38-42ac-bafc-a12185013c5d.jpg?1782683101",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
         "id": 1022,
         "name": "Stormbreath Dragon",
         "mv": 5,
@@ -26643,6 +26654,17 @@
         "draft_pool": "M"
       },
       {
+        "id": 3293,
+        "name": "Fire-Lit Thicket",
+        "mv": 0,
+        "color_identity": "GR",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{R/G}, {T}: Add {R}{R}, {R}{G}, or {G}{G}.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/9/1927d645-ca43-4b8e-9932-7e70acca7aa6.jpg?1782743825",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
         "id": 1536,
         "name": "Ghor-Clan Rampager",
         "mv": 4,
@@ -27945,6 +27967,39 @@
         "draft_pool": "C"
       },
       {
+        "id": 3294,
+        "name": "Flooded Grove",
+        "mv": 0,
+        "color_identity": "GU",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{G/U}, {T}: Add {G}{G}, {G}{U}, or {U}{U}.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/f/df797e0d-8ae2-4fdb-a33d-4ba7852b0172.jpg?1782683095",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3295,
+        "name": "Graven Cairns",
+        "mv": 0,
+        "color_identity": "BR",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{B/R}, {T}: Add {B}{B}, {B}{R}, or {R}{R}.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/4/74a13fea-4f48-428b-b42b-4ba63d4752ed.jpg?1782689740",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3296,
+        "name": "Mystic Gate",
+        "mv": 0,
+        "color_identity": "UW",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{W/U}, {T}: Add {W}{W}, {W}{U}, or {U}{U}.",
+        "image_url": "https://cards.scryfall.io/normal/front/6/f/6f99714f-43bc-4048-b650-97dfef4c10fe.jpg?1782732588",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
         "id": 1975,
         "name": "Sword of the Meek",
         "mv": 2,
@@ -27965,6 +28020,17 @@
         "image_url": "https://cards.scryfall.io/normal/front/1/3/1345ee24-ffa3-44d1-a983-f25f54cda3f3.jpg?1562202451",
         "backside_image_url": "",
         "draft_pool": "C"
+      },
+      {
+        "id": 3297,
+        "name": "Rugged Prairie",
+        "mv": 0,
+        "color_identity": "RW",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{R/W}, {T}: Add {R}{R}, {R}{W}, or {W}{W}.",
+        "image_url": "https://cards.scryfall.io/normal/front/6/b/6bd21c9e-de16-4ee9-ae16-6e82b490109d.jpg?1782683074",
+        "backside_image_url": "",
+        "draft_pool": "L"
       },
       {
         "id": 2005,
@@ -28143,6 +28209,17 @@
         "draft_pool": "U"
       },
       {
+        "id": 3298,
+        "name": "Sunken Ruins",
+        "mv": 0,
+        "color_identity": "BU",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{U/B}, {T}: Add {U}{U}, {U}{B}, or {B}{B}.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/1/9181d30d-4f8e-421f-89b8-149ed8000fb2.jpg?1782743817",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
         "id": 2219,
         "name": "Tranquil Thicket",
         "mv": 0,
@@ -28207,6 +28284,17 @@
         "image_url": "https://cards.scryfall.io/normal/front/b/4/b47f639e-4635-4c26-bb2a-4925f0582c21.jpg?1561842572",
         "backside_image_url": "",
         "draft_pool": "R"
+      },
+      {
+        "id": 3299,
+        "name": "Twilight Mire",
+        "mv": 0,
+        "color_identity": "BG",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{B/G}, {T}: Add {B}{B}, {B}{G}, or {G}{G}.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/c/3cc8186b-b46f-46c0-8dfb-9e423e430048.jpg?1782683064",
+        "backside_image_url": "",
+        "draft_pool": "L"
       },
       {
         "id": 2246,
@@ -28471,6 +28559,17 @@
         "image_url": "https://cards.scryfall.io/normal/front/a/2/a2e44a73-7cc0-4654-9c6f-d58513c7cabd.jpg?1712354502",
         "backside_image_url": "",
         "draft_pool": "R"
+      },
+      {
+        "id": 3300,
+        "name": "Wooded Bastion",
+        "mv": 0,
+        "color_identity": "GW",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{G/W}, {T}: Add {G}{G}, {G}{W}, or {W}{W}.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/6/36b591ec-0231-4b91-a132-eb3aedfdf8fa.jpg?1782743812",
+        "backside_image_url": "",
+        "draft_pool": "L"
       },
       {
         "id": 2289,
@@ -36643,6 +36742,17 @@
         "draft_pool": "R"
       },
       {
+        "id": 3291,
+        "name": "Cascade Bluffs",
+        "mv": 0,
+        "color_identity": "RU",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{U/R}, {T}: Add {U}{U}, {U}{R}, or {R}{R}.",
+        "image_url": "https://cards.scryfall.io/normal/front/2/2/22acccd2-4e9d-46de-a060-863b08152e50.jpg?1782683104",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
         "id": 3251,
         "name": "Academy Ruins",
         "mv": 0,
@@ -37176,8 +37286,8 @@
       "BR",
       "RW",
       "BG",
-      "BW",
       "GU",
+      "BW",
       "UW",
       "GR",
       "BU",
