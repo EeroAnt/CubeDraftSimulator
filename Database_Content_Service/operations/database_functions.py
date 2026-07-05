@@ -47,8 +47,8 @@ def check_card(cursor, cardname):
     else:
         return False  # Card exists and is active
 
-def add_card(cursor, cardname):
-	card = fetch_card_json(cardname)
+def add_card(cursor, cardname, predetermined_draft_pool=None):
+	card = fetch_card_json(cardname, predetermined_draft_pool)
 	if card == None:
 		print(f"{cardname} not found.")
 		return
@@ -106,10 +106,13 @@ def add_card(cursor, cardname):
 		print(f"Error adding {card['name']}: {e}")
 
 def add_multiple_cards(cursor):
+	predetermined_draft_pool = input("Enter the draft pool for all unclear cards (M, L, C, U, W, B, R, G) (Enter to skip): ")
+	if not predetermined_draft_pool:
+		predetermined_draft_pool = None
 	cards = read_txt_file("cards.txt")
 	for card in cards:
 		sleep(0.12)
-		add_card(cursor, card)
+		add_card(cursor, card, predetermined_draft_pool)
 	return
 
 def remove_card(cursor, card_id):
