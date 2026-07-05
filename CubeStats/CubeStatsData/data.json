@@ -326,24 +326,24 @@
     ],
     "color_id_aggregates": {
       "U": {
-        "Creature": 167,
+        "Creature": 168,
         "Enchantment": 61,
         "Instant": 84,
         "Sorcery": 53,
         "Planeswalker": 6,
-        "Artifact": 16,
-        "Land": 7,
-        "Total": 377
+        "Artifact": 17,
+        "Land": 8,
+        "Total": 379
       },
       "B": {
         "Creature": 132,
-        "Enchantment": 54,
+        "Enchantment": 55,
         "Instant": 38,
         "Sorcery": 69,
         "Planeswalker": 6,
-        "Artifact": 10,
-        "Land": 5,
-        "Total": 303
+        "Artifact": 11,
+        "Land": 6,
+        "Total": 305
       },
       "W": {
         "Creature": 166,
@@ -351,19 +351,19 @@
         "Instant": 41,
         "Sorcery": 43,
         "Planeswalker": 11,
-        "Artifact": 10,
-        "Land": 7,
-        "Total": 335
+        "Artifact": 11,
+        "Land": 8,
+        "Total": 336
       },
       "G": {
-        "Creature": 169,
+        "Creature": 170,
         "Enchantment": 70,
         "Instant": 27,
         "Sorcery": 47,
         "Planeswalker": 6,
-        "Artifact": 6,
-        "Land": 8,
-        "Total": 325
+        "Artifact": 7,
+        "Land": 9,
+        "Total": 327
       },
       "C": {
         "Creature": 117,
@@ -371,19 +371,19 @@
         "Instant": 6,
         "Sorcery": 6,
         "Planeswalker": 6,
-        "Artifact": 311,
-        "Land": 81,
-        "Total": 445
+        "Artifact": 312,
+        "Land": 82,
+        "Total": 447
       },
       "R": {
-        "Creature": 153,
+        "Creature": 154,
         "Enchantment": 72,
-        "Instant": 56,
+        "Instant": 57,
         "Sorcery": 58,
         "Planeswalker": 9,
-        "Artifact": 10,
-        "Land": 8,
-        "Total": 355
+        "Artifact": 11,
+        "Land": 9,
+        "Total": 357
       },
       "RU": {
         "Creature": 30,
@@ -391,9 +391,9 @@
         "Instant": 12,
         "Sorcery": 2,
         "Planeswalker": 3,
-        "Artifact": 10,
-        "Land": 12,
-        "Total": 69
+        "Artifact": 12,
+        "Land": 16,
+        "Total": 75
       },
       "GU": {
         "Creature": 28,
@@ -401,9 +401,9 @@
         "Instant": 9,
         "Sorcery": 5,
         "Planeswalker": 4,
-        "Artifact": 4,
-        "Land": 13,
-        "Total": 65
+        "Artifact": 6,
+        "Land": 17,
+        "Total": 71
       },
       "UW": {
         "Creature": 33,
@@ -411,9 +411,9 @@
         "Instant": 8,
         "Sorcery": 5,
         "Planeswalker": 2,
-        "Artifact": 7,
-        "Land": 12,
-        "Total": 71
+        "Artifact": 9,
+        "Land": 15,
+        "Total": 76
       },
       "BU": {
         "Creature": 39,
@@ -421,9 +421,9 @@
         "Instant": 10,
         "Sorcery": 4,
         "Planeswalker": 3,
-        "Artifact": 9,
-        "Land": 12,
-        "Total": 75
+        "Artifact": 11,
+        "Land": 15,
+        "Total": 80
       },
       "BR": {
         "Creature": 36,
@@ -431,9 +431,9 @@
         "Instant": 6,
         "Sorcery": 6,
         "Planeswalker": 1,
-        "Artifact": 6,
-        "Land": 12,
-        "Total": 72
+        "Artifact": 8,
+        "Land": 15,
+        "Total": 77
       },
       "RW": {
         "Creature": 27,
@@ -441,9 +441,9 @@
         "Instant": 10,
         "Sorcery": 8,
         "Planeswalker": 2,
-        "Artifact": 6,
-        "Land": 12,
-        "Total": 66
+        "Artifact": 8,
+        "Land": 16,
+        "Total": 72
       },
       "BG": {
         "Creature": 28,
@@ -451,9 +451,9 @@
         "Instant": 8,
         "Sorcery": 11,
         "Planeswalker": 2,
-        "Artifact": 3,
-        "Land": 12,
-        "Total": 67
+        "Artifact": 5,
+        "Land": 16,
+        "Total": 73
       },
       "BW": {
         "Creature": 32,
@@ -461,9 +461,9 @@
         "Instant": 8,
         "Sorcery": 11,
         "Planeswalker": 3,
-        "Artifact": 5,
-        "Land": 11,
-        "Total": 70
+        "Artifact": 7,
+        "Land": 15,
+        "Total": 76
       },
       "GR": {
         "Creature": 31,
@@ -471,9 +471,9 @@
         "Instant": 4,
         "Sorcery": 9,
         "Planeswalker": 1,
-        "Artifact": 4,
-        "Land": 12,
-        "Total": 65
+        "Artifact": 6,
+        "Land": 15,
+        "Total": 70
       },
       "GW": {
         "Creature": 28,
@@ -481,9 +481,9 @@
         "Instant": 12,
         "Sorcery": 2,
         "Planeswalker": 1,
-        "Artifact": 3,
-        "Land": 13,
-        "Total": 67
+        "Artifact": 5,
+        "Land": 16,
+        "Total": 72
       },
       "GUW": {
         "Creature": 8,
@@ -491,9 +491,9 @@
         "Instant": 3,
         "Sorcery": 2,
         "Planeswalker": 1,
-        "Artifact": 0,
+        "Artifact": 1,
         "Land": 1,
-        "Total": 17
+        "Total": 18
       },
       "GRW": {
         "Creature": 13,
@@ -501,9 +501,9 @@
         "Instant": 2,
         "Sorcery": 2,
         "Planeswalker": 0,
-        "Artifact": 0,
+        "Artifact": 1,
         "Land": 1,
-        "Total": 19
+        "Total": 20
       },
       "BGW": {
         "Creature": 10,
@@ -512,8 +512,8 @@
         "Sorcery": 2,
         "Planeswalker": 0,
         "Artifact": 2,
-        "Land": 1,
-        "Total": 19
+        "Land": 2,
+        "Total": 20
       },
       "BRU": {
         "Creature": 7,
@@ -521,9 +521,9 @@
         "Instant": 2,
         "Sorcery": 1,
         "Planeswalker": 2,
-        "Artifact": 1,
+        "Artifact": 2,
         "Land": 1,
-        "Total": 14
+        "Total": 15
       },
       "BUW": {
         "Creature": 11,
@@ -531,9 +531,9 @@
         "Instant": 4,
         "Sorcery": 0,
         "Planeswalker": 0,
-        "Artifact": 3,
+        "Artifact": 4,
         "Land": 1,
-        "Total": 18
+        "Total": 19
       },
       "BGU": {
         "Creature": 9,
@@ -542,8 +542,8 @@
         "Sorcery": 1,
         "Planeswalker": 0,
         "Artifact": 2,
-        "Land": 1,
-        "Total": 15
+        "Land": 2,
+        "Total": 16
       },
       "RUW": {
         "Creature": 8,
@@ -552,8 +552,8 @@
         "Sorcery": 2,
         "Planeswalker": 0,
         "Artifact": 2,
-        "Land": 1,
-        "Total": 18
+        "Land": 2,
+        "Total": 19
       },
       "BGR": {
         "Creature": 13,
@@ -561,9 +561,9 @@
         "Instant": 2,
         "Sorcery": 2,
         "Planeswalker": 0,
-        "Artifact": 0,
+        "Artifact": 1,
         "Land": 1,
-        "Total": 19
+        "Total": 20
       },
       "BRW": {
         "Creature": 14,
@@ -572,8 +572,8 @@
         "Sorcery": 1,
         "Planeswalker": 0,
         "Artifact": 2,
-        "Land": 1,
-        "Total": 21
+        "Land": 2,
+        "Total": 22
       },
       "GRU": {
         "Creature": 11,
@@ -582,8 +582,8 @@
         "Sorcery": 1,
         "Planeswalker": 0,
         "Artifact": 2,
-        "Land": 1,
-        "Total": 17
+        "Land": 2,
+        "Total": 18
       },
       "BRUW": {
         "Creature": 1,
@@ -37189,6 +37189,842 @@
         "types": "Land",
         "oracle_text": "This land enters tapped.\n{T}: Add {G} or {W}.\n{1}{G}{W}: Until end of turn, this land becomes a 3/4 green and white Elemental creature with reach. It's still a land.",
         "image_url": "https://cards.scryfall.io/normal/front/2/2/22f40dfc-a35d-4094-9805-0de8b7f61cb0.jpg?1782746943",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3301,
+        "name": "Sadistic Glee",
+        "mv": 1,
+        "color_identity": "B",
+        "types": "Enchantment \u2014 Aura",
+        "oracle_text": "Enchant creature\nWhenever a creature dies, put a +1/+1 counter on enchanted creature.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/9/d9e1959c-b87b-4e17-a0d2-0489ea79220b.jpg?1782720948",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 3302,
+        "name": "Basking Broodscale",
+        "mv": 2,
+        "color_identity": "G",
+        "types": "Creature \u2014 Eldrazi Lizard",
+        "oracle_text": "Devoid (This card has no color.)\n{1}{G}: Adapt 1. (If this creature has no +1/+1 counters on it, put a +1/+1 counter on it.)\nWhenever one or more +1/+1 counters are put on this creature, you may create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\"",
+        "image_url": "https://cards.scryfall.io/normal/front/5/f/5feba5d6-99a6-4e9b-8a7d-90d955868fc3.jpg?1782691272",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 3303,
+        "name": "Displacer Kitten",
+        "mv": 4,
+        "color_identity": "U",
+        "types": "Creature \u2014 Cat Beast",
+        "oracle_text": "Avoidance \u2014 Whenever you cast a noncreature spell, exile up to one target nonland permanent you control, then return that card to the battlefield under its owner's control.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/7/c7a401b8-29fb-46ef-a663-427f66724d5c.jpg?1782701312",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 3304,
+        "name": "Blazing Firesinger // Seething Song",
+        "mv": 3,
+        "color_identity": "R",
+        "types": "Creature \u2014 Dwarf Bard // Instant",
+        "oracle_text": "This creature enters prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.) // Add {R}{R}{R}{R}{R}.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/b/3ba971e7-0b7a-4750-896f-7cf063e66b2a.jpg?1782682946",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 3305,
+        "name": "Sol Talisman",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Artifact",
+        "oracle_text": "Suspend 3\u2014{1} (Rather than cast this card from your hand, pay {1} and exile it with three time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, you may cast it without paying its mana cost.)\n{T}: Add {C}{C}.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/5/a51fb64d-cc0c-400d-971f-78c28d42043b.jpg?1782704591",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3306,
+        "name": "Talisman of Conviction",
+        "mv": 2,
+        "color_identity": "RW",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {C}.\n{T}: Add {R} or {W}. This artifact deals 1 damage to you.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/3/a365885c-f7d9-4ea1-9125-5265055e5570.jpg?1782682488",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3307,
+        "name": "Talisman of Curiosity",
+        "mv": 2,
+        "color_identity": "GU",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {C}.\n{T}: Add {G} or {U}. This artifact deals 1 damage to you.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/3/8388c4e8-bda1-47e5-8df2-ddec5babcaf9.jpg?1782694050",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3308,
+        "name": "Talisman of Impulse",
+        "mv": 2,
+        "color_identity": "GR",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {C}.\n{T}: Add {R} or {G}. This artifact deals 1 damage to you.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/1/5135919f-7b10-4a2e-a98a-83ed1347ad36.jpg?1782686668",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3309,
+        "name": "Talisman of Progress",
+        "mv": 2,
+        "color_identity": "UW",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {C}.\n{T}: Add {W} or {U}. This artifact deals 1 damage to you.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/3/b356ee36-1c62-4097-87d7-fef6a6dad067.jpg?1782682486",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3310,
+        "name": "Talisman of Resilience",
+        "mv": 2,
+        "color_identity": "BG",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {C}.\n{T}: Add {B} or {G}. This artifact deals 1 damage to you.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/f/eff598b0-0b32-41d0-b980-584576e58626.jpg?1782689761",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3311,
+        "name": "Talisman of Indulgence",
+        "mv": 2,
+        "color_identity": "BR",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {C}.\n{T}: Add {B} or {R}. This artifact deals 1 damage to you.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/c/ccacf88d-407d-465d-958a-1389b7d700e6.jpg?1782682487",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3312,
+        "name": "Talisman of Unity",
+        "mv": 2,
+        "color_identity": "GW",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {C}.\n{T}: Add {G} or {W}. This artifact deals 1 damage to you.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/9/89e8443d-daf4-4cef-9080-d7568b5c540e.jpg?1782694048",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3313,
+        "name": "Talisman of Dominance",
+        "mv": 2,
+        "color_identity": "BU",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {C}.\n{T}: Add {U} or {B}. This artifact deals 1 damage to you.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/0/00d4a1d4-b86a-4c05-9ecc-130e011e0486.jpg?1782682487",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3314,
+        "name": "Talisman of Hierarchy",
+        "mv": 2,
+        "color_identity": "BW",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {C}.\n{T}: Add {W} or {B}. This artifact deals 1 damage to you.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/c/0c959368-2f58-48de-b7a5-2bab408652b5.jpg?1782683110",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3315,
+        "name": "Talisman of Creativity",
+        "mv": 2,
+        "color_identity": "RU",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {C}.\n{T}: Add {U} or {R}. This artifact deals 1 damage to you.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/e/3ed13229-bbbb-41a7-933e-8975a6b64226.jpg?1782682488",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3316,
+        "name": "Azorius Keyrune",
+        "mv": 3,
+        "color_identity": "UW",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {W} or {U}.\n{W}{U}: This artifact becomes a 2/2 white and blue Bird artifact creature with flying until end of turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/8/a8755662-b329-4c5b-8bf7-c9e1702e5979.jpg?1782710880",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3317,
+        "name": "Boros Keyrune",
+        "mv": 3,
+        "color_identity": "RW",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {R} or {W}.\n{R}{W}: This artifact becomes a 1/1 red and white Soldier artifact creature with double strike until end of turn. (It deals both first-strike and regular combat damage.)",
+        "image_url": "https://cards.scryfall.io/normal/front/c/4/c4b65847-fee2-4e00-b598-7363059ec3ff.jpg?1782714043",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3318,
+        "name": "Dimir Keyrune",
+        "mv": 3,
+        "color_identity": "BU",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {U} or {B}.\n{U}{B}: This artifact becomes a 2/2 blue and black Horror artifact creature until end of turn and can't be blocked this turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/6/9/69d1dd6c-21d3-4fe8-af1b-7088dcceef08.jpg?1782700771",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3319,
+        "name": "Golgari Keyrune",
+        "mv": 3,
+        "color_identity": "BG",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {B} or {G}.\n{B}{G}: This artifact becomes a 2/2 black and green Insect artifact creature with deathtouch until end of turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/1/913b803f-ba82-4660-86be-49677d1e32c9.jpg?1782714181",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3320,
+        "name": "Gruul Keyrune",
+        "mv": 3,
+        "color_identity": "GR",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {R} or {G}.\n{R}{G}: This artifact becomes a 3/2 red and green Beast artifact creature with trample until end of turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/c/7cf96f1c-066e-4fde-acb8-4674842fb6c2.jpg?1782714042",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3321,
+        "name": "Izzet Keyrune",
+        "mv": 3,
+        "color_identity": "RU",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {U} or {R}.\n{U}{R}: Until end of turn, this artifact becomes a 2/1 blue and red Elemental artifact creature.\nWhenever this artifact deals combat damage to a player, you may draw a card. If you do, discard a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/3/83e4e83b-cbb8-4efd-b6c4-4459a29177ac.jpg?1782714181",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3322,
+        "name": "Orzhov Keyrune",
+        "mv": 3,
+        "color_identity": "BW",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {W} or {B}.\n{W}{B}: This artifact becomes a 1/4 white and black Thrull artifact creature with lifelink until end of turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/f/d/fd5c0f38-916a-4f6c-b678-7447cb0709e0.jpg?1782714039",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3323,
+        "name": "Rakdos Keyrune",
+        "mv": 3,
+        "color_identity": "BR",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {B} or {R}.\n{B}{R}: This artifact becomes a 3/1 black and red Devil artifact creature with first strike until end of turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/f/6/f6124b4c-49a1-42e3-a6ff-62de231c7823.jpg?1782714180",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3324,
+        "name": "Selesnya Keyrune",
+        "mv": 3,
+        "color_identity": "GW",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {G} or {W}.\n{G}{W}: This artifact becomes a 3/3 green and white Wolf artifact creature until end of turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/6/1645eafd-cd17-463a-9d7e-42f5f7b5196f.jpg?1782714179",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3325,
+        "name": "Simic Keyrune",
+        "mv": 3,
+        "color_identity": "GU",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {G} or {U}.\n{G}{U}: This artifact becomes a 2/3 green and blue Crab artifact creature with hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)",
+        "image_url": "https://cards.scryfall.io/normal/front/b/c/bc0906ce-223b-4bb2-b614-6e2e13dbb18c.jpg?1782712290",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3326,
+        "name": "Obelisk of Grixis",
+        "mv": 3,
+        "color_identity": "BRU",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {U}, {B}, or {R}.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/b/1bf29333-2fe4-4bd3-855b-8eef8d14c5d6.jpg?1782748767",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3327,
+        "name": "Obelisk of Naya",
+        "mv": 3,
+        "color_identity": "GRW",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {R}, {G}, or {W}.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/f/df6317b0-15fd-4924-9302-41bed2354546.jpg?1782715910",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3328,
+        "name": "Obelisk of Jund",
+        "mv": 3,
+        "color_identity": "BGR",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {B}, {R}, or {G}.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/f/1fe43306-f48f-4812-8d40-1903cc6f19d2.jpg?1782713600",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3329,
+        "name": "Obelisk of Esper",
+        "mv": 3,
+        "color_identity": "BUW",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {W}, {U}, or {B}.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/0/70b347b1-9277-4ad0-88c8-faacace08827.jpg?1782713602",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3330,
+        "name": "Obelisk of Bant",
+        "mv": 3,
+        "color_identity": "GUW",
+        "types": "Artifact",
+        "oracle_text": "{T}: Add {G}, {W}, or {U}.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/c/0cefe6ab-c018-4b87-8948-295a28f63cb1.jpg?1782715912",
+        "backside_image_url": "",
+        "draft_pool": "C"
+      },
+      {
+        "id": 3331,
+        "name": "Talon Gates of Madara",
+        "mv": 0,
+        "color_identity": "C",
+        "types": "Land \u2014 Gate",
+        "oracle_text": "When this land enters, up to one target creature phases out.\n{T}: Add {C}.\n{1}, {T}: Add one mana of any color.\n{4}: Put this card from your hand onto the battlefield.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/e/de92facf-762b-4a23-8d5e-bb673b0500c0.jpg?1782691678",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3332,
+        "name": "Contaminated Aquifer",
+        "mv": 0,
+        "color_identity": "BU",
+        "types": "Land \u2014 Island Swamp",
+        "oracle_text": "({T}: Add {U} or {B}.)\nThis land enters tapped.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/f/9fad6994-1280-4a8e-a2f5-34b4ed6ef6f5.jpg?1782686651",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3333,
+        "name": "Geothermal Bog",
+        "mv": 0,
+        "color_identity": "BR",
+        "types": "Land \u2014 Swamp Mountain",
+        "oracle_text": "({T}: Add {B} or {R}.)\nThis land enters tapped.",
+        "image_url": "https://cards.scryfall.io/normal/front/6/d/6da04570-5d3c-4e9f-a9c1-20589a4bcc24.jpg?1782689741",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3334,
+        "name": "Haunted Mire",
+        "mv": 0,
+        "color_identity": "BG",
+        "types": "Land \u2014 Swamp Forest",
+        "oracle_text": "({T}: Add {B} or {G}.)\nThis land enters tapped.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/e/3e041aef-5771-4a3f-af07-e85a66c48979.jpg?1782683093",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3335,
+        "name": "Idyllic Beachfront",
+        "mv": 0,
+        "color_identity": "UW",
+        "types": "Land \u2014 Plains Island",
+        "oracle_text": "({T}: Add {W} or {U}.)\nThis land enters tapped.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/5/c50ec22c-decb-419f-ae52-78ea1706eb11.jpg?1782700402",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3336,
+        "name": "Molten Tributary",
+        "mv": 0,
+        "color_identity": "RU",
+        "types": "Land \u2014 Island Mountain",
+        "oracle_text": "({T}: Add {U} or {R}.)\nThis land enters tapped.",
+        "image_url": "https://cards.scryfall.io/normal/front/9/c/9c6d0f64-b8e1-41bc-ab86-bd6783daf72a.jpg?1782683085",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3337,
+        "name": "Radiant Grove",
+        "mv": 0,
+        "color_identity": "GW",
+        "types": "Land \u2014 Forest Plains",
+        "oracle_text": "({T}: Add {G} or {W}.)\nThis land enters tapped.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/6/466fd4e6-f1dd-40c9-92df-1da48ab729d6.jpg?1782686625",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3338,
+        "name": "Sacred Peaks",
+        "mv": 0,
+        "color_identity": "RW",
+        "types": "Land \u2014 Mountain Plains",
+        "oracle_text": "({T}: Add {R} or {W}.)\nThis land enters tapped.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/e/ee2d6798-b19d-4628-bb57-05663ab4af68.jpg?1782683074",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3339,
+        "name": "Sunlit Marsh",
+        "mv": 0,
+        "color_identity": "BW",
+        "types": "Land \u2014 Plains Swamp",
+        "oracle_text": "({T}: Add {W} or {B}.)\nThis land enters tapped.",
+        "image_url": "https://cards.scryfall.io/normal/front/f/a/fa447616-db24-4729-bf66-7f72aba0272d.jpg?1782683066",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3340,
+        "name": "Tangled Islet",
+        "mv": 0,
+        "color_identity": "GU",
+        "types": "Land \u2014 Forest Island",
+        "oracle_text": "({T}: Add {G} or {U}.)\nThis land enters tapped.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/b/bb1920f1-aab3-4066-8be9-029102886d03.jpg?1782683065",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3341,
+        "name": "Wooded Ridgeline",
+        "mv": 0,
+        "color_identity": "GR",
+        "types": "Land \u2014 Mountain Forest",
+        "oracle_text": "({T}: Add {R} or {G}.)\nThis land enters tapped.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/8/e8e31184-dca4-48b1-be9d-581247c41d99.jpg?1782700395",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3342,
+        "name": "Indatha Triome",
+        "mv": 0,
+        "color_identity": "BGW",
+        "types": "Land \u2014 Plains Swamp Forest",
+        "oracle_text": "({T}: Add {W}, {B}, or {G}.)\nThis land enters tapped.\nCycling {3} ({3}, Discard this card: Draw a card.)",
+        "image_url": "https://cards.scryfall.io/normal/front/2/b/2b74bb81-fb9a-40e5-a941-e517430b52f5.jpg?1782707091",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3343,
+        "name": "Ketria Triome",
+        "mv": 0,
+        "color_identity": "GRU",
+        "types": "Land \u2014 Forest Island Mountain",
+        "oracle_text": "({T}: Add {G}, {U}, or {R}.)\nThis land enters tapped.\nCycling {3} ({3}, Discard this card: Draw a card.)",
+        "image_url": "https://cards.scryfall.io/normal/front/a/2/a249b1f4-2b22-4b67-a207-e0c4ae95d2e1.jpg?1782707090",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3344,
+        "name": "Raugrin Triome",
+        "mv": 0,
+        "color_identity": "RUW",
+        "types": "Land \u2014 Island Mountain Plains",
+        "oracle_text": "({T}: Add {U}, {R}, or {W}.)\nThis land enters tapped.\nCycling {3} ({3}, Discard this card: Draw a card.)",
+        "image_url": "https://cards.scryfall.io/normal/front/0/2/02138fbb-3962-4348-8d31-faaefba0b8b2.jpg?1782707089",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3345,
+        "name": "Savai Triome",
+        "mv": 0,
+        "color_identity": "BRW",
+        "types": "Land \u2014 Mountain Plains Swamp",
+        "oracle_text": "({T}: Add {R}, {W}, or {B}.)\nThis land enters tapped.\nCycling {3} ({3}, Discard this card: Draw a card.)",
+        "image_url": "https://cards.scryfall.io/normal/front/7/4/748e6a61-9c1f-4225-9f04-e54002f63ac3.jpg?1782707089",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3346,
+        "name": "Zagoth Triome",
+        "mv": 0,
+        "color_identity": "BGU",
+        "types": "Land \u2014 Swamp Forest Island",
+        "oracle_text": "({T}: Add {B}, {G}, or {U}.)\nThis land enters tapped.\nCycling {3} ({3}, Discard this card: Draw a card.)",
+        "image_url": "https://cards.scryfall.io/normal/front/c/c/cc520518-2063-4b57-a0d4-10cf62a7175e.jpg?1782707086",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3347,
+        "name": "Eclipsed Steppe",
+        "mv": 0,
+        "color_identity": "BW",
+        "types": "Land \u2014 Plains Swamp",
+        "oracle_text": "({T}: Add {W} or {B}.)\nThis land enters tapped unless you control two or more basic lands.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/8/d890999a-dcc7-479e-b0f0-60388c737043.jpg?1782683343",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3348,
+        "name": "Vernal Fen",
+        "mv": 0,
+        "color_identity": "BG",
+        "types": "Land \u2014 Swamp Forest",
+        "oracle_text": "({T}: Add {B} or {G}.)\nThis land enters tapped unless you control two or more basic lands.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/4/0466cf57-bb3e-4359-8fe8-d6cc1288fdc6.jpg?1782683064",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3349,
+        "name": "Sodden Verdure",
+        "mv": 0,
+        "color_identity": "GU",
+        "types": "Land \u2014 Forest Island",
+        "oracle_text": "({T}: Add {G} or {U}.)\nThis land enters tapped unless you control two or more basic lands.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/a/0a451ab5-6244-48a0-a638-07da72b156b5.jpg?1782682456",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3350,
+        "name": "Scorched Geyser",
+        "mv": 0,
+        "color_identity": "RU",
+        "types": "Land \u2014 Island Mountain",
+        "oracle_text": "({T}: Add {U} or {R}.)\nThis land enters tapped unless you control two or more basic lands.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/3/43abdfba-0a55-4b8a-858e-3372ee40a579.jpg?1782682459",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3351,
+        "name": "Radiant Summit",
+        "mv": 0,
+        "color_identity": "RW",
+        "types": "Land \u2014 Mountain Plains",
+        "oracle_text": "({T}: Add {R} or {W}.)\nThis land enters tapped unless you control two or more basic lands.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/1/81b619cc-900c-4d65-83da-8b9dcb370984.jpg?1782682463",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3352,
+        "name": "Deserted Beach",
+        "mv": 0,
+        "color_identity": "UW",
+        "types": "Land",
+        "oracle_text": "This land enters tapped unless you control two or more other lands.\n{T}: Add {W} or {U}.",
+        "image_url": "https://cards.scryfall.io/normal/front/c/8/c819de09-dac2-407a-98c8-775865e9bdf8.jpg?1782726656",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3353,
+        "name": "Shipwreck Marsh",
+        "mv": 0,
+        "color_identity": "BU",
+        "types": "Land",
+        "oracle_text": "This land enters tapped unless you control two or more other lands.\n{T}: Add {U} or {B}.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/5/156df6eb-1ac9-4954-bf93-b1668096b8bd.jpg?1782726649",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3354,
+        "name": "Haunted Ridge",
+        "mv": 0,
+        "color_identity": "BR",
+        "types": "Land",
+        "oracle_text": "This land enters tapped unless you control two or more other lands.\n{T}: Add {B} or {R}.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/2/32f1e668-89b8-4f82-afc1-6c3efb1fef3b.jpg?1782726654",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3355,
+        "name": "Rockfall Vale",
+        "mv": 0,
+        "color_identity": "GR",
+        "types": "Land",
+        "oracle_text": "This land enters tapped unless you control two or more other lands.\n{T}: Add {R} or {G}.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/c/dcdea659-ecaf-4abe-be0f-64e105abb104.jpg?1782686622",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3356,
+        "name": "Overgrown Farmland",
+        "mv": 0,
+        "color_identity": "GW",
+        "types": "Land",
+        "oracle_text": "This land enters tapped unless you control two or more other lands.\n{T}: Add {G} or {W}.",
+        "image_url": "https://cards.scryfall.io/normal/front/6/4/644fb0ed-f434-4cc4-b7e9-a60db5ece2b7.jpg?1782686627",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3357,
+        "name": "Shattered Sanctum",
+        "mv": 0,
+        "color_identity": "BW",
+        "types": "Land",
+        "oracle_text": "This land enters tapped unless you control two or more other lands.\n{T}: Add {W} or {B}.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/a/5aa0c810-3b7d-4661-979e-e84fb327742d.jpg?1782682815",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3358,
+        "name": "Stormcarved Coast",
+        "mv": 0,
+        "color_identity": "RU",
+        "types": "Land",
+        "oracle_text": "This land enters tapped unless you control two or more other lands.\n{T}: Add {U} or {R}.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/d/bd3ae4fa-4c97-410a-8c0a-bd203342595d.jpg?1782682815",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3359,
+        "name": "Deathcap Glade",
+        "mv": 0,
+        "color_identity": "BG",
+        "types": "Land",
+        "oracle_text": "This land enters tapped unless you control two or more other lands.\n{T}: Add {B} or {G}.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/8/78897104-80e1-4d8a-9958-145b40f679e8.jpg?1782682822",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3360,
+        "name": "Sundown Pass",
+        "mv": 0,
+        "color_identity": "RW",
+        "types": "Land",
+        "oracle_text": "This land enters tapped unless you control two or more other lands.\n{T}: Add {R} or {W}.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/3/b34000e9-ff20-4fb4-9d0b-03a172a92457.jpg?1782682814",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3361,
+        "name": "Dreamroot Cascade",
+        "mv": 0,
+        "color_identity": "GU",
+        "types": "Land",
+        "oracle_text": "This land enters tapped unless you control two or more other lands.\n{T}: Add {G} or {U}.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/f/ef662b92-5a7f-48c9-bcc1-14b55e091aef.jpg?1782682821",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3362,
+        "name": "Ancient Den",
+        "mv": 0,
+        "color_identity": "W",
+        "types": "Artifact Land",
+        "oracle_text": "{T}: Add {W}.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/9/d9a7b0f6-97f9-4937-865c-e25c142c3ed7.jpg?1782685615",
+        "backside_image_url": "",
+        "draft_pool": "W"
+      },
+      {
+        "id": 3363,
+        "name": "Great Furnace",
+        "mv": 0,
+        "color_identity": "R",
+        "types": "Artifact Land",
+        "oracle_text": "{T}: Add {R}.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/4/74c5bb44-d72c-4c1a-a38f-86b4a8f49ae1.jpg?1782685606",
+        "backside_image_url": "",
+        "draft_pool": "R"
+      },
+      {
+        "id": 3364,
+        "name": "Seat of the Synod",
+        "mv": 0,
+        "color_identity": "U",
+        "types": "Artifact Land",
+        "oracle_text": "{T}: Add {U}.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/7/57a194b3-2899-4dee-977a-c77df0b94dfe.jpg?1782685596",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
+        "id": 3365,
+        "name": "Tree of Tales",
+        "mv": 0,
+        "color_identity": "G",
+        "types": "Artifact Land",
+        "oracle_text": "{T}: Add {G}.",
+        "image_url": "https://cards.scryfall.io/normal/front/3/b/3b3134b3-1bad-4b41-9e56-700125ff31fa.jpg?1782689708",
+        "backside_image_url": "",
+        "draft_pool": "G"
+      },
+      {
+        "id": 3366,
+        "name": "Vault of Whispers",
+        "mv": 0,
+        "color_identity": "B",
+        "types": "Artifact Land",
+        "oracle_text": "{T}: Add {B}.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/8/e85e4098-f872-4aa4-a71a-208b6090be28.jpg?1782689704",
+        "backside_image_url": "",
+        "draft_pool": "B"
+      },
+      {
+        "id": 3367,
+        "name": "Cinder Barrens",
+        "mv": 0,
+        "color_identity": "BR",
+        "types": "Land",
+        "oracle_text": "This land enters tapped.\n{T}: Add {B} or {R}.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/8/08136a39-bf9f-493c-92d6-178567647fb2.jpg?1782707981",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3368,
+        "name": "Forsaken Sanctuary",
+        "mv": 0,
+        "color_identity": "BW",
+        "types": "Land",
+        "oracle_text": "This land enters tapped.\n{T}: Add {W} or {B}.",
+        "image_url": "https://cards.scryfall.io/normal/front/f/3/f3e0b983-62e7-43fb-b5d5-402ea60a64d7.jpg?1782709234",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3369,
+        "name": "Foul Orchard",
+        "mv": 0,
+        "color_identity": "BG",
+        "types": "Land",
+        "oracle_text": "This land enters tapped.\n{T}: Add {B} or {G}.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/e/1e1bad7b-e102-4dff-b79a-fd755c2b6d49.jpg?1782705557",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3370,
+        "name": "Highland Lake",
+        "mv": 0,
+        "color_identity": "RU",
+        "types": "Land",
+        "oracle_text": "This land enters tapped.\n{T}: Add {U} or {R}.",
+        "image_url": "https://cards.scryfall.io/normal/front/4/6/46bb20af-a326-4a42-94d3-cb1990300e0f.jpg?1782707970",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3371,
+        "name": "Meandering River",
+        "mv": 0,
+        "color_identity": "UW",
+        "types": "Land",
+        "oracle_text": "This land enters tapped.\n{T}: Add {W} or {U}.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/2/e283db9e-6a51-4b28-9f6c-0c040a9d6d8c.jpg?1782705555",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3372,
+        "name": "Stone Quarry",
+        "mv": 0,
+        "color_identity": "RW",
+        "types": "Land",
+        "oracle_text": "This land enters tapped.\n{T}: Add {R} or {W}.",
+        "image_url": "https://cards.scryfall.io/normal/front/a/a/aa3575e1-7d2c-4777-b469-16f7483bb8e7.jpg?1782705786",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3373,
+        "name": "Submerged Boneyard",
+        "mv": 0,
+        "color_identity": "BU",
+        "types": "Land",
+        "oracle_text": "This land enters tapped.\n{T}: Add {U} or {B}.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/b/8b949b06-210d-4658-97a6-43f54eb18b87.jpg?1782706398",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3374,
+        "name": "Timber Gorge",
+        "mv": 0,
+        "color_identity": "GR",
+        "types": "Land",
+        "oracle_text": "This land enters tapped.\n{T}: Add {R} or {G}.",
+        "image_url": "https://cards.scryfall.io/normal/front/0/7/07076412-18fe-4e15-bdb5-17111b4a66db.jpg?1782709460",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3375,
+        "name": "Tranquil Expanse",
+        "mv": 0,
+        "color_identity": "GW",
+        "types": "Land",
+        "oracle_text": "This land enters tapped.\n{T}: Add {G} or {W}.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/2/123cd67f-7226-4e69-8637-382380fb213e.jpg?1782709203",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
+        "id": 3376,
+        "name": "Woodland Stream",
+        "mv": 0,
+        "color_identity": "GU",
+        "types": "Land",
+        "oracle_text": "This land enters tapped.\n{T}: Add {G} or {U}.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/7/77619840-963f-4ff7-9a42-b36e3d53646d.jpg?1782705782",
         "backside_image_url": "",
         "draft_pool": "L"
       }
