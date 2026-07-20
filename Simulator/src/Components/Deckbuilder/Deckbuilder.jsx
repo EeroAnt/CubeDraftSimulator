@@ -145,7 +145,6 @@ export const DeckBuilder = ({
     }
   }
 
-
   const handleTypeFilter = (type, name) => {
 
     if (JSON.stringify(typeFilter) === JSON.stringify(type)) {
@@ -156,6 +155,7 @@ export const DeckBuilder = ({
       setSelectedTypefilter(name)
     }
   }
+
   const handleTagFilter = (tag) => {
     if (JSON.stringify(typeFilter) === JSON.stringify(["Tag", tag])) {
       setTypeFilter(["All"]);
@@ -177,7 +177,14 @@ useEffect(() => {
       ? temp = filterCardsPos(temp, typeFilter)
       : temp = filterCardsNeg(temp, typeFilter)
   }
-
+  if (colorFilterPos !== undefined) {
+    if (colorFilterPos.length > 0) {
+      temp = temp.filter(card => card.color_identity.split("").some(color => colorFilterPos.includes(color)))
+    }
+    if (colorFilterNeg.length > 0) {
+      temp = temp.filter(card => !card.color_identity.split("").some(color => colorFilterNeg.includes(color)))
+    }
+  }
     setCardsToDisplay(temp)
     const mainWithoutLands = main.filter(card => !card.types.includes("Land"))
     setCurveOfMain(Array.from({ length: maxManaValue + 1 }, (_, index) => mainWithoutLands.concat(commanders).filter(card => card.mana_value === index).length));

@@ -68,6 +68,7 @@ export const Commander = ({ data }) => {
                 <DraftedCardView
                   cards={filterByColorId(colorId)}
                   sortKey="avg_commander_pick"
+                  showAlphabetical={false}
                 />
                 <ColorIdTypeTable
                   colorIds={getColorIds(colorId)}

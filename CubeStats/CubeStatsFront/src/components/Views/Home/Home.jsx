@@ -61,7 +61,7 @@ export const Home = () => {
       <div>
         <h3 className="text-lg font-semibold">Overview</h3>
         <p>
-          The size of my custom cube (over 2400 cards) makes it essential to
+          The size of my custom cube (almost 3000 cards) makes it essential to
           manage how cards are included in each draft. To keep things fair and
           consistent, I've divided the cube into <em>draft pools</em> — one for
           each color, one for multicolor, one for colorless cards, and one for
@@ -82,9 +82,8 @@ export const Home = () => {
         <h3 className="text-lg font-semibold">Color Identity</h3>
         <p>
           Browse cards grouped by their color identity — single, dual, or
-          three-color. Cards are sorted by lowest pick rate first, highlighting
-          the less favored choices, which are particularly useful for my
-          analysis and cube tuning.
+          three-color. You can either view cards sorted by pick rates or browse
+          the cards in alphabetical order.
         </p>
         <br />
         <p>
@@ -98,14 +97,18 @@ export const Home = () => {
         <br />
         <h3 className="text-lg font-semibold">Draft Pool</h3>
         <p>
-          Explore pick rate data within each draft pool. This view helps
-          identify how individual cards perform across the color, multicolor,
-          colorless, and land segments — supporting balance checks and tuning.
+          Explore pick rate data within each draft pool — multicolor, colorless,
+          land, and the five single colors. This view helps identify how
+          individual cards perform across each segment, supporting balance
+          checks and tuning. You can either view cards sorted by pick rates or
+          browse the pool in alphabetical order.
         </p>
         <br />
         <p>
-          Depending on the pool, you can filter by color identity, name, type,
-          oracle text, and mana value.
+          Depending on the pool, the cards can be filtered by color identity,
+          name, type, oracle text and mana value. Type and oracle text here and
+          filters elsewhere recognise regex patterns, allowing for more complex
+          queries.
         </p>
       </div>
 

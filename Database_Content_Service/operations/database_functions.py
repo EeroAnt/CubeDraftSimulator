@@ -47,8 +47,8 @@ def check_card(cursor, cardname):
     else:
         return False  # Card exists and is active
 
-def add_card(cursor, cardname):
-	card = fetch_card_json(cardname)
+def add_card(cursor, cardname, predetermined_draft_pool=None):
+	card = fetch_card_json(cardname, predetermined_draft_pool)
 	if card == None:
 		print(f"{cardname} not found.")
 		return
@@ -67,7 +67,7 @@ def add_card(cursor, cardname):
             UPDATE cards
             SET active = true
             WHERE name = %s;
-                    """, (card["name"]))
+        """, (card["name"],))
 				cursor.execute("COMMIT;")
 			except Exception as e:
 				cursor.execute("ROLLBACK;")
@@ -106,10 +106,13 @@ def add_card(cursor, cardname):
 		print(f"Error adding {card['name']}: {e}")
 
 def add_multiple_cards(cursor):
+	predetermined_draft_pool = input("Enter the draft pool for all unclear cards (M, L, C, U, W, B, R, G) (Enter to skip): ")
+	if not predetermined_draft_pool:
+		predetermined_draft_pool = None
 	cards = read_txt_file("cards.txt")
 	for card in cards:
 		sleep(0.12)
-		add_card(cursor, card)
+		add_card(cursor, card, predetermined_draft_pool)
 	return
 
 def remove_card(cursor, card_id):
@@ -190,17 +193,32 @@ def remove_commander(cursor, card_id):
 def print_cube_contents(cursor):
 	cursor.execute("SELECT name, cards.id FROM Commanders LEFT JOIN Cards ON Commanders.card_id = Cards.id ORDER BY name;")
 	commanders = cursor.fetchall()
-	with open("cube.txt", "w") as file:
+	with open("cube.md", "w") as file:
+		file.write("### Commanders\n\n")
 		for commander in commanders:
-			file.write("{:<3} {}".format("",commander[0])+ "\n")
+			file.write("- " + commander[0] + "\n")
 	
 	commander_ids = [commander[1] for commander in commanders]
 
 	cursor.execute("SELECT name, draft_pool FROM Cards WHERE id not in %s AND active = true ORDER BY draft_pool, name;", (tuple(commander_ids),))
 	cards = cursor.fetchall()
-	with open("cube.txt", "a") as file:
+	draft_pools = {
+		"M" : "Multicolor",
+		"L" : "Lands",
+		"C" : "Colorless",
+		"U" : "Blue",
+		"W" : "White",
+		"B" : "Black",
+		"R" : "Red",
+    "G" : "Green"
+	}
+	pool_before = ""
+	with open("cube.md", "a") as file:
 		for card in cards:
-			file.write("{:<3} {}".format(card[1],card[0])+ "\n")
+			if card[1] != pool_before:
+				file.write("\n### " + draft_pools[card[1]] + "\n\n")
+				pool_before = card[1]
+			file.write("- " + card[0] + "\n")
 
 	return
 
@@ -215,6 +233,9 @@ def inspect_cube_contents(cursor):
 		"R" : "Red",
 		"G" : "Green"
 	}
+	cursor.execute("SELECT count(*) FROM cards WHERE active = true;")
+	total_cards = cursor.fetchone()
+	print(f"Total cards in cube: {total_cards[0]}")
 	cursor.execute("SELECT count(*), draft_pool FROM cards WHERE active = true GROUP BY draft_pool ORDER BY count(*) desc;")
 	draft_pools = cursor.fetchall()
 	print("Pool sizes:")

@@ -76,7 +76,9 @@ GET_CARDS_QUERY = """
 SELECT
     *
 FROM
-    cards;
+    cards
+WHERE
+    active = true;
 """
 
 GET_PICK_RATES_QUERY = """
