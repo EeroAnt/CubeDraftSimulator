@@ -118,8 +118,16 @@ export const Draft = ({
         <>
           {tagFlow.step === 'idle' && (
             <>
-              <Button name="Pick" className="button" onClick={() => setTagFlow({ step: 'chooseDestination', tags: [] })} />
-              <Button name="Pick with tags" className="button" onClick={() => selectForTagging()} />
+              <Button
+                name="Pick"
+                className="button"
+                onClick={() => { if (pick) setTagFlow({ step: 'chooseDestination', tags: [] }) }}
+              />
+              <Button
+                name="Pick with tags"
+                className="button"
+                onClick={() => { if (pick) selectForTagging() }}
+              />
             </>
           )}
 
