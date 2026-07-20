@@ -66,6 +66,11 @@ export const NavBar = ({
     setShowDraftPools(false);
     setShowColorIdMenu(false);
   };
+  const onClickAchievements = () => {
+  setMode("achievements");
+  setShowDraftPools(false);
+  setShowColorIdMenu(false);
+};
 
   return (
     <nav className="bg-gray-800 p-4" key="NavBar">
@@ -119,6 +124,12 @@ export const NavBar = ({
             onClick={onClickAllCards}
             modeType={mode}
             modeTarget={"allCards"}
+          />
+          <NavBarButton
+            title={"Achievements"}
+            onClick={onClickAchievements}
+            modeType={mode}
+            modeTarget={"achievements"}
           />
           <a
             href="https://github.com/EeroAnt/CubeDraftSimulator"

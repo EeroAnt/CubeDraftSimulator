@@ -5,3 +5,4 @@ export * from "./Overview";
 export * from "./CardView";
 export * from "./AllCards";
 export * from "./Home";
+export * from "./Achievements";

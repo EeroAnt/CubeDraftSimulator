@@ -148,6 +148,15 @@ export const Home = () => {
           and mana value.
         </p>
       </div>
+      <div>
+        <br />
+        <h3 className="text-lg font-semibold">Achievements</h3>
+        <p>
+          A running bucket list of notable things to pull off in the cube — combo
+          kills, alternate win conditions, splashy haymakers, and oddball
+          challenges.
+        </p>
+      </div>
     </div>
   );
 };

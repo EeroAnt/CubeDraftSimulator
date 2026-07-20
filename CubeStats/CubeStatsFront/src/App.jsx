@@ -7,6 +7,7 @@ import {
   DraftPool,
   ColorId,
   AllCards,
+  Achievements
 } from "./components/";
 import { useState, useEffect } from "react";
 
@@ -63,6 +64,7 @@ function App() {
         ) : null}
         {mode === "commanders" && !loading ? <Commander data={data} /> : null}
         {mode === "allCards" && !loading ? <AllCards data={data} /> : null}
+        {mode === "achievements" && !loading ? <Achievements /> : null}
       </div>
     </>
   );
