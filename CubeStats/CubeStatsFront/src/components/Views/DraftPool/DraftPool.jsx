@@ -1,4 +1,10 @@
-import { TextFilter, TwoThumbSlider, DraftedCardView, Button } from "../../";
+import {
+  TextFilter,
+  NumberFilter,
+  TwoThumbSlider,
+  DraftedCardView,
+  Button,
+} from "../../";
 import { matchesRegex } from "../../../utils/";
 import { useState, useEffect } from "react";
 
@@ -30,6 +36,7 @@ export const DraftPool = ({ data, draftPoolsState }) => {
   const [oracleFilter, setOracleFilter] = useState("");
   const [nameFilter, setNameFilter] = useState("");
   const [typeFilter, setTypeFilter] = useState("");
+  const [minPicks, setMinPicks] = useState(1);
   const [minManaValue, setMinManaValue] = useState(0);
   const [maxManaValue, setMaxManaValue] = useState(getMaxMV(unfilteredCards));
   const [maxDomainValue, setMaxDomainValue] = useState(
@@ -55,6 +62,7 @@ export const DraftPool = ({ data, draftPoolsState }) => {
     setNameFilter("");
     setOracleFilter("");
     setTypeFilter("");
+    setMinPicks(1);
     setMinManaValue(0);
     setMaxManaValue(getMaxMV(newUnfilteredCards));
     setMaxDomainValue(getMaxMV(newUnfilteredCards));
@@ -74,6 +82,7 @@ export const DraftPool = ({ data, draftPoolsState }) => {
       const matchesType = matchesRegex(card.types, typeFilter);
       const matchesManaValue =
         card.mv >= minManaValue && card.mv <= maxManaValue;
+      const matchesPicks = (card.amount_of_picks ?? 0) >= minPicks;
       switch (draftPoolsState) {
         case "Multicolor":
           return (
@@ -81,11 +90,16 @@ export const DraftPool = ({ data, draftPoolsState }) => {
             matchesOracle &&
             matchesType &&
             matchesManaValue &&
+            matchesPicks &&
             colorIds.includes(card.color_identity)
           );
         default:
           return (
-            matchesName && matchesOracle && matchesType && matchesManaValue
+            matchesName &&
+            matchesOracle &&
+            matchesType &&
+            matchesManaValue &&
+            matchesPicks
           );
       }
     });
@@ -95,6 +109,7 @@ export const DraftPool = ({ data, draftPoolsState }) => {
     nameFilter,
     oracleFilter,
     typeFilter,
+    minPicks,
     minManaValue,
     maxManaValue,
     colorIds,
@@ -138,6 +153,17 @@ export const DraftPool = ({ data, draftPoolsState }) => {
                 onChange={(e) => setTypeFilter(e.target.value)}
               />
             )}
+            <NumberFilter
+              name="Min Picks"
+              value={minPicks}
+              onChange={(e) =>
+                setMinPicks(
+                  e.target.value === ""
+                    ? 0
+                    : Math.max(0, parseInt(e.target.value, 10) || 0),
+                )
+              }
+            />
           </div>
           {draftPoolsState !== "Land" && (
             <TwoThumbSlider

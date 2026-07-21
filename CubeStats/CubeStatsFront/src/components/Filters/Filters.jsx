@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 
 export const TextFilter = ({ name, value, onChange }) => {
   return (
-    <div className="flex flex-col gap-2 mb-4 flex-grow  ">
+    <div className="flex flex-col gap-2 mb-4 flex-1 min-w-0">
       <label className="text-gray-700 font-semibold">{name}</label>
       <input
         type="text"
@@ -11,6 +11,23 @@ export const TextFilter = ({ name, value, onChange }) => {
         name={name}
         onChange={onChange}
         className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring focus:ring-blue-500"
+      />
+    </div>
+  );
+};
+
+export const NumberFilter = ({ name, value, onChange, min = 0 }) => {
+  return (
+    <div className="flex flex-col gap-2 mb-4 flex-1 min-w-0">
+      <label className="text-gray-700 font-semibold">{name}</label>
+      <input
+        type="number"
+        min={min}
+        step="1"
+        value={value}
+        name={name}
+        onChange={onChange}
+        className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring focus:ring-blue-500"
       />
     </div>
   );

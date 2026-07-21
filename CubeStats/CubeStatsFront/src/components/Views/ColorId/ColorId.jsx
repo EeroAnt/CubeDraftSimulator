@@ -1,4 +1,10 @@
-import { Button, TextFilter, TwoThumbSlider, DraftedCardView } from "../../";
+import {
+  Button,
+  TextFilter,
+  NumberFilter,
+  TwoThumbSlider,
+  DraftedCardView,
+} from "../../";
 import { matchesRegex } from "../../../utils/";
 import { useState, useEffect } from "react";
 
@@ -21,6 +27,7 @@ export const ColorId = ({ data, colorIdState }) => {
   const [oracleFilter, setOracleFilter] = useState("");
   const [typeFilter, setTypeFilter] = useState("");
   const [nameFilter, setNameFilter] = useState("");
+  const [minPicks, setMinPicks] = useState(1);
   const [minManaValue, setMinManaValue] = useState(0);
   const [maxManaValue, setMaxManaValue] = useState(getMaxMV(unfilteredCards));
   const [maxDomainValue, setMaxDomainValue] = useState(
@@ -44,6 +51,7 @@ export const ColorId = ({ data, colorIdState }) => {
     setNameFilter("");
     setOracleFilter("");
     setTypeFilter("");
+    setMinPicks(1);
     setMinManaValue(0);
     setMaxManaValue(getMaxMV(newUnfilteredCards));
     setMaxDomainValue(getMaxMV(newUnfilteredCards));
@@ -59,12 +67,14 @@ export const ColorId = ({ data, colorIdState }) => {
       const matchesType = matchesRegex(card.types, typeFilter);
       const matchesManaValue =
         card.mv >= minManaValue && card.mv <= maxManaValue;
+      const matchesPicks = (card.amount_of_picks ?? 0) >= minPicks;
       const matchesColorId = colorIds.includes(card.color_identity);
       return (
         matchesName &&
         matchesOracle &&
         matchesType &&
         matchesManaValue &&
+        matchesPicks &&
         matchesColorId
       );
     });
@@ -73,6 +83,7 @@ export const ColorId = ({ data, colorIdState }) => {
     nameFilter,
     oracleFilter,
     typeFilter,
+    minPicks,
     minManaValue,
     maxManaValue,
     unfilteredCards,
@@ -110,6 +121,17 @@ export const ColorId = ({ data, colorIdState }) => {
               name="Type"
               value={typeFilter}
               onChange={(e) => setTypeFilter(e.target.value)}
+            />
+            <NumberFilter
+              name="Min Picks"
+              value={minPicks}
+              onChange={(e) =>
+                setMinPicks(
+                  e.target.value === ""
+                    ? 0
+                    : Math.max(0, parseInt(e.target.value, 10) || 0),
+                )
+              }
             />
           </div>
           <TwoThumbSlider
