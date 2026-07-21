@@ -32,6 +32,17 @@ app.get("/api/data", async (req, res) => {
   }
 });
 
+app.get("/api/achievements", async (req, res) => {
+  try {
+    const response = await fetch(process.env.ACHIEVEMENTS_URL);
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    console.error("Error fetching achievements:", error);
+    res.status(500).json({ error: "Failed to fetch achievements" });
+  }
+});
+
 app.get('*', (req, res) => {
   res.sendFile(join(__dirname + '/dist/index.html'));
 });

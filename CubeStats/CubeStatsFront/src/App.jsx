@@ -19,6 +19,7 @@ function App() {
   const [draftPoolsState, setDraftPoolsState] = useState("");
   const [mode, setMode] = useState("home");
   const [data, setData] = useState([]);
+  const [achievements, setAchievements] = useState([]);
 
   const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
@@ -34,6 +35,13 @@ function App() {
       setLoading(false);
     }
   }, [data]);
+
+  useEffect(() => {
+    fetch(baseUrl + "/api/achievements")
+      .then((res) => res.json())
+      .then((data) => setAchievements(data))
+      .catch((err) => console.error("Error fetching achievements:", err));
+  }, []);
 
   return (
     <>
@@ -64,7 +72,7 @@ function App() {
         ) : null}
         {mode === "commanders" && !loading ? <Commander data={data} /> : null}
         {mode === "allCards" && !loading ? <AllCards data={data} /> : null}
-        {mode === "achievements" && !loading ? <Achievements /> : null}
+        {mode === "achievements" ? <Achievements achievements={achievements} /> : null}
       </div>
     </>
   );

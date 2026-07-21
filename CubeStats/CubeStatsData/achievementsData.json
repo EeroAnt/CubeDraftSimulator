@@ -1,0 +1,323 @@
+[
+  {
+    "category": "Combos",
+    "items": [
+      {
+        "title": "Painter's Servant + Grindstone",
+        "note": "kill"
+      },
+      {
+        "title": "Isochron Scepter + Dramatic Reversal",
+        "note": "with non-land mana sources tapping for 3 — infinite mana"
+      },
+      {
+        "title": "Sanguine Bond + Exquisite Blood",
+        "note": "win"
+      },
+      {
+        "title": "Mikaeus, the Unhallowed + Triskelion",
+        "note": "infinite damage"
+      },
+      {
+        "title": "Kiki-Jiki, Mirror Breaker + Deceiver Exarch / Pestermite",
+        "note": "infinite hasty tokens"
+      },
+      {
+        "title": "Splinter Twin + Deceiver Exarch / Pestermite",
+        "note": "infinite hasty tokens"
+      },
+      {
+        "title": "Devoted Druid + Vizier of Remedies",
+        "note": "infinite green mana"
+      },
+      {
+        "title": "Dark Depths + Thespian's Stage / Vampire Hexmage"
+      },
+      {
+        "title": "Aetherflux Reservoir",
+        "note": "kill"
+      },
+      {
+        "title": "Bolas's Citadel + Sensei's Divining Top"
+      },
+      {
+        "title": "Underworld Breach + Lion's Eye Diamond + Brain Freeze"
+      },
+      {
+        "title": "Thopter Foundry + Sword of the Meek",
+        "note": "infinite Thopters + life, into:",
+        "sub": [
+          {
+            "title": "Time Sieve",
+            "note": "infinite extra turns"
+          },
+          {
+            "title": "Krark-Clan Ironworks",
+            "note": "infinite colorless mana"
+          }
+        ]
+      },
+      {
+        "title": "Basalt Monolith + Rings of Brighthearth",
+        "note": "infinite colorless mana"
+      },
+      {
+        "title": "Basalt Monolith + Zirda, the Dawnwaker",
+        "note": "infinite colorless mana"
+      },
+      {
+        "title": "Krark-Clan Ironworks + Scrap Trawler + Myr Retriever / Junk Diver + any cost reducer",
+        "note": "infinite colorless mana or ETB / death triggers"
+      },
+      {
+        "title": "Aurelia, the Warleader + Helm of the Host",
+        "note": "infinite combat steps"
+      },
+      {
+        "title": "Gravecrawler + Phyrexian Altar + a Zombie + a drain effect",
+        "note": "Blood Artist / Zulaport Cutthroat / Cruel Celebrant / Elas il-Kor — infinite drain"
+      },
+      {
+        "title": "Aggravated Assault + Bear Umbra / Nature's Will / Sword of Feast and Famine",
+        "note": "infinite combat steps"
+      },
+      {
+        "title": "Niv-Mizzet, Parun + Tandem Lookout",
+        "note": "win"
+      },
+      {
+        "title": "Displacer Kitten combo",
+        "note": "Dockside Extortionist / Blazing Fireslinger, etc."
+      },
+      {
+        "title": "Deadeye Navigator combo",
+        "note": "Dockside Extortionist / Blazing Fireslinger, etc."
+      },
+      {
+        "title": "Karmic Guide combo"
+      }
+    ]
+  },
+  {
+    "category": "Alternate Win Conditions",
+    "items": [
+      {
+        "title": "Approach of the Second Sun"
+      },
+      {
+        "title": "Thassa's Oracle",
+        "claimed": true
+      },
+      {
+        "title": "Jace, Wielder of Mysteries"
+      },
+      {
+        "title": "Laboratory Maniac"
+      },
+      {
+        "title": "Doomsday",
+        "claimed": true
+      },
+      {
+        "title": "Demonic Consultation"
+      },
+      {
+        "title": "Felidar Sovereign"
+      },
+      {
+        "title": "Simic Ascendancy"
+      },
+      {
+        "title": "Helix Pinnacle"
+      },
+      {
+        "title": "Mechanized Production"
+      },
+      {
+        "title": "Hellkite Tyrant"
+      },
+      {
+        "title": "Azor's Elocutors"
+      }
+    ]
+  },
+  {
+    "category": "Big Things",
+    "items": [
+      {
+        "title": "Triumph of the Hordes",
+        "note": "win",
+        "claimed": true
+      },
+      {
+        "title": "Debt to the Deathless",
+        "note": "win"
+      },
+      {
+        "title": "Emrakul, the Aeons Torn",
+        "note": "hard-cast",
+        "claimed": true
+      },
+      {
+        "title": "Kozilek, the Great Distortion",
+        "note": "hard-cast"
+      },
+      {
+        "title": "Blightsteel Colossus",
+        "note": "kill"
+      },
+      {
+        "title": "Red X-spell",
+        "note": "win"
+      },
+      {
+        "title": "Craterhoof Behemoth",
+        "note": "win",
+        "claimed": true
+      },
+      {
+        "title": "Insurrection",
+        "note": "win",
+        "claimed": true
+      },
+      {
+        "title": "Mob Rule",
+        "note": "win"
+      },
+      {
+        "title": "Villainous Wealth",
+        "note": "win"
+      },
+      {
+        "title": "Worldfire",
+        "note": "win"
+      }
+    ]
+  },
+  {
+    "category": "No Losing",
+    "items": [
+      {
+        "title": "Solemnity + Phyrexian Unlife"
+      },
+      {
+        "title": "Angel's Grace + Ad Nauseam"
+      },
+      {
+        "title": "Isochron Scepter + Silence + untapper"
+      }
+    ]
+  },
+  {
+    "category": "Draw the Game",
+    "items": [
+      {
+        "title": "Life and Limb + Sporemound"
+      },
+      {
+        "title": "Pariah / Pariah's Shield + Stuffy Doll"
+      }
+    ]
+  },
+  {
+    "category": "Cheat Big / Many Things Into Play",
+    "items": [
+      {
+        "title": "Sneak Attack / Through the Breach",
+        "note": "win"
+      },
+      {
+        "title": "Omniscience",
+        "note": "win"
+      },
+      {
+        "title": "Brudiclad, Telchor Engineer",
+        "note": "win"
+      },
+      {
+        "title": "Helm of the Host",
+        "note": "win"
+      },
+      {
+        "title": "Flash + Protean Hulk",
+        "note": "win"
+      },
+      {
+        "title": "T1 reanimate",
+        "note": "Dark Ritual → Entomb + Exhume"
+      }
+    ]
+  },
+  {
+    "category": "Monocolor / Colorless Deck Wins",
+    "items": [
+      {
+        "title": "White"
+      },
+      {
+        "title": "Blue"
+      },
+      {
+        "title": "Black"
+      },
+      {
+        "title": "Red"
+      },
+      {
+        "title": "Green"
+      },
+      {
+        "title": "Colorless"
+      }
+    ]
+  },
+  {
+    "category": "Random",
+    "items": [
+      {
+        "title": "Control a shrine of each color",
+        "note": "Hondens / Go-Shintais"
+      },
+      {
+        "title": "Control 10 cards with 'ring' in their name"
+      },
+      {
+        "title": "Control 10 Gates"
+      },
+      {
+        "title": "Control 5+ Gods simultaneously"
+      },
+      {
+        "title": "Equip 6 Swords on your commander"
+      },
+      {
+        "title": "Reach 100+ life"
+      },
+      {
+        "title": "Trigger Happy imprinted on Isochron Scepter"
+      },
+      {
+        "title": "Commander damage",
+        "note": "kill every opponent"
+      },
+      {
+        "title": "Commander damage",
+        "note": "kill the owner of the commander"
+      },
+      {
+        "title": "Trigger Happy on an opponent's \"win the game\" trigger"
+      },
+      {
+        "title": "Kill a player with their own card"
+      },
+      {
+        "title": "Chance for Glory / Final Fortune",
+        "note": "don't lose"
+      },
+      {
+        "title": "Storm",
+        "note": "win"
+      }
+    ]
+  }
+]

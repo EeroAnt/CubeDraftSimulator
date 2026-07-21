@@ -1,5 +1,3 @@
-import { achievementCategories } from "./achievementsData";
-
 const AchievementItem = ({ item }) => (
   <li className="py-2 border-b border-gray-100 last:border-0">
     <div className="flex items-baseline justify-between gap-3">
@@ -26,7 +24,7 @@ const AchievementItem = ({ item }) => (
   </li>
 );
 
-export const Achievements = () => {
+export const Achievements = ({ achievements = [] }) => {
   return (
     <>
       <h1 className="text-4xl font-bold text-blue-600 mt-6">Achievements</h1>
@@ -35,24 +33,30 @@ export const Achievements = () => {
         <p className="text-base text-gray-700">
           A running bucket list for the cube — combo kills, alternate win
           conditions, splashy haymakers, and a few deliberately silly
-          challenges. Things to pull inspiration for drafting and see what's
-          been done before.
+          challenges. Consider it a scoreboard of cube folklore, tracking the
+          things worth pulling off at least once.
         </p>
       </div>
 
-      {achievementCategories.map((group) => (
-        <div
-          key={group.category}
-          className="w-full max-w-4xl p-6 bg-white shadow-md rounded-lg mt-6"
-        >
-          <h2 className="text-2xl font-semibold mb-4">{group.category}</h2>
-          <ul>
-            {group.items.map((item, i) => (
-              <AchievementItem key={`${item.title}-${i}`} item={item} />
-            ))}
-          </ul>
+      {achievements.length === 0 ? (
+        <div className="w-full max-w-4xl p-6 bg-white shadow-md rounded-lg mt-6">
+          <p className="text-gray-500">Loading achievements…</p>
         </div>
-      ))}
+      ) : (
+        achievements.map((group) => (
+          <div
+            key={group.category}
+            className="w-full max-w-4xl p-6 bg-white shadow-md rounded-lg mt-6"
+          >
+            <h2 className="text-2xl font-semibold mb-4">{group.category}</h2>
+            <ul>
+              {group.items.map((item, i) => (
+                <AchievementItem key={`${item.title}-${i}`} item={item} />
+              ))}
+            </ul>
+          </div>
+        ))
+      )}
     </>
   );
 };
