@@ -29,6 +29,7 @@ resource "azurerm_linux_web_app" "cubestats" {
 
   app_settings = {
     "DATA_URL" = "https://raw.githubusercontent.com/EeroAnt/CubeDraftSimulator/refs/heads/main/CubeStats/CubeStatsData/data.json"
+    "ACHIEVEMENTS_URL" = "https://raw.githubusercontent.com/EeroAnt/CubeDraftSimulator/refs/heads/main/CubeStats/CubeStatsData/achievementsData.json"
     "SCM_DO_BUILD_DURING_DEPLOYMENT" = "True"
   }
 
