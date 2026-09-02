@@ -2040,6 +2040,19 @@
         "amount_of_picks": 1
       },
       {
+        "id": 492,
+        "name": "Marchesa's Infiltrator",
+        "mv": 3,
+        "color_identity": "U",
+        "types": "Creature \u2014 Human Rogue",
+        "oracle_text": "Dethrone (Whenever this creature attacks the player with the most life or tied for most life, put a +1/+1 counter on it.)\nWhenever Marchesa's Infiltrator deals combat damage to a player, draw a card.",
+        "image_url": "https://cards.scryfall.io/normal/front/e/9/e9ac1e2c-1b9c-43b8-819e-9b391967e16c.jpg?1562867350",
+        "backside_image_url": "",
+        "draft_pool": "U",
+        "avg_pick": 14.5,
+        "amount_of_picks": 2
+      },
+      {
         "id": 408,
         "name": "Mastery of the Unseen",
         "mv": 2,
@@ -2974,19 +2987,6 @@
         "draft_pool": "U",
         "avg_pick": 7.0,
         "amount_of_picks": 1
-      },
-      {
-        "id": 492,
-        "name": "Marchesa's Infiltrator",
-        "mv": 3,
-        "color_identity": "U",
-        "types": "Creature \u2014 Human Rogue",
-        "oracle_text": "Dethrone (Whenever this creature attacks the player with the most life or tied for most life, put a +1/+1 counter on it.)\nWhenever Marchesa's Infiltrator deals combat damage to a player, draw a card.",
-        "image_url": "https://cards.scryfall.io/normal/front/e/9/e9ac1e2c-1b9c-43b8-819e-9b391967e16c.jpg?1562867350",
-        "backside_image_url": "",
-        "draft_pool": "U",
-        "avg_pick": 14.5,
-        "amount_of_picks": 2
       },
       {
         "id": 496,
@@ -7149,6 +7149,19 @@
         "amount_of_picks": 2
       },
       {
+        "id": 2138,
+        "name": "Breeding Pool",
+        "mv": 0,
+        "color_identity": "GU",
+        "types": "Land \u2014 Forest Island",
+        "oracle_text": "({T}: Add {G} or {U}.)\nAs Breeding Pool enters the battlefield, you may pay 2 life. If you don't, it enters the battlefield tapped.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/b/bb54233c-0844-4965-9cde-e8a4ef3e11b8.jpg?1584832238",
+        "backside_image_url": "",
+        "draft_pool": "L",
+        "avg_pick": 2.6666666666666665,
+        "amount_of_picks": 3
+      },
+      {
         "id": 801,
         "name": "Avatar of Woe",
         "mv": 8,
@@ -8304,6 +8317,19 @@
         "draft_pool": "R",
         "avg_pick": 2.0,
         "amount_of_picks": 1
+      },
+      {
+        "id": 2139,
+        "name": "Hinterland Harbor",
+        "mv": 0,
+        "color_identity": "GU",
+        "types": "Land",
+        "oracle_text": "Hinterland Harbor enters the battlefield tapped unless you control a Forest or an Island.\n{T}: Add {G} or {U}.",
+        "image_url": "https://cards.scryfall.io/normal/front/2/1/21cab0c4-9091-47f2-ae12-4d9d9eca956e.jpg?1698988588",
+        "backside_image_url": "",
+        "draft_pool": "L",
+        "avg_pick": 8.0,
+        "amount_of_picks": 2
       },
       {
         "id": 991,
@@ -11634,6 +11660,19 @@
         "amount_of_picks": 1
       },
       {
+        "id": 2132,
+        "name": "Needle Spires",
+        "mv": 0,
+        "color_identity": "RW",
+        "types": "Land",
+        "oracle_text": "Needle Spires enters the battlefield tapped.\n{T}: Add {R} or {W}.\n{2}{R}{W}: Needle Spires becomes a 2/1 red and white Elemental creature with double strike until end of turn. It's still a land.",
+        "image_url": "https://cards.scryfall.io/normal/front/5/e/5e1903c2-6b22-4e2c-99fa-8e259fff29c5.jpg?1604196420",
+        "backside_image_url": "",
+        "draft_pool": "L",
+        "avg_pick": 6.0,
+        "amount_of_picks": 3
+      },
+      {
         "id": 1341,
         "name": "Primal Command",
         "mv": 5,
@@ -13274,6 +13313,19 @@
         "amount_of_picks": 2
       },
       {
+        "id": 2133,
+        "name": "Sacred Foundry",
+        "mv": 0,
+        "color_identity": "RW",
+        "types": "Land \u2014 Mountain Plains",
+        "oracle_text": "({T}: Add {R} or {W}.)\nAs Sacred Foundry enters the battlefield, you may pay 2 life. If you don't, it enters the battlefield tapped.",
+        "image_url": "https://cards.scryfall.io/normal/front/b/7/b7b598d0-535d-477d-a33d-d6a10ff5439a.jpg?1572894184",
+        "backside_image_url": "",
+        "draft_pool": "L",
+        "avg_pick": 4.0,
+        "amount_of_picks": 2
+      },
+      {
         "id": 1517,
         "name": "Apocalypse Hydra",
         "mv": 2,
@@ -14188,6 +14240,19 @@
         "amount_of_commander_picks": 1
       },
       {
+        "id": 2134,
+        "name": "Sunhome, Fortress of the Legion",
+        "mv": 0,
+        "color_identity": "RW",
+        "types": "Land",
+        "oracle_text": "{T}: Add {C}.\n{2}{R}{W}, {T}: Target creature gains double strike until end of turn.",
+        "image_url": "https://cards.scryfall.io/normal/front/1/5/15e9f92d-638d-46c2-9f8e-f741db1a4a40.jpg?1625981077",
+        "backside_image_url": "",
+        "draft_pool": "M",
+        "avg_pick": 3.0,
+        "amount_of_picks": 1
+      },
+      {
         "id": 1623,
         "name": "Ethereal Absolution",
         "mv": 6,
@@ -14595,6 +14660,19 @@
         "avg_pick": 1.0,
         "amount_of_picks": 2,
         "is_commander": "true"
+      },
+      {
+        "id": 2135,
+        "name": "Temple of Triumph",
+        "mv": 0,
+        "color_identity": "RW",
+        "types": "Land",
+        "oracle_text": "Temple of Triumph enters the battlefield tapped.\nWhen Temple of Triumph enters the battlefield, scry 1.\n{T}: Add {R} or {W}.",
+        "image_url": "https://cards.scryfall.io/normal/front/f/0/f0ead529-accb-4b6f-ab60-d715d80b3c99.jpg?1690006753",
+        "backside_image_url": "",
+        "draft_pool": "L",
+        "avg_pick": 7.0,
+        "amount_of_picks": 1
       },
       {
         "id": 1667,
@@ -15412,6 +15490,19 @@
         "draft_pool": "M",
         "avg_pick": 8.5,
         "amount_of_picks": 2
+      },
+      {
+        "id": 2136,
+        "name": "Wind-Scarred Crag",
+        "mv": 0,
+        "color_identity": "RW",
+        "types": "Land",
+        "oracle_text": "Wind-Scarred Crag enters the battlefield tapped.\nWhen Wind-Scarred Crag enters the battlefield, you gain 1 life.\n{T}: Add {R} or {W}.",
+        "image_url": "https://cards.scryfall.io/normal/front/7/f/7f2642cd-e3cc-4aab-8c00-4987284509b3.jpg?1682205924",
+        "backside_image_url": "",
+        "draft_pool": "L",
+        "avg_pick": 8.0,
+        "amount_of_picks": 1
       },
       {
         "id": 1764,
@@ -19503,97 +19594,6 @@
         "draft_pool": "L",
         "avg_pick": 7.0,
         "amount_of_picks": 3
-      },
-      {
-        "id": 2132,
-        "name": "Needle Spires",
-        "mv": 0,
-        "color_identity": "RW",
-        "types": "Land",
-        "oracle_text": "Needle Spires enters the battlefield tapped.\n{T}: Add {R} or {W}.\n{2}{R}{W}: Needle Spires becomes a 2/1 red and white Elemental creature with double strike until end of turn. It's still a land.",
-        "image_url": "https://cards.scryfall.io/normal/front/5/e/5e1903c2-6b22-4e2c-99fa-8e259fff29c5.jpg?1604196420",
-        "backside_image_url": "",
-        "draft_pool": "L",
-        "avg_pick": 6.0,
-        "amount_of_picks": 3
-      },
-      {
-        "id": 2133,
-        "name": "Sacred Foundry",
-        "mv": 0,
-        "color_identity": "RW",
-        "types": "Land \u2014 Mountain Plains",
-        "oracle_text": "({T}: Add {R} or {W}.)\nAs Sacred Foundry enters the battlefield, you may pay 2 life. If you don't, it enters the battlefield tapped.",
-        "image_url": "https://cards.scryfall.io/normal/front/b/7/b7b598d0-535d-477d-a33d-d6a10ff5439a.jpg?1572894184",
-        "backside_image_url": "",
-        "draft_pool": "L",
-        "avg_pick": 4.0,
-        "amount_of_picks": 2
-      },
-      {
-        "id": 2134,
-        "name": "Sunhome, Fortress of the Legion",
-        "mv": 0,
-        "color_identity": "RW",
-        "types": "Land",
-        "oracle_text": "{T}: Add {C}.\n{2}{R}{W}, {T}: Target creature gains double strike until end of turn.",
-        "image_url": "https://cards.scryfall.io/normal/front/1/5/15e9f92d-638d-46c2-9f8e-f741db1a4a40.jpg?1625981077",
-        "backside_image_url": "",
-        "draft_pool": "M",
-        "avg_pick": 3.0,
-        "amount_of_picks": 1
-      },
-      {
-        "id": 2135,
-        "name": "Temple of Triumph",
-        "mv": 0,
-        "color_identity": "RW",
-        "types": "Land",
-        "oracle_text": "Temple of Triumph enters the battlefield tapped.\nWhen Temple of Triumph enters the battlefield, scry 1.\n{T}: Add {R} or {W}.",
-        "image_url": "https://cards.scryfall.io/normal/front/f/0/f0ead529-accb-4b6f-ab60-d715d80b3c99.jpg?1690006753",
-        "backside_image_url": "",
-        "draft_pool": "L",
-        "avg_pick": 7.0,
-        "amount_of_picks": 1
-      },
-      {
-        "id": 2136,
-        "name": "Wind-Scarred Crag",
-        "mv": 0,
-        "color_identity": "RW",
-        "types": "Land",
-        "oracle_text": "Wind-Scarred Crag enters the battlefield tapped.\nWhen Wind-Scarred Crag enters the battlefield, you gain 1 life.\n{T}: Add {R} or {W}.",
-        "image_url": "https://cards.scryfall.io/normal/front/7/f/7f2642cd-e3cc-4aab-8c00-4987284509b3.jpg?1682205924",
-        "backside_image_url": "",
-        "draft_pool": "L",
-        "avg_pick": 8.0,
-        "amount_of_picks": 1
-      },
-      {
-        "id": 2138,
-        "name": "Breeding Pool",
-        "mv": 0,
-        "color_identity": "GU",
-        "types": "Land \u2014 Forest Island",
-        "oracle_text": "({T}: Add {G} or {U}.)\nAs Breeding Pool enters the battlefield, you may pay 2 life. If you don't, it enters the battlefield tapped.",
-        "image_url": "https://cards.scryfall.io/normal/front/b/b/bb54233c-0844-4965-9cde-e8a4ef3e11b8.jpg?1584832238",
-        "backside_image_url": "",
-        "draft_pool": "L",
-        "avg_pick": 2.6666666666666665,
-        "amount_of_picks": 3
-      },
-      {
-        "id": 2139,
-        "name": "Hinterland Harbor",
-        "mv": 0,
-        "color_identity": "GU",
-        "types": "Land",
-        "oracle_text": "Hinterland Harbor enters the battlefield tapped unless you control a Forest or an Island.\n{T}: Add {G} or {U}.",
-        "image_url": "https://cards.scryfall.io/normal/front/2/1/21cab0c4-9091-47f2-ae12-4d9d9eca956e.jpg?1698988588",
-        "backside_image_url": "",
-        "draft_pool": "L",
-        "avg_pick": 8.0,
-        "amount_of_picks": 2
       },
       {
         "id": 2140,
@@ -25965,6 +25965,17 @@
         "draft_pool": "B"
       },
       {
+        "id": 493,
+        "name": "Naiad of Hidden Coves",
+        "mv": 3,
+        "color_identity": "U",
+        "types": "Enchantment Creature \u2014 Nymph",
+        "oracle_text": "As long as it's not your turn, spells you cast cost {1} less to cast.",
+        "image_url": "https://cards.scryfall.io/normal/front/d/c/dc6ae489-658b-4c12-b204-f7b58ce84375.jpg?1581479418",
+        "backside_image_url": "",
+        "draft_pool": "U"
+      },
+      {
         "id": 911,
         "name": "Diabolic Servitude",
         "mv": 4,
@@ -26456,17 +26467,6 @@
         "types": "Legendary Creature \u2014 Spirit",
         "oracle_text": "Flying\nCreatures you control have \"Whenever this creature becomes the target of a spell or ability for the first time each turn, counter that spell or ability.\"",
         "image_url": "https://cards.scryfall.io/normal/front/4/3/437ded6e-4e53-49fa-a5ca-fd76b9165a47.jpg?1600697941",
-        "backside_image_url": "",
-        "draft_pool": "U"
-      },
-      {
-        "id": 493,
-        "name": "Naiad of Hidden Coves",
-        "mv": 3,
-        "color_identity": "U",
-        "types": "Enchantment Creature \u2014 Nymph",
-        "oracle_text": "As long as it's not your turn, spells you cast cost {1} less to cast.",
-        "image_url": "https://cards.scryfall.io/normal/front/d/c/dc6ae489-658b-4c12-b204-f7b58ce84375.jpg?1581479418",
         "backside_image_url": "",
         "draft_pool": "U"
       },
@@ -30401,6 +30401,17 @@
         "draft_pool": "C"
       },
       {
+        "id": 2137,
+        "name": "Botanical Sanctum",
+        "mv": 0,
+        "color_identity": "GU",
+        "types": "Land",
+        "oracle_text": "Botanical Sanctum enters the battlefield tapped unless you control two or fewer other lands.\n{T}: Add {G} or {U}.",
+        "image_url": "https://cards.scryfall.io/normal/front/8/7/8744471b-a528-47d9-84d0-4526273f55e9.jpg?1576383517",
+        "backside_image_url": "",
+        "draft_pool": "L"
+      },
+      {
         "id": 1923,
         "name": "Ulamog's Crusher",
         "mv": 8,
@@ -30584,17 +30595,6 @@
         "types": "Land \u2014 Swamp Forest",
         "oracle_text": "({T}: Add {B} or {G}.)\nAs Overgrown Tomb enters the battlefield, you may pay 2 life. If you don't, it enters the battlefield tapped.",
         "image_url": "https://cards.scryfall.io/normal/front/e/f/eff1f52c-5c43-4260-aaa0-6920846a191c.jpg?1572894177",
-        "backside_image_url": "",
-        "draft_pool": "L"
-      },
-      {
-        "id": 2137,
-        "name": "Botanical Sanctum",
-        "mv": 0,
-        "color_identity": "GU",
-        "types": "Land",
-        "oracle_text": "Botanical Sanctum enters the battlefield tapped unless you control two or fewer other lands.\n{T}: Add {G} or {U}.",
-        "image_url": "https://cards.scryfall.io/normal/front/8/7/8744471b-a528-47d9-84d0-4526273f55e9.jpg?1576383517",
         "backside_image_url": "",
         "draft_pool": "L"
       },
@@ -38636,8 +38636,8 @@
     ],
     "not_picked_color_ids": [
       "W",
-      "R",
       "U",
+      "R",
       "G",
       "C",
       "B",
