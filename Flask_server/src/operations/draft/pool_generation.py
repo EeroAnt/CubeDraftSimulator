@@ -1,11 +1,9 @@
 from src.operations.database.sql_to_dict import sql_to_dict
 from src.operations.database.queries.setup_queries import commander_pool_query, multicolored_pool_query, generic_pool_query
-from src.operations.database.db import connect_to_db
 
 
-def generate_pools(specs):
+def generate_pools(specs, cur, conn):
 
-	cur, conn = connect_to_db()
 	pools = {}
 	commander_ids = []
 
@@ -40,7 +38,7 @@ def generate_pools(specs):
 			cur=cur
 			)
 
-	return pools, conn
+	return pools
 
 def generate_commander_pool(player_count, cur):
 	commanders = []

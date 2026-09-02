@@ -1,14 +1,11 @@
 from src.operations.database.queries.setup_queries import cube_size_query, pool_size_query
-from src.operations.database.db import connect_to_db, close_db
 
-def check_cube_size(specs):
+def check_cube_size(specs, cur=None):
 	errors = []
-	cur, conn = connect_to_db()
 	cur.execute(cube_size_query(),)
 	cube_size = cur.fetchone()[0]
 	if cube_size < specs["number_of_structured_packs"]*15:
 		errors.append("Cube size is too small.")
-		close_db(conn)
 		return errors
 	
 	for i in ["W","U","B","R","G"]:
@@ -31,7 +28,5 @@ def check_cube_size(specs):
 	pool_size = cur.fetchone()[0]
 	if pool_size < specs["number_of_structured_packs"]*specs["multi_ratio"]:
 		errors.append("Multicolored pool size is too small.")
-	
-	close_db(conn)
 
 	return errors
