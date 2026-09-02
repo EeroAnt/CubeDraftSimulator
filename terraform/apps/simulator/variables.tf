@@ -12,15 +12,7 @@ variable "db_password" {
 }
 variable "db_port" {}
 variable "db_name" {}
-variable "db_dns" {}
-variable "db_dns_port" {}
+variable "db_host" {}
 variable "flask_secret_key" {
-  sensitive = true
-}
-variable "ssh_user" {}
-variable "ssh_passphrase" {
-  sensitive = true
-}
-variable "ssh_key" {
   sensitive = true
 }

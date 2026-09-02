@@ -98,16 +98,12 @@ resource "azurerm_container_group" "main" {
       "DB_NAME"        = var.db_name
       "DB_USER"        = var.db_user
       "FLASK_RUN_PORT" = "5002"
-      "DNS"            = var.db_dns
-      "DNS_PORT"       = var.db_dns_port
-      "SSH_USER"       = var.ssh_user
+      "DB_HOST"        = var.db_host
     }
 
     secure_environment_variables = {
       "DB_PASSWORD"    = var.db_password
       "SECRET_KEY"     = var.flask_secret_key
-      "SSH_PASSPHRASE" = var.ssh_passphrase
-      "SSH_KEY"        = var.ssh_key
     }
   }
 

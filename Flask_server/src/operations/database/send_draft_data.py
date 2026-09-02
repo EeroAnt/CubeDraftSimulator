@@ -1,9 +1,7 @@
 from src.operations.database.db import connect_to_db, close_db
 from src.operations.database.queries.send_draft_data_queries import sending_packs_query, sending_commander_packs_query, sending_draft_query
-from src.operations.database.ssh_tunnel import create_tunnel, close_tunnel
 
 def send_draft_data(data):
-  server = create_tunnel()
   conn = None
   cur = None
   failed_entries = []
@@ -61,5 +59,3 @@ def send_draft_data(data):
       cur.close()
     if conn:
       close_db(conn)
-    if server:
-      close_tunnel(server)
