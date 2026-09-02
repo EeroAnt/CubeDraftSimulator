@@ -26,10 +26,6 @@ module "draftApp" {
   db_password          = var.db_password
   db_port              = var.db_port
   db_name              = var.db_name
-  db_dns               = var.db_dns
-  db_dns_port          = var.db_dns_port
+  db_host              = var.db_host
   flask_secret_key     = var.flask_secret_key
-  ssh_user             = var.ssh_user
-  ssh_passphrase       = var.ssh_passphrase
-  ssh_key              = var.ssh_key
 }
