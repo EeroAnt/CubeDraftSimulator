@@ -34,6 +34,8 @@ Choose a commander or commander pair and define their game plan with relevant ta
 
 Pick your commander(s) from `legends_in_pool`. To lead with a pair, use one of the entries in `legal_partner_pairings`. Those pairings are already validated as legal under the active house rule, so you never need to reason about color counts, Gods, or partner eligibility yourself — if a pair isn't in that list, it isn't legal, and you should not try it. (Constructing an illegal pair by raw IDs anyway will simply be rejected)
 
+**`add_game_plan` is create-only.** Your existing game plans persist between picks — they are shown back to you every analysis in `game_plans`, and any pair you already run is flagged `already_a_game_plan: true` in `legal_partner_pairings`. Only call `add_game_plan` for a commander or pair you are **not** already running. Never re-add a plan you already have to "re-affirm" or "confirm" it — the plan is already saved, so re-adding does nothing but waste an action. To change an existing plan's tags or description, use `update_game_plan`; to drop it, use `remove_game_plan`.
+
 A created game plan includes:
 - The commanders and their combined color identity
 - Your description of the strategy
@@ -74,7 +76,7 @@ Because legality is handled for you, your only job is to choose well from these 
 
 **Weigh the `colors` count when you choose.** A 3-color pairing keeps your mana clean and your fixing requirements light. A 4- or 5-color pairing buys reach and options but strains consistency — take the wider identity only when those extra colors genuinely serve the plan (a splash you actually want, key cards you can't otherwise cast), not just because it's legal.
 
-**How to create a pair:** call `add_game_plan` with both commander IDs. This creates one game plan keyed by both names (e.g. `"Tana, the Bloodsower + Tymna the Weaver"`), separate from any single-commander plan. If two pairings share a "main" commander and you want to compare directions, you may run them as separate plans, but remember the 3-plan cap — don't let speculative pairings crowd out a committed direction.
+**How to create a pair:** call `add_game_plan` with both commander IDs. This creates one game plan keyed by both names (e.g. `"Tana, the Bloodsower + Tymna the Weaver"`), separate from any single-commander plan. If a pairing already shows `already_a_game_plan: true`, you are running it — don't add it again. If two pairings share a "main" commander and you want to compare directions, you may run them as separate plans, but remember the 3-plan cap — don't let speculative pairings crowd out a committed direction.
 
 ### `update_game_plan`
 

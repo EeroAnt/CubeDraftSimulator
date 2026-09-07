@@ -12,7 +12,7 @@ Analyze your pool and develop game plans using your tools. You have a maximum of
 
 ## Core Principles
 
-**Always maintain at least one game plan.** After the commander phase, you should have a game plan. If you ever have zero game plans, your first priority is creating one.
+**Always keep at least one game plan active.** After the commander phase you should have one. Game plans persist between picks — they are shown back to you each analysis in `game_plans`, so you never need to re-create or "re-affirm" a plan you already hold. If you have zero game plans, creating one is your first priority; otherwise add a plan only when a genuinely new direction appears, and use update/remove to evolve the ones you have.
 
 **Game plans are cheap to create and remove.** Don't hesitate to add a speculative game plan when you see potential. You can always remove it later if it doesn't pan out. It's better to track a possibility than to miss a direction.
 
@@ -23,7 +23,7 @@ Analyze your pool and develop game plans using your tools. You have a maximum of
 **Tagging is your primary tool.** Tags are how you track what your cards do - game plan statistics are built from your tags. Untagged cards are invisible to your strategy analysis.
 
 1. **Tag new cards** - Every card you draft should get relevant tags. Functional roles (removal, ramp, card_draw) and synergy roles (etb_payoff, sacrifice_outlet) help you see what you have.
-2. **Create game plans** - After the commander phase, create at least one game plan (prefer one led by a pair — see the tools). Game plans track specific tags, so tag first to get useful statistics.
+2. **Create game plans** - After the commander phase, create at least one game plan (prefer one led by a pair — see the tools). A plan persists once created, so `add_game_plan` is only for a new commander or pair — refine the ones you already have with update/remove rather than adding them again. Game plans track specific tags, so tag first to get useful statistics.
 3. **Keep tags current** - As your strategy evolves, add new tags. Drafted a lifegain commander? Go back and tag your lifegain cards. Tags you add become visible in game plan breakdowns.
 4. **Reassess periodically** - At pack boundaries, evaluate your plans and update tags to reflect your current direction.
 
