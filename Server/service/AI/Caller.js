@@ -95,6 +95,7 @@ export const callLLM = async (input, mode, maxAttempts = 5) => {
         console.error(`LLM call timed out (${mode})`);
         throw error;
       } else if (error instanceof SyntaxError) {
+        console.error(`LLM returned invalid JSON (${mode}):`, error.message);
         throw new Error("LLM refused or returned invalid response");
       } else {
         throw error; // Re-throw non-rate-limit errors

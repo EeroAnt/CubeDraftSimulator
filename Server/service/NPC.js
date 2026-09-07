@@ -120,7 +120,7 @@ const processNPC = async (npcUUID, draft) => {
     state.isAnalyzing = true;
     try {
       console.log(`${npcUUID} is analysing its pool.`);
-      const context = await analyzePoolWithLLM(seat, npcUUID);
+      const context = await analyzePoolWithLLM(seat, npcUUID, draft.partner_rules);
       if (context?.summary) {
         seat.analysis_summary = context.summary;
       }
@@ -170,7 +170,7 @@ const NPCPick = async (draft, seat, npcUUID) => {
         }
       }
     } catch (error) {
-      console.warn('LLM pick failed, falling back to random:', error);
+      console.warn('LLM pick failed, falling back to random:', error.message);
       cardId = seat.packAtHand.cards[Math.floor(Math.random() * seat.packAtHand.cards.length)].id;
       reasoning = "Random pick (LLM unavailable)";
     }
@@ -184,3 +184,19 @@ const NPCPick = async (draft, seat, npcUUID) => {
   };
   handlePick(data, draft, seat, npcUUID);
 }
+
+export const replaceSeatWithNPC = (draft, seat) => {
+  const npcName = getNPCName(draft);
+  if (!npcName) { console.log("No NPC name available to take over seat."); return; }
+  const npc = {
+    username: npcName,
+    uuid: npcName + draft.token,
+    token: draft.token,
+    isNPC: true,
+    seat
+  };
+  seat.player = npc.uuid;
+  draft.players.push(npc);
+  intervalIDs[npc.uuid] = setInterval(() => processNPC(npc.uuid, draft), 200);
+  console.log(`${npcName} took over a vacated seat in ${draft.token}`);
+};

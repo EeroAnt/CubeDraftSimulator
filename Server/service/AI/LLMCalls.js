@@ -29,7 +29,7 @@ export const pickCardWithLLM = async (pickData) => {
   return data
 };
 
-export const analyzePoolWithLLM = async (seat, npcUUID) => {
+export const analyzePoolWithLLM = async (seat, npcUUID, partnerRule) => {
   const max_loop = 5;
   let call_number = 0;
   let response;
@@ -37,7 +37,6 @@ export const analyzePoolWithLLM = async (seat, npcUUID) => {
 
   const systemMessage = (
     loadPrompt("analyzer.md") +
-    loadPrompt("default_commander_rule.md") +
     loadPrompt("tools.md")
   );
 
@@ -45,7 +44,7 @@ export const analyzePoolWithLLM = async (seat, npcUUID) => {
     call_number++;
     
     const state = getNPCState(npcUUID);
-    const analysisData = parseAnalysisDataFromSeat(seat, state.reasoning);
+    const analysisData = parseAnalysisDataFromSeat(seat, state.reasoning, partnerRule);
     
     const input = [
       { role: "system", content: systemMessage },
@@ -83,7 +82,7 @@ export const analyzePoolWithLLM = async (seat, npcUUID) => {
     if (response.analysis_ready || state.hasCardsToPickFrom) break;
     
     if (response.tool_calls) {
-      badCalls = operateTools(response.tool_calls, seat);
+      badCalls = operateTools(response.tool_calls, seat, partnerRule);
     }
   }
   

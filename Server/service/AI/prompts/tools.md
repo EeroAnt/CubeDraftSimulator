@@ -1,5 +1,3 @@
-
-
 ## Tools
 
 Your tools are designed to enhance the data of your draft pool for better analysis.
@@ -34,9 +32,9 @@ You generally don't need to tag colors either - color identity is already part o
 **Description:**  
 Choose a commander or commander pair and define their game plan with relevant tags.
 
-The system will first validate the commander pairing against the active custom commander rule.
-If invalid, the pair is added to `incompatible_commanders` for future reference.
-If valid, a game plan is created with:
+Pick your commander(s) from `legends_in_pool`. To lead with a pair, use one of the entries in `legal_partner_pairings`. Those pairings are already validated as legal under the active house rule, so you never need to reason about color counts, Gods, or partner eligibility yourself — if a pair isn't in that list, it isn't legal, and you should not try it. (Constructing an illegal pair by raw IDs anyway will simply be rejected)
+
+A created game plan includes:
 - The commanders and their combined color identity
 - Your description of the strategy
 - Automatic stats: card type breakdown (creatures, instants, etc.) for cards in colors
@@ -56,25 +54,34 @@ Include tags you want to track for this game plan. The tag breakdown will show h
 
 For example, a Yarok ETB deck might use: `["enters_the_battlefield", "flicker", "ramp", "card_draw", "removal"]`
 
-## After Creating Any Game Plan
-
-**Partner check:** If your commander has 2 or fewer colors and isn't a God, scan your pool for potential partners. If one exists, strongly consider pairing them.
-
-To try a partner pairing: call `add_game_plan` with both commander IDs. This creates a new, separate game plan. You can keep the single-commander plan alongside it to compare, or `remove_game_plan` the single-commander version if the pair is strictly better.
-
-You can even explore multiple pairings with the same "main" commander - try different secondary commanders for synergy, color access, or both. Each pairing is its own game plan.
-
 **Args:**
 - `commander_ids`: array of card IDs (1 or 2) of the commanders
 - `relevant_tags`: array of tags to track for this game plan (max 30 chars each)
 - `game_plan`: one or two paragraph explanation of the strategy and what to prioritize
+
+## Choosing a commander (or pair)
+
+You are given two precomputed fields, both derived under the active house rule:
+
+- `legends_in_pool` — every legendary creature you've drafted, with its color identity, color count, whether it's a God, and whether it's already in a game plan.
+- `legal_partner_pairings` — every pair of your legends that is legal to run together. Each entry lists the two commanders, their combined `color_identity`, the `colors` count, `already_a_game_plan` (true if you're already running this exact pair), and `upgrades_single_plan` (present when one of the pair is a commander you currently run *solo*).
+
+Because legality is handled for you, your only job is to choose well from these lists. You do not evaluate partner rules.
+
+**Prefer a pair over a single commander.** Two commanders means two cards of built-in value, redundancy if one is removed, and wider color access. Whenever `legal_partner_pairings` is non-empty, a pair is your default; lead with a lone commander only when no legal pairing exists, or when every available pairing would stretch you into colors that hurt the deck more than they help.
+
+**When a pairing shows `upgrades_single_plan`, it is a strict upgrade over that single plan.** The pair contains a commander you're already running alone, plus a second body and extra colors for free. Commit to the pair and `remove_game_plan` the single-commander version — a single direction should occupy one plan, not two. (Don't keep both "just in case"; that's a wasted slot against your max of 3.)
+
+**Weigh the `colors` count when you choose.** A 3-color pairing keeps your mana clean and your fixing requirements light. A 4- or 5-color pairing buys reach and options but strains consistency — take the wider identity only when those extra colors genuinely serve the plan (a splash you actually want, key cards you can't otherwise cast), not just because it's legal.
+
+**How to create a pair:** call `add_game_plan` with both commander IDs. This creates one game plan keyed by both names (e.g. `"Tana, the Bloodsower + Tymna the Weaver"`), separate from any single-commander plan. If two pairings share a "main" commander and you want to compare directions, you may run them as separate plans, but remember the 3-plan cap — don't let speculative pairings crowd out a committed direction.
 
 ### `update_game_plan`
 
 **Description:**  
 Update an existing game plan's relevant tags and description.
 
-Use this when your strategy evolves - add new tags to track, remove irrelevant ones, or refine the description based on what you've drafted.
+Use this when your strategy evolves - add new tags to track, remove irrelevant ones, or refine the description based on what you've drafted. (Note: this updates tags and description only — to change the commanders themselves, add a new game plan for the new pairing and remove the old one.)
 
 **Args:**
 - `game_plan_key`: the key of the game plan to update (commander name(s) joined with ` + `, e.g., `"Yarok, the Desecrated"` or `"Tana, the Bloodsower + Tymna the Weaver"`)
@@ -90,10 +97,11 @@ The removed game plan's key is saved to `past_game_plans` for reference.
 
 ### When to REMOVE a game plan:
 - **You need the slot** - you want to add a 4th plan but max is 3
+- **You've upgraded a single into a pair** - a pairing with `upgrades_single_plan` supersedes the solo plan; remove the solo version
 - The plan is truly dead - well under 60 cards in colors with no realistic path to viability
 - The colors are completely cut - you've seen almost nothing playable for several packs
 
-**Don't remove a game plan just to "clean up."** Multiple viable options at end of draft is a feature, not a problem. The deckbuilder benefits from seeing your alternatives.
+**Don't remove a game plan just to "clean up."** Multiple viable options at end of draft is a feature, not a problem. The deckbuilder benefits from seeing your alternatives. (Superseding a single with its own pair is not "cleanup" — it's consolidating one direction into its stronger form.)
 
 **Args:**
 - `game_plan_key`: the key of the game plan to remove

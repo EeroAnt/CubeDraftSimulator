@@ -1,4 +1,5 @@
 import { npcStates } from "./State.js";
+import { checkCommanderLegality } from "./AI/Tools.js";
 
 export function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -98,6 +99,50 @@ const buildGamePlanStats = (seat) => {
   return gamePlans;
 };
 
+const isLegend = (c) =>
+  c.types.includes('Legendary') && c.types.includes('Creature');
+
+const buildCommanderIntel = (seat, partnerRule) => {
+  const legends = seat.main.filter(isLegend);
+  if (!legends.length) return null;
+
+  const plans = seat.game_plans || {};
+  const planKeys = new Set(Object.keys(plans));
+  const committed = new Set(Object.values(plans).flatMap(p => p.commanders || []));
+  const singleLeaders = new Set(
+    Object.values(plans).filter(p => (p.commanders || []).length === 1)
+                        .map(p => p.commanders[0])
+  );
+
+  const legends_in_pool = legends.map(c => ({
+    id: c.id,
+    name: c.name,
+    color_identity: c.color_identity,          // e.g. "WU"
+    colors: c.color_identity.length,
+    is_god: c.types.toLowerCase().includes('god'),
+    in_game_plan: committed.has(c.name),
+  }));
+
+  const legal_partner_pairings = [];
+  for (let i = 0; i < legends.length; i++) {
+    for (let j = i + 1; j < legends.length; j++) {
+      const res = checkCommanderLegality([legends[i].id, legends[j].id], seat, partnerRule);
+      if (!res.valid) continue;
+      const key = [...res.commanders].sort().join(' + ');
+      const upgrades = res.commanders.filter(n => singleLeaders.has(n));
+      legal_partner_pairings.push({
+        commanders: res.commanders,                     // [nameA, nameB]
+        color_identity: res.color_identity.join(''),    // combined, e.g. "WUBG"
+        colors: res.color_identity.length,
+        already_a_game_plan: planKeys.has(key),
+        ...(upgrades.length && { upgrades_single_plan: upgrades }),
+      });
+    }
+  }
+  legal_partner_pairings.sort((a, b) => a.colors - b.colors);
+
+  return { legends_in_pool, legal_partner_pairings };
+};
 
 const parseCardData = (card, includeTags = false, includeID = true) => ({
   name: card.name,
@@ -124,18 +169,23 @@ export const parsePickDataFromSeat = (seat) => {
   return data;
 };
 
-export const parseAnalysisDataFromSeat = (seat, reasoning) => {
+export const parseAnalysisDataFromSeat = (seat, reasoning, partnerRule) => {
   const data = {
     cards: seat.main.map(card => parseCardData(card, true))
   };
   
   if (reasoning) data.latestReasoning = reasoning;
   if (seat.tags?.length) data.available_tags = seat.tags;
-  if (seat.incompatible_commanders?.length) data.incompatible_commanders = seat.incompatible_commanders;
   if (seat.past_game_plans) data.past_game_plans = seat.past_game_plans
   
   const gamePlans = buildGamePlanStats(seat);
   if (gamePlans) data.game_plans = gamePlans;
+  
+  const intel = buildCommanderIntel(seat, partnerRule);
+  if (intel) {
+    data.legends_in_pool = intel.legends_in_pool;
+    data.legal_partner_pairings = intel.legal_partner_pairings;
+  }
   
   return data;
 };

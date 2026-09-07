@@ -1,4 +1,4 @@
-export const operateTools = (tool_calls, seat) => {
+export const operateTools = (tool_calls, seat, partnerRule) => {
   const badCalls = []
   for (const call of tool_calls) {
     console.log(`${seat.player} calls \x1b[36m${call.tool}\x1b[0m-tool`);
@@ -16,14 +16,15 @@ export const operateTools = (tool_calls, seat) => {
       case "add_game_plan":
         if (!call.commander_ids || !call.relevant_tags || !call.game_plan) {
           badCalls.push({ call, reason: "missing params" } )
-          console.warn("tag_card missing parameters");
+          console.warn("add_game_plan missing parameters");
           continue;
         }
         if (seat.game_plans && Object.keys(seat.game_plans).length >= 3) {
           badCalls.push({ call, reason: "max 3 game plans, remove one first" });
           continue;
         }
-        addGamePlan(call.commander_ids, call.relevant_tags, call.game_plan, seat)
+        const addResult = addGamePlan(call.commander_ids, call.relevant_tags, call.game_plan, seat, partnerRule);
+        if (!addResult.success) badCalls.push({ call, reason: addResult.reason });
         break;
 
       case "update_game_plan":
@@ -79,41 +80,39 @@ const tagCards = (card_ids, tag, seat) => {
   }
 };
 
-const addGamePlan = (commander_ids, relevant_tags, description, seat) => {
-  const legalityResult = checkCommanderLegality(commander_ids, seat);
-  
+const addGamePlan = (commander_ids, relevant_tags, description, seat, partnerRule) => {
+  const legalityResult = checkCommanderLegality(commander_ids, seat, partnerRule);
+
   if (!legalityResult.valid) {
-    if (!seat.incompatible_commanders) seat.incompatible_commanders = [];
-    if (legalityResult.commanders) {
-      const key = legalityResult.commanders.map(c => c.name).sort().join(" + ");
-      if (!seat.incompatible_commanders.includes(key)) {
-        seat.incompatible_commanders.push(key);
-      }
-    }
-    return;
+    const label = legalityResult.commanders
+      ? legalityResult.commanders.sort().join(" + ")
+      : `[${commander_ids.join(", ")}]`;
+    console.warn(`${seat.player} add_game_plan rejected (${label}): ${legalityResult.reason}`);
+    return { success: false, reason: legalityResult.reason };
   }
 
   if (!seat.game_plans) seat.game_plans = {};
+  const key = legalityResult.commanders.sort().join(" + ");
+  const existed = !!seat.game_plans[key];
 
-  const key = legalityResult.commanders.map(c => c.name).sort().join(" + ");
-  
   seat.game_plans[key] = {
     commanders: legalityResult.commanders,
     color_identity: legalityResult.color_identity,
-    relevant_tags: relevant_tags,
-    description: description
+    relevant_tags,
+    description
   };
 
-  return;
+  console.log(`${seat.player} \x1b[32m${existed ? "updated game plan" : "added game plan"}\x1b[0m: ${key}`);
+  return { success: true, existed };
 };
 
-const checkCommanderLegality = (card_ids, seat) => {
+export const checkCommanderLegality = (card_ids, seat, partnerRule) => {
   if (card_ids.length === 0 || card_ids.length > 2) {
     return { valid: false, reason: "Must provide 1 or 2 card IDs" };
   }
 
   const commanders = card_ids.map(id => seat.main.find(c => c.id === id)).filter(Boolean);
-  
+
   if (commanders.length !== card_ids.length) {
     return { valid: false, reason: "One or more cards not found" };
   }
@@ -125,27 +124,57 @@ const checkCommanderLegality = (card_ids, seat) => {
     }
   }
 
-  // If two commanders, check partner legality
+  // If two commanders, check partner legality per the active house rule
   if (commanders.length === 2) {
-    for (const card of commanders) {
-      const isGod = card.types.toLowerCase().includes("god");
-      const colorCount = card.color_identity.length;
-      const hasHouseRulePartner = colorCount <= 2 && !isGod;
-
-      if (!hasHouseRulePartner) {
-        return {
-          valid: false,
-          commanders: commanders.map(c => c.name),
-          reason: `${card.name} cannot partner (${colorCount} colors or is a God)`
-        };
+    switch (partnerRule) {
+      case 0: {
+        // 2-color legends have partner, no Gods
+        for (const card of commanders) {
+          const isGod = card.types.toLowerCase().includes("god");
+          const colorCount = card.color_identity.length;
+          if (colorCount > 2 || isGod) {
+            return {
+              valid: false,
+              commanders: commanders.map(c => c.name),
+              reason: `${card.name} cannot partner (${colorCount} colors or is a God)`
+            };
+          }
+        }
+        break;
       }
+      case 1: {
+        // Partner up to 4 combined colors, no Gods
+        for (const card of commanders) {
+          if (card.types.toLowerCase().includes("god")) {
+            return {
+              valid: false,
+              commanders: commanders.map(c => c.name),
+              reason: `${card.name} cannot partner (is a God)`
+            };
+          }
+        }
+        const combined = [...new Set(commanders.flatMap(c => c.color_identity.split("")))];
+        if (combined.length > 4) {
+          return {
+            valid: false,
+            commanders: commanders.map(c => c.name),
+            reason: `Combined color identity is ${combined.length} colors (max 4)`
+          };
+        }
+        break;
+      }
+      case 2:
+        // Every legend has partner — no restrictions
+        break;
+      default:
+        return { valid: false, reason: `Unknown partner rule: ${partnerRule}` };
     }
   }
 
-  return { 
-    valid: true, 
+  return {
+    valid: true,
     commanders: commanders.map(c => c.name),
-    color_identity: [...new Set(commanders.flatMap(c => c.color_identity.split('')))]
+    color_identity: [...new Set(commanders.flatMap(c => c.color_identity.split("")))]
   };
 };
 
