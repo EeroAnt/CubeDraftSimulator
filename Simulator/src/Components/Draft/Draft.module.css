@@ -69,3 +69,10 @@
   font-size: 1.2rem;
   font-weight: 500;
 }
+
+.pickButtons {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 6px;
+  width: max-content;
+}

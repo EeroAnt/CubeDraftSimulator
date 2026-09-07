@@ -117,46 +117,38 @@ export const Draft = ({
       return (
         <>
           {tagFlow.step === 'idle' && (
-            <>
+            <div className={styles.pickButtons}>
               <Button
-                name="Pick"
+                name="Pick to main"
                 className="button"
-                onClick={() => { if (pick) setTagFlow({ step: 'chooseDestination', tags: [] }) }}
+                onClick={() => { if (pick) confirmPick("main"); else alert("No card selected"); }}
               />
               <Button
-                name="Pick with tags"
+                name="Pick to main with tags"
                 className="button"
-                onClick={() => { if (pick) selectForTagging() }}
+                onClick={() => { if (pick) setTagFlow({ step: 'enterTag', tags: [], zone: 'main' }); else alert("No card selected"); }}
               />
-            </>
+              <Button
+                name="Pick to side"
+                className="button"
+                onClick={() => { if (pick) confirmPick("side"); else alert("No card selected"); }}
+              />
+              <Button
+                name="Pick to side with tags"
+                className="button"
+                onClick={() => { if (pick) setTagFlow({ step: 'enterTag', tags: [], zone: 'side' }); else alert("No card selected"); }}
+              />
+            </div>
           )}
 
           {tagFlow.step === 'enterTag' && (
             <TagControls
               playerTags={playerTags}
-              onConfirm={(tags) => {
-                setTagFlow({ step: 'chooseDestination', tags });
-              }}
+              onConfirm={(tags) => confirmPick(tagFlow.zone, tags)}
               onCancel={() => {
                 setTagFlow({ step: 'idle', tags: [] });
               }}
             />
-          )}
-
-          {tagFlow.step === 'chooseDestination' && (
-            <div>
-              {tagFlow.tags.length > 0 ? (
-                <span>Move selected card with tags: <strong>{tagFlow.tags.join(', ')}</strong> </span>
-              ) : (
-                <span>Move selected card with no tags</span>
-              )}
-              <br/>
-              to: <Button name="Main" className="button" onClick={() => confirmPick("main")} />
-              <Button name="Side" className="button" onClick={() => confirmPick("side")} />
-              <Button name="Cancel" className="button" onClick={() => {
-                setTagFlow({ step: 'idle', tags: [] });
-              }} />
-            </div>
           )}
         </>
       );
@@ -166,20 +158,12 @@ export const Draft = ({
     }
   }
 
-  const selectForTagging = () => {
-    if (pick) {
-      setTagFlow({ step: 'enterTag', tags: [] });
-    } else {
-      alert("No card picked");
-    }
-  }
-
-  const confirmPick = (target) => {
+  const confirmPick = (target, tags = tagFlow.tags) => {
     const message = {
       type: "Pick",
       card: pick,
       zone: target,
-      tags: tagFlow.tags,
+      tags,
       token: token
     };
     sendMessage(connection, message);
