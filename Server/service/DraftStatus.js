@@ -6,7 +6,9 @@ import { drafts, intervalIDs } from "./State.js";
 
 export function checkDraftStatus(draft) {
   const nonNPCPlayers = draft.players.filter(player => !player.isNPC);
-  if (draft.state === 'drafting' && nonNPCPlayers.length > 0) {
+  const canRun = nonNPCPlayers.length > 0 || draft.allow_npc_only;   // add
+
+  if (draft.state === 'drafting' && canRun) {                        // changed
     if (checkIfRoundIsDone(draft.table)) {
       draft.round++;
       if (draft.round <= draft.last_round) {
@@ -20,7 +22,7 @@ export function checkDraftStatus(draft) {
     } else {
       dealPacks(draft);
     }
-  } else if (nonNPCPlayers.length === 0 && draft.state === 'drafting') {
+  } else if (nonNPCPlayers.length === 0 && draft.state === 'drafting' && !draft.allow_npc_only) {  // changed
     clearNPCIntervals(draft);
     draft.state = 'disconnected';
     console.log(`Draft ${draft.token} disconnected`);

@@ -27,23 +27,25 @@ import { handlePick,
  } from "./DraftFunctions.js";
 import { setCommander, removeCommander, moveCards } from "./DeckManagement.js";
 import { decrypt } from "./encryption.js";
-import { addNPC, removeNPC } from "./NPC.js";
+import { addNPC, removeNPC, replaceSeatWithNPC } from "./NPC.js";
 
 export const handleClose = (uuid) => {
   clearInterval(intervalIDs[uuid]);
-  if (users[uuid].token && drafts[users[uuid].token]) {
-    broadcastUserlist(drafts[users[uuid].token]);
-    if (Object.keys(drafts).includes(users[uuid].token)) {
-      console.log('deleting player from the draft');
-      drafts[users[uuid].token].players =
-        drafts[users[uuid].token].players.filter(
-          player => player.uuid !== uuid
-        );
-      users[uuid].seat
-        ? users[uuid].seat.player = ""
-        : console.log("Not seated");
-      broadcastUserlist(drafts[users[uuid].token]);
+  const token = users[uuid]?.token;
+  const draft = token ? drafts[token] : null;
+  if (draft) {
+    draft.players = draft.players.filter(player => player.uuid !== uuid);
+    const seat = users[uuid].seat;
+    if (seat) {
+      if (draft.allow_npc_only && draft.state === 'drafting') {
+        replaceSeatWithNPC(draft, seat);
+      } else {
+        seat.player = "";
+      }
+    } else {
+      console.log("Not seated");
     }
+    broadcastUserlist(draft);
   }
   console.log(`Connection closed: ${uuid}`);
   delete users[uuid];

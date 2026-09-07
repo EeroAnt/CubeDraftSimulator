@@ -34,7 +34,7 @@ export async function createLobby(data, uuid) {
       queueMessage(uuid, message);
 
       if (message.status === "Setup OK") {
-
+        drafts[data.token].allow_npc_only = !!data.allow_npc_only;   // add
         broadcastUserlist(drafts[data.token]);
         intervalIDs[data.token] = setInterval(() =>
           checkDraftStatus(drafts[data.token]), 5000);

@@ -68,6 +68,7 @@ export const CreateDraft = ({ setMode, numberOfPlayers, setNumberOfPlayers, setO
   const [genericRatio, setGenericRatio] = useState(2)
   const [colorlessRatio, setColorlessRatio] = useState(3)
   const [landRatio, setLandRatio] = useState(2)
+  const [allowNpcOnly, setAllowNpcOnly] = useState(false)   // with the other useState calls
 
   const partnerRulesOptions = {
     0: "2 Color legends have partner, no gods",
@@ -86,7 +87,7 @@ export const CreateDraft = ({ setMode, numberOfPlayers, setNumberOfPlayers, setO
     }
     const newtoken = token()
     setToken(newtoken)
-    setupDraft(newtoken, numberOfPlayers, connection, numOfRounds, multiRatio, genericRatio, colorlessRatio, landRatio, commanderPackIncluded, setMode, partnerRules)
+    setupDraft(newtoken, numberOfPlayers, connection, numOfRounds, multiRatio, genericRatio, colorlessRatio, landRatio, commanderPackIncluded, setMode, partnerRules, allowNpcOnly)   // add last arg
     setDraftInitiated(true)
   }
 
@@ -112,6 +113,7 @@ export const CreateDraft = ({ setMode, numberOfPlayers, setNumberOfPlayers, setO
         <DraftParametersForm name="ratio of land pool" handleChange={(e) => { e.preventDefault(); setLandRatio(Number(e.target.value)) }} defaultVal={landRatio} />
       </div>
       <DraftParameterCheckbox name="Commander pack included" handleChange={changeCommanderPacksIncluded} />
+      <DraftParameterCheckbox name="No human players (simulation)" handleChange={() => setAllowNpcOnly(!allowNpcOnly)} />
 
       <Button name="init draft" className={styles.button} onClick={() => submitSetup()} />
       <Button name="Go Back" className={styles.button} onClick={() => setHomeMode("Menu")} />
